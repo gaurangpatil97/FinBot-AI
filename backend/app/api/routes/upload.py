@@ -37,7 +37,7 @@ async def upload_file(
     file_id = str(uuid4())
 
     # Update companies.json with file record
-    companies_path = Path("companies.json")
+    companies_path = Path(settings.COMPANIES_FILE)
     try:
         payload = json.loads(companies_path.read_text(encoding="utf-8"))
     except Exception:
@@ -53,6 +53,7 @@ async def upload_file(
             "year": year,
             "quarter": quarter,
             "status": "uploaded",
+            "chunks": 0,
             "path": str(destination),
         })
         break
@@ -78,7 +79,7 @@ async def generate_embeddings(
     Trigger embedding generation for all uploaded files for a company.
     Runs in background so frontend gets immediate response.
     """
-    companies_path = Path("companies.json")
+    companies_path = Path(settings.COMPANIES_FILE)
     try:
         payload = json.loads(companies_path.read_text(encoding="utf-8"))
     except Exception:
@@ -91,13 +92,18 @@ async def generate_embeddings(
     if company is None:
         raise HTTPException(status_code=404, detail=f"Company '{company_slug}' not found")
 
-    files = [f for f in company.get("files", []) if f.get("status") == "uploaded"]
+    files = company.get("files", [])
     if not files:
         raise HTTPException(status_code=400, detail="No uploaded files pending embedding")
 
-    # Mark all as processing immediately
+    # Mark all relevant collections as processing before queueing ingestion
+    if "collections" in company:
+        for file_type in set(f["file_type"] for f in files):
+            if file_type in company["collections"]:
+                company["collections"][file_type]["status"] = "processing"
+
     for f in company.get("files", []):
-        if f.get("status") == "uploaded":
+        if f.get("status") in ("uploaded", "ready", "error"):
             f["status"] = "processing"
     companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
@@ -125,15 +131,15 @@ def _run_ingestion(company_slug: str, files: list[dict]) -> None:
             logger.success(f"[Embed] {file_record['filename']} → {result.chunks_created} chunks")
 
             # Update status to ready
-            _update_file_status(company_slug, file_record["file_id"], "ready")
+            _update_file_status(company_slug, file_record["file_id"], "ready", result.chunks_created)
 
         except Exception as e:
             logger.error(f"[Embed] Failed for {file_record['filename']}: {e}")
-            _update_file_status(company_slug, file_record["file_id"], "error")
+            _update_file_status(company_slug, file_record["file_id"], "error", 0)
 
 
-def _update_file_status(company_slug: str, file_id: str, status: str) -> None:
-    companies_path = Path("companies.json")
+def _update_file_status(company_slug: str, file_id: str, status: str, chunks: int | None = None) -> None:
+    companies_path = Path(settings.COMPANIES_FILE)
     try:
         payload = json.loads(companies_path.read_text(encoding="utf-8"))
         for company in payload.get("companies", []):
@@ -142,6 +148,8 @@ def _update_file_status(company_slug: str, file_id: str, status: str) -> None:
             for f in company.get("files", []):
                 if f.get("file_id") == file_id:
                     f["status"] = status
+                    if chunks is not None:
+                        f["chunks"] = chunks
                     break
         companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     except Exception as e:

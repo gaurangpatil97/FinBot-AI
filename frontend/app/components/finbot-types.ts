@@ -1,6 +1,6 @@
 export type CollectionKey = "excel" | "pdf" | "concall" | "images";
 
-export type EmbeddingStatus = "no-embeddings" | "processing" | "uploaded" | "ready";
+export type EmbeddingStatus = "no-embeddings" | "processing" | "uploaded" | "ready" | "failed";
 
 export type DocumentStatus = "none" | "processing" | "ready";
 
@@ -39,6 +39,14 @@ export interface CollectionRecord {
   fileName: string;
   status: EmbeddingStatus;
   description: string;
+  chunks?: number;
+}
+
+export interface CorpusFileRecord {
+  id: string;
+  name: string;
+  collection: CollectionKey;
+  chunks: number;
 }
 
 export interface UploadedFileMetadata {

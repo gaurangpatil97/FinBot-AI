@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { createCompany, generateEmbeddings, uploadFile } from "../../lib/api";
+import { createCompany, generateEmbeddings, getCompanyStatus, uploadFile } from "../../lib/api";
 
 import type {
   CollectionKey,
+  CollectionRecord,
   EmbeddingStatus,
   FinancialQuarter,
   FiscalYear,
@@ -22,6 +23,7 @@ interface UploadModalProps {
   onClose: () => void;
   onSave: (session: SavedDatasetSession) => void;
   onSessionUpdate: (session: SavedDatasetSession) => void;
+  onEmbeddingComplete: (companySlug: string) => Promise<void> | void;
 }
 
 interface DraftFileItem {
@@ -56,26 +58,88 @@ const zoneRules: Record<CollectionKey, string> = {
 
 const visibleKeys: CollectionKey[] = ["excel", "pdf", "concall"];
 
-const statusCopy: Record<EmbeddingStatus, string> = {
-  "no-embeddings": "🔴 No embeddings",
-  processing: "🟡 Processing",
-  uploaded: "🟣 Uploaded",
-  ready: "🟢 Ready",
-};
-
 const fiscalYears: FiscalYear[] = ["FY20", "FY21", "FY22", "FY23", "FY24", "FY25", "FY26"];
 const quarters: FinancialQuarter[] = ["Q1", "Q2", "Q3", "Q4"];
+
+const EMBEDDING_POLL_INTERVAL_MS = 3000;
+const EMBEDDING_POLL_TIMEOUT_MS = 120000;
 
 function createId() {
   return typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
 }
 
 function slugifyCompanyName(companyName: string) {
-  return companyName.trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+  return companyName.toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "");
 }
 
 function isAlreadyOnServer(status: EmbeddingStatus) {
   return status === "ready" || status === "uploaded";
+}
+
+function mapCollectionStatus(status: unknown): EmbeddingStatus {
+  if (typeof status !== "string") {
+    return "no-embeddings";
+  }
+
+  if (status === "ready" || status === "processing" || status === "uploaded" || status === "failed") {
+    return status;
+  }
+
+  if (status === "error") {
+    return "failed";
+  }
+
+  return "no-embeddings";
+}
+
+function delay(ms: number) {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+type BackendCollectionStatus = {
+  status?: unknown;
+  chunks?: unknown;
+};
+
+type BackendCompanyStatus = {
+  name?: unknown;
+  slug?: unknown;
+  ticker?: unknown;
+  collections?: Record<string, BackendCollectionStatus>;
+};
+
+function buildCollectionsFromBackendStatus(
+  backendStatus: BackendCompanyStatus,
+  fallbackCollections: CollectionRecord[],
+) {
+  return fallbackCollections.map((fallback) => {
+    const backendCollection = backendStatus.collections?.[fallback.key] ?? {};
+    const chunks = typeof backendCollection.chunks === "number" ? backendCollection.chunks : fallback.chunks;
+
+    return {
+      ...fallback,
+      status: mapCollectionStatus(backendCollection.status ?? fallback.status),
+      chunks,
+    };
+  });
+}
+
+function getSessionFilenames(sessionValue: SavedDatasetSession | null) {
+  const filenames = new Set<string>();
+
+  if (!sessionValue) {
+    return filenames;
+  }
+
+  for (const collection of sessionValue.collections) {
+    for (const file of collection.files) {
+      if (typeof file.name === "string" && file.name.trim()) {
+        filenames.add(file.name.trim().toLowerCase());
+      }
+    }
+  }
+
+  return filenames;
 }
 
 function getExtension(fileName: string) {
@@ -126,7 +190,15 @@ function collectionsFromDraft(draft: Record<CollectionKey, DraftFileItem[]>): Sa
       label: labels[key],
       description: descriptions[key],
       fileName,
-      status: files.length === 0 ? "no-embeddings" : files.every((item) => item.status === "ready") ? "ready" : files.some((item) => item.status === "processing") ? "processing" : "no-embeddings",
+      status: files.length === 0
+        ? "no-embeddings"
+        : files.every((item) => item.status === "ready")
+          ? "ready"
+          : files.some((item) => item.status === "failed")
+            ? "failed"
+            : files.some((item) => item.status === "processing" || item.status === "uploaded")
+              ? "processing"
+              : "no-embeddings",
       files: files.map((item) => ({
         id: item.id,
         collection: key,
@@ -175,12 +247,16 @@ export default function UploadModal({
   onClose,
   onSave,
   onSessionUpdate,
+  onEmbeddingComplete,
 }: UploadModalProps) {
   const [draggingKey, setDraggingKey] = useState<CollectionKey | null>(null);
   const [draft, setDraft] = useState(() => draftFromSession(session, companyName, ticker));
   const [isSaving, setIsSaving] = useState(false);
   const [isGeneratingAll, setIsGeneratingAll] = useState(false);
+  const [isEmbedding, setIsEmbedding] = useState(false);
+  const [isPollingEmbedding, setIsPollingEmbedding] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
   const fileInputRefs = useRef<Record<CollectionKey, HTMLInputElement | null>>({
     excel: null,
     pdf: null,
@@ -188,6 +264,7 @@ export default function UploadModal({
     images: null,
   });
   const timeouts = useRef<number[]>([]);
+  const toastTimeout = useRef<number | null>(null);
   const totalFiles = useMemo(
     () => (Object.keys(draft.files) as CollectionKey[]).reduce((count, key) => count + draft.files[key].length, 0),
     [draft.files],
@@ -200,12 +277,19 @@ export default function UploadModal({
 
     setDraft(draftFromSession(session, companyName, ticker));
     setErrorMessage(null);
+    setToastMessage(null);
+    setIsEmbedding(false);
+    setIsPollingEmbedding(false);
+    setIsGeneratingAll(false);
   }, [open, session, companyName, ticker]);
 
   useEffect(
     () => () => {
       timeouts.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
       timeouts.current = [];
+      if (toastTimeout.current) {
+        window.clearTimeout(toastTimeout.current);
+      }
     },
     [],
   );
@@ -231,42 +315,52 @@ export default function UploadModal({
       return;
     }
 
+    let ignoredDuplicate = false;
+
     updateFiles(key, (current) => {
-      const baseItems: DraftFileItem[] = key === "excel" ? [] : current;
+      const existingNames = new Set(current.map((item) => item.name.trim().toLowerCase()));
 
       if (key === "excel") {
         const file = files[0];
+        if (existingNames.has(file.name.trim().toLowerCase())) {
+          ignoredDuplicate = true;
+          return current;
+        }
+
         return [{ id: createId(), name: file.name, file, status: "no-embeddings" }];
       }
 
-      return [
-        ...baseItems,
-        ...files.map((file) => ({
+      const nextItems = [...current];
+
+      for (const file of files) {
+        const normalizedName = file.name.trim().toLowerCase();
+
+        if (existingNames.has(normalizedName)) {
+          ignoredDuplicate = true;
+          continue;
+        }
+
+        existingNames.add(normalizedName);
+        nextItems.push({
           id: createId(),
           name: file.name,
           file,
           status: "no-embeddings" as EmbeddingStatus,
           year: "FY24" as FiscalYear,
           quarter: key === "concall" ? ("Q3" as FinancialQuarter) : undefined,
-        })),
-      ];
+        });
+      }
+
+      return nextItems;
     });
+
+    if (ignoredDuplicate) {
+      showToast("File already added.");
+    }
   };
 
   const updateFile = (key: CollectionKey, fileId: string, changes: Partial<DraftFileItem>) => {
     updateFiles(key, (current) => current.map((file) => (file.id === fileId ? { ...file, ...changes } : file)));
-  };
-
-  const handleGenerate = (key: CollectionKey) => {
-    updateFiles(key, (current) =>
-      current.map((item) => (item.status === "ready" ? item : { ...item, status: "processing" })),
-    );
-
-    const timeoutId = window.setTimeout(() => {
-      updateFiles(key, (current) => current.map((item) => ({ ...item, status: "ready" })));
-    }, 900);
-
-    timeouts.current.push(timeoutId);
   };
 
   const buildSessionFromDraft = (files: Record<CollectionKey, DraftFileItem[]>) => {
@@ -282,16 +376,54 @@ export default function UploadModal({
     } satisfies SavedDatasetSession;
   };
 
+  const showToast = (message: string) => {
+    setToastMessage(message);
+
+    if (toastTimeout.current) {
+      window.clearTimeout(toastTimeout.current);
+    }
+
+    toastTimeout.current = window.setTimeout(() => {
+      setToastMessage(null);
+    }, 2200);
+  };
+
+  const waitForEmbeddingCompletion = async (companySlug: string) => {
+    const startedAt = Date.now();
+
+    while (Date.now() - startedAt < EMBEDDING_POLL_TIMEOUT_MS) {
+      const status = (await getCompanyStatus(companySlug)) as BackendCompanyStatus;
+
+      const values = Object.values(status.collections ?? {});
+      const stillProcessing = values.some((collection) => mapCollectionStatus(collection.status) === "processing");
+
+      if (!stillProcessing) {
+        return;
+      }
+      await delay(EMBEDDING_POLL_INTERVAL_MS);
+    }
+  };
+
   const handleGenerateAll = async () => {
+    if (isEmbedding) {
+      showToast("Embedding in progress, please wait");
+      return;
+    }
+
     setErrorMessage(null);
+
     setIsGeneratingAll(true);
+    setIsEmbedding(true);
+    setIsPollingEmbedding(false);
 
     try {
       const companyNameValue = draft.companyName.trim() || companyName;
+      const tickerValue = draft.ticker.trim() || ticker;
       const companySlug = slugifyCompanyName(companyNameValue);
-      const uploadTasks: Promise<unknown>[] = [];
+      await createCompany(companyNameValue, companySlug, tickerValue);
 
-      const uploadedInThisRun = new Set<string>();
+      const existingFilenames = getSessionFilenames(session);
+      const uploadTasks: Promise<{ fileId: string; ok: boolean }>[] = [];
 
       for (const key of visibleKeys) {
         for (const item of draft.files[key]) {
@@ -303,34 +435,37 @@ export default function UploadModal({
             continue;
           }
 
-          uploadedInThisRun.add(item.id);
-          uploadTasks.push(uploadFile(item.file, companySlug, key, item.year, item.quarter));
+          if (existingFilenames.has(item.file.name.trim().toLowerCase())) {
+            continue;
+          }
+          uploadTasks.push(
+            uploadFile(item.file, companySlug, key, item.year, item.quarter)
+              .then(() => ({ fileId: item.id, ok: true }))
+              .catch(() => ({ fileId: item.id, ok: false })),
+          );
         }
       }
 
       await Promise.all(uploadTasks);
-      await generateEmbeddings(companySlug);
 
-      const readyFiles = Object.fromEntries(
-        (Object.keys(draft.files) as CollectionKey[]).map((key) => [
-          key,
-          draft.files[key].map((item) => ({
-            ...item,
-            status: isAlreadyOnServer(item.status) || uploadedInThisRun.has(item.id) ? ("ready" as EmbeddingStatus) : item.status,
-          })),
-        ]),
-      ) as Record<CollectionKey, DraftFileItem[]>;
+      await generateEmbeddings(companySlug).catch((error) => {
+        throw error instanceof Error ? error : new Error("Failed to start embedding");
+      });
 
-      setDraft((current) => ({
-        ...current,
-        files: readyFiles,
-      }));
+      setIsPollingEmbedding(true);
+      await waitForEmbeddingCompletion(companySlug);
 
-      onSessionUpdate(buildSessionFromDraft(readyFiles));
+      const nextSession = buildSessionFromDraft(draft.files);
+      onSessionUpdate(nextSession);
+      await onEmbeddingComplete(companySlug);
+      onClose();
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Failed to generate embeddings");
+      const message = error instanceof Error ? error.message : "Failed to generate embeddings";
+      setErrorMessage(message);
     } finally {
       setIsGeneratingAll(false);
+      setIsEmbedding(false);
+      setIsPollingEmbedding(false);
     }
   };
 
@@ -344,6 +479,13 @@ export default function UploadModal({
       const companySlug = slugifyCompanyName(companyNameValue);
 
       await createCompany(companyNameValue, companySlug, tickerValue);
+
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(
+          "activeCompany",
+          JSON.stringify({ name: companyNameValue, slug: companySlug, ticker: tickerValue }),
+        );
+      }
 
       const nextSession = buildSessionFromDraft(draft.files);
       onSave(nextSession);
@@ -395,9 +537,6 @@ export default function UploadModal({
             </div>
           </div>
 
-          <span className="inline-flex shrink-0 items-center rounded-full border border-white/8 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-200">
-            {statusCopy[file.status]}
-          </span>
         </div>
       </div>
     );
@@ -431,9 +570,6 @@ export default function UploadModal({
             <p className="mt-1 text-sm text-[#8b949e]">{zoneRules[key]}</p>
             {key === "pdf" ? <p className="mt-2 text-xs text-[#8b949e]">Text and image pages will be processed separately.</p> : null}
           </div>
-          <span className="rounded-full border border-white/8 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300">
-            {statusCopy[files.length ? (files.every((item) => item.status === "ready") ? "ready" : files.some((item) => item.status === "processing") ? "processing" : "no-embeddings") : "no-embeddings"]}
-          </span>
         </div>
 
         <label className="mt-4 flex cursor-pointer flex-col rounded-2xl border border-dashed border-[#30363d] bg-[#11161d] px-4 py-4 text-center transition hover:border-blue-400/45 hover:bg-blue-500/5">
@@ -521,23 +657,36 @@ export default function UploadModal({
           <button
             type="button"
             onClick={() => void handleGenerateAll()}
-            disabled={isGeneratingAll}
+            disabled={isGeneratingAll || isEmbedding || isPollingEmbedding}
+            onKeyDown={(event) => {
+              if ((event.key === "Enter" || event.key === " ") && isEmbedding) {
+                event.preventDefault();
+                showToast("Embedding in progress, please wait");
+              }
+            }}
             className="flex w-full items-center justify-center rounded-2xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {isGeneratingAll ? (
+            {isPollingEmbedding || isEmbedding ? (
               <span className="flex items-center gap-2">
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                Generating...
+                Generating Embeddings...
               </span>
             ) : (
               "Generate All Embeddings"
             )}
           </button>
+
+          {toastMessage ? (
+            <div className="mt-3 rounded-2xl border border-white/8 bg-[#11161d] px-4 py-3 text-sm text-zinc-200">
+              {toastMessage}
+            </div>
+          ) : null}
+
           <button
             type="button"
             onClick={() => void handleSave()}
-            disabled={isSaving || isGeneratingAll}
-            className="mt-3 flex w-full items-center justify-center rounded-2xl border border-white/8 bg-white/5 px-5 py-3 text-sm font-semibold text-zinc-200 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-70"
+            disabled={isSaving || isGeneratingAll || isEmbedding}
+            className="mt-4 flex w-full items-center justify-center rounded-2xl border border-white/8 bg-white/5 px-5 py-3 text-sm font-semibold text-zinc-200 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSaving ? "Saving..." : "Save & Close"}
           </button>

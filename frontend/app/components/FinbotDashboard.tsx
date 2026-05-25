@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { queryRAG } from "../../lib/api";
+import { getCompanies, getCompanyStatus, queryRAG } from "../../lib/api";
 
 import ChatWindow from "./ChatWindow";
 import InputBar from "./InputBar";
@@ -12,6 +12,8 @@ import UploadModal from "./UploadModal";
 import type {
   ChatMessage,
   CollectionRecord,
+  CollectionKey,
+  CorpusFileRecord,
   DocumentRecord,
   SavedDatasetSession,
   StockSummary,
@@ -68,6 +70,53 @@ function getCompanySlugFromLocalStorage(activeCompanyName: string): string {
   return slugifyCompanyName(activeCompanyName);
 }
 
+function getActiveCompanyFromLocalStorage(fallbackName: string) {
+  if (typeof window === "undefined") {
+    return { name: fallbackName, slug: slugifyCompanyName(fallbackName) };
+  }
+
+  try {
+    const raw = window.localStorage.getItem("activeCompany");
+
+    if (raw) {
+      const parsed = JSON.parse(raw) as { name?: string; slug?: string; companyName?: string; companySlug?: string };
+      const name =
+        typeof parsed.name === "string" && parsed.name.trim()
+          ? parsed.name.trim()
+          : typeof parsed.companyName === "string" && parsed.companyName.trim()
+            ? parsed.companyName.trim()
+            : "";
+      const slug =
+        typeof parsed.slug === "string" && parsed.slug.trim()
+          ? parsed.slug.trim()
+          : typeof parsed.companySlug === "string" && parsed.companySlug.trim()
+            ? parsed.companySlug.trim()
+            : name
+              ? slugifyCompanyName(name)
+              : "";
+
+      if (name || slug) {
+        return { name: name || fallbackName, slug: slug || slugifyCompanyName(name || fallbackName) };
+      }
+    }
+
+    const sessionRaw = window.localStorage.getItem("finbotai-session");
+    if (sessionRaw) {
+      const parsed = JSON.parse(sessionRaw) as { companyName?: string; companySlug?: string };
+      const name = typeof parsed.companyName === "string" && parsed.companyName.trim() ? parsed.companyName.trim() : "";
+      const slug = typeof parsed.companySlug === "string" && parsed.companySlug.trim() ? parsed.companySlug.trim() : "";
+
+      if (name || slug) {
+        return { name: name || fallbackName, slug: slug || slugifyCompanyName(name || fallbackName) };
+      }
+    }
+  } catch {
+    // Fallback below.
+  }
+
+  return { name: fallbackName, slug: slugifyCompanyName(fallbackName) };
+}
+
 function toCitationLabel(citation: unknown): string {
   if (!citation || typeof citation !== "object") {
     return "unknown | unknown";
@@ -84,6 +133,18 @@ function toCitationLabel(citation: unknown): string {
   return `${filename} | ${page}`;
 }
 
+function isGreetingMessage(message: string) {
+  const normalized = message
+    .toLowerCase()
+    .trim()
+    .replace(/[.!?,]+$/g, "")
+    .replace(/\s+/g, " ");
+
+  const greetings = ["hi", "hello", "hey", "thanks", "thank you", "bye", "good morning", "good evening"];
+
+  return greetings.some((greeting) => normalized === greeting);
+}
+
 function createInitialCollections(companyName: string): CollectionRecord[] {
   const slug = companyName.replace(/\s+/g, "_");
 
@@ -94,6 +155,7 @@ function createInitialCollections(companyName: string): CollectionRecord[] {
       fileName: `${slug}_FY24.xlsx`,
       status: "ready",
       description: "Structured financial statements and working capital schedules.",
+      chunks: 0,
     },
     {
       key: "pdf",
@@ -101,6 +163,7 @@ function createInitialCollections(companyName: string): CollectionRecord[] {
       fileName: "Annual_Report_FY24.pdf",
       status: "ready",
       description: "Text and scanned pages processed independently.",
+      chunks: 0,
     },
     {
       key: "concall",
@@ -108,6 +171,7 @@ function createInitialCollections(companyName: string): CollectionRecord[] {
       fileName: "Q3_FY24_Concall.pdf",
       status: "no-embeddings",
       description: "Quarterly call transcripts and management commentary.",
+      chunks: 0,
     },
     {
       key: "images",
@@ -115,18 +179,106 @@ function createInitialCollections(companyName: string): CollectionRecord[] {
       fileName: "",
       status: "processing",
       description: "Charts, screenshots, and scanned board notes.",
+      chunks: 0,
     },
   ];
 }
 
-function createBaseMessages(companyName: string): ChatMessage[] {
-  return [
-    {
-      id: "msg-1",
-      role: "assistant",
-      content: `Corpus loaded for ${companyName} — documents ready for queries.`,
-    },
-  ];
+function mapBackendCollectionStatus(status: string | undefined) {
+  if (status === "ready" || status === "processing" || status === "uploaded" || status === "failed") {
+    return status;
+  }
+
+  if (status === "error") {
+    return "failed";
+  }
+
+  return "no-embeddings";
+}
+
+function collectionsFromBackendStatus(
+  companyName: string,
+  backendStatus: { collections?: Record<string, { status?: string; chunks?: number }> },
+): CollectionRecord[] {
+  const fallback = createInitialCollections(companyName);
+
+  return fallback.map((collection) => {
+    const server = backendStatus.collections?.[collection.key];
+
+    return {
+      ...collection,
+      status: mapBackendCollectionStatus(server?.status),
+      chunks: typeof server?.chunks === "number" ? server.chunks : collection.chunks,
+    };
+  });
+}
+
+function mapFileCollection(value: unknown): CollectionKey | null {
+  if (value === "excel" || value === "pdf" || value === "concall" || value === "images") {
+    return value;
+  }
+
+  return null;
+}
+
+function filesFromBackendStatus(backendStatus: { files?: unknown }): Record<CollectionKey, CorpusFileRecord[]> {
+  const mapped: Record<CollectionKey, CorpusFileRecord[]> = {
+    excel: [],
+    pdf: [],
+    concall: [],
+    images: [],
+  };
+
+  if (!Array.isArray(backendStatus.files)) {
+    return mapped;
+  }
+
+  for (const entry of backendStatus.files) {
+    if (!entry || typeof entry !== "object") {
+      continue;
+    }
+
+    const record = entry as {
+      file_id?: unknown;
+      filename?: unknown;
+      file_type?: unknown;
+      chunks?: unknown;
+    };
+    const collection = mapFileCollection(record.file_type);
+
+    if (!collection) {
+      continue;
+    }
+
+    const id = typeof record.file_id === "string" && record.file_id.trim() ? record.file_id : `${collection}-${Date.now()}-${Math.random()}`;
+    const name = typeof record.filename === "string" && record.filename.trim() ? record.filename : "Unknown file";
+    const chunks = typeof record.chunks === "number" ? record.chunks : 0;
+
+    mapped[collection].push({
+      id,
+      name,
+      collection,
+      chunks,
+    });
+  }
+
+  return mapped;
+}
+
+function getStatusCompanyLabel(status: { name?: unknown; slug?: unknown } | null, fallback: string) {
+  if (!status) {
+    return fallback;
+  }
+
+  if (typeof status.name === "string" && status.name.trim()) {
+    return status.name.trim();
+  }
+
+  if (typeof status.slug === "string" && status.slug.trim()) {
+    return status.slug.trim();
+  }
+
+  return fallback;
 }
 
 const initialDocuments: DocumentRecord[] = [
@@ -212,12 +364,39 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   const [activeTicker, setActiveTicker] = useState(defaultTicker);
   const [collections, setCollections] = useState<CollectionRecord[]>(() => createInitialCollections(defaultCompanyName));
   const [documents, setDocuments] = useState<DocumentRecord[]>(() => syncDocuments(createInitialCollections(defaultCompanyName)));
-  const [messages, setMessages] = useState<ChatMessage[]>(() => createBaseMessages(defaultCompanyName));
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [uploadOpen, setUploadOpen] = useState(false);
   const [resumeBannerVisible, setResumeBannerVisible] = useState(false);
   const [hasSession, setHasSession] = useState(false);
   const [savedSession, setSavedSession] = useState<SavedDatasetSession | null>(null);
+  const [corpusFiles, setCorpusFiles] = useState<Record<CollectionKey, CorpusFileRecord[]>>({
+    excel: [],
+    pdf: [],
+    concall: [],
+    images: [],
+  });
+
+  const refreshCompanyStatus = async (companyLabel: string) => {
+    try {
+      const companySlug = getCompanySlugFromLocalStorage(companyLabel);
+      const status = await getCompanyStatus(companySlug);
+      const resolvedCompanyName = getStatusCompanyLabel(status, companyLabel);
+      const nextCollections = collectionsFromBackendStatus(resolvedCompanyName, status);
+      const nextFiles = filesFromBackendStatus(status);
+
+      setCollections(nextCollections);
+      setCorpusFiles(nextFiles);
+      setDocuments(syncDocuments(nextCollections));
+      setActiveCompany(resolvedCompanyName);
+      setCompanies((current) => (current.includes(resolvedCompanyName) ? current : [...current, resolvedCompanyName]));
+    } catch {
+      const fallbackCollections = collectionsFromBackendStatus(companyLabel, { collections: {} });
+      setCollections(fallbackCollections);
+      setCorpusFiles({ excel: [], pdf: [], concall: [], images: [] });
+      setDocuments(syncDocuments(fallbackCollections));
+    }
+  };
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -231,20 +410,19 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
 
     const parsed = parseSessionPayload(stored);
     if (!parsed) {
+      void refreshCompanyStatus(defaultCompanyName);
       return;
     }
-
-    const nextCollections = collectionsFromSession(parsed, parsed.companyName);
 
     setSavedSession(parsed);
     setCompanies((current) => (current.includes(parsed.companyName) ? current : [...current, parsed.companyName]));
     setActiveCompany(parsed.companyName);
     setActiveTicker(parsed.ticker);
-    setCollections(nextCollections);
-    setDocuments(syncDocuments(nextCollections));
-    setMessages(createBaseMessages(parsed.companyName));
+    setMessages([]);
     setHasSession(true);
     setResumeBannerVisible(true);
+
+    void refreshCompanyStatus(parsed.companyName);
   }, []);
 
   const handleSend = async () => {
@@ -258,6 +436,52 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     const loadingMessageId = createMessageId();
 
     setInputValue("");
+
+    if (isGreetingMessage(trimmed)) {
+      const activeCompanyInfo = getActiveCompanyFromLocalStorage(activeCompany);
+
+      try {
+        const companies = (await getCompanies()) as Array<{ name?: string; slug?: string }>;
+        const normalizedCompanies = Array.isArray(companies) ? companies : [];
+        const otherCompanies = normalizedCompanies.filter((company) => company.slug !== activeCompanyInfo.slug);
+
+        let response = `Hey there! 👋 Ask me anything about **${activeCompanyInfo.name}**'s financials, earnings calls, or annual reports.\n\n`;
+
+        if (otherCompanies.length > 0) {
+          response += `You also have these datasets available:\n`;
+          otherCompanies.forEach((company) => {
+            if (typeof company.name === "string" && company.name.trim()) {
+              response += `• ${company.name.trim()}\n`;
+            }
+          });
+          response += `\nSwitch companies using the selector in the sidebar, or upload a new dataset using the "+ Upload Dataset" button.`;
+        } else {
+          response += `You can also upload a new dataset anytime using the "+ Upload Dataset" button.`;
+        }
+
+        setMessages((current) => [
+          ...current,
+          { id: userMessageId, role: "user", content: trimmed },
+          {
+            id: loadingMessageId,
+            role: "assistant",
+            content: response,
+          },
+        ]);
+      } catch {
+        setMessages((current) => [
+          ...current,
+          { id: userMessageId, role: "user", content: trimmed },
+          {
+            id: loadingMessageId,
+            role: "assistant",
+            content: `Hey there! 👋 Ask me anything about **${activeCompanyInfo.name}**'s financials, earnings calls, or annual reports.\n\nYou can also upload a new dataset anytime using the "+ Upload Dataset" button.`,
+          },
+        ]);
+      }
+
+      return;
+    }
 
     setMessages((current) => [
       ...current,
@@ -314,6 +538,21 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
 
   const handleContinue = () => setResumeBannerVisible(false);
 
+  const handleEmbeddingComplete = async (companySlug: string) => {
+    try {
+      const status = await getCompanyStatus(companySlug);
+      const resolvedCompanyName = getStatusCompanyLabel(status, activeCompany);
+      const nextCollections = collectionsFromBackendStatus(resolvedCompanyName, status);
+      const nextFiles = filesFromBackendStatus(status);
+      setCollections(nextCollections);
+      setCorpusFiles(nextFiles);
+      setDocuments(syncDocuments(nextCollections));
+      setActiveCompany(resolvedCompanyName);
+    } catch {
+      // Keep existing sidebar state if status refresh fails.
+    }
+  };
+
   const syncSessionState = (session: SavedDatasetSession) => {
     const nextCollections = collectionsFromSession(session, session.companyName);
 
@@ -327,9 +566,11 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     setActiveTicker(session.ticker);
     setCollections(nextCollections);
     setDocuments(syncDocuments(nextCollections));
-    setMessages(createBaseMessages(session.companyName));
+    setMessages([]);
     setHasSession(true);
     setResumeBannerVisible(true);
+
+    void refreshCompanyStatus(session.companyName);
   };
 
   const handleSaveSession = (session: SavedDatasetSession) => {
@@ -352,8 +593,9 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     setCompanies([defaultCompanyName]);
     const nextCollections = createInitialCollections(defaultCompanyName);
     setCollections(nextCollections);
+    setCorpusFiles({ excel: [], pdf: [], concall: [], images: [] });
     setDocuments(syncDocuments(nextCollections));
-    setMessages(createBaseMessages(defaultCompanyName));
+    setMessages([]);
     setInputValue("");
     setUploadOpen(false);
     setResumeBannerVisible(false);
@@ -368,6 +610,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
 
     setActiveCompany(value);
     setResumeBannerVisible(false);
+    void refreshCompanyStatus(value);
   };
 
   const corpusCount = documents.length;
@@ -377,10 +620,12 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     <div className="flex min-h-screen bg-[#0f1117] text-white">
       <Sidebar
         activeCompany={activeCompany}
+        activeCompanySlug={getCompanySlugFromLocalStorage(activeCompany)}
         companies={companies}
         onSelectCompany={handleSelectCompany}
         stock={stock}
         collections={collections}
+        filesByCollection={corpusFiles}
         onOpenUpload={() => setUploadOpen(true)}
       />
 
@@ -429,7 +674,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
         </div>
 
         <div className="mt-4 flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-white/8 bg-[#1c2128]">
-          <ChatWindow messages={messages} />
+          <ChatWindow messages={messages} activeCompanyKey={activeCompany} />
           <div className="border-t border-white/8 p-3">
             <InputBar
               value={inputValue}
@@ -449,6 +694,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
         onClose={() => setUploadOpen(false)}
         onSave={handleSaveSession}
         onSessionUpdate={handleSessionUpdate}
+        onEmbeddingComplete={handleEmbeddingComplete}
       />
     </div>
   );

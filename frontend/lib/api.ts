@@ -12,6 +12,11 @@ export async function createCompany(name: string, slug: string, ticker: string) 
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, slug, ticker }),
   });
+
+  if (res.status === 409) {
+    return res.json();
+  }
+
   if (!res.ok) throw new Error("Failed to create company");
   return res.json();
 }
@@ -19,6 +24,12 @@ export async function createCompany(name: string, slug: string, ticker: string) 
 export async function getCompanyStatus(slug: string) {
   const res = await fetch(`${BASE_URL}/api/v1/companies/${slug}/status`);
   if (!res.ok) throw new Error("Failed to fetch company status");
+  return res.json();
+}
+
+export async function getCompanyFiles(slug: string) {
+  const res = await fetch(`${BASE_URL}/api/v1/companies/${slug}/files`);
+  if (!res.ok) throw new Error("Failed to fetch company files");
   return res.json();
 }
 

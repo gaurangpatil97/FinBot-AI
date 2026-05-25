@@ -54,6 +54,7 @@ class CompanyStatus(BaseModel):
     slug: str
     ticker: str
     collections: Dict[str, CompanyCollectionStatus]
+    files: List[Dict[str, Any]] = Field(default_factory=list)
 
 
 class CompanyCreateRequest(BaseModel):

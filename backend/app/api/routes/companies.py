@@ -7,15 +7,16 @@ from typing import Any, Dict, List
 from fastapi import APIRouter, HTTPException
 
 from app.models.schemas import CompanyCreateRequest, CompanyStatus
+from config import settings
 
 router = APIRouter(tags=["companies"])
-COMPANIES_FILE = Path("companies.json")
+COMPANIES_FILE = Path(settings.COMPANIES_FILE)
 
 
 def _read_companies_file() -> Dict[str, Any]:
     if not COMPANIES_FILE.exists():
         return {"companies": [], "active_company": None}
-    return json.loads(COMPANIES_FILE.read_text(encoding="utf-8"))
+    return json.loads(COMPANIES_FILE.read_text(encoding="utf-8-sig"))
 
 
 def _write_companies_file(payload: Dict[str, Any]) -> None:
@@ -61,3 +62,56 @@ def get_company_status(slug: str) -> CompanyStatus:
         if company.get("slug") == slug:
             return CompanyStatus(**company)
     raise HTTPException(status_code=404, detail="Company not found")
+
+
+@router.get("/companies/{slug}/files")
+def get_company_files(slug: str) -> dict:
+    """Returns per-file chunk counts from ChromaDB metadata."""
+    payload = _read_companies_file()
+    if not any(company.get("slug") == slug for company in payload.get("companies", [])):
+        raise HTTPException(status_code=404, detail="Company not found")
+
+    import chromadb
+
+    result: Dict[str, Dict[str, Dict[str, str | int | None]]] = {}
+    collection_map = {
+        "excel": f"{slug}_excel",
+        "pdf": f"{slug}_pdf_text",
+        "concall": f"{slug}_concalls",
+        "images": f"{slug}_images",
+    }
+
+    for col_type, collection_name in collection_map.items():
+        chroma_path = str(Path(settings.CHROMA_BASE_DIR) / slug / col_type)
+
+        try:
+            client = chromadb.PersistentClient(path=chroma_path)
+            collection = client.get_collection(collection_name)
+            data = collection.get(include=["metadatas"])
+            metadatas = data.get("metadatas", []) if isinstance(data, dict) else []
+            file_counts: Dict[str, Dict[str, str | int | None]] = {}
+
+            for metadata in metadatas:
+                if not isinstance(metadata, dict):
+                    continue
+
+                filename = metadata.get("filename")
+                if not isinstance(filename, str) or not filename.strip():
+                    filename = "unknown"
+
+                entry = file_counts.setdefault(filename, {"chunks": 0, "year": None, "quarter": None})
+                entry["chunks"] = int(entry["chunks"] or 0) + 1
+
+                year = metadata.get("year")
+                if entry["year"] is None and isinstance(year, str) and year.strip() and year != "unknown":
+                    entry["year"] = year.strip()
+
+                quarter = metadata.get("quarter")
+                if entry["quarter"] is None and isinstance(quarter, str) and quarter.strip() and quarter != "unknown":
+                    entry["quarter"] = quarter.strip()
+
+            result[col_type] = file_counts
+        except Exception:
+            result[col_type] = {}
+
+    return result

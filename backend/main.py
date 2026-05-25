@@ -31,7 +31,8 @@ app.include_router(documents_router, prefix="/api/v1")
 
 @app.on_event("startup")
 async def load_companies_file() -> None:
-    companies_path = Path("companies.json")
+    from config import settings
+    companies_path = Path(settings.COMPANIES_FILE)
     if not companies_path.exists():
         companies_path.write_text(json.dumps({"companies": [], "active_company": None}, indent=2), encoding="utf-8")
         return
