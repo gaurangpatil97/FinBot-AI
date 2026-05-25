@@ -1,13 +1,21 @@
-node_modules/
-.next/
-.env
-
+# Python
 venv/
-
-
-
-
-*.pkl
 __pycache__/
 *.pyc
+*.pyo
+.env
+*.pkl
+
+# Data — never commit uploads or vector DB
+backend/data/
+backend/chroma_store/
+backend/companies.json
+
+# Node
+node_modules/
+.next/
+frontend/.env.local
+
+# Misc
+*.sqlite3
 .DS_Store

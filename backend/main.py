@@ -1,0 +1,57 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.routes.companies import router as companies_router
+from app.api.routes.documents import router as documents_router
+from app.api.routes.query import router as query_router
+from app.api.routes.upload import router as upload_router
+from config import settings
+
+app = FastAPI(title="FinbotAI Backend", version="0.1.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(companies_router, prefix="/api/v1")
+app.include_router(upload_router, prefix="/api/v1")
+app.include_router(query_router, prefix="/api/v1")
+app.include_router(documents_router, prefix="/api/v1")
+
+
+@app.on_event("startup")
+async def load_companies_file() -> None:
+    companies_path = Path("companies.json")
+    if not companies_path.exists():
+        companies_path.write_text(json.dumps({"companies": [], "active_company": None}, indent=2), encoding="utf-8")
+        return
+
+    try:
+        payload: dict[str, Any] = json.loads(companies_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        payload = {"companies": [], "active_company": None}
+        companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+    app.state.companies_payload = payload
+    app.state.settings = settings
+
+
+@app.get("/")
+async def root() -> dict[str, str]:
+    return {"message": "FinbotAI backend is running"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
