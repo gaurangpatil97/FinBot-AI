@@ -23,7 +23,7 @@ export async function createCompany(name: string, slug: string, ticker: string) 
 
 export async function getCompanyStatus(slug: string) {
   const res = await fetch(`${BASE_URL}/api/v1/companies/${slug}/status`);
-  if (!res.ok) throw new Error("Failed to fetch company status");
+  if (!res.ok) throw new Error("Failed to fetch status");
   return res.json();
 }
 

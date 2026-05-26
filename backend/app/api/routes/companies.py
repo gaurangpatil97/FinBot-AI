@@ -55,13 +55,44 @@ def create_company(request: CompanyCreateRequest) -> dict:
     return record
 
 
-@router.get("/companies/{slug}/status", response_model=CompanyStatus)
-def get_company_status(slug: str) -> CompanyStatus:
+@router.get("/companies/{slug}/status")
+def get_company_status(slug: str) -> dict:
     payload = _read_companies_file()
-    for company in payload.get("companies", []):
-        if company.get("slug") == slug:
-            return CompanyStatus(**company)
-    raise HTTPException(status_code=404, detail="Company not found")
+    company = next((item for item in payload.get("companies", []) if item.get("slug") == slug), None)
+    if not company:
+        raise HTTPException(status_code=404, detail="Company not found")
+
+    import chromadb
+
+    collections: Dict[str, Dict[str, int | str]] = {}
+    collection_map = [
+        ("excel", f"{slug}_excel"),
+        ("pdf", f"{slug}_pdf_text"),
+        ("concall", f"{slug}_concalls"),
+        ("images", f"{slug}_images"),
+    ]
+
+    for col_type, collection_name in collection_map:
+        chroma_path = str(Path(settings.CHROMA_BASE_DIR) / slug / col_type)
+        try:
+            client = chromadb.PersistentClient(path=chroma_path)
+            collection = client.get_collection(collection_name)
+            count = collection.count()
+            collections[col_type] = {
+                "status": "ready" if count > 0 else "no-embeddings",
+                "chunks": count,
+            }
+        except Exception as e:
+            from loguru import logger
+            logger.error(f"ChromaDB error for {col_type}: {e}")
+            collections[col_type] = {"status": "no-embeddings", "chunks": 0}
+
+    return {
+        "name": company["name"],
+        "slug": company["slug"],
+        "ticker": company["ticker"],
+        "collections": collections,
+    }
 
 
 @router.get("/companies/{slug}/files")

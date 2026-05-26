@@ -18,6 +18,15 @@ type RemoteFileMetadata = {
   quarter?: string | null;
 };
 
+type StatusCollectionRecord = {
+  status?: CollectionRecord["status"];
+  chunks?: number;
+};
+
+type StatusResponseLike = {
+  collections: Partial<Record<CollectionKey, StatusCollectionRecord>>;
+};
+
 type RemoteCompanyFiles = Partial<Record<CollectionKey, Record<string, number | RemoteFileMetadata>>>;
 type RemoteFileRow = {
   name: string;
@@ -101,6 +110,12 @@ function displayFilename(filename: string) {
 }
 
 export default function CorpusStatus({ collections, filesByCollection, companySlug }: CorpusStatusProps) {
+  const status: StatusResponseLike = {
+    collections: Object.fromEntries(
+      collections.map((collection) => [collection.key, { status: collection.status, chunks: collection.chunks }]),
+    ) as Partial<Record<CollectionKey, StatusCollectionRecord>>,
+  };
+
   const [expanded, setExpanded] = useState<Record<CollectionKey, boolean>>({
     excel: false,
     pdf: false,
@@ -196,10 +211,18 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8b949e]">Corpus Status</p>
       <div className="mt-4 space-y-3">
         {rows.map((row) => {
-          const collection = row.collection;
-          const meta = statusMeta(collection);
+            const collection = row.collection;
+            const backendCollection = status.collections[row.key];
+            const resolvedCollection = collection
+              ? {
+                  ...collection,
+                  status: backendCollection?.status ?? collection.status,
+                  chunks: typeof backendCollection?.chunks === "number" ? backendCollection.chunks : collection.chunks,
+                }
+              : collection;
+            const meta = statusMeta(resolvedCollection);
           const files = filesByCollection[row.key] ?? [];
-          const total = typeof collection?.chunks === "number" ? collection.chunks : totalChunks(files);
+            const total = typeof backendCollection?.chunks === "number" ? backendCollection.chunks : totalChunks(files);
           const chunkSummary = `${total} chunks`;
           const isExpanded = expanded[row.key];
 

@@ -196,17 +196,51 @@ function mapBackendCollectionStatus(status: string | undefined) {
   return "no-embeddings";
 }
 
+type BackendCollectionStatus = {
+  status?: string;
+  chunks?: number;
+};
+
+type BackendCompanyStatus = {
+  name?: unknown;
+  slug?: unknown;
+  ticker?: unknown;
+  collections?: Partial<Record<CollectionKey, BackendCollectionStatus>>;
+  files?: unknown;
+};
+
 function collectionsFromBackendStatus(
   companyName: string,
-  backendStatus: { collections?: Record<string, { status?: string; chunks?: number }> },
+  backendStatus: BackendCompanyStatus,
 ): CollectionRecord[] {
   const fallback = createInitialCollections(companyName);
+  const fallbackByKey = new Map(fallback.map((collection) => [collection.key, collection]));
 
-  return fallback.map((collection) => {
-    const server = backendStatus.collections?.[collection.key];
+  const orderedCollections: Array<{ key: CollectionKey; label: string }> = [
+    { key: "excel", label: "Excel" },
+    { key: "pdf", label: "PDF Text" },
+    { key: "images", label: "Images" },
+    { key: "concall", label: "Concall" },
+  ];
+
+  return orderedCollections.map(({ key, label }) => {
+    const collection = fallbackByKey.get(key) ?? createInitialCollections(companyName).find((item) => item.key === key);
+    const server = backendStatus.collections?.[key];
+
+    if (!collection) {
+      return {
+        key,
+        label,
+        fileName: "",
+        status: mapBackendCollectionStatus(server?.status),
+        description: "",
+        chunks: typeof server?.chunks === "number" ? server.chunks : 0,
+      };
+    }
 
     return {
       ...collection,
+      label,
       status: mapBackendCollectionStatus(server?.status),
       chunks: typeof server?.chunks === "number" ? server.chunks : collection.chunks,
     };
@@ -378,8 +412,9 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   });
 
   const refreshCompanyStatus = async (companyLabel: string) => {
+    const companySlug = getCompanySlugFromLocalStorage(companyLabel);
+
     try {
-      const companySlug = getCompanySlugFromLocalStorage(companyLabel);
       const status = await getCompanyStatus(companySlug);
       const resolvedCompanyName = getStatusCompanyLabel(status, companyLabel);
       const nextCollections = collectionsFromBackendStatus(resolvedCompanyName, status);
@@ -397,6 +432,63 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
       setDocuments(syncDocuments(fallbackCollections));
     }
   };
+
+  useEffect(() => {
+    let cancelled = false;
+    let timeoutId: ReturnType<typeof window.setTimeout> | null = null;
+
+    const run = async () => {
+      const companySlug = getCompanySlugFromLocalStorage(activeCompany);
+
+      try {
+        const status = (await getCompanyStatus(companySlug)) as BackendCompanyStatus;
+
+        if (cancelled) {
+          return;
+        }
+
+        const resolvedCompanyName = getStatusCompanyLabel(status, activeCompany);
+        const nextCollections = collectionsFromBackendStatus(resolvedCompanyName, status);
+        const nextFiles = filesFromBackendStatus(status);
+
+        setCollections(nextCollections);
+        setCorpusFiles(nextFiles);
+        setDocuments(syncDocuments(nextCollections));
+
+        if (resolvedCompanyName !== activeCompany) {
+          setActiveCompany(resolvedCompanyName);
+          setCompanies((current) => (current.includes(resolvedCompanyName) ? current : [...current, resolvedCompanyName]));
+        }
+
+        const isProcessing = Object.values(status.collections ?? {}).some((collection) => collection?.status === "processing");
+
+        if (isProcessing) {
+          timeoutId = window.setTimeout(() => {
+            void run();
+          }, 5000);
+        }
+      } catch {
+        if (cancelled) {
+          return;
+        }
+
+        const fallbackCollections = collectionsFromBackendStatus(activeCompany, { collections: {} });
+        setCollections(fallbackCollections);
+        setCorpusFiles({ excel: [], pdf: [], concall: [], images: [] });
+        setDocuments(syncDocuments(fallbackCollections));
+      }
+    };
+
+    void run();
+
+    return () => {
+      cancelled = true;
+
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [activeCompany]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -421,8 +513,6 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     setMessages([]);
     setHasSession(true);
     setResumeBannerVisible(true);
-
-    void refreshCompanyStatus(parsed.companyName);
   }, []);
 
   const handleSend = async () => {
@@ -569,8 +659,6 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     setMessages([]);
     setHasSession(true);
     setResumeBannerVisible(true);
-
-    void refreshCompanyStatus(session.companyName);
   };
 
   const handleSaveSession = (session: SavedDatasetSession) => {
@@ -610,7 +698,6 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
 
     setActiveCompany(value);
     setResumeBannerVisible(false);
-    void refreshCompanyStatus(value);
   };
 
   const corpusCount = documents.length;
