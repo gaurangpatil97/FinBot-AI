@@ -1,14 +1,41 @@
+import gc
+
 import chromadb
 from chromadb.config import Settings as ChromaSettings
 from loguru import logger
 from config import settings
 
+
+def get_persistent_client(path: str):
+    client_settings = ChromaSettings(anonymized_telemetry=False)
+    try:
+        return chromadb.PersistentClient(
+            path=path,
+            settings=client_settings,
+        )
+    except Exception as exc:
+        logger.warning(f"Chroma client creation failed for {path}: {exc}. Recreating cleanly.")
+        try:
+            from chromadb.api import shared_system_client
+
+            if hasattr(shared_system_client.SharedSystemClient, "clear_system_cache"):
+                shared_system_client.SharedSystemClient.clear_system_cache()
+
+            identifier_cache = getattr(shared_system_client.SharedSystemClient, "_identifier_to_system", None)
+            if isinstance(identifier_cache, dict):
+                identifier_cache.clear()
+        except Exception as cache_exc:
+            logger.warning(f"Unable to clear Chroma shared-system cache for {path}: {cache_exc}")
+
+        gc.collect()
+        return chromadb.PersistentClient(
+            path=path,
+            settings=client_settings,
+        )
+
 def get_or_create_collection(collection_name: str, chroma_path: str = None):
     path = chroma_path or settings.CHROMA_BASE_DIR
-    local_client = chromadb.PersistentClient(
-        path=path,
-        settings=ChromaSettings(anonymized_telemetry=False)
-    )
+    local_client = get_persistent_client(path)
     collection = local_client.get_or_create_collection(
         name=collection_name,
         metadata={"hnsw:space": "cosine"}
@@ -19,10 +46,7 @@ def get_or_create_collection(collection_name: str, chroma_path: str = None):
 def store_chunks(chunks: list[dict], collection_name: str, chroma_path: str = None):
     # Use provided chroma_path if given, otherwise fall back to configured path
     path = chroma_path or settings.CHROMA_BASE_DIR
-    client_local = chromadb.PersistentClient(
-        path=path,
-        settings=ChromaSettings(anonymized_telemetry=False)
-    )
+    client_local = get_persistent_client(path)
 
     collection = client_local.get_or_create_collection(
         name=collection_name,
@@ -79,6 +103,9 @@ def query_collection(
     top_k = top_k or settings.TOP_K_CHUNKS
     collection = get_or_create_collection(collection_name, chroma_path=chroma_path)
 
+    if isinstance(year, list):
+        year = year[0] if year else None
+
     if year and sheet:
         where = {"$and": [{"year": year}, {"sheet": sheet}]}
     elif year:
@@ -129,10 +156,7 @@ def query_collection_by_type(
 ) -> list[dict]:
     # Allow querying a different ChromaDB instance by path
     path = chroma_path or settings.CHROMA_BASE_DIR
-    client_local = chromadb.PersistentClient(
-        path=path,
-        settings=ChromaSettings(anonymized_telemetry=False)
-    )
+    client_local = get_persistent_client(path)
     collection = client_local.get_or_create_collection(
         name=collection_name,
         metadata={"hnsw:space": "cosine"}

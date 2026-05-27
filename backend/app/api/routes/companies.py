@@ -6,6 +6,7 @@ from typing import Any, Dict, List
 
 from fastapi import APIRouter, HTTPException
 
+from app.db.vector_store import get_persistent_client
 from app.models.schemas import CompanyCreateRequest, CompanyStatus
 from config import settings
 
@@ -75,7 +76,7 @@ def get_company_status(slug: str) -> dict:
     for col_type, collection_name in collection_map:
         chroma_path = str(Path(settings.CHROMA_BASE_DIR) / slug / col_type)
         try:
-            client = chromadb.PersistentClient(path=chroma_path)
+            client = get_persistent_client(chroma_path)
             collection = client.get_collection(collection_name)
             count = collection.count()
             collections[col_type] = {
@@ -116,7 +117,7 @@ def get_company_files(slug: str) -> dict:
         chroma_path = str(Path(settings.CHROMA_BASE_DIR) / slug / col_type)
 
         try:
-            client = chromadb.PersistentClient(path=chroma_path)
+            client = get_persistent_client(chroma_path)
             collection = client.get_collection(collection_name)
             data = collection.get(include=["metadatas"])
             metadatas = data.get("metadatas", []) if isinstance(data, dict) else []

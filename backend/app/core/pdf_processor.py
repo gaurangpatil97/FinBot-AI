@@ -2,12 +2,9 @@ import os
 import pdfplumber
 import fitz
 from pathlib import Path
-import pytesseract
-from PIL import Image
 from loguru import logger
 
-pytesseract.pytesseract.tesseract_cmd = r'D:\ocr_setup\tesseract.exe'
-os.environ['TESSDATA_PREFIX'] = r'D:\ocr_setup\tessdata'
+from config import settings
 
 def extract_pdf(file_path: str) -> list[dict]:
     """
@@ -132,8 +129,15 @@ def extract_images_from_pdf(file_path: str) -> list[dict]:
     """
     file_path = Path(file_path)
     filename = file_path.name
+
+    if not settings.OPENAI_API_KEY:
+        logger.warning(
+            f"OPENAI_API_KEY not set — skipping image embedding for {filename}. Text embeddings will proceed normally."
+        )
+        return []
+
     pages_data = []
-    tmp_dir = "D:/financial_rag/tmp_images"
+    tmp_dir = settings.TMP_DIR
     os.makedirs(tmp_dir, exist_ok=True)
 
     logger.info(f"Processing PDF (images): {filename}")

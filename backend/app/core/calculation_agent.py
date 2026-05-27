@@ -3,50 +3,163 @@ import re
 import ast
 
 import chromadb
-import ollama
+import openai
 from config import get_settings
 from logger import logger
+from app.db.vector_store import get_persistent_client
 
 settings = get_settings()
 
-chroma_client = chromadb.PersistentClient(
-    path=settings.EXCEL_CHROMA_DIR,
-    settings=chromadb.config.Settings(anonymized_telemetry=False)
-)
+chroma_client = get_persistent_client(settings.EXCEL_CHROMA_DIR)
+
+HARDCODED_FORMULAS = {
+    "debt to equity": {
+        "computation_type": "ratio",
+        "formula": "metric1 / metric2",
+        "metrics": [
+            {"name": "Borrowings", "sheet": "balance_sheet"},
+            {"name": "Networth", "sheet": "balance_sheet"}
+        ],
+        "multiply_by_100": False
+    },
+    "cash conversion": {
+        "computation_type": "ratio",
+        "formula": "metric1 / metric2",
+        "metrics": [
+            {"name": "Cash from Operating Activity", "sheet": "cash_flow"},
+            {"name": "Net profit", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "interest coverage": {
+        "computation_type": "ratio",
+        "formula": "metric1 / metric2",
+        "metrics": [
+            {"name": "EBITDA", "sheet": "profit_loss"},
+            {"name": "Interest", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "revenue growth": {
+        "computation_type": "percentage",
+        "formula": "((metric2 - metric1) / metric1) * 100",
+        "metrics": [
+            {"name": "Sales", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "net profit margin": {
+        "computation_type": "percentage",
+        "formula": "(metric1 / metric2) * 100",
+        "metrics": [
+            {"name": "Net profit", "sheet": "profit_loss"},
+            {"name": "Sales", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "roe": {
+        "computation_type": "percentage",
+        "formula": "(metric1 / metric2) * 100",
+        "metrics": [
+            {"name": "Net profit", "sheet": "profit_loss"},
+            {"name": "Networth", "sheet": "balance_sheet"}
+        ],
+        "multiply_by_100": False
+    },
+    "return on equity": {
+        "computation_type": "percentage",
+        "formula": "(metric1 / metric2) * 100",
+        "metrics": [
+            {"name": "Net profit", "sheet": "profit_loss"},
+            {"name": "Networth", "sheet": "balance_sheet"}
+        ],
+        "multiply_by_100": False
+    },
+    "ebitda margin": {
+        "computation_type": "percentage",
+        "formula": "(metric1 / metric2) * 100",
+        "metrics": [
+            {"name": "EBITDA", "sheet": "profit_loss"},
+            {"name": "Sales", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+}
+
+HARDCODED_FORMULA_ALIASES = {
+    "debt to equity": ["debt to equity", "debt-to-equity", "dte"],
+    "cash conversion": ["cash conversion", "cash conversion ratio", "cash conversion ratio ", "ccr"],
+    "interest coverage": ["interest coverage", "interest coverage ratio", "icr"],
+    "revenue growth": [
+        "revenue growth",
+        "revenue grew",
+        "growth in revenue",
+        "growth rate of revenue",
+        "percentage revenue growth",
+        "revenue increase"
+    ],
+    "net profit margin": ["net profit margin", "npm"],
+    "roe": ["roe", "return on equity"],
+    "return on equity": ["return on equity", "roe"],
+    "ebitda margin": ["ebitda margin"],
+}
 
 
 def _normalize_year(year: str) -> str:
     return str(year).replace("FY", "").strip()
 
 
-def is_computation_question(question: str) -> bool:
+def _match_hardcoded_formula(question: str) -> dict | None:
     lowered = question.lower()
-    l2_keywords = [
-        "margin", "ratio", "percentage", "coverage",
-        "ebitda", "return on", "as a percentage",
-    ]
-    l3_keywords = [
-        "debt to equity", "debt-to-equity", "roe",
-        "cash conversion", "interest coverage",
-    ]
-    l4_keywords = [
-        "grew by", "changed from", "difference between",
-        "how much did", "growth from", "change from",
-    ]
+    for key, formula_template in HARDCODED_FORMULAS.items():
+        aliases = HARDCODED_FORMULA_ALIASES.get(key, [key])
+        if any(alias in lowered for alias in aliases):
+            years = re.findall(r"20\d\d", question)
+            if not years:
+                years = re.findall(r"FY(\d\d)", question)
+                years = [f"20{year}" for year in years]
 
-    logger.info(f"[CalcAgent] Keywords check for: {question[:50]}")
+            result = formula_template.copy()
+            result["years"] = years if years else []
+            logger.info(f"[CalcAgent] Using hardcoded formula for: {key}")
+            return result
+    return None
 
-    result = any(keyword in lowered for keyword in l2_keywords)
-    if not result:
-        result = any(keyword in lowered for keyword in l3_keywords)
 
-    years_mentioned = re.findall(r"FY20\d\d", question)
-    if not result:
-        result = len(years_mentioned) >= 2 and any(keyword in lowered for keyword in l4_keywords)
+def is_computation_question(question: str) -> dict:
+    prompt = f'''You are a financial query classifier. Classify this question into one of these types:
+- lookup: asking for a specific stored value (e.g. what was revenue in FY22)
+- ratio: asking for a ratio or coverage metric (e.g. debt to equity, interest coverage)
+- margin: asking for a margin percentage (e.g. EBITDA margin, net profit margin)
+- growth: asking for growth rate between two periods
+- derived: any other calculation requiring arithmetic
 
-    logger.info(f"[CalcAgent] Result: {result}")
+Return ONLY JSON: {{"type": "lookup", "needs_calculation": false}} or {{"type": "ratio", "needs_calculation": true}}
 
-    return result
+Rule: lookup returns needs_calculation=false. All others return needs_calculation=true.
+
+Question: {question}'''
+
+    try:
+        client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0
+        )
+        content = response.choices[0].message.content.strip()
+        result = json.loads(content)
+        query_type = result.get("type", "lookup")
+        needs_calculation = result.get("needs_calculation")
+        if isinstance(query_type, str) and isinstance(needs_calculation, bool):
+            logger.info(
+                f"[CalcAgent] LLM computation check for: {question[:50]} → {query_type} / {needs_calculation}"
+            )
+            return {"type": query_type, "needs_calculation": needs_calculation}
+    except Exception as exc:
+        logger.warning(f"[CalcAgent] LLM computation detection failed, defaulting to False: {exc}")
+
+    return {"type": "lookup", "needs_calculation": False}
 
 
 def parse_computation_intent(question: str) -> dict | None:
@@ -64,47 +177,39 @@ Return this exact JSON structure:
   "metrics": [
     {{"name": "exact metric name as in data", "sheet": "profit_loss" | "balance_sheet" | "cash_flow"}}
   ],
-  "years": ["2025"] or ["2023", "2025"] for trend,
+    "years": [] if no year is mentioned, or ["2023", "2025"] for trend,
   "multiply_by_100": true or false
 }}
-
-Known metric names:
-- profit_loss sheet: Sales, Net profit, Depreciation, Interest,
-  Profit before tax, Tax, EBITDA, Dividend Amount, Raw Material Cost,
-  Employee Cost
-- balance_sheet sheet: Borrowings, Reserves, Equity Share Capital,
-  Networth, Net Block, Other Liabilities, Receivables, Inventory,
-  Cash & Bank
-- cash_flow sheet: Cash from Operating Activity,
-  Cash from Investing Activity, Cash from Financing Activity,
-  Net Cash Flow
-
-Common formulas:
-- Debt to Equity = Borrowings / Networth
-- Interest Coverage = EBITDA / Interest
-- ROE = (Net profit / Networth) * 100
-- Net Profit Margin = (Net profit / Sales) * 100
-- Cash Conversion = Cash from Operating Activity / Net profit
-- Interest % of Sales = (Interest / Sales) * 100
-- EBITDA = Profit before tax + Depreciation + Interest
 """
 
     try:
-        response = ollama.chat(
-            model="llama3.1:8b",
-            messages=[{"role": "user", "content": prompt}]
+        client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[{'role': 'user', 'content': prompt}],
+            temperature=0
         )
-        content = response["message"]["content"].strip()
+        content = response.choices[0].message.content.strip()
         return json.loads(content)
     except Exception as exc:
         logger.error(f"Failed to parse computation intent: {exc}")
         return None
 
 
-def fetch_metric(metric_name: str, sheet: str, year: str) -> float | None:
+def fetch_metric(metric_name: str, sheet: str, year: str, company_slug: str | None = None) -> float | None:
     try:
-        year = _normalize_year(year)
-        collection = chroma_client.get_collection(settings.EXCEL_COLLECTION_NAME)
+        year = str(year).strip()
+        year = re.sub(r"^FY\s*", "", year, flags=re.IGNORECASE).strip()
+        if len(year) == 2 and year.isdigit():
+            year = f"20{year}"
+        collection_name = f"{company_slug}_excel" if company_slug else settings.EXCEL_COLLECTION_NAME
+        if company_slug:
+            company_client = get_persistent_client(
+                str(settings.BASE_DIR / "chroma_store" / company_slug / "excel")
+            )
+            collection = company_client.get_collection(collection_name)
+        else:
+            collection = chroma_client.get_collection(collection_name)
         results = collection.get(
             where={"$and": [{"year": year}, {"sheet": sheet}]},
             include=["documents", "metadatas"]
@@ -164,12 +269,13 @@ def _safe_eval_expression(expression: str, variables: dict[str, float]) -> float
         return None
 
 
-def compute_answer(intent: dict) -> dict | None:
+def compute_answer(intent: dict, company_slug: str | None = None) -> dict | None:
     try:
         metrics = intent.get("metrics", [])
         years = [_normalize_year(year) for year in intent.get("years", [])]
         formula = intent.get("formula", "")
         multiply_by_100 = bool(intent.get("multiply_by_100", False))
+        computation_type = intent.get("computation_type", "derived")
 
         metric_year_pairs: list[tuple[dict, str]] = []
         if len(metrics) == 1 and len(years) >= 2:
@@ -185,11 +291,12 @@ def compute_answer(intent: dict) -> dict | None:
 
         variables: dict[str, float] = {}
         values_used: dict[str, float] = {}
+        metrics_used: list[dict[str, str | float]] = []
 
         for index, (metric, year) in enumerate(metric_year_pairs, start=1):
             metric_name = metric.get("name")
             sheet = metric.get("sheet")
-            value = fetch_metric(metric_name, sheet, year)
+            value = fetch_metric(metric_name, sheet, year, company_slug=company_slug)
             logger.info(f"[CalcAgent] Fetched {metric_name} FY{year}: {value}")
             if value is None:
                 return None
@@ -198,6 +305,12 @@ def compute_answer(intent: dict) -> dict | None:
             variable_name = f"{metric_name.replace(' ', '_').replace('&', 'and')}_{year}"
             variables[placeholder] = value
             values_used[variable_name] = value
+            metrics_used.append({
+                "name": metric_name,
+                "sheet": sheet,
+                "year": year,
+                "value": value,
+            })
 
         evaluated_formula = formula
         for index, (metric, year) in enumerate(metric_year_pairs, start=1):
@@ -217,10 +330,18 @@ def compute_answer(intent: dict) -> dict | None:
         result = round(result, 2)
         year_value = years[-1] if years else "computed"
 
+        # Replace placeholders like metric1, metric2... in the reported formula
+        display_formula = formula
+        for index, (metric, year) in enumerate(metric_year_pairs, start=1):
+            metric_name = metric.get("name", "")
+            display_formula = display_formula.replace(f"metric{index}", metric_name)
+
         return {
             "answer": result,
-            "formula_used": formula,
+            "formula_used": display_formula,
             "values_used": values_used,
+            "metrics_used": metrics_used,
+            "computation_type": computation_type,
             "year": year_value,
         }
     except Exception as exc:
@@ -228,27 +349,61 @@ def compute_answer(intent: dict) -> dict | None:
         return None
 
 
-def try_calculation(question: str) -> dict | None:
+def try_calculation(question: str, company_slug: str | None = None) -> dict | None:
     trace: list[str] = []
     trace.append("Detected: computation question")
     logger.info(f"[CalcAgent] Checking question: {question}")
 
-    is_comp = is_computation_question(question)
-    logger.info(f"[CalcAgent] Is computation question: {is_comp}")
-    if not is_comp:
-        logger.warning("[CalcAgent] Falling back to RAG at step: is_computation_question")
-        return None
-
-    intent = parse_computation_intent(question)
-    logger.info(f"[CalcAgent] Parsed intent: {intent}")
+    intent = _match_hardcoded_formula(question)
     if intent is None:
-        logger.warning("[CalcAgent] Falling back to RAG at step: parse_computation_intent")
-        return None
+        classification = is_computation_question(question)
+        logger.info(f"[CalcAgent] Classification: {classification}")
+        if not classification.get("needs_calculation"):
+            logger.warning("[CalcAgent] Falling back to RAG at step: is_computation_question")
+            return None
+
+        intent = parse_computation_intent(question)
+        logger.info(f"[CalcAgent] Parsed intent: {intent}")
+        if intent is None:
+            logger.warning("[CalcAgent] Falling back to RAG at step: parse_computation_intent")
+            return None
+
+    metrics = intent.get("metrics", [])
+    years = [_normalize_year(year) for year in intent.get("years", [])]
+    if len(years) >= 2:
+        metric_name = metrics[0].get("name") if metrics else "unknown"
+        results: list[dict[str, object]] = []
+        trace.append(f"Multi-year metric: {metric_name}")
+
+        for year in years:
+            year_intent = dict(intent)
+            year_intent["years"] = [year]
+
+            computed = compute_answer(year_intent, company_slug=company_slug)
+            logger.info(f"[CalcAgent] Multi-year computed result for FY{year}: {computed}")
+            if computed is None:
+                return None
+
+            results.append({
+                "year": year,
+                "answer": computed.get("answer"),
+                "formula_used": computed.get("formula_used"),
+                "values_used": computed.get("values_used"),
+            })
+
+        trace.append("Multi-year lookup completed")
+        return {
+            "multi_year": True,
+            "metric_name": metric_name,
+            "results": results,
+            "year": years[-1] if years else "computed",
+            "trace": "\n".join(trace),
+        }
 
     trace.append(f"Intent: {intent.get('computation_type')}")
     trace.append(f"Formula: {intent.get('formula')}")
 
-    computed = compute_answer(intent)
+    computed = compute_answer(intent, company_slug=company_slug)
     logger.info(f"[CalcAgent] Computed result: {computed}")
     if computed is None:
         logger.warning("[CalcAgent] Falling back to RAG at step: compute_answer")

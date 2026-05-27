@@ -1,10 +1,16 @@
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass, field
 from typing import List, Optional
 
+import openai
 from loguru import logger
+
+from config import get_settings
+
+settings = get_settings()
 
 
 @dataclass
@@ -56,23 +62,8 @@ IMAGE_FORCE_TRIGGERS = [
 ]
 
 
-def route_question(
-    question: str,
-    company_slug: str,
-    year: Optional[str] = None,
-) -> RouteDecision:
+def _keyword_route(question: str, company_slug: str, year: Optional[str] = None) -> RouteDecision:
     q = question.lower()
-
-    # Detect year from question if not provided
-    if not year:
-        match = re.search(r'\b(20\d{2})\b', question)
-        year = match.group(1) if match else None
-
-        # Also handle FY format
-        fy_match = re.search(r'\bFY(\d{2,4})\b', question, re.IGNORECASE)
-        if fy_match:
-            fy = fy_match.group(1)
-            year = f"20{fy}" if len(fy) == 2 else fy
 
     # Force image route
     if any(trigger in q for trigger in IMAGE_FORCE_TRIGGERS):
@@ -114,3 +105,72 @@ def route_question(
         year=year,
         collections_searched=collections
     )
+
+
+def route_question(
+    question: str,
+    company_slug: str,
+    year: Optional[str] = None,
+) -> RouteDecision:
+    q = question.lower()
+
+    extracted_year = year
+    if not extracted_year:
+        match = re.search(r'\b(20\d{2})\b', question)
+        extracted_year = match.group(1) if match else None
+
+        fy_match = re.search(r'\bFY(\d{2,4})\b', question, re.IGNORECASE)
+        if fy_match:
+            fy = fy_match.group(1)
+            extracted_year = f"20{fy}" if len(fy) == 2 else fy
+
+    prompt = f"""You are a financial data router. Given a question, decide which data sources to search.
+
+Available sources:
+- excel: structured financial data, precise numbers, 10 years of financials, ratios calculated from numbers
+- pdf: annual report narrative, strategy, MD&A, business segments, management discussion, chairman message, risk factors, product descriptions, operational framework
+- images: charts, graphs, visuals, infographics from annual report pages
+- concall: earnings call transcripts, management commentary, guidance, analyst Q&A
+
+Examples:
+Q: What was the revenue in FY22? → {{"source_types": ["excel"], "year": "2022"}}
+Q: What is the company's operational strategy? → {{"source_types": ["pdf"], "year": null}}
+Q: Who is the chairman and what framework does he highlight? → {{"source_types": ["pdf"], "year": null}}
+Q: What are the risk factors mentioned in the annual report? → {{"source_types": ["pdf"], "year": null}}
+Q: What did management guide for next quarter? → {{"source_types": ["concall"], "year": null}}
+Q: Calculate the debt to equity ratio for FY23? → {{"source_types": ["excel"], "year": "2023"}}
+Q: What segment has higher margins and why? → {{"source_types": ["pdf"], "year": null}}
+Q: Show me the revenue chart → {{"source_types": ["images"], "year": null}}
+Q: What was EBITDA margin trend from FY21 to FY22? → {{"source_types": ["excel", "pdf"], "year": null}}
+
+Return ONLY a JSON object, no explanation, no markdown:
+{{"source_types": ["pdf"], "year": "2022"}}
+
+Question: {question}
+"""
+
+    try:
+        client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0
+        )
+        content = response.choices[0].message.content.strip()
+        result = json.loads(content)
+        source_types = result.get("source_types", [])
+        if not source_types:
+            raise ValueError("empty source_types")
+        routed_year = result.get("year") or extracted_year
+        collections = [f"{company_slug}_{source_type}" for source_type in source_types]
+
+        logger.info(f"[Router] LLM → {source_types} | Year: {routed_year}")
+
+        return RouteDecision(
+            source_types=source_types,
+            year=routed_year,
+            collections_searched=collections,
+        )
+    except Exception:
+        logger.warning("[Router] LLM routing failed, falling back to keywords")
+        return _keyword_route(question, company_slug, extracted_year)

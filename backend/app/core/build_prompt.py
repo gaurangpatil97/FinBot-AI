@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 
-def build_prompt(question: str, chunks: list[dict]) -> str:
+def build_prompt(question: str, chunks: list[dict], mode: str = "rag") -> str:
     context = ""
     for i, chunk in enumerate(chunks, start=1):
         page = chunk["metadata"].get("page") or chunk["metadata"].get("sheet", "unknown")
@@ -10,6 +10,27 @@ def build_prompt(question: str, chunks: list[dict]) -> str:
         context += f"\n[{i}] Source: {source} | Page/Sheet: {page} | Year: {year}\n"
         context += chunk["content"] + "\n"
 
+    if mode == "calc":
+        # Conversational, calculation-focused instructions (no numbered headers)
+        return f"""You are a senior financial analyst assistant helping a Chartered Accountant.
+    Use ONLY the context provided below to answer the question.
+    When a calculation is required, clearly present the following in a concise, conversational form:
+    - The formula used
+    - The numeric values used (with units)
+    - The computed result (with units)
+    Always cite the exact source (filename + page/sheet + year).
+    Never guess — only use numbers explicitly present in context.
+
+    Context:
+    {context}
+
+    Question: {question}
+
+    Do not convert ratios to percentages unless the formula explicitly multiplies by 100. Express ratios as decimals only.
+
+    Answer:"""
+
+    # default/rag mode: keep existing, more structured instructions
     return f"""You are a senior financial analyst assistant helping a Chartered Accountant.
 Use ONLY the context provided below to answer the question.
 The context contains data from four sources:
