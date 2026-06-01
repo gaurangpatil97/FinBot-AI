@@ -397,12 +397,12 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   const [activeCompany, setActiveCompany] = useState(defaultCompanyName);
   const [activeTicker, setActiveTicker] = useState(defaultTicker);
   const [collections, setCollections] = useState<CollectionRecord[]>(() => createInitialCollections(defaultCompanyName));
-  const [documents, setDocuments] = useState<DocumentRecord[]>(() => syncDocuments(createInitialCollections(defaultCompanyName)));
+  const [, setDocuments] = useState<DocumentRecord[]>(() => syncDocuments(createInitialCollections(defaultCompanyName)));
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [uploadOpen, setUploadOpen] = useState(false);
   const [resumeBannerVisible, setResumeBannerVisible] = useState(false);
-  const [hasSession, setHasSession] = useState(false);
+  const [, setHasSession] = useState(false);
   const [savedSession, setSavedSession] = useState<SavedDatasetSession | null>(null);
   const [corpusFiles, setCorpusFiles] = useState<Record<CollectionKey, CorpusFileRecord[]>>({
     excel: [],
@@ -435,7 +435,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
 
   useEffect(() => {
     let cancelled = false;
-    let timeoutId: ReturnType<typeof window.setTimeout> | null = null;
+    let timeoutId: number | null = null;
 
     const run = async () => {
       const companySlug = getCompanySlugFromLocalStorage(activeCompany);
@@ -495,6 +495,8 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
       return;
     }
 
+    let refreshTimeoutId: number | null = null;
+
     const stored = window.localStorage.getItem(sessionStorageKey);
     if (!stored) {
       return;
@@ -502,18 +504,27 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
 
     const parsed = parseSessionPayload(stored);
     if (!parsed) {
-      void refreshCompanyStatus(defaultCompanyName);
-      return;
+      refreshTimeoutId = window.setTimeout(() => {
+        void refreshCompanyStatus(defaultCompanyName);
+      }, 0);
+    } else {
+      refreshTimeoutId = window.setTimeout(() => {
+        setSavedSession(parsed);
+        setCompanies((current) => (current.includes(parsed.companyName) ? current : [...current, parsed.companyName]));
+        setActiveCompany(parsed.companyName);
+        setActiveTicker(parsed.ticker);
+        setMessages([]);
+        setHasSession(true);
+        setResumeBannerVisible(true);
+      }, 0);
     }
 
-    setSavedSession(parsed);
-    setCompanies((current) => (current.includes(parsed.companyName) ? current : [...current, parsed.companyName]));
-    setActiveCompany(parsed.companyName);
-    setActiveTicker(parsed.ticker);
-    setMessages([]);
-    setHasSession(true);
-    setResumeBannerVisible(true);
-  }, []);
+    return () => {
+      if (refreshTimeoutId) {
+        window.clearTimeout(refreshTimeoutId);
+      }
+    };
+  }, [defaultCompanyName]);
 
   const handleSend = async () => {
     const trimmed = inputValue.trim();
@@ -700,8 +711,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     setResumeBannerVisible(false);
   };
 
-  const corpusCount = documents.length;
-  const chunkCount = 12340;
+  const activeCompanySlug = getCompanySlugFromLocalStorage(activeCompany);
 
   return (
     <div className="flex min-h-screen bg-[#0f1117] text-white">
@@ -724,9 +734,6 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
               <span className="relative inline-flex h-3 w-3 rounded-full bg-blue-400" />
             </span>
             <span>FinbotAI beta</span>
-          </div>
-          <div className="text-sm text-[#8b949e]">
-            Corpus: {corpusCount} docs · {chunkCount.toLocaleString()} chunks · {activeTicker}
           </div>
         </header>
 
@@ -757,7 +764,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
         ) : null}
 
         <div className="mt-4">
-          <KPICards revenue="₹153,670 Cr" margin="17.1%" chunksIndexed="3,500" docsUploaded="47" />
+          <KPICards companySlug={activeCompanySlug} />
         </div>
 
         <div className="mt-4 flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-white/8 bg-[#1c2128]">

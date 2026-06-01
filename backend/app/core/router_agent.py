@@ -142,6 +142,12 @@ Q: Calculate the debt to equity ratio for FY23? → {{"source_types": ["excel"],
 Q: What segment has higher margins and why? → {{"source_types": ["pdf"], "year": null}}
 Q: Show me the revenue chart → {{"source_types": ["images"], "year": null}}
 Q: What was EBITDA margin trend from FY21 to FY22? → {{"source_types": ["excel", "pdf"], "year": null}}
+Q: What was the revenue shown in the FY22 annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
+Q: What percentage was shown in the annual report chart? → {{'source_types': ['images'], 'year': null}}
+Q: What was the market cap shown in FY22 annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
+Q: What does the annual report show about segment revenue? → {{'source_types': ['images', 'pdf'], 'year': null}}
+Q: What was the ROCE shown in the annual report visuals? → {{'source_types': ['images'], 'year': null}}
+Q: How many plants shown in annual report? → {{'source_types': ['images', 'pdf'], 'year': null}}
 
 Return ONLY a JSON object, no explanation, no markdown:
 {{"source_types": ["pdf"], "year": "2022"}}

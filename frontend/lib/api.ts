@@ -27,6 +27,17 @@ export async function getCompanyStatus(slug: string) {
   return res.json();
 }
 
+export async function getCompanyKpi(slug: string, metric: string, year: string) {
+  const params = new URLSearchParams({ metric, year });
+  const res = await fetch(`${BASE_URL}/api/v1/companies/${slug}/kpis?${params.toString()}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch KPI");
+  }
+
+  return res.json();
+}
+
 export async function getCompanyFiles(slug: string) {
   const res = await fetch(`${BASE_URL}/api/v1/companies/${slug}/files`);
   if (!res.ok) throw new Error("Failed to fetch company files");

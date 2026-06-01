@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any, Dict, List
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 
+from app.core.calculation_agent import fetch_metric
 from app.db.vector_store import get_persistent_client
 from app.models.schemas import CompanyCreateRequest, CompanyStatus
 from config import settings
@@ -22,6 +24,31 @@ def _read_companies_file() -> Dict[str, Any]:
 
 def _write_companies_file(payload: Dict[str, Any]) -> None:
     COMPANIES_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def _normalize_fiscal_year(year: str) -> str:
+    normalized = re.sub(r"^FY\s*", "", str(year).strip(), flags=re.IGNORECASE)
+    if len(normalized) == 2 and normalized.isdigit():
+        normalized = f"20{normalized}"
+    return normalized
+
+
+def _metric_sheet_for_kpi(metric: str) -> tuple[str, str]:
+    metric_key = metric.strip().lower()
+
+    mapping = {
+        "sales": ("Sales", "profit_loss"),
+        "net profit": ("Net profit", "profit_loss"),
+        "ebitda": ("EBITDA", "profit_loss"),
+        "borrowings": ("Borrowings", "balance_sheet"),
+        "interest": ("Interest", "profit_loss"),
+        "depreciation": ("Depreciation", "profit_loss"),
+    }
+
+    if metric_key not in mapping:
+        raise HTTPException(status_code=400, detail="Unsupported metric")
+
+    return mapping[metric_key]
 
 
 @router.get("/companies", response_model=List[dict])
@@ -63,9 +90,8 @@ def get_company_status(slug: str) -> dict:
     if not company:
         raise HTTPException(status_code=404, detail="Company not found")
 
-    import chromadb
-
     collections: Dict[str, Dict[str, int | str]] = {}
+    files: List[Dict[str, Any]] = []
     collection_map = [
         ("excel", f"{slug}_excel"),
         ("pdf", f"{slug}_pdf_text"),
@@ -79,6 +105,41 @@ def get_company_status(slug: str) -> dict:
             client = get_persistent_client(chroma_path)
             collection = client.get_collection(collection_name)
             count = collection.count()
+            data = collection.get(include=["metadatas"])
+            metadatas = data.get("metadatas", []) if isinstance(data, dict) else []
+            file_records: Dict[str, Dict[str, Any]] = {}
+
+            for metadata in metadatas:
+                if not isinstance(metadata, dict):
+                    continue
+
+                filename = metadata.get("filename")
+                if not isinstance(filename, str) or not filename.strip():
+                    filename = "unknown"
+
+                file_id = f"{col_type}:{filename}"
+                entry = file_records.setdefault(
+                    file_id,
+                    {
+                        "file_id": file_id,
+                        "filename": filename,
+                        "file_type": col_type,
+                        "chunks": 0,
+                        "year": None,
+                        "quarter": None,
+                    },
+                )
+                entry["chunks"] = int(entry["chunks"] or 0) + 1
+
+                year = metadata.get("year")
+                if entry["year"] is None and isinstance(year, str) and year.strip() and year != "unknown":
+                    entry["year"] = year.strip()
+
+                quarter = metadata.get("quarter")
+                if entry["quarter"] is None and isinstance(quarter, str) and quarter.strip() and quarter != "unknown":
+                    entry["quarter"] = quarter.strip()
+
+            files.extend(file_records.values())
             collections[col_type] = {
                 "status": "ready" if count > 0 else "no-embeddings",
                 "chunks": count,
@@ -93,6 +154,33 @@ def get_company_status(slug: str) -> dict:
         "slug": company["slug"],
         "ticker": company["ticker"],
         "collections": collections,
+        "files": files,
+    }
+
+
+@router.get("/companies/{slug}/kpis")
+def get_company_kpi(
+    slug: str,
+    metric: str = Query(..., description="Financial KPI metric"),
+    year: str = Query(..., description="Fiscal year (FY24 or 2024)"),
+) -> dict:
+    payload = _read_companies_file()
+    company = next((item for item in payload.get("companies", []) if item.get("slug") == slug), None)
+    if not company:
+        raise HTTPException(status_code=404, detail="Company not found")
+
+    metric_name, sheet = _metric_sheet_for_kpi(metric)
+    normalized_year = _normalize_fiscal_year(year)
+    value = fetch_metric(metric_name, sheet, normalized_year, slug)
+
+    if value is None:
+        raise HTTPException(status_code=404, detail="Metric not found")
+
+    return {
+        "metric": metric_name,
+        "value": value,
+        "year": normalized_year,
+        "unit": "Cr",
     }
 
 
