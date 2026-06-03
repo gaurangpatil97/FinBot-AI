@@ -2,14 +2,17 @@ from __future__ import annotations
 
 from typing import Any, Dict, List
 
+import hashlib
+
 import openai
 from loguru import logger
 
 from app.core.build_prompt import build_prompt
+from app.core.clarifier_agent import decompose_query
 from app.core.calculation_agent import try_calculation
 from app.core.embedder import generate_embeddings
 from app.core.router_agent import route_question
-from app.db.vector_store import query_collection, query_collection_by_type
+from app.db.vector_store import get_or_create_collection, query_collection, query_collection_by_type
 from app.models.schemas import Citation, QueryRequest, QueryResponse
 from config import settings
 
@@ -82,6 +85,34 @@ def build_calculation_context(calc_result: dict, company_slug: str) -> list[dict
     ]
 
 
+def query_collection_all(collection_name: str, chroma_path: str = None) -> list[dict]:
+    collection = get_or_create_collection(collection_name, chroma_path=chroma_path)
+    results = collection.get(include=["documents", "metadatas"])
+    documents = results.get("documents", []) or []
+    metadatas = results.get("metadatas", []) or []
+
+    chunks = []
+    for doc, meta in zip(documents, metadatas):
+        chunks.append({
+            "content": doc,
+            "metadata": meta,
+            "score": 1.0
+        })
+    logger.info(f"Retrieved ALL {len(chunks)} chunks from '{collection_name}'")
+    return chunks
+
+
+def _normalize_year(year: str | None) -> str | None:
+    if isinstance(year, list):
+        year = year[0] if year else None
+    if year is None:
+        return None
+    val = str(year).replace("FY", "").strip()
+    if len(val) == 2 and val.isdigit():
+        val = f"20{val}"
+    return val
+
+
 def normalize_pdf_year(routed_year: str | None) -> str | None:
     if isinstance(routed_year, list):
         routed_year = routed_year[0] if routed_year else None
@@ -135,60 +166,80 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             agent_trace=calc_result.get("trace", "")
         )
 
-    # Step 3 — Embed the question
-    query_chunks = [{"content": question, "metadata": {}, "embedding": None}]
-    query_embedding = generate_embeddings(query_chunks)[0]["embedding"]
+    # Step 3 — Decompose and embed the sub-queries
+    sub_queries = decompose_query(question)
 
     # Step 4 — Retrieve chunks from routed collections
     all_chunks = []
+    seen_hashes = set()
+    k_value = 8 if len(sub_queries) > 1 else 3
 
-    if "excel" in source_types:
-        chunks = query_collection(
-            query_embedding,
-            f"{company_slug}_excel",
-            year=routed_year,
-            chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel"
-        )
-        logger.info(f"Excel chunks: {len(chunks)}")
-        all_chunks.extend(chunks)
+    for coll_type in source_types:
+        if coll_type == "excel" and len(sub_queries) > 1:
+            excel_chunks = query_collection_all(
+                f"{company_slug}_excel",
+                chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel"
+            )
+            for chunk in excel_chunks:
+                content = str(chunk.get("content", ""))
+                content_hash = hashlib.md5(content.encode("utf-8")).hexdigest()
+                if content_hash not in seen_hashes:
+                    seen_hashes.add(content_hash)
+                    all_chunks.append(chunk)
+            continue
 
-    if "pdf" in source_types:
-        pdf_year = normalize_pdf_year(routed_year)
-        chunks = query_collection(
-            query_embedding,
-            f"{company_slug}_pdf_text",
-            year=pdf_year,
-            chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/pdf"
-        )
-        logger.info(f"PDF text chunks: {len(chunks)}")
-        all_chunks.extend(chunks)
+        for sub_q in sub_queries:
+            query_chunks = [{"content": sub_q, "metadata": {}, "embedding": None}]
+            query_embedding = generate_embeddings(query_chunks)[0]["embedding"]
 
-    if "images" in source_types:
-        image_year = normalize_pdf_year(routed_year)
-        chunks = query_collection_by_type(
-            query_embedding,
-            f"{company_slug}_images",
-            chunk_type="image",
-            year=image_year,
-            top_k=4,
-            chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/images"
-        )
-        logger.info(f"Image chunks: {len(chunks)}")
-        all_chunks.extend(chunks)
+            sub_chunks = []
+            if coll_type == "excel":
+                sub_chunks = query_collection(
+                    query_embedding,
+                    f"{company_slug}_excel",
+                    top_k=k_value,
+                    year=_normalize_year(routed_year),
+                    chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel"
+                )
+            elif coll_type == "pdf":
+                pdf_year = normalize_pdf_year(routed_year)
+                sub_chunks = query_collection(
+                    query_embedding,
+                    f"{company_slug}_pdf_text",
+                    top_k=k_value,
+                    year=pdf_year,
+                    chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/pdf"
+                )
+            elif coll_type == "images":
+                image_year = normalize_pdf_year(routed_year)
+                sub_chunks = query_collection_by_type(
+                    query_embedding,
+                    f"{company_slug}_images",
+                    chunk_type="image",
+                    year=image_year,
+                    top_k=k_value,
+                    chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/images"
+                )
+            elif coll_type == "concall":
+                sub_chunks = query_collection(
+                    query_embedding,
+                    f"{company_slug}_concalls",
+                    top_k=k_value,
+                    year=None,
+                    chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/concall"
+                )
 
-    if "concall" in source_types:
-        chunks = query_collection(
-            query_embedding,
-            f"{company_slug}_concalls",
-            year=None,
-            chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/concall"
-        )
-        logger.info(f"Concall chunks: {len(chunks)}")
-        all_chunks.extend(chunks)
+            for chunk in sub_chunks:
+                content = str(chunk.get("content", ""))
+                content_hash = hashlib.md5(content.encode("utf-8")).hexdigest()
+                if content_hash not in seen_hashes:
+                    seen_hashes.add(content_hash)
+                    all_chunks.append(chunk)
 
     # Step 5 — Rank and trim
     all_chunks = sorted(all_chunks, key=lambda x: x["score"], reverse=True)
-    top_chunks = all_chunks[:settings.TOP_K_CHUNKS]
+    limit = 20 if len(sub_queries) > 1 else settings.TOP_K_CHUNKS
+    top_chunks = all_chunks[:limit]
 
     if not top_chunks:
         return QueryResponse(

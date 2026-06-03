@@ -216,18 +216,53 @@ def fetch_metric(metric_name: str, sheet: str, year: str, company_slug: str | No
         )
 
         documents = results.get("documents", []) or []
-        for document in documents:
-            for line in str(document).splitlines():
-                stripped = line.strip()
-                if not stripped.lower().startswith(metric_name.lower()):
-                    continue
-                match = re.search(r"([-+]?\d*\.?\d+)\s*Cr", stripped)
-                if match:
-                    return float(match.group(1))
-                number_match = re.search(r"([-+]?\d*\.?\d+)", stripped)
-                if number_match:
-                    return float(number_match.group(1))
-        return None
+
+        def find_value(name_to_search: str) -> float | None:
+            for document in documents:
+                for line in str(document).splitlines():
+                    stripped = line.strip()
+                    if not stripped.lower().startswith(name_to_search.lower()):
+                        continue
+                    match = re.search(r"([-+]?\d*\.?\d+)\s*Cr", stripped)
+                    if match:
+                        return float(match.group(1))
+                    number_match = re.search(r"([-+]?\d*\.?\d+)", stripped)
+                    if number_match:
+                        return float(number_match.group(1))
+            return None
+
+        def find_partial_value(name_to_search: str) -> float | None:
+            for document in documents:
+                for line in str(document).splitlines():
+                    stripped = line.strip()
+                    if name_to_search.lower() not in stripped.lower():
+                        continue
+                    match = re.search(r"([-+]?\d*\.?\d+)\s*Cr", stripped)
+                    if match:
+                        return float(match.group(1))
+                    number_match = re.search(r"([-+]?\d*\.?\d+)", stripped)
+                    if number_match:
+                        return float(number_match.group(1))
+            return None
+
+        val = find_value(metric_name)
+        if val is not None:
+            return val
+
+        # Try singular/plural variant by stripping or adding a trailing s
+        if metric_name.endswith("s") or metric_name.endswith("S"):
+            variant = metric_name[:-1]
+        else:
+            variant = metric_name + "s"
+
+        logger.info(f"[CalcAgent] Exact match failed for '{metric_name}', retrying with variant '{variant}'")
+        val_variant = find_value(variant)
+        if val_variant is not None:
+            return val_variant
+
+        # Try partial contains match
+        logger.info(f"[CalcAgent] Variant match failed, retrying with partial contains match for '{metric_name}'")
+        return find_partial_value(metric_name)
     except Exception as exc:
         logger.error(f"Failed to fetch metric {metric_name} for {sheet} {year}: {exc}")
         return None
@@ -367,6 +402,10 @@ def try_calculation(question: str, company_slug: str | None = None) -> dict | No
         if intent is None:
             logger.warning("[CalcAgent] Falling back to RAG at step: parse_computation_intent")
             return None
+
+    if intent.get("computation_type") == 'trend' and len(intent.get("years", [])) >= 2:
+        logger.warning('[CalcAgent] Multi-year trend detected, falling back to RAG + clarifier')
+        return None
 
     metrics = intent.get("metrics", [])
     years = [_normalize_year(year) for year in intent.get("years", [])]
