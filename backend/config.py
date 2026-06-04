@@ -4,27 +4,11 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DOTENV_PATH = PROJECT_ROOT / ".env"
+from dotenv import load_dotenv
 
 
-def _load_env_file(path: Path) -> None:
-    if not path.exists():
-        return
-
-    for line in path.read_text(encoding="utf-8").splitlines():
-        stripped = line.strip()
-        if not stripped or stripped.startswith("#") or "=" not in stripped:
-            continue
-
-        key, value = stripped.split("=", 1)
-        key = key.strip()
-        if key and key not in os.environ:
-            os.environ[key] = value
-
-
-_load_env_file(DOTENV_PATH)
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
 
 # Project base and companies file
@@ -42,6 +26,7 @@ class Settings:
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
     TMP_DIR: str = os.getenv("TMP_DIR", "")
+    ENABLE_IMAGE_EMBEDDING: bool = False
     EMBEDDING_MODEL: str = "BAAI/bge-large-en-v1.5"
     EMBEDDING_DEVICE: str = "cuda"
     TOP_K_CHUNKS: int = 12

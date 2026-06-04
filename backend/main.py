@@ -8,7 +8,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes.companies import router as companies_router
-from app.api.routes.documents import router as documents_router
 from app.api.routes.query import router as query_router
 from app.api.routes.upload import router as upload_router
 from config import settings
@@ -26,7 +25,6 @@ app.add_middleware(
 app.include_router(companies_router, prefix="/api/v1")
 app.include_router(upload_router, prefix="/api/v1")
 app.include_router(query_router, prefix="/api/v1")
-app.include_router(documents_router, prefix="/api/v1")
 
 
 @app.on_event("startup")

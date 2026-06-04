@@ -7,10 +7,6 @@ from loguru import logger
 from config import settings
 
 def extract_pdf(file_path: str) -> list[dict]:
-    """
-    Existing text extraction — unchanged.
-    Extracts text using two-column split.
-    """
     file_path = Path(file_path)
     filename = file_path.name
     pages_data = []
@@ -42,16 +38,10 @@ def extract_pdf(file_path: str) -> list[dict]:
 
 
 def describe_image(image_path: str, page_num: int) -> str:
-    """Describe image using GPT-4o via OpenAI API with rate limit handling."""
     try:
         import base64
         import requests
         import time
-        from config import settings
-
-        if not settings.OPENAI_API_KEY:
-            logger.error("OPENAI_API_KEY not set")
-            return ""
 
         with open(image_path, "rb") as f:
             image_data = base64.b64encode(f.read()).decode("utf-8")
@@ -84,7 +74,6 @@ def describe_image(image_path: str, page_num: int) -> str:
             "max_tokens": 1000
         }
 
-        # Retry up to 3 times on rate limit
         for attempt in range(3):
             response = requests.post(
                 "https://api.openai.com/v1/chat/completions",
@@ -109,7 +98,6 @@ def describe_image(image_path: str, page_num: int) -> str:
             if len(description) < 20:
                 return ""
 
-            # Small delay between pages to avoid rate limits
             time.sleep(2)
 
             logger.info(f"GPT-4o described page {page_num}: {len(description)} chars")
@@ -124,11 +112,14 @@ def describe_image(image_path: str, page_num: int) -> str:
 
 
 def extract_images_from_pdf(file_path: str) -> list[dict]:
-    """
-    Renders pages with images to PNG at 200 DPI and sends to GPT-4o mini.
-    """
     file_path = Path(file_path)
     filename = file_path.name
+
+    if not settings.ENABLE_IMAGE_EMBEDDING:
+        logger.warning(
+            f"ENABLE_IMAGE_EMBEDDING is False — skipping image embedding for {filename}. Text embeddings will proceed normally."
+        )
+        return []
 
     if not settings.OPENAI_API_KEY:
         logger.warning(

@@ -220,22 +220,10 @@ function draftFromSession(session: SavedDatasetSession | null, companyName: stri
     };
   }
 
-  const files = defaultDraft();
-
-  for (const collection of session.collections) {
-    files[collection.key] = collection.files.map((item) => ({
-      id: item.id,
-      name: item.name,
-      status: item.status,
-      year: item.year,
-      quarter: item.quarter,
-    }));
-  }
-
   return {
     companyName: session.companyName,
     ticker: session.ticker,
-    files,
+    files: defaultDraft(),
   };
 }
 
