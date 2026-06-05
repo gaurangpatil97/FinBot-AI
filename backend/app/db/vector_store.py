@@ -122,14 +122,10 @@ def query_collection(
         include=["documents", "metadatas", "distances"]
     )
 
-    # If year filter returned nothing, retry without filter
     if year and len(results["documents"][0]) == 0:
-        logger.warning(f"Year filter '{year}' returned 0 results, retrying without filter")
-        results = collection.query(
-            query_embeddings=[query_embedding],
-            n_results=top_k,
-            include=["documents", "metadatas", "distances"]
-        )
+        # Wrong year data is worse than no data — let caller handle missing year
+        logger.warning(f"Year filter '{year}' returned 0 results; returning empty list")
+        return []
 
     chunks = []
     for doc, meta, dist in zip(

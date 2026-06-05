@@ -30,9 +30,8 @@ class Settings:
     EMBEDDING_MODEL: str = "BAAI/bge-large-en-v1.5"
     EMBEDDING_DEVICE: str = "cuda"
     TOP_K_CHUNKS: int = 12
-    EXCEL_CHROMA_DIR: str = str(BASE_DIR / "chroma_store" / "excel")
     EXCEL_FILE_PATH: str = str(BASE_DIR / "data" / "uploads")
-    EXCEL_COLLECTION_NAME: str = "excel"
+    TOP_K_CHUNKS_MULTI: int = 20
     CHUNK_SIZE: int = 800
     CHUNK_OVERLAP: int = 150
 

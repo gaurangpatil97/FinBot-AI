@@ -6,6 +6,7 @@ from typing import Any
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from loguru import logger
 
 from app.api.routes.companies import router as companies_router
 from app.api.routes.query import router as query_router
@@ -39,6 +40,21 @@ async def load_companies_file() -> None:
         payload: dict[str, Any] = json.loads(companies_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         payload = {"companies": [], "active_company": None}
+        companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+    # Reset stuck processing jobs — ChromaDB is source of truth
+    dirty = False
+    for company in payload.get("companies", []):
+        slug = company.get("slug", "unknown")
+        collections = company.get("collections", {})
+        if not isinstance(collections, dict):
+            continue
+        for file_type, collection in collections.items():
+            if isinstance(collection, dict) and collection.get("status") == "processing":
+                collection["status"] = "uploaded"
+                dirty = True
+                logger.warning(f"[Startup] Reset stuck status: {slug}/{file_type} processing → uploaded")
+    if dirty:
         companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
     app.state.companies_payload = payload

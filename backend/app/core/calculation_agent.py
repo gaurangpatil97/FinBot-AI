@@ -10,8 +10,6 @@ from app.db.vector_store import get_persistent_client
 
 settings = get_settings()
 
-chroma_client = get_persistent_client(settings.EXCEL_CHROMA_DIR)
-
 HARDCODED_FORMULAS = {
     "debt to equity": {
         "computation_type": "ratio",
@@ -202,14 +200,16 @@ def fetch_metric(metric_name: str, sheet: str, year: str, company_slug: str | No
         year = re.sub(r"^FY\s*", "", year, flags=re.IGNORECASE).strip()
         if len(year) == 2 and year.isdigit():
             year = f"20{year}"
-        collection_name = f"{company_slug}_excel" if company_slug else settings.EXCEL_COLLECTION_NAME
-        if company_slug:
-            company_client = get_persistent_client(
-                str(settings.BASE_DIR / "chroma_store" / company_slug / "excel")
-            )
-            collection = company_client.get_collection(collection_name)
-        else:
-            collection = chroma_client.get_collection(collection_name)
+        # Always scope to company — reject calls without slug.
+        if not company_slug:
+            logger.error("[CalcAgent] company_slug is required — no global Excel collection")
+            return None
+
+        collection_name = f"{company_slug}_excel"
+        company_client = get_persistent_client(
+            str(settings.BASE_DIR / "chroma_store" / company_slug / "excel")
+        )
+        collection = company_client.get_collection(collection_name)
         results = collection.get(
             where={"$and": [{"year": year}, {"sheet": sheet}]},
             include=["documents", "metadatas"]
@@ -223,7 +223,8 @@ def fetch_metric(metric_name: str, sheet: str, year: str, company_slug: str | No
                     stripped = line.strip()
                     if not stripped.lower().startswith(name_to_search.lower()):
                         continue
-                    match = re.search(r"([-+]?\d*\.?\d+)\s*Cr", stripped)
+                    # Unit-agnostic — works beyond Indian Cr format.
+                    match = re.search(r"([-+]?\d*\.?\d+)\s*(?:Cr|cr|CR|M|B|L|lakh|mn|bn)?\b", stripped)
                     if match:
                         return float(match.group(1))
                     number_match = re.search(r"([-+]?\d*\.?\d+)", stripped)
@@ -237,12 +238,19 @@ def fetch_metric(metric_name: str, sheet: str, year: str, company_slug: str | No
                     stripped = line.strip()
                     if name_to_search.lower() not in stripped.lower():
                         continue
-                    match = re.search(r"([-+]?\d*\.?\d+)\s*Cr", stripped)
-                    if match:
-                        return float(match.group(1))
                     number_match = re.search(r"([-+]?\d*\.?\d+)", stripped)
-                    if number_match:
-                        return float(number_match.group(1))
+                    if not number_match:
+                        continue
+                    prefix = stripped[:number_match.start()]
+                    prefix_without_metric = re.sub(re.escape(name_to_search), "", prefix, flags=re.IGNORECASE)
+                    if any(ch.isalpha() for ch in prefix_without_metric):
+                        continue
+                    # Unit-agnostic — works beyond Indian Cr format.
+                    match = re.search(r"([-+]?\d*\.?\d+)\s*(?:Cr|cr|CR|M|B|L|lakh|mn|bn)?\b", stripped)
+                    if match:
+                        value = float(match.group(1))
+                        logger.warning(f"[CalcAgent] Using partial match for '{name_to_search}' — verify result: {value}")
+                        return value
             return None
 
         val = find_value(metric_name)

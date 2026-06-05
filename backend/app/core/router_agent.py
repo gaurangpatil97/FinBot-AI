@@ -28,16 +28,15 @@ CONCALL_KEYWORDS = [
     "what did", "guidance", "analyst asked",
     "forward guidance", "next quarter", "target", "commentary",
     "q1 fy", "q2 fy", "q3 fy", "q4 fy", "h1 fy", "h2 fy",
-    "storage solutions", "capacity utilization", "capacity addition",
-    "per month", "nine months", "quarterly", "investor call",
+    # Keep the fallback router source-agnostic so it does not encode one company's vocabulary.
+    "quarterly", "investor call",
     "we expect", "company guided", "going forward",
 ]
 
 EXCEL_KEYWORDS = [
     "revenue", "sales", "profit", "ebitda", "ebit", "pat", "pbt",
     "borrowings", "debt", "networth", "equity", "depreciation",
-    "cash flow", "capex", "fy20", "fy21", "fy22", "fy23", "fy24",
-    "fy25", "fy26", "balance sheet", "return on", "roce", "roe",
+    "cash flow", "capex", "balance sheet", "return on", "roce", "roe",
     "eps", "dividend", "interest", "working capital", "inventory",
 ]
 
@@ -116,38 +115,37 @@ def route_question(
 
     extracted_year = year
     if not extracted_year:
-        match = re.search(r'\b(20\d{2})\b', question)
-        extracted_year = match.group(1) if match else None
-
-        fy_match = re.search(r'\bFY(\d{2,4})\b', question, re.IGNORECASE)
-        if fy_match:
-            fy = fy_match.group(1)
-            extracted_year = f"20{fy}" if len(fy) == 2 else fy
+        # Extract any FYXX or 20XX year dynamically so routing stays generic.
+        match = re.search(r'\b(?:FY)?(20\d{2}|\d{2})\b', question, re.IGNORECASE)
+        if match:
+            extracted = match.group(1)
+            extracted_year = f"20{extracted}" if len(extracted) == 2 else extracted
 
     prompt = f"""You are a financial data router. Given a question, decide which data sources to search.
 
-Available sources:
-- excel: structured financial data, precise numbers, 10 years of financials, ratios calculated from numbers
-- pdf: annual report narrative, strategy, MD&A, business segments, management discussion, chairman message, risk factors, product descriptions, operational framework
-- images: charts, graphs, visuals, infographics from annual report pages
-- concall: earnings call transcripts, management commentary, guidance, analyst Q&A
+    Available sources:
+    - excel: structured financial data, precise numbers, 10 years of financials, ratios calculated from numbers
+    - pdf: annual report narrative, strategy, MD&A, business segments, management discussion, chairman message, risk factors, product descriptions, operational framework
+    - images: charts, graphs, visuals, infographics from annual report pages
+    - concall: earnings call transcripts, management commentary, guidance, analyst Q&A
 
-Examples:
-Q: What was the revenue in FY22? → {{"source_types": ["excel"], "year": "2022"}}
-Q: What is the company's operational strategy? → {{"source_types": ["pdf"], "year": null}}
-Q: Who is the chairman and what framework does he highlight? → {{"source_types": ["pdf"], "year": null}}
-Q: What are the risk factors mentioned in the annual report? → {{"source_types": ["pdf"], "year": null}}
-Q: What did management guide for next quarter? → {{"source_types": ["concall"], "year": null}}
-Q: Calculate the debt to equity ratio for FY23? → {{"source_types": ["excel"], "year": "2023"}}
-Q: What segment has higher margins and why? → {{"source_types": ["pdf"], "year": null}}
-Q: Show me the revenue chart → {{"source_types": ["images"], "year": null}}
-Q: What was EBITDA margin trend from FY21 to FY22? → {{"source_types": ["excel", "pdf"], "year": null}}
-Q: What was the revenue shown in the FY22 annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
-Q: What percentage was shown in the annual report chart? → {{'source_types': ['images'], 'year': null}}
-Q: What was the market cap shown in FY22 annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
-Q: What does the annual report show about segment revenue? → {{'source_types': ['images', 'pdf'], 'year': null}}
-Q: What was the ROCE shown in the annual report visuals? → {{'source_types': ['images'], 'year': null}}
-Q: How many plants shown in annual report? → {{'source_types': ['images', 'pdf'], 'year': null}}
+    Examples:
+    # Neutral year placeholders — avoid benchmark phrasing bias
+    Q: What was the revenue in FYxx? → {{"source_types": ["excel"], "year": "2022"}}
+    Q: What is the company's operational strategy? → {{"source_types": ["pdf"], "year": null}}
+    Q: Who is the chairman and what framework does he highlight? → {{"source_types": ["pdf"], "year": null}}
+    Q: What are the risk factors mentioned in the annual report? → {{"source_types": ["pdf"], "year": null}}
+    Q: What did management guide for next quarter? → {{"source_types": ["concall"], "year": null}}
+    Q: Calculate the debt to equity ratio for FYxx? → {{"source_types": ["excel"], "year": "2023"}}
+    Q: What segment has higher margins and why? → {{"source_types": ["pdf"], "year": null}}
+    Q: Show me the revenue chart → {{"source_types": ["images"], "year": null}}
+    Q: What was EBITDA margin trend from FYxx to FYyy? → {{"source_types": ["excel", "pdf"], "year": null}}
+    Q: What was the revenue shown in the FYxx annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
+    Q: What percentage was shown in the annual report chart? → {{'source_types': ['images'], 'year': null}}
+    Q: What was the market cap shown in FYxx annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
+    Q: What does the annual report show about segment revenue? → {{'source_types': ['images', 'pdf'], 'year': null}}
+    Q: What was the ROCE shown in the annual report visuals? → {{'source_types': ['images'], 'year': null}}
+    Q: How many plants shown in annual report? → {{'source_types': ['images', 'pdf'], 'year': null}}
 
 Return ONLY a JSON object, no explanation, no markdown:
 {{"source_types": ["pdf"], "year": "2022"}}

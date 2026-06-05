@@ -714,17 +714,19 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   const activeCompanySlug = getCompanySlugFromLocalStorage(activeCompany);
 
   return (
-    <div className="flex min-h-screen bg-[#0f1117] text-white">
-      <Sidebar
-        activeCompany={activeCompany}
-        activeCompanySlug={getCompanySlugFromLocalStorage(activeCompany)}
-        companies={companies}
-        onSelectCompany={handleSelectCompany}
-        stock={stock}
-        collections={collections}
-        filesByCollection={corpusFiles}
-        onOpenUpload={() => setUploadOpen(true)}
-      />
+    <div className="flex h-screen overflow-hidden bg-[#0f1117] text-white">
+      <div className="sticky top-0 h-screen overflow-auto w-64">
+        <Sidebar
+          activeCompany={activeCompany}
+          activeCompanySlug={getCompanySlugFromLocalStorage(activeCompany)}
+          companies={companies}
+          onSelectCompany={handleSelectCompany}
+          stock={stock}
+          collections={collections}
+          filesByCollection={corpusFiles}
+          onOpenUpload={() => setUploadOpen(true)}
+        />
+      </div>
 
       <main className="flex min-w-0 flex-1 flex-col px-4 py-4 lg:px-5">
         <header className="flex items-center justify-between rounded-2xl border border-white/8 bg-[#161b22] px-5 py-4">

@@ -180,7 +180,8 @@ def get_company_kpi(
         "metric": metric_name,
         "value": value,
         "year": normalized_year,
-        "unit": "Cr",
+        # Unit from companies.json — set at embed time per company
+        "unit": company.get("kpis", {}).get(metric_name, {}).get("unit", "Cr"),
     }
 
 

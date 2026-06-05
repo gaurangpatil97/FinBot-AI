@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
+import pandas as pd
 from loguru import logger
 from config import settings
 
@@ -69,6 +70,7 @@ def ingest_uploaded_file(
         chunks = chunk_documents(pages)
         chunks = _tag_chunks(chunks, company_slug, filename, year=year)
         chunks = generate_embeddings(chunks)
+        extract_and_store_kpis(file_path, company_slug)
         store_chunks(
             chunks,
             main_collection,
@@ -153,6 +155,99 @@ def _tag_chunks(
         if year:
             chunk["metadata"]["year"] = year
     return chunks
+
+
+def extract_and_store_kpis(file_path: Path, company_slug: str) -> None:
+    # Unit detected at embed time — not hardcoded at query time
+    try:
+        df = pd.read_excel(file_path, sheet_name="Data Sheet", header=None)
+    except Exception as exc:
+        logger.warning(f"[Ingestor] KPI extraction skipped for {file_path.name}: {exc}")
+        return
+
+    report_date_idx = None
+    for idx, row in df.iterrows():
+        first_cell = str(row.iloc[0]).strip().lower() if len(row) > 0 and pd.notna(row.iloc[0]) else ""
+        if first_cell == "report date":
+            report_date_idx = idx
+            break
+
+    if report_date_idx is None:
+        return
+
+    header_row = df.iloc[report_date_idx]
+    year_cols: list[tuple[str, int]] = []
+    for col_idx, val in enumerate(header_row.iloc[1:], start=1):
+        if pd.isna(val):
+            continue
+        try:
+            dt = val if hasattr(val, "year") else pd.to_datetime(val)
+            fiscal_year = dt.year + 1 if dt.month >= 4 else dt.year
+            year_cols.append((str(fiscal_year), col_idx))
+        except Exception:
+            continue
+
+    def _detect_unit(metric_values: list[float]) -> str:
+        if metric_values:
+            avg_value = sum(metric_values) / len(metric_values)
+            if avg_value > 100000:
+                return "M"
+            if avg_value > 100:
+                return "Cr"
+        for col_idx, value in year_cols:
+            if isinstance(value, str) and "$" in value:
+                return "$"
+        return "Cr"
+
+    metric_rows = []
+    for section, sheet_name, label in [
+        ("PROFIT & LOSS", "profit_loss", "Sales"),
+        ("BALANCE SHEET", "balance_sheet", "Borrowings"),
+        ("CASH FLOW:", "cash_flow", "Cash from Operating Activity"),
+    ]:
+        start_idx = None
+        end_idx = None
+        for idx, row in df.iterrows():
+            first_cell = str(row.iloc[0]).strip().lower() if len(row) > 0 and pd.notna(row.iloc[0]) else ""
+            if first_cell == section.lower():
+                start_idx = idx
+            elif start_idx is not None and first_cell in {"quarters", "cash flow:"}:
+                end_idx = idx
+                break
+        if start_idx is None:
+            continue
+        segment = df.iloc[start_idx + 1:end_idx if end_idx is not None else len(df)]
+        for idx, row in segment.iterrows():
+            metric_name = str(row.iloc[0]).strip()
+            if not metric_name or metric_name.lower() == "nan":
+                continue
+            values = []
+            for year, col_idx in year_cols:
+                raw_value = row.iloc[col_idx] if col_idx < len(row) else None
+                if pd.isna(raw_value):
+                    continue
+                if isinstance(raw_value, (int, float)):
+                    values.append(float(raw_value))
+            if not values:
+                continue
+            metric_rows.append((sheet_name, metric_name, values, {year: row.iloc[col_idx] for year, col_idx in year_cols if col_idx < len(row) and pd.notna(row.iloc[col_idx])}))
+
+    try:
+        data = json.loads(COMPANIES_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return
+
+    company = next((c for c in data.get("companies", []) if c.get("slug") == company_slug), None)
+    if company is None:
+        return
+
+    company.setdefault("kpis", {})
+    for sheet_name, metric_name, values, year_values in metric_rows:
+        company["kpis"].setdefault(metric_name, {})
+        company["kpis"][metric_name]["unit"] = _detect_unit(values)
+        company["kpis"][metric_name]["values"] = year_values
+
+    COMPANIES_FILE.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 
 def update_company_index(
