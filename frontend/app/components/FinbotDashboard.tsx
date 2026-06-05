@@ -715,7 +715,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
 
   return (
     <div className="flex h-screen overflow-hidden bg-[#0f1117] text-white">
-      <div className="sticky top-0 h-screen overflow-auto w-64">
+      <div className="sticky top-0 h-screen overflow-auto w-72 flex-shrink-0 overflow-x-hidden">
         <Sidebar
           activeCompany={activeCompany}
           activeCompanySlug={getCompanySlugFromLocalStorage(activeCompany)}
@@ -728,7 +728,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
         />
       </div>
 
-      <main className="flex min-w-0 flex-1 flex-col px-4 py-4 lg:px-5">
+      <main className="flex min-w-0 flex-1 flex-col overflow-hidden h-full px-4 py-4 lg:px-5">
         <header className="flex items-center justify-between rounded-2xl border border-white/8 bg-[#161b22] px-5 py-4">
           <div className="flex items-center gap-3 text-sm font-medium text-zinc-100">
             <span className="relative flex h-3 w-3">

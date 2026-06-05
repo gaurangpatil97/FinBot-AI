@@ -162,7 +162,7 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
   return (
     <section
       ref={viewportRef}
-      className="flex h-full flex-1 flex-col gap-4 overflow-y-auto p-4"
+      className="flex flex-1 flex-col gap-4 overflow-y-auto min-h-0 p-4"
     >
       {messages.length === 0 ? (
         <div className="flex items-start gap-3">

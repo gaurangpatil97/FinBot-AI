@@ -46,3 +46,5 @@ body {
   border-radius: 999px;
   border: 2px solid rgba(15, 17, 23, 0.75);
 }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
