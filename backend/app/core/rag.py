@@ -184,7 +184,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             citations=[],
             collections_searched=[],
             agent_used="guardrail",
-            agent_trace="Rejected by input guardrail"
+            agent_trace="Rejected by input guardrail",
+            chunks=[]  # RAGAS eval — include retrieved chunks
         )
     # Step 1 — Route the question
     decision = route_question(question, company_slug, year)
@@ -233,7 +234,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             citations=citations,
             collections_searched=[f"{company_slug}_excel"],
             agent_used="calculation_agent",
-            agent_trace=calc_result.get("trace", "")
+            agent_trace=calc_result.get("trace", ""),
+            chunks=calc_context  # RAGAS eval — include retrieved chunks
         )
 
     # Step 3 — Decompose and embed the sub-queries
@@ -318,7 +320,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             citations=[],
             collections_searched=source_types,
             agent_used="rag",
-            agent_trace="No chunks retrieved"
+            agent_trace="No chunks retrieved",
+            chunks=[]  # RAGAS eval — include retrieved chunks
         )
 
     # Step 6 — Build prompt
@@ -357,5 +360,6 @@ def answer_query(request: QueryRequest) -> QueryResponse:
         citations=citations,
         collections_searched=source_types,
         agent_used="rag",
-        agent_trace="Full RAG pipeline"
+        agent_trace="Full RAG pipeline",
+        chunks=top_chunks  # RAGAS eval — include retrieved chunks
     )

@@ -5,7 +5,7 @@ import ast
 import chromadb
 import openai
 from config import get_settings
-from logger import logger
+from loguru import logger
 from app.db.vector_store import get_persistent_client
 
 settings = get_settings()

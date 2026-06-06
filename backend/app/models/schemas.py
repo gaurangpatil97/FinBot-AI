@@ -23,6 +23,7 @@ class QueryResponse(BaseModel):
     collections_searched: List[str] = Field(default_factory=list)
     agent_used: str
     agent_trace: str = ""
+    chunks: list[dict] = []  # Retrieved chunks — populated during eval mode for RAGAS
 
 
 class UploadResponse(BaseModel):

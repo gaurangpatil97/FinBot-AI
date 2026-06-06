@@ -1,0 +1,82 @@
+{
+  "generated_at": "20260606_123214",
+  "source_file": "tests/results/eval_raw_results_reviewed.json",
+  "auto_metrics": {
+    "total": 77,
+    "routing_accuracy": 0.7272727272727273,
+    "routing_correct": 56,
+    "citation_accuracy": 0.6363636363636364,
+    "citation_correct": 49,
+    "answer_correctness": 0.4805194805194805,
+    "answer_correct": 37,
+    "answer_total_reviewed": 77,
+    "avg_latency": 15.355584415584412,
+    "min_latency": 6.05,
+    "max_latency": 56.42,
+    "sections": {
+      "Excel": {
+        "total": 15,
+        "routing_correct": 10,
+        "citation_correct": 10,
+        "correct": 14,
+        "correct_total": 15,
+        "latency_total": 197.71999999999997
+      },
+      "Concall": {
+        "total": 15,
+        "routing_correct": 10,
+        "citation_correct": 4,
+        "correct": 3,
+        "correct_total": 15,
+        "latency_total": 265.48999999999995
+      },
+      "PDF": {
+        "total": 16,
+        "routing_correct": 13,
+        "citation_correct": 7,
+        "correct": 4,
+        "correct_total": 16,
+        "latency_total": 220.07000000000002
+      },
+      "Images": {
+        "total": 16,
+        "routing_correct": 12,
+        "citation_correct": 14,
+        "correct": 7,
+        "correct_total": 16,
+        "latency_total": 239.25999999999996
+      },
+      "Cross": {
+        "total": 15,
+        "routing_correct": 11,
+        "citation_correct": 14,
+        "correct": 9,
+        "correct_total": 15,
+        "latency_total": 259.84000000000003
+      }
+    },
+    "difficulties": {
+      "Easy": {
+        "total": 21,
+        "routing_correct": 16,
+        "correct": 12,
+        "correct_total": 21
+      },
+      "Medium": {
+        "total": 20,
+        "routing_correct": 11,
+        "correct": 7,
+        "correct_total": 20
+      },
+      "Hard": {
+        "total": 36,
+        "routing_correct": 29,
+        "correct": 18,
+        "correct_total": 36
+      }
+    }
+  },
+  "ragas_metrics": {
+    "error": "float() argument must be a string or a real number, not 'list'"
+  }
+}

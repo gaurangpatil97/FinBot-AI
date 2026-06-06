@@ -1,0 +1,84 @@
+======================================================================
+  FINBOT EVALUATION FINAL REPORT
+  Generated: 2026-06-06 12:42:22
+  Source: 20260606_115940
+  Company: craftsman_automation_ltd
+======================================================================
+
+── SYSTEM OVERVIEW ──────────────────────────────────────────────────
+  Total questions evaluated: 77
+  Questions manually reviewed: 77
+
+── AUTO-SCORED METRICS ──────────────────────────────────────────────
+  Routing Accuracy:   56/77 = 72.7%
+  Citation Accuracy:  49/77 = 63.6%
+  Answer Correctness: 37/77 = 48.1%
+
+  Latency:
+    Average: 15.36s
+    Min:     6.05s
+    Max:     56.42s
+
+── RAGAS METRICS ────────────────────────────────────────────────────
+  ⚠️  float() argument must be a string or a real number, not 'list'
+
+── PER SECTION BREAKDOWN ────────────────────────────────────────────
+  Section       Total    Routing   Citation    Correct    Avg Lat
+  --------------------------------------------------------------
+  Excel            15 10/15 (67%):>10 10/15 (67%):>10 14/15 (93%) 13.2s:>10
+  Concall          15 10/15 (67%):>10 4/15 (27%):>10 3/15 (20%) 17.7s:>10
+  PDF              16 13/16 (81%):>10 7/16 (44%):>10 4/16 (25%) 13.8s:>10
+  Images           16 12/16 (75%):>10 14/16 (88%):>10 7/16 (44%) 15.0s:>10
+  Cross            15 11/15 (73%):>10 14/15 (93%):>10 9/15 (60%) 17.3s:>10
+
+── PER DIFFICULTY BREAKDOWN ─────────────────────────────────────────
+  Easy       Routing: 16/21 (76%) | Correct: 12/21 (57%)
+  Medium     Routing: 11/20 (55%) | Correct: 7/20 (35%)
+  Hard       Routing: 29/36 (81%) | Correct: 18/36 (50%)
+
+── FAILURE ANALYSIS ─────────────────────────────────────────────────
+
+  Routing Failures (21):
+    Q6 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q7 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q8 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q13 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q15 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q16 [Concall]: Expected ['concall'] | Got ['excel']
+    Q18 [Concall]: Expected ['concall'] | Got ['excel']
+    Q19 [Concall]: Expected ['concall'] | Got ['excel']
+    Q22 [Concall]: Expected ['concall'] | Got ['excel']
+    Q26 [Concall]: Expected ['concall'] | Got ['pdf']
+    ... and 11 more
+
+  Citation Failures (28):
+    Q6 [Excel]: Compute the Debt-to-Equity ratio for FY25 and FY26 and asses...
+    Q7 [Excel]: Calculate Debtor Days for FY23 and FY26 and compare receivab...
+    Q8 [Excel]: Compute the Interest Coverage Ratio for FY22 and FY25 and ev...
+    Q13 [Excel]: In FY26, Other Expenses in the P&L is reported at ₹1,842.44 ...
+    Q15 [Excel]: Inventory grew from ₹836 Cr in FY23 to ₹1,745 Cr in FY26 — a...
+    Q16 [Concall]: What was the total consolidated H1 FY23 revenue reported by ...
+    Q18 [Concall]: What was the segment-wise EBIT for the Auto Powertrain, Alum...
+    Q19 [Concall]: What was the total debt of the company as of end of FY22 Q4,...
+    Q20 [Concall]: Calculate the Debt-to-EBITDA ratio for FY23 H1 as disclosed ...
+    Q21 [Concall]: For FY23 Q2, management disclosed that aluminum prices fell ...
+    ... and 18 more
+
+  Answer Failures (40):
+    Q12 [Excel] [Hard]: Evaluate the capex intensity trend from FY23 to FY26 against...
+    Q16 [Concall] [Easy]: What was the total consolidated H1 FY23 revenue reported by ...
+    Q17 [Concall] [Easy]: What was the credit rating of the company at the time of the...
+    Q18 [Concall] [Easy]: What was the segment-wise EBIT for the Auto Powertrain, Alum...
+    Q19 [Concall] [Easy]: What was the total debt of the company as of end of FY22 Q4,...
+    Q20 [Concall] [Medium]: Calculate the Debt-to-EBITDA ratio for FY23 H1 as disclosed ...
+    Q21 [Concall] [Medium]: For FY23 Q2, management disclosed that aluminum prices fell ...
+    Q22 [Concall] [Medium]: Compare the value addition for the Industrial & Engineering ...
+    Q23 [Concall] [Medium]: The company revised its full-year FY23 CAPEX guidance upward...
+    Q26 [Concall] [Hard]: The company merged its Auto Aluminum and Industrial Aluminum...
+
+── SUMMARY ──────────────────────────────────────────────────────────
+  Routing Accuracy:   72.7%
+  Citation Accuracy:  63.6%
+  Answer Correctness: 48.1%
+  Avg Latency:        15.36s
+======================================================================
