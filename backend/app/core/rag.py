@@ -244,7 +244,11 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     # Step 4 — Retrieve chunks from routed collections
     all_chunks = []
     seen_hashes = set()
-    k_value = 8 if len(sub_queries) > 1 else 3
+    # Per-source top_k — PDF and Concall need more candidates
+    K_EXCEL = 8 if len(sub_queries) > 1 else 3
+    K_PDF = settings.TOP_K_PDF
+    K_CONCALL = settings.TOP_K_CONCALL
+    K_IMAGES = settings.TOP_K_IMAGES
 
     for coll_type in source_types:
         if coll_type == "excel" and len(sub_queries) > 1:
@@ -269,7 +273,7 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                 sub_chunks = query_collection(
                     query_embedding,
                     f"{company_slug}_excel",
-                    top_k=k_value,
+                    top_k=K_EXCEL,
                     year=_normalize_year(routed_year),
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel"
                 )
@@ -278,7 +282,7 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                 sub_chunks = query_collection(
                     query_embedding,
                     f"{company_slug}_pdf_text",
-                    top_k=k_value,
+                    top_k=K_PDF,
                     year=pdf_year,
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/pdf"
                 )
@@ -289,14 +293,14 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                     f"{company_slug}_images",
                     chunk_type="image",
                     year=image_year,
-                    top_k=k_value,
+                    top_k=K_IMAGES,
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/images"
                 )
             elif coll_type == "concall":
                 sub_chunks = query_collection(
                     query_embedding,
                     f"{company_slug}_concalls",
-                    top_k=k_value,
+                    top_k=K_CONCALL,
                     year=None,
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/concall"
                 )

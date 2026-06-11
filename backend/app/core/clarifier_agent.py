@@ -10,6 +10,16 @@ DECOMPOSE_PROMPT = '''You are a financial query decomposer for a CA tool.
 Given a financial question that may require multiple data points, return a JSON array of focused sub-queries.
 Each sub-query should retrieve one specific metric or data type.
 If the question needs only one metric, return a list with just that question unchanged.
+
+For questions asking about reasons, explanations, or stated 
+causes of financial metric changes:
+- Include the specific metric name in the sub-query
+- Include terms like 'reason', 'cause', 'explanation', 
+  'significant change', 'key financial ratios'
+- Example: 'stated reason for ICR decline FY23' should become
+  'significant changes key financial ratios interest coverage 
+  ratio reason FY2023 MD&A'
+
 Return ONLY a valid JSON array of strings. No explanation, no markdown, no preamble.
 
 Examples:

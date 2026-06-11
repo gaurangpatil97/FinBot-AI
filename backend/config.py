@@ -34,6 +34,9 @@ class Settings:
     TOP_K_CHUNKS_MULTI: int = 20
     CHUNK_SIZE: int = 800
     CHUNK_OVERLAP: int = 150
+    TOP_K_PDF: int = 8
+    TOP_K_CONCALL: int = 8
+    TOP_K_IMAGES: int = 5
 
 
 settings = Settings()

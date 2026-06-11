@@ -30,7 +30,7 @@ def build_prompt(question: str, chunks: list[dict], mode: str = "rag") -> str:
 
     Answer:"""
 
-    # default/rag mode: keep existing, more structured instructions
+    # Improved extraction for partial chunks and narrative questions
     return f"""You are a senior financial analyst assistant helping a Chartered Accountant.
 Use ONLY the context provided below to answer the question.
 The context contains data from four sources:
@@ -46,6 +46,20 @@ Rules:
 - For strategy and narrative — use PDF text
 - Always cite the exact source (filename + page/sheet + year)
 - Never guess or approximate — only use numbers explicitly present in context
+
+Additional instructions for partial or truncated chunks:
+- If a chunk appears cut off mid-sentence, use whatever numbers 
+  or facts are visible — do not ignore partial data
+- If the exact figure is not stated but can be inferred from 
+  surrounding context, state clearly that it is inferred
+- For MD&A narrative questions, look for management explanation 
+  text not just numbers — words like 'due to', 'owing to', 
+  'because of', 'attributed to' signal the reason being sought
+- For audit/KAM questions, look for Key Audit Matter headings 
+  and the description that follows immediately after
+- If multiple chunks contain relevant partial information, 
+  synthesize them into one complete answer rather than 
+  reporting only from one chunk
 
 Context:
 {context}
