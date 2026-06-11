@@ -139,14 +139,81 @@ npm run dev
 4. Once ingestion completes the system is ready to answer queries
 
 ## Benchmark Results
-| Dataset | Score | Accuracy |
+
+### V1 — Initial Benchmark (150Q, May 2026)
+
+First benchmark run using 150 questions across 5 sections against Craftsman Automation Ltd.
+
+| Section | Score | Accuracy |
 |---------|-------|----------|
 | Excel (structured tables) | 30/30 | **100%** |
 | PDF Text (annual reports) | 30/30 | **100%** |
 | Concall Transcripts | 21/30 | **70%** |
 | Images (chart descriptions) | 8/30 | **26.7%** |
-| Cross‑modal (combined) | 23/30 | **76.7%** |
-| **Overall (150Q benchmark)** | **112/150** | **74.7%** |
+| Cross-modal (combined) | 23/30 | **76.7%** |
+| **Overall** | **112/150** | **74.7%** |
+
+> ⚠️ V1 scores for Excel and PDF were later found to be inflated due to loose citation matching in the evaluation script. These numbers were not fully trusted.
+
+---
+
+### V2 — Validated Benchmark (77Q, June 2026)
+
+A fresh 77-question benchmark was built from scratch with CA-level forensic questions across all 4 source types plus cross-source questions. Questions were generated independently from the test set to avoid benchmark leakage.
+
+#### Auto-Scored Metrics
+| Metric | Score |
+|--------|-------|
+| Routing Accuracy | 72.7% (56/77) |
+| Citation Accuracy | 63.6% (49/77) |
+| Answer Correctness | 48.1% raw → **54.5% validated** |
+| Answer Relevancy (RAGAS) | 67.4% |
+| Context Precision (RAGAS) | 30.9% |
+| Avg Latency | 15.36s |
+
+#### Per Section Breakdown
+| Section | Routing | Answer Correctness |
+|---------|---------|-------------------|
+| Excel | 67% | **93%** |
+| Cross-source | 73% | **60%** |
+| Images | 75% | **44%** |
+| PDF Text | 81% | **25%** |
+| Concall | 67% | **20%** |
+
+#### Failure Analysis
+A full audit of all 40 failures was conducted to separate system quality from evaluation pipeline quality.
+
+| Failure Type | Count | % | Implication |
+|---|---|---|---|
+| Retrieval failure | 19 | 48% | Router correct, chunks didn't contain answer |
+| Routing failure | 14 | 35% | Wrong source selected upstream |
+| Scoring failure | 5 | 12% | Evaluator marked correct answers as wrong |
+| Generation failure | 2 | 5% | Had right context but wrong answer |
+
+**Key finding:** 83% of failures originated upstream in routing and retrieval. Only 5% were generation failures — meaning the LLM produces correct answers when supplied with relevant context. The language model and prompt engineering are not the bottleneck.
+
+**Validated accuracy:** After correcting 5 evaluator scoring errors, true answer correctness is **54.5%** not 48.1%.
+
+#### Post-Fix Improvements (June 2026)
+After targeted fixes to the router and calculation agent:
+- Routing accuracy improved for H1/H2/quarterly questions → concall
+- Routing accuracy improved for MD&A narrative questions → pdf
+- Calculation agent no longer intercepts narrative explanation questions
+- 4 previously failing questions now answered correctly
+
+---
+
+### What the Numbers Mean
+
+| Component | Assessment |
+|-----------|------------|
+| Excel retrieval | Production-ready (93%) |
+| LLM generation quality | Strong — only 2/40 generation failures |
+| Routing | Good — fixable with prompt improvements |
+| Retrieval (chunking) | Primary bottleneck — quarterly data not in annual chunks |
+| Embeddings | Working correctly — Excel 93% proves embedding stack quality |
+
+**Future optimization priority:** Retrieval quality and chunking strategy, not LLM or prompt engineering.
 
 ## Sample Queries
 ```
