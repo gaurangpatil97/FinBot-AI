@@ -107,8 +107,22 @@ def _normalize_year(year: str) -> str:
     return str(year).replace("FY", "").strip()
 
 
+NARRATIVE_TRIGGERS = [
+    "according to", "stated reason", "what did", "why did",
+    "management said", "management mentioned", "management stated",
+    "management cited", "what was the reason", "explain why",
+    "what caused", "narrative", "md&a says", "report says",
+    "disclosed", "mentioned in"
+]
+
+
 def _match_hardcoded_formula(question: str) -> dict | None:
     lowered = question.lower()
+
+    # Narrative questions bypass calc agent — let RAG retrieve explanation
+    if any(trigger in lowered for trigger in NARRATIVE_TRIGGERS):
+        logger.info(f"[CalcAgent] Narrative trigger detected — skipping formula match")
+        return None
     for key, formula_template in HARDCODED_FORMULAS.items():
         aliases = HARDCODED_FORMULA_ALIASES.get(key, [key])
         if any(alias in lowered for alias in aliases):

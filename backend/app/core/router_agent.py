@@ -29,7 +29,7 @@ CONCALL_KEYWORDS = [
     "forward guidance", "next quarter", "target", "commentary",
     "q1 fy", "q2 fy", "q3 fy", "q4 fy", "h1 fy", "h2 fy",
     # Keep the fallback router source-agnostic so it does not encode one company's vocabulary.
-    "quarterly", "investor call",
+    "quarterly", "investor call", "half year", "first half", "second half",
     "we expect", "company guided", "going forward",
 ]
 
@@ -42,7 +42,8 @@ EXCEL_KEYWORDS = [
 
 IMAGE_KEYWORDS = [
     "chart", "graph", "image", "visual", "infographic", "pie chart",
-    "shown in", "as shown", "depicted", "illustrated", "figure",
+    "bar chart", "donut chart", "kpi chart", "kpi page",
+    "shown in", "shown in the", "as shown", "displays", "depicts", "depicted", "illustrated", "figure",
     "annual report shows", "annual report chart", "report image",
     "segment share", "segment breakdown",
 ]
@@ -129,6 +130,13 @@ def route_question(
     - images: charts, graphs, visuals, infographics from annual report pages
     - concall: earnings call transcripts, management commentary, guidance, analyst Q&A
 
+    Key routing rules:
+    - H1, H2, Q1, Q2, Q3, Q4, quarterly, half-year → concall
+    - bar chart, donut chart, KPI chart, infographic, visual → images
+    - MD&A, BRSR, auditor, KAM, Directors Report → pdf
+    - specific numbers, ratios, calculations → excel
+    - When question asks about something shown or displayed visually → images
+
     Examples:
     # Neutral year placeholders — avoid benchmark phrasing bias
     Q: What was the revenue in FYxx? → {{"source_types": ["excel"], "year": "2022"}}
@@ -146,6 +154,18 @@ def route_question(
     Q: What does the annual report show about segment revenue? → {{'source_types': ['images', 'pdf'], 'year': null}}
     Q: What was the ROCE shown in the annual report visuals? → {{'source_types': ['images'], 'year': null}}
     Q: How many plants shown in annual report? → {{'source_types': ['images', 'pdf'], 'year': null}}
+    Q: What was H1 revenue as disclosed by management? → {{"source_types": ["concall"], "year": null}}
+    Q: What did management say in Q1 about margins? → {{"source_types": ["concall"], "year": null}}
+    Q: What was the quarterly EBIT for each segment? → {{"source_types": ["concall"], "year": null}}
+    Q: Compare H1 vs H2 performance? → {{"source_types": ["concall"], "year": null}}
+    Q: What is shown in the KPI bar chart? → {{"source_types": ["images"], "year": null}}
+    Q: What does the donut chart show for segment revenue? → {{"source_types": ["images"], "year": null}}
+    Q: What trend is visible in the bar chart? → {{"source_types": ["images"], "year": null}}
+    Q: What is shown in the infographic? → {{"source_types": ["images"], "year": null}}
+    Q: What does the MD&A ratio table show? → {{"source_types": ["pdf"], "year": null}}
+    Q: According to the MD&A what was the reason for decline? → {{"source_types": ["pdf"], "year": null}}
+    Q: What does the BRSR disclose? → {{"source_types": ["pdf"], "year": null}}
+    Q: What KAM did the auditor identify? → {{"source_types": ["pdf"], "year": null}}
 
 Return ONLY a JSON object, no explanation, no markdown:
 {{"source_types": ["pdf"], "year": "2022"}}
@@ -163,6 +183,8 @@ Question: {question}
         content = response.choices[0].message.content.strip()
         result = json.loads(content)
         source_types = result.get("source_types", [])
+        # Normalize — LLM sometimes returns full collection name
+        source_types = [s.replace(f"{company_slug}_", "") for s in source_types]
         if not source_types:
             raise ValueError("empty source_types")
         routed_year = result.get("year") or extracted_year
