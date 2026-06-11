@@ -43,10 +43,10 @@ const YEAR_OPTIONS: Array<{ label: FiscalYear; value: FiscalYear }> = [
 
 const TREND_YEARS: FiscalYear[] = ["FY22", "FY23", "FY24", "FY25"];
 
-const CARD_BACKGROUND = "#1c2128";
-const CARD_BORDER = "#30363d";
-const BAR_COLOR = "#4d8fa8";
-const LINE_COLOR = "#34d399";
+const CARD_BACKGROUND = "#111111";
+const CARD_BORDER = "#222222";
+const BAR_COLOR = "#555555";
+const LINE_COLOR = "#cccccc";
 
 function toApiYear(year: string) {
   const normalized = year.replace(/^FY/i, "");
@@ -114,16 +114,16 @@ function KpiCard({
   emphasis?: "neutral" | "positive" | "warning";
 }) {
   const accentClass =
-    emphasis === "positive"
-      ? "text-emerald-400"
-      : emphasis === "warning"
-        ? "text-amber-300"
-        : "text-zinc-400";
+    subtext.startsWith("+")
+      ? "text-[#22c55e]"
+      : subtext.startsWith("-")
+        ? "text-[#ef4444]"
+        : "text-[#888888]";
 
   return (
-    <article className="rounded-2xl border border-[#30363d] bg-[#1c2128] p-4 h-full">
-      <p className="text-sm font-medium text-zinc-400">{title}</p>
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-white">{value}</p>
+    <article className="rounded-2xl border border-[#222222] bg-[#111111] p-4 h-full">
+      <p className="text-xs font-semibold uppercase tracking-wider text-[#888888]">{title}</p>
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-white font-mono tabular-nums">{value}</p>
       <p className={`mt-3 text-sm ${accentClass}`}>{subtext}</p>
     </article>
   );
@@ -277,8 +277,8 @@ function useFinancialKpi(companySlug: string, metric: FinancialMetric, initialYe
 
 function choicePillClass(active: boolean) {
   return active
-    ? "border-blue-400/45 bg-blue-400/15 text-blue-100"
-    : "border-white/10 bg-white/5 text-zinc-300 hover:border-white/20 hover:bg-white/10 hover:text-white";
+    ? "border-white bg-white text-black"
+    : "border-[#222222] bg-[#111111] text-[#888888] hover:border-white/20 hover:text-white";
 }
 
 function FinancialKpiCard({
@@ -300,11 +300,11 @@ function FinancialKpiCard({
   const currentLabel = metricLabel(metric);
   const title = `${currentLabel} ${year}`;
   const value = isLoading ? "Loading..." : formatCrValue(currentValue);
-  const subtext = isLoading ? "Fetching current and previous year values..." : formatYoY(currentValue, previousValue);
-  const emphasis = metric === "Borrowings" ? "warning" : metric === "Net profit" ? "positive" : "neutral";
+  const subtext = isLoading ? "Fetching values..." : formatYoY(currentValue, previousValue);
+  const emphasis = subtext.startsWith("+") ? "positive" : subtext.startsWith("-") ? "negative" : "neutral";
 
   const popover = isPopoverOpen ? (
-    <div className="absolute left-0 top-[calc(100%+0.5rem)] z-20 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-white/10 bg-[#11161d] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-sm">
+    <div className="absolute left-0 top-[calc(100%+0.5rem)] z-20 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-[#222222] bg-[#0a0a0a] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-sm">
       <div className="grid gap-3">
         <div>
           <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Metric</p>
@@ -342,22 +342,22 @@ function FinancialKpiCard({
   ) : null;
 
   return (
-    <article ref={containerRef} className="relative rounded-2xl border border-[#30363d] bg-[#1c2128] p-4 h-full">
+    <article ref={containerRef} className="relative rounded-2xl border border-[#222222] bg-[#111111] p-4 h-full">
       <button
         type="button"
         onClick={() => setIsPopoverOpen((current) => !current)}
         className="group flex items-center gap-2 text-left outline-none"
       >
-        <p className="text-sm font-medium text-zinc-400 transition-colors group-hover:text-zinc-200">{title}</p>
-        <span className="opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 text-zinc-400">
+        <p className="text-xs font-semibold uppercase tracking-wider text-[#888888] transition-colors group-hover:text-white">{title}</p>
+        <span className="opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 text-[#888888]">
           <PencilIcon />
         </span>
       </button>
 
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-white">
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-white font-mono tabular-nums">
         <FadeValue value={value} />
       </p>
-      <p className={`mt-3 text-sm ${emphasis === "positive" ? "text-emerald-400" : emphasis === "warning" ? "text-amber-300" : "text-zinc-400"}`}>
+      <p className={`mt-3 text-sm ${emphasis === "positive" ? "text-[#22c55e]" : emphasis === "negative" ? "text-[#ef4444]" : "text-[#888888]"}`}>
         {subtext}
       </p>
 
@@ -383,9 +383,9 @@ function TrendTooltip({ active, payload, label }: { active?: boolean; payload?: 
   }
 
   return (
-    <div className="rounded-xl border border-white/10 bg-[#11161d] px-3 py-2 text-xs text-zinc-100 shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
-      <div className="font-medium text-zinc-300">{label}</div>
-      <div className="mt-1 text-white">{formatCrValue(value)}</div>
+    <div className="rounded-xl border border-[#222222] bg-[#0a0a0a] px-3 py-2 text-xs text-white shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
+      <div className="font-medium text-[#888888] uppercase tracking-wider">{label}</div>
+      <div className="mt-1 text-white font-mono tabular-nums">{formatCrValue(value)}</div>
     </div>
   );
 }
@@ -449,7 +449,7 @@ function TrendCard({ companySlug, metric }: { companySlug: string; metric: Finan
   );
 
   return (
-    <article className="rounded-2xl border border-[#30363d] bg-[#1c2128] p-4 h-full">
+    <article className="rounded-2xl border border-[#222222] bg-[#111111] p-4 h-full">
       {isLoading ? (
         <div className="flex h-full min-h-40 items-center justify-center text-sm text-zinc-500">Loading chart...</div>
       ) : (
@@ -458,8 +458,8 @@ function TrendCard({ companySlug, metric }: { companySlug: string; metric: Finan
             <ComposedChart data={chartData} margin={{ top: 4, right: 4, left: 4, bottom: 4 }}>
               <defs>
                 <linearGradient id="kpiLineGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#34d399" stopOpacity={0.18} />
-                  <stop offset="100%" stopColor="#34d399" stopOpacity={0} />
+                  <stop offset="0%" stopColor="#cccccc" stopOpacity={0.08} />
+                  <stop offset="100%" stopColor="#cccccc" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <Tooltip
@@ -468,7 +468,7 @@ function TrendCard({ companySlug, metric }: { companySlug: string; metric: Finan
                 labelFormatter={(label) => String(label)}
                 formatter={(value) => [formatCrValue(Number(value)), ""]}
               />
-              <Bar dataKey="value" fill={BAR_COLOR} fillOpacity={0.45} radius={[4, 4, 0, 0]} barSize={26} />
+              <Bar dataKey="value" fill={BAR_COLOR} fillOpacity={1} radius={[4, 4, 0, 0]} barSize={26} />
               <Area
                 type="monotone"
                 dataKey="value"

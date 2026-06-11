@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import CitationBadge from "./CitationBadge";
+import ReactMarkdown from "react-markdown";
 import { getCompanies } from "../../lib/api";
 import type { ChatMessage } from "./finbot-types";
 
@@ -166,11 +167,11 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
     >
       {messages.length === 0 ? (
         <div className="flex items-start gap-3">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#11161d] text-sm font-semibold text-blue-300 ring-1 ring-blue-400/20">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#111111] text-sm font-semibold text-white border border-[#222222]">
             AI
           </div>
 
-          <div className="max-w-[min(34rem,82%)] rounded-2xl border border-white/8 bg-[#11161d] px-4 py-3 text-sm leading-6 text-zinc-100">
+          <div className="max-w-[min(48rem,90%)] rounded-2xl border border-[#333333] bg-[#0a0a0a] px-4 py-3 text-sm leading-6 text-white">
             <p className="text-base font-semibold text-white">Hey! I&apos;m FinbotAI 👋</p>
             {welcome?.activeCompanyName ? (
               <>
@@ -199,16 +200,16 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
             className={`flex items-end gap-3 ${assistant ? "justify-start" : "justify-end"}`}
           >
             {assistant ? (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#11161d] text-sm font-semibold text-blue-300 ring-1 ring-blue-400/20">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#111111] text-sm font-semibold text-white border border-[#222222]">
                 AI
               </div>
             ) : null}
 
             <div
-              className={`max-w-[min(34rem,82%)] rounded-2xl border px-4 py-3 text-sm leading-6 ${
+              className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-sm leading-6 ${
                 assistant
-                  ? "border-white/8 bg-[#11161d] text-zinc-100"
-                  : "border-blue-400/20 bg-[#dfeeff] text-slate-900"
+                  ? "border-[#333333] bg-[#0a0a0a] text-white"
+                  : "border-[#222222] bg-[#1a1a1a] text-white"
               }`}
             >
               {message.isLoading ? (
@@ -217,20 +218,27 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
                   <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-300 [animation-delay:120ms]" />
                   <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-300 [animation-delay:240ms]" />
                 </div>
+              ) : assistant ? (
+                <div className="prose prose-invert prose-sm max-w-none">
+                  <ReactMarkdown>{message.content}</ReactMarkdown>
+                </div>
               ) : (
                 <p className="whitespace-pre-line">{message.content}</p>
               )}
               {!message.isLoading && message.citations && message.citations.length > 0 ? (
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {message.citations.map((citation, index) => (
+                  {message.citations.slice(0, 3).map((citation, index) => (
                     <CitationBadge key={`${citation.label}-${index}`} label={citation.label} />
                   ))}
+                  {message.citations.length > 3 && (
+                    <CitationBadge label={`+${message.citations.length - 3} more`} />
+                  )}
                 </div>
               ) : null}
             </div>
 
             {!assistant ? (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#11161d] text-sm font-semibold text-emerald-300 ring-1 ring-emerald-400/20">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#111111] text-sm font-semibold text-white border border-[#222222]">
                 U
               </div>
             ) : null}

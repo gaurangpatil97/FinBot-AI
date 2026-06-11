@@ -30,14 +30,14 @@ function formatChange(changePercent: number) {
 
 export default function CompanyCard({ stock }: CompanyCardProps) {
   const [hasMounted, setHasMounted] = useState(false);
-  const strokeColor = stock.direction === "up" ? "#63b365" : "#ef6767";
+  const strokeColor = "#ffffff";
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
 
   return (
-    <article className="rounded-2xl border border-white/8 bg-[#1c2128] p-4">
+    <article className="rounded-2xl border border-[#222222] bg-[#111111] p-4">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-sm font-semibold text-white">{stock.companyName}</p>
@@ -50,32 +50,32 @@ export default function CompanyCard({ stock }: CompanyCardProps) {
             </span>
           </div>
         </div>
-        <div className={`text-sm font-semibold ${stock.direction === "up" ? "text-emerald-400" : "text-rose-400"}`}>
+        <div className={`text-sm font-semibold ${stock.direction === "up" ? "text-[#22c55e]" : "text-[#ef4444]"}`}>
           {formatChange(stock.changePercent)}
         </div>
       </div>
 
       <div className="mt-3 flex items-end justify-between gap-3">
-        <p className="text-3xl font-semibold tracking-tight text-white">₹{formatCurrency(stock.price)}</p>
-        <p className="pb-1 text-xs uppercase tracking-[0.22em] text-zinc-500">{stock.exchangeLabel}</p>
+        <p className="text-3xl font-semibold tracking-tight text-white font-mono tabular-nums">₹{formatCurrency(stock.price)}</p>
+        <p className="pb-1 text-xs uppercase tracking-[0.22em] text-[#888888]">{stock.exchangeLabel}</p>
       </div>
 
-      <div className="mt-4 h-20 rounded-xl border border-white/8 bg-[#11161d] p-2">
+      <div className="mt-4 h-20 rounded-xl border border-[#222222] bg-[#0a0a0a] p-2">
         {hasMounted ? (
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={stock.points} margin={{ top: 8, right: 0, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="company-sparkline" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={strokeColor} stopOpacity={0.32} />
-                  <stop offset="95%" stopColor={strokeColor} stopOpacity={0.02} />
+                  <stop offset="5%" stopColor={strokeColor} stopOpacity={0.15} />
+                  <stop offset="95%" stopColor={strokeColor} stopOpacity={0} />
                 </linearGradient>
               </defs>
               <XAxis dataKey="label" hide />
               <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
               <Tooltip
                 contentStyle={{
-                  background: "#0f1117",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "#000000",
+                  border: "1px solid #222222",
                   borderRadius: 12,
                   color: "#fff",
                 }}
@@ -92,7 +92,7 @@ export default function CompanyCard({ stock }: CompanyCardProps) {
             </AreaChart>
           </ResponsiveContainer>
         ) : (
-          <div className="flex h-full items-center justify-center rounded-lg bg-[linear-gradient(90deg,rgba(47,129,247,0.16),rgba(99,179,101,0.08),rgba(239,103,103,0.08))]">
+          <div className="flex h-full items-center justify-center rounded-lg bg-[#111111]">
             <div className="h-2 w-20 rounded-full bg-white/10" />
           </div>
         )}

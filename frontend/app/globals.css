@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f1117;
-  --foreground: #f3f4f6;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -17,10 +17,6 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   min-height: 100vh;
-  background-image:
-    radial-gradient(circle at top left, rgba(47, 129, 247, 0.14), transparent 24%),
-    radial-gradient(circle at 85% 18%, rgba(47, 129, 247, 0.08), transparent 16%),
-    linear-gradient(180deg, #111520 0%, #0f1117 100%);
 }
 
 * {
@@ -28,7 +24,7 @@ body {
 }
 
 ::selection {
-  background: rgba(47, 129, 247, 0.35);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
@@ -42,9 +38,9 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 999px;
-  border: 2px solid rgba(15, 17, 23, 0.75);
+  border: 2px solid #000000;
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }

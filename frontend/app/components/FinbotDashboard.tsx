@@ -714,7 +714,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   const activeCompanySlug = getCompanySlugFromLocalStorage(activeCompany);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#0f1117] text-white">
+    <div className="flex h-screen overflow-hidden bg-[#000000] text-white">
       <div className="sticky top-0 h-screen overflow-auto w-72 flex-shrink-0 overflow-x-hidden">
         <Sidebar
           activeCompany={activeCompany}
@@ -729,18 +729,17 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
       </div>
 
       <main className="flex min-w-0 flex-1 flex-col overflow-hidden h-full px-4 py-4 lg:px-5">
-        <header className="flex items-center justify-between rounded-2xl border border-white/8 bg-[#161b22] px-5 py-4">
+        <header className="flex items-center justify-between rounded-2xl border border-[#222222] bg-[#000000] px-5 py-4">
           <div className="flex items-center gap-3 text-sm font-medium text-zinc-100">
-            <span className="relative flex h-3 w-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-60" />
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-blue-400" />
+            <span className="relative flex h-[6px] w-[6px]">
+              <span className="relative inline-flex h-full w-full rounded-full bg-white" />
             </span>
             <span>FinbotAI beta</span>
           </div>
         </header>
 
         {resumeBannerVisible ? (
-          <div className="mt-3 rounded-2xl border border-blue-400/15 bg-[#11161d] px-4 py-3 text-sm text-zinc-200">
+          <div className="mt-3 rounded-2xl border border-[#222222] bg-[#111111] px-4 py-3 text-sm text-zinc-200">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p>
                 Welcome back — {activeCompany} loaded. {savedSession?.collections.length ?? collections.length} collections ready.
@@ -749,7 +748,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
                 <button
                   type="button"
                   onClick={handleContinue}
-                  className="rounded-xl bg-blue-500 px-4 py-2 text-sm font-semibold text-white"
+                  className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90"
                 >
                   Continue
                 </button>
@@ -769,9 +768,9 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
           <KPICards companySlug={activeCompanySlug} />
         </div>
 
-        <div className="mt-4 flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-white/8 bg-[#1c2128]">
+        <div className="mt-4 flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-[#222222] bg-[#111111]">
           <ChatWindow messages={messages} activeCompanyKey={activeCompany} />
-          <div className="border-t border-white/8 p-3">
+          <div className="border-t border-[#222222] p-3">
             <InputBar
               value={inputValue}
               onChange={setInputValue}

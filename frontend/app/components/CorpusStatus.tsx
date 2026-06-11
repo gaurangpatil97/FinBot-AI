@@ -37,18 +37,18 @@ type RemoteFileRow = {
 
 function statusMeta(collection: CollectionRecord | undefined) {
   if (collection?.status === "ready" && (collection.chunks ?? 0) > 0) {
-    return { dot: "bg-emerald-400", text: "text-zinc-300" };
+    return { dot: "bg-[#22c55e]", text: "text-zinc-300" };
   }
 
   if (collection?.status === "processing") {
-    return { dot: "bg-amber-400", text: "text-zinc-300" };
+    return { dot: "bg-[#ef4444]", text: "text-zinc-300" };
   }
 
   if (collection?.status === "failed") {
-    return { dot: "bg-rose-500", text: "text-zinc-300" };
+    return { dot: "bg-[#ef4444]", text: "text-zinc-300" };
   }
 
-  return { dot: "bg-rose-500", text: "text-zinc-400" };
+  return { dot: "bg-[#ef4444]", text: "text-zinc-400" };
 }
 
 function statusLabel(collection: CollectionRecord | undefined) {
@@ -207,7 +207,7 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
   ];
 
   return (
-    <section className="rounded-2xl border border-white/8 bg-[#1c2128] p-4">
+    <section className="rounded-2xl border border-[#222222] bg-[#111111] p-4">
       <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8b949e]">Corpus Status</p>
       <div className="mt-4 space-y-3">
         {rows.map((row) => {
@@ -227,7 +227,7 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
           const isExpanded = expanded[row.key];
 
           return (
-            <div key={row.label} className="rounded-xl border border-white/6 bg-[#161b22] px-2 py-1">
+            <div key={row.label} className="rounded-xl border border-[#222222] bg-transparent px-2 py-1">
               <button
                 type="button"
                 onClick={() => void handleToggle(row.key)}
@@ -244,7 +244,7 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
                 </div>
               </button>
 
-              <div className={`${isExpanded ? "block" : "hidden"} border-t border-white/8 px-1 pb-2 pt-2`}>
+              <div className={`${isExpanded ? "block" : "hidden"} border-t border-[#222222] px-1 pb-2 pt-2`}>
                 {isLoadingFiles ? <p className="text-xs text-[#8b949e]">Loading files...</p> : null}
                 {loadError ? <p className="text-xs text-rose-300">{loadError}</p> : null}
                 {!isLoadingFiles && !loadError ? (
@@ -253,7 +253,7 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
                       <div
                         key={`${row.key}-${file.name}`}
                         title={file.name}
-                        className="flex items-center justify-between gap-2 rounded-lg bg-[#11161d] px-2.5 py-2"
+                        className="flex items-center justify-between gap-2 rounded-lg bg-[#000000] px-2.5 py-2"
                       >
                         <p className="min-w-0 truncate text-xs text-zinc-200">{displayFilename(file.name)}</p>
                         <p className="shrink-0 text-xs text-[#8b949e]">
