@@ -490,16 +490,16 @@ export default function UploadModal({
     const showYear = key !== "excel";
 
     return (
-      <div key={file.id} className="rounded-2xl border border-white/8 bg-[#11161d] p-3">
+      <div key={file.id} className="rounded-2xl border border-[#222222] bg-[#111111] p-3">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="min-w-0">
             <p className="truncate text-sm font-medium text-white">{file.name}</p>
-            <div className="mt-2 flex flex-wrap gap-2 text-xs text-[#8b949e]">
+            <div className="mt-2 flex flex-wrap gap-2 text-xs text-[#888888]">
               {showYear ? (
                 <select
                   value={file.year ?? "FY24"}
                   onChange={(event) => updateFile(key, file.id, { year: event.target.value as FiscalYear })}
-                  className="rounded-lg border border-white/8 bg-[#161b22] px-2.5 py-1.5 text-xs text-white outline-none"
+                  className="rounded-lg border border-[#222222] bg-[#111111] px-2.5 py-1.5 text-xs text-white outline-none"
                 >
                   {fiscalYears.map((year) => (
                     <option key={year} value={year}>
@@ -513,7 +513,7 @@ export default function UploadModal({
                 <select
                   value={file.quarter ?? "Q3"}
                   onChange={(event) => updateFile(key, file.id, { quarter: event.target.value as FinancialQuarter })}
-                  className="rounded-lg border border-white/8 bg-[#161b22] px-2.5 py-1.5 text-xs text-white outline-none"
+                  className="rounded-lg border border-[#222222] bg-[#111111] px-2.5 py-1.5 text-xs text-white outline-none"
                 >
                   {quarters.map((quarter) => (
                     <option key={quarter} value={quarter}>
@@ -538,7 +538,7 @@ export default function UploadModal({
       <section
         key={key}
         className={`flex min-h-80 flex-col rounded-3xl border border-dashed p-4 transition ${
-          isActive ? "border-blue-400/60 bg-blue-500/10 shadow-[0_0_0_1px_rgba(47,129,247,0.3)]" : "border-[#30363d] bg-[#1c2128]"
+          isActive ? "border-white/60 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.3)]" : "border-[#222222] bg-[#111111]"
         }`}
         onDragEnter={() => setDraggingKey(key)}
         onDragOver={(event) => {
@@ -555,12 +555,12 @@ export default function UploadModal({
         <div className="flex items-start justify-between gap-3">
           <div>
             <h3 className="text-base font-semibold text-white">{zoneTitles[key]}</h3>
-            <p className="mt-1 text-sm text-[#8b949e]">{zoneRules[key]}</p>
-            {key === "pdf" ? <p className="mt-2 text-xs text-[#8b949e]">Text and image pages will be processed separately.</p> : null}
+            <p className="mt-1 text-sm text-[#888888]">{zoneRules[key]}</p>
+            {key === "pdf" ? <p className="mt-2 text-xs text-[#888888]">Text and image pages will be processed separately.</p> : null}
           </div>
         </div>
 
-        <label className="mt-4 flex cursor-pointer flex-col rounded-2xl border border-dashed border-[#30363d] bg-[#11161d] px-4 py-4 text-center transition hover:border-blue-400/45 hover:bg-blue-500/5">
+        <label className="mt-4 flex cursor-pointer flex-col rounded-2xl border border-dashed border-[#222222] bg-[#111111] px-4 py-4 text-center transition hover:border-white/45 hover:bg-white/5">
           <input
             ref={(node) => {
               fileInputRefs.current[key] = node;
@@ -577,31 +577,31 @@ export default function UploadModal({
           <span className="text-sm font-medium text-zinc-100">
             {files.length ? `${files.length} file${files.length > 1 ? "s" : ""} ready` : "Drop files here or click to browse"}
           </span>
-          <span className="mt-2 text-xs text-[#8b949e]">{helperCopy[key]}</span>
+          <span className="mt-2 text-xs text-[#888888]">{helperCopy[key]}</span>
         </label>
 
         <div className="mt-4 space-y-2">
-          {files.length > 0 ? files.map((file) => renderFileRow(key, file)) : <p className="text-sm text-[#8b949e]">No files uploaded yet.</p>}
+          {files.length > 0 ? files.map((file) => renderFileRow(key, file)) : <p className="text-sm text-[#888888]">No files uploaded yet.</p>}
         </div>
 
-        {key === "images" ? <p className="mt-3 text-xs text-[#8b949e]">Pages will be processed via GPT-4o vision.</p> : null}
+        {key === "images" ? <p className="mt-3 text-xs text-[#888888]">Pages will be processed via GPT-4o vision.</p> : null}
 
       </section>
     );
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0f1117]/80 px-4 py-6 backdrop-blur-sm">
-      <div className="flex max-h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-[30px] border border-white/10 bg-[#1c2128] shadow-[0_35px_90px_rgba(0,0,0,0.58)]">
-        <div className="flex items-start justify-between border-b border-white/8 px-6 py-5">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#000000]/80 px-4 py-6 backdrop-blur-sm">
+      <div className="flex max-h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-[30px] border border-[#222222] bg-[#0a0a0a] shadow-[0_35px_90px_rgba(0,0,0,0.58)]">
+        <div className="flex items-start justify-between border-b border-[#222222] px-6 py-5">
           <div>
             <p className="text-xl font-semibold text-white">Upload Dataset</p>
-            <p className="mt-1 text-sm text-[#8b949e]">Upload files to build your financial corpus</p>
+            <p className="mt-1 text-sm text-[#888888]">Upload files to build your financial corpus</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="grid h-9 w-9 place-items-center rounded-full border border-white/8 bg-white/5 text-lg text-zinc-300 transition hover:bg-white/10"
+            className="grid h-9 w-9 place-items-center rounded-full border border-[#222222] bg-[#111111] text-lg text-white transition hover:bg-[#222222]"
           >
             X
           </button>
@@ -615,23 +615,23 @@ export default function UploadModal({
           ) : null}
 
           <div className="grid gap-4 md:grid-cols-2">
-            <label className="space-y-2 rounded-3xl border border-white/8 bg-[#161b22] p-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8b949e]">Company Name</span>
+            <label className="space-y-2 rounded-3xl border border-[#222222] bg-[#111111] p-4">
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#888888]">Company Name</span>
               <input
                 value={draft.companyName}
                 onChange={(event) => setDraft((current) => ({ ...current, companyName: event.target.value }))}
                 placeholder="e.g. Craftsman Automation Ltd"
-                className="w-full rounded-2xl border border-white/8 bg-[#11161d] px-4 py-3 text-sm text-white outline-none placeholder:text-[#5c6673]"
+                className="w-full rounded-2xl border border-[#222222] bg-[#111111] px-4 py-3 text-sm text-white outline-none placeholder:text-[#888888]"
               />
             </label>
 
-            <label className="space-y-2 rounded-3xl border border-white/8 bg-[#161b22] p-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8b949e]">NSE/BSE Ticker</span>
+            <label className="space-y-2 rounded-3xl border border-[#222222] bg-[#111111] p-4">
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#888888]">NSE/BSE Ticker</span>
               <input
                 value={draft.ticker}
                 onChange={(event) => setDraft((current) => ({ ...current, ticker: event.target.value }))}
                 placeholder="e.g. CRAFTSMAN.NS"
-                className="w-full rounded-2xl border border-white/8 bg-[#11161d] px-4 py-3 text-sm text-white outline-none placeholder:text-[#5c6673]"
+                className="w-full rounded-2xl border border-[#222222] bg-[#111111] px-4 py-3 text-sm text-white outline-none placeholder:text-[#888888]"
               />
             </label>
           </div>
@@ -641,7 +641,7 @@ export default function UploadModal({
           </div>
         </div>
 
-        <div className="border-t border-white/8 px-6 py-5">
+        <div className="border-t border-[#222222] px-6 py-5">
           <button
             type="button"
             onClick={() => void handleGenerateAll()}
@@ -652,7 +652,7 @@ export default function UploadModal({
                 showToast("Embedding in progress, please wait");
               }
             }}
-            className="flex w-full items-center justify-center rounded-2xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-70"
+            className="flex w-full items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isPollingEmbedding || isEmbedding ? (
               <span className="flex items-center gap-2">
@@ -665,7 +665,7 @@ export default function UploadModal({
           </button>
 
           {toastMessage ? (
-            <div className="mt-3 rounded-2xl border border-white/8 bg-[#11161d] px-4 py-3 text-sm text-zinc-200">
+            <div className="mt-3 rounded-2xl border border-[#222222] bg-[#111111] px-4 py-3 text-sm text-white">
               {toastMessage}
             </div>
           ) : null}
@@ -674,11 +674,11 @@ export default function UploadModal({
             type="button"
             onClick={() => void handleSave()}
             disabled={isSaving || isGeneratingAll || isEmbedding}
-            className="mt-4 flex w-full items-center justify-center rounded-2xl border border-white/8 bg-white/5 px-5 py-3 text-sm font-semibold text-zinc-200 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-70"
+            className="mt-4 flex w-full items-center justify-center rounded-2xl border border-[#222222] bg-transparent px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#111111] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSaving ? "Saving..." : "Save & Close"}
           </button>
-          <p className="mt-3 text-center text-xs text-[#8b949e]">{totalFiles} file{totalFiles === 1 ? "" : "s"} added</p>
+          <p className="mt-3 text-center text-xs text-[#888888]">{totalFiles} file{totalFiles === 1 ? "" : "s"} added</p>
         </div>
       </div>
     </div>
