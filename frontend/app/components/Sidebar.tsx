@@ -30,15 +30,18 @@ export default function Sidebar({
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <aside className="flex w-full shrink-0 flex-col border-b border-[#222222] bg-[#000000] lg:h-screen lg:w-[295px] lg:border-b-0 lg:border-[#222222] no-scrollbar overflow-x-hidden" style={{ overflow: "hidden", scrollbarWidth: "none" }}>
-      <div className="border-b border-[#222222] px-4 py-4">
+    <aside className="flex w-full shrink-0 flex-col border-b border-[var(--border)] bg-[var(--bg)] lg:h-screen lg:w-[295px] lg:border-b-0 lg:border-[var(--border)] no-scrollbar overflow-x-hidden" style={{ overflow: "hidden", scrollbarWidth: "none" }}>
+      <div className="border-b border-[var(--border)] px-4 py-4">
         <div className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-xl border border-[#222222] bg-[#111111] text-lg font-semibold text-white">
+          <div className="grid h-9 w-9 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg font-semibold text-white">
             ⚡
           </div>
           <div>
-            <p className="text-lg font-semibold text-white">FinbotAI</p>
-            <p className="text-xs text-[#8b949e]">Beta research workspace</p>
+            <div className="flex items-center gap-2">
+              <p className="text-lg font-semibold text-[var(--text-primary)]">FinBot</p>
+              <span className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-medium text-white">beta</span>
+            </div>
+            <p className="text-xs text-[var(--text-secondary)]">Research workspace</p>
           </div>
         </div>
       </div>
@@ -48,17 +51,17 @@ export default function Sidebar({
           <button
             type="button"
             onClick={() => setMenuOpen((current) => !current)}
-            className="flex w-full items-center justify-between rounded-2xl border border-[#222222] bg-[#111111] px-4 py-3 text-left transition hover:border-white/12"
+            className="flex w-full items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-left transition hover:border-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
           >
             <div>
-              <p className="text-xs uppercase tracking-[0.22em] text-[#8b949e]">Company</p>
-              <p className="mt-1 text-sm font-semibold text-white">{activeCompany}</p>
+              <p className="text-sm font-medium text-[var(--text-secondary)]">Company</p>
+              <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">{activeCompany}</p>
             </div>
-            <span className={`text-[#8b949e] transition ${menuOpen ? "rotate-180" : ""}`}>⌄</span>
+            <span className={`text-[var(--text-secondary)] transition ${menuOpen ? "rotate-180" : ""}`}>⌄</span>
           </button>
 
           {menuOpen ? (
-            <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-10 overflow-hidden rounded-2xl border border-[#222222] bg-[#111111] shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
+            <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-10 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
               {companies.map((company) => (
                 <button
                   key={company}
@@ -68,7 +71,7 @@ export default function Sidebar({
                     onSelectCompany(company);
                   }}
                   className={`flex w-full items-center justify-between px-4 py-3 text-left text-sm transition hover:bg-white/5 ${
-                    company === activeCompany ? "text-white" : "text-[#8b949e]"
+                    company === activeCompany ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"
                   }`}
                 >
                   <span>{company}</span>
@@ -81,7 +84,7 @@ export default function Sidebar({
                   setMenuOpen(false);
                   onSelectCompany("New Dataset");
                 }}
-                className="flex w-full items-center justify-between border-t border-[#222222] px-4 py-3 text-left text-sm font-medium text-white transition hover:bg-white/5"
+                className="flex w-full items-center justify-between border-t border-[var(--border)] px-4 py-3 text-left text-sm font-medium text-[var(--text-primary)] transition hover:bg-white/5"
               >
                 <span>New Dataset</span>
                 <span>+</span>
@@ -98,11 +101,11 @@ export default function Sidebar({
         />
       </div>
 
-      <div className="border-t border-[#222222] p-4">
+      <div className="border-t border-[var(--border)] p-4">
         <button
           type="button"
           onClick={onOpenUpload}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-[var(--background)] transition hover:opacity-90"
         >
           <span className="text-base">＋</span>
           Upload Dataset

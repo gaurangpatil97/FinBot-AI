@@ -526,8 +526,9 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     };
   }, [defaultCompanyName]);
 
-  const handleSend = async () => {
-    const trimmed = inputValue.trim();
+  const handleSend = async (queryOverride?: string | React.MouseEvent | React.KeyboardEvent) => {
+    const overrideString = typeof queryOverride === "string" ? queryOverride : undefined;
+    const trimmed = (overrideString ?? inputValue).trim();
 
     if (!trimmed) {
       return;
@@ -712,10 +713,13 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   };
 
   const activeCompanySlug = getCompanySlugFromLocalStorage(activeCompany);
+  const totalChunks = collections.reduce((sum, col) => sum + (col.chunks ?? 0), 0);
+  const totalDocs = Object.values(corpusFiles).flat().length;
+  const activeCollectionsCount = collections.filter(c => (c.chunks ?? 0) > 0).length || collections.length;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#000000] text-white">
-      <div className="sticky top-0 h-screen overflow-auto w-72 flex-shrink-0 overflow-x-hidden">
+    <div className="flex h-screen overflow-hidden bg-[var(--bg)] text-white">
+      <div className="sticky top-0 h-screen overflow-auto w-72 flex-shrink-0 overflow-x-hidden border-r border-[var(--border)]">
         <Sidebar
           activeCompany={activeCompany}
           activeCompanySlug={getCompanySlugFromLocalStorage(activeCompany)}
@@ -729,17 +733,9 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
       </div>
 
       <main className="flex min-w-0 flex-1 flex-col overflow-hidden h-full px-4 py-4 lg:px-5">
-        <header className="flex items-center justify-between rounded-2xl border border-[#222222] bg-[#000000] px-5 py-4">
-          <div className="flex items-center gap-3 text-sm font-medium text-zinc-100">
-            <span className="relative flex h-[6px] w-[6px]">
-              <span className="relative inline-flex h-full w-full rounded-full bg-white" />
-            </span>
-            <span>FinbotAI beta</span>
-          </div>
-        </header>
 
         {resumeBannerVisible ? (
-          <div className="mt-3 rounded-2xl border border-[#222222] bg-[#111111] px-4 py-3 text-sm text-zinc-200">
+          <div className="mb-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-sm text-[var(--text-secondary)]">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p>
                 Welcome back — {activeCompany} loaded. {savedSession?.collections.length ?? collections.length} collections ready.
@@ -764,13 +760,13 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
           </div>
         ) : null}
 
-        <div className="mt-4">
-          <KPICards companySlug={activeCompanySlug} />
+        <div>
+          <KPICards companySlug={activeCompanySlug} totalChunks={totalChunks} totalDocs={totalDocs} isCorpusLoading={false} />
         </div>
 
-        <div className="mt-4 flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-[#222222] bg-[#111111]">
-          <ChatWindow messages={messages} activeCompanyKey={activeCompany} />
-          <div className="border-t border-[#222222] p-3">
+        <div className="mt-4 flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface-1)]">
+          <ChatWindow messages={messages} activeCompanyKey={activeCompany} totalChunks={totalChunks} totalDocs={totalDocs} collectionCount={activeCollectionsCount} onQuickQuery={handleSend} />
+          <div className="border-t border-[var(--border)] p-3">
             <InputBar
               value={inputValue}
               onChange={setInputValue}

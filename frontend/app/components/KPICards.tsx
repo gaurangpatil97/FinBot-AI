@@ -9,15 +9,19 @@ import {
   Line,
   ResponsiveContainer,
   Tooltip,
+  XAxis,
 } from "recharts";
 
-import { getCompanyKpi, getCompanyStatus } from "../../lib/api";
+import { getCompanyKpi } from "../../lib/api";
 
 type FinancialMetric = "Sales" | "Net profit" | "EBITDA" | "Borrowings";
 type FiscalYear = "FY22" | "FY23" | "FY24" | "FY25";
 
 interface KPICardsProps {
   companySlug: string;
+  totalChunks: number;
+  totalDocs: number;
+  isCorpusLoading?: boolean;
 }
 
 type KpiResponse = {
@@ -81,9 +85,10 @@ function formatYoY(currentValue: number | null | undefined, previousValue: numbe
   }
 
   const delta = currentValue - previousValue;
-  const sign = delta >= 0 ? "+" : "-";
+  const sign = delta > 0 ? "+" : delta < 0 ? "-" : "";
+  const pct = previousValue !== 0 ? ((Math.abs(delta) / Math.abs(previousValue)) * 100).toFixed(1) : "0.0";
 
-  return `${sign}₹${new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 }).format(Math.abs(delta))} Cr YoY`;
+  return `${sign}₹${new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 }).format(Math.abs(delta))} Cr (${sign}${pct}%)`;
 }
 
 function metricLabel(metric: FinancialMetric) {
@@ -121,9 +126,9 @@ function KpiCard({
         : "text-[#888888]";
 
   return (
-    <article className="rounded-2xl border border-[#222222] bg-[#111111] p-4 h-full">
-      <p className="text-xs font-semibold uppercase tracking-wider text-[#888888]">{title}</p>
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-white font-mono tabular-nums">{value}</p>
+    <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 h-full shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">{title}</p>
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-[var(--text-primary)] font-mono tabular-nums num">{value}</p>
       <p className={`mt-3 text-sm ${accentClass}`}>{subtext}</p>
     </article>
   );
@@ -277,8 +282,8 @@ function useFinancialKpi(companySlug: string, metric: FinancialMetric, initialYe
 
 function choicePillClass(active: boolean) {
   return active
-    ? "border-white bg-white text-black"
-    : "border-[#222222] bg-[#111111] text-[#888888] hover:border-white/20 hover:text-white";
+    ? "border-[var(--accent)] bg-[var(--accent)] text-black"
+    : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:border-white/20 hover:text-white";
 }
 
 function FinancialKpiCard({
@@ -304,7 +309,7 @@ function FinancialKpiCard({
   const emphasis = subtext.startsWith("+") ? "positive" : subtext.startsWith("-") ? "negative" : "neutral";
 
   const popover = isPopoverOpen ? (
-    <div className="absolute left-0 top-[calc(100%+0.5rem)] z-20 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-[#222222] bg-[#0a0a0a] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-sm">
+    <div className="absolute left-0 top-[calc(100%+0.5rem)] z-20 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-sm">
       <div className="grid gap-3">
         <div>
           <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-500">Metric</p>
@@ -342,22 +347,22 @@ function FinancialKpiCard({
   ) : null;
 
   return (
-    <article ref={containerRef} className="relative rounded-2xl border border-[#222222] bg-[#111111] p-4 h-full">
+    <article ref={containerRef} className="relative rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 h-full shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
       <button
         type="button"
         onClick={() => setIsPopoverOpen((current) => !current)}
-        className="group flex items-center gap-2 text-left outline-none"
+        className="group flex items-center gap-2 text-left outline-none rounded-md focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
       >
-        <p className="text-xs font-semibold uppercase tracking-wider text-[#888888] transition-colors group-hover:text-white">{title}</p>
-        <span className="opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 text-[#888888]">
+        <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] transition-colors group-hover:text-white">{title}</p>
+        <span className="opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 text-[var(--text-secondary)]">
           <PencilIcon />
         </span>
       </button>
 
-      <p className="mt-2 text-2xl font-semibold tracking-tight text-white font-mono tabular-nums">
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-[var(--text-primary)] font-mono tabular-nums num">
         <FadeValue value={value} />
       </p>
-      <p className={`mt-3 text-sm ${emphasis === "positive" ? "text-[#22c55e]" : emphasis === "negative" ? "text-[#ef4444]" : "text-[#888888]"}`}>
+      <p className={`mt-3 text-sm ${emphasis === "positive" ? "text-[#22c55e]" : emphasis === "negative" ? "text-[#ef4444]" : "text-[var(--text-secondary)]"}`}>
         {subtext}
       </p>
 
@@ -383,9 +388,9 @@ function TrendTooltip({ active, payload, label }: { active?: boolean; payload?: 
   }
 
   return (
-    <div className="rounded-xl border border-[#222222] bg-[#0a0a0a] px-3 py-2 text-xs text-white shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
-      <div className="font-medium text-[#888888] uppercase tracking-wider">{label}</div>
-      <div className="mt-1 text-white font-mono tabular-nums">{formatCrValue(value)}</div>
+    <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-xs text-white shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
+      <div className="font-medium text-[var(--text-secondary)] uppercase tracking-wider">{label}</div>
+      <div className="mt-1 text-[var(--text-primary)] font-mono tabular-nums num">{formatCrValue(value)}</div>
     </div>
   );
 }
@@ -449,9 +454,9 @@ function TrendCard({ companySlug, metric }: { companySlug: string; metric: Finan
   );
 
   return (
-    <article className="rounded-2xl border border-[#222222] bg-[#111111] p-4 h-full">
+    <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 h-full shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
       {isLoading ? (
-        <div className="flex h-full min-h-40 items-center justify-center text-sm text-zinc-500">Loading chart...</div>
+        <div className="flex h-full min-h-40 items-center justify-center text-sm text-[var(--text-secondary)]">Loading chart...</div>
       ) : (
         <div className="h-40">
           <ResponsiveContainer width="100%" height="100%">
@@ -468,6 +473,7 @@ function TrendCard({ companySlug, metric }: { companySlug: string; metric: Finan
                 labelFormatter={(label) => String(label)}
                 formatter={(value) => [formatCrValue(Number(value)), ""]}
               />
+              <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-secondary)', fontSize: 10 }} dy={10} />
               <Bar dataKey="value" fill={BAR_COLOR} fillOpacity={1} radius={[4, 4, 0, 0]} barSize={26} />
               <Area
                 type="monotone"
@@ -492,67 +498,15 @@ function TrendCard({ companySlug, metric }: { companySlug: string; metric: Finan
   );
 }
 
-export default function KPICards({ companySlug }: KPICardsProps) {
+export default function KPICards({ companySlug, totalChunks, totalDocs, isCorpusLoading }: KPICardsProps) {
   const [selectedMetric, setSelectedMetric] = useState<FinancialMetric>("Sales");
-  const [chunksIndexed, setChunksIndexed] = useState<number | null>(null);
-  const [docsUploaded, setDocsUploaded] = useState<number | null>(null);
-  const [isCorpusLoading, setIsCorpusLoading] = useState(true);
 
   useEffect(() => {
     setSelectedMetric("Sales");
   }, [companySlug]);
 
-  useEffect(() => {
-    let cancelled = false;
-
-    const loadCorpusStatus = async () => {
-      setIsCorpusLoading(true);
-
-      try {
-        const status = await getCompanyStatus(companySlug);
-        const collectionEntries = Object.values((status as { collections?: Record<string, { chunks?: number }> }).collections ?? {});
-        const totalChunks = collectionEntries.reduce(
-          (sum, collection) => sum + (typeof collection?.chunks === "number" ? collection.chunks : 0),
-          0,
-        );
-        const fileRecords = Array.isArray((status as { files?: unknown }).files) ? ((status as { files?: Array<{ file_id?: string }> }).files ?? []) : [];
-        const totalDocs = fileRecords.length;
-
-        if (cancelled) {
-          return;
-        }
-
-        setChunksIndexed(totalChunks);
-        setDocsUploaded(totalDocs);
-      } catch {
-        if (cancelled) {
-          return;
-        }
-
-        setChunksIndexed(null);
-        setDocsUploaded(null);
-      } finally {
-        if (!cancelled) {
-          setIsCorpusLoading(false);
-        }
-      }
-    };
-
-    if (companySlug) {
-      void loadCorpusStatus();
-    } else {
-      setChunksIndexed(null);
-      setDocsUploaded(null);
-      setIsCorpusLoading(false);
-    }
-
-    return () => {
-      cancelled = true;
-    };
-  }, [companySlug]);
-
-  const chunksValue = isCorpusLoading ? "Loading..." : chunksIndexed === null ? "Unavailable" : new Intl.NumberFormat("en-IN").format(chunksIndexed);
-  const docsValue = isCorpusLoading ? "Loading..." : docsUploaded === null ? "Unavailable" : new Intl.NumberFormat("en-IN").format(docsUploaded);
+  const chunksValue = isCorpusLoading ? "Loading..." : totalChunks === undefined || totalChunks === null ? "Unavailable" : new Intl.NumberFormat("en-IN").format(totalChunks);
+  const docsValue = isCorpusLoading ? "Loading..." : totalDocs === undefined || totalDocs === null ? "Unavailable" : new Intl.NumberFormat("en-IN").format(totalDocs);
 
   return (
     <section className="grid items-stretch gap-3 sm:grid-cols-2 xl:grid-cols-4">

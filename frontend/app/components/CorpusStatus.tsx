@@ -36,19 +36,23 @@ type RemoteFileRow = {
 };
 
 function statusMeta(collection: CollectionRecord | undefined) {
-  if (collection?.status === "ready" && (collection.chunks ?? 0) > 0) {
-    return { dot: "bg-[#22c55e]", text: "text-zinc-300" };
+  if (!collection) {
+    return { dot: "bg-[#52525b]", text: "text-[var(--text-secondary)]" };
   }
 
-  if (collection?.status === "processing") {
-    return { dot: "bg-[#ef4444]", text: "text-zinc-300" };
+  if (collection.status === "processing") {
+    return { dot: "bg-amber-500 animate-pulse", text: "text-amber-500" };
   }
 
-  if (collection?.status === "failed") {
-    return { dot: "bg-[#ef4444]", text: "text-zinc-300" };
+  if (collection.status === "failed") {
+    return { dot: "bg-red-500", text: "text-red-500" };
   }
 
-  return { dot: "bg-[#ef4444]", text: "text-zinc-400" };
+  if ((collection.chunks ?? 0) > 0) {
+    return { dot: "bg-[#22c55e]", text: "text-[#22c55e]" };
+  }
+
+  return { dot: "bg-[#52525b]", text: "text-[#52525b]" };
 }
 
 function statusLabel(collection: CollectionRecord | undefined) {
@@ -207,8 +211,8 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
   ];
 
   return (
-    <section className="rounded-2xl border border-[#222222] bg-[#111111] p-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#8b949e]">Corpus Status</p>
+    <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+      <p className="text-sm font-medium text-[var(--text-secondary)]">Corpus Status</p>
       <div className="mt-4 space-y-3">
         {rows.map((row) => {
             const collection = row.collection;
@@ -227,25 +231,25 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
           const isExpanded = expanded[row.key];
 
           return (
-            <div key={row.label} className="rounded-xl border border-[#222222] bg-transparent px-2 py-1">
+            <div key={row.label} className="rounded-xl border border-[var(--border)] bg-transparent px-2 py-1">
               <button
                 type="button"
                 onClick={() => void handleToggle(row.key)}
                 className="flex w-full items-center justify-between gap-3 px-1 py-1.5"
               >
-                <div className="flex min-w-0 items-center gap-2 text-sm text-zinc-200">
+                <div className="flex min-w-0 items-center gap-2 text-sm text-[var(--text-primary)]">
                   <span>{row.icon}</span>
                   <span className="truncate">{row.label}</span>
                 </div>
-                <div className="flex shrink-0 items-center gap-2 text-sm text-zinc-300">
+                <div className="flex shrink-0 items-center gap-2 text-sm text-[var(--text-primary)]">
                   <span className={`h-2.5 w-2.5 rounded-full ${meta.dot}`} />
-                  <span>{chunkSummary}</span>
-                  <span className={`text-xs text-[#8b949e] transition ${isExpanded ? "rotate-180" : ""}`}>⌄</span>
+                  <span className="font-mono tabular-nums num">{chunkSummary}</span>
+                  <span className={`text-xs text-[var(--text-secondary)] transition ${isExpanded ? "rotate-180" : ""}`}>⌄</span>
                 </div>
               </button>
 
-              <div className={`${isExpanded ? "block" : "hidden"} border-t border-[#222222] px-1 pb-2 pt-2`}>
-                {isLoadingFiles ? <p className="text-xs text-[#8b949e]">Loading files...</p> : null}
+              <div className={`${isExpanded ? "block" : "hidden"} border-t border-[var(--border)] px-1 pb-2 pt-2`}>
+                {isLoadingFiles ? <p className="text-xs text-[var(--text-secondary)]">Loading files...</p> : null}
                 {loadError ? <p className="text-xs text-rose-300">{loadError}</p> : null}
                 {!isLoadingFiles && !loadError ? (
                   <div className="space-y-1.5">
@@ -253,17 +257,17 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
                       <div
                         key={`${row.key}-${file.name}`}
                         title={file.name}
-                        className="flex items-center justify-between gap-2 rounded-lg bg-[#000000] px-2.5 py-2"
+                        className="flex items-center justify-between gap-2 rounded-lg bg-[var(--bg)] px-2.5 py-2"
                       >
-                        <p className="min-w-0 truncate text-xs text-zinc-200">{displayFilename(file.name)}</p>
-                        <p className="shrink-0 text-xs text-[#8b949e]">
+                        <p className="min-w-0 truncate text-xs text-[var(--text-primary)]">{displayFilename(file.name)}</p>
+                        <p className="shrink-0 text-xs text-[var(--text-secondary)] font-mono tabular-nums num">
                           {formatPeriodTag(file.year, file.quarter) ? `${formatPeriodTag(file.year, file.quarter)} · ` : ""}
                           {file.chunks} chunks
                         </p>
                       </div>
                     ))}
                     {(remoteFiles[row.key] ?? []).length === 0 ? (
-                      <p className="text-xs text-[#8b949e]">Total: {total} chunks</p>
+                      <p className="text-xs text-[var(--text-secondary)] font-mono tabular-nums num">Total: {total} chunks</p>
                     ) : null}
                   </div>
                 ) : null}

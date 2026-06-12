@@ -3,6 +3,14 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  --bg: #0a0a0c;
+  --surface-1: #121215;
+  --surface-2: #1a1a1f;
+  --border: rgba(255,255,255,0.07);
+  --accent: #f59e0b;
+  --accent-dim: rgba(245,158,11,0.12);
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
 }
 
 @theme inline {
@@ -13,8 +21,8 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text-primary);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   min-height: 100vh;
 }
@@ -44,3 +52,7 @@ body {
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+.num {
+  font-variant-numeric: tabular-nums;
+}

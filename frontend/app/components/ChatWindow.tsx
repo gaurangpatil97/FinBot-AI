@@ -10,6 +10,45 @@ import type { ChatMessage } from "./finbot-types";
 interface ChatWindowProps {
   messages: ChatMessage[];
   activeCompanyKey?: string;
+  totalChunks?: number;
+  totalDocs?: number;
+  collectionCount?: number;
+  onQuickQuery?: (query: string) => void;
+}
+
+function PipelineStatus() {
+  const [step, setStep] = useState(0);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setStep(1), 600);
+    const t2 = setTimeout(() => setStep(2), 2200);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
+  const steps = [
+    { label: "Routing query → Excel", active: step === 0, done: step > 0 },
+    { label: "Retrieving relevant chunks", active: step === 1, done: step > 1 },
+    { label: "Generating answer", active: step === 2, done: step > 2 }
+  ];
+
+  return (
+    <div className="flex flex-col gap-2 py-1">
+      {steps.map((s, i) => (
+        <div key={i} className="flex items-center gap-2">
+          {s.done ? (
+            <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-green-500/20 text-[9px] text-[#22c55e]">✓</span>
+          ) : s.active ? (
+            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-amber-500/20 border-t-amber-500" />
+          ) : (
+            <span className="h-3.5 w-3.5 rounded-full border border-zinc-600" />
+          )}
+          <span className={`text-xs ${s.active ? 'text-amber-500' : s.done ? 'text-[var(--text-secondary)]' : 'text-zinc-600'}`}>
+            {s.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 type StoredCompany = {
@@ -80,7 +119,7 @@ function getCompanyLabel(company: CompanySummary) {
   return "";
 }
 
-export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowProps) {
+export default function ChatWindow({ messages, activeCompanyKey, totalChunks, totalDocs, collectionCount, onQuickQuery }: ChatWindowProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const [welcome, setWelcome] = useState<WelcomeState | null>(null);
 
@@ -167,26 +206,46 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
     >
       {messages.length === 0 ? (
         <div className="flex items-start gap-3">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#111111] text-sm font-semibold text-white border border-[#222222]">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-[var(--text-primary)] border border-[var(--border)]">
             AI
           </div>
 
-          <div className="max-w-[min(48rem,90%)] rounded-2xl border border-[#333333] bg-[#0a0a0a] px-4 py-3 text-sm leading-6 text-white">
-            <p className="text-base font-semibold text-white">Hey! I&apos;m FinbotAI 👋</p>
+          <div className="flex flex-col gap-3">
+            <div className="max-w-[min(48rem,90%)] rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-sm leading-6 text-[var(--text-primary)]">
+              {welcome?.activeCompanyName ? (
+                <>
+                  <p className="font-medium text-[var(--text-primary)]">
+                    {welcome.activeCompanyName} — corpus ready.
+                  </p>
+                  <p className="mt-2 text-[var(--text-secondary)]">
+                    <span className="font-mono num">{totalDocs ?? 0}</span> documents · <span className="font-mono num">{totalChunks ?? 0}</span> chunks indexed across <span className="font-mono num">{collectionCount ?? 0}</span> collections (Excel, PDF, Images, Concall).
+                  </p>
+                  <p className="mt-2 text-[var(--text-primary)]">Ask about financials, earnings calls, or annual reports.</p>
+                </>
+              ) : (
+                <p className="text-[var(--text-secondary)]">Click "+ Upload Dataset" to get started.</p>
+              )}
+            </div>
+
             {welcome?.activeCompanyName ? (
-              <>
-                <p className="mt-2">
-                  I&apos;m your AI-powered financial research assistant. You&apos;ve loaded <strong>{welcome.activeCompanyName}</strong> as your active corpus — ask me anything about their financials, earnings calls, or annual reports.
-                </p>
-                {welcome.otherCompanies.length > 0 ? (
-                  <p className="mt-2 text-zinc-400">Other available datasets: {welcome.otherCompanies.join(", ")}</p>
-                ) : null}
-                <p className="mt-2">You can also upload a new dataset anytime using the "+ Upload Dataset" button.</p>
-                <p className="mt-2">What would you like to know?</p>
-              </>
-            ) : (
-              <p className="mt-2 text-zinc-300">Click "+ Upload Dataset" to get started.</p>
-            )}
+              <div className="flex flex-wrap gap-2 max-w-[min(48rem,90%)]">
+                {[
+                  "What was the EBITDA margin trend from FY23 to FY25?",
+                  "What did management say about powertrain capex in the latest concall?",
+                  "Calculate ROCE for FY24 and FY25",
+                  "Summarize segment-wise revenue for FY24"
+                ].map((q) => (
+                  <button
+                    key={q}
+                    type="button"
+                    onClick={() => onQuickQuery?.(q)}
+                    className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-3 py-1.5 text-xs font-medium text-[var(--text-secondary)] transition hover:border-[var(--accent)] hover:text-[var(--text-primary)]"
+                  >
+                    "{q}"
+                  </button>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
       ) : null}
@@ -200,7 +259,7 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
             className={`flex items-end gap-3 ${assistant ? "justify-start" : "justify-end"}`}
           >
             {assistant ? (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#111111] text-sm font-semibold text-white border border-[#222222]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-white border border-[var(--border)]">
                 AI
               </div>
             ) : null}
@@ -208,20 +267,19 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
             <div
               className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-sm leading-6 ${
                 assistant
-                  ? "border-[#333333] bg-[#0a0a0a] text-white"
-                  : "border-[#222222] bg-[#1a1a1a] text-white"
+                  ? "border-[var(--border)] bg-[var(--surface-1)] text-white"
+                  : "border-[var(--border)] bg-[var(--surface-2)] text-white"
               }`}
             >
               {message.isLoading ? (
-                <div className="flex items-center gap-2 text-zinc-300">
-                  <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-300" />
-                  <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-300 [animation-delay:120ms]" />
-                  <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-blue-300 [animation-delay:240ms]" />
-                </div>
+                <PipelineStatus />
               ) : assistant ? (
-                <div className="prose prose-invert prose-sm max-w-none">
-                  <ReactMarkdown>{message.content}</ReactMarkdown>
-                </div>
+                <>
+                  <div className="mb-2 text-[11px] text-[var(--text-secondary)]">Routed to Excel · 8 chunks · 1.4s</div>
+                  <div className="prose prose-invert prose-sm max-w-none">
+                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                  </div>
+                </>
               ) : (
                 <p className="whitespace-pre-line">{message.content}</p>
               )}
@@ -238,7 +296,7 @@ export default function ChatWindow({ messages, activeCompanyKey }: ChatWindowPro
             </div>
 
             {!assistant ? (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#111111] text-sm font-semibold text-white border border-[#222222]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-white border border-[var(--border)]">
                 U
               </div>
             ) : null}
