@@ -769,11 +769,13 @@ def fire_question(question: str, company_slug: str) -> dict:
         }
 
 
-def check_routing(actual_sources: list, expected_sources: list) -> bool:
-    """Check if routing is correct — all expected sources present in actual."""
-    actual_set = set(actual_sources)
-    expected_set = set(expected_sources)
-    return expected_set.issubset(actual_set)
+def check_routing_lenient(actual_sources: list, expected_sources: list) -> bool:
+    """Check if all expected sources are present in actual (superset allowed)."""
+    return set(expected_sources).issubset(set(actual_sources))
+
+def check_routing_strict(actual_sources: list, expected_sources: list) -> bool:
+    """Check if expected sources match actual sources exactly."""
+    return set(expected_sources) == set(actual_sources)
 
 
 def check_citation(citations: list, expected_contains: list) -> bool:
@@ -803,10 +805,13 @@ def main():
         response = fire_question(q["question"], COMPANY_SLUG)
 
         # Auto-score routing and citation
-        routing_correct = check_routing(
-            response.get("collections_searched", []),
-            q["expected_source"]
-        )
+        routing_debug = response.get("routing_debug", {})
+        raw_sources = routing_debug.get("source_types", [])
+        fallback_fired = routing_debug.get("method", "") == "keyword_fallback"
+
+        routing_lenient = check_routing_lenient(raw_sources, q["expected_source"])
+        routing_strict = check_routing_strict(raw_sources, q["expected_source"])
+
         citation_correct = check_citation(
             response.get("citations", []),
             q["expected_citation_contains"]
@@ -825,10 +830,14 @@ def main():
             "actual_sources": response.get("collections_searched", []),
             "actual_citations": response.get("citations", []),
             "actual_chunks": [c.get("content", "") for c in response.get("chunks", []) if isinstance(c, dict) and "content" in c],
-            "routing_debug": response.get("routing_debug", {}),
+            "routing_debug": routing_debug,
             "agent_used": response.get("agent_used", ""),
             "latency_seconds": response.get("latency_seconds", 0),
-            "routing_correct": routing_correct,
+            "routed_sources": raw_sources,
+            "fallback_fired": fallback_fired,
+            "routing_correct_lenient": routing_lenient,
+            "routing_correct_strict": routing_strict,
+            "routing_correct": routing_lenient,  # Keep for backwards compat if needed
             "citation_correct": citation_correct,
             "correct": None,  # To be filled manually
         }
@@ -838,16 +847,23 @@ def main():
         # Track section stats
         if section not in section_stats:
             section_stats[section] = {
-                "total": 0, "routing_correct": 0,
-                "citation_correct": 0, "latency_total": 0
+                "total": 0, "routing_lenient": 0, "routing_strict": 0,
+                "citation_correct": 0, "latency_total": 0, "fallback_fired": 0
             }
         section_stats[section]["total"] += 1
-        section_stats[section]["routing_correct"] += int(routing_correct)
+        section_stats[section]["routing_lenient"] += int(routing_lenient)
+        section_stats[section]["routing_strict"] += int(routing_strict)
+        section_stats[section]["fallback_fired"] += int(fallback_fired)
         section_stats[section]["citation_correct"] += int(citation_correct)
         section_stats[section]["latency_total"] += response.get("latency_seconds", 0)
 
-        status = "✅" if routing_correct else "❌"
+        status = "✅" if routing_strict else ("⚠️" if routing_lenient else "❌")
         print(f"         Routing: {status} | Latency: {response.get('latency_seconds', 0)}s\n")
+
+        # Incrementally persist to JSONL
+        jsonl_output = JSON_OUTPUT.replace(".json", ".jsonl")
+        with open(jsonl_output, "a", encoding="utf-8") as f:
+            f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
         # Small delay to avoid rate limits
         time.sleep(1)
@@ -885,28 +901,35 @@ def main():
         f.write(f"AUTO-SCORED SUMMARY (Routing + Citation + Latency)\n")
         f.write(f"{'='*80}\n\n")
 
-        total_routing = sum(1 for r in results if r["routing_correct"])
+        total_lenient = sum(1 for r in results if r["routing_correct_lenient"])
+        total_strict = sum(1 for r in results if r["routing_correct_strict"])
+        total_fallback = sum(1 for r in results if r.get("fallback_fired"))
         total_citation = sum(1 for r in results if r["citation_correct"])
         avg_latency = sum(r["latency_seconds"] for r in results) / len(results)
 
-        f.write(f"Overall Routing Accuracy:  {total_routing}/{len(results)} = {total_routing/len(results)*100:.1f}%\n")
-        f.write(f"Overall Citation Accuracy: {total_citation}/{len(results)} = {total_citation/len(results)*100:.1f}%\n")
-        f.write(f"Average Latency:           {avg_latency:.2f}s\n\n")
+        f.write(f"Routing Accuracy (Lenient): {total_lenient}/{len(results)} = {total_lenient/len(results)*100:.1f}%\n")
+        f.write(f"Routing Accuracy (Strict):  {total_strict}/{len(results)} = {total_strict/len(results)*100:.1f}%\n")
+        f.write(f"Total Fallbacks Fired:      {total_fallback}\n")
+        f.write(f"Overall Citation Accuracy:  {total_citation}/{len(results)} = {total_citation/len(results)*100:.1f}%\n")
+        f.write(f"Average Latency:            {avg_latency:.2f}s\n\n")
 
         f.write(f"Per Section:\n")
         for section, stats in section_stats.items():
             n = stats["total"]
-            r_pct = stats["routing_correct"] / n * 100
+            l_pct = stats["routing_lenient"] / n * 100
+            s_pct = stats["routing_strict"] / n * 100
             c_pct = stats["citation_correct"] / n * 100
             avg_lat = stats["latency_total"] / n
-            f.write(f"  {section:<10} Routing: {stats['routing_correct']}/{n} ({r_pct:.0f}%) | Citation: {stats['citation_correct']}/{n} ({c_pct:.0f}%) | Avg Latency: {avg_lat:.1f}s\n")
+            f.write(f"  {section:<10} Routing: {stats['routing_lenient']}/{n} lenient ({l_pct:.0f}%), {stats['routing_strict']}/{n} strict ({s_pct:.0f}%) | Fallbacks: {stats['fallback_fired']} | Citation: {stats['citation_correct']}/{n} ({c_pct:.0f}%) | Avg Latency: {avg_lat:.1f}s\n")
 
     # ── Print summary ──────────────────────────────────────────────────────────
     print(f"\n{'='*60}")
     print(f"  EVALUATION COMPLETE")
     print(f"{'='*60}")
     print(f"  Total questions:   {len(results)}")
-    print(f"  Routing accuracy:  {total_routing}/{len(results)} ({total_routing/len(results)*100:.1f}%)")
+    print(f"  Routing (Lenient): {total_lenient}/{len(results)} ({total_lenient/len(results)*100:.1f}%)")
+    print(f"  Routing (Strict):  {total_strict}/{len(results)} ({total_strict/len(results)*100:.1f}%)")
+    print(f"  Fallbacks fired:   {total_fallback}")
     print(f"  Citation accuracy: {total_citation}/{len(results)} ({total_citation/len(results)*100:.1f}%)")
     print(f"  Avg latency:       {avg_latency:.2f}s")
     print(f"\n  Results saved to:")
