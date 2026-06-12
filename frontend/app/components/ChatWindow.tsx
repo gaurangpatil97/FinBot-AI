@@ -275,7 +275,11 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
                 <PipelineStatus />
               ) : assistant ? (
                 <>
-                  <div className="mb-2 text-[11px] text-[var(--text-secondary)]">Routed to Excel · 8 chunks · 1.4s</div>
+                  {message.routingSource && (
+                    <div className="mb-2 text-[11px] text-[var(--text-secondary)]">
+                      Routed to {message.routingSource} · {message.chunkCount || 0} chunks · {message.latency || "0.0"}s
+                    </div>
+                  )}
                   <div className="prose prose-invert prose-sm max-w-none">
                     <ReactMarkdown>{message.content}</ReactMarkdown>
                   </div>

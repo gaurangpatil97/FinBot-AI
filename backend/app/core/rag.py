@@ -185,14 +185,20 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             collections_searched=[],
             agent_used="guardrail",
             agent_trace="Rejected by input guardrail",
-            chunks=[]  # RAGAS eval — include retrieved chunks
+            chunks=[],  # RAGAS eval — include retrieved chunks
+            routing_debug={}
         )
     # Step 1 — Route the question
-    decision = route_question(question, company_slug, year)
     decision = route_question(question, company_slug, year)
     source_types = decision.source_types
     routed_year = decision.year or year
     routed_year = routed_year[0] if isinstance(routed_year, list) and routed_year else routed_year
+
+    routing_debug = {
+        "source_types": decision.source_types,
+        "year": decision.year,
+        "method": decision.agent_used
+    }
 
     logger.info(f"[RAG] Routing to: {source_types} | Year: {routed_year}")
 
@@ -235,7 +241,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             collections_searched=[f"{company_slug}_excel"],
             agent_used="calculation_agent",
             agent_trace=calc_result.get("trace", ""),
-            chunks=calc_context  # RAGAS eval — include retrieved chunks
+            chunks=calc_context,  # RAGAS eval — include retrieved chunks
+            routing_debug=routing_debug
         )
 
     # Step 3 — Decompose and embed the sub-queries
@@ -325,7 +332,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             collections_searched=source_types,
             agent_used="rag",
             agent_trace="No chunks retrieved",
-            chunks=[]  # RAGAS eval — include retrieved chunks
+            chunks=[],  # RAGAS eval — include retrieved chunks
+            routing_debug=routing_debug
         )
 
     # Step 6 — Build prompt
@@ -365,5 +373,6 @@ def answer_query(request: QueryRequest) -> QueryResponse:
         collections_searched=source_types,
         agent_used="rag",
         agent_trace="Full RAG pipeline",
-        chunks=top_chunks  # RAGAS eval — include retrieved chunks
+        chunks=top_chunks,  # RAGAS eval — include retrieved chunks
+        routing_debug=routing_debug
     )

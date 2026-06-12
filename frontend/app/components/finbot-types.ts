@@ -86,4 +86,7 @@ export interface ChatMessage {
   content: string;
   citations?: CitationRecord[];
   isLoading?: boolean;
+  routingSource?: string;
+  chunkCount?: number;
+  latency?: string;
 }

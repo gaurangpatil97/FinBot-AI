@@ -24,6 +24,7 @@ class QueryResponse(BaseModel):
     agent_used: str
     agent_trace: str = ""
     chunks: list[dict] = []  # Retrieved chunks — populated during eval mode for RAGAS
+    routing_debug: Dict[str, Any] = Field(default_factory=dict)
 
 
 class UploadResponse(BaseModel):

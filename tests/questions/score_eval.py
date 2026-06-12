@@ -135,7 +135,7 @@ def run_ragas(results: list) -> dict:
 
         questions.append(r["question"])
         answers.append(r["actual_answer"])
-        contexts.append([c.get("content", "") for c in chunks if c.get("content")])
+        contexts.append([c for c in chunks if isinstance(c, str)])
         ground_truths.append(r["expected_answer"])
 
     if not questions:

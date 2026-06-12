@@ -72,6 +72,7 @@ def _keyword_route(question: str, company_slug: str, year: Optional[str] = None)
         return RouteDecision(
             source_types=["images", "excel"],
             year=year,
+            agent_used="keyword_fallback",
             collections_searched=collections
         )
 
@@ -103,6 +104,7 @@ def _keyword_route(question: str, company_slug: str, year: Optional[str] = None)
     return RouteDecision(
         source_types=sources,
         year=year,
+        agent_used="keyword_fallback",
         collections_searched=collections
     )
 
@@ -195,6 +197,7 @@ Question: {question}
         return RouteDecision(
             source_types=source_types,
             year=routed_year,
+            agent_used="llm",
             collections_searched=collections,
         )
     except Exception:

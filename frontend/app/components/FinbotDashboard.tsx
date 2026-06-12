@@ -597,9 +597,11 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     ]);
 
     try {
+      const startTime = Date.now();
       const companySlug = getCompanySlugFromLocalStorage(activeCompany);
       const year = extractYearFromQuestion(trimmed);
       const result = await queryRAG(trimmed, companySlug, year);
+      const latencySeconds = ((Date.now() - startTime) / 1000).toFixed(1);
 
       const answer =
         result && typeof result.answer === "string" && result.answer.trim()
@@ -610,6 +612,15 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
         ? result.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) }))
         : [];
 
+      let routingSource = "Unknown";
+      if (result?.routing_debug?.source_types && Array.isArray(result.routing_debug.source_types) && result.routing_debug.source_types.length > 0) {
+        routingSource = result.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
+      } else if (Array.isArray(result?.collections_searched) && result.collections_searched.length > 0) {
+        routingSource = result.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
+      }
+
+      const chunkCount = Array.isArray(result?.chunks) ? result.chunks.length : 0;
+
       setMessages((current) =>
         current.map((message) =>
           message.id === loadingMessageId
@@ -618,6 +629,9 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
                 content: answer,
                 citations,
                 isLoading: false,
+                routingSource,
+                chunkCount,
+                latency: latencySeconds,
               }
             : message,
         ),
