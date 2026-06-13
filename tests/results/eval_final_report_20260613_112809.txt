@@ -1,0 +1,73 @@
+======================================================================
+  FINBOT EVALUATION FINAL REPORT
+  Generated: 2026-06-13 11:29:44
+  Source: 20260612_192735
+  Company: craftsman_automation_ltd
+======================================================================
+
+── SYSTEM OVERVIEW ──────────────────────────────────────────────────
+  Total questions evaluated: 77
+  Questions manually reviewed: 0
+
+── AUTO-SCORED METRICS ──────────────────────────────────────────────
+  Routing Accuracy:   72/77 = 93.5%
+  Citation Accuracy:  59/77 = 76.6%
+  Answer Correctness: NOT YET REVIEWED (set 'correct': true/false in JSON)
+
+  Latency:
+    Average: 17.08s
+    Min:     6.84s
+    Max:     45.57s
+
+── RAGAS METRICS ────────────────────────────────────────────────────
+  Questions evaluated: 5
+  Questions skipped:   72 (no chunks)
+  Faithfulness:        0.6067
+  Answer Relevancy:    0.9522
+  Context Recall:      0.8
+  Context Precision:   0.8
+
+── PER SECTION BREAKDOWN ────────────────────────────────────────────
+  Section       Total    Routing   Citation    Correct    Avg Lat
+  --------------------------------------------------------------
+  Excel            15 15/15 (100%):>10 12/15 (80%):>10 not reviewed 18.0s:>10
+  Concall          15 15/15 (100%):>10 8/15 (53%):>10 not reviewed 21.2s:>10
+  PDF              16 16/16 (100%):>10 11/16 (69%):>10 not reviewed 14.1s:>10
+  Images           16 12/16 (75%):>10 14/16 (88%):>10 not reviewed 14.5s:>10
+  Cross            15 14/15 (93%):>10 14/15 (93%):>10 not reviewed 17.9s:>10
+
+── PER DIFFICULTY BREAKDOWN ─────────────────────────────────────────
+  Easy       Routing: 20/21 (95%) | Correct: not reviewed
+  Medium     Routing: 18/20 (90%) | Correct: not reviewed
+  Hard       Routing: 34/36 (94%) | Correct: not reviewed
+
+── FAILURE ANALYSIS ─────────────────────────────────────────────────
+
+  Routing Failures (5):
+    Q59 [Images]: Expected ['images'] | Got ['pdf']
+    Q60 [Images]: Expected ['images'] | Got ['pdf']
+    Q61 [Images]: Expected ['images'] | Got ['pdf']
+    Q62 [Images]: Expected ['images'] | Got ['pdf']
+    Q69 [Cross]: Expected ['excel', 'pdf', 'images'] | Got ['excel']
+
+  Citation Failures (18):
+    Q6 [Excel]: Compute the Debt-to-Equity ratio for FY25 and FY26 and asses...
+    Q7 [Excel]: Calculate Debtor Days for FY23 and FY26 and compare receivab...
+    Q8 [Excel]: Compute the Interest Coverage Ratio for FY22 and FY25 and ev...
+    Q19 [Concall]: What was the total debt of the company as of end of FY22 Q4,...
+    Q20 [Concall]: Calculate the Debt-to-EBITDA ratio for FY23 H1 as disclosed ...
+    Q21 [Concall]: For FY23 Q2, management disclosed that aluminum prices fell ...
+    Q24 [Concall]: Management claimed in FY23 Q1 that the company's annualised ...
+    Q27 [Concall]: Management guided in FY22 Q4 for a ₹100 crore debt reduction...
+    Q28 [Concall]: Management claimed in FY23 Q2 that Aluminum Products segment...
+    Q29 [Concall]: Management guided revenue of ₹600 crores for FY23 Q1 in the ...
+    ... and 8 more
+
+── SUMMARY ──────────────────────────────────────────────────────────
+  Routing Accuracy:   93.5%
+  Citation Accuracy:  76.6%
+  Faithfulness:       0.6067
+  Context Recall:     0.8
+  Context Precision:  0.8
+  Avg Latency:        17.08s
+======================================================================

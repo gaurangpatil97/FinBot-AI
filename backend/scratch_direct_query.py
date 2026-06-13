@@ -19,7 +19,8 @@ try:
     results = query_collection(
         query_embedding=q_emb,
         collection_name="craftsman_automation_ltd_excel",
-        top_k=8
+        top_k=8,
+        chroma_path=r"D:\FinBot\backend\chroma_store\craftsman_automation_ltd\excel"
     )
     print(f"Retrieved chunks count: {len(results)}")
     if len(results) > 0:

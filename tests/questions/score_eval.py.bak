@@ -148,12 +148,9 @@ def run_ragas(results: list) -> dict:
     if not questions:
         return {"error": "No questions with chunks available for RAGAS"}
 
-    print(f"\n  Running RAGAS on {len(questions)} questions...")
+    print(f"\n  Running RAGAS on {len(questions)} questions ({skipped} skipped — no chunks)...")
 
     try:
-        from ragas.run_config import RunConfig
-        import numpy as np
-        
         dataset = Dataset.from_dict({
             "user_input": questions,
             "response": answers,
@@ -161,8 +158,6 @@ def run_ragas(results: list) -> dict:
             "reference": ground_truths,
         })
 
-        run_config = RunConfig(max_workers=2, max_retries=10)
-        
         result = evaluate(
             dataset,
             metrics=[
@@ -171,39 +166,24 @@ def run_ragas(results: list) -> dict:
                 context_recall,
                 context_precision,
             ],
-            raise_exceptions=False,
-            run_config=run_config
+            raise_exceptions=True
         )
 
-        df = result.to_pandas()
-        
-        nan_counts = {
-            "faithfulness": df["faithfulness"].isna().sum() if "faithfulness" in df else len(df),
-            "answer_relevancy": df["answer_relevancy"].isna().sum() if "answer_relevancy" in df else len(df),
-            "context_recall": df["context_recall"].isna().sum() if "context_recall" in df else len(df),
-            "context_precision": df["context_precision"].isna().sum() if "context_precision" in df else len(df)
-        }
-        
-        print("\n--- NaN ROW COUNTS ---")
-        for k, v in nan_counts.items():
-            print(f"{k}: {v}")
-        print("----------------------\n")
-
-        def _safe_nanmean(col_name):
-            if col_name not in df.columns:
+        def _safe_float(val):
+            if val is None:
                 return None
-            val = np.nanmean(df[col_name])
-            if np.isnan(val):
-                return None
+            if isinstance(val, list):
+                val = [v for v in val if v is not None]
+                return round(sum(val) / len(val), 4) if val else None
             return round(float(val), 4)
 
         return {
             "questions_evaluated": len(questions),
             "questions_skipped": skipped,
-            "faithfulness": _safe_nanmean("faithfulness"),
-            "answer_relevancy": _safe_nanmean("answer_relevancy"),
-            "context_recall": _safe_nanmean("context_recall"),
-            "context_precision": _safe_nanmean("context_precision"),
+            "faithfulness": _safe_float(result["faithfulness"]),
+            "answer_relevancy": _safe_float(result["answer_relevancy"]),
+            "context_recall": _safe_float(result["context_recall"]),
+            "context_precision": _safe_float(result["context_precision"]),
         }
 
     except Exception as e:

@@ -18,8 +18,12 @@ After running:
 import json
 import time
 import requests
+import sys
 from datetime import datetime
 from pathlib import Path
+
+# Force UTF-8 stdout for Windows
+sys.stdout.reconfigure(encoding='utf-8')
 
 # ── Config ────────────────────────────────────────────────────────────────────
 API_URL = "http://localhost:8000/api/v1/query"
@@ -857,11 +861,11 @@ def main():
         section_stats[section]["citation_correct"] += int(citation_correct)
         section_stats[section]["latency_total"] += response.get("latency_seconds", 0)
 
-        status = "✅" if routing_strict else ("⚠️" if routing_lenient else "❌")
+        status = "PASS" if routing_strict else ("WARN" if routing_lenient else "FAIL")
         print(f"         Routing: {status} | Latency: {response.get('latency_seconds', 0)}s\n")
 
         # Incrementally persist to JSONL
-        jsonl_output = JSON_OUTPUT.replace(".json", ".jsonl")
+        jsonl_output = JSON_OUTPUT.with_suffix(".jsonl")
         with open(jsonl_output, "a", encoding="utf-8") as f:
             f.write(json.dumps(result, ensure_ascii=False) + "\n")
 

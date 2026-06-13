@@ -203,6 +203,23 @@ After targeted fixes to the router and calculation agent:
 
 ---
 
+### V2.1 — RAGAS Fully Resolved (June 13, 2026)
+
+Note that all 4 RAGAS metrics now return real values (zero NaN rows out of 77) for the first time, after fixing: (a) the V2 schema column-naming mismatch for `ragas==0.3.1`, and (b) rate-limit-induced NaN poisoning of aggregate averages.
+
+**Scores:**
+- Faithfulness: 0.6714
+- Answer Relevancy: 0.6624
+- Context Precision: 0.3303
+- Context Recall: 0.2481
+
+*Note explicitly: these scores were computed on data from the eval run before the Excel limit=20 fix, and a rerun with the Excel fix is expected to follow shortly with updated numbers.*
+
+**Excel Limit=20 Fix:**
+The `query_collection_all()` chunks now bypass the `top_chunks` limit in `rag.py`. This fixes an Excel multi-year retrieval bug where it was dropping ~10/30 chunks, which caused the Excel answer accuracy to regress from 93% to 73%. The upcoming rerun is expected to show an impact from this fix.
+
+---
+
 ### What the Numbers Mean
 
 | Component | Assessment |

@@ -250,6 +250,7 @@ def answer_query(request: QueryRequest) -> QueryResponse:
 
     # Step 4 — Retrieve chunks from routed collections
     all_chunks = []
+    excel_all_chunks = []
     seen_hashes = set()
     # Per-source top_k — PDF and Concall need more candidates
     K_EXCEL = 8 if len(sub_queries) > 1 else 3
@@ -268,7 +269,7 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                 content_hash = hashlib.md5(content.encode("utf-8")).hexdigest()
                 if content_hash not in seen_hashes:
                     seen_hashes.add(content_hash)
-                    all_chunks.append(chunk)
+                    excel_all_chunks.append(chunk)
             continue
 
         for sub_q in sub_queries:
@@ -324,6 +325,10 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     # Use the multi-query retrieval budget for broader questions.
     limit = settings.TOP_K_CHUNKS_MULTI if len(sub_queries) > 1 else settings.TOP_K_CHUNKS
     top_chunks = all_chunks[:limit]
+
+    # Combine bypassed Excel chunks
+    if excel_all_chunks:
+        top_chunks = excel_all_chunks + top_chunks
 
     if not top_chunks:
         return QueryResponse(
