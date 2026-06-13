@@ -266,6 +266,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             )
             for chunk in excel_chunks:
                 content = str(chunk.get("content", ""))
+                if "metadata" not in chunk: chunk["metadata"] = {}
+                chunk["metadata"]["source_type"] = coll_type
                 content_hash = hashlib.md5(content.encode("utf-8")).hexdigest()
                 if content_hash not in seen_hashes:
                     seen_hashes.add(content_hash)
@@ -315,20 +317,39 @@ def answer_query(request: QueryRequest) -> QueryResponse:
 
             for chunk in sub_chunks:
                 content = str(chunk.get("content", ""))
+                if "metadata" not in chunk: chunk["metadata"] = {}
+                chunk["metadata"]["source_type"] = coll_type
                 content_hash = hashlib.md5(content.encode("utf-8")).hexdigest()
                 if content_hash not in seen_hashes:
                     seen_hashes.add(content_hash)
                     all_chunks.append(chunk)
 
+    all_chunks.extend(excel_all_chunks)
+
     # Step 5 — Rank and trim
     all_chunks = sorted(all_chunks, key=lambda x: x["score"], reverse=True)
     # Use the multi-query retrieval budget for broader questions.
     limit = settings.TOP_K_CHUNKS_MULTI if len(sub_queries) > 1 else settings.TOP_K_CHUNKS
-    top_chunks = all_chunks[:limit]
 
-    # Combine bypassed Excel chunks
-    if excel_all_chunks:
-        top_chunks = excel_all_chunks + top_chunks
+    MIN_BUDGET = getattr(settings, "MIN_BUDGET_PER_SOURCE", 4)
+    source_counts = {st: 0 for st in source_types}
+    
+    budgeted_chunks = []
+    unbudgeted_chunks = []
+    
+    for chunk in all_chunks:
+        st = chunk.get("metadata", {}).get("source_type")
+        if st in source_counts and source_counts[st] < MIN_BUDGET:
+            source_counts[st] += 1
+            budgeted_chunks.append(chunk)
+        else:
+            unbudgeted_chunks.append(chunk)
+            
+    remaining_limit = max(0, limit - len(budgeted_chunks))
+    top_chunks = budgeted_chunks + unbudgeted_chunks[:remaining_limit]
+    
+    # Sort them by score again
+    top_chunks = sorted(top_chunks, key=lambda x: x["score"], reverse=True)
 
     if not top_chunks:
         return QueryResponse(

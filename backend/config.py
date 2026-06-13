@@ -31,11 +31,12 @@ class Settings:
     EMBEDDING_DEVICE: str = "cuda"
     TOP_K_CHUNKS: int = 12
     EXCEL_FILE_PATH: str = str(BASE_DIR / "data" / "uploads")
-    TOP_K_CHUNKS_MULTI: int = 20
+    TOP_K_CHUNKS_MULTI: int = 8
     CHUNK_SIZE: int = 800
     CHUNK_OVERLAP: int = 150
     TOP_K_PDF: int = 8
     TOP_K_CONCALL: int = 8
+    MIN_BUDGET_PER_SOURCE: int = 4
     TOP_K_IMAGES: int = 5
 
 
