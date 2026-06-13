@@ -120,10 +120,10 @@ function KpiCard({
 }) {
   const accentClass =
     subtext.startsWith("+")
-      ? "text-[#22c55e]"
+      ? "text-[var(--gain)]"
       : subtext.startsWith("-")
-        ? "text-[#ef4444]"
-        : "text-[#888888]";
+        ? "text-[var(--loss)]"
+        : "text-[var(--text-secondary)]";
 
   return (
     <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 h-full shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
@@ -282,8 +282,8 @@ function useFinancialKpi(companySlug: string, metric: FinancialMetric, initialYe
 
 function choicePillClass(active: boolean) {
   return active
-    ? "border-[var(--accent)] bg-[var(--accent)] text-black"
-    : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:border-white/20 hover:text-white";
+    ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--accent-fill-text)]"
+    : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]";
 }
 
 function FinancialKpiCard({
@@ -353,7 +353,7 @@ function FinancialKpiCard({
         onClick={() => setIsPopoverOpen((current) => !current)}
         className="group flex items-center gap-2 text-left outline-none rounded-md focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
       >
-        <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] transition-colors group-hover:text-white">{title}</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] transition-colors group-hover:text-[var(--text-primary)]">{title}</p>
         <span className="opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 text-[var(--text-secondary)]">
           <PencilIcon />
         </span>
@@ -362,7 +362,7 @@ function FinancialKpiCard({
       <p className="mt-2 text-2xl font-semibold tracking-tight text-[var(--text-primary)] font-mono tabular-nums num">
         <FadeValue value={value} />
       </p>
-      <p className={`mt-3 text-sm ${emphasis === "positive" ? "text-[#22c55e]" : emphasis === "negative" ? "text-[#ef4444]" : "text-[var(--text-secondary)]"}`}>
+      <p className={`mt-3 text-sm ${emphasis === "positive" ? "text-[var(--gain)]" : emphasis === "negative" ? "text-[var(--loss)]" : "text-[var(--text-secondary)]"}`}>
         {subtext}
       </p>
 
@@ -388,7 +388,7 @@ function TrendTooltip({ active, payload, label }: { active?: boolean; payload?: 
   }
 
   return (
-    <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-xs text-white shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
+    <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-xs text-[var(--text-primary)] shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
       <div className="font-medium text-[var(--text-secondary)] uppercase tracking-wider">{label}</div>
       <div className="mt-1 text-[var(--text-primary)] font-mono tabular-nums num">{formatCrValue(value)}</div>
     </div>

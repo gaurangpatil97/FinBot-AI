@@ -39,13 +39,13 @@ function PipelineStatus() {
       {steps.map((s, i) => (
         <div key={i} className="flex items-center gap-2">
           {s.done ? (
-            <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-green-500/20 text-[9px] text-[#22c55e]">✓</span>
+            <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--surface-3)] text-[9px] text-[var(--text-primary)]">✓</span>
           ) : s.active ? (
-            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-amber-500/20 border-t-amber-500" />
+            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--border)] border-t-[var(--accent)]" />
           ) : (
-            <span className="h-3.5 w-3.5 rounded-full border border-zinc-600" />
+            <span className="h-3.5 w-3.5 rounded-full border border-[var(--border)]" />
           )}
-          <span className={`text-xs ${s.active ? 'text-amber-500' : s.done ? 'text-[var(--text-secondary)]' : 'text-zinc-600'}`}>
+          <span className={`text-xs ${s.active ? 'text-[var(--text-primary)]' : s.done ? 'text-[var(--text-secondary)]' : 'text-[var(--text-muted)]'}`}>
             {s.label}
           </span>
         </div>
@@ -262,17 +262,17 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
             className={`flex items-end gap-3 ${assistant ? "justify-start" : "justify-end"}`}
           >
             {assistant ? (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-white border border-[var(--border)]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-[var(--text-primary)] border border-[var(--border)]">
                 AI
               </div>
             ) : null}
 
             <div
-              className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-sm leading-6 ${
-                assistant
-                  ? "border-[var(--border)] bg-[var(--surface-1)] text-white"
-                  : "border-[var(--border)] bg-[var(--surface-2)] text-white"
-              }`}
+                className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-sm leading-6 ${
+                  assistant
+                  ? "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-primary)]"
+                  : "border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-primary)]"
+                }`}
             >
               {message.isLoading ? (
                 <PipelineStatus />
@@ -308,7 +308,7 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
             </div>
 
             {!assistant ? (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-white border border-[var(--border)]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-[var(--text-primary)] border border-[var(--border)]">
                 U
               </div>
             ) : null}

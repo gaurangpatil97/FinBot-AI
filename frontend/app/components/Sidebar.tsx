@@ -33,13 +33,13 @@ export default function Sidebar({
     <aside className="flex w-full shrink-0 flex-col border-b border-[var(--border)] bg-[var(--bg)] lg:h-screen lg:w-[295px] lg:border-b-0 lg:border-[var(--border)] no-scrollbar overflow-x-hidden" style={{ overflow: "hidden", scrollbarWidth: "none" }}>
       <div className="border-b border-[var(--border)] px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg font-semibold text-white">
+          <div className="grid h-9 w-9 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg font-semibold text-[var(--text-primary)]">
             ⚡
           </div>
           <div>
             <div className="flex items-center gap-2">
               <p className="text-lg font-semibold text-[var(--text-primary)]">FinBot</p>
-              <span className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-medium text-white">beta</span>
+              <span className="rounded bg-[var(--surface-3)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--text-primary)]">beta</span>
             </div>
             <p className="text-xs text-[var(--text-secondary)]">Research workspace</p>
           </div>
@@ -51,7 +51,7 @@ export default function Sidebar({
           <button
             type="button"
             onClick={() => setMenuOpen((current) => !current)}
-            className="flex w-full items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-left transition hover:border-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+            className="flex w-full items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-left transition hover:border-[var(--border-strong)] shadow-[inset_0_1px_0_rgba(245,243,238,0.04)]"
           >
             <div>
               <p className="text-sm font-medium text-[var(--text-secondary)]">Company</p>
@@ -70,12 +70,12 @@ export default function Sidebar({
                     setMenuOpen(false);
                     onSelectCompany(company);
                   }}
-                  className={`flex w-full items-center justify-between px-4 py-3 text-left text-sm transition hover:bg-white/5 ${
+                  className={`flex w-full items-center justify-between px-4 py-3 text-left text-sm transition hover:bg-[var(--surface-2)] ${
                     company === activeCompany ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]"
                   }`}
                 >
                   <span>{company}</span>
-                  {company === activeCompany ? <span className="text-white">●</span> : null}
+                  {company === activeCompany ? <span className="text-[var(--text-primary)]">●</span> : null}
                 </button>
               ))}
               <button
@@ -84,7 +84,7 @@ export default function Sidebar({
                   setMenuOpen(false);
                   onSelectCompany("New Dataset");
                 }}
-                className="flex w-full items-center justify-between border-t border-[var(--border)] px-4 py-3 text-left text-sm font-medium text-[var(--text-primary)] transition hover:bg-white/5"
+                className="flex w-full items-center justify-between border-t border-[var(--border)] px-4 py-3 text-left text-sm font-medium text-[var(--text-primary)] transition hover:bg-[var(--surface-2)]"
               >
                 <span>New Dataset</span>
                 <span>+</span>
@@ -105,7 +105,7 @@ export default function Sidebar({
         <button
           type="button"
           onClick={onOpenUpload}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-[var(--background)] transition hover:opacity-90"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-[var(--accent-fill-text)] transition hover:opacity-90"
         >
           <span className="text-base">＋</span>
           Upload Dataset

@@ -493,7 +493,7 @@ export default function UploadModal({
       <div key={file.id} className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-3">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="min-w-0">
-            <p className="truncate text-sm font-medium text-white">{file.name}</p>
+            <p className="truncate text-sm font-medium text-[var(--text-primary)]">{file.name}</p>
             <div className="mt-2 flex flex-wrap gap-2 text-xs text-[#888888]">
               {showYear ? (
                 <select
@@ -554,7 +554,7 @@ export default function UploadModal({
       >
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h3 className="text-base font-semibold text-white">{zoneTitles[key]}</h3>
+            <h3 className="text-base font-semibold text-[var(--text-primary)]">{zoneTitles[key]}</h3>
             <p className="mt-1 text-sm text-[#888888]">{zoneRules[key]}</p>
             {key === "pdf" ? <p className="mt-2 text-xs text-[#888888]">Text and image pages will be processed separately.</p> : null}
           </div>
@@ -609,7 +609,7 @@ export default function UploadModal({
 
         <div className="flex-1 overflow-y-auto px-6 py-6">
           {errorMessage ? (
-            <div className="mb-4 rounded-2xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+            <div className="mb-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-3 text-sm text-[var(--text-primary)]">
               {errorMessage}
             </div>
           ) : null}
@@ -667,11 +667,11 @@ export default function UploadModal({
             type="button"
             onClick={() => void handleGenerateAll()}
             disabled={isGeneratingAll || isEmbedding || isPollingEmbedding}
-            className="flex items-center justify-center rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--background)] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+            className="flex items-center justify-center rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fill-text)] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isPollingEmbedding || isEmbedding ? (
               <span className="flex items-center gap-2">
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-[var(--background)]/30 border-t-[var(--background)]" />
+                <span className="h-4 w-4 animate-spin rounded-full border-2 border-[var(--bg)]/30 border-t-[var(--bg)]" />
                 Generating...
               </span>
             ) : (

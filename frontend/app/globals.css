@@ -6,11 +6,16 @@
   --bg: #0a0a0c;
   --surface-1: #121215;
   --surface-2: #1a1a1f;
-  --border: rgba(255,255,255,0.07);
-  --accent: #f59e0b;
-  --accent-dim: rgba(245,158,11,0.12);
-  --text-primary: #fafafa;
-  --text-secondary: #a1a1aa;
+  --surface-3: #232329;
+  --border: rgba(245,243,238,0.08);
+  --border-strong: rgba(245,243,238,0.14);
+  --text-primary: #f5f3ee;
+  --text-secondary: #a8a39a;
+  --text-muted: #6b6862;
+  --accent: #f5f3ee;
+  --accent-fill-text: #0a0a0c;
+  --gain: #22c55e;
+  --loss: #ef4444;
 }
 
 @theme inline {

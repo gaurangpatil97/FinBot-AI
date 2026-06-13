@@ -41,15 +41,15 @@ function statusMeta(collection: CollectionRecord | undefined) {
   }
 
   if (collection.status === "processing") {
-    return { dot: "bg-amber-500 animate-pulse", text: "text-amber-500" };
+    return { dot: "bg-[var(--text-primary)] animate-pulse", text: "text-[var(--text-primary)]" };
   }
 
   if (collection.status === "failed") {
-    return { dot: "bg-red-500", text: "text-red-500" };
+    return { dot: "bg-[var(--text-muted)]", text: "text-[var(--text-muted)]" };
   }
 
   if ((collection.chunks ?? 0) > 0) {
-    return { dot: "bg-[#22c55e]", text: "text-[#22c55e]" };
+    return { dot: "bg-[var(--text-primary)]", text: "text-[var(--text-primary)]" };
   }
 
   return { dot: "bg-[#52525b]", text: "text-[#52525b]" };
@@ -211,7 +211,7 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
   ];
 
   return (
-    <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+    <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 shadow-[inset_0_1px_0_rgba(245,243,238,0.04)]">
       <p className="text-sm font-medium text-[var(--text-secondary)]">Corpus Status</p>
       <div className="mt-4 space-y-3">
         {rows.map((row) => {
@@ -250,7 +250,7 @@ export default function CorpusStatus({ collections, filesByCollection, companySl
 
               <div className={`${isExpanded ? "block" : "hidden"} border-t border-[var(--border)] px-1 pb-2 pt-2`}>
                 {isLoadingFiles ? <p className="text-xs text-[var(--text-secondary)]">Loading files...</p> : null}
-                {loadError ? <p className="text-xs text-rose-300">{loadError}</p> : null}
+                {loadError ? <p className="text-xs text-[var(--text-secondary)]">{loadError}</p> : null}
                 {!isLoadingFiles && !loadError ? (
                   <div className="space-y-1.5">
                     {(remoteFiles[row.key] ?? []).map((file) => (

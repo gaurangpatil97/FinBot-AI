@@ -766,7 +766,7 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
   const activeCollectionsCount = collections.filter(c => (c.chunks ?? 0) > 0).length || collections.length;
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[var(--bg)] text-white">
+    <div className="flex h-screen overflow-hidden bg-[var(--bg)] text-[var(--text-primary)]">
       <div className="sticky top-0 h-screen overflow-auto w-72 flex-shrink-0 overflow-x-hidden border-r border-[var(--border)]">
         <Sidebar
           activeCompany={activeCompany}
@@ -792,14 +792,14 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
                 <button
                   type="button"
                   onClick={handleContinue}
-                  className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90"
+                  className="rounded-xl bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent-fill-text)] hover:opacity-90 transition-opacity"
                 >
                   Continue
                 </button>
                 <button
                   type="button"
                   onClick={handleNewDataset}
-                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-zinc-100"
+                  className="rounded-xl border border-[var(--border-strong)] bg-transparent px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--surface-3)] transition-colors"
                 >
                   Load New Dataset
                 </button>

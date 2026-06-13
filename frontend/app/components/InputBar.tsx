@@ -31,17 +31,17 @@ export default function InputBar({ value, onChange, onSend, onAttach }: InputBar
   }, [value]);
 
   return (
-    <div className="flex items-end gap-3 rounded-2xl border border-[#222222] bg-[#000000] p-3">
+    <div className="flex items-end gap-3 rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-3">
       <button
         type="button"
         onClick={onAttach}
-        className="grid h-12 w-12 place-items-center rounded-xl border border-[#222222] bg-[#111111] text-lg text-white transition hover:bg-white/10"
+        className="grid h-12 w-12 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg text-[var(--text-primary)] transition hover:bg-[var(--surface-2)]"
         aria-label="Attach dataset"
       >
         📎
       </button>
 
-      <label className="flex min-h-12 flex-1 items-start rounded-xl border border-[#222222] bg-[#111111] px-4 py-3 text-sm text-[#888888] focus-within:border-[#444444]">
+      <label className="flex min-h-12 flex-1 items-start rounded-xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-sm text-[var(--text-secondary)] focus-within:border-[var(--border-strong)]">
         <textarea
           ref={textareaRef}
           value={value}
@@ -54,14 +54,14 @@ export default function InputBar({ value, onChange, onSend, onAttach }: InputBar
           }}
           placeholder="Ask about company financials..."
           rows={1}
-          className="w-full resize-none overflow-x-hidden bg-transparent text-sm leading-5 text-white outline-none placeholder:text-[#8b949e]"
+          className="w-full resize-none overflow-x-hidden bg-transparent text-sm leading-5 text-[var(--text-primary)] outline-none placeholder:text-[var(--text-muted)]"
         />
       </label>
 
       <button
         type="button"
         onClick={onSend}
-        className="inline-flex h-12 items-center gap-2 rounded-xl bg-white px-5 text-sm font-semibold text-black transition hover:bg-white/90"
+        className="inline-flex h-12 items-center gap-2 rounded-xl bg-[var(--accent)] px-5 text-sm font-semibold text-[var(--accent-fill-text)] transition opacity-100 hover:opacity-90"
       >
         <span>Send</span>
         <span>↗</span>

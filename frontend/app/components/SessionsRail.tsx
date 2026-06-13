@@ -46,13 +46,12 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
       {!isRailOpen && (
         <button 
           onClick={() => setIsRailOpen(true)}
-          className="w-full h-full flex flex-col items-center py-4 hover:bg-white/5 transition-colors group text-[var(--text-secondary)] hover:text-white"
-          title="Toggle chat history"
+          className="w-full h-full flex flex-col items-center py-4 hover:bg-[var(--surface-2)] transition-colors group text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+          title="Chat history"
         >
-          <svg className="w-5 h-5 mb-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" /></svg>
-          <div className="writing-vertical text-xs font-medium tracking-widest opacity-50 group-hover:opacity-100" style={{ writingMode: "vertical-rl" }}>
-            CHATS
-          </div>
+          <svg className="w-5 h-5 mb-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
         </button>
       )}
 
@@ -64,7 +63,7 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
               <h2 className="text-sm font-semibold text-[var(--text-primary)]">Chats</h2>
               <button 
                 onClick={() => setIsRailOpen(false)}
-                className="p-1 rounded hover:bg-white/10 text-[var(--text-secondary)] hover:text-white transition-colors"
+                className="p-1 rounded hover:bg-[var(--surface-3)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 title="Collapse chat history"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
@@ -72,7 +71,7 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
             </div>
             <button 
               onClick={clearState}
-              className="w-full py-2 px-4 rounded-xl border border-orange-500/30 text-orange-400 bg-orange-500/5 hover:bg-orange-500 hover:text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+              className="w-full py-2 px-4 rounded-xl border border-[var(--accent)] bg-transparent text-[var(--accent)] hover:bg-[rgba(245,243,238,0.08)] text-sm font-semibold transition-all duration-150 flex items-center justify-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
               New chat
@@ -93,8 +92,8 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
                   return (
                     <div 
                       key={s.id} 
-                      className={`group flex flex-col p-3 rounded-xl cursor-pointer transition-colors relative border-l-2
-                        ${isActive ? "bg-white/5 border-orange-500" : "bg-transparent hover:bg-white/5 border-transparent"}
+                      className={`group flex flex-col px-3 py-2.5 rounded-xl cursor-pointer transition-colors relative border-l-2
+                        ${isActive ? "bg-[var(--surface-2)] border-[var(--accent)]" : "bg-transparent hover:bg-[var(--surface-2)] border-transparent"}
                       `}
                       onClick={() => { if (!isEditing) switchSession(s.id); }}
                     >
@@ -103,34 +102,34 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
                           <input 
                             autoFocus
                             type="text" 
-                            className="bg-[#111] text-sm text-zinc-100 outline-none w-full mr-2 rounded px-1.5 py-0.5 border border-orange-500/50"
+                            className="bg-[#111] text-sm text-[var(--text-primary)] outline-none w-full mr-2 rounded px-1.5 py-0.5 border border-[var(--border-strong)]"
                             value={editTitle}
                             onChange={e => setEditTitle(e.target.value)}
                             onKeyDown={e => handleRename(e, s.id)}
                             onBlur={() => setEditingId(null)}
                           />
                         ) : (
-                          <div className="text-sm font-medium text-zinc-100 truncate pr-6" title={s.title}>
+                          <div className="text-sm font-medium text-[var(--text-primary)] truncate pr-14" title={s.title}>
                             {s.title}
                           </div>
                         )}
                       </div>
-                      <div className="text-xs text-[#888] mt-1.5">
+                      <div className="text-xs text-[var(--text-muted)] mt-1.5">
                         {formatRelativeTime(s.updated_at)}
                       </div>
                       
                       {!isEditing && (
-                        <div className="absolute right-2 top-3 opacity-0 group-hover:opacity-100 flex items-center gap-1 bg-[#0a0a0a]/80 backdrop-blur-sm shadow-sm px-1 py-0.5 rounded">
+                        <div className="absolute right-2 top-3 opacity-0 group-hover:opacity-100 flex items-center gap-1 px-1 py-0.5">
                           <button 
                             onClick={(e) => { e.stopPropagation(); setEditTitle(s.title); setEditingId(s.id); }}
-                            className="p-1 text-[var(--text-secondary)] hover:text-white transition-colors"
+                            className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
                             title="Rename"
                           >
                             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
                           </button>
                           <button 
                             onClick={(e) => { e.stopPropagation(); deleteSessionOptimistic(s.id); }}
-                            className="p-1 text-[var(--text-secondary)] hover:text-red-400 transition-colors"
+                            className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
                             title="Delete"
                           >
                             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
