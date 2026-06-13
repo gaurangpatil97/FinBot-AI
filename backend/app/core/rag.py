@@ -221,7 +221,15 @@ def answer_query(request: QueryRequest) -> QueryResponse:
         # Cite actual source sheets, not synthetic context
         citations = []
         seen = set()
-        for metric in calc_result.get("metrics_used", []) or []:
+        raw_metrics = []
+        if calc_result.get("multi_year"):
+            for res in calc_result.get("results", []):
+                if isinstance(res, dict) and "metrics_used" in res and res["metrics_used"]:
+                    raw_metrics.extend(res["metrics_used"])
+        else:
+            raw_metrics = calc_result.get("metrics_used", []) or []
+
+        for metric in raw_metrics:
             if not isinstance(metric, dict):
                 continue
             filename = f"{company_slug}_excel"

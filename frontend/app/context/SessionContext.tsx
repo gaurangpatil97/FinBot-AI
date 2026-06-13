@@ -44,17 +44,36 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
       const formattedMessages: ChatMessage[] = rawMessages.map((m: any) => {
         let citations = [];
         let routingSource = "Unknown";
+        let chunkCount = 0;
         
         try {
-          if (m.citations) citations = JSON.parse(m.citations);
+          if (m.citations) {
+            const rawCitations = typeof m.citations === "string" ? JSON.parse(m.citations) : m.citations;
+            if (Array.isArray(rawCitations)) {
+              citations = rawCitations.map((c: any) => {
+                const filename = typeof c.filename === "string" && c.filename.trim() ? c.filename : "unknown";
+                const page = typeof c.page === "string" || typeof c.page === "number" ? String(c.page) : "unknown";
+                return { label: `${filename} | ${page}` };
+              });
+            }
+          }
         } catch(e) {}
         
         try {
           if (m.routing_debug) {
-             const debug = JSON.parse(m.routing_debug);
+             const debug = typeof m.routing_debug === "string" ? JSON.parse(m.routing_debug) : m.routing_debug;
              if (debug?.source_types?.length > 0) {
                routingSource = debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
              }
+          }
+        } catch(e) {}
+
+        try {
+          if (m.chunks) {
+            const chunksObj = typeof m.chunks === "string" ? JSON.parse(m.chunks) : m.chunks;
+            if (Array.isArray(chunksObj)) {
+              chunkCount = chunksObj.length;
+            }
           }
         } catch(e) {}
 
@@ -64,6 +83,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
           content: m.content,
           citations,
           routingSource,
+          chunkCount,
           latency: m.latency ? m.latency.toString() : undefined,
         };
       });

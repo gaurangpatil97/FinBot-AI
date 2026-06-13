@@ -42,6 +42,11 @@ def init_db():
     )
     """)
     
+    try:
+        cursor.execute("ALTER TABLE messages ADD COLUMN chunks TEXT")
+    except sqlite3.OperationalError:
+        pass
+
     conn.commit()
     conn.close()
 
@@ -83,7 +88,7 @@ def list_sessions(company_slug: str) -> List[Dict[str, Any]]:
     conn.close()
     return [dict(row) for row in rows]
 
-def add_message(session_id: str, role: str, content: str, citations: List[Any], routing_debug: Dict[str, Any], latency: float) -> Dict[str, Any]:
+def add_message(session_id: str, role: str, content: str, citations: List[Any], routing_debug: Dict[str, Any], latency: float, chunks: List[Any] = None) -> Dict[str, Any]:
     conn = get_connection()
     cursor = conn.cursor()
     msg_id = str(uuid.uuid4())
@@ -91,10 +96,11 @@ def add_message(session_id: str, role: str, content: str, citations: List[Any], 
     
     citations_json = json.dumps([c.model_dump() if hasattr(c, "model_dump") else c for c in citations]) if citations else "[]"
     routing_debug_json = json.dumps(routing_debug) if routing_debug else "{}"
+    chunks_json = json.dumps(chunks) if chunks else "[]"
     
     cursor.execute(
-        "INSERT INTO messages (id, session_id, role, content, citations, routing_debug, latency, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        (msg_id, session_id, role, content, citations_json, routing_debug_json, latency, now)
+        "INSERT INTO messages (id, session_id, role, content, citations, routing_debug, latency, chunks, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (msg_id, session_id, role, content, citations_json, routing_debug_json, latency, chunks_json, now)
     )
     
     cursor.execute("UPDATE sessions SET updated_at = ? WHERE id = ?", (now, session_id))
@@ -118,13 +124,13 @@ def get_messages(session_id: str) -> List[Dict[str, Any]]:
         d = dict(row)
         d["citations"] = json.loads(d["citations"]) if d["citations"] else []
         d["routing_debug"] = json.loads(d["routing_debug"]) if d["routing_debug"] else {}
+        d["chunks"] = json.loads(d["chunks"]) if ("chunks" in d and d["chunks"]) else []
         results.append(d)
         
     return results
 
 def delete_session(session_id: str) -> bool:
     conn = get_connection()
-    # Ensure foreign keys are enabled so CASCADE works
     conn.execute("PRAGMA foreign_keys = ON")
     cursor = conn.cursor()
     cursor.execute("DELETE FROM sessions WHERE id = ?", (session_id,))

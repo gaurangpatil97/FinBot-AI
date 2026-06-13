@@ -455,6 +455,7 @@ def try_calculation(question: str, company_slug: str | None = None) -> dict | No
                 "answer": computed.get("answer"),
                 "formula_used": computed.get("formula_used"),
                 "values_used": computed.get("values_used"),
+                "metrics_used": computed.get("metrics_used"),
             })
 
         trace.append("Multi-year lookup completed")

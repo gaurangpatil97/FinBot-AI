@@ -35,7 +35,8 @@ def query(request: QueryRequest) -> QueryResponse:
             content=response.answer,
             citations=response.citations,
             routing_debug=response.routing_debug,
-            latency=latency
+            latency=latency,
+            chunks=response.chunks
         )
         
     return response
