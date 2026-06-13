@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 import CitationBadge from "./CitationBadge";
 import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 import { getCompanies } from "../../lib/api";
 import type { ChatMessage } from "./finbot-types";
 
@@ -280,8 +283,13 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
                       Routed to {message.routingSource} · {message.chunkCount || 0} chunks · {message.latency || "0.0"}s
                     </div>
                   )}
-                  <div className="prose prose-invert prose-sm max-w-none">
-                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                  <div className="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-zinc-900">
+                    <ReactMarkdown 
+                      remarkPlugins={[remarkMath]} 
+                      rehypePlugins={[rehypeKatex]}
+                    >
+                      {message.content}
+                    </ReactMarkdown>
                   </div>
                 </>
               ) : (

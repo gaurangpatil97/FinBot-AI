@@ -1,7 +1,7 @@
 import sqlite3
 import uuid
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
@@ -51,7 +51,7 @@ def create_session(company_slug: str, title: Optional[str] = None) -> Dict[str, 
     conn = get_connection()
     cursor = conn.cursor()
     session_id = str(uuid.uuid4())
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(timezone.utc).isoformat()
     
     if not title:
         title = "New Chat"
@@ -87,7 +87,7 @@ def add_message(session_id: str, role: str, content: str, citations: List[Any], 
     conn = get_connection()
     cursor = conn.cursor()
     msg_id = str(uuid.uuid4())
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(timezone.utc).isoformat()
     
     citations_json = json.dumps([c.model_dump() if hasattr(c, "model_dump") else c for c in citations]) if citations else "[]"
     routing_debug_json = json.dumps(routing_debug) if routing_debug else "{}"
@@ -136,7 +136,7 @@ def delete_session(session_id: str) -> bool:
 def rename_session(session_id: str, new_title: str) -> bool:
     conn = get_connection()
     cursor = conn.cursor()
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(timezone.utc).isoformat()
     cursor.execute("UPDATE sessions SET title = ?, updated_at = ? WHERE id = ?", (new_title, now, session_id))
     updated = cursor.rowcount > 0
     conn.commit()
