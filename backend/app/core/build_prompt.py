@@ -6,6 +6,15 @@ def build_prompt(question: str, chunks: list[dict], mode: str = "rag") -> str:
     for i, chunk in enumerate(chunks, start=1):
         page = chunk["metadata"].get("page") or chunk["metadata"].get("sheet", "unknown")
         source = chunk["metadata"].get("filename", "unknown")
+        if isinstance(source, str):
+            if source.endswith("_excel"):
+                source = "Craftsman Auto.xlsx" if "craftsman" in source.lower() else "Financial Statements.xlsx"
+            elif source.endswith("_pdf") or source.endswith("_pdf_text"):
+                source = "Annual Report PDF"
+            elif source.endswith("_concalls") or source.endswith("_concall"):
+                source = "Concall Transcripts"
+            elif source.endswith("_images"):
+                source = "Annual Report Images"
         year = chunk["metadata"].get("year", "")
         context += f"\n[{i}] Source: {source} | Page/Sheet: {page} | Year: {year}\n"
         context += chunk["content"] + "\n"

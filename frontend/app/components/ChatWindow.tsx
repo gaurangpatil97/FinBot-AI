@@ -305,7 +305,13 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
                 <>
                   {message.routingSource && (
                     <div className="inline-block mb-2 rounded-full bg-[var(--surface-2)] border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--text-secondary)]">
-                      Routed to {message.routingSource} · {message.chunkCount || 0} chunks · {message.latency || "0.0"}s
+                      {message.routingSource === "Calculation" ? (
+                        <>Calculated · {message.latency ? parseFloat(message.latency).toFixed(1) : "0.0"}s</>
+                      ) : (
+                        <>
+                          Routed to {message.routingSource} · {message.chunkCount || 0} chunk{(message.chunkCount || 0) === 1 ? "" : "s"} · {message.latency ? parseFloat(message.latency).toFixed(1) : "0.0"}s
+                        </>
+                      )}
                     </div>
                   )}
                   {renderMessageContent(message.content)}
@@ -313,16 +319,6 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
               ) : (
                 <p className="whitespace-pre-line">{cleanContent(message.content)}</p>
               )}
-              {!message.isLoading && message.citations && message.citations.length > 0 ? (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {message.citations.slice(0, 3).map((citation, index) => (
-                    <CitationBadge key={`${citation.label}-${index}`} label={citation.label} />
-                  ))}
-                  {message.citations.length > 3 && (
-                    <CitationBadge label={`+${message.citations.length - 3} more`} />
-                  )}
-                </div>
-              ) : null}
             </div>
 
             {!assistant ? (
