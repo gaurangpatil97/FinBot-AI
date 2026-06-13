@@ -18,12 +18,13 @@ def get_persistent_client(path: str):
         try:
             from chromadb.api import shared_system_client
 
-            if hasattr(shared_system_client.SharedSystemClient, "clear_system_cache"):
-                shared_system_client.SharedSystemClient.clear_system_cache()
-
             identifier_cache = getattr(shared_system_client.SharedSystemClient, "_identifier_to_system", None)
             if isinstance(identifier_cache, dict):
-                identifier_cache.clear()
+                identifier_cache.pop(path, None)
+
+            refcount_cache = getattr(shared_system_client.SharedSystemClient, "_identifier_to_refcount", None)
+            if isinstance(refcount_cache, dict):
+                refcount_cache.pop(path, None)
         except Exception as cache_exc:
             logger.warning(f"Unable to clear Chroma shared-system cache for {path}: {cache_exc}")
 

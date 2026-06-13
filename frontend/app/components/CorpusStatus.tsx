@@ -49,7 +49,7 @@ function statusMeta(collection: CollectionRecord | undefined) {
   }
 
   if ((collection.chunks ?? 0) > 0) {
-    return { dot: "bg-[var(--text-primary)]", text: "text-[var(--text-primary)]" };
+    return { dot: "bg-[#22c55e]", text: "text-[#22c55e]" };
   }
 
   return { dot: "bg-[#52525b]", text: "text-[#52525b]" };

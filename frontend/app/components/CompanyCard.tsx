@@ -76,34 +76,32 @@ export default function CompanyCard({ stock }: CompanyCardProps) {
         <p className="pb-1 text-xs uppercase tracking-[0.22em] text-[var(--text-secondary)]">{stock.exchangeLabel.replace("NSI", "NSE")}</p>
       </div>
 
-      <div className="mt-4 h-20 rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-2">
+      <div className="relative mt-4 h-20 rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-2">
         {hasMounted ? (
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={stock.points} margin={{ top: 8, right: 0, left: 0, bottom: 0 }}>
-              <defs>
-                <linearGradient id="company-sparkline" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={strokeColor} stopOpacity={0.15} />
-                  <stop offset="95%" stopColor={strokeColor} stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <XAxis dataKey="label" hide />
-              <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
-              <Tooltip
-                content={<SparklineTooltip />}
-                cursor={{ stroke: "rgba(255,255,255,0.08)" }}
-              />
-              <ReferenceLine y={maxPrice} stroke="none" label={{ position: 'insideTopLeft', value: formatCurrency(maxPrice), fill: 'var(--text-secondary)', fontSize: 10, offset: 2, className: 'num' }} />
-              <ReferenceLine y={minPrice} stroke="none" label={{ position: 'insideBottomLeft', value: formatCurrency(minPrice), fill: 'var(--text-secondary)', fontSize: 10, offset: 2, className: 'num' }} />
-              <Area
-                type="monotone"
-                dataKey="price"
-                stroke={strokeColor}
-                fill="url(#company-sparkline)"
-                strokeWidth={2}
-                dot={false}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+                <defs>
+                  <linearGradient id="company-sparkline" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor={strokeColor} stopOpacity={0.15} />
+                    <stop offset="95%" stopColor={strokeColor} stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <XAxis dataKey="label" hide />
+                <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
+                <Tooltip
+                  content={<SparklineTooltip />}
+                  cursor={{ stroke: "rgba(255,255,255,0.08)" }}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="price"
+                  stroke={strokeColor}
+                  fill="url(#company-sparkline)"
+                  strokeWidth={2}
+                  dot={false}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
         ) : (
           <div className="flex h-full items-center justify-center rounded-lg bg-[var(--surface-1)]">
             <div className="h-2 w-20 rounded-full bg-white/10" />

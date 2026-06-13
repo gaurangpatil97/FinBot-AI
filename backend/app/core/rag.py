@@ -235,6 +235,11 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                 page=page,
                 collection=f"{company_slug}_excel"
             ))
+        calc_routing_debug = {
+            "source_types": ["calculation"],
+            "year": routed_year,
+            "method": "calculation_agent"
+        }
         return QueryResponse(
             answer=answer,
             citations=citations,
@@ -242,7 +247,7 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             agent_used="calculation_agent",
             agent_trace=calc_result.get("trace", ""),
             chunks=calc_context,  # RAGAS eval — include retrieved chunks
-            routing_debug=routing_debug
+            routing_debug=calc_routing_debug
         )
 
     # Step 3 — Decompose and embed the sub-queries

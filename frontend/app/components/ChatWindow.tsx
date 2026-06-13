@@ -40,9 +40,9 @@ function PipelineStatus() {
       {steps.map((s, i) => (
         <div key={i} className="flex items-center gap-2">
           {s.done ? (
-            <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--surface-3)] text-[9px] text-[var(--text-primary)]">✓</span>
+            <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#22c55e]/20 text-[9px] text-[#22c55e]">✓</span>
           ) : s.active ? (
-            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--border)] border-t-[#e8ddc7]" />
+            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--border)] border-t-[#22c55e]" />
           ) : (
             <span className="h-3.5 w-3.5 rounded-full border border-[var(--border)]" />
           )}

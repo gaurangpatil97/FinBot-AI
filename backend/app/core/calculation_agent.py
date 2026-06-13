@@ -220,10 +220,15 @@ def fetch_metric(metric_name: str, sheet: str, year: str, company_slug: str | No
             return None
 
         collection_name = f"{company_slug}_excel"
-        company_client = get_persistent_client(
-            str(settings.BASE_DIR / "chroma_store" / company_slug / "excel")
-        )
-        collection = company_client.get_collection(collection_name)
+        chroma_path = str(settings.BASE_DIR / "chroma_store" / company_slug / "excel")
+        company_client = get_persistent_client(chroma_path)
+        try:
+            collection = company_client.get_collection(collection_name)
+        except KeyError:
+            logger.warning(f"[CalcAgent] KeyError when getting collection '{collection_name}' at '{chroma_path}'. Retrying client creation once.")
+            company_client = get_persistent_client(chroma_path)
+            collection = company_client.get_collection(collection_name)
+            
         results = collection.get(
             where={"$and": [{"year": year}, {"sheet": sheet}]},
             include=["documents", "metadatas"]
