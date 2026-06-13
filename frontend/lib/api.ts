@@ -77,13 +77,58 @@ export async function generateEmbeddings(companySlug: string) {
 export async function queryRAG(
   question: string,
   companySlug: string,
-  year?: string
+  year?: string,
+  sessionId?: string
 ) {
+  const body: any = { question, company_slug: companySlug };
+  if (year) body.year = year;
+  if (sessionId) body.session_id = sessionId;
+  
   const res = await fetch(`${BASE_URL}/api/v1/query`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question, company_slug: companySlug, year }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error("Failed to query");
+  return res.json();
+}
+
+export async function createSession(companySlug: string, title: string) {
+  const res = await fetch($BASE_URL/api/v1/sessions, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ company_slug: companySlug, title }),
+  });
+  if (!res.ok) throw new Error("Failed to create session");
+  return res.json();
+}
+
+export async function getSessions(companySlug: string) {
+  const res = await fetch($BASE_URL/api/v1/sessions?company_slug= + encodeURIComponent(companySlug));
+  if (!res.ok) throw new Error("Failed to get sessions");
+  return res.json();
+}
+
+export async function getSessionMessages(sessionId: string) {
+  const res = await fetch($BASE_URL/api/v1/sessions/ + encodeURIComponent(sessionId) + /messages);
+  if (!res.ok) throw new Error("Failed to get session messages");
+  return res.json();
+}
+
+export async function renameSession(sessionId: string, title: string) {
+  const res = await fetch($BASE_URL/api/v1/sessions/ + encodeURIComponent(sessionId), {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title }),
+  });
+  if (!res.ok) throw new Error("Failed to rename session");
+  return res.json();
+}
+
+export async function deleteSession(sessionId: string) {
+  const res = await fetch($BASE_URL/api/v1/sessions/ + encodeURIComponent(sessionId), {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error("Failed to delete session");
   return res.json();
 }

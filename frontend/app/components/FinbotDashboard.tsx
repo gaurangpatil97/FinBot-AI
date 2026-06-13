@@ -9,6 +9,9 @@ import InputBar from "./InputBar";
 import KPICards from "./KPICards";
 import Sidebar from "./Sidebar";
 import UploadModal from "./UploadModal";
+import SessionsRail from "./SessionsRail";
+import { SessionProvider, useSessions } from "../context/SessionContext";
+import { createSession } from "../../lib/api";
 import type {
   ChatMessage,
   CollectionRecord,
@@ -389,7 +392,7 @@ function parseSessionPayload(value: string): SavedDatasetSession | null {
   }
 }
 
-export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
+function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
   const defaultCompanyName = stock.companyName;
   const defaultTicker = stock.ticker;
 
@@ -398,7 +401,9 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   const [activeTicker, setActiveTicker] = useState(defaultTicker);
   const [collections, setCollections] = useState<CollectionRecord[]>(() => createInitialCollections(defaultCompanyName));
   const [, setDocuments] = useState<DocumentRecord[]>(() => syncDocuments(createInitialCollections(defaultCompanyName)));
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  
+  const { messages, setMessages, activeSessionId, setActiveSessionId, loadSessions, setIsRailOpen, isRailOpen, switchSession, clearState } = useSessions();
+  
   const [inputValue, setInputValue] = useState("");
   const [uploadOpen, setUploadOpen] = useState(false);
   const [resumeBannerVisible, setResumeBannerVisible] = useState(false);
@@ -489,6 +494,19 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
       }
     };
   }, [activeCompany]);
+
+  useEffect(() => {
+    const slug = getCompanySlugFromLocalStorage(activeCompany);
+    loadSessions(slug);
+  }, [activeCompany, loadSessions]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const storedSessionId = window.localStorage.getItem("activeSessionId");
+    if (storedSessionId && storedSessionId !== activeSessionId) {
+      switchSession(storedSessionId);
+    }
+  }, [switchSession, activeSessionId]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -600,7 +618,21 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
       const startTime = Date.now();
       const companySlug = getCompanySlugFromLocalStorage(activeCompany);
       const year = extractYearFromQuestion(trimmed);
-      const result = await queryRAG(trimmed, companySlug, year);
+      
+      let currentSessionId = activeSessionId;
+      
+      if (!currentSessionId) {
+         const title = trimmed.length > 50 ? trimmed.substring(0, 50) + "..." : trimmed;
+         const sess = await createSession(companySlug, title);
+         currentSessionId = sess.id;
+         setActiveSessionId(currentSessionId);
+         if (typeof window !== "undefined") {
+            window.localStorage.setItem("activeSessionId", currentSessionId!);
+         }
+         await loadSessions(companySlug); // refresh rail
+      }
+
+      const result = await queryRAG(trimmed, companySlug, year, currentSessionId || undefined);
       const latencySeconds = ((Date.now() - startTime) / 1000).toFixed(1);
 
       const answer =
@@ -682,7 +714,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     setActiveTicker(session.ticker);
     setCollections(nextCollections);
     setDocuments(syncDocuments(nextCollections));
-    setMessages([]);
+    clearState();
     setHasSession(true);
     setResumeBannerVisible(true);
   };
@@ -699,6 +731,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
   const handleNewDataset = () => {
     if (typeof window !== "undefined") {
       window.localStorage.removeItem(sessionStorageKey);
+      window.localStorage.removeItem("activeSessionId");
     }
 
     setSavedSession(null);
@@ -709,7 +742,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     setCollections(nextCollections);
     setCorpusFiles({ excel: [], pdf: [], concall: [], images: [] });
     setDocuments(syncDocuments(nextCollections));
-    setMessages([]);
+    clearState(); // Clears messages and activeSessionId from context
     setInputValue("");
     setUploadOpen(false);
     setResumeBannerVisible(false);
@@ -723,6 +756,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
     }
 
     setActiveCompany(value);
+    clearState(); // Clear chat when switching companies
     setResumeBannerVisible(false);
   };
 
@@ -743,6 +777,7 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
           collections={collections}
           filesByCollection={corpusFiles}
           onOpenUpload={() => setUploadOpen(true)}
+          onToggleHistory={() => setIsRailOpen(!isRailOpen)}
         />
       </div>
 
@@ -791,6 +826,8 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
         </div>
       </main>
 
+      <SessionsRail activeCompanySlug={activeCompanySlug} />
+
       <UploadModal
         open={uploadOpen}
         session={savedSession}
@@ -802,5 +839,13 @@ export default function FinbotDashboard({ stock }: FinbotDashboardProps) {
         onEmbeddingComplete={handleEmbeddingComplete}
       />
     </div>
+  );
+}
+
+export default function FinbotDashboard(props: FinbotDashboardProps) {
+  return (
+    <SessionProvider>
+      <FinbotDashboardInner {...props} />
+    </SessionProvider>
   );
 }

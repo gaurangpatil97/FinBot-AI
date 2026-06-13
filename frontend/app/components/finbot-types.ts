@@ -90,3 +90,10 @@ export interface ChatMessage {
   chunkCount?: number;
   latency?: string;
 }
+export interface ChatSession {
+  id: string;
+  company_slug: string;
+  title: string;
+  created_at: string;
+  updated_at: string;
+}

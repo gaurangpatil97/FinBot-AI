@@ -15,6 +15,7 @@ interface SidebarProps {
   filesByCollection: Record<CollectionKey, CorpusFileRecord[]>;
   onSelectCompany: (value: string) => void;
   onOpenUpload: () => void;
+  onToggleHistory?: () => void;
 }
 
 export default function Sidebar({
@@ -26,12 +27,13 @@ export default function Sidebar({
   filesByCollection,
   onSelectCompany,
   onOpenUpload,
+  onToggleHistory,
 }: SidebarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <aside className="flex w-full shrink-0 flex-col border-b border-[var(--border)] bg-[var(--bg)] lg:h-screen lg:w-[295px] lg:border-b-0 lg:border-[var(--border)] no-scrollbar overflow-x-hidden" style={{ overflow: "hidden", scrollbarWidth: "none" }}>
-      <div className="border-b border-[var(--border)] px-4 py-4">
+      <div className="border-b border-[var(--border)] px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="grid h-9 w-9 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg font-semibold text-white">
             ⚡
@@ -44,6 +46,17 @@ export default function Sidebar({
             <p className="text-xs text-[var(--text-secondary)]">Research workspace</p>
           </div>
         </div>
+        {onToggleHistory && (
+          <button 
+            onClick={onToggleHistory}
+            className="text-[var(--text-secondary)] hover:text-white transition-colors"
+            title="Toggle Chat History"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
+        )}
       </div>
 
       <div className="flex-1 overflow-hidden px-4 py-4 space-y-4">
