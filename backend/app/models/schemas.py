@@ -9,6 +9,8 @@ class QueryRequest(BaseModel):
     question: str
     company_slug: str
     year: Optional[str] = None
+    session_id: Optional[str] = None
+    use_history: bool = False
 
 
 class Citation(BaseModel):
