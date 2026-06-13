@@ -18,6 +18,13 @@ FinBot is a multimodal Retrieval‑Augmented Generation (RAG) based financial in
 | **Vector DB** | ChromaDB |
 | **Router** | LLM‑based router with keyword‑fallback logic |
 
+## Current Status & Roadmap
+**Phase A (Complete):** Evaluation infrastructure, retrieval baseline, and generation prompt engineering are stable. The core pipeline is validated against the 77-question benchmark.
+**Next Steps (Weekend Goals):**
+- Report Generation Agent
+- Sessions / Chat History
+- Second Company testing (scaling beyond Craftsman Automation)
+
 ## Supported Query Types
 - Direct financial lookups (revenue, profit, EBITDA for any year)
 - Ratio calculations (Debt/Equity, EBITDA margin, ROE, Interest Coverage, Cash Conversion)
@@ -220,7 +227,43 @@ The `query_collection_all()` chunks now bypass the `top_chunks` limit in `rag.py
 
 ---
 
+
+### V2.2 — Generation Prompt Improvements (June 13, 2026)
+
+This run incorporates significant fixes to retrieval budgeting and generation prompting, establishing a strong baseline.
+
+#### Auto-Scored Metrics
+- **Routing Accuracy:** 72.7% → **92.2%** (lenient)
+- **Citation Accuracy:** 63.6% → **94.8%**
+- **Answer Correctness:** 49.4% → 57.1% → **59.7%** (following two rounds of generic prompt fixes, no hardcoding)
+
+#### RAGAS Metrics
+All 4 RAGAS metrics are now reliably non-NaN:
+- **Faithfulness:** 0.63
+- **Answer Relevancy:** 0.70
+- **Context Precision:** 0.37
+- **Context Recall:** 0.30
+
+#### Per Section Breakdown
+- **Excel:** 73%
+- **Cross-source:** 67%
+- **Images:** Improved (Q59-62 routing fix successfully recovered MD&A table questions)
+- **Concall & PDF Text:** Improved significantly from the prompt instruction fixes.
+
+#### Key Fixes Implemented
+- **Excel limit=20 truncation bug fixed:** `excel_all_chunks` now bypasses generic retrieval limits, ensuring all 10 years of data are provided.
+- **Per-source retrieval budgets:** Fixed the issue where a high volume of Excel chunks was evicting relevant concall chunks.
+- **PDF top-k reduction:** Reduced from 20 to 8 chunks to minimize noise.
+- **Images routing fix:** Resolved an over-triggering issue that misrouted image tables to the PDF collection.
+- **Generation Prompt Guardrails:** Added 5 generic instructions to prevent hallucination, enforce strict metric extraction, clarify multi-part questions, and demand explicit reasoning.
+
+#### Known Issues / Next Steps
+- **Q16, Q18:** Genuine retrieval gaps (specific figures simply absent from current chunks).
+- **Q32, Q40, Q44:** MD&A ratio tables are not retrievable as structured data. This is a chunking/retrieval issue requiring future layout-aware extraction improvements.
+
 ### What the Numbers Mean
+
+*Note: The assessments below are based on the V2.0 baseline. The V2.2 updates significantly improved routing, citation, and generation metrics, confirming that retrieval (chunking) remains the primary bottleneck for further improvements.*
 
 | Component | Assessment |
 |-----------|------------|

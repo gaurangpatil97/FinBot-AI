@@ -42,7 +42,7 @@ EXCEL_KEYWORDS = [
 
 IMAGE_KEYWORDS = [
     "chart", "graph", "image", "visual", "infographic", "pie chart",
-    "bar chart", "donut chart", "kpi chart", "kpi page",
+    "bar chart", "donut chart", "kpi chart", "kpi page", "table",
     "shown in", "shown in the", "as shown", "displays", "depicts", "depicted", "illustrated", "figure",
     "annual report shows", "annual report chart", "report image",
     "segment share", "segment breakdown",
@@ -58,7 +58,7 @@ PDF_KEYWORDS = [
 IMAGE_FORCE_TRIGGERS = [
     "shown in", "as shown in", "annual report shows",
     "annual report chart", "annual report visuals",
-    "annual report image", "image pages", "visual pages",
+    "annual report image", "image pages", "visual pages", "table",
 ]
 
 
@@ -128,16 +128,16 @@ def route_question(
 
     Available sources:
     - excel: structured financial data, precise numbers, 10 years of financials, ratios calculated from numbers
-    - pdf: annual report narrative, strategy, MD&A, business segments, management discussion, chairman message, risk factors, product descriptions, operational framework
-    - images: charts, graphs, visuals, infographics from annual report pages
+    - pdf: annual report narrative, strategy, MD&A text, business segments, management discussion, chairman message, risk factors, product descriptions, operational framework
+    - images: charts, graphs, tables, visuals, infographics from annual report pages (even if they appear within MD&A or BRSR sections)
     - concall: earnings call transcripts, management commentary, guidance, analyst Q&A
 
     Key routing rules:
     - H1, H2, Q1, Q2, Q3, Q4, quarterly, half-year → concall
-    - bar chart, donut chart, KPI chart, infographic, visual → images
-    - MD&A, BRSR, auditor, KAM, Directors Report → pdf
+    - bar chart, donut chart, KPI chart, infographic, visual, table → images
+    - MD&A, BRSR, auditor, KAM, Directors Report → pdf (Note: if asking about a TABLE or CHART within these sections, route to images instead)
     - specific numbers, ratios, calculations → excel
-    - When question asks about something shown or displayed visually → images
+    - When question asks about something shown or displayed visually or in a table → images
 
     Examples:
     # Neutral year placeholders — avoid benchmark phrasing bias
@@ -164,7 +164,7 @@ def route_question(
     Q: What does the donut chart show for segment revenue? → {{"source_types": ["images"], "year": null}}
     Q: What trend is visible in the bar chart? → {{"source_types": ["images"], "year": null}}
     Q: What is shown in the infographic? → {{"source_types": ["images"], "year": null}}
-    Q: What does the MD&A ratio table show? → {{"source_types": ["pdf"], "year": null}}
+    Q: What does the MD&A ratio table show? → {{"source_types": ["images"], "year": null}}
     Q: According to the MD&A what was the reason for decline? → {{"source_types": ["pdf"], "year": null}}
     Q: What does the BRSR disclose? → {{"source_types": ["pdf"], "year": null}}
     Q: What KAM did the auditor identify? → {{"source_types": ["pdf"], "year": null}}
