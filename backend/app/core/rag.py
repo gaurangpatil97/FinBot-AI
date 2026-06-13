@@ -324,8 +324,6 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                     seen_hashes.add(content_hash)
                     all_chunks.append(chunk)
 
-    all_chunks.extend(excel_all_chunks)
-
     # Step 5 — Rank and trim
     all_chunks = sorted(all_chunks, key=lambda x: x["score"], reverse=True)
     # Use the multi-query retrieval budget for broader questions.
@@ -350,6 +348,10 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     
     # Sort them by score again
     top_chunks = sorted(top_chunks, key=lambda x: x["score"], reverse=True)
+
+    # Combine bypassed Excel chunks
+    if excel_all_chunks:
+        top_chunks = excel_all_chunks + top_chunks
 
     if not top_chunks:
         return QueryResponse(
