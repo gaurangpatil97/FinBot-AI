@@ -94,7 +94,7 @@ export async function queryRAG(
 }
 
 export async function createSession(companySlug: string, title: string) {
-  const res = await fetch($BASE_URL/api/v1/sessions, {
+  const res = await fetch(`${BASE_URL}/api/v1/sessions`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ company_slug: companySlug, title }),
@@ -104,19 +104,19 @@ export async function createSession(companySlug: string, title: string) {
 }
 
 export async function getSessions(companySlug: string) {
-  const res = await fetch($BASE_URL/api/v1/sessions?company_slug= + encodeURIComponent(companySlug));
+  const res = await fetch(`${BASE_URL}/api/v1/sessions?company_slug=${encodeURIComponent(companySlug)}`);
   if (!res.ok) throw new Error("Failed to get sessions");
   return res.json();
 }
 
 export async function getSessionMessages(sessionId: string) {
-  const res = await fetch($BASE_URL/api/v1/sessions/ + encodeURIComponent(sessionId) + /messages);
+  const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}/messages`);
   if (!res.ok) throw new Error("Failed to get session messages");
   return res.json();
 }
 
 export async function renameSession(sessionId: string, title: string) {
-  const res = await fetch($BASE_URL/api/v1/sessions/ + encodeURIComponent(sessionId), {
+  const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title }),
@@ -126,7 +126,7 @@ export async function renameSession(sessionId: string, title: string) {
 }
 
 export async function deleteSession(sessionId: string) {
-  const res = await fetch($BASE_URL/api/v1/sessions/ + encodeURIComponent(sessionId), {
+  const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}`, {
     method: "DELETE",
   });
   if (!res.ok) throw new Error("Failed to delete session");
