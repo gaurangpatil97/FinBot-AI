@@ -19,3 +19,4 @@ frontend/.env.local
 # Misc
 *.sqlite3
 .DS_Store
+backend/sessions.db
