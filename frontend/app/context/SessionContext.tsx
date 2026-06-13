@@ -85,6 +85,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
           routingSource,
           chunkCount,
           latency: m.latency ? m.latency.toString() : undefined,
+          chart_data: m.chart_data,
         };
       });
       setMessages(formattedMessages);
