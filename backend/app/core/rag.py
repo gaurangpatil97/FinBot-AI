@@ -351,6 +351,9 @@ def answer_query(request: QueryRequest) -> QueryResponse:
 
     # Combine bypassed Excel chunks
     if excel_all_chunks:
+        if len(source_types) > 1:
+            # Cap bypassed Excel chunks when competing with other sources
+            excel_all_chunks = excel_all_chunks[:10]
         top_chunks = excel_all_chunks + top_chunks
 
     if not top_chunks:
