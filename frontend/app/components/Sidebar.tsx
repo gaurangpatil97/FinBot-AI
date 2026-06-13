@@ -105,7 +105,7 @@ export default function Sidebar({
         <button
           type="button"
           onClick={onOpenUpload}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-[var(--accent-fill-text)] transition hover:opacity-90"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#e8ddc7] px-4 py-3 text-sm font-semibold text-[#0a0a0c] transition hover:opacity-90"
         >
           <span className="text-base">＋</span>
           Upload Dataset

@@ -71,7 +71,7 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
             </div>
             <button 
               onClick={clearState}
-              className="w-full py-2 px-4 rounded-xl border border-[var(--accent)] bg-transparent text-[var(--accent)] hover:bg-[rgba(245,243,238,0.08)] text-sm font-semibold transition-all duration-150 flex items-center justify-center gap-2"
+              className="w-full py-2 px-4 rounded-xl border border-[#e8ddc7] bg-transparent text-[#e8ddc7] hover:bg-[rgba(245,243,238,0.08)] text-sm font-semibold transition-all duration-150 flex items-center justify-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
               New chat
@@ -93,7 +93,7 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
                     <div 
                       key={s.id} 
                       className={`group flex flex-col px-3 py-2.5 rounded-xl cursor-pointer transition-colors relative border-l-2
-                        ${isActive ? "bg-[var(--surface-2)] border-[var(--accent)]" : "bg-transparent hover:bg-[var(--surface-2)] border-transparent"}
+                        ${isActive ? "bg-[var(--surface-2)] border-[#e8ddc7]" : "bg-transparent hover:bg-[var(--surface-2)] border-transparent"}
                       `}
                       onClick={() => { if (!isEditing) switchSession(s.id); }}
                     >
@@ -102,14 +102,14 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
                           <input 
                             autoFocus
                             type="text" 
-                            className="bg-[#111] text-sm text-[var(--text-primary)] outline-none w-full mr-2 rounded px-1.5 py-0.5 border border-[var(--border-strong)]"
+                            className="bg-[#111] text-base text-[var(--text-primary)] outline-none w-full mr-2 rounded px-1.5 py-0.5 border border-[var(--border-strong)]"
                             value={editTitle}
                             onChange={e => setEditTitle(e.target.value)}
                             onKeyDown={e => handleRename(e, s.id)}
                             onBlur={() => setEditingId(null)}
                           />
                         ) : (
-                          <div className="text-sm font-medium text-[var(--text-primary)] truncate pr-14" title={s.title}>
+                          <div className="text-base font-medium text-[var(--text-primary)] truncate pr-14" title={s.title}>
                             {s.title}
                           </div>
                         )}

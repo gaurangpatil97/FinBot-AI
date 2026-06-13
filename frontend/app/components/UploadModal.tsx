@@ -538,7 +538,7 @@ export default function UploadModal({
       <section
         key={key}
         className={`flex min-h-80 flex-col rounded-3xl border border-dashed p-4 transition duration-200 ${
-          isActive ? "border-[var(--accent)] bg-[var(--accent-dim)] scale-[1.01]" : "border-[var(--border)] bg-[var(--surface-2)]"
+          isActive ? "border-[#e8ddc7] bg-[#e8ddc7]/10 scale-[1.01]" : "border-[var(--border)] bg-[var(--surface-2)]"
         }`}
         onDragEnter={() => setDraggingKey(key)}
         onDragOver={(event) => {
@@ -560,7 +560,7 @@ export default function UploadModal({
           </div>
         </div>
 
-        <label className="mt-4 flex cursor-pointer flex-col rounded-2xl border border-dashed border-[var(--border)] bg-[var(--surface-1)] px-4 py-4 text-center transition hover:border-[var(--accent)] hover:bg-[var(--accent-dim)]">
+        <label className="mt-4 flex cursor-pointer flex-col rounded-2xl border border-dashed border-[var(--border)] bg-[var(--surface-1)] px-4 py-4 text-center transition hover:border-[#e8ddc7] hover:bg-[#e8ddc7]/10">
           <input
             ref={(node) => {
               fileInputRefs.current[key] = node;
@@ -574,7 +574,7 @@ export default function UploadModal({
               event.currentTarget.value = "";
             }}
           />
-          <span className="text-sm font-medium text-zinc-100">
+          <span className="text-sm font-medium text-[#e8ddc7]">
             {files.length ? `${files.length} file${files.length > 1 ? "s" : ""} ready` : "Drop files here or click to browse"}
           </span>
           <span className="mt-2 text-xs text-[#888888]">{helperCopy[key]}</span>
@@ -667,7 +667,7 @@ export default function UploadModal({
             type="button"
             onClick={() => void handleGenerateAll()}
             disabled={isGeneratingAll || isEmbedding || isPollingEmbedding}
-            className="flex items-center justify-center rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-[var(--accent-fill-text)] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+            className="flex items-center justify-center rounded-xl bg-[#e8ddc7] px-5 py-2.5 text-sm font-semibold text-[#0a0a0c] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isPollingEmbedding || isEmbedding ? (
               <span className="flex items-center gap-2">

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import CitationBadge from "./CitationBadge";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
+import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import { getCompanies } from "../../lib/api";
@@ -41,7 +42,7 @@ function PipelineStatus() {
           {s.done ? (
             <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--surface-3)] text-[9px] text-[var(--text-primary)]">✓</span>
           ) : s.active ? (
-            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--border)] border-t-[var(--accent)]" />
+            <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--border)] border-t-[#e8ddc7]" />
           ) : (
             <span className="h-3.5 w-3.5 rounded-full border border-[var(--border)]" />
           )}
@@ -121,6 +122,30 @@ function getCompanyLabel(company: CompanySummary) {
 
   return "";
 }
+
+const cleanContent = (content: string): string => {
+  if (!content) return "";
+  return content
+    .split("\n")
+    .filter((line) => {
+      const trimmed = line.trim();
+      const isAsterisksOnly = trimmed.length > 0 && /^\*+$/.test(trimmed) && !trimmed.includes("|") && !trimmed.includes("-");
+      return !isAsterisksOnly;
+    })
+    .join("\n");
+};
+
+const renderMessageContent = (content: string) => {
+  const cleaned = cleanContent(content);
+  console.log("RAW_CONTENT:", JSON.stringify(cleaned));
+  return (
+    <div className="prose prose-invert prose-base max-w-none prose-p:leading-relaxed prose-pre:bg-zinc-900">
+      <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
+        {cleaned}
+      </ReactMarkdown>
+    </div>
+  );
+};
 
 export default function ChatWindow({ messages, activeCompanyKey, totalChunks, totalDocs, collectionCount, onQuickQuery }: ChatWindowProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -242,7 +267,7 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
                     key={q}
                     type="button"
                     onClick={() => onQuickQuery?.(q)}
-                    className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-3 py-1.5 text-xs font-medium text-[var(--text-secondary)] transition hover:border-[var(--accent)] hover:text-[var(--text-primary)]"
+                    className="rounded-full border border-[var(--border)] bg-[var(--surface-2)] px-3 py-1.5 text-xs font-medium text-[var(--text-secondary)] transition hover:border-[#e8ddc7] hover:text-[var(--text-primary)]"
                   >
                     "{q}"
                   </button>
@@ -268,7 +293,7 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
             ) : null}
 
             <div
-                className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-sm leading-6 ${
+                className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-base leading-6 ${
                   assistant
                   ? "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-primary)]"
                   : "border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-primary)]"
@@ -279,21 +304,14 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
               ) : assistant ? (
                 <>
                   {message.routingSource && (
-                    <div className="mb-2 text-[11px] text-[var(--text-secondary)]">
+                    <div className="inline-block mb-2 rounded-full bg-[var(--surface-2)] border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--text-secondary)]">
                       Routed to {message.routingSource} · {message.chunkCount || 0} chunks · {message.latency || "0.0"}s
                     </div>
                   )}
-                  <div className="prose prose-invert prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-zinc-900">
-                    <ReactMarkdown 
-                      remarkPlugins={[remarkMath]} 
-                      rehypePlugins={[rehypeKatex]}
-                    >
-                      {message.content}
-                    </ReactMarkdown>
-                  </div>
+                  {renderMessageContent(message.content)}
                 </>
               ) : (
-                <p className="whitespace-pre-line">{message.content}</p>
+                <p className="whitespace-pre-line">{cleanContent(message.content)}</p>
               )}
               {!message.isLoading && message.citations && message.citations.length > 0 ? (
                 <div className="mt-3 flex flex-wrap gap-2">

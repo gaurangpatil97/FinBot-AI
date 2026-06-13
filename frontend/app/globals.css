@@ -2,17 +2,17 @@
 
 :root {
   --background: #000000;
-  --foreground: #ffffff;
+  --foreground: #e8ddc7;
   --bg: #0a0a0c;
   --surface-1: #121215;
   --surface-2: #1a1a1f;
   --surface-3: #232329;
-  --border: rgba(245,243,238,0.08);
+  --border: #e8ddc712;
   --border-strong: rgba(245,243,238,0.14);
-  --text-primary: #f5f3ee;
-  --text-secondary: #a8a39a;
+  --text-primary: #e8ddc7;
+  --text-secondary: #a8a193;
   --text-muted: #6b6862;
-  --accent: #f5f3ee;
+  --accent: #e8ddc7;
   --accent-fill-text: #0a0a0c;
   --gain: #22c55e;
   --loss: #ef4444;
@@ -60,4 +60,23 @@ body {
 
 .num {
   font-variant-numeric: tabular-nums;
+}
+
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose th, .prose td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--surface-2);
+  color: var(--text-primary);
+  font-weight: 600;
 }

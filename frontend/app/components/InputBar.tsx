@@ -35,7 +35,7 @@ export default function InputBar({ value, onChange, onSend, onAttach }: InputBar
       <button
         type="button"
         onClick={onAttach}
-        className="grid h-12 w-12 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg text-[var(--text-primary)] transition hover:bg-[var(--surface-2)]"
+        className="grid h-12 w-12 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg text-[var(--text-secondary)] transition hover:bg-[var(--surface-2)]"
         aria-label="Attach dataset"
       >
         📎
@@ -54,14 +54,14 @@ export default function InputBar({ value, onChange, onSend, onAttach }: InputBar
           }}
           placeholder="Ask about company financials..."
           rows={1}
-          className="w-full resize-none overflow-x-hidden bg-transparent text-sm leading-5 text-[var(--text-primary)] outline-none placeholder:text-[var(--text-muted)]"
+          className="w-full resize-none overflow-x-hidden bg-transparent text-base leading-5 text-[var(--text-primary)] outline-none placeholder:text-[var(--text-muted)]"
         />
       </label>
 
       <button
         type="button"
         onClick={onSend}
-        className="inline-flex h-12 items-center gap-2 rounded-xl bg-[var(--accent)] px-5 text-sm font-semibold text-[var(--accent-fill-text)] transition opacity-100 hover:opacity-90"
+        className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#e8ddc7] px-5 text-sm font-semibold text-[#0a0a0c] transition opacity-100 hover:opacity-90"
       >
         <span>Send</span>
         <span>↗</span>

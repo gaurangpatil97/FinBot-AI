@@ -282,7 +282,7 @@ function useFinancialKpi(companySlug: string, metric: FinancialMetric, initialYe
 
 function choicePillClass(active: boolean) {
   return active
-    ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--accent-fill-text)]"
+    ? "border-[#e8ddc7] bg-[#e8ddc7] text-[#0a0a0c]"
     : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]";
 }
 
@@ -351,7 +351,7 @@ function FinancialKpiCard({
       <button
         type="button"
         onClick={() => setIsPopoverOpen((current) => !current)}
-        className="group flex items-center gap-2 text-left outline-none rounded-md focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+        className="group flex items-center gap-2 text-left outline-none rounded-md focus-visible:ring-2 focus-visible:ring-[#e8ddc7]"
       >
         <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] transition-colors group-hover:text-[var(--text-primary)]">{title}</p>
         <span className="opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 text-[var(--text-secondary)]">

@@ -792,7 +792,7 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
                 <button
                   type="button"
                   onClick={handleContinue}
-                  className="rounded-xl bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent-fill-text)] hover:opacity-90 transition-opacity"
+                  className="rounded-xl bg-[#e8ddc7] px-4 py-2 text-sm font-semibold text-[#0a0a0c] hover:opacity-90 transition-opacity"
                 >
                   Continue
                 </button>
