@@ -29,8 +29,6 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editTitle, setEditTitle] = useState("");
 
-  if (!isRailOpen) return null;
-
   const handleRename = (e: React.KeyboardEvent, id: string) => {
     if (e.key === "Enter" && editTitle.trim()) {
       renameSessionOptimistic(id, editTitle.trim());
