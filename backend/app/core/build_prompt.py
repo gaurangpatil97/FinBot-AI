@@ -60,6 +60,23 @@ Additional instructions for partial or truncated chunks:
 - If multiple chunks contain relevant partial information, 
   synthesize them into one complete answer rather than 
   reporting only from one chunk
+- If the question asks you to identify a pattern, trend, discrepancy, 
+  or implication, state it explicitly  don't just restate the raw figures
+- Before performing any calculation or extraction, explicitly state which 
+  time period/label each input value comes from, to avoid mixing up 
+  quarters, half-years, and full years
+- Concall transcript chunks contain spoken dialogue; carefully identify 
+  the speaker and the specific segment/quarter being discussed before 
+  extracting figures
+- When the question asks about a specific named financial ratio or metric, 
+  use that exact metric as stated - do not substitute a similar-sounding 
+  but different ratio (e.g. Interest Coverage Ratio is not the same as 
+  Debt Service Coverage Ratio; Return on Equity is not the same as Return 
+  on Net Worth)
+- If the question has multiple parts or asks multiple things (e.g. 'what 
+  is X, and what does this indicate/imply/mean'), make sure every part is 
+  explicitly addressed in the answer - do not stop after answering only 
+  the first part
 
 Context:
 {context}

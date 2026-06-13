@@ -1,0 +1,87 @@
+{
+  "generated_at": "20260613_132658",
+  "source_file": "tests\\results\\eval_raw_results_20260613_130745.json",
+  "auto_metrics": {
+    "total": 77,
+    "routing_accuracy": 0.922077922077922,
+    "routing_correct": 71,
+    "citation_accuracy": 0.948051948051948,
+    "citation_correct": 73,
+    "answer_correctness": null,
+    "answer_correct": 0,
+    "answer_total_reviewed": 0,
+    "avg_latency": 13.348181818181818,
+    "min_latency": 5.96,
+    "max_latency": 43.9,
+    "sections": {
+      "Excel": {
+        "total": 15,
+        "routing_correct": 15,
+        "citation_correct": 12,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 212.5
+      },
+      "Concall": {
+        "total": 15,
+        "routing_correct": 15,
+        "citation_correct": 15,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 192.26999999999998
+      },
+      "PDF": {
+        "total": 16,
+        "routing_correct": 16,
+        "citation_correct": 16,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 198.90999999999997
+      },
+      "Images": {
+        "total": 16,
+        "routing_correct": 12,
+        "citation_correct": 16,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 201.60000000000002
+      },
+      "Cross": {
+        "total": 15,
+        "routing_correct": 13,
+        "citation_correct": 14,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 222.53
+      }
+    },
+    "difficulties": {
+      "Easy": {
+        "total": 21,
+        "routing_correct": 20,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Medium": {
+        "total": 20,
+        "routing_correct": 18,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Hard": {
+        "total": 36,
+        "routing_correct": 33,
+        "correct": 0,
+        "correct_total": 0
+      }
+    }
+  },
+  "ragas_metrics": {
+    "questions_evaluated": 77,
+    "questions_skipped": 0,
+    "faithfulness": 0.6296,
+    "answer_relevancy": 0.7025,
+    "context_recall": 0.2978,
+    "context_precision": 0.3672
+  }
+}
