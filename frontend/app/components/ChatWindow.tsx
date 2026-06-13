@@ -303,11 +303,23 @@ function getCompanySlug(activeCompanyKey?: string): string {
 
 export function extractYears(text: string): string[] {
   const yearsMatch = [...text.matchAll(/\b(FY\d{2}|FY\s*\d{2}|20\d{2})\b/gi)];
-  const years = Array.from(new Set(yearsMatch.map(m => {
+  let years = Array.from(new Set(yearsMatch.map(m => {
     const yr = m[1].replace(/FY\s*/i, "").trim();
     if (yr.length === 2) return `20${yr}`;
     return yr;
   }))).sort();
+  
+  if (years.length === 2) {
+    const start = parseInt(years[0]);
+    const end = parseInt(years[1]);
+    if (!isNaN(start) && !isNaN(end) && start < end && (end - start <= 10)) {
+      const expanded: string[] = [];
+      for (let y = start; y <= end; y++) {
+        expanded.push(y.toString());
+      }
+      years = expanded;
+    }
+  }
   return years;
 }
 

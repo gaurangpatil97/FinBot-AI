@@ -49,7 +49,19 @@ def build_chart_data(
             if len(y_clean) == 2 and y_clean.isdigit():
                 y_clean = f"20{y_clean}"
             normalized_years.append(y_clean)
-        years = sorted(normalized_years)
+        
+        # Sort and remove duplicates
+        years = sorted(list(set(normalized_years)))
+        
+        # Range expansion: if exactly 2 years are passed (start and end), expand inclusive
+        if len(years) == 2:
+            try:
+                start_y = int(years[0])
+                end_y = int(years[1])
+                if start_y < end_y and (end_y - start_y) <= 10:
+                    years = [str(y) for y in range(start_y, end_y + 1)]
+            except ValueError:
+                pass
 
     # Determine chart type
     if len(metrics) == 1:

@@ -406,7 +406,6 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
   
   const [inputValue, setInputValue] = useState("");
   const [chartToggle, setChartToggle] = useState(false);
-  const [analyzeToggle, setAnalyzeToggle] = useState(false);
   const [uploadOpen, setUploadOpen] = useState(false);
   const [resumeBannerVisible, setResumeBannerVisible] = useState(false);
   const [, setHasSession] = useState(false);
@@ -559,9 +558,7 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
 
     setInputValue("");
     const activeChart = chartToggle;
-    const activeAnalyze = analyzeToggle;
     setChartToggle(false);
-    setAnalyzeToggle(false);
 
     if (isGreetingMessage(trimmed)) {
       const activeCompanyInfo = getActiveCompanyFromLocalStorage(activeCompany);
@@ -644,7 +641,7 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
       let chunkCount = 0;
       let chartData: any = null;
 
-      if (!activeChart && !activeAnalyze) {
+      if (!activeChart) {
         const result = await queryRAG(trimmed, companySlug, year, currentSessionId || undefined);
         answer = result && typeof result.answer === "string" && result.answer.trim() ? result.answer : "Failed to get response";
         citations = Array.isArray(result?.citations) ? result.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];
@@ -658,36 +655,17 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
       } else {
         await saveMessage(currentSessionId!, "user", trimmed, [], {}, 0, [], null);
 
-        if (activeChart) {
-          const queryPromise = queryRAG(trimmed, companySlug, year, undefined);
-          const yearsToQuery = extractYears(trimmed);
-          const metricsToQuery = extractMetrics(trimmed);
-          const chartPromise = generateChart(companySlug, metricsToQuery, yearsToQuery.length > 0 ? yearsToQuery : undefined);
-          
-          const [queryRes, chartRes] = await Promise.all([queryPromise, chartPromise]);
-          
-          answer = queryRes && typeof queryRes.answer === "string" && queryRes.answer.trim() ? queryRes.answer : "Failed to get response";
-          citations = Array.isArray(queryRes?.citations) ? queryRes.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];
-          if (queryRes?.routing_debug?.source_types && Array.isArray(queryRes.routing_debug.source_types) && queryRes.routing_debug.source_types.length > 0) {
-            routingSource = queryRes.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
-          } else if (Array.isArray(queryRes?.collections_searched) && queryRes.collections_searched.length > 0) {
-            routingSource = queryRes.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
-          }
-          chunkCount = Array.isArray(queryRes?.chunks) ? queryRes.chunks.length : 0;
-          chartData = chartRes?.chart_data || null;
-        } else {
-          const analyzeRes = await analyzeData(companySlug, extractMetrics(trimmed), extractYears(trimmed).length > 0 ? extractYears(trimmed) : undefined);
-          
-          answer = analyzeRes && typeof analyzeRes.answer === "string" && analyzeRes.answer.trim() ? analyzeRes.answer : "Failed to get response";
-          citations = Array.isArray(analyzeRes?.citations) ? analyzeRes.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];
-          if (analyzeRes?.routing_debug?.source_types && Array.isArray(analyzeRes.routing_debug.source_types) && analyzeRes.routing_debug.source_types.length > 0) {
-            routingSource = analyzeRes.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
-          } else if (Array.isArray(analyzeRes?.collections_searched) && analyzeRes.collections_searched.length > 0) {
-            routingSource = analyzeRes.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
-          }
-          chunkCount = Array.isArray(analyzeRes?.chunks) ? analyzeRes.chunks.length : 0;
-          chartData = analyzeRes?.chart_data || null;
+        const analyzeRes = await analyzeData(companySlug, extractMetrics(trimmed), extractYears(trimmed).length > 0 ? extractYears(trimmed) : undefined);
+        
+        answer = analyzeRes && typeof analyzeRes.answer === "string" && analyzeRes.answer.trim() ? analyzeRes.answer : "Failed to get response";
+        citations = Array.isArray(analyzeRes?.citations) ? analyzeRes.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];
+        if (analyzeRes?.routing_debug?.source_types && Array.isArray(analyzeRes.routing_debug.source_types) && analyzeRes.routing_debug.source_types.length > 0) {
+          routingSource = analyzeRes.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
+        } else if (Array.isArray(analyzeRes?.collections_searched) && analyzeRes.collections_searched.length > 0) {
+          routingSource = analyzeRes.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
         }
+        chunkCount = Array.isArray(analyzeRes?.chunks) ? analyzeRes.chunks.length : 0;
+        chartData = analyzeRes?.chart_data || null;
 
         const latencySeconds = ((Date.now() - startTime) / 1000).toFixed(1);
         await saveMessage(
@@ -874,8 +852,6 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
               onAttach={() => setUploadOpen(true)}
               chartToggle={chartToggle}
               setChartToggle={setChartToggle}
-              analyzeToggle={analyzeToggle}
-              setAnalyzeToggle={setAnalyzeToggle}
             />
           </div>
         </div>

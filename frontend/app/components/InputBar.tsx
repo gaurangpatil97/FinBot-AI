@@ -9,8 +9,6 @@ interface InputBarProps {
   onAttach: () => void;
   chartToggle: boolean;
   setChartToggle: (val: boolean) => void;
-  analyzeToggle: boolean;
-  setAnalyzeToggle: (val: boolean) => void;
 }
 
 export default function InputBar({
@@ -20,8 +18,6 @@ export default function InputBar({
   onAttach,
   chartToggle,
   setChartToggle,
-  analyzeToggle,
-  setAnalyzeToggle,
 }: InputBarProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -74,33 +70,27 @@ export default function InputBar({
       <div className="flex gap-2 self-center">
         <button
           type="button"
-          onClick={() => {
-            setChartToggle(!chartToggle);
-            if (!chartToggle) setAnalyzeToggle(false);
-          }}
-          title="Include chart"
-          className={`grid h-12 px-3.5 place-items-center rounded-xl border text-xs font-semibold cursor-pointer transition ${
+          onClick={() => setChartToggle(!chartToggle)}
+          title="Generate chart and analyze trend"
+          className={`flex h-12 items-center gap-2 px-3.5 rounded-xl border text-xs font-semibold cursor-pointer transition ${
             chartToggle
               ? "border-[#e8ddc7] bg-[#e8ddc7]/10 text-[#e8ddc7]"
               : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]"
           }`}
         >
-          📊 Chart
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setAnalyzeToggle(!analyzeToggle);
-            if (!analyzeToggle) setChartToggle(false);
-          }}
-          title="Analyze trend with chart"
-          className={`grid h-12 px-3.5 place-items-center rounded-xl border text-xs font-semibold cursor-pointer transition ${
-            analyzeToggle
-              ? "border-[#e8ddc7] bg-[#e8ddc7]/10 text-[#e8ddc7]"
-              : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]"
-          }`}
-        >
-          📈 Analyze
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4"
+          >
+            <path d="M3 3v18h18" />
+            <path d="m19 9-5 5-4-4-3 3" />
+          </svg>
+          <span>Generate Chart</span>
         </button>
       </div>
 

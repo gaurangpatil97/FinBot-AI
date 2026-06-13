@@ -172,7 +172,7 @@ Write a natural-language analysis explaining these values.
 
 Strict Rules:
 1. Do NOT compute any new values. Use the pre-computed YoY rates, CAGR, and values verbatim.
-2. Explain the YoY growth rates, overall CAGR, and mention any outliers.
+2. The YoY growth rates are a list of consecutive year-over-year changes, whereas the CAGR is the single compound annual growth rate over the entire period. Do NOT equate them, and do not use the overall period growth rate as YoY or CAGR.
 3. You MUST structure your response using the following layout and markdown ## headings (do NOT use bold-text-as-heading like **Summary:**):
 
 ## Summary
