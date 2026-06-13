@@ -22,7 +22,8 @@ export default function SessionsRail({ activeCompanySlug }: { activeCompanySlug:
     deleteSessionOptimistic, 
     renameSessionOptimistic,
     clearState,
-    isRailOpen 
+    isRailOpen,
+    setIsRailOpen
   } = useSessions();
   
   const [editingId, setEditingId] = useState<string | null>(null);

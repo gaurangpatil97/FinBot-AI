@@ -777,7 +777,6 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
           collections={collections}
           filesByCollection={corpusFiles}
           onOpenUpload={() => setUploadOpen(true)}
-          onToggleHistory={() => setIsRailOpen(!isRailOpen)}
         />
       </div>
 
