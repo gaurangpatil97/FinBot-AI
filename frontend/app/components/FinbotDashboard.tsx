@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-import { getCompanies, getCompanyStatus, queryRAG } from "../../lib/api";
+import { getCompanies, getCompanyStatus, queryRAG, generateChart, analyzeData, saveMessage } from "../../lib/api";
 
-import ChatWindow from "./ChatWindow";
+import ChatWindow, { extractYears, extractMetrics } from "./ChatWindow";
 import InputBar from "./InputBar";
 import KPICards from "./KPICards";
 import Sidebar from "./Sidebar";
@@ -405,6 +405,8 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
   const { messages, setMessages, activeSessionId, setActiveSessionId, loadSessions, setIsRailOpen, isRailOpen, switchSession, clearState } = useSessions();
   
   const [inputValue, setInputValue] = useState("");
+  const [chartToggle, setChartToggle] = useState(false);
+  const [analyzeToggle, setAnalyzeToggle] = useState(false);
   const [uploadOpen, setUploadOpen] = useState(false);
   const [resumeBannerVisible, setResumeBannerVisible] = useState(false);
   const [, setHasSession] = useState(false);
@@ -556,6 +558,10 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
     const loadingMessageId = createMessageId();
 
     setInputValue("");
+    const activeChart = chartToggle;
+    const activeAnalyze = analyzeToggle;
+    setChartToggle(false);
+    setAnalyzeToggle(false);
 
     if (isGreetingMessage(trimmed)) {
       const activeCompanyInfo = getActiveCompanyFromLocalStorage(activeCompany);
@@ -632,26 +638,71 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
          await loadSessions(companySlug); // refresh rail
       }
 
-      const result = await queryRAG(trimmed, companySlug, year, currentSessionId || undefined);
-      const latencySeconds = ((Date.now() - startTime) / 1000).toFixed(1);
-
-      const answer =
-        result && typeof result.answer === "string" && result.answer.trim()
-          ? result.answer
-          : "Failed to get response";
-
-      const citations = Array.isArray(result?.citations)
-        ? result.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) }))
-        : [];
-
+      let answer = "";
+      let citations: any[] = [];
       let routingSource = "Unknown";
-      if (result?.routing_debug?.source_types && Array.isArray(result.routing_debug.source_types) && result.routing_debug.source_types.length > 0) {
-        routingSource = result.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
-      } else if (Array.isArray(result?.collections_searched) && result.collections_searched.length > 0) {
-        routingSource = result.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
+      let chunkCount = 0;
+      let chartData: any = null;
+
+      if (!activeChart && !activeAnalyze) {
+        const result = await queryRAG(trimmed, companySlug, year, currentSessionId || undefined);
+        answer = result && typeof result.answer === "string" && result.answer.trim() ? result.answer : "Failed to get response";
+        citations = Array.isArray(result?.citations) ? result.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];
+        if (result?.routing_debug?.source_types && Array.isArray(result.routing_debug.source_types) && result.routing_debug.source_types.length > 0) {
+          routingSource = result.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
+        } else if (Array.isArray(result?.collections_searched) && result.collections_searched.length > 0) {
+          routingSource = result.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
+        }
+        chunkCount = Array.isArray(result?.chunks) ? result.chunks.length : 0;
+        chartData = result?.chart_data || null;
+      } else {
+        await saveMessage(currentSessionId!, "user", trimmed, [], {}, 0, [], null);
+
+        if (activeChart) {
+          const queryPromise = queryRAG(trimmed, companySlug, year, undefined);
+          const yearsToQuery = extractYears(trimmed);
+          const metricsToQuery = extractMetrics(trimmed);
+          const chartPromise = generateChart(companySlug, metricsToQuery, yearsToQuery.length > 0 ? yearsToQuery : undefined);
+          
+          const [queryRes, chartRes] = await Promise.all([queryPromise, chartPromise]);
+          
+          answer = queryRes && typeof queryRes.answer === "string" && queryRes.answer.trim() ? queryRes.answer : "Failed to get response";
+          citations = Array.isArray(queryRes?.citations) ? queryRes.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];
+          if (queryRes?.routing_debug?.source_types && Array.isArray(queryRes.routing_debug.source_types) && queryRes.routing_debug.source_types.length > 0) {
+            routingSource = queryRes.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
+          } else if (Array.isArray(queryRes?.collections_searched) && queryRes.collections_searched.length > 0) {
+            routingSource = queryRes.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
+          }
+          chunkCount = Array.isArray(queryRes?.chunks) ? queryRes.chunks.length : 0;
+          chartData = chartRes?.chart_data || null;
+        } else {
+          const analyzeRes = await analyzeData(companySlug, extractMetrics(trimmed), extractYears(trimmed).length > 0 ? extractYears(trimmed) : undefined);
+          
+          answer = analyzeRes && typeof analyzeRes.answer === "string" && analyzeRes.answer.trim() ? analyzeRes.answer : "Failed to get response";
+          citations = Array.isArray(analyzeRes?.citations) ? analyzeRes.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];
+          if (analyzeRes?.routing_debug?.source_types && Array.isArray(analyzeRes.routing_debug.source_types) && analyzeRes.routing_debug.source_types.length > 0) {
+            routingSource = analyzeRes.routing_debug.source_types.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(", ");
+          } else if (Array.isArray(analyzeRes?.collections_searched) && analyzeRes.collections_searched.length > 0) {
+            routingSource = analyzeRes.collections_searched.map((c: string) => (c.split("_").pop() || c)).join(", ");
+          }
+          chunkCount = Array.isArray(analyzeRes?.chunks) ? analyzeRes.chunks.length : 0;
+          chartData = analyzeRes?.chart_data || null;
+        }
+
+        const latencySeconds = ((Date.now() - startTime) / 1000).toFixed(1);
+        await saveMessage(
+          currentSessionId!,
+          "assistant",
+          answer,
+          citations,
+          { source_types: routingSource.toLowerCase().split(", ") },
+          parseFloat(latencySeconds),
+          [],
+          chartData
+        );
       }
 
-      const chunkCount = Array.isArray(result?.chunks) ? result.chunks.length : 0;
+      const latencySeconds = ((Date.now() - startTime) / 1000).toFixed(1);
 
       setMessages((current) =>
         current.map((message) =>
@@ -664,6 +715,7 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
                 routingSource,
                 chunkCount,
                 latency: latencySeconds,
+                chart_data: chartData,
               }
             : message,
         ),
@@ -820,6 +872,10 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
               onChange={setInputValue}
               onSend={handleSend}
               onAttach={() => setUploadOpen(true)}
+              chartToggle={chartToggle}
+              setChartToggle={setChartToggle}
+              analyzeToggle={analyzeToggle}
+              setAnalyzeToggle={setAnalyzeToggle}
             />
           </div>
         </div>

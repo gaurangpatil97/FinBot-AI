@@ -132,3 +132,58 @@ export async function deleteSession(sessionId: string) {
   if (!res.ok) throw new Error("Failed to delete session");
   return res.json();
 }
+
+export async function generateChart(companySlug: string, metrics: string[], years?: string[], chartTypeHint?: string) {
+  const body: any = { company_slug: companySlug, metrics };
+  if (years) body.years = years;
+  if (chartTypeHint) body.chart_type_hint = chartTypeHint;
+
+  const res = await fetch(`${BASE_URL}/api/v1/chart`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error("Failed to generate chart");
+  return res.json();
+}
+
+export async function analyzeData(companySlug: string, metrics: string[], years?: string[], chartTypeHint?: string) {
+  const body: any = { company_slug: companySlug, metrics };
+  if (years) body.years = years;
+  if (chartTypeHint) body.chart_type_hint = chartTypeHint;
+
+  const res = await fetch(`${BASE_URL}/api/v1/analyze`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error("Failed to analyze data");
+  return res.json();
+}
+
+export async function saveMessage(
+  sessionId: string,
+  role: string,
+  content: string,
+  citations: any[] = [],
+  routingDebug: any = {},
+  latency: number = 0,
+  chunks: any[] = [],
+  chartData: any = null
+) {
+  const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}/messages`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      role,
+      content,
+      citations,
+      routing_debug: routingDebug,
+      latency,
+      chunks,
+      chart_data: chartData,
+    }),
+  });
+  if (!res.ok) throw new Error("Failed to save message");
+  return res.json();
+}

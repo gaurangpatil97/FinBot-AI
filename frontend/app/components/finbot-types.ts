@@ -89,6 +89,7 @@ export interface ChatMessage {
   routingSource?: string;
   chunkCount?: number;
   latency?: string;
+  chart_data?: any;
 }
 export interface ChatSession {
   id: string;

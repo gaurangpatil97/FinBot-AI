@@ -7,9 +7,22 @@ interface InputBarProps {
   onChange: (value: string) => void;
   onSend: () => void;
   onAttach: () => void;
+  chartToggle: boolean;
+  setChartToggle: (val: boolean) => void;
+  analyzeToggle: boolean;
+  setAnalyzeToggle: (val: boolean) => void;
 }
 
-export default function InputBar({ value, onChange, onSend, onAttach }: InputBarProps) {
+export default function InputBar({
+  value,
+  onChange,
+  onSend,
+  onAttach,
+  chartToggle,
+  setChartToggle,
+  analyzeToggle,
+  setAnalyzeToggle,
+}: InputBarProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -57,6 +70,39 @@ export default function InputBar({ value, onChange, onSend, onAttach }: InputBar
           className="w-full resize-none overflow-x-hidden bg-transparent text-base leading-5 text-[var(--text-primary)] outline-none placeholder:text-[var(--text-muted)]"
         />
       </label>
+
+      <div className="flex gap-2 self-center">
+        <button
+          type="button"
+          onClick={() => {
+            setChartToggle(!chartToggle);
+            if (!chartToggle) setAnalyzeToggle(false);
+          }}
+          title="Include chart"
+          className={`grid h-12 px-3.5 place-items-center rounded-xl border text-xs font-semibold cursor-pointer transition ${
+            chartToggle
+              ? "border-[#e8ddc7] bg-[#e8ddc7]/10 text-[#e8ddc7]"
+              : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]"
+          }`}
+        >
+          📊 Chart
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setAnalyzeToggle(!analyzeToggle);
+            if (!analyzeToggle) setChartToggle(false);
+          }}
+          title="Analyze trend with chart"
+          className={`grid h-12 px-3.5 place-items-center rounded-xl border text-xs font-semibold cursor-pointer transition ${
+            analyzeToggle
+              ? "border-[#e8ddc7] bg-[#e8ddc7]/10 text-[#e8ddc7]"
+              : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]"
+          }`}
+        >
+          📈 Analyze
+        </button>
+      </div>
 
       <button
         type="button"

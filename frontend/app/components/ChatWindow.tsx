@@ -10,6 +10,17 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import { getCompanies } from "../../lib/api";
 import type { ChatMessage } from "./finbot-types";
+import {
+  ResponsiveContainer,
+  ComposedChart,
+  Bar,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from "recharts";
 
 interface ChatWindowProps {
   messages: ChatMessage[];
@@ -146,6 +157,208 @@ const renderMessageContent = (content: string) => {
     </div>
   );
 };
+
+interface InlineChartProps {
+  chartData: {
+    chart_type: "bar" | "line" | "combo";
+    title: string;
+    x_axis: string[];
+    series: Array<{ name: string; data: number[] }>;
+    y_axis_label?: string;
+  };
+}
+
+function CustomTooltip({ active, payload, label }: any) {
+  if (active && payload && payload.length) {
+    return (
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-xs text-[var(--text-primary)] shadow-[0_12px_30px_rgba(0,0,0,0.35)] font-sans">
+        <div className="font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-1">{label}</div>
+        {payload.map((p: any, idx: number) => (
+          <div key={idx} className="flex justify-between gap-4 py-0.5">
+            <span className="text-[var(--text-secondary)]">{p.name}:</span>
+            <span className="font-mono font-medium text-[var(--text-primary)] tabular-nums">
+              ₹{new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 }).format(p.value)} Cr
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return null;
+}
+
+function InlineChart({ chartData }: InlineChartProps) {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return <div className="h-56 flex items-center justify-center text-xs text-[var(--text-muted)]">Loading chart...</div>;
+  }
+
+  const formattedData = chartData.x_axis.map((label, index) => {
+    const item: any = { name: label };
+    chartData.series.forEach((s) => {
+      item[s.name] = s.data[index];
+    });
+    return item;
+  });
+
+  return (
+    <div className="h-56 w-full mt-2">
+      <ResponsiveContainer width="100%" height="100%">
+        <ComposedChart data={formattedData} margin={{ top: 10, right: 10, left: -20, bottom: 5 }}>
+          <CartesianGrid stroke="rgba(255,255,255,0.04)" vertical={false} />
+          <XAxis 
+            dataKey="name" 
+            axisLine={false} 
+            tickLine={false} 
+            tick={{ fill: 'var(--text-secondary)', fontSize: 10 }} 
+          />
+          <YAxis 
+            axisLine={false} 
+            tickLine={false} 
+            tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
+          />
+          <Tooltip content={<CustomTooltip />} />
+          <Legend 
+            verticalAlign="top" 
+            height={28} 
+            iconType="circle" 
+            wrapperStyle={{ fontSize: 11 }}
+            formatter={(value) => <span style={{ color: '#e8ddc7', fontWeight: 500 }}>{value}</span>}
+          />
+          {chartData.chart_type === "line" && chartData.series.map((s) => (
+            <Line
+              key={s.name}
+              type="monotone"
+              dataKey={s.name}
+              stroke="#e8ddc7"
+              strokeWidth={2}
+              dot={{ r: 3, fill: '#111111', stroke: '#e8ddc7', strokeWidth: 1.5 }}
+              activeDot={{ r: 5 }}
+            />
+          ))}
+          {chartData.chart_type === "bar" && chartData.series.map((s) => (
+            <Bar
+              key={s.name}
+              dataKey={s.name}
+              fill="#857c6b"
+              radius={[4, 4, 0, 0]}
+              maxBarSize={30}
+            />
+          ))}
+          {chartData.chart_type === "combo" && chartData.series.map((s, idx) => {
+            if (idx === 0) {
+              return (
+                <Bar
+                  key={s.name}
+                  dataKey={s.name}
+                  fill="#857c6b"
+                  radius={[4, 4, 0, 0]}
+                  maxBarSize={30}
+                />
+              );
+            } else {
+              return (
+                <Line
+                  key={s.name}
+                  type="monotone"
+                  dataKey={s.name}
+                  stroke="#e8ddc7"
+                  strokeWidth={2}
+                  dot={{ r: 3, fill: '#111111', stroke: '#e8ddc7', strokeWidth: 1.5 }}
+                  activeDot={{ r: 5 }}
+                />
+              );
+            }
+          })}
+        </ComposedChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+function getCompanySlug(activeCompanyKey?: string): string {
+  if (activeCompanyKey) {
+    return slugifyCompanyName(activeCompanyKey);
+  }
+  const storedCompany = readStoredCompany();
+  const activeSlug =
+    typeof storedCompany.slug === "string"
+      ? storedCompany.slug.trim()
+      : typeof storedCompany.companySlug === "string"
+        ? storedCompany.companySlug.trim()
+        : "";
+  if (activeSlug) return activeSlug;
+  const activeName =
+    typeof storedCompany.name === "string"
+      ? storedCompany.name.trim()
+      : typeof storedCompany.companyName === "string"
+        ? storedCompany.companyName.trim()
+        : "";
+  return slugifyCompanyName(activeName || "craftsman_automation_ltd");
+}
+
+export function extractYears(text: string): string[] {
+  const yearsMatch = [...text.matchAll(/\b(FY\d{2}|FY\s*\d{2}|20\d{2})\b/gi)];
+  const years = Array.from(new Set(yearsMatch.map(m => {
+    const yr = m[1].replace(/FY\s*/i, "").trim();
+    if (yr.length === 2) return `20${yr}`;
+    return yr;
+  }))).sort();
+  return years;
+}
+
+export function extractMetrics(text: string): string[] {
+  const lower = text.toLowerCase();
+  const metrics: string[] = [];
+  
+  if (lower.includes("ebitda margin")) {
+    metrics.push("EBITDA", "Sales");
+  } else if (lower.includes("ebitda")) {
+    metrics.push("EBITDA");
+  }
+  
+  if (lower.includes("debt to equity") || lower.includes("debt-to-equity") || lower.includes("d/e ratio") || lower.includes("d/e")) {
+    metrics.push("Borrowings", "Networth");
+  }
+  
+  if (lower.includes("sales") || lower.includes("revenue")) {
+    if (!metrics.includes("Sales")) metrics.push("Sales");
+  }
+  
+  if (lower.includes("net profit") || lower.includes("profit after tax") || lower.includes("pat") || lower.includes("net income")) {
+    if (!metrics.includes("Net profit")) metrics.push("Net profit");
+  }
+  
+  if (lower.includes("borrowings") || lower.includes("debt")) {
+    if (!metrics.includes("Borrowings")) metrics.push("Borrowings");
+  }
+  
+  if (lower.includes("networth") || lower.includes("equity") || lower.includes("net worth")) {
+    if (!metrics.includes("Networth")) metrics.push("Networth");
+  }
+  
+  if (lower.includes("cash conversion") || lower.includes("ccr")) {
+    metrics.push("Cash from Operating Activity", "Net profit");
+  }
+  
+  if (lower.includes("interest coverage") || lower.includes("icr")) {
+    metrics.push("EBITDA", "Interest");
+  }
+  
+  if (lower.includes("roe") || lower.includes("return on equity")) {
+    metrics.push("Net profit", "Networth");
+  }
+  
+  if (metrics.length === 0) {
+    metrics.push("Sales");
+  }
+  
+  return metrics;
+}
 
 export default function ChatWindow({ messages, activeCompanyKey, totalChunks, totalDocs, collectionCount, onQuickQuery }: ChatWindowProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -315,6 +528,17 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
                     </div>
                   )}
                   {renderMessageContent(message.content)}
+
+                  {message.chart_data && (
+                    <div className="mt-3 border-t border-[var(--border)] pt-3">
+                      <div className="mt-2 rounded-xl border border-[var(--border)] bg-[var(--surface-2)] p-4 shadow-sm">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] mb-3">
+                          {message.chart_data.title}
+                        </h4>
+                        <InlineChart chartData={message.chart_data} />
+                      </div>
+                    </div>
+                  )}
                 </>
               ) : (
                 <p className="whitespace-pre-line">{cleanContent(message.content)}</p>

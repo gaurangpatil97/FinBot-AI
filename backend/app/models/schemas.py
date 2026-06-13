@@ -19,6 +19,26 @@ class Citation(BaseModel):
     collection: str
 
 
+class ChartSeries(BaseModel):
+    name: str
+    data: List[float]
+
+
+class ChartData(BaseModel):
+    chart_type: str  # "bar" | "line" | "combo"
+    title: str
+    x_axis: List[str]
+    series: List[ChartSeries]
+    y_axis_label: Optional[str] = None
+
+
+class ChartRequest(BaseModel):
+    company_slug: str
+    metrics: List[str]
+    years: Optional[List[str]] = None
+    chart_type_hint: Optional[str] = None
+
+
 class QueryResponse(BaseModel):
     answer: str
     citations: List[Citation] = Field(default_factory=list)
@@ -27,6 +47,7 @@ class QueryResponse(BaseModel):
     agent_trace: str = ""
     chunks: list[dict] = []  # Retrieved chunks — populated during eval mode for RAGAS
     routing_debug: Dict[str, Any] = Field(default_factory=dict)
+    chart_data: Optional[ChartData] = None
 
 
 class UploadResponse(BaseModel):

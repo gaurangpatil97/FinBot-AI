@@ -20,12 +20,37 @@ def create_session(req: CreateSessionRequest):
 def list_sessions(company_slug: str = Query(...)):
     return sessions_db.list_sessions(company_slug)
 
+class AddMessageRequest(BaseModel):
+    role: str
+    content: str
+    citations: List[Any] = []
+    routing_debug: Dict[str, Any] = {}
+    latency: float = 0.0
+    chunks: List[Any] = []
+    chart_data: Optional[Dict[str, Any]] = None
+
 @router.get("/{session_id}/messages")
 def get_messages(session_id: str):
     session = sessions_db.get_session(session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
     return sessions_db.get_messages(session_id)
+
+@router.post("/{session_id}/messages")
+def add_message(session_id: str, req: AddMessageRequest):
+    session = sessions_db.get_session(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    return sessions_db.add_message(
+        session_id=session_id,
+        role=req.role,
+        content=req.content,
+        citations=req.citations,
+        routing_debug=req.routing_debug,
+        latency=req.latency,
+        chunks=req.chunks,
+        chart_data=req.chart_data
+    )
 
 @router.patch("/{session_id}")
 def rename_session(session_id: str, req: RenameSessionRequest):
