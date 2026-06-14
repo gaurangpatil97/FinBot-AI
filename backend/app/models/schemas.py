@@ -30,6 +30,7 @@ class ChartData(BaseModel):
     x_axis: List[str]
     series: List[ChartSeries]
     y_axis_label: Optional[str] = None
+    secondary_y_axis: Optional[bool] = False
 
 
 class ChartRequest(BaseModel):

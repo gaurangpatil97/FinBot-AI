@@ -166,6 +166,7 @@ interface InlineChartProps {
     x_axis: string[];
     series: Array<{ name: string; data: number[] }>;
     y_axis_label?: string;
+    secondary_y_axis?: boolean;
   };
 }
 
@@ -178,7 +179,7 @@ function CustomTooltip({ active, payload, label, isPercent }: any) {
           <div key={idx} className="flex justify-between gap-4 py-0.5">
             <span className="text-[var(--text-secondary)]">{p.name}:</span>
             <span className="font-mono font-medium text-[var(--text-primary)] tabular-nums">
-              {isPercent ? (
+              {(isPercent || p.name.toLowerCase().includes("margin") || p.name.toLowerCase().includes("growth")) ? (
                 <>{new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(p.value)}%</>
               ) : (
                 <>₹{new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 }).format(p.value)} Cr</>
@@ -221,11 +222,29 @@ function InlineChart({ chartData }: InlineChartProps) {
             tickLine={false} 
             tick={{ fill: 'var(--text-secondary)', fontSize: 10 }} 
           />
-          <YAxis 
-            axisLine={false} 
-            tickLine={false} 
-            tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
-          />
+          {chartData.secondary_y_axis ? (
+            <>
+              <YAxis 
+                yAxisId="left"
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
+              />
+              <YAxis 
+                yAxisId="right"
+                orientation="right"
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
+              />
+            </>
+          ) : (
+            <YAxis 
+              axisLine={false} 
+              tickLine={false} 
+              tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
+            />
+          )}
           <Tooltip content={<CustomTooltip isPercent={chartData.y_axis_label === "%"} />} />
           <Legend 
             verticalAlign="top" 
@@ -272,6 +291,7 @@ function InlineChart({ chartData }: InlineChartProps) {
                   fill="#857c6b"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={30}
+                  yAxisId={chartData.secondary_y_axis ? "left" : undefined}
                 />
               );
             } else {
@@ -284,6 +304,7 @@ function InlineChart({ chartData }: InlineChartProps) {
                   strokeWidth={2}
                   dot={{ r: 3, fill: '#111111', stroke: '#e8ddc7', strokeWidth: 1.5 }}
                   activeDot={{ r: 5 }}
+                  yAxisId={chartData.secondary_y_axis ? "right" : undefined}
                 />
               );
             }

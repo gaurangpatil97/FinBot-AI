@@ -130,15 +130,36 @@ def build_chart_data(
     # Create a descriptive title
     title = f"{', '.join(metrics)} over {x_axis[0]}–{x_axis[-1]}" if x_axis else f"{', '.join(metrics)}"
     
+    is_comparison = False
+    if question and len(metrics) == 2:
+        q_lower = question.lower()
+        if any(keyword in q_lower for keyword in [" vs ", "vs.", "compare", " and ", "over time"]):
+            is_comparison = True
+
+    if is_comparison and x_axis:
+        m1 = metrics[0].upper().replace("SALES", "REVENUE")
+        m2 = metrics[1].upper().replace("SALES", "REVENUE")
+        title = f"{m1} vs {m2} {x_axis[0]}–{x_axis[-1]}"
+
     # Determine a suitable Y-axis label if applicable (default to Cr)
     y_axis_label = "Value (Cr)"
+
+    secondary_y_axis = False
+    if chart_type == "combo" and len(series_list) == 2:
+        s1_max = max([abs(x) for x in series_list[0].data]) if series_list[0].data else 0
+        s2_max = max([abs(x) for x in series_list[1].data]) if series_list[1].data else 0
+        if s1_max > 0 and s2_max > 0:
+            ratio = s1_max / s2_max
+            if ratio > 10 or ratio < 0.1:
+                secondary_y_axis = True
 
     raw_chart = ChartData(
         chart_type=chart_type,
         title=title,
         x_axis=x_axis,
         series=series_list,
-        y_axis_label=y_axis_label
+        y_axis_label=y_axis_label,
+        secondary_y_axis=secondary_y_axis
     )
 
     if not force_raw and question:
