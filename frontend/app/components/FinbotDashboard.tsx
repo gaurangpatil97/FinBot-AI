@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { getCompanies, getCompanyStatus, queryRAG, generateChart, analyzeData, saveMessage } from "../../lib/api";
 
-import ChatWindow, { extractYears, extractMetrics } from "./ChatWindow";
+import ChatWindow from "./ChatWindow";
 import InputBar from "./InputBar";
 import KPICards from "./KPICards";
 import Sidebar from "./Sidebar";
@@ -657,8 +657,8 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
 
         const analyzeRes = await analyzeData(
           companySlug,
-          extractMetrics(trimmed),
-          extractYears(trimmed).length > 0 ? extractYears(trimmed) : undefined,
+          [],
+          undefined,
           undefined,
           trimmed
         );

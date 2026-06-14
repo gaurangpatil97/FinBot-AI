@@ -77,9 +77,6 @@ def get_median(lst: List[float]) -> float:
 def analyze_trend(request: ChartRequest) -> QueryResponse:
     start_time = time.time()
     try:
-        q_lower = request.question.lower() if request.question else ""
-        is_ratio = any(phrase in q_lower for phrase in ["ebitda margin", "margin trend", "operating margin"])
-
         # 1. Fetch data & build chart spec using helper
         chart_data = build_chart_data(
             company_slug=request.company_slug,
@@ -87,7 +84,7 @@ def analyze_trend(request: ChartRequest) -> QueryResponse:
             years=request.years,
             chart_type_hint=request.chart_type_hint,
             question=request.question,
-            force_raw=False if is_ratio else True
+            force_raw=True
         )
         
         # 2. Compute trend math deterministically in Python
