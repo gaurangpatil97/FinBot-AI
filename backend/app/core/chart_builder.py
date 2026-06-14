@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import List, Optional
 from loguru import logger
 from app.models.schemas import ChartData, ChartSeries
-from app.core.calculation_agent import fetch_metric
+from app.core.calculation_agent import fetch_metric, HARDCODED_FORMULAS, compute_answer
 from app.db.vector_store import get_persistent_client
 from config import settings
 
@@ -64,6 +64,35 @@ def build_chart_data(
                     years = [str(y) for y in range(start_y, end_y + 1)]
             except ValueError:
                 pass
+
+    is_ebitda_margin = False
+    if question:
+        q_lower = question.lower()
+        if any(phrase in q_lower for phrase in ["ebitda margin", "margin trend", "operating margin"]):
+            is_ebitda_margin = True
+
+    if is_ebitda_margin and not force_raw:
+        margin_data = []
+        for year in years:
+            try:
+                intent = HARDCODED_FORMULAS["ebitda margin"].copy()
+                intent["years"] = [year]
+                computed = compute_answer(intent, company_slug=company_slug)
+                val = computed.get("answer") if computed else 0.0
+            except Exception:
+                val = 0.0
+            margin_data.append(val if val is not None else 0.0)
+            
+        x_axis = [f"FY{y[-2:]}" if len(y) == 4 else y for y in years]
+        title = f"EBITDA MARGIN {x_axis[0]}–{x_axis[-1]}"
+        
+        return ChartData(
+            chart_type="bar",
+            title=title,
+            x_axis=x_axis,
+            series=[ChartSeries(name="EBITDA Margin", data=margin_data)],
+            y_axis_label="%"
+        )
 
     # Determine chart type
     if len(metrics) == 1:
