@@ -19,7 +19,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  Cell
 } from "recharts";
 
 interface ChatWindowProps {
@@ -168,7 +169,7 @@ interface InlineChartProps {
   };
 }
 
-function CustomTooltip({ active, payload, label }: any) {
+function CustomTooltip({ active, payload, label, isPercent }: any) {
   if (active && payload && payload.length) {
     return (
       <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-3 py-2 text-xs text-[var(--text-primary)] shadow-[0_12px_30px_rgba(0,0,0,0.35)] font-sans">
@@ -177,7 +178,11 @@ function CustomTooltip({ active, payload, label }: any) {
           <div key={idx} className="flex justify-between gap-4 py-0.5">
             <span className="text-[var(--text-secondary)]">{p.name}:</span>
             <span className="font-mono font-medium text-[var(--text-primary)] tabular-nums">
-              ₹{new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 }).format(p.value)} Cr
+              {isPercent ? (
+                <>{new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(p.value)}%</>
+              ) : (
+                <>₹{new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 }).format(p.value)} Cr</>
+              )}
             </span>
           </div>
         ))}
@@ -207,7 +212,7 @@ function InlineChart({ chartData }: InlineChartProps) {
 
   return (
     <div className="h-56 w-full mt-2">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height={224}>
         <ComposedChart data={formattedData} margin={{ top: 10, right: 10, left: -20, bottom: 5 }}>
           <CartesianGrid stroke="rgba(255,255,255,0.04)" vertical={false} />
           <XAxis 
@@ -221,7 +226,7 @@ function InlineChart({ chartData }: InlineChartProps) {
             tickLine={false} 
             tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
           />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip isPercent={chartData.y_axis_label === "%"} />} />
           <Legend 
             verticalAlign="top" 
             height={28} 
@@ -245,9 +250,18 @@ function InlineChart({ chartData }: InlineChartProps) {
               key={s.name}
               dataKey={s.name}
               fill="#857c6b"
-              radius={[4, 4, 0, 0]}
               maxBarSize={30}
-            />
+            >
+              {formattedData.map((entry: any, index: number) => {
+                const value = entry[s.name];
+                return (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={value < 0 ? "#a34e36" : "#857c6b"}
+                  />
+                );
+              })}
+            </Bar>
           ))}
           {chartData.chart_type === "combo" && chartData.series.map((s, idx) => {
             if (idx === 0) {

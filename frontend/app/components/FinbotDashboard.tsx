@@ -655,7 +655,13 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
       } else {
         await saveMessage(currentSessionId!, "user", trimmed, [], {}, 0, [], null);
 
-        const analyzeRes = await analyzeData(companySlug, extractMetrics(trimmed), extractYears(trimmed).length > 0 ? extractYears(trimmed) : undefined);
+        const analyzeRes = await analyzeData(
+          companySlug,
+          extractMetrics(trimmed),
+          extractYears(trimmed).length > 0 ? extractYears(trimmed) : undefined,
+          undefined,
+          trimmed
+        );
         
         answer = analyzeRes && typeof analyzeRes.answer === "string" && analyzeRes.answer.trim() ? analyzeRes.answer : "Failed to get response";
         citations = Array.isArray(analyzeRes?.citations) ? analyzeRes.citations.map((citation: unknown) => ({ label: toCitationLabel(citation) })) : [];

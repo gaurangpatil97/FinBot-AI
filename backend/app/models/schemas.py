@@ -37,6 +37,8 @@ class ChartRequest(BaseModel):
     metrics: List[str]
     years: Optional[List[str]] = None
     chart_type_hint: Optional[str] = None
+    question: Optional[str] = None
+
 
 
 class QueryResponse(BaseModel):

@@ -147,10 +147,11 @@ export async function generateChart(companySlug: string, metrics: string[], year
   return res.json();
 }
 
-export async function analyzeData(companySlug: string, metrics: string[], years?: string[], chartTypeHint?: string) {
+export async function analyzeData(companySlug: string, metrics: string[], years?: string[], chartTypeHint?: string, question?: string) {
   const body: any = { company_slug: companySlug, metrics };
   if (years) body.years = years;
   if (chartTypeHint) body.chart_type_hint = chartTypeHint;
+  if (question) body.question = question;
 
   const res = await fetch(`${BASE_URL}/api/v1/analyze`, {
     method: "POST",

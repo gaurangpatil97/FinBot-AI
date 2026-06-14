@@ -33,7 +33,9 @@ def build_chart_data(
     company_slug: str,
     metrics: List[str],
     years: Optional[List[str]] = None,
-    chart_type_hint: Optional[str] = None
+    chart_type_hint: Optional[str] = None,
+    question: Optional[str] = None,
+    force_raw: bool = False
 ) -> ChartData:
     """
     Fetches the metric values for the specified company, metrics, and years,
@@ -102,10 +104,45 @@ def build_chart_data(
     # Determine a suitable Y-axis label if applicable (default to Cr)
     y_axis_label = "Value (Cr)"
 
-    return ChartData(
+    raw_chart = ChartData(
         chart_type=chart_type,
         title=title,
         x_axis=x_axis,
         series=series_list,
         y_axis_label=y_axis_label
     )
+
+    if not force_raw and question:
+        q_lower = question.lower()
+        keywords = ["growth rate", "year-on-year growth", "yoy growth", "rate of growth", "how fast", "grew"]
+        if any(kw in q_lower for kw in keywords) and len(years) >= 2:
+            growth_series = []
+            for series in series_list:
+                growth_data = []
+                for i in range(len(series.data) - 1):
+                    prev = series.data[i]
+                    curr = series.data[i+1]
+                    if prev != 0.0:
+                        rate = ((curr - prev) / prev) * 100
+                    else:
+                        rate = 0.0
+                    growth_data.append(round(rate, 2))
+                growth_series.append(ChartSeries(name=series.name, data=growth_data))
+                
+            new_x_axis = [f"{x_axis[i]}→{x_axis[i+1]}" for i in range(len(x_axis) - 1)]
+            
+            metrics_upper = ", ".join(metrics).upper()
+            if "SALES" in metrics_upper:
+                metrics_upper = metrics_upper.replace("SALES", "REVENUE")
+            new_title = f"{metrics_upper} GROWTH RATE {x_axis[0]}–{x_axis[-1]}"
+            
+            return ChartData(
+                chart_type="bar",
+                title=new_title,
+                x_axis=new_x_axis,
+                series=growth_series,
+                y_axis_label="%"
+            )
+
+    return raw_chart
+

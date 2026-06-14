@@ -53,7 +53,8 @@ def generate_chart(request: ChartRequest):
             company_slug=request.company_slug,
             metrics=request.metrics,
             years=request.years,
-            chart_type_hint=request.chart_type_hint
+            chart_type_hint=request.chart_type_hint,
+            question=request.question
         )
         return {"chart_data": chart_data}
     except Exception as e:
@@ -81,7 +82,9 @@ def analyze_trend(request: ChartRequest) -> QueryResponse:
             company_slug=request.company_slug,
             metrics=request.metrics,
             years=request.years,
-            chart_type_hint=request.chart_type_hint
+            chart_type_hint=request.chart_type_hint,
+            question=request.question,
+            force_raw=True
         )
         
         # 2. Compute trend math deterministically in Python
@@ -209,6 +212,16 @@ Do NOT output empty sections or "Not applicable" filler. If a section is not app
 
         latency = time.time() - start_time
         
+        # Build the final chart_data to return, applying growth rate formatting if requested
+        final_chart_data = build_chart_data(
+            company_slug=request.company_slug,
+            metrics=request.metrics,
+            years=request.years,
+            chart_type_hint=request.chart_type_hint,
+            question=request.question,
+            force_raw=False
+        )
+
         return QueryResponse(
             answer=answer,
             citations=citations,
@@ -221,7 +234,7 @@ Do NOT output empty sections or "Not applicable" filler. If a section is not app
                 "year": years[-1] if years else "",
                 "method": "trend_analysis_agent"
             },
-            chart_data=chart_data
+            chart_data=final_chart_data
         )
         
     except Exception as e:
