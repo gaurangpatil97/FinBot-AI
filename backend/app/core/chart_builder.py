@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from typing import List, Optional
+import json
+import openai
 from loguru import logger
 from app.models.schemas import ChartData, ChartSeries
 from app.core.calculation_agent import fetch_metric, HARDCODED_FORMULAS, compute_answer
@@ -54,20 +56,25 @@ Available ratio formulas:
 
 Strict Rules:
 1. Map the query to one of these four chart kinds:
-   - "single_metric": plotting a single raw metric over time.
-   - "growth_rate": plotting the year-over-year % growth rate of a single metric over time.
-   - "ratio": plotting a computed ratio/margin over time.
-   - "comparison": comparing two raw metrics over time.
-2. In the "metrics" array, provide the exact metric names from the available standard metrics list above. 
-   - For "single_metric" and "growth_rate", provide exactly 1 metric.
-   - For "comparison", provide exactly 2 metrics to compare.
-   - For "ratio", leave "metrics" empty or null.
-3. In "ratio", if the chart_kind is "ratio", provide the exact ratio name from the available ratio formulas list above (e.g., "ebitda margin", "debt to equity"). Otherwise, set "ratio" to null.
-4. Extract the year range from the query. If a start year or end year is mentioned (like FY22 or 2025), normalize it to "FY22" or "FY25" style. If no years are mentioned, set them to null.
+    - "single_metric": plotting a single raw metric over time.
+    - "growth_rate": plotting the year-over-year % growth rate of a single metric over time.
+    - "ratio": plotting a computed ratio/margin over time.
+    - "comparison": comparing two raw metrics over time.
+2. Choose the chart shape (chart_type) based on the data nature, using these reasoning rules (no keyword matching):
+    - "line" for continuous metrics where the trajectory over time matters (e.g., revenue trend, net worth movement).
+    - "bar" for discrete per‑period values, especially growth‑rate charts where each year's YoY change is a distinct quantity and negative values need clear visual distinction. Also suitable for a small number of years in single‑metric charts.
+    - "combo" for two‑metric comparisons on different scales (dual‑axis bars + line).
+3. In the "metrics" array, provide the exact metric names from the available standard metrics list above.
+    - For "single_metric" and "growth_rate", provide exactly 1 metric.
+    - For "comparison", provide exactly 2 metrics to compare.
+    - For "ratio", provide a list of metrics involved (if needed).
+4. In "ratio", if the chart_kind is "ratio", provide the exact ratio name from the available ratio formulas list above (e.g., "ebitda margin", "debt to equity"). Otherwise, set "ratio" to null.
+5. Extract the year range from the query. If a start year or end year is mentioned (like FY22 or 2025), normalize it to "FY22" or "FY25" style. If no years are mentioned, set them to null.
 
 You MUST return ONLY a JSON object, with no markdown, no backticks, and no extra text:
 {{
   "chart_kind": "single_metric" | "growth_rate" | "ratio" | "comparison",
+  "chart_type": "bar" | "line" | "combo",
   "metrics": ["EBITDA"],
   "ratio": null,
   "year_start": "FY22" or null,
@@ -148,6 +155,7 @@ def build_chart_data(
 
     # 3. Call planner if natural language question is provided
     chart_kind = "single_metric"
+    chart_type = chart_type_hint or "bar"
     plan_metrics = metrics or ["Sales"]
     plan_ratio = None
 
@@ -155,6 +163,7 @@ def build_chart_data(
         plan = plan_chart(question)
         if plan:
             chart_kind = plan.get("chart_kind", "single_metric")
+            chart_type = plan.get("chart_type") or chart_type
             plan_metrics = plan.get("metrics", [])
             plan_ratio = plan.get("ratio")
             
@@ -228,7 +237,7 @@ def build_chart_data(
         title = f"{ratio_display_name} {x_axis[0]}–{x_axis[-1]}"
         
         return ChartData(
-            chart_type="bar",
+            chart_type=chart_type,
             title=title,
             x_axis=x_axis,
             series=[ChartSeries(name=plan_ratio.title(), data=margin_data)],
@@ -273,7 +282,7 @@ def build_chart_data(
             new_title = f"{metrics_upper} GROWTH RATE {x_axis[0]}–{x_axis[-1]}"
             
             return ChartData(
-                chart_type="bar",
+                chart_type=chart_type,
                 title=new_title,
                 x_axis=new_x_axis,
                 series=growth_series,
@@ -282,30 +291,30 @@ def build_chart_data(
 
     # single_metric / comparison executor logic
     if chart_kind == "comparison":
-        chart_type = "combo"
+        # Force combo if two series are present for comparison
+        exec_chart_type = "combo" if len(series_list) > 1 else chart_type
         m1 = plan_metrics[0].upper().replace("SALES", "REVENUE")
         m2 = plan_metrics[1].upper().replace("SALES", "REVENUE")
         title = f"{m1} vs {m2} {x_axis[0]}–{x_axis[-1]}"
     else:
-        chart_type = chart_type_hint or "bar"
+        exec_chart_type = chart_type
         title = f"{', '.join(plan_metrics)} over {x_axis[0]}–{x_axis[-1]}"
 
     # Determine secondary Y-axis flag for combo charts
     secondary_y_axis = False
-    if chart_type == "combo" and len(series_list) == 2:
+    if exec_chart_type == "combo" and len(series_list) == 2:
         s1_max = max([abs(x) for x in series_list[0].data]) if series_list[0].data else 0
         s2_max = max([abs(x) for x in series_list[1].data]) if series_list[1].data else 0
         if s1_max > 0 and s2_max > 0:
-            ratio = s1_max / s2_max
-            if ratio > 10 or ratio < 0.1:
+            scale_ratio = s1_max / s2_max
+            if scale_ratio > 10 or scale_ratio < 0.1:
                 secondary_y_axis = True
 
     return ChartData(
-        chart_type=chart_type,
+        chart_type=exec_chart_type,
         title=title,
         x_axis=x_axis,
         series=series_list,
         y_axis_label="Value (Cr)",
         secondary_y_axis=secondary_y_axis
     )
-

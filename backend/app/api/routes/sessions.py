@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Response
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 from app.db import sessions_db
+from pdf_export import generate_transcript_pdf
 
 router = APIRouter(prefix="/sessions", tags=["sessions"])
 
@@ -65,3 +66,20 @@ def delete_session(session_id: str):
     if not success:
         raise HTTPException(status_code=404, detail="Session not found")
     return {"status": "success"}
+
+@router.get("/{session_id}/export/transcript")
+def export_transcript(session_id: str):
+    import traceback
+    try:
+        from loguru import logger
+        logger.info(f"Export transcript called for session_id={session_id}")
+        pdf_bytes = generate_transcript_pdf(session_id)
+        if not pdf_bytes:
+            logger.error("generate_transcript_pdf returned empty bytes")
+        filename = f"FinBot_Report_{session_id}.pdf"
+        return Response(content=pdf_bytes,
+                        media_type="application/pdf",
+                        headers={"Content-Disposition": f"attachment; filename={filename}"})
+    except Exception:
+        return Response(content=traceback.format_exc(), media_type="text/plain", status_code=500)
+

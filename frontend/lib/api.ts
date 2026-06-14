@@ -115,6 +115,13 @@ export async function getSessionMessages(sessionId: string) {
   return res.json();
 }
 
+// New function to export transcript PDF for a session
+export async function exportTranscriptPdf(sessionId: string): Promise<Blob> {
+  const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}/export/transcript`);
+  if (!res.ok) throw new Error("Failed to export transcript PDF");
+  return await res.blob();
+}
+
 export async function renameSession(sessionId: string, title: string) {
   const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}`, {
     method: "PATCH",

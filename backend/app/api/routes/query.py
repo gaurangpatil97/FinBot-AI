@@ -6,6 +6,7 @@ from typing import List, Dict, Any, Optional
 from fastapi import APIRouter, HTTPException
 import openai
 from loguru import logger
+import json
 
 from app.core.rag import answer_query
 from app.models.schemas import QueryRequest, QueryResponse, ChartRequest, ChartData, Citation

@@ -653,8 +653,6 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
         chunkCount = Array.isArray(result?.chunks) ? result.chunks.length : 0;
         chartData = result?.chart_data || null;
       } else {
-        await saveMessage(currentSessionId!, "user", trimmed, [], {}, 0, [], null);
-
         const analyzeRes = await analyzeData(
           companySlug,
           [],
@@ -672,6 +670,8 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
         }
         chunkCount = Array.isArray(analyzeRes?.chunks) ? analyzeRes.chunks.length : 0;
         chartData = analyzeRes?.chart_data || null;
+
+        await saveMessage(currentSessionId!, "user", trimmed, [], {}, 0, [], null);
 
         const latencySeconds = ((Date.now() - startTime) / 1000).toFixed(1);
         await saveMessage(
