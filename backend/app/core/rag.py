@@ -62,7 +62,7 @@ from app.core.clarifier_agent import decompose_query
 from app.core.calculation_agent import try_calculation
 from app.core.embedder import generate_embeddings
 from app.core.router_agent import route_question
-from app.db.vector_store import get_or_create_collection, query_collection, query_collection_by_type
+from app.db.vector_store import get_or_create_collection, query_collection, query_collection_by_type, CHROMA_QUERY_LATENCY
 from app.models.schemas import Citation, QueryRequest, QueryResponse
 from config import settings
 
@@ -137,7 +137,8 @@ def build_calculation_context(calc_result: dict, company_slug: str) -> list[dict
 
 def query_collection_all(collection_name: str, chroma_path: str = None) -> list[dict]:
     collection = get_or_create_collection(collection_name, chroma_path=chroma_path)
-    results = collection.get(include=["documents", "metadatas"])
+    with CHROMA_QUERY_LATENCY.labels(collection_type="excel").time():
+        results = collection.get(include=["documents", "metadatas"])
     documents = results.get("documents", []) or []
     metadatas = results.get("metadatas", []) or []
 
