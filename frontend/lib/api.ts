@@ -116,10 +116,35 @@ export async function getSessionMessages(sessionId: string) {
 }
 
 // New function to export transcript PDF for a session
-export async function exportTranscriptPdf(sessionId: string): Promise<Blob> {
+export async function exportTranscriptPdf(sessionId: string): Promise<{blob: Blob, filename: string}> {
   const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}/export/transcript`);
   if (!res.ok) throw new Error("Failed to export transcript PDF");
-  return await res.blob();
+  const contentDisposition = res.headers.get('Content-Disposition');
+  const filenameMatch = contentDisposition?.match(/filename=([^;]+)/);
+  const filename = filenameMatch ? filenameMatch[1].replace(/^"|"$/g, '') : 'FinBot_Export.pdf';
+  return { blob: await res.blob(), filename };
+}
+
+export async function exportSummaryPdf(sessionId: string): Promise<{blob: Blob, filename: string}> {
+  const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}/export/summary`);
+  if (!res.ok) throw new Error("Failed to export summary PDF");
+  const contentDisposition = res.headers.get('Content-Disposition');
+  const filenameMatch = contentDisposition?.match(/filename=([^;]+)/);
+  const filename = filenameMatch ? filenameMatch[1].replace(/^"|"$/g, '') : 'FinBot_Export.pdf';
+  return { blob: await res.blob(), filename };
+}
+
+export async function generateReportPdf(sessionId: string, template: string, sections: string[]): Promise<{blob: Blob, filename: string}> {
+  const res = await fetch(`${BASE_URL}/api/v1/sessions/${encodeURIComponent(sessionId)}/export/report`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ template, sections })
+  });
+  if (!res.ok) throw new Error("Failed to generate report PDF");
+  const contentDisposition = res.headers.get('Content-Disposition');
+  const filenameMatch = contentDisposition?.match(/filename=([^;]+)/);
+  const filename = filenameMatch ? filenameMatch[1].replace(/^"|"$/g, '') : 'FinBot_Export.pdf';
+  return { blob: await res.blob(), filename };
 }
 
 export async function renameSession(sessionId: string, title: string) {

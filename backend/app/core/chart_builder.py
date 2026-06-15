@@ -154,7 +154,7 @@ def build_chart_data(
     available_metrics_list = sorted(list(available_metrics))
 
     # 3. Call planner if natural language question is provided
-    chart_kind = "single_metric"
+    chart_kind = "comparison" if (not question and metrics and len(metrics) >= 2) else "single_metric"
     chart_type = chart_type_hint or "bar"
     plan_metrics = metrics or ["Sales"]
     plan_ratio = None

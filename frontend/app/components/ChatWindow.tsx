@@ -8,7 +8,7 @@ import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
-import { getCompanies, exportTranscriptPdf } from "../../lib/api";
+import { getCompanies } from "../../lib/api";
 import type { ChatMessage } from "./finbot-types";
 import { useSessions } from "../context/SessionContext";
 import {
@@ -419,37 +419,11 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
 
   const { activeSessionId } = useSessions();
 
-  const downloadPdf = async () => {
-  if (!activeSessionId) {
-    alert('No active session');
-    return;
-  }
-  try {
-    const blob = await exportTranscriptPdf(activeSessionId);
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `FinBot_Report_${activeSessionId}.pdf`;
-    a.click();
-    window.URL.revokeObjectURL(url);
-  } catch (e) {
-    console.error(e);
-  }
-};
-
   return (
     <section
       ref={viewportRef}
       className="flex flex-1 flex-col gap-4 overflow-y-auto min-h-0 p-4"
     >
-      {activeSessionId && (
-        <button
-          className="mb-2 px-3 py-1 bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text-primary)] hover:bg-[var(--surface-1)]"
-          onClick={downloadPdf}
-        >
-          Export PDF
-        </button>
-      )}
       {messages.length === 0 ? (
         <div className="flex items-start gap-3">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-1)] text-sm font-semibold text-[var(--text-primary)] border border-[var(--border)]">
