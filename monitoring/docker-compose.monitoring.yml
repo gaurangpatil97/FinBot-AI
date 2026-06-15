@@ -33,6 +33,27 @@ services:
       - "3001:3000"
     restart: unless-stopped
 
+  loki:
+    image: grafana/loki:3.0.0
+    container_name: finbot_loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki/local-config.yaml:ro
+      - loki-data:/loki
+    command: -config.file=/etc/loki/local-config.yaml
+
+  promtail:
+    image: grafana/promtail:3.0.0
+    container_name: finbot_promtail
+    volumes:
+      - ./promtail/promtail-config.yml:/etc/promtail/config.yml:ro
+      - ../backend/logs:/var/log/finbot:ro
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+
 volumes:
   prometheus-data:
   grafana-data:
+  loki-data:

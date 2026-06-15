@@ -16,6 +16,15 @@ from config import settings
 
 from prometheus_fastapi_instrumentator import Instrumentator
 
+# File sink — structured JSON logs alongside the default console sink
+Path("logs").mkdir(exist_ok=True)
+logger.add(
+    "logs/finbot.json",
+    serialize=True,
+    rotation="10 MB",
+    level="INFO",
+)
+
 app = FastAPI(title="FinbotAI Backend", version="0.1.0")
 
 Instrumentator().instrument(app).expose(app)

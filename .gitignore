@@ -20,3 +20,4 @@ frontend/.env.local
 *.sqlite3
 .DS_Store
 backend/sessions.db
+backend/logs/
