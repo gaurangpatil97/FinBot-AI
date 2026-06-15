@@ -3,8 +3,10 @@ import pdfplumber
 import fitz
 from pathlib import Path
 from loguru import logger
+import time
 
 from config import settings
+from app.core.metrics import OPENAI_CALL_LATENCY, OPENAI_CALL_COUNT
 
 def extract_pdf(file_path: str) -> list[dict]:
     file_path = Path(file_path)
@@ -75,22 +77,37 @@ def describe_image(image_path: str, page_num: int) -> str:
         }
 
         for attempt in range(3):
-            response = requests.post(
-                "https://api.openai.com/v1/chat/completions",
-                headers=headers,
-                json=payload,
-                timeout=60
-            )
+            start_t = time.time()
+            try:
+                response = requests.post(
+                    "https://api.openai.com/v1/chat/completions",
+                    headers=headers,
+                    json=payload,
+                    timeout=60
+                )
+                duration = time.time() - start_t
+                
+                if response.status_code == 429:
+                    OPENAI_CALL_LATENCY.labels(model="gpt-4o", purpose="image_description").observe(duration)
+                    OPENAI_CALL_COUNT.labels(model="gpt-4o", purpose="image_description", status="rate_limit").inc()
+                    wait = 10 * (attempt + 1)
+                    logger.warning(f"Rate limited on page {page_num}, waiting {wait}s...")
+                    time.sleep(wait)
+                    continue
 
-            if response.status_code == 429:
-                wait = 10 * (attempt + 1)
-                logger.warning(f"Rate limited on page {page_num}, waiting {wait}s...")
-                time.sleep(wait)
-                continue
-
-            if response.status_code != 200:
-                logger.error(f"GPT-4o error on page {page_num}: {response.status_code} {response.text[:200]}")
-                return ""
+                if response.status_code != 200:
+                    OPENAI_CALL_LATENCY.labels(model="gpt-4o", purpose="image_description").observe(duration)
+                    OPENAI_CALL_COUNT.labels(model="gpt-4o", purpose="image_description", status="error").inc()
+                    logger.error(f"GPT-4o error on page {page_num}: {response.status_code} {response.text[:200]}")
+                    return ""
+                
+                OPENAI_CALL_LATENCY.labels(model="gpt-4o", purpose="image_description").observe(duration)
+                OPENAI_CALL_COUNT.labels(model="gpt-4o", purpose="image_description", status="success").inc()
+            except Exception as e:
+                duration = time.time() - start_t
+                OPENAI_CALL_LATENCY.labels(model="gpt-4o", purpose="image_description").observe(duration)
+                OPENAI_CALL_COUNT.labels(model="gpt-4o", purpose="image_description", status="error").inc()
+                raise e
 
             result = response.json()
             description = result["choices"][0]["message"]["content"].strip()

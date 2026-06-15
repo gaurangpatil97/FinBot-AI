@@ -14,7 +14,11 @@ from app.api.routes.sessions import router as sessions_router
 from app.api.routes.upload import router as upload_router
 from config import settings
 
+from prometheus_fastapi_instrumentator import Instrumentator
+
 app = FastAPI(title="FinbotAI Backend", version="0.1.0")
+
+Instrumentator().instrument(app).expose(app)
 
 app.add_middleware(
     CORSMiddleware,

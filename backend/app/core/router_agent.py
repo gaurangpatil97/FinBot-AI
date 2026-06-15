@@ -7,8 +7,10 @@ from typing import List, Optional
 
 import openai
 from loguru import logger
+import time
 
 from config import get_settings
+from app.core.metrics import OPENAI_CALL_LATENCY, OPENAI_CALL_COUNT
 
 settings = get_settings()
 
@@ -177,11 +179,23 @@ Question: {question}
 
     try:
         client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
-        response = client.chat.completions.create(
-            model="gpt-4.1-mini",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0
-        )
+        
+        start_t = time.time()
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4.1-mini",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0
+            )
+            duration = time.time() - start_t
+            OPENAI_CALL_LATENCY.labels(model="gpt-4.1-mini", purpose="routing").observe(duration)
+            OPENAI_CALL_COUNT.labels(model="gpt-4.1-mini", purpose="routing", status="success").inc()
+        except Exception as api_err:
+            duration = time.time() - start_t
+            OPENAI_CALL_LATENCY.labels(model="gpt-4.1-mini", purpose="routing").observe(duration)
+            OPENAI_CALL_COUNT.labels(model="gpt-4.1-mini", purpose="routing", status="error").inc()
+            raise api_err
+            
         content = response.choices[0].message.content.strip()
         result = json.loads(content)
         source_types = result.get("source_types", [])

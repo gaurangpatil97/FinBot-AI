@@ -8,6 +8,9 @@ import json
 
 import openai
 from loguru import logger
+import time
+
+from app.core.metrics import OPENAI_CALL_LATENCY, OPENAI_CALL_COUNT
 
 # Loosened — allow all company and financial context questions
 
@@ -387,12 +390,23 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     # Keep the log aligned with the actual model used for the RAG call.
     logger.info(f"[RAG] Calling OpenAI gpt-4.1-mini for RAG response")
     client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
-    response = client.chat.completions.create(
-        model="gpt-4.1-mini",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0
-    )
-    answer = response.choices[0].message.content.strip()
+    
+    start_t = time.time()
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0
+        )
+        duration = time.time() - start_t
+        OPENAI_CALL_LATENCY.labels(model="gpt-4.1-mini", purpose="chat_synthesis").observe(duration)
+        OPENAI_CALL_COUNT.labels(model="gpt-4.1-mini", purpose="chat_synthesis", status="success").inc()
+        answer = response.choices[0].message.content.strip()
+    except Exception as e:
+        duration = time.time() - start_t
+        OPENAI_CALL_LATENCY.labels(model="gpt-4.1-mini", purpose="chat_synthesis").observe(duration)
+        OPENAI_CALL_COUNT.labels(model="gpt-4.1-mini", purpose="chat_synthesis", status="error").inc()
+        raise e
 
     # Step 8 — Build citations
     citations = []

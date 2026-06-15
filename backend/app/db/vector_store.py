@@ -6,6 +6,13 @@ from loguru import logger
 from config import settings
 
 import time
+from prometheus_client import Histogram
+
+CHROMA_QUERY_LATENCY = Histogram(
+    "chroma_query_latency_seconds",
+    "Time spent querying ChromaDB",
+    ["collection_type"]
+)
 
 def get_persistent_client(path: str):
     client_settings = ChromaSettings(anonymized_telemetry=False)
@@ -104,12 +111,16 @@ def query_collection(
     else:
         where = None
 
-    results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=top_k,
-        where=where,
-        include=["documents", "metadatas", "distances"]
-    )
+    # determine basic type for metrics
+    c_type = collection_name.split('_')[-1] if '_' in collection_name else collection_name
+    
+    with CHROMA_QUERY_LATENCY.labels(collection_type=c_type).time():
+        results = collection.query(
+            query_embeddings=[query_embedding],
+            n_results=top_k,
+            where=where,
+            include=["documents", "metadatas", "distances"]
+        )
 
     if year and len(results["documents"][0]) == 0:
         # Wrong year data is worse than no data — let caller handle missing year
@@ -152,12 +163,14 @@ def query_collection_by_type(
         where = {"$and": [{"chunk_type": chunk_type}, {"year": year}]}
 
     try:
-        results = collection.query(
-            query_embeddings=[query_embedding],
-            n_results=top_k,
-            where=where,
-            include=["documents", "metadatas", "distances"]
-        )
+        c_type = collection_name.split('_')[-1] if '_' in collection_name else collection_name
+        with CHROMA_QUERY_LATENCY.labels(collection_type=c_type).time():
+            results = collection.query(
+                query_embeddings=[query_embedding],
+                n_results=top_k,
+                where=where,
+                include=["documents", "metadatas", "distances"]
+            )
 
         chunks = []
         for doc, meta, dist in zip(
