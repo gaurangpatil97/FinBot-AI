@@ -13,6 +13,17 @@ class QueryRequest(BaseModel):
     use_history: bool = False
 
 
+class RiskFlag(BaseModel):
+    metric: str
+    year: str
+    value: float
+    previous_value: Optional[float] = None
+    change: Optional[float] = None
+    rule_triggered: str
+    severity: str
+    unit: str
+
+
 class Citation(BaseModel):
     filename: str
     page: Optional[Any] = None
@@ -97,3 +108,10 @@ class CompanyRecord(BaseModel):
     ticker: str
     collections: Dict[str, CompanyCollectionStatus] = Field(default_factory=dict)
     files: List[Dict[str, Any]] = Field(default_factory=list)
+
+
+class CompanyRiskReport(BaseModel):
+    company_slug: str
+    flags: List[RiskFlag]
+    metrics_evaluated: List[str]
+    error: Optional[str] = None

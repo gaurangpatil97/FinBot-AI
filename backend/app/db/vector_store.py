@@ -5,35 +5,23 @@ from chromadb.config import Settings as ChromaSettings
 from loguru import logger
 from config import settings
 
+import time
 
 def get_persistent_client(path: str):
     client_settings = ChromaSettings(anonymized_telemetry=False)
-    try:
-        return chromadb.PersistentClient(
-            path=path,
-            settings=client_settings,
-        )
-    except Exception as exc:
-        logger.warning(f"Chroma client creation failed for {path}: {exc}. Recreating cleanly.")
+    last_exc = None
+    for attempt in range(3):
         try:
-            from chromadb.api import shared_system_client
-
-            identifier_cache = getattr(shared_system_client.SharedSystemClient, "_identifier_to_system", None)
-            if isinstance(identifier_cache, dict):
-                identifier_cache.pop(path, None)
-
-            refcount_cache = getattr(shared_system_client.SharedSystemClient, "_identifier_to_refcount", None)
-            if isinstance(refcount_cache, dict):
-                refcount_cache.pop(path, None)
-        except Exception as cache_exc:
-            logger.warning(f"Unable to clear Chroma shared-system cache for {path}: {cache_exc}")
-
-        gc.collect()
-        return chromadb.PersistentClient(
-            path=path,
-            settings=client_settings,
-        )
-
+            return chromadb.PersistentClient(
+                path=path,
+                settings=client_settings,
+            )
+        except Exception as exc:
+            last_exc = exc
+            logger.warning(f"Chroma client creation failed for {path} (attempt {attempt+1}/3): {exc}. Retrying in 0.5s.")
+            time.sleep(0.5)
+    logger.error(f"Chroma client creation failed for {path} after 3 attempts: {last_exc}")
+    raise last_exc
 def get_or_create_collection(collection_name: str, chroma_path: str = None):
     path = chroma_path or settings.CHROMA_BASE_DIR
     local_client = get_persistent_client(path)

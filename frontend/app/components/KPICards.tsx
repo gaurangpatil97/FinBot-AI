@@ -12,7 +12,7 @@ import {
   XAxis,
 } from "recharts";
 
-import { getCompanyKpi } from "../../lib/api";
+import { getCompanyKpi, getCompanyRisks } from "../../lib/api";
 
 type FinancialMetric = "Sales" | "Net profit" | "EBITDA" | "Borrowings";
 type FiscalYear = "FY22" | "FY23" | "FY24" | "FY25";
@@ -112,11 +112,13 @@ function KpiCard({
   value,
   subtext,
   emphasis = "neutral",
+  subtextClass = "text-sm",
 }: {
   title: string;
   value: string;
   subtext: string;
   emphasis?: "neutral" | "positive" | "warning";
+  subtextClass?: string;
 }) {
   const accentClass =
     subtext.startsWith("+")
@@ -129,7 +131,7 @@ function KpiCard({
     <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 h-full shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
       <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">{title}</p>
       <p className="mt-2 text-2xl font-semibold tracking-tight text-[var(--text-primary)] font-mono tabular-nums num">{value}</p>
-      <p className={`mt-3 text-sm ${accentClass}`}>{subtext}</p>
+      <p className={`mt-3 ${subtextClass} ${accentClass}`}>{subtext}</p>
     </article>
   );
 }
@@ -498,6 +500,194 @@ function TrendCard({ companySlug, metric }: { companySlug: string; metric: Finan
   );
 }
 
+type RiskFlag = {
+  metric: string;
+  year: string;
+  value: number;
+  previous_value?: number;
+  change?: number;
+  rule_triggered: string;
+  severity: string;
+  unit: string;
+};
+
+type RiskReport = {
+  flags: RiskFlag[];
+};
+
+function RiskFlagsCard({ companySlug }: { companySlug: string }) {
+  const [status, setStatus] = useState<"idle" | "loading" | "loaded">("idle");
+  const [flags, setFlags] = useState<RiskFlag[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    setStatus("idle");
+    setFlags([]);
+    setIsModalOpen(false);
+  }, [companySlug]);
+
+  const handleScan = async () => {
+    setStatus("loading");
+    try {
+      const response = (await getCompanyRisks(companySlug)) as RiskReport;
+      setFlags(response.flags || []);
+      setStatus("loaded");
+    } catch {
+      setStatus("idle");
+    }
+  };
+
+  const highCount = flags.filter(f => f.severity.toLowerCase() === "high").length;
+  const mediumCount = flags.filter(f => f.severity.toLowerCase() === "medium").length;
+  
+  let badgeColor = "bg-[var(--surface-2)] text-[var(--text-secondary)] border-[var(--border)]";
+  if (status === "loaded") {
+    if (highCount > 0) badgeColor = "bg-red-500/10 text-red-500 border-red-500/20";
+    else if (mediumCount > 0) badgeColor = "bg-amber-500/10 text-amber-500 border-amber-500/20";
+    else badgeColor = "bg-emerald-500/10 text-emerald-500 border-emerald-500/20";
+  }
+
+  return (
+    <>
+      <article 
+        className={`rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] p-4 h-full shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] ${status === 'loaded' ? 'cursor-pointer hover:border-[var(--text-primary)] transition-colors' : ''}`}
+        onClick={() => { if (status === "loaded") setIsModalOpen(true); }}
+      >
+        <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">Risk Flags</p>
+            {status === "loaded" && (
+                <span className={`px-2 py-0.5 rounded text-[10px] font-semibold tracking-widest uppercase border ${badgeColor}`}>
+                    {flags.length} FLAGS
+                </span>
+            )}
+        </div>
+        
+        {status === "idle" ? (
+          <div className="mt-3">
+            <button 
+                onClick={(e) => { e.stopPropagation(); handleScan(); }}
+                className="rounded-full bg-[var(--surface-2)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] border border-[var(--border)] hover:border-[var(--text-primary)] transition-colors w-full"
+            >
+              Run Risk Scan
+            </button>
+            <p className="mt-3 text-[11px] text-[var(--text-secondary)] text-center leading-snug">
+              Scans financial ratios for red flags across all years
+            </p>
+          </div>
+        ) : status === "loading" ? (
+          <div className="mt-4 flex items-center justify-center h-10">
+            <p className="text-sm text-[var(--text-secondary)] animate-pulse">Scanning metrics...</p>
+          </div>
+        ) : (
+          <div className="mt-2">
+             <p className="text-2xl font-semibold tracking-tight text-[var(--text-primary)] font-mono tabular-nums num">
+                {flags.length} <span className="text-base font-sans tracking-normal text-[var(--text-secondary)] font-normal">{flags.length === 1 ? 'flag' : 'flags'} found</span>
+             </p>
+             <p className="mt-3 text-sm text-[var(--text-secondary)]">Click to view details</p>
+          </div>
+        )}
+      </article>
+
+      {isModalOpen && (
+        <RiskModal 
+          flags={flags} 
+          onClose={() => setIsModalOpen(false)} 
+        />
+      )}
+    </>
+  );
+}
+
+function RiskModal({ flags, onClose }: { flags: RiskFlag[], onClose: () => void }) {
+  const sortedFlags = useMemo(() => {
+     return [...flags].sort((a, b) => {
+        const sevA = a.severity.toLowerCase() === "high" ? 2 : 1;
+        const sevB = b.severity.toLowerCase() === "high" ? 2 : 1;
+        if (sevA !== sevB) return sevB - sevA;
+        return b.year.localeCompare(a.year);
+     });
+  }, [flags]);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm" onClick={onClose}>
+      <div 
+        className="relative w-full max-w-3xl rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] shadow-2xl flex flex-col max-h-[90vh]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-[var(--border)] px-6 py-4">
+          <h2 className="text-lg font-semibold text-[var(--text-primary)] tracking-tight">Risk Flags Detail</h2>
+          <button onClick={onClose} className="p-2 -mr-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--surface-2)]">
+            <svg viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+              <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+            </svg>
+          </button>
+        </div>
+        
+        <div className="p-6 overflow-y-auto">
+          {flags.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-500 mb-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p className="text-[var(--text-primary)] font-medium">No risk flags detected</p>
+              <p className="text-[var(--text-secondary)] text-sm mt-1">All scanned metrics are within normal ranges.</p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {sortedFlags.map((flag, idx) => {
+                const isHigh = flag.severity.toLowerCase() === "high";
+                const isDecline = flag.rule_triggered.toLowerCase().includes("dropped") || flag.rule_triggered.toLowerCase().includes("decreased");
+                const formattedChange = flag.change !== undefined && flag.change !== null 
+                  ? (isDecline ? `-${Math.abs(flag.change).toFixed(1)}%` : `+${Math.abs(flag.change).toFixed(1)}%`)
+                  : null;
+
+                return (
+                  <div key={idx} className="p-5 rounded-xl border border-[var(--border)] bg-[var(--surface-2)] shadow-sm">
+                    <div className="flex justify-between items-start mb-3">
+                        <div className="flex items-center gap-2">
+                            <span className="font-semibold text-[var(--text-primary)]">{flag.metric}</span>
+                            <span className="px-2 py-0.5 rounded bg-[var(--surface-1)] border border-[var(--border)] text-xs font-medium text-[var(--text-secondary)]">{flag.year}</span>
+                        </div>
+                        <span className={`px-2 py-0.5 rounded text-[10px] tracking-widest font-bold uppercase border ${isHigh ? 'bg-red-500/10 text-red-500 border-red-500/20' : 'bg-amber-500/10 text-amber-500 border-amber-500/20'}`}>
+                            {flag.severity}
+                        </span>
+                    </div>
+                    <div className="text-sm text-[var(--text-primary)] mb-4 leading-relaxed bg-[var(--surface-1)] border border-[var(--border)] p-3 rounded-lg">
+                        {flag.rule_triggered}
+                    </div>
+                    <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-mono tabular-nums num">
+                        <div className="flex items-center gap-2">
+                            <span className="text-[var(--text-secondary)] font-sans text-xs uppercase tracking-wider">Value:</span> 
+                            <span className="text-[var(--text-primary)] font-medium">{flag.value}{flag.unit}</span>
+                        </div>
+                        {flag.previous_value !== undefined && flag.previous_value !== null && (
+                            <div className="flex items-center gap-2">
+                                <span className="text-[var(--text-secondary)] font-sans text-xs uppercase tracking-wider">Previous:</span> 
+                                <span className="text-[var(--text-primary)] font-medium">{flag.previous_value}{flag.unit}</span>
+                            </div>
+                        )}
+                        {formattedChange && (
+                            <div className="flex items-center gap-2">
+                                <span className="text-[var(--text-secondary)] font-sans text-xs uppercase tracking-wider">Change:</span> 
+                                <span className={`text-[var(--loss)] font-medium`}>
+                                    {formattedChange}
+                                </span>
+                            </div>
+                        )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function KPICards({ companySlug, totalChunks, totalDocs, isCorpusLoading }: KPICardsProps) {
   const [selectedMetric, setSelectedMetric] = useState<FinancialMetric>("Sales");
 
@@ -518,16 +708,12 @@ export default function KPICards({ companySlug, totalChunks, totalDocs, isCorpus
       />
       <TrendCard companySlug={companySlug} metric={selectedMetric} />
       <KpiCard
-        title="Chunks Indexed"
-        value={chunksValue}
-        subtext={isCorpusLoading ? "Fetching corpus status..." : "Across all collections"}
-        emphasis="warning"
+        title="Corpus Indexing"
+        value={isCorpusLoading ? "Loading..." : `${chunksValue} chunks`}
+        subtext={isCorpusLoading ? "Fetching corpus status..." : `${docsValue} docs uploaded`}
+        subtextClass="text-lg font-medium"
       />
-      <KpiCard
-        title="Docs Uploaded"
-        value={docsValue}
-        subtext={isCorpusLoading ? "Fetching corpus status..." : "From corpus status API"}
-      />
+      <RiskFlagsCard companySlug={companySlug} />
     </section>
   );
 }

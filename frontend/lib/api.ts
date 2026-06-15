@@ -44,6 +44,12 @@ export async function getCompanyFiles(slug: string) {
   return res.json();
 }
 
+export async function getCompanyRisks(slug: string) {
+  const res = await fetch(`${BASE_URL}/api/v1/companies/${slug}/risks`);
+  if (!res.ok) throw new Error("Failed to fetch company risks");
+  return res.json();
+}
+
 export async function uploadFile(
   file: File,
   companySlug: string,

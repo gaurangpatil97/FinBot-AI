@@ -7,9 +7,9 @@ from typing import Any, Dict, List
 
 from fastapi import APIRouter, HTTPException, Query
 
-from app.core.calculation_agent import fetch_metric
+from app.core.calculation_agent import fetch_metric, compute_risk_flags
 from app.db.vector_store import get_persistent_client
-from app.models.schemas import CompanyCreateRequest, CompanyStatus
+from app.models.schemas import CompanyCreateRequest, CompanyStatus, CompanyRiskReport
 from config import settings
 
 router = APIRouter(tags=["companies"])
@@ -236,3 +236,12 @@ def get_company_files(slug: str) -> dict:
             result[col_type] = {}
 
     return result
+
+
+@router.get("/companies/{slug}/risks", response_model=CompanyRiskReport)
+def get_company_risks(slug: str) -> CompanyRiskReport:
+    payload = _read_companies_file()
+    if not any(company.get("slug") == slug for company in payload.get("companies", [])):
+        raise HTTPException(status_code=404, detail="Company not found")
+        
+    return compute_risk_flags(slug)

@@ -102,6 +102,39 @@ HARDCODED_FORMULA_ALIASES = {
     "ebitda margin": ["ebitda margin"],
 }
 
+RISK_THRESHOLDS = {
+    "debt to equity": {
+        "yoy_increase_pct": 25,
+        "absolute_max": 1.0,
+        "direction": "higher_is_worse"
+    },
+    "interest coverage": {
+        "absolute_min": 3.0,
+        "yoy_decrease_pct": 20,
+        "direction": "lower_is_worse"
+    },
+    "ebitda margin": {
+        "yoy_decrease_pp": 5,
+        "direction": "lower_is_worse"
+    },
+    "net profit margin": {
+        "yoy_decrease_pp": 5,
+        "direction": "lower_is_worse"
+    },
+    "cash conversion": {
+        "absolute_min": 0.5,
+        "yoy_decrease_pct": 30,
+        "direction": "lower_is_worse"
+    },
+    "roe": {
+        "yoy_decrease_pp": 5,
+        "direction": "lower_is_worse"
+    },
+    "revenue growth": {
+        "absolute_min": 0,
+        "direction": "lower_is_worse"
+    },
+}
 
 def _normalize_year(year: str) -> str:
     return str(year).replace("FY", "").strip()
@@ -483,3 +516,144 @@ def try_calculation(question: str, company_slug: str | None = None) -> dict | No
     computed["trace"] = "\n".join(trace)
 
     return computed
+def compute_risk_flags(company_slug: str) -> dict:
+    try:
+        flags = []
+        metrics_evaluated = []
+        
+        # Determine available years from companies file
+        available_years = []
+        try:
+            import json
+            from config import get_settings
+            settings = get_settings()
+            with open(settings.COMPANIES_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                company = next((c for c in data.get("companies", []) if c.get("slug") == company_slug), None)
+                if company and "kpis" in company:
+                    for metric_data in company["kpis"].values():
+                        if "values" in metric_data:
+                            years = list(metric_data["values"].keys())
+                            available_years.extend(years)
+            
+            if available_years:
+                available_years = sorted(list(set(available_years)))
+            else:
+                available_years = ["2021", "2022", "2023", "2024", "2025"]
+        except Exception as e:
+            logger.warning(f"Failed to fetch available years for {company_slug}: {e}")
+            available_years = ["2021", "2022", "2023", "2024", "2025"]
+
+        for key, thresholds in RISK_THRESHOLDS.items():
+            intent = HARDCODED_FORMULAS.get(key)
+            if not intent:
+                continue
+
+            yearly_values = {}
+            for year in available_years:
+                year_intent = dict(intent)
+                year_intent["years"] = [year]
+                computed = compute_answer(year_intent, company_slug=company_slug)
+                if computed and computed.get("answer") is not None:
+                    yearly_values[year] = computed.get("answer")
+
+            if not yearly_values:
+                continue
+
+            metrics_evaluated.append(key)
+
+            sorted_years = sorted(yearly_values.keys())
+            
+            for i in range(len(sorted_years)):
+                year = sorted_years[i]
+                val = yearly_values[year]
+                unit = "x" if key in ["debt to equity", "interest coverage", "cash conversion"] else "%"
+                
+                # Check absolute thresholds
+                if "absolute_max" in thresholds and val > thresholds["absolute_max"]:
+                    flags.append({
+                        "metric": key.title(),
+                        "year": year,
+                        "value": val,
+                        "previous_value": None,
+                        "change": None,
+                        "rule_triggered": f"{key.title()} exceeds absolute maximum of {thresholds['absolute_max']}",
+                        "severity": "high",
+                        "unit": unit
+                    })
+                if "absolute_min" in thresholds and val < thresholds["absolute_min"]:
+                    flags.append({
+                        "metric": key.title(),
+                        "year": year,
+                        "value": val,
+                        "previous_value": None,
+                        "change": None,
+                        "rule_triggered": f"{key.title()} falls below absolute minimum of {thresholds['absolute_min']}",
+                        "severity": "high",
+                        "unit": unit
+                    })
+
+                # Check YoY thresholds
+                if i > 0:
+                    prev_year = sorted_years[i-1]
+                    prev_val = yearly_values[prev_year]
+                    
+                    if "yoy_decrease_pp" in thresholds:
+                        drop = prev_val - val
+                        if drop > thresholds["yoy_decrease_pp"]:
+                            flags.append({
+                                "metric": key.title(),
+                                "year": year,
+                                "value": val,
+                                "previous_value": prev_val,
+                                "change": drop,
+                                "rule_triggered": f"{key.title()} dropped by >{thresholds['yoy_decrease_pp']} percentage points YoY",
+                                "severity": "medium",
+                                "unit": unit
+                            })
+                    
+                    if "yoy_decrease_pct" in thresholds and prev_val > 0:
+                        pct_drop = ((prev_val - val) / prev_val) * 100
+                        if pct_drop > thresholds["yoy_decrease_pct"]:
+                            flags.append({
+                                "metric": key.title(),
+                                "year": year,
+                                "value": val,
+                                "previous_value": prev_val,
+                                "change": pct_drop,
+                                "rule_triggered": f"{key.title()} dropped by >{thresholds['yoy_decrease_pct']}% YoY",
+                                "severity": "medium",
+                                "unit": unit
+                            })
+                            
+                    if "yoy_increase_pct" in thresholds and prev_val > 0:
+                        pct_increase = ((val - prev_val) / prev_val) * 100
+                        if pct_increase > thresholds["yoy_increase_pct"]:
+                            flags.append({
+                                "metric": key.title(),
+                                "year": year,
+                                "value": val,
+                                "previous_value": prev_val,
+                                "change": pct_increase,
+                                "rule_triggered": f"{key.title()} increased by >{thresholds['yoy_increase_pct']}% YoY",
+                                "severity": "medium",
+                                "unit": unit
+                            })
+
+        # Sort flags by year (descending) and severity (high first)
+        severity_rank = {"high": 0, "medium": 1, "low": 2}
+        flags.sort(key=lambda x: (-int(x["year"]), severity_rank.get(x["severity"], 3)))
+
+        return {
+            "company_slug": company_slug,
+            "flags": flags,
+            "metrics_evaluated": metrics_evaluated
+        }
+    except Exception as e:
+        logger.error(f"Failed to compute risk flags for {company_slug}: {e}")
+        return {
+            "company_slug": company_slug,
+            "flags": [],
+            "metrics_evaluated": [],
+            "error": str(e)
+        }
