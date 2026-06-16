@@ -76,6 +76,10 @@ async def load_companies_file() -> None:
     app.state.companies_payload = payload
     app.state.settings = settings
 
+    # NEW CODE: Reconcile file-level stuck statuses accurately using ChromaDB
+    from app.api.routes.upload import reconcile_stuck_statuses
+    reconcile_stuck_statuses()
+
 
 @app.get("/")
 async def root() -> dict[str, str]:

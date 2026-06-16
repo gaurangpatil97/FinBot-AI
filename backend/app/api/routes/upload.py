@@ -8,7 +8,8 @@ from uuid import uuid4
 from fastapi import APIRouter, BackgroundTasks, File, Form, HTTPException, UploadFile
 from loguru import logger
 
-from app.core.ingestor import ingest_uploaded_file
+from app.core.ingestor import ingest_uploaded_file, get_collection_name, get_chroma_path
+from app.db.vector_store import get_persistent_client
 from app.models.schemas import EmbedResponse, UploadResponse
 from config import settings
 
@@ -154,3 +155,52 @@ def _update_file_status(company_slug: str, file_id: str, status: str, chunks: in
         companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     except Exception as e:
         logger.error(f"[Status update] Failed: {e}")
+
+
+def reconcile_stuck_statuses() -> None:
+    companies_path = Path(settings.COMPANIES_FILE)
+    try:
+        payload = json.loads(companies_path.read_text(encoding="utf-8"))
+    except Exception:
+        return
+
+    logger.info("[Reconcile] Checking stuck files...")
+    fixed_ready = 0
+    fixed_error = 0
+
+    for company in payload.get("companies", []):
+        company_slug = company.get("slug")
+        if not company_slug:
+            continue
+
+        for file_record in company.get("files", []):
+            if file_record.get("status") == "processing":
+                try:
+                    file_type = file_record["file_type"]
+                    filename = file_record["filename"]
+                    file_id = file_record["file_id"]
+
+                    collection_name = get_collection_name(company_slug, file_type)
+                    chroma_path = get_chroma_path(company_slug, file_type)
+                    
+                    client = get_persistent_client(chroma_path)
+                    try:
+                        collection = client.get_collection(collection_name)
+                        # Filter by filename so we only count chunks for THIS specific file
+                        result = collection.get(where={"filename": filename}, include=["metadatas"])
+                        count = len(result.get("metadatas", []))
+                    except Exception:
+                        # Collection doesn't exist yet, meaning zero chunks
+                        count = 0
+
+                    if count > 0:
+                        _update_file_status(company_slug, file_id, "ready", count)
+                        fixed_ready += 1
+                    else:
+                        _update_file_status(company_slug, file_id, "error", 0)
+                        fixed_error += 1
+                except Exception as e:
+                    logger.error(f"[Reconcile] Failed to check file {file_record.get('filename')}: {e}")
+
+    if fixed_ready > 0 or fixed_error > 0:
+        logger.info(f"[Reconcile] Fixed {fixed_ready + fixed_error} files: {fixed_ready} ready, {fixed_error} error")
