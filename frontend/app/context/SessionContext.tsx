@@ -42,7 +42,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
       const data = await getSessionMessages(id);
       const rawMessages = data?.value || data || [];
       const formattedMessages: ChatMessage[] = rawMessages.map((m: any) => {
-        let citations = [];
+        let citations: any[] = [];
         let routingSource = "Unknown";
         let chunkCount = 0;
         
