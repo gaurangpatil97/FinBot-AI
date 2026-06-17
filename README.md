@@ -1,5 +1,7 @@
 # FinBot
 
+![CI/CD Pipeline](https://github.com/gaurangpatil97/FinBot-AI/actions/workflows/ci.yml/badge.svg)
+
 ## Project Overview
 FinBot is a multimodal Retrieval‑Augmented Generation (RAG) based financial intelligence system built for Chartered Accountants. It enables natural‑language querying of a company's financial information across:
 - Excel worksheets (historical KPIs, balance‑sheet tables, etc.)
