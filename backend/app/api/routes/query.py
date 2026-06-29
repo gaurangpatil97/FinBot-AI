@@ -19,9 +19,14 @@ router = APIRouter(tags=["query"])
 
 @router.post("/query", response_model=QueryResponse)
 def query(request: QueryRequest) -> QueryResponse:
+    from app.core.token_tracker import init_token_tracker, get_token_usage
+    init_token_tracker()
+    
     start_time = time.time()
     response = answer_query(request)
     latency = time.time() - start_time
+    
+    response.token_usage = get_token_usage()
     
     if request.session_id:
         # Save user message

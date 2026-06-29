@@ -1,0 +1,101 @@
+{
+  "generated_at": "20260629_153007",
+  "source_file": "tests/results/eval_raw_results_20260629_143354.json",
+  "auto_metrics": {
+    "total": 77,
+    "routing_accuracy": 0.974025974025974,
+    "routing_correct": 75,
+    "citation_accuracy": 0.987012987012987,
+    "citation_correct": 76,
+    "answer_correctness": null,
+    "answer_correct": 0,
+    "answer_total_reviewed": 0,
+    "avg_latency": 14.947272727272722,
+    "min_latency": 7.54,
+    "max_latency": 43.42,
+    "sections": {
+      "Excel": {
+        "total": 15,
+        "routing_correct": 15,
+        "citation_correct": 15,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 244.49
+      },
+      "Concall": {
+        "total": 15,
+        "routing_correct": 14,
+        "citation_correct": 14,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 244.37
+      },
+      "PDF": {
+        "total": 16,
+        "routing_correct": 16,
+        "citation_correct": 16,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 221.55000000000004
+      },
+      "Images": {
+        "total": 16,
+        "routing_correct": 16,
+        "citation_correct": 16,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 189.14
+      },
+      "Cross": {
+        "total": 15,
+        "routing_correct": 14,
+        "citation_correct": 15,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 251.39
+      }
+    },
+    "difficulties": {
+      "Easy": {
+        "total": 21,
+        "routing_correct": 19,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Medium": {
+        "total": 20,
+        "routing_correct": 20,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Hard": {
+        "total": 36,
+        "routing_correct": 36,
+        "correct": 0,
+        "correct_total": 0
+      }
+    }
+  },
+  "ragas_metrics": {
+    "error": "RAGAS not available"
+  },
+  "chunk_metrics": {
+    "avg_precision_at_k": 0.7621,
+    "avg_recall_at_k": 0.9805,
+    "avg_f1_at_k": 0.8188,
+    "questions_evaluated": 77
+  },
+  "completeness_metrics": {
+    "error": "Skipped (pass --completeness flag to run)"
+  },
+  "cost_metrics": {
+    "avg_cost_per_query": 0.00106,
+    "total_cost": 0.081637,
+    "min_cost": 0.000431,
+    "max_cost": 0.001785,
+    "total_tokens": 442955,
+    "total_prompt_tokens": 409191,
+    "total_completion_tokens": 33764,
+    "queries_with_token_usage": 77
+  }
+}

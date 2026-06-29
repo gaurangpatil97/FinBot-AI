@@ -1,0 +1,91 @@
+{
+  "generated_at": "20260629_133653",
+  "source_file": "tests/results/eval_raw_results_targeted_20260629_133420.json",
+  "auto_metrics": {
+    "total": 9,
+    "routing_accuracy": 0.7777777777777778,
+    "routing_correct": 7,
+    "citation_accuracy": 0.8888888888888888,
+    "citation_correct": 8,
+    "answer_correctness": null,
+    "answer_correct": 0,
+    "answer_total_reviewed": 0,
+    "avg_latency": 15.306666666666665,
+    "min_latency": 4.05,
+    "max_latency": 29.19,
+    "sections": {
+      "Excel": {
+        "total": 5,
+        "routing_correct": 4,
+        "citation_correct": 4,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 76.87
+      },
+      "Concall": {
+        "total": 1,
+        "routing_correct": 1,
+        "citation_correct": 1,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 18.97
+      },
+      "Cross": {
+        "total": 3,
+        "routing_correct": 2,
+        "citation_correct": 3,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 41.92
+      }
+    },
+    "difficulties": {
+      "Medium": {
+        "total": 5,
+        "routing_correct": 4,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Hard": {
+        "total": 3,
+        "routing_correct": 3,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Easy": {
+        "total": 1,
+        "routing_correct": 0,
+        "correct": 0,
+        "correct_total": 0
+      }
+    }
+  },
+  "ragas_metrics": {
+    "questions_evaluated": 8,
+    "questions_skipped": 1,
+    "faithfulness": 0.6483,
+    "answer_relevancy": 0.8039,
+    "context_recall": 0.3875,
+    "context_precision": 0.5672,
+    "hallucination_rate_percent": 35.17
+  },
+  "chunk_metrics": {
+    "avg_precision_at_k": 0.8194,
+    "avg_recall_at_k": 0.9375,
+    "avg_f1_at_k": 0.8388,
+    "questions_evaluated": 8
+  },
+  "completeness_metrics": {
+    "error": "Skipped (pass --completeness flag to run)"
+  },
+  "cost_metrics": {
+    "avg_cost_per_query": 0.001016,
+    "total_cost": 0.00813,
+    "min_cost": 0.000414,
+    "max_cost": 0.001718,
+    "total_tokens": 43022,
+    "total_prompt_tokens": 39297,
+    "total_completion_tokens": 3725,
+    "queries_with_token_usage": 8
+  }
+}

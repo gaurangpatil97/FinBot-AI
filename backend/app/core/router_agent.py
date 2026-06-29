@@ -135,6 +135,9 @@ def route_question(
     - concall: earnings call transcripts, management commentary, guidance, analyst Q&A
 
     Key routing rules:
+    - If the question asks to verify, cross-check, or compare information across different document types (e.g. comparing what management said in an earnings call against figures reported in the annual report or financial statements), you MUST route to ALL relevant sources simultaneously.
+    - Questions containing words like "verify", "confirm", "cross-check", "reconcile", "management claimed", "actual vs guided", "did the company achieve" are strong signals for multi-source routing.
+    - When in doubt between single-source and multi-source, prefer multi-source.
     - H1, H2, Q1, Q2, Q3, Q4, quarterly, half-year → concall
     - bar chart, donut chart, KPI chart, infographic, visual, table → images
     - MD&A, BRSR, auditor, KAM, Directors Report → pdf (Note: if asking about a TABLE or CHART within these sections, route to images instead)
@@ -188,6 +191,8 @@ Question: {question}
                 temperature=0
             )
             duration = time.time() - start_t
+            from app.core.token_tracker import record_token_usage
+            record_token_usage(response)
             OPENAI_CALL_LATENCY.labels(model="gpt-4.1-mini", purpose="routing").observe(duration)
             OPENAI_CALL_COUNT.labels(model="gpt-4.1-mini", purpose="routing", status="success").inc()
         except Exception as api_err:

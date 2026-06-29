@@ -1,0 +1,130 @@
+FinBot Evaluation Raw Results
+Run: 20260628_232239
+================================================================================
+
+Q1 [Excel] [Easy]
+Question: What was the Net Profit reported by the company in FY26?
+Expected: Net Profit in FY26 was ₹383.99 Cr — a recovery from ₹194.57 Cr in FY25 and the highest absolute net profit in the 10-year dataset.
+Actual:   ## Summary
+The Net Profit reported by Craftsman Automation Ltd in FY2026 was ₹383.99 crore.
+
+## Details
+- Net Profit (FY2026): ₹383.99 crore
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2026
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  7.39s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q2 [Excel] [Easy]
+Question: What were total Borrowings on the Balance Sheet as at end of FY24?
+Expected: Total Borrowings as at 31 March 2024 were ₹1,754.82 Cr, up from ₹1,240.23 Cr in FY23 — an increase of ₹514.59 Cr.
+Actual:   ## Summary
+Total Borrowings on the Balance Sheet as at the end of FY24 were ₹1,754.82 crore.
+
+## Details
+- Borrowings: ₹1,754.82 crore (FY2024)
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY2024
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  9.01s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q3 [Excel] [Easy]
+Question: What was the Cash from Operating Activity in FY23?
+Expected: Cash from Operating Activity in FY23 was ₹607.66 Cr — the highest among all 10 years in the dataset.
+Actual:   ## Summary
+The Cash from Operating Activity for Craftsman Automation Ltd in FY23 was ₹607.66 crore.
+
+## Details
+- Cash from Operating Activity: ₹607.66 crore (FY23)
+
+## Sources
+Craftsman Auto.xlsx · cash_flow · FY2023
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  6.66s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q4 [Excel] [Easy]
+Question: What was the Depreciation charge for the company in FY22?
+Expected: Depreciation in FY22 was ₹205.99 Cr, compared to ₹192.45 Cr in FY21 — a modest 7% increase.
+Actual:   ## Summary
+The Depreciation charge for Craftsman Automation Ltd in FY22 was ₹205.99 crore.
+
+## Details
+- Depreciation (FY22): ₹205.99 crore
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY22
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  6.93s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q5 [Excel] [Medium]
+Question: Calculate the Operating Profit Margin for FY24 and FY25 and comment on the trend. OPM = Operating Profit / Sales × 100
+Expected: FY24 OPM: 19.74%. FY25 OPM: 14.64%. OPM contracted sharply by ~510 bps despite 27.8% revenue growth — a significant margin deterioration.
+Actual:   ## Summary  
+The Operating Profit Margin (OPM) for FY24 is approximately 15.9%, and for FY25 it is approximately 11.2%, indicating a declining trend in operating profitability relative to sales.
+
+## Details  
+Operating Profit is calculated as Profit Before Tax (PBT) plus Interest and Depreciation (since these are non-operating and non-cash expenses respectively, typically added back to get operating profit).  
+Sales and Profit Before Tax (PBT), Interest, and Depreciation for FY24 and FY25 are:  
+
+- FY24  
+  - Sales: 4451.73 Cr  
+  - Profit Before Tax: 444.69 Cr  
+  - Interest: 174.54 Cr  
+  - Depreciation: 277.69 Cr  
+
+- FY25  
+  - Sales: 5690.48 Cr  
+  - Profit Before Tax: 269.65 Cr  
+  - Interest: 216.64 Cr  
+  - Depreciation: 347.02 Cr  
+
+## Calculation  
+Operating Profit = Profit Before Tax + Interest + Depreciation  
+
+For FY24:  
+Operating Profit = 444.69 + 174.54 + 277.69 = 896.92 Cr  
+OPM FY24 = (896.92 / 4451.73) × 100 = 20.15%  
+
+For FY25:  
+Operating Profit = 269.65 + 216.64 + 347.02 = 833.31 Cr  
+OPM FY25 = (833.31 / 5690.48) × 100 = 14.65%  
+
+## Comment on Trend  
+The Operating Profit Margin declined from 20.15% in FY24 to 14.65% in FY25, showing a significant decrease in operating profitability despite higher sales in FY25. This suggests increased operating costs or lower efficiency impacting profitability relative to revenue growth.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  12.78s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+
+================================================================================
+AUTO-SCORED SUMMARY (Routing + Citation + Latency)
+================================================================================
+
+Routing Accuracy (Lenient): 5/5 = 100.0%
+Routing Accuracy (Strict):  5/5 = 100.0%
+Total Fallbacks Fired:      0
+Overall Citation Accuracy:  5/5 = 100.0%
+Average Latency:            8.55s
+
+Per Section:
+  Excel      Routing: 5/5 lenient (100%), 5/5 strict (100%) | Fallbacks: 0 | Citation: 5/5 (100%) | Avg Latency: 8.6s

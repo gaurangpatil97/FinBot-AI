@@ -48,6 +48,8 @@ def is_valid_financial_query(question: str, company_slug: str) -> bool:
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
+        from app.core.token_tracker import record_token_usage
+        record_token_usage(response)
         content = response.choices[0].message.content.strip()
         result = json.loads(content)
         return bool(result.get("allowed", True))
@@ -220,6 +222,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
+        from app.core.token_tracker import record_token_usage
+        record_token_usage(response)
         answer = response.choices[0].message.content.strip()
 
         # Cite actual source sheets, not synthetic context
@@ -400,6 +404,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
             temperature=0
         )
         duration = time.time() - start_t
+        from app.core.token_tracker import record_token_usage
+        record_token_usage(response)
         OPENAI_CALL_LATENCY.labels(model="gpt-4.1-mini", purpose="chat_synthesis").observe(duration)
         OPENAI_CALL_COUNT.labels(model="gpt-4.1-mini", purpose="chat_synthesis", status="success").inc()
         answer = response.choices[0].message.content.strip()
@@ -425,11 +431,31 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                 collection=collection
             ))
 
+    actual_collections = []
+    for chunk in top_chunks:
+        coll = chunk["metadata"].get("collection")
+        if coll and coll not in actual_collections:
+            actual_collections.append(coll)
+
+    # Fallback using dynamic slug-mapping if no chunks were returned
+    if not actual_collections:
+        for coll_type in source_types:
+            if coll_type == "excel":
+                actual_collections.append(f"{company_slug}_excel")
+            elif coll_type == "pdf":
+                actual_collections.append(f"{company_slug}_pdf_text")
+            elif coll_type == "concall":
+                actual_collections.append(f"{company_slug}_concalls")
+            elif coll_type == "images":
+                actual_collections.append(f"{company_slug}_images")
+            else:
+                actual_collections.append(coll_type)
+
     logger.success(f"[RAG] Answered with {len(citations)} citations")
     return QueryResponse(
         answer=answer,
         citations=citations,
-        collections_searched=source_types,
+        collections_searched=actual_collections,
         agent_used="rag",
         agent_trace="Full RAG pipeline",
         chunks=top_chunks,  # RAGAS eval — include retrieved chunks

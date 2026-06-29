@@ -1,0 +1,67 @@
+{
+  "run_timestamp": "20260629_135208",
+  "total_questions": 2,
+  "company_slug": "craftsman_automation_ltd",
+  "results": [
+    {
+      "id": 8,
+      "section": "Excel",
+      "difficulty": "Medium",
+      "question": "Compute the Interest Coverage Ratio for FY22 and FY25 and evaluate debt serviceability. ICR = Operating Profit / Interest",
+      "expected_answer": "FY22 ICR: 6.34x. FY25 ICR: 3.85x. ICR has deteriorated significantly as debt servicing costs outpaced operating profit growth.",
+      "expected_source": [
+        "craftsman_automation_ltd_excel"
+      ],
+      "expected_citation_contains": [
+        "Craftsman Auto.xlsx"
+      ],
+      "actual_answer": "ERROR: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/query (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\"))",
+      "actual_sources": [],
+      "actual_citations": [],
+      "actual_chunks": [],
+      "actual_chunk_metadata": [],
+      "token_usage": {},
+      "routing_debug": {},
+      "agent_used": "error",
+      "latency_seconds": 4.07,
+      "routed_sources": [],
+      "fallback_fired": false,
+      "routing_correct_lenient": false,
+      "routing_correct_strict": false,
+      "routing_correct": false,
+      "citation_correct": false,
+      "correct": null
+    },
+    {
+      "id": 64,
+      "section": "Cross",
+      "difficulty": "Easy",
+      "question": "The FY23 MD&A states the Interest Coverage Ratio declined from 6.40x to 5.74x due to increased interest cost. Verify this using the Excel P&L data — does the reported interest figure match?",
+      "expected_answer": "Excel shows FY22 Interest = ₹84.22 Cr, FY23 Interest = ₹117 Cr — confirming the MD&A narrative. ICR from Excel: FY22 = 6.40x confirmed. Slight discrepancy in FY23 ICR suggests EBITDA definition differs between Excel and MD&A.",
+      "expected_source": [
+        "craftsman_automation_ltd_excel",
+        "craftsman_automation_ltd_pdf_text"
+      ],
+      "expected_citation_contains": [
+        "Craftsman Auto.xlsx",
+        "Annual-Report"
+      ],
+      "actual_answer": "ERROR: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/query (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\"))",
+      "actual_sources": [],
+      "actual_citations": [],
+      "actual_chunks": [],
+      "actual_chunk_metadata": [],
+      "token_usage": {},
+      "routing_debug": {},
+      "agent_used": "error",
+      "latency_seconds": 4.08,
+      "routed_sources": [],
+      "fallback_fired": false,
+      "routing_correct_lenient": false,
+      "routing_correct_strict": false,
+      "routing_correct": false,
+      "citation_correct": false,
+      "correct": null
+    }
+  ]
+}

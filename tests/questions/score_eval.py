@@ -117,6 +117,180 @@ def compute_auto_metrics(results: list) -> dict:
     }
 
 
+# ── Chunk Metrics ─────────────────────────────────────────────────────────────
+
+def run_chunk_metrics(results: list) -> dict:
+    precisions = []
+    recalls = []
+    f1s = []
+    count = 0
+
+    for r in results:
+        expected = r.get("expected_citation_contains")
+        meta = r.get("actual_chunk_metadata")
+        if not expected or not meta:
+            continue
+
+        k = len(meta)
+        if k == 0:
+            continue
+
+        # Normalize filenames in metadata to support collection names
+        normalized_meta = []
+        for m in meta:
+            fname = m.get("filename", "")
+            norm_names = [fname]
+            if "excel" in fname.lower():
+                norm_names.append("Craftsman Auto.xlsx")
+            elif "concall" in fname.lower():
+                norm_names.append("CraftsmanAutomation")
+            elif "pdf" in fname.lower():
+                norm_names.append("Annual-Report")
+            elif "images" in fname.lower():
+                norm_names.append("Annual-Report")
+            normalized_meta.append(norm_names)
+
+        hits_expected = sum(
+            1 for exp in expected
+            if any(any(exp.lower() in name.lower() for name in norm_names) for norm_names in normalized_meta)
+        )
+
+        precision = len([norm_names for norm_names in normalized_meta if any(any(exp.lower() in name.lower() for name in norm_names) for exp in expected)]) / k
+        recall = hits_expected / len(expected)
+        f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
+
+        precisions.append(precision)
+        recalls.append(recall)
+        f1s.append(f1)
+        count += 1
+
+    if count == 0:
+        return {
+            "avg_precision_at_k": 0.0,
+            "avg_recall_at_k": 0.0,
+            "avg_f1_at_k": 0.0,
+            "questions_evaluated": 0
+        }
+
+    return {
+        "avg_precision_at_k": round(sum(precisions) / count, 4),
+        "avg_recall_at_k": round(sum(recalls) / count, 4),
+        "avg_f1_at_k": round(sum(f1s) / count, 4),
+        "questions_evaluated": count
+    }
+
+
+# ── Completeness Judge ────────────────────────────────────────────────────────
+
+def run_completeness_judge(results: list, openai_api_key: str) -> dict:
+    if not openai_api_key:
+        return {"error": "OpenAI API key not provided"}
+
+    import openai
+    client = openai.OpenAI(api_key=openai_api_key)
+
+    scores = []
+    count = 0
+
+    system_prompt = (
+        "You are an evaluation judge. Given a reference answer and a model's actual answer, "
+        "score how completely the model's answer covers all key points in the reference answer.\n\n"
+        "Return ONLY a JSON object like: {\"score\": 0.85, \"reasoning\": \"one sentence\"}\n\n"
+        "Score from 0.0 to 1.0:\n"
+        "- 1.0 = all key points covered\n"
+        "- 0.5 = roughly half the key points covered  \n"
+        "- 0.0 = none of the key points covered"
+    )
+
+    for r in results:
+        actual = r.get("actual_answer")
+        expected = r.get("expected_answer")
+        if not actual or not expected:
+            continue
+
+        user_message = f"Reference answer: {expected}\n\nModel answer: {actual}"
+
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_message}
+                ],
+                temperature=0,
+                max_tokens=150,
+                response_format={"type": "json_object"}
+            )
+            content = response.choices[0].message.content.strip()
+            data = json.loads(content)
+            score = float(data["score"])
+            scores.append(score)
+            count += 1
+        except Exception as e:
+            print(f"⚠️ Error running completeness judge for question {r.get('id')}: {e}")
+            continue
+
+    if count == 0:
+        return {
+            "answer_completeness": 0.0,
+            "questions_evaluated": 0
+        }
+
+    return {
+        "answer_completeness": round(sum(scores) / count, 4),
+        "questions_evaluated": count
+    }
+
+
+# ── Cost Metrics ──────────────────────────────────────────────────────────────
+
+def compute_cost_metrics(results: list) -> dict:
+    costs = []
+    total_prompt_tokens = 0
+    total_completion_tokens = 0
+    total_tokens = 0
+    count = 0
+
+    for r in results:
+        usage = r.get("token_usage")
+        if not usage or not isinstance(usage, dict):
+            continue
+
+        prompt_tokens = usage.get("prompt_tokens", 0) or 0
+        completion_tokens = usage.get("completion_tokens", 0) or 0
+        
+        cost = (prompt_tokens * 0.15 / 1_000_000) + (completion_tokens * 0.60 / 1_000_000)
+        costs.append(cost)
+        
+        total_prompt_tokens += prompt_tokens
+        total_completion_tokens += completion_tokens
+        total_tokens += (prompt_tokens + completion_tokens)
+        count += 1
+
+    if count == 0:
+        return {
+            "avg_cost_per_query": 0.0,
+            "total_cost": 0.0,
+            "min_cost": 0.0,
+            "max_cost": 0.0,
+            "total_tokens": 0,
+            "total_prompt_tokens": 0,
+            "total_completion_tokens": 0,
+            "queries_with_token_usage": 0
+        }
+
+    return {
+        "avg_cost_per_query": round(sum(costs) / count, 6),
+        "total_cost": round(sum(costs), 6),
+        "min_cost": round(min(costs), 6),
+        "max_cost": round(max(costs), 6),
+        "total_tokens": total_tokens,
+        "total_prompt_tokens": total_prompt_tokens,
+        "total_completion_tokens": total_completion_tokens,
+        "queries_with_token_usage": count
+    }
+
+
 # ── RAGAS ─────────────────────────────────────────────────────────────────────
 
 def run_ragas(results: list) -> dict:
@@ -161,7 +335,7 @@ def run_ragas(results: list) -> dict:
             "reference": ground_truths,
         })
 
-        run_config = RunConfig(max_workers=2, max_retries=10)
+        run_config = RunConfig(max_workers=16, max_retries=10)
         
         result = evaluate(
             dataset,
@@ -197,13 +371,19 @@ def run_ragas(results: list) -> dict:
                 return None
             return round(float(val), 4)
 
+        faithfulness_score = _safe_nanmean("faithfulness")
+        hallucination_rate = None
+        if faithfulness_score is not None:
+            hallucination_rate = round((1 - faithfulness_score) * 100, 2)
+
         return {
             "questions_evaluated": len(questions),
             "questions_skipped": skipped,
-            "faithfulness": _safe_nanmean("faithfulness"),
+            "faithfulness": faithfulness_score,
             "answer_relevancy": _safe_nanmean("answer_relevancy"),
             "context_recall": _safe_nanmean("context_recall"),
             "context_precision": _safe_nanmean("context_precision"),
+            "hallucination_rate_percent": hallucination_rate,
         }
 
     except Exception as e:
@@ -212,7 +392,7 @@ def run_ragas(results: list) -> dict:
 
 # ── Report Generation ─────────────────────────────────────────────────────────
 
-def generate_report(auto_metrics: dict, ragas_metrics: dict, raw_data: dict) -> str:
+def generate_report(auto_metrics: dict, ragas_metrics: dict, chunk_metrics: dict, completeness_metrics: dict, cost_metrics: dict, raw_data: dict) -> str:
     """Generate a clean text report."""
     lines = []
     lines.append("=" * 70)
@@ -250,6 +430,25 @@ def generate_report(auto_metrics: dict, ragas_metrics: dict, raw_data: dict) -> 
         lines.append(f"  Answer Relevancy:    {ragas_metrics.get('answer_relevancy', 'N/A')}")
         lines.append(f"  Context Recall:      {ragas_metrics.get('context_recall', 'N/A')}")
         lines.append(f"  Context Precision:   {ragas_metrics.get('context_precision', 'N/A')}")
+        lines.append(f"  Hallucination Rate:  {ragas_metrics.get('hallucination_rate_percent', 'N/A')}%")
+
+    lines.append("\n── CHUNK & RETRIEVAL METRICS ────────────────────────────────────────")
+    lines.append(f"  Precision@K:        {chunk_metrics.get('avg_precision_at_k', 'N/A')}")
+    lines.append(f"  Recall@K:           {chunk_metrics.get('avg_recall_at_k', 'N/A')}")
+    lines.append(f"  F1@K:               {chunk_metrics.get('avg_f1_at_k', 'N/A')}")
+    lines.append(f"  Questions Evaluated: {chunk_metrics.get('questions_evaluated', 0)}")
+
+    lines.append("\n── COMPLETENESS & COST METRICS ──────────────────────────────────────")
+    if "error" in completeness_metrics:
+        lines.append(f"  Answer Completeness: {completeness_metrics['error']}")
+    else:
+        lines.append(f"  Answer Completeness: {completeness_metrics.get('answer_completeness', 'N/A')} (gpt-4o-mini judge)")
+    
+    lines.append(f"  Total Cost:         ${cost_metrics.get('total_cost', 0.0):.6f}")
+    lines.append(f"  Avg Cost/Query:     ${cost_metrics.get('avg_cost_per_query', 0.0):.6f}")
+    lines.append(f"  Min Cost/Query:     ${cost_metrics.get('min_cost', 0.0):.6f}")
+    lines.append(f"  Max Cost/Query:     ${cost_metrics.get('max_cost', 0.0):.6f}")
+    lines.append(f"  Total Tokens:       {cost_metrics.get('total_tokens', 0)}")
 
     lines.append("\n── PER SECTION BREAKDOWN ────────────────────────────────────────────")
     lines.append(f"  {'Section':<12} {'Total':>6} {'Routing':>10} {'Citation':>10} {'Correct':>10} {'Avg Lat':>10}")
@@ -316,6 +515,12 @@ def generate_report(auto_metrics: dict, ragas_metrics: dict, raw_data: dict) -> 
         lines.append(f"  Faithfulness:       {ragas_metrics['faithfulness']}")
         lines.append(f"  Context Recall:     {ragas_metrics['context_recall']}")
         lines.append(f"  Context Precision:  {ragas_metrics['context_precision']}")
+        lines.append(f"  Hallucination Rate: {ragas_metrics.get('hallucination_rate_percent', 'N/A')}%")
+    if "avg_f1_at_k" in chunk_metrics:
+        lines.append(f"  Retrieval F1@K:     {chunk_metrics['avg_f1_at_k']}")
+    if "answer_completeness" in completeness_metrics:
+        lines.append(f"  Completeness:       {completeness_metrics['answer_completeness']}")
+    lines.append(f"  Avg Cost/Query:     ${cost_metrics.get('avg_cost_per_query', 0.0):.6f}")
     lines.append(f"  Avg Latency:        {auto_metrics['avg_latency']:.2f}s")
     lines.append("=" * 70)
 
@@ -335,6 +540,11 @@ def main():
         "--skip-ragas",
         action="store_true",
         help="Skip RAGAS scoring (faster, use if RAGAS not installed)"
+    )
+    parser.add_argument(
+        "--completeness",
+        action="store_true",
+        help="Run Answer Completeness judge (LLM-as-judge, costs money)"
     )
     args = parser.parse_args()
 
@@ -360,6 +570,23 @@ def main():
     print("  Computing auto metrics...")
     auto_metrics = compute_auto_metrics(results)
 
+    # Chunk metrics
+    print("  Computing chunk metrics...")
+    chunk_metrics = run_chunk_metrics(results)
+
+    # Cost metrics
+    print("  Computing cost metrics...")
+    cost_metrics = compute_cost_metrics(results)
+
+    # Completeness metrics (optional)
+    if args.completeness:
+        print("  Running completeness judge...")
+        import os
+        api_key = os.getenv("OPENAI_API_KEY", "")
+        completeness_metrics = run_completeness_judge(results, api_key)
+    else:
+        completeness_metrics = {"error": "Skipped (pass --completeness flag to run)"}
+
     # RAGAS
     if args.skip_ragas:
         print("  Skipping RAGAS (--skip-ragas flag set)")
@@ -369,7 +596,14 @@ def main():
 
     # Generate report
     print("\n  Generating report...")
-    report_text = generate_report(auto_metrics, ragas_metrics, raw_data)
+    report_text = generate_report(
+        auto_metrics=auto_metrics,
+        ragas_metrics=ragas_metrics,
+        chunk_metrics=chunk_metrics,
+        completeness_metrics=completeness_metrics,
+        cost_metrics=cost_metrics,
+        raw_data=raw_data
+    )
 
     # Save outputs
     json_output = RESULTS_DIR / f"eval_final_report_{TIMESTAMP}.json"
@@ -380,6 +614,9 @@ def main():
         "source_file": args.input,
         "auto_metrics": auto_metrics,
         "ragas_metrics": ragas_metrics,
+        "chunk_metrics": chunk_metrics,
+        "completeness_metrics": completeness_metrics,
+        "cost_metrics": cost_metrics,
     }
 
     with open(json_output, "w", encoding="utf-8") as f:

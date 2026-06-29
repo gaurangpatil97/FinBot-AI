@@ -1,0 +1,75 @@
+======================================================================
+  FINBOT EVALUATION FINAL REPORT
+  Generated: 2026-06-29 09:36:27
+  Source: 20260629_092339
+  Company: craftsman_automation_ltd
+======================================================================
+
+── SYSTEM OVERVIEW ──────────────────────────────────────────────────
+  Total questions evaluated: 15
+  Questions manually reviewed: 0
+
+── AUTO-SCORED METRICS ──────────────────────────────────────────────
+  Routing Accuracy:   15/15 = 100.0%
+  Citation Accuracy:  15/15 = 100.0%
+  Answer Correctness: NOT YET REVIEWED (set 'correct': true/false in JSON)
+
+  Latency:
+    Average: 24.28s
+    Min:     10.19s
+    Max:     45.42s
+
+── RAGAS METRICS ────────────────────────────────────────────────────
+  Questions evaluated: 15
+  Questions skipped:   0 (no chunks)
+  Faithfulness:        0.6968
+  Answer Relevancy:    0.7788
+  Context Recall:      0.1956
+  Context Precision:   0.2012
+  Hallucination Rate:  30.32%
+
+── CHUNK & RETRIEVAL METRICS ────────────────────────────────────────
+  Precision@K:        0.8593
+  Recall@K:           1.0
+  F1@K:               0.904
+  Questions Evaluated: 15
+
+── COMPLETENESS & COST METRICS ──────────────────────────────────────
+  Answer Completeness: Skipped (pass --completeness flag to run)
+  Total Cost:         $0.016350
+  Avg Cost/Query:     $0.001090
+  Min Cost/Query:     $0.000505
+  Max Cost/Query:     $0.001680
+  Total Tokens:       86772
+
+── PER SECTION BREAKDOWN ────────────────────────────────────────────
+  Section       Total    Routing   Citation    Correct    Avg Lat
+  --------------------------------------------------------------
+  Excel             3 3/3 (100%):>10 3/3 (100%):>10 not reviewed 31.1s:>10
+  Concall           3 3/3 (100%):>10 3/3 (100%):>10 not reviewed 19.4s:>10
+  PDF               3 3/3 (100%):>10 3/3 (100%):>10 not reviewed 14.0s:>10
+  Images            3 3/3 (100%):>10 3/3 (100%):>10 not reviewed 25.8s:>10
+  Cross             3 3/3 (100%):>10 3/3 (100%):>10 not reviewed 31.1s:>10
+
+── PER DIFFICULTY BREAKDOWN ─────────────────────────────────────────
+  Easy       Routing: 5/5 (100%) | Correct: not reviewed
+  Medium     Routing: 5/5 (100%) | Correct: not reviewed
+  Hard       Routing: 5/5 (100%) | Correct: not reviewed
+
+── FAILURE ANALYSIS ─────────────────────────────────────────────────
+
+  Routing Failures (0):
+
+  Citation Failures (0):
+
+── SUMMARY ──────────────────────────────────────────────────────────
+  Routing Accuracy:   100.0%
+  Citation Accuracy:  100.0%
+  Faithfulness:       0.6968
+  Context Recall:     0.1956
+  Context Precision:  0.2012
+  Hallucination Rate: 30.32%
+  Retrieval F1@K:     0.904
+  Avg Cost/Query:     $0.001090
+  Avg Latency:        24.28s
+======================================================================

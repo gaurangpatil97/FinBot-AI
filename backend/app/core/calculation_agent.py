@@ -31,10 +31,11 @@ HARDCODED_FORMULAS = {
     },
     "interest coverage": {
         "computation_type": "ratio",
-        "formula": "metric1 / metric2",
+        "formula": "(metric1 - metric3) / metric2",
         "metrics": [
             {"name": "EBITDA", "sheet": "profit_loss"},
-            {"name": "Interest", "sheet": "profit_loss"}
+            {"name": "Interest", "sheet": "profit_loss"},
+            {"name": "Depreciation", "sheet": "profit_loss"}
         ],
         "multiply_by_100": False
     },
@@ -82,6 +83,16 @@ HARDCODED_FORMULAS = {
         ],
         "multiply_by_100": False
     },
+    "operating profit margin": {
+        "computation_type": "percentage",
+        "formula": "((metric1 - metric3) / metric2) * 100",
+        "metrics": [
+            {"name": "EBITDA", "sheet": "profit_loss"},
+            {"name": "Sales", "sheet": "profit_loss"},
+            {"name": "Depreciation", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
 }
 
 HARDCODED_FORMULA_ALIASES = {
@@ -100,6 +111,7 @@ HARDCODED_FORMULA_ALIASES = {
     "roe": ["roe", "return on equity"],
     "return on equity": ["return on equity", "roe"],
     "ebitda margin": ["ebitda margin"],
+    "operating profit margin": ["operating profit margin", "operating profit margin ", "opm", "operating margin"],
 }
 
 RISK_THRESHOLDS = {
@@ -192,6 +204,8 @@ Question: {question}'''
             messages=[{"role": "user", "content": prompt}],
             temperature=0
         )
+        from app.core.token_tracker import record_token_usage
+        record_token_usage(response)
         content = response.choices[0].message.content.strip()
         result = json.loads(content)
         query_type = result.get("type", "lookup")
@@ -234,6 +248,8 @@ Return this exact JSON structure:
             messages=[{'role': 'user', 'content': prompt}],
             temperature=0
         )
+        from app.core.token_tracker import record_token_usage
+        record_token_usage(response)
         content = response.choices[0].message.content.strip()
         return json.loads(content)
     except Exception as exc:

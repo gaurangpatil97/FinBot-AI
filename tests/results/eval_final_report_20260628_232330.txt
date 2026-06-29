@@ -1,0 +1,70 @@
+======================================================================
+  FINBOT EVALUATION FINAL REPORT
+  Generated: 2026-06-28 23:25:28
+  Source: 20260628_232239
+  Company: craftsman_automation_ltd
+======================================================================
+
+── SYSTEM OVERVIEW ──────────────────────────────────────────────────
+  Total questions evaluated: 5
+  Questions manually reviewed: 0
+
+── AUTO-SCORED METRICS ──────────────────────────────────────────────
+  Routing Accuracy:   5/5 = 100.0%
+  Citation Accuracy:  5/5 = 100.0%
+  Answer Correctness: NOT YET REVIEWED (set 'correct': true/false in JSON)
+
+  Latency:
+    Average: 8.55s
+    Min:     6.66s
+    Max:     12.78s
+
+── RAGAS METRICS ────────────────────────────────────────────────────
+  Questions evaluated: 5
+  Questions skipped:   0 (no chunks)
+  Faithfulness:        0.784
+  Answer Relevancy:    0.9345
+  Context Recall:      0.8
+  Context Precision:   0.8
+  Hallucination Rate:  21.6%
+
+── CHUNK & RETRIEVAL METRICS ────────────────────────────────────────
+  Precision@K:        1.0
+  Recall@K:           8.4
+  F1@K:               1.5871
+  Questions Evaluated: 5
+
+── COMPLETENESS & COST METRICS ──────────────────────────────────────
+  Answer Completeness: Skipped (pass --completeness flag to run)
+  Total Cost:         $0.003443
+  Avg Cost/Query:     $0.000689
+  Min Cost/Query:     $0.000505
+  Max Cost/Query:     $0.001401
+  Total Tokens:       20055
+
+── PER SECTION BREAKDOWN ────────────────────────────────────────────
+  Section       Total    Routing   Citation    Correct    Avg Lat
+  --------------------------------------------------------------
+  Excel             5 5/5 (100%):>10 5/5 (100%):>10 not reviewed 8.6s:>10
+
+── PER DIFFICULTY BREAKDOWN ─────────────────────────────────────────
+  Easy       Routing: 4/4 (100%) | Correct: not reviewed
+  Medium     Routing: 1/1 (100%) | Correct: not reviewed
+
+── FAILURE ANALYSIS ─────────────────────────────────────────────────
+
+  Routing Failures (0):
+
+  Citation Failures (0):
+
+── SUMMARY ──────────────────────────────────────────────────────────
+  Routing Accuracy:   100.0%
+  Citation Accuracy:  100.0%
+  Faithfulness:       0.784
+  Context Recall:     0.8
+  Context Precision:  0.8
+  Hallucination Rate: 21.6%
+  Retrieval F1@K:     1.5871
+  Avg Cost/Query:     $0.000689
+  Avg Latency:        8.55s
+======================================================================

@@ -1,0 +1,87 @@
+======================================================================
+  FINBOT EVALUATION FINAL REPORT
+  Generated: 2026-06-29 00:01:56
+  Source: 20260628_233409
+  Company: craftsman_automation_ltd
+======================================================================
+
+── SYSTEM OVERVIEW ──────────────────────────────────────────────────
+  Total questions evaluated: 77
+  Questions manually reviewed: 0
+
+── AUTO-SCORED METRICS ──────────────────────────────────────────────
+  Routing Accuracy:   70/77 = 90.9%
+  Citation Accuracy:  72/77 = 93.5%
+  Answer Correctness: NOT YET REVIEWED (set 'correct': true/false in JSON)
+
+  Latency:
+    Average: 12.29s
+    Min:     6.20s
+    Max:     28.67s
+
+── RAGAS METRICS ────────────────────────────────────────────────────
+  Questions evaluated: 77
+  Questions skipped:   0 (no chunks)
+  Faithfulness:        0.596
+  Answer Relevancy:    0.7332
+  Context Recall:      0.2977
+  Context Precision:   0.3673
+  Hallucination Rate:  40.4%
+
+── CHUNK & RETRIEVAL METRICS ────────────────────────────────────────
+  Precision@K:        0.8218
+  Recall@K:           0.9242
+  F1@K:               0.85
+  Questions Evaluated: 77
+
+── COMPLETENESS & COST METRICS ──────────────────────────────────────
+  Answer Completeness: Skipped (pass --completeness flag to run)
+  Total Cost:         $0.076628
+  Avg Cost/Query:     $0.000995
+  Min Cost/Query:     $0.000407
+  Max Cost/Query:     $0.001719
+  Total Tokens:       408044
+
+── PER SECTION BREAKDOWN ────────────────────────────────────────────
+  Section       Total    Routing   Citation    Correct    Avg Lat
+  --------------------------------------------------------------
+  Excel            15 11/15 (73%):>10 11/15 (73%):>10 not reviewed 12.4s:>10
+  Concall          15 15/15 (100%):>10 15/15 (100%):>10 not reviewed 13.7s:>10
+  PDF              16 16/16 (100%):>10 16/16 (100%):>10 not reviewed 11.0s:>10
+  Images           16 16/16 (100%):>10 16/16 (100%):>10 not reviewed 10.7s:>10
+  Cross            15 12/15 (80%):>10 14/15 (93%):>10 not reviewed 13.7s:>10
+
+── PER DIFFICULTY BREAKDOWN ─────────────────────────────────────────
+  Easy       Routing: 20/21 (95%) | Correct: not reviewed
+  Medium     Routing: 16/20 (80%) | Correct: not reviewed
+  Hard       Routing: 34/36 (94%) | Correct: not reviewed
+
+── FAILURE ANALYSIS ─────────────────────────────────────────────────
+
+  Routing Failures (7):
+    Q6 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q7 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q8 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q13 [Excel]: Expected ['excel'] | Got ['craftsman_automation_ltd_excel']
+    Q64 [Cross]: Expected ['excel', 'pdf'] | Got ['craftsman_automation_ltd_excel']
+    Q69 [Cross]: Expected ['excel', 'pdf', 'images'] | Got ['excel']
+    Q75 [Cross]: Expected ['excel', 'pdf', 'concall'] | Got ['excel', 'pdf']
+
+  Citation Failures (5):
+    Q6 [Excel]: Compute the Debt-to-Equity ratio for FY25 and FY26 and asses...
+    Q7 [Excel]: Calculate Debtor Days for FY23 and FY26 and compare receivab...
+    Q8 [Excel]: Compute the Interest Coverage Ratio for FY22 and FY25 and ev...
+    Q13 [Excel]: In FY26, Other Expenses in the P&L is reported at ₹1,842.44 ...
+    Q64 [Cross]: The FY23 MD&A states the Interest Coverage Ratio declined fr...
+
+── SUMMARY ──────────────────────────────────────────────────────────
+  Routing Accuracy:   90.9%
+  Citation Accuracy:  93.5%
+  Faithfulness:       0.596
+  Context Recall:     0.2977
+  Context Precision:  0.3673
+  Hallucination Rate: 40.4%
+  Retrieval F1@K:     0.85
+  Avg Cost/Query:     $0.000995
+  Avg Latency:        12.29s
+======================================================================

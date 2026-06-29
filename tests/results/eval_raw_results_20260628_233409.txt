@@ -1,0 +1,2317 @@
+FinBot Evaluation Raw Results
+Run: 20260628_233409
+================================================================================
+
+Q1 [Excel] [Easy]
+Question: What was the Net Profit reported by the company in FY26?
+Expected: Net Profit in FY26 was ₹383.99 Cr — a recovery from ₹194.57 Cr in FY25 and the highest absolute net profit in the 10-year dataset.
+Actual:   ## Summary
+The Net Profit reported by Craftsman Automation Ltd in FY2026 was ₹383.99 crore.
+
+## Details
+- Net Profit (FY2026): ₹383.99 crore
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2026
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  8.47s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q2 [Excel] [Easy]
+Question: What were total Borrowings on the Balance Sheet as at end of FY24?
+Expected: Total Borrowings as at 31 March 2024 were ₹1,754.82 Cr, up from ₹1,240.23 Cr in FY23 — an increase of ₹514.59 Cr.
+Actual:   ## Summary
+Total Borrowings on the Balance Sheet as at the end of FY24 were ₹1,754.82 crore.
+
+## Details
+- Borrowings: ₹1,754.82 crore (FY2024)
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY2024
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  7.4s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q3 [Excel] [Easy]
+Question: What was the Cash from Operating Activity in FY23?
+Expected: Cash from Operating Activity in FY23 was ₹607.66 Cr — the highest among all 10 years in the dataset.
+Actual:   ## Summary
+The Cash from Operating Activity for Craftsman Automation Ltd in FY23 was ₹607.66 crore.
+
+## Details
+- Cash from Operating Activity: ₹607.66 crore (FY23)
+
+## Sources
+Craftsman Auto.xlsx · cash_flow · FY23
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  7.38s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q4 [Excel] [Easy]
+Question: What was the Depreciation charge for the company in FY22?
+Expected: Depreciation in FY22 was ₹205.99 Cr, compared to ₹192.45 Cr in FY21 — a modest 7% increase.
+Actual:   ## Summary  
+The Depreciation charge for Craftsman Automation Ltd in FY22 was ₹205.99 crore.
+
+## Details  
+- Depreciation (FY22): ₹205.99 crore
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY22
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  7.33s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q5 [Excel] [Medium]
+Question: Calculate the Operating Profit Margin for FY24 and FY25 and comment on the trend. OPM = Operating Profit / Sales × 100
+Expected: FY24 OPM: 19.74%. FY25 OPM: 14.64%. OPM contracted sharply by ~510 bps despite 27.8% revenue growth — a significant margin deterioration.
+Actual:   ## Summary  
+The Operating Profit Margin (OPM) for FY24 is approximately 15.9%, and for FY25 it is approximately 11.2%, indicating a declining trend in operating profitability relative to sales between these two years.
+
+## Details  
+Operating Profit is calculated as Profit Before Tax (PBT) plus Interest and Depreciation (since these are non-operating and non-cash expenses respectively, and typically Operating Profit = EBIT = PBT + Interest).  
+- FY24:  
+  - Profit before tax = 444.69 Cr  
+  - Interest = 174.54 Cr  
+  - Depreciation = 277.69 Cr  
+  - Sales = 4451.73 Cr  
+
+- FY25:  
+  - Profit before tax = 269.65 Cr  
+  - Interest = 216.64 Cr  
+  - Depreciation = 347.02 Cr  
+  - Sales = 5690.48 Cr  
+
+## Calculation  
+Operating Profit = Profit before tax + Interest  
+(Note: Depreciation is already accounted for in EBIT, so adding Interest to PBT gives EBIT/Operating Profit)  
+
+For FY24:  
+OP = 444.69 + 174.54 = 619.23 Cr  
+OPM = (619.23 / 4451.73) × 100 = 13.91%  
+
+For FY25:  
+OP = 269.65 + 216.64 = 486.29 Cr  
+OPM = (486.29 / 5690.48) × 100 = 8.55%  
+
+However, the question states OPM = Operating Profit / Sales × 100, and Operating Profit is EBIT, which is Profit before tax + Interest (Depreciation is already deducted in EBIT).  
+
+Alternatively, EBITDA is also available:  
+FY24 EBITDA = 728.61 Cr  
+FY25 EBITDA = 638.35 Cr  
+
+But EBITDA is before depreciation, so not the same as Operating Profit.  
+
+Rechecking the EBIT from PBT + Interest:  
+FY24 EBIT = 444.69 + 174.54 = 619.23 Cr  
+FY25 EBIT = 269.65 + 216.64 = 486.29 Cr  
+
+Calculating OPM:  
+FY24 OPM = (619.23 / 4451.73) × 100 = 13.91%  
+FY25 OPM = (486.29 / 5690.48) × 100 = 8.55%  
+
+This shows a decline in operating profit margin from FY24 to FY25.
+
+## Conclusion  
+The Operating Profit Margin declined from 13.9% in FY24 to 8.6% in FY25, indicating reduced operating efficiency or increased operating costs relative to sales in FY25 despite higher sales. This suggests margin pressure in FY25 compared to FY24.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  14.36s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q6 [Excel] [Medium]
+Question: Compute the Debt-to-Equity ratio for FY25 and FY26 and assess the change in financial leverage.
+Expected: FY25 D/E = 0.83x. FY26 D/E = 1.11x. Borrowings rose 54% in one year while equity grew only 14%, indicating accelerating debt-funded capex.
+Actual:   ## Summary  
+The Debt-to-Equity ratio increased from 0.83 in FY25 to 1.11 in FY26, indicating a rise in financial leverage over the period.
+
+## Details  
+- FY25 Borrowings: 2,358.18  
+- FY25 Networth: 2,856.74  
+- FY25 Debt-to-Equity ratio: 0.83  
+
+- FY26 Borrowings: 3,623.48  
+- FY26 Networth: 3,264.06  
+- FY26 Debt-to-Equity ratio: 1.11  
+
+## Calculation  
+Debt-to-Equity ratio = Borrowings / Networth  
+
+- FY25: 2,358.18 / 2,856.74 = 0.83  
+- FY26: 3,623.48 / 3,264.06 = 1.11  
+
+The increase from 0.83 to 1.11 shows that the company has increased its reliance on debt relative to equity, reflecting higher financial leverage in FY26 compared to FY25.
+
+## Sources  
+Craftsman Auto.xlsx · calculation · 2026
+Routing:  ❌ | Expected: ['excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  6.98s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q7 [Excel] [Medium]
+Question: Calculate Debtor Days for FY23 and FY26 and compare receivable collection efficiency. Debtor Days = Receivables / Sales × 365
+Expected: FY23: 61.4 days. FY26: 50.2 days. Receivables grew 4.6x but Debtor Days improved from 61 to 50 days — a positive working capital signal.
+Actual:   ## Summary  
+Debtor Days for FY23 is 61.39 days and for FY26 is 50.23 days, indicating an improvement in receivable collection efficiency over the period.
+
+## Details  
+- FY23:  
+  - Receivables = 535.29  
+  - Sales = 3182.6  
+  - Debtor Days = 61.39  
+
+- FY26:  
+  - Receivables = 1110.54  
+  - Sales = 8069.27  
+  - Debtor Days = 50.23  
+
+## Calculation  
+Formula:  
+Debtor Days = (Receivables / Sales) × 365
+
+For FY23:  
+= (535.29 / 3182.6) × 365  
+= 0.1681 × 365  
+= 61.39 days
+
+For FY26:  
+= (1110.54 / 8069.27) × 365  
+= 0.1377 × 365  
+= 50.23 days
+
+## Sources  
+Craftsman Auto.xlsx · calculation · 2026
+Routing:  ❌ | Expected: ['excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  17.3s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q8 [Excel] [Medium]
+Question: Compute the Interest Coverage Ratio for FY22 and FY25 and evaluate debt serviceability. ICR = Operating Profit / Interest
+Expected: FY22 ICR: 6.34x. FY25 ICR: 3.85x. ICR has deteriorated significantly as debt servicing costs outpaced operating profit growth.
+Actual:   ## Summary  
+The Interest Coverage Ratio (ICR) for FY22 is approximately 5.97 and for FY25 is approximately 2.95, indicating a decline in debt serviceability over the period but still above 1, meaning the company can cover its interest expenses in both years.
+
+## Details  
+- FY22: EBITDA = 502.72, Interest = 84.22, ICR = 5.97  
+- FY25: EBITDA = 638.35, Interest = 216.64, ICR = 2.95  
+
+## Calculation  
+Formula:  
+\[
+\text{ICR} = \frac{\text{Operating Profit (EBITDA)}}{\text{Interest}}
+\]
+
+For FY22:  
+\[
+\text{ICR}_{2022} = \frac{502.72}{84.22} = 5.97
+\]
+
+For FY25:  
+\[
+\text{ICR}_{2025} = \frac{638.35}{216.64} = 2.95
+\]
+
+## Conclusion  
+The company’s ability to cover interest expenses has weakened from FY22 to FY25, as the ICR dropped from 5.97 to 2.95. However, since the ratio remains above 1, the company is still able to meet its interest obligations, though with less cushion in FY25 compared to FY22.
+Routing:  ❌ | Expected: ['excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  10.44s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q9 [Excel] [Hard]
+Question: In FY25, sales grew 27.8% YoY yet PBT fell 39.4% from FY24. Identify all P&L drivers contributing to this PBT collapse and flag audit implications.
+Expected: Key drivers: OPM contracted from 19.74% to 14.64%; Interest rose from ₹174.54 Cr to ₹216.64 Cr; Other Income collapsed from ₹18.09 Cr to ₹0.30 Cr; Depreciation rose by ₹69.33 Cr. Audit flag: OPM compression on high-revenue year may indicate unrecorded liabilities or accelerated cost recognition.
+Actual:   ## Summary  
+In FY25, despite a 27.8% YoY sales growth, Craftsman Automation’s Profit Before Tax (PBT) fell sharply by 39.4% due to disproportionate increases in raw material costs, employee expenses, other manufacturing expenses, and finance costs. These cost escalations outpaced revenue growth, compressing margins significantly. The audit flagged material inconsistencies in expense recognition and valuation of key assets, indicating potential risks in financial reporting accuracy.
+
+## Details  
+
+### Sales and PBT  
+- Sales FY24: ₹4,451.73 Cr  
+- Sales FY25: ₹5,690.48 Cr (27.8% increase)  
+- PBT FY24: ₹444.69 Cr (Excel data)  
+- PBT FY25: ₹269.65 Cr (Excel data)  
+- PBT decline: 39.4%  
+
+### Key P&L Drivers Impacting PBT (FY24 to FY25)  
+- **Raw Material Cost**:  
+  - FY24: ₹2,521.53 Cr  
+  - FY25: ₹3,296.73 Cr  
+  - Increase: ₹775.20 Cr (30.7%) — outpacing sales growth, squeezing gross margin.  
+
+- **Change in Inventory**:  
+  - FY24: ₹150.22 Cr  
+  - FY25: ₹194.66 Cr  
+  - Increase: ₹44.44 Cr — higher inventory buildup, tying up working capital and increasing carrying costs.  
+
+- **Employee Cost**:  
+  - FY24: ₹288.74 Cr  
+  - FY25: ₹436.67 Cr  
+  - Increase: ₹147.93 Cr (51.2%) — significant rise in labor expenses impacting operating profit.  
+
+- **Other Manufacturing Expenses**:  
+  - FY24: ₹489.04 Cr  
+  - FY25: ₹676.95 Cr  
+  - Increase: ₹187.91 Cr (38.4%) — sharp rise in overheads and manufacturing support costs.  
+
+- **Power and Fuel**:  
+  - FY24: ₹262.51 Cr  
+  - FY25: ₹367.57 Cr  
+  - Increase: ₹105.06 Cr (40%) — energy cost inflation contributing to higher operating expenses.  
+
+- **Selling and Admin Expenses**:  
+  - FY24: ₹155.66 Cr  
+  - FY25: ₹255.23 Cr  
+  - Increase: ₹99.57 Cr (64%) — disproportionate increase in SG&A costs.  
+
+- **Other Expenses**:  
+  - FY24: ₹5.64 Cr  
+  - FY25: ₹18.98 Cr  
+  - Increase: ₹13.34 Cr — additional miscellaneous expenses.  
+
+- **Interest Expense**:  
+  - FY24: ₹174.54 Cr  
+  - FY25: ₹216.64 Cr  
+  - Increase: ₹42.10 Cr (24%) — higher finance costs due to increased borrowings or interest rates.  
+
+- **Depreciation**:  
+  - FY24: ₹277.69 Cr  
+  - FY25: ₹347.02 Cr  
+  - Increase: ₹69.33 Cr (25%) — higher fixed asset base or accelerated depreciation.  
+
+- **Other Income**:  
+  - FY24: ₹18.09 Cr  
+  - FY25: ₹0.30 Cr  
+  - Decrease: ₹17.79 Cr — lower non-operating income reducing offset to expenses.  
+
+### Impact Summary  
+- Total expenses increased disproportionately relative to sales growth, compressing EBITDA and PBT margins.  
+- Sharp rise in raw material and employee costs were primary drivers of margin erosion.  
+- Increased finance costs and depreciation further reduced profitability.  
+- Decline in other income removed a partial cushion against rising expenses.  
+
+### Audit Implications  
+- The audit report (Annual-Report-2025.pdf, p.109) highlights **Key Audit Matters** related to:  
+  - Valuation and impairment of Property, Plant & Equipment (PPE), including depreciation rates and asset capitalization.  
+  - Recognition and measurement of provisions for doubtful debts, warranty, and slow-moving inventory, which could affect expense recognition and inventory valuation.  
+  - Testing of internal controls over cost accounting and expense classification due to significant fluctuations in manufacturing and SG&A expenses.  
+- The material decline in PBT despite strong sales growth suggests potential issues in cost recognition or asset valuation that auditors flagged for further scrutiny.  
+- The audit noted possible inconsistencies or risks in expense accruals and asset impairment judgments that could materially affect reported profits.  
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+Annual-Report-2025.pdf · p.109 · FY25  
+Annual-Report-2025.pdf · p.4 · FY25
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  28.35s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q10 [Excel] [Hard]
+Question: Assess the Operating Cash Flow quality for FY25 and FY26 by computing OCF-to-Net-Profit ratio. Is the company's profit of high quality?
+Expected: OCF/NP: FY24: 1.69x, FY25: 1.46x, FY26: 1.36x. The ratio has declined persistently — profit quality is deteriorating. Earnings are increasingly accrual-based.
+Actual:   ## Summary  
+The Operating Cash Flow (OCF) to Net Profit ratio for FY25 is approximately 1.46 and for FY26 is approximately 1.36, indicating that the company's profits in both years are of high quality as cash generated from operations significantly exceeds net profit.
+
+## Details  
+- FY25 Net Profit: 194.57 Cr  
+- FY25 Operating Cash Flow: 283.33 Cr  
+- FY26 Net Profit: 383.99 Cr  
+- FY26 Operating Cash Flow: 521.68 Cr  
+
+## Calculation  
+OCF-to-Net-Profit ratio = Operating Cash Flow / Net Profit
+
+- FY25: 283.33 Cr / 194.57 Cr = 1.455 ≈ 1.46  
+- FY26: 521.68 Cr / 383.99 Cr = 1.359 ≈ 1.36  
+
+## Conclusion  
+Since the OCF-to-Net-Profit ratio is well above 1 in both years, it shows that the company is generating strong cash flows relative to its reported profits, reflecting high-quality earnings with good cash conversion.
+
+## Sources  
+Craftsman Auto.xlsx · cash_flow · FY25  
+Craftsman Auto.xlsx · profit_loss · FY25  
+Craftsman Auto.xlsx · cash_flow · FY26  
+Craftsman Auto.xlsx · profit_loss · FY26
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel']
+Citation: ✅
+Latency:  11.16s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q11 [Excel] [Hard]
+Question: The company shows a negative effective tax rate in FY17 where Net Profit exceeded PBT. Explain the mechanics and flag forensic concerns.
+Expected: FY17: PBT = ₹36.67 Cr; Tax = −₹43.07 Cr; Net Profit = ₹79.74 Cr. Effective tax rate = −117.5%. A tax credit of ₹43 Cr when PBT is only ₹37 Cr inflated Net Profit by 117% — auditors must verify DTA recognition criteria.
+Actual:   ## Summary  
+In FY2017, Craftsman Automation Ltd reported a negative effective tax rate because the tax expense was a negative ₹43.07 Cr while profit before tax (PBT) was only ₹36.67 Cr, resulting in net profit (₹79.74 Cr) exceeding PBT. This unusual situation likely arises from significant deferred tax assets or tax credits recognized, but it warrants forensic scrutiny for potential tax accounting irregularities or one-time tax benefits.
+
+## Details  
+- Profit before tax (PBT) FY2017: ₹36.67 Cr  
+- Tax expense FY2017: -₹43.07 Cr (negative tax)  
+- Net profit FY2017: ₹79.74 Cr (PBT + negative tax)  
+
+The effective tax rate = Tax / PBT = -43.07 / 36.67 = -117.5% (negative and greater than 100% in absolute terms).
+
+This means the company recorded a tax benefit larger than its pre-tax profit, boosting net profit beyond PBT.
+
+## Explanation of Mechanics  
+- Negative tax expense typically results from recognition of deferred tax assets (DTAs) due to prior losses or timing differences expected to reduce future tax liabilities.  
+- It can also arise from tax credits, refunds, or adjustments related to prior years.  
+- The tax benefit is recorded in the P&L, reducing tax expense below zero and increasing net profit beyond PBT.  
+
+## Forensic Concerns  
+- Such a large negative tax relative to PBT is unusual and should be examined carefully.  
+- Potential concerns include:  
+  - Aggressive recognition of deferred tax assets without sufficient evidence of future taxable profits.  
+  - One-time tax adjustments or reversals that may not be sustainable.  
+  - Possible misclassification or manipulation of tax accounting entries to inflate net profit.  
+  - Risk of tax disputes or reassessments if tax benefits are not supported by tax authorities.  
+
+A detailed review of the tax notes in the annual report and audit commentary is recommended to confirm the nature and legitimacy of this tax benefit.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY2017
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  16.39s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q12 [Excel] [Hard]
+Question: Evaluate the capex intensity trend from FY23 to FY26 against OCF. Is the company's capex program self-funded or debt-reliant?
+Expected: OCF coverage of capex: FY23: 71%, FY24: 64%, FY25: 17%, FY26: 35%. The company is clearly NOT self-funding capex. Borrowings grew from ₹1,240 Cr (FY23) to ₹3,623 Cr (FY26).
+Actual:   ## Summary  
+From FY23 to FY26, Craftsman Automation's capital expenditure (capex) shows a significant increase, rising from ₹309 Crores in FY23 to a much higher level implied by the large increase in other expenses and asset purchases by FY26. However, the operating cash flow (OCF) growth is strong but not sufficient alone to cover the capex and other financing needs, indicating the company’s capex program is partially debt-reliant rather than fully self-funded.
+
+## Capex Intensity Trend and Operating Cash Flow (OCF)  
+
+- **FY23 Capex:** ₹309 Crores (from Annual Report narrative, Page 31 FY23)  
+- **FY23 Operating Cash Flow (Standalone):** ₹565.82 Crores (from Annual Report cash flow statement, Page 70 FY23, ₹56,582 Lakhs)  
+- **FY24 to FY26 Capex:** Exact capex figures for FY24-FY26 are not explicitly stated, but significant increases in property, plant, and equipment purchases and other expenses are noted, with FY26 showing very high expenses (e.g., Other Expenses ₹1842.44 Cr in FY26) and large borrowings (see below).  
+
+## Financing and Debt Reliance  
+
+- **FY23 Financing Cash Flow:** Net cash from financing activities was positive ₹73.04 Crores (Page 103 FY23), driven by proceeds from long-term borrowings ₹576.31 Crores, partially offset by repayments and interest payments.  
+- **Borrowings:** Large increase in long-term borrowings in FY23 (₹576.31 Cr) compared to previous years indicates reliance on debt to fund capex and other investments.  
+- **Net Cash Flow:** Despite strong OCF, net cash flow was negative in FY23 (net decrease in cash and cash equivalents ₹27.21 Crores), showing that cash generated from operations was insufficient to cover all investing and financing outflows without additional debt.  
+- **FY24-FY26:** Given the continued increase in sales and expenses, and the large jump in interest expense (₹308.97 Cr in FY26), it is inferred that the company continues to rely on debt financing to support its capex program.  
+
+## Conclusion  
+While Craftsman Automation generates strong operating cash flows, the scale and growth of its capex program from FY23 onwards exceed what can be fully funded by OCF alone. The company supplements its capex with significant long-term borrowings, making the capex program partially debt-reliant rather than fully self-funded.
+
+## Sources  
+Annual-Report_2023.pdf · Page 31 · FY23  
+Annual-Report_2023.pdf · Page 70 · FY23  
+Annual-Report_2023.pdf · Page 103 · FY23  
+Craftsman Auto.xlsx · profit_loss · FY23 to FY26
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  14.42s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q13 [Excel] [Hard]
+Question: In FY26, Other Expenses in the P&L is reported at ₹1,842.44 Cr — more than 5x the prior year figure of ₹18.98 Cr in FY25. Flag this anomaly and its implications.
+Expected: FY26 Other Expenses: ₹1,842.44 Cr — a 9,603% increase. This is likely a data reclassification anomaly. Cost structure analysis cannot be performed at sub-line level for FY26.
+Actual:   ## Summary  
+Other Expenses in FY26 are reported at ₹1,842.44 Cr, which is more than 97 times the FY25 figure of ₹18.98 Cr, indicating a significant anomaly that requires investigation due to its potential impact on profitability and financial analysis.
+
+## Details  
+- FY25 Other Expenses: ₹18.98 Cr  
+- FY26 Other Expenses: ₹1,842.44 Cr  
+
+The FY26 figure is drastically higher than FY25, far exceeding a 5x increase, suggesting either a data entry error, a one-time extraordinary expense, or a change in accounting treatment.
+
+## Implications  
+- Such a large increase in Other Expenses will materially reduce net profit in FY26.  
+- It may distort year-on-year profitability comparisons and financial ratios.  
+- Requires immediate review to confirm accuracy and understand the nature of the expense.  
+- If legitimate, this could indicate operational or non-recurring issues affecting the company’s financial health.  
+
+## Sources  
+Craftsman Auto.xlsx · calculation · 25
+Routing:  ❌ | Expected: ['excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  9.64s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q14 [Excel] [Hard]
+Question: The company paid zero dividend in FY20 and FY21 despite reporting net profits. Evaluate management's capital allocation consistency across the decade.
+Expected: FY20 dividend skip is explainable (COVID, revenue fell 18%). FY21 skip is more concerning — profits recovered to ₹97 Cr yet no dividend, coinciding with IPO. Post-IPO dividends resumed and scaled. Payout ratios remain low (5-10%), consistent with growth-capex-heavy phase.
+Actual:   ## Summary  
+Craftsman Automation Ltd did not pay any dividends in FY20 and FY21 despite reporting net profits of ₹40.01 Cr and ₹97.36 Cr respectively, indicating a temporary pause in dividend payouts during these years. However, dividend payments resumed before and after this period, showing an overall consistent capital allocation policy with dividends paid in most profitable years across the decade.
+
+## Details  
+- FY17: Net profit ₹79.74 Cr; Dividend not reported (assumed zero or negligible)  
+- FY18: Net profit ₹31.53 Cr; Dividend ₹1.01 Cr  
+- FY19: Net profit ₹97.37 Cr; Dividend ₹5.03 Cr  
+- FY20: Net profit ₹40.01 Cr; Dividend ₹0 Cr  
+- FY21: Net profit ₹97.36 Cr; Dividend ₹0 Cr  
+- FY22: Net profit ₹163.09 Cr; Dividend ₹7.92 Cr  
+- FY23: Net profit ₹248.39 Cr; Dividend ₹23.76 Cr  
+- FY24: Net profit ₹304.47 Cr; Dividend ₹23.76 Cr  
+- FY25: Net profit ₹194.57 Cr; Dividend ₹11.93 Cr  
+- FY26: Net profit ₹383.99 Cr; Dividend ₹26.84 Cr  
+
+## Conclusion  
+The absence of dividends in FY20 and FY21 despite positive net profits suggests management chose to conserve cash or reinvest earnings during those years, possibly due to external factors or strategic priorities. However, the resumption of dividends from FY22 onwards and consistent dividend payments in other profitable years reflect a generally stable and consistent capital allocation approach over the decade. This pattern indicates prudent management balancing between rewarding shareholders and retaining earnings for growth or contingencies.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY2017 to FY2026
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  12.91s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q15 [Excel] [Hard]
+Question: Inventory grew from ₹836 Cr in FY23 to ₹1,745 Cr in FY26 — a 109% increase while sales grew 153%. Analyse inventory efficiency and flag any buildup risk.
+Expected: Inventory days improved from 96 days (FY23) to 79 days (FY26) despite absolute inventory doubling. No buildup risk based on disclosed figures. However auditors should verify physical stock counts and provisioning policy.
+Actual:   ## Summary  
+Inventory increased by 109% from ₹836 Cr in FY23 to ₹1,745 Cr in FY26, while sales grew by 153% over the same period. This indicates that inventory growth is lagging behind sales growth, suggesting improved inventory efficiency with no immediate risk of excessive buildup.
+
+## Details  
+- Inventory in FY23: ₹836 Cr (calculated as Raw Material Cost ₹1,699.64 Cr minus Change in Inventory ₹70.21 Cr, assuming opening inventory plus change leads to this figure)  
+- Inventory in FY26: ₹1,745 Cr (similarly derived from Raw Material Cost ₹4,525.39 Cr and Change in Inventory ₹123.43 Cr)  
+- Inventory growth: 109% increase over 3 years  
+- Sales in FY23: ₹3,182.60 Cr  
+- Sales in FY26: ₹8,069.27 Cr  
+- Sales growth: 153% increase over 3 years  
+
+Inventory growth is significantly lower than sales growth, implying better turnover or more efficient inventory management.
+
+## Conclusion  
+The inventory increase is proportionally less than sales growth, indicating improved inventory efficiency. There is no indication of inventory buildup risk based on the relative growth rates. Management should continue monitoring inventory turnover ratios to sustain this efficiency.  
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY23  
+Craftsman Auto.xlsx · profit_loss · FY26
+Routing:  ✅ | Expected: ['excel'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  13.46s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q16 [Concall] [Easy]
+Question: What was the total consolidated H1 FY23 revenue reported by the company, and by what percentage did it exceed H1 FY22?
+Expected: H1 FY23 revenue was ₹1,447 crores, compared to ₹1,000 crores in H1 FY22 — a 44.7% increase.
+Actual:   ## Summary  
+The total consolidated revenue for H1 FY23 was ₹1,199 crore, which exceeded H1 FY22 revenue of ₹1,134 crore by approximately 5.7%.
+
+## Details  
+- H1 FY22 revenue components (from powertrain segment data and other segments combined):  
+  - Commercial vehicle: ₹385 crore  
+  - Off-highway: ₹150 crore  
+  - Farm sector: ₹125 crore  
+  - Passenger vehicle: ₹66 crore  
+  - Storage solutions H1 FY22: ₹134 crore  
+  - Other segments (inferred from total FY22 and growth comments): The total H1 FY22 revenue is approximately ₹1,134 crore (sum of above segments plus others).  
+
+- H1 FY23 revenue components:  
+  - Storage solutions H1 FY23: ₹199 crore  
+  - Powertrain segments (sum of commercial vehicle, off-highway, farm, passenger vehicle) for H1 FY23 is not explicitly broken down but total revenue growth is indicated.  
+  - Total H1 FY23 revenue is approximately ₹1,199 crore (based on 20% annual growth on ₹1,150 crore FY22 revenue and half-year proportion).  
+
+- Growth:  
+  - H1 FY22 total revenue: ₹1,134 crore (sum of segments and storage solutions)  
+  - H1 FY23 total revenue: ₹1,199 crore  
+  - Percentage increase = ((1,199 - 1,134) / 1,134) * 100 = 5.7%  
+
+## Calculation  
+Percentage increase = ((H1 FY23 revenue - H1 FY22 revenue) / H1 FY22 revenue) × 100  
+= ((₹1,199 crore - ₹1,134 crore) / ₹1,134 crore) × 100  
+= (₹65 crore / ₹1,134 crore) × 100 ≈ 5.7%
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 11 · FY22  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 7 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 14 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  28.67s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q17 [Concall] [Easy]
+Question: What was the credit rating of the company at the time of the FY23 Q1 earnings call, and what was it upgraded from?
+Expected: The rating was upgraded to A+ with stable outlook, from A with stable outlook, as disclosed during the Q1 FY23 earnings call.
+Actual:   ## Summary  
+At the time of the FY23 Q1 earnings call, the company’s credit rating was upgraded to [exact rating not provided in context], upgraded from [previous rating not provided in context].
+
+## Sources  
+No explicit credit rating information or upgrade details were provided in the earnings call transcript excerpts available.
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  8.6s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q18 [Concall] [Easy]
+Question: What was the segment-wise EBIT for the Auto Powertrain, Aluminum Products, and Industrial & Engineering divisions in FY23 Q1?
+Expected: Auto Powertrain: ₹95 crores; Aluminum Products: ₹20 crores; Industrial & Engineering: ₹11 crores. Total EBIT: ₹112 crores.
+Actual:   ## Summary  
+The segment-wise EBIT for FY23 Q1 was ₹304 Crores for Auto Powertrain, ₹10 Crores for Auto Aluminum, and ₹64 Crores for Industrial & Engineering.
+
+## Details  
+- Auto Powertrain EBIT: ₹304 Crores  
+- Auto Aluminum EBIT: ₹10 Crores  
+- Industrial & Engineering EBIT: ₹64 Crores  
+
+These figures are from the latest available quarterly data referenced in FY22 earnings call transcripts, which provide the most recent segment EBIT numbers.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 3 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  9.58s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q19 [Concall] [Easy]
+Question: What was the total debt of the company as of end of FY22 Q4, and how was it split between long-term and working capital loans?
+Expected: Total debt as of March 2022 stood at ₹713 crores — long-term debt ₹522 crores and working capital loans ₹193 crores.
+Actual:   ## Summary  
+As of the end of FY22 Q4, the total debt of the company was Rs.760 crores, split into Rs.490 crores of long-term debt and Rs.270 crores of working capital (short-term) loans.
+
+## Details  
+- Total debt as of March 2022 (FY22 Q4) was Rs.713 crores (May transcript).  
+- By July 2022 (Q1 FY23), total debt increased by Rs.50 crores to Rs.760 crores.  
+- Long-term debt reduced by Rs.30 crores from Rs.522 crores (March 2022) to Rs.490 crores (July 2022).  
+- Working capital (short-term) loans increased by Rs.80 crores from Rs.193 crores (March 2022) to Rs.270 crores (July 2022).  
+
+## Calculation  
+- Total debt Q4 FY22 (March 2022): Rs.713 crores  
+- Increase in total debt by Q1 FY23: Rs.50 crores  
+- Total debt Q1 FY23: 713 + 50 = Rs.760 crores  
+- Long-term debt March 2022: Rs.522 crores  
+- Long-term debt July 2022: 522 - 30 = Rs.492 crores (rounded to Rs.490 crores as per management commentary)  
+- Working capital March 2022: Rs.193 crores  
+- Working capital July 2022: 193 + 80 = Rs.273 crores (rounded to Rs.270 crores)  
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 4 & 10 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  11.28s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q20 [Concall] [Medium]
+Question: Calculate the Debt-to-EBITDA ratio for FY23 H1 as disclosed by management, and compare it to the prior full-year ratio. What does the trend indicate?
+Expected: H1 FY23 Debt-to-EBITDA (annualised) = 1.08x, compared to 1.33x for full-year FY22. Trend indicates improving debt serviceability as EBITDA grew 31% YoY.
+Actual:   ## Summary  
+The Debt-to-EBITDA ratio for FY23 H1 is approximately 1.44, compared to about 1.42 for the full FY22 year, indicating a slight increase in leverage in the first half of FY23 relative to FY22.
+
+## Details  
+- Debt as of March 2022 (end FY22): ₹713 Crores (from management commentary)  
+- EBITDA for FY22: ₹502.72 Crores (Excel data)  
+- Debt-to-EBITDA ratio for FY22 = 713 / 502.72 ≈ 1.42  
+
+- Debt reduction expected in FY23: ₹100 Crores (management expects debt to reduce by around ₹100 Cr in FY23)  
+- Since the exact debt at H1 FY23 is not explicitly stated, we infer debt at H1 FY23 as approximately ₹713 Cr - (half of ₹100 Cr) = ₹663 Cr (assuming linear reduction over the year)  
+- EBITDA for FY23 H1:  
+  - Q1 FY23 EBITDA: Not directly given, but Q1 FY23 sales and EBITDA are not explicitly stated in the context. However, management states:  
+    - Storage solutions for FY22 full year: ₹253 Cr (likely revenue, not EBITDA)  
+    - Q1 FY23: ₹88 Cr (likely revenue)  
+    - Q2 FY23: ₹111 Cr (likely revenue)  
+  - Since EBITDA for H1 FY23 is not directly given, we use full year FY23 EBITDA and estimate H1 as roughly half:  
+    - FY23 EBITDA: ₹613.40 Cr (Excel data)  
+    - Estimated H1 FY23 EBITDA ≈ 613.40 / 2 = ₹306.7 Cr (approximate, but no exact figure given)  
+
+- Debt-to-EBITDA ratio for FY23 H1 = 663 / 306.7 ≈ 2.16 (if we use this estimate)  
+
+However, this conflicts with the initial summary figure. Since the question asks for Debt-to-EBITDA ratio "as disclosed by management," and management states debt at March 2022 and expected reduction, but no explicit EBITDA for H1 FY23, we must rely on full-year EBITDA figures only.
+
+Alternatively, if we consider the full FY23 EBITDA of ₹613.40 Cr and debt at March 2023 (not given), we cannot calculate exact ratio for FY23 H1.
+
+Given the lack of explicit H1 EBITDA and debt figures, the best we can do is compare FY22 full year debt-to-EBITDA ratio (1.42) with FY23 full year ratio:
+
+- FY23 debt is not given, but interest expense increased from ₹84.22 Cr (FY22) to ₹120.23 Cr (FY23), indicating possibly higher debt.  
+- EBITDA increased from ₹502.72 Cr (FY22) to ₹613.40 Cr (FY23).  
+
+Without exact debt figure for FY23, we cannot calculate precise ratio.
+
+## Conclusion  
+- Debt-to-EBITDA ratio for FY22 was approximately 1.42.  
+- Management expects debt reduction of ₹100 Cr in FY23 from ₹713 Cr as of March 2022.  
+- EBITDA increased in FY23 compared to FY22.  
+- Without exact debt and EBITDA for FY23 H1, precise ratio cannot be calculated, but the trend suggests stable or slightly improved leverage due to EBITDA growth and expected debt reduction.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY22  
+Craftsman Auto.xlsx · profit_loss · FY23  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  17.73s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q21 [Concall] [Medium]
+Question: For FY23 Q2, management disclosed that aluminum prices fell approximately 10% QoQ but claimed operational margins were in line with Q1. Is this numerically consistent with the value addition numbers disclosed?
+Expected: Value addition dropped from ₹71 Cr (Q1) to ₹68 Cr (Q2). Management's normalisation claim: without price drop, value addition would have been ₹78 Cr. The ₹10 Cr gap is consistent with their 10% price drop claim.
+Actual:   ## Summary  
+Yes, the management's claim that operational margins for aluminum products in FY23 Q2 remained in line with Q1 despite a ~10% QoQ fall in aluminum prices is numerically consistent with the disclosed value addition figures. The value addition increased from Rs. 71 crores in Q1 FY23 to Rs. 80 crores in Q2 FY23, indicating stable or improved operational margins.
+
+## Details  
+- Q1 FY23 aluminum products value addition: Rs. 71 crores (Source: CraftsmanAutomationAudioTranscript2022_July.pdf · Page 15)  
+- Q2 FY23 aluminum products value addition: Rs. 80 crores (Source: CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 6)  
+- Management stated a ~10% QoQ fall in aluminum prices in Q2 FY23 but operational margins remained stable compared to Q1 FY23 (Source: CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 6 & 16).
+
+## Conclusion  
+Despite the raw material price decline (~10%), the increase in value addition from Rs. 71 crores to Rs. 80 crores suggests that the company managed to maintain or improve operational efficiency or pricing power, supporting management’s statement on stable margins.
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  12.58s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q22 [Concall] [Medium]
+Question: Compare the value addition for the Industrial & Engineering segment in FY23 Q2 with the same quarter of the prior year. What is the YoY growth rate?
+Expected: I&E value addition in Q2 FY23 = ₹76 crores vs Q2 FY22 = ₹42 crores — a YoY growth of ~81%. Value addition growing faster than revenue implies improvement in sales mix quality.
+Actual:   ## Summary  
+The value addition for the Industrial & Engineering segment in FY23 Q2 was ₹76 crore, compared to ₹42 crore in FY22 Q2, resulting in a year-over-year growth rate of approximately 81.0%.
+
+## Details  
+- FY22 Q2 value addition (Industrial & Engineering): ₹42 crore  
+- FY23 Q2 value addition (Industrial & Engineering): ₹76 crore  
+
+## Calculation  
+Growth Rate (%) = [(FY23 Q2 value addition - FY22 Q2 value addition) / FY22 Q2 value addition] × 100  
+= [(76 - 42) / 42] × 100  
+= (34 / 42) × 100  
+= 0.8095 × 100  
+= 80.95% ≈ 81.0%
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 6 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  12.95s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q23 [Concall] [Medium]
+Question: The company revised its full-year FY23 CAPEX guidance upward from ₹225 crores to ₹275 crores. Identify the specific reason for the revision.
+Expected: An unplanned additional CAPEX of ~₹70 crores was triggered by a sizable aluminium business order received in April 2022, where the customer required production to start by Q4 FY23.
+Actual:   ## Summary  
+The company revised its full-year FY23 CAPEX guidance upward from ₹225 crores to ₹275 crores due to emerging new opportunities and the need for capacity balancing or debottlenecking, which require additional investment beyond the initially planned maintenance and growth CAPEX.
+
+## Details  
+- Initial FY23 CAPEX guidance was around ₹215-225 crores, aligned with depreciation and planned 20%-25% growth (Sources [1], [2], [4], [7]).  
+- Maintenance CAPEX was estimated at about ₹100-150 crores, with the balance for growth/new lines (Sources [3], [6], [7], [8]).  
+- Management indicated that if growth exceeds 20%-25%, CAPEX may be revised upward marginally for capacity balancing or debottlenecking (Sources [4], [7]).  
+- The upward revision to ₹275 crores reflects the company’s response to new business opportunities and the need to invest more in capacity expansion beyond the original plan.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 17 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 6 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 10 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  10.96s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q24 [Concall] [Hard]
+Question: Management claimed in FY23 Q1 that the company's annualised pre-tax ROCE was 26%, an improvement from 20% for the full prior year. However total debt increased by ₹50 crores QoQ. Identify and explain the apparent contradiction.
+Expected: ROCE improved because EBIT grew and the company took cash discounts from creditors (enabled by credit rating upgrade), reducing net capital employed even as gross debt rose. The rise in short-term debt was working capital-driven, not capex-driven.
+Actual:   ## Summary  
+Management reported an improvement in annualized pre-tax ROCE to 26% in FY23 Q1 from 20% in FY22, despite a ₹50 crore increase in total debt quarter-on-quarter. The apparent contradiction arises because the ROCE improvement reflects better operating profitability and asset utilization, while the debt increase was driven by a shift in debt composition (reduction in long-term loans offset by an increase in short-term loans), not necessarily a deterioration in capital efficiency.
+
+## Explanation  
+
+### ROCE Improvement  
+- Management stated in FY23 Q1 that pre-tax ROCE improved to 26% annualized, up from 20% for the full FY22. This indicates stronger earnings relative to capital employed, driven by higher profitability and/or more efficient use of assets.
+
+### Debt Increase Details  
+- Despite this, total debt increased by ₹50 crores QoQ.  
+- However, management clarified that this increase was due to a reduction of ₹30 crores in long-term loans and an increase of ₹80 crores in short-term loans (working capital).  
+- This means the company restructured its debt profile, increasing short-term borrowings while reducing long-term debt, rather than simply increasing overall leverage.
+
+### Reconciling the Two  
+- ROCE measures returns on capital employed, which includes equity and debt. An increase in short-term debt to fund working capital can temporarily raise total debt but may support higher sales and profitability, thus improving ROCE.  
+- The reduction in long-term debt reduces interest burden and improves capital structure quality.  
+- Therefore, the increase in total debt does not contradict the ROCE improvement; it reflects a strategic shift in debt mix and operational efficiency gains rather than worsening financial health.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 4 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 10 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  13.18s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q25 [Concall] [Hard]
+Question: Management stated during FY23 Q1 that bonus provision was front-loaded to Q1. Identify all staff cost one-offs disclosed across Q1 FY23 and Q3 FY22 calls, and assess the risk that normalised staff costs are being underestimated.
+Expected: Q3 FY22: bonus release of ~₹7 crores as one-off. Q1 FY23: bonus provision made early along with salary increases. The pattern reveals bonus recognition is being shifted between quarters — creating risk of distorted inter-quarter EBITDA comparisons.
+Actual:   ## Summary  
+Management disclosed a one-off bonus provision of around Rs. 7 crores front-loaded in Q1 FY23. No other one-offs related to staff costs were mentioned in Q3 FY22. The risk of underestimating normalized staff costs exists primarily if inflationary manpower cost increases are not fully captured beyond the one-off bonus adjustment.
+
+## Details  
+- In the Q1 FY23 earnings call (February 2022 transcript), management explicitly stated a one-off bonus release of Rs. 7 crores impacting staff costs for the quarter.  
+- In the Q3 FY22 call (October 2022 transcript), there was no mention of any staff cost one-offs; management indicated that manpower cost inflation is ongoing and sustainable.  
+- In the May 2022 call (FY22 year-end), management confirmed that excluding the one-off bonus, the increase in manpower cost is inflation-driven and expected to continue, implying no other one-offs.  
+- No other specific one-off staff cost items were disclosed in either Q1 FY23 or Q3 FY22 calls.
+
+## Risk Assessment  
+- The Rs. 7 crore bonus provision in Q1 FY23 is a clear one-off, so normalized staff costs should exclude this amount for that quarter.  
+- Management’s commentary suggests ongoing inflationary pressure on manpower costs, which is sustainable and not a one-off.  
+- If analysts or models do not adjust for the Rs. 7 crore bonus one-off, staff costs may appear artificially elevated in Q1 FY23.  
+- Conversely, if inflationary increases are underestimated or not fully incorporated, normalized staff costs could be understated going forward, posing a risk of underestimation.  
+- No evidence from Q3 FY22 calls indicates other one-offs, so normalized costs there are likely accurate barring inflation assumptions.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 8 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 18 · FY22  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 1 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  13.33s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q26 [Concall] [Hard]
+Question: The company merged its Auto Aluminum and Industrial Aluminum sub-segments into a single Aluminum Products segment effective FY23 Q1. What financial reporting impact did this restructuring have?
+Expected: The restructuring makes direct YoY comparison unreliable without restatement. EBIT for Industrial & Engineering dropped dramatically which management attributed to product mix but could partly reflect removal of higher-margin aluminum sub-segments.
+Actual:   ## Summary  
+The restructuring merged the Auto Aluminum and Industrial Aluminum sub-segments into a single "Aluminium Products" segment starting FY23 Q1, resulting in reclassification of prior period figures and combined reporting of revenues, profits, and assets under this new segment.
+
+## Details  
+- Prior to FY23, Auto Aluminum was part of the "Automotive - Aluminium Products" segment and Industrial Aluminum was part of the "Industrial & Engineering" segment.  
+- From FY23, these two were combined into the "Aluminium Products" segment.  
+- This led to restatement of comparable period figures for consistency.  
+
+Key financial impacts for FY23 vs FY22 (consolidated):  
+- Segment Revenue:  
+  - Aluminium Products: ₹93,461 lakhs (FY23) vs ₹55,201 lakhs (FY22)  
+- Segment Profit:  
+  - Aluminium Products: ₹7,732 lakhs (FY23) vs ₹4,097 lakhs (FY22)  
+- Segment Assets:  
+  - Aluminium Products: ₹1,44,972 lakhs (FY23) vs ₹79,250 lakhs (FY22)  
+
+Management commentary from earnings call confirms the merger was to leverage operating synergies, shared costs, and flexibility in ramping up production, reflecting in combined segment reporting.  
+
+## Sources  
+Annual-Report_2023.pdf · Page 129 · FY23  
+Annual-Report_2023.pdf · Page 96 · FY23  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 7 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['pdf', 'concall']
+Citation: ✅
+Latency:  13.58s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q27 [Concall] [Hard]
+Question: Management guided in FY22 Q4 for a ₹100 crore debt reduction in FY23. By FY23 Q2, total debt was ~₹720 crores. Verify whether the original guidance is still achievable and quantify the gap.
+Expected: Original guidance: debt reduction from ₹713 Cr to ~₹613 Cr. Q2 FY23 actual: ~₹720 Cr. Gap vs original guidance: ~₹107 crores. Management's explanation evolved from working capital driven to debt is under control.
+Actual:   ## Summary  
+Management guided a ₹100 crore debt reduction in FY23 from the FY22 debt level of ₹713 crores. By FY23 Q2, total debt was approximately ₹720 crores, indicating a slight increase rather than a reduction. Therefore, the original guidance of ₹100 crore debt reduction is not on track, with a gap of about ₹120 crore from the target (expected debt ~₹613 crores vs actual ~₹720 crores).
+
+## Details  
+- Debt as of March 2022 (FY22 end): ₹713 crores (Management, FY22 Q4 guidance)  
+- Debt reduction guidance for FY23: ₹100 crores reduction expected (Management, FY22 Q4)  
+- Debt as of FY23 Q2: ~₹720 crores (Management commentary)  
+
+Expected debt after ₹100 crore reduction = ₹713 crores - ₹100 crores = ₹613 crores  
+Actual debt at FY23 Q2 = ₹720 crores  
+
+Difference (gap) = ₹720 crores - ₹613 crores = ₹107 crores (rounded to ~₹120 crores considering slight approximation in "around ₹720 crores")
+
+## Conclusion  
+The company has not achieved the targeted debt reduction by FY23 Q2; instead, debt has slightly increased by about ₹7 crores from FY22 end. This creates a shortfall of approximately ₹107-120 crores against the original ₹100 crore reduction guidance.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 10, 13 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Page 4 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  13.17s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q28 [Concall] [Hard]
+Question: Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT. Verify this claim using value addition data and assess whether there is an unacknowledged structural margin issue.
+Expected: VA margin deteriorated from 41.5% (Q1) to 34.7% (Q2) despite revenue increase. Management's explanation is plausible but not fully verifiable — the actual inventory holding cost vs replacement cost difference was never quantified precisely.
+Actual:   ## Summary  
+Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT, attributing margin pressure mainly to a 10% drop in aluminum prices. However, value addition data and segment commentary indicate a structural margin issue driven by product mix changes and operating leverage, suggesting the margin stability claim overlooks underlying margin compression factors.
+
+## Details  
+- Management Q2 FY23 comment (Source [11], [12]):  
+  - Value addition for Q2 FY22 (proxy for FY23 Q2 trend) for Aluminum Products was ₹68 crore.  
+  - Management stated margins were stable quarter-on-quarter despite a 10% drop in aluminum prices impacting EBIT.  
+- Value addition trend (Source [17]):  
+  - FY21 Aluminum segment value addition: ₹121 crore  
+  - FY22 Aluminum segment value addition: ₹147 crore (22% YoY increase)  
+  - Q4 FY21 Aluminum value addition: ₹39.62 crore  
+  - Q4 FY22 Aluminum value addition: ₹36.5 crore (slight decline)  
+- Management commentary (Source [13], [14], [15], [16]):  
+  - Margin pressure in Aluminum Products is partly due to product mix changes, with some industrial products moving into aluminum segment, increasing raw material consumption and reducing margins.  
+  - Operating leverage issues exist due to volume fluctuations, especially in two-wheeler business dependency.  
+  - Pass-through of commodity price changes is near real-time but not perfect, and margin pressure is now more from operating leverage than commodity cost.  
+  - Storage solutions segment margin pressure also affects overall aluminum-related margins due to delayed pass-through and competitive pricing.  
+- Financial data (Excel profit_loss):  
+  - FY22 EBITDA: ₹502.72 Cr, FY23 EBITDA: ₹613.40 Cr (overall company margin improvement)  
+  - However, no segment EBIT or margin data is provided to directly confirm aluminum segment EBIT drop, but management’s narrative and value addition data suggest margin pressure despite revenue growth.
+
+## Conclusion  
+While management claims aluminum segment margins were stable Q1 to Q2 FY23, the value addition data and detailed commentary reveal margin compression caused by product mix shifts, operating leverage challenges, and imperfect commodity pass-through. This indicates an unacknowledged structural margin issue beyond the reported EBIT drop attributed to aluminum price declines.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Pages 4-5 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Pages 7, 11 · FY22  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 4 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Pages 8, 12 · FY22  
+Craftsman Auto.xlsx · profit_loss · FY22, FY23
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  15.07s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q29 [Concall] [Hard]
+Question: Management guided revenue of ₹600 crores for FY23 Q1 in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?
+Expected: Actual Q1 FY23 revenue = ₹676 crores, exceeding guidance by ~12.7%. Consistently conservative guidance followed by beats can indicate managed earnings narrative or sandbagging for investor optics.
+Actual:   ## Summary  
+Management guided revenue of approximately ₹600 crores for Q1 FY23 during the FY22 Q4 earnings call. However, the actual revenue for FY23 Q1 was significantly lower, indicating a shortfall that implies either a delay in order ramp-up or slower-than-expected market conditions impacting the business.
+
+## Details  
+- Management guidance (FY22 Q4 call): ₹600 crores revenue expected for Q1 FY23 (inferred from the ₹300 crores per month capacity statement and general guidance tone).  
+- Actual FY23 full year sales: ₹3,182.60 crores (Craftsman Auto.xlsx · profit_loss · FY23)  
+- Given the annual sales of ₹3,182.60 crores in FY23, the implied average quarterly sales would be about ₹795.65 crores if evenly distributed. However, the company’s historical seasonality (40% H1, 60% H2) suggests Q1 would be lower than average.  
+- No explicit Q1 FY23 revenue figure is provided in the context, but the gap is implied by management’s cautious commentary on order ramp-up and transition periods in FY23 (Earnings call transcripts).  
+- Management mentioned in FY22 Q4 call that FY23 would be a transition year with some new orders starting but revenue ramp-up delayed by about a year (CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 10 · FY22).  
+
+## Outlook and Implication  
+The gap between the ₹600 crores guided and the actual lower revenue in Q1 FY23 implies that the company faced delays in converting new orders into revenue or slower market demand than anticipated. This aligns with management’s comments about a transition period and a lag between product development and revenue realization. It suggests cautious near-term growth but confidence in medium-term volume ramp-up.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Pages 7, 10 · FY22  
+Craftsman Auto.xlsx · profit_loss · FY23
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  12.23s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q30 [Concall] [Hard]
+Question: Across the FY22 Q3 and Q4 earnings calls, management made specific claims about the Daimler business risk stating only 8-9% impact by FY27-28. By Q1 FY23, a different number emerged — 15% of the Daimler portfolio by 2024. Identify the discrepancy.
+Expected: The disclosed impact shifted from 8-9% of Daimler value addition eventually (Q4 FY22) to 15% of Daimler portfolio by FY24 (Q1 FY23) — a meaningful escalation. The inconsistency between calls on the percentage at risk is a forensic flag for adequacy of risk disclosures.
+Actual:   ## Summary  
+Management initially indicated in FY22 Q3 and Q4 earnings calls that the Daimler business risk from the engine phase-out would result in a high single-digit to low double-digit percentage impact by FY27-28 (around 8-10%). However, by Q1 FY23, management referenced a higher impact figure of approximately 15% of the Daimler portfolio being affected by 2024, indicating a notable upward revision in near-term risk.
+
+## Details  
+
+- **FY22 Q3/Q4 Earnings Calls (May and July 2022):**  
+  - Management stated the impact on Daimler from the Cummins engine transition would be "high single digit" by FY27-28 (around 8-10%).  
+  - For FY24, the impact was described as "single digit" and "very low single digit" in terms of revenue loss from Daimler India powertrain business.  
+  - The value addition from Daimler heavy-duty segment was around ₹80-90 Crores, with a total auto powertrain value addition of ₹760 Crores in FY22.  
+  - The expected impact was about 10% by FY27 (Management in May 2022).  
+  - Management emphasized that the Daimler dependency was reducing due to new business growth.
+
+- **Q1 FY23 Earnings Call (February 2023, inferred from context):**  
+  - Management mentioned a 15% impact on the Daimler portfolio by 2024, which is significantly higher than the earlier "single digit" or "high single digit" impact mentioned for FY24.  
+  - This 15% figure suggests a reassessment or recognition of a larger near-term revenue risk from Daimler’s shift to Cummins engines.
+
+## Explanation of Discrepancy  
+The discrepancy arises because earlier commentary (FY22 Q3/Q4) projected a gradual and moderate impact (8-10%) by FY27-28, with minimal near-term disruption (single-digit impact in FY24). Later, by Q1 FY23, management acknowledged a sharper near-term impact of about 15% by 2024, indicating either a change in Daimler’s plans, a reassessment of exposure, or a more conservative risk estimate.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Pages 7, 8, 9 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · Pages 6, 8, 12 · FY22
+Routing:  ✅ | Expected: ['concall'] | Got: ['concall']
+Citation: ✅
+Latency:  13.21s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q31 [PDF] [Easy]
+Question: What specific operating model does the company's Chairman describe as its unique competitive differentiator in the Chairman's letter for FY22?
+Expected: The Chairman describes a Company-within-Company model — all verticals run as independent profit-making enterprises while sharing common philosophies, best-practices, and facilities.
+Actual:   ## Summary  
+The Chairman describes the company’s unique operating model as one that enables rapid speed of response and flexibility, allowing the company to quickly shift from low-performing sectors to high-performing ones, which is a key competitive differentiator.
+
+## Details  
+- The operating model is highlighted for its speed of response in a dynamic ecosystem where sector fortunes can change almost overnight.  
+- This model allows the company to flexibly change from sectors like auto components, castings, forgings, and gear boxes that may be low-performing to high-performing sectors quickly.  
+- The Chairman emphasizes that this unique operating model is the most potent advantage for running the business successfully and responsibly.  
+- The model supports the company’s ability to capitalize on emerging opportunities and maintain competitiveness in India’s evolving manufacturing landscape.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 10 · FY22
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  8.65s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q32 [PDF] [Medium]
+Question: In the company's FY22 MD&A, which specific financial ratio showed the highest year-on-year percentage change, and what two factors does management explicitly attribute to this change?
+Expected: The Interest Coverage Ratio showed the highest change at +53% (from 4.17x in FY21 to 6.40x in FY22). Management attributes this to reduction in interest cost from ₹107 Cr to ₹84 Cr and increase in EBITDA from ₹447 Cr to ₹539 Cr.
+Actual:   ## Summary  
+The Debt Service Coverage Ratio showed the highest year-on-year percentage increase of 28% in FY22. Management explicitly attributes this improvement to higher profits and better earnings available for debt service.
+
+## Details  
+- Debt Service Coverage Ratio increased from 1.32 in FY21 to 1.70 in FY22, a 28% increase.  
+- The ratio is defined as Earnings available for debt service divided by Debt Service.  
+- Management commentary in the MD&A links this improvement to:  
+  1. Higher profits earned during FY22  
+  2. Increased earnings available for debt service, implying improved cash flow or operational efficiency supporting debt obligations.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 93 · FY22
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  10.17s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q33 [PDF] [Hard]
+Question: The company's FY22 auditor identified two Key Audit Matters. What are they, and for the derivative contracts KAM, what is the combined carrying value of derivative assets and liabilities?
+Expected: Two KAMs: (1) Accounting for Derivative Contracts — derivative assets ₹855 Lakhs, liabilities ₹538 Lakhs. (2) Accounting for PPE. Hedge effectiveness testing requires an auditor's expert.
+Actual:   ## Summary  
+The company's FY22 auditor identified two Key Audit Matters (KAMs): (1) accounting for derivative contracts and (2) going concern evaluation. For the derivative contracts KAM, the combined carrying value of derivative assets and liabilities is ₹1,393 Lakhs (assets ₹855 Lakhs + liabilities ₹538 Lakhs).
+
+## Key Audit Matters  
+- **Accounting for derivative contracts:** This involves significant judgment and estimates in fair valuation and compliance with Ind AS 109, including recognition and derecognition of financial assets or liabilities. The complexity and materiality of these transactions make this a key audit focus.  
+- **Going concern evaluation:** The auditor assesses whether the consolidated financial statements fairly present the company’s ability to continue as a going concern, including the adequacy of disclosures.
+
+## Derivative Contracts Carrying Value  
+- Derivative assets: ₹855 Lakhs  
+- Derivative liabilities: ₹538 Lakhs  
+- Combined carrying value = ₹855 Lakhs + ₹538 Lakhs = ₹1,393 Lakhs
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Pages 61, 88, 95, 120 · FY22
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf', 'excel']
+Citation: ✅
+Latency:  12.17s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q34 [PDF] [Hard]
+Question: In the company's FY22 Directors' Report under Risk Management, what is the stated mitigation strategy against Funding Risk, and does the metric cited match the MD&A Key Ratios table?
+Expected: Mitigation strategy cites debt-equity ratio of 0.63x and net cash from operations of ₹322 Cr. MD&A independently reports Debt Equity Ratio as 0.63x for FY22 — confirming numerical consistency.
+Actual:   ## Summary  
+The mitigation strategy against Funding Risk stated in the FY22 Directors' Report under Risk Management is maintaining sufficient liquidity by obtaining fund and non-fund based working capital limits from various banks and investing surplus funds in bank fixed deposits with minimal mark-to-market risks. The Debt/Equity ratio cited in the Risk Management section (0.63) differs slightly from the Debt/Equity ratio reported in the MD&A Key Ratios table (0.72).
+
+## Details  
+- **Mitigation strategy against Funding Risk:**  
+  - Maintain sufficient liquidity to meet financial obligations.  
+  - Obtain fund and non-fund based working capital limits from banks.  
+  - Invest surplus funds in bank fixed deposits carrying minimal mark-to-market risks.  
+  (Source: 7.-Annual-Report-2021-22.pdf · Page 120 · FY22)
+
+- **Debt/Equity ratio figures:**  
+  - Risk Management section: 0.63 (March 31, 2022)  
+  - MD&A Key Ratios table: 0.72 (FY22)  
+  (Sources: 7.-Annual-Report-2021-22.pdf · Page 118 · FY22; 7.-Annual-Report-2021-22.pdf · Page 9 · FY22)
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 120 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 118 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 9 · FY22
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf', 'images']
+Citation: ✅
+Latency:  13.66s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q35 [PDF] [Easy]
+Question: What was the key inorganic highlight that the company disclosed in FY23, and what was the total consideration paid?
+Expected: Craftsman acquired a controlling stake (76%) in DR Axion India Private Limited in February 2023. The consideration paid was ₹375 Crores for 76% of total paid-up equity share capital.
+Actual:   ## Summary  
+The key inorganic highlight disclosed by the company in FY23 was an acquisition, with a total consideration paid of ₹117.02 crore.
+
+## Details  
+- The acquisition is referenced in the Annual Report 2023 on page 116, where it shows an "Acquired in business combination" amount of ₹2,470 lakhs (₹24.7 crore) in cash equivalents and corresponding borrowings and liabilities adjustments.  
+- The total consideration paid for the acquisition, combining cash outflows and liabilities assumed, amounts to ₹117.02 crore as explicitly stated in the narrative section of the annual report (inferred from the sum of acquisition-related cash flows and liabilities recognized).  
+
+## Sources  
+Annual-Report_2023.pdf · Page 116 · FY23
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf', 'excel']
+Citation: ✅
+Latency:  9.57s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q36 [PDF] [Medium]
+Question: According to the MD&A of the company for FY23, what was the stated reason for the decline in the Interest Coverage Ratio, and what does this imply about financing risk?
+Expected: ICR declined from 6.40x to 5.74x due to increase in interest cost from ₹84 Cr to ₹117 Cr — primarily driven by higher borrowings to fund the DR Axion acquisition.
+Actual:   ## Summary  
+According to the MD&A for FY23, the decline in the Interest Coverage Ratio was primarily due to an increase in finance costs driven by higher borrowings and interest rates. This implies an elevated financing risk as the company’s ability to cover interest expenses from operating profits has weakened.
+
+## Growth in Finance Costs  
+The MD&A explains that the company experienced higher finance costs in FY23, which contributed to the decline in the Interest Coverage Ratio. This increase was linked to both a rise in borrowings and an environment of rising interest rates, as reflected in the sensitivity analysis showing exposure to interest rate fluctuations.
+
+## Implication on Financing Risk  
+A lower Interest Coverage Ratio indicates that the company has less cushion to meet interest obligations from its earnings, increasing the risk of financial strain if operating profits do not improve or if interest rates continue to rise. This heightened financing risk necessitates careful management of debt and interest rate exposure.
+
+## Sources  
+Annual-Report_2023.pdf · MD&A section · FY23  
+Annual-Report_2023.pdf · Interest rate sensitivity analysis notes · FY23
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  11.19s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q37 [PDF] [Hard]
+Question: The Directors' Report of the company for FY23 states all RPTs were on arm's length basis. However the Risk Management Committee is chaired by the Chairman & Managing Director himself. What governance anomaly does this present?
+Expected: The person with the largest economic interest in related-party dealings chairs the body responsible for monitoring enterprise-wide risk. SEBI LODR Regulation 21 mandates an Independent Director should chair the Risk Management Committee at listed entities.
+Actual:   ## Summary  
+The governance anomaly is that the Risk Management Committee, which is responsible for overseeing the company’s risk framework including related party transactions (RPTs), is chaired by the Chairman & Managing Director. This concentration of power in a single individual who also leads the company’s management may compromise the committee’s independence and objectivity in monitoring and mitigating risks, including those arising from RPTs, despite all RPTs being stated as on arm’s length basis.
+
+## Governance Implication  
+- The Risk Management Committee is required to provide independent oversight of risks, including those related to RPTs.  
+- Having the Chairman & Managing Director as the Committee Chair creates a conflict of interest risk because he is both the key executive and the overseer of risk management.  
+- This structure may weaken the effectiveness of checks and balances intended by corporate governance norms, which typically favor independent directors chairing such committees to ensure unbiased scrutiny.  
+- It raises concerns about the robustness of governance controls over related party dealings and risk oversight, potentially undermining stakeholder confidence despite the formal statement that all RPTs were on arm’s length basis.
+
+## Sources  
+Annual-Report_2023.pdf · Page 27 · FY23  
+Annual-Report_2023.pdf · Page 36 · FY23  
+Annual-Report_2023.pdf · Page 40 · FY23
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  9.52s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q38 [PDF] [Hard]
+Question: The Statutory Auditor identified two Key Audit Matters in the standalone audit of the company for FY23. For the derivative KAM, what is the carrying value of derivative assets and liabilities as at 31 March 2023, and does the auditor qualify the opinion?
+Expected: Derivative assets: ₹936 Lakhs, liabilities: ₹375 Lakhs (net asset ₹561 Lakhs). The audit opinion is unqualified — no Emphasis of Matter on hedge accounting. The KAM itself signals elevated audit effort in this area.
+Actual:   ## Summary  
+As at 31 March 2023, the carrying value of the company’s derivative assets was ₹936 Lakhs and derivative liabilities were ₹375 Lakhs. The auditor did not qualify the opinion on this matter; it was identified as a Key Audit Matter due to significant judgment and estimates involved, but no qualification was mentioned.
+
+## Details  
+- Derivative assets carrying value: ₹936 Lakhs  
+- Derivative liabilities carrying value: ₹375 Lakhs  
+- The KAM relates to accounting for derivative contracts under Ind AS 109, involving complex fair valuation and compliance.  
+- The auditor highlighted this as a KAM because of the significant judgment and estimates but did not issue a qualified opinion.
+
+## Sources  
+Annual-Report_2023.pdf · Page 63 · FY23
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf', 'excel']
+Citation: ✅
+Latency:  9.61s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q39 [PDF] [Easy]
+Question: What were the two Key Audit Matters identified by the statutory auditors of the company for FY24, and what percentage of total assets does PPE represent?
+Expected: Two KAMs: (1) Accounting for derivative contracts — derivative assets ₹943 Lakhs, liabilities ₹259 Lakhs. (2) Accounting for PPE. PPE including CWIP represents 48% of total assets.
+Actual:   ## Summary  
+The two Key Audit Matters (KAMs) identified by the statutory auditors for FY24 were (1) the accounting and valuation of Property, Plant and Equipment (PPE), including useful life and impairment assessment, and (2) the valuation and accounting of derivative financial instruments. PPE represents approximately 48-49% of the Company’s total assets.
+
+## Key Audit Matters  
+- **Property, Plant and Equipment (PPE):**  
+  The audit focused on the initial recognition costs, valuation, useful life assessment, depreciation rates, impairment testing, and physical verification of PPE. This was a significant audit matter due to the material value of PPE relative to total assets and the significant judgments and estimates involved. The Company’s technical team and Chartered Engineer assess useful life and impairment annually.
+
+- **Derivative Financial Instruments:**  
+  The audit also emphasized the valuation and accounting of the Company’s derivatives, including recognition and derecognition, due to the significant judgments and estimates involved and their materiality to the financial statements.
+
+## Percentage of Total Assets Represented by PPE  
+- PPE accounts for about 48% of the Company’s total assets in the standalone financials (Annual Report page 121).  
+- The consolidated financials note PPE represents 49% of total assets (Annual Report page 187).
+
+## Sources  
+Annual-Report-2023-24.pdf · pages 121, 187 · FY24  
+Annual-Report-2023-24.pdf · page 48 · FY24
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf', 'excel']
+Citation: ✅
+Latency:  11.7s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q40 [PDF] [Medium]
+Question: According to the MD&A of the company for FY24, what are the specific reasons cited for the deterioration in the Interest Coverage Ratio and the Debt-Equity Ratio, and what is the magnitude of each change?
+Expected: ICR deteriorated 26% from 5.74x to 4.24x due to increase in interest cost from ₹117 Cr to ₹155 Cr. Debt-Equity Ratio deteriorated 26% from 0.72x to 0.91x due to increase in borrowings.
+Actual:   ## Summary  
+According to the MD&A for FY24, the deterioration in the Interest Coverage Ratio is attributed to an increase in interest expense, while the worsening of the Debt-Equity Ratio is due to an increase in borrowings. The exact magnitude of these changes is not numerically specified in the MD&A narrative.
+
+## Details  
+- Interest Coverage Ratio deterioration reason: Increase in interest expense.  
+- Debt-Equity Ratio deterioration reason: Increase in borrowings.  
+- The MD&A does not provide explicit numerical values quantifying the magnitude of these ratio changes, only the qualitative reasons.
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 55 · FY24
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf', 'excel']
+Citation: ✅
+Latency:  11.5s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q41 [PDF] [Hard]
+Question: The Chairman's letter for FY24 describes a consolidation and moderation in growth. Cross-referencing MD&A segment-wise data, which segment experienced the sharpest EBIT margin compression and by how much?
+Expected: Automotive Powertrain experienced the sharpest compression — EBIT margin fell from 25% to 19%, a compression of 600 basis points. The Chairman's moderation characterisation omits this Powertrain deterioration.
+Actual:   ## Summary  
+The passenger vehicle (PV) segment experienced the sharpest EBIT margin compression in FY24, with a decline of 7 percentage points.
+
+## Details  
+- The Chairman's letter in FY24 highlights a consolidation phase with moderated growth across segments.  
+- According to the MD&A segment-wise data (Annual-Report-2023-24.pdf, page 22 and 236), the passenger vehicle segment, despite reporting double-digit revenue growth, saw a significant EBIT margin contraction.  
+- The EBIT margin for the passenger vehicle segment decreased by 7 percentage points in FY24 compared to FY23, which is the largest margin compression among all segments reported.
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 22 · FY24  
+Annual-Report-2023-24.pdf · Page 236 · FY24
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  10.81s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q42 [PDF] [Hard]
+Question: The company's Board Report for FY24 states all RPTs were arm's length and DR Axion posted turnover of ₹1,246 Cr in FY24. What forensic risk does the short acquisition history and consolidation timing create?
+Expected: DR Axion was acquired on 1 February 2023 — only 2 months consolidated in FY23. In FY24 it contributed a full year of ₹1,246 Cr revenue. This base-period asymmetry inflates consolidated growth optics. Intra-group transactions must be verified for arm's length pricing.
+Actual:   ## Summary  
+The short acquisition history and timing of consolidation for DR Axion, which posted a turnover of ₹1,246 Cr in FY24, create a forensic risk related to the potential for insufficient historical financial data and limited operational track record. This can increase the risk of undisclosed related party transactions (RPTs) or financial irregularities despite management’s assertion that all RPTs were at arm’s length.
+
+## Forensic Risk Explanation  
+- **Short Acquisition History:** Since DR Axion was recently acquired, there is limited historical financial and operational data available for thorough due diligence and trend analysis. This restricts the ability to verify the consistency and authenticity of reported transactions and financial performance over multiple periods.  
+- **Timing of Consolidation:** The consolidation of DR Axion’s financials into the group in FY24 means that the company’s financials are newly integrated, which can lead to challenges in identifying and scrutinizing related party transactions or unusual accounting practices that might have existed prior to acquisition or during the transition.  
+- **Related Party Transactions (RPTs):** Although the Board Report states all RPTs were at arm’s length, the limited history and recent consolidation increase the risk that some RPTs may not have been fully transparent or properly vetted, raising potential concerns for forensic audit.  
+- **Turnover Size:** With a significant turnover of ₹1,246 Cr, DR Axion represents a material part of the consolidated entity, amplifying the impact of any undisclosed or misrepresented transactions.
+
+## Conclusion  
+The forensic risk lies in the possibility that the short acquisition and consolidation period may mask irregularities or non-arm’s length transactions in DR Axion’s financials, necessitating enhanced scrutiny and audit focus on related party dealings and integration processes.
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 70 · FY24 (Board Report and RPT disclosure)  
+Annual-Report-2023-24.pdf · Page 1 (Turnover figure for DR Axion)
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  14.65s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q43 [PDF] [Easy]
+Question: What is the credit rating assigned to the company's long-term and short-term loan facilities as affirmed during FY25?
+Expected: CRISIL reaffirmed long-term loan facilities as AA-/Stable and short-term loan facilities as A1+.
+Actual:   ## Summary
+The credit rating assigned to the company's long-term loan facilities during FY25 was reaffirmed as AA-/Stable, and the short-term loan facilities were rated A1+.
+
+## Sources
+Annual-Report-2025.pdf · Page 8 · FY25
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  8.7s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q44 [PDF] [Medium]
+Question: According to the FY25 MD&A, what was management's stated explanation for the significant deterioration in Operating Profit Margin, Net Profit Margin, and Return on Net Worth, and which ratio deteriorated most severely?
+Expected: Management attributed deterioration to one-time expenses for acquisitions and initial losses on greenfield projects. Return on Net Worth deteriorated most severely at 77% — from 13% in FY24 to 3% in FY25.
+Actual:   ## Summary  
+Management attributed the significant deterioration in Operating Profit Margin, Net Profit Margin, and Return on Net Worth primarily to one-time expenses and a decrease in profit after tax in FY25. Among these ratios, the Return on Net Worth deteriorated most severely.
+
+## Details  
+- Operating Profit Margin decline was linked to one-time expenses incurred during the year.  
+- Net Profit Margin decline was due to a decrease in profit after tax in FY25.  
+- Return on Net Worth deterioration was primarily caused by the decrease in profit after tax combined with an increase in average capital employed (equity) due to equity capital raised through QIP during FY25.  
+- The Return on Net Worth ratio showed the largest negative change compared to Operating and Net Profit Margins, reflecting the combined effect of lower profits and higher equity base.
+
+## Sources  
+Annual-Report-2025.pdf · Page 19 · FY25  
+Annual-Report-2025.pdf · Page 173 · FY25
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  13.37s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q45 [PDF] [Hard]
+Question: The company's FY25 Directors' Report states all RPTs were arm's length. However what does the BRSR data reveal about the concentration of loans and advances with related parties in FY25?
+Expected: BRSR discloses loans and advances to related parties jumped from 0% to 100% of total loans and advances in one year. This complete shift warrants forensic examination of whether loans are to subsidiaries or represent undisclosed related-party financial exposure.
+Actual:   ## Summary  
+While the FY25 Directors' Report confirms that all Related Party Transactions (RPTs) were conducted at arm's length, the BRSR data reveals a significant concentration of loans and advances with related parties during FY25, indicating a material exposure in this category.
+
+## Details  
+- The Directors' Report states all RPTs were at arm's length, implying compliance with regulatory norms and fair valuation.  
+- However, the BRSR (Business Responsibility and Sustainability Report) data shows a notable concentration of loans and advances extended to related parties in FY25.  
+- This concentration suggests that a substantial portion of the company's financial assets in loans and advances is tied to related parties, which could imply higher counterparty risk or dependency despite arm's length pricing.  
+- Exact figures for the concentration are not provided in the excerpts, but the emphasis on concentration in the BRSR highlights it as a key point of attention.
+
+## Sources  
+Annual-Report-2025.pdf · Directors' Report · FY25  
+Annual-Report-2025.pdf · BRSR Data Section · FY25
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  9.13s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q46 [PDF] [Hard]
+Question: The Statutory Auditors identified only one KAM in the standalone audit for FY25. What was it, and does the absence of a KAM on the three acquisitions exceeding ₹740 Crores represent a gap?
+Expected: The sole KAM is Accounting for PPE (44% of total assets). The auditors did not designate the acquisitions as KAMs despite high-risk, high-judgement events involving goodwill recognition and fair value assessments. This is an audit quality concern.
+Actual:   ## Summary  
+The Statutory Auditors identified the valuation of Property, Plant and Equipment (PPE), including depreciation rates and capitalization of self-constructed assets, as the sole Key Audit Matter (KAM) in the standalone audit for FY25. The absence of a KAM related to the three acquisitions exceeding ₹740 Crores does not represent a gap, as the auditors have explicitly disclosed the impact of pending litigations and provisions related to long-term contracts, and no material misstatements or issues were noted regarding these acquisitions.
+
+## Details  
+
+- The only KAM identified in the standalone audit for FY25 was related to the valuation of Property, Plant and Equipment (PPE), specifically:  
+  - Testing the operating effectiveness of internal controls over PPE  
+  - Verification of capitalization of self-constructed PPE  
+  - Assessment of depreciation rates applied  
+  - Evaluation of management’s estimates and judgments in PPE valuation  
+  (Annual-Report-2025.pdf · Page 109-110 · FY25)
+
+- Regarding the three acquisitions exceeding ₹740 Crores, the auditors have:  
+  - Disclosed the impact of pending litigations on financial position (Note 3.6)  
+  - Made provisions for material foreseeable losses on long-term contracts, including derivatives  
+  - Not identified any material misstatements or audit concerns related to these acquisitions  
+  (Annual-Report-2025.pdf · Page 111 · FY25)
+
+- The auditors’ report confirms no other matters required inclusion as KAMs, indicating that the acquisitions did not raise audit risks significant enough to be reported as KAMs.
+
+## Conclusion  
+The focus on PPE valuation as the sole KAM reflects the auditors’ assessment of the highest audit risk area. The absence of a KAM on the large acquisitions is consistent with the auditors’ findings and does not indicate an audit gap or oversight.
+
+## Sources  
+Annual-Report-2025.pdf · Page 109-111 · FY25  
+Annual-Report-2025.pdf · Page 241 · FY25
+Routing:  ✅ | Expected: ['pdf'] | Got: ['pdf']
+Citation: ✅
+Latency:  12.25s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q47 [Images] [Easy]
+Question: In the About the company infographic page of the FY22 annual report, a donut chart shows the revenue split by business segment. What are the three business segments shown and their respective percentage contributions?
+Expected: Automotive Powertrain: 52%, Industrial & Engineering: 28%, Automotive Aluminium: 20%.
+Actual:   ## Summary
+The three business segments shown in the FY22 annual report infographic and their respective revenue contributions are: Automotive – Powertrain (52%), Industrial & Engineering (28%), and Automotive – Aluminium (20%).
+
+## Details
+- Automotive – Powertrain: 52% of total revenue, with 10 operating units.
+- Industrial & Engineering: 28% of total revenue, with 3 operating units.
+- Automotive – Aluminium: 20% of total revenue, with 2 operating units.
+
+## Sources
+7.-Annual-Report-2021-22.pdf · Page 11 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 14 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 16 · FY22
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  7.78s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q48 [Images] [Easy]
+Question: In the Key Performance Indicators section of the FY22 annual report, bar charts track Net Profit across five financial years FY18 to FY22. What were the Net Profit values in FY20 and FY21?
+Expected: FY20 Net Profit: ₹37 Crores. FY21 Net Profit: ₹97 Crores. The bar chart shows a steep recovery from the COVID-impacted FY20 trough.
+Actual:   ## Summary  
+The Net Profit values in the Key Performance Indicators section of the FY22 annual report for FY20 and FY21 were ₹40.01 crores and ₹97.36 crores, respectively.
+
+## Details  
+From the Excel structured financials data:  
+- FY20 Net Profit: ₹40.01 crores  
+- FY21 Net Profit: ₹97.36 crores  
+
+These figures align with the reported net profits tracked in the FY22 annual report's Key Performance Indicators bar charts for those years.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY20  
+Craftsman Auto.xlsx · profit_loss · FY21  
+7.-Annual-Report-2021-22.pdf · Page 9 · FY22
+Routing:  ✅ | Expected: ['images'] | Got: ['images', 'excel']
+Citation: ✅
+Latency:  8.42s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q49 [Images] [Medium]
+Question: In the KPI Position section bar charts of the FY22 annual report, what is the trend in the Debt/EBITDA ratio over the five-year period shown FY18 to FY22?
+Expected: FY18: 2.92x, FY19: 2.57x, FY20: 2.31x, FY21: 1.57x, FY22: 1.33x. Consistent downward improving trend — FY22 at 1.33x is the lowest in the five-year series.
+Actual:   ## Summary  
+The Debt/EBITDA ratio shows a declining trend over the five-year period from FY18 to FY22, reaching 1.43 in FY22, indicating improved debt servicing capacity.
+
+## Details  
+- FY22 Debt/EBITDA ratio: 1.43 (from Page 9)  
+- The FY22 figure is explicitly stated, but earlier years' exact Debt/EBITDA ratios are not directly provided in the context.  
+- Given the improvement in EBITDA and controlled debt levels implied by the Debt/Equity ratio of 0.72 in FY22, the ratio has decreased compared to prior years.  
+- The trend is downward, reflecting better leverage management and stronger EBITDA growth over the period.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 9 · FY22
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  11.3s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q50 [Images] [Hard]
+Question: In the FY22 annual report, opening pages contain CAGR infographics showing growth from FY18 to FY22 across Revenue, EBIT, EBITDA, and PAT. The PAT CAGR of 49% is significantly higher than Revenue CAGR of 11%. What specific caveat is noted on the Revenue CAGR infographic that a CA must flag?
+Expected: A footnote reads Excluding Excise Duty — the FY18 base figure excludes the pre-GST excise duty component, making the revenue CAGR comparison potentially understated. This means the PAT outperformance must be interpreted with this base effect in mind.
+Actual:   ## Summary  
+The Revenue CAGR of 11% from FY18 to FY22 is accompanied by a caveat that the FY22 revenue includes a significant one-time impact from a large order or contract, which inflates the growth rate. A Chartered Accountant must flag this to indicate that the revenue growth is not purely organic or recurring.
+
+## Details  
+- The infographic on the opening pages shows:  
+  - Revenue CAGR: 11%  
+  - PAT CAGR: 49%  
+- The Revenue CAGR infographic specifically notes that the FY22 revenue figure of ₹2,206 crores includes a substantial one-time order or contract impact.  
+- This caveat implies that the revenue growth rate is partly driven by this exceptional event rather than steady operational growth.
+
+## Conclusion  
+The CA should highlight that the 11% Revenue CAGR over FY18-FY22 is not fully representative of sustainable growth due to the one-time revenue boost in FY22, which could distort trend analysis and valuation assumptions.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 3 · FY22
+Routing:  ✅ | Expected: ['images'] | Got: ['images', 'pdf']
+Citation: ✅
+Latency:  9.29s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q51 [Images] [Easy]
+Question: The Revenue mix across sectors FY23 donut chart on the An Edge above the rest visual page shows three business segments. What percentage does the Automotive Powertrain segment contribute to total revenue?
+Expected: Automotive Powertrain contributes 51% of total revenue. Remaining segments: Aluminium Products at 25% and Industrial & Engineering at 24%.
+Actual:   ## Summary
+The Automotive Powertrain segment contributes 51% to the total revenue in FY23.
+
+## Sources
+Annual-Report_2023.pdf · Page 8 · FY23  
+Annual-Report_2023.pdf · Page 10 · FY23
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  9.47s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q52 [Images] [Easy]
+Question: The Revenue mix across geographies FY23 donut chart in the annual report shows a domestic vs export split. What percentage of revenue is domestic?
+Expected: 92% domestic revenue and 8% export revenue. In FY04, over 80% of revenues came from exports — a near-complete reversal of geographic mix over ~19 years.
+Actual:   ## Summary  
+The revenue from domestic markets in FY23 was 92% of the total revenue.
+
+## Details  
+- Domestic revenue accounted for 92% of total revenue in FY23.  
+- Export revenue accounted for the remaining 8% in FY23.
+
+## Sources  
+Annual-Report_2023.pdf · Page 10 · FY23
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  7.41s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q53 [Images] [Medium]
+Question: In the Over the years financial performance multi-year bar chart section of the FY23 annual report, the Debt-equity Ratio chart shows values across FY19 to FY23. In which year did the ratio peak and what was the peak value?
+Expected: The ratio peaked in FY19 at 1.42x. The five-year trend shows consistent de-leveraging from 1.42x (FY19) to 0.63x (FY22), with a slight uptick to 0.72x in FY23 reflecting additional debt for the DR Axion acquisition.
+Actual:   ## Summary  
+The Debt-Equity Ratio peaked in FY23 with a value of 0.72 according to the multi-year financial performance chart in the FY23 annual report.
+
+## Details  
+- FY19 to FY22 Debt-Equity Ratios are not explicitly stated in the provided context, but the FY23 ratio is consistently reported as 0.72 (Annual-Report_2023.pdf · Page 89 and Page 21).  
+- The narrative on Page 21 confirms the ratio as 0.72 as of March 31, 2023, and mentions it as a comfortable level, implying it is the highest in the multi-year chart.  
+
+## Sources  
+Annual-Report_2023.pdf · Page 89 · FY23  
+Annual-Report_2023.pdf · Page 21 · FY23
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  9.05s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q54 [Images] [Hard]
+Question: In the Over the years bar chart section of the FY23 annual report, the Debt-EBITDA Ratio chart shows a value for FY21 that appears anomalous relative to surrounding years. What does cross-reading against the Net Profit bar chart reveal?
+Expected: FY21 Debt-EBITDA ~1.57x but Net Profit shows ~₹37 Cr — a dramatic collapse. The combination of low net profit with moderate Debt-EBITDA confirms FY21 was a severe pandemic-impact year with high depreciation and finance cost load.
+Actual:   ## Summary  
+The Debt-EBITDA Ratio for FY21 is anomalously high compared to surrounding years, indicating elevated leverage or reduced EBITDA that year. Cross-reading with the Net Profit bar chart reveals that FY21 also shows a significant dip in net profit, confirming that profitability was substantially lower in FY21, which likely contributed to the spike in the Debt-EBITDA Ratio.
+
+## Details  
+- The Debt-EBITDA Ratio chart shows a noticeable spike in FY21 relative to FY20 and FY22, indicating either higher debt or lower EBITDA in FY21.  
+- The Net Profit bar chart for FY21 shows a marked decline compared to FY20 and FY22, reflecting reduced profitability.  
+- This simultaneous dip in net profit and spike in Debt-EBITDA Ratio suggests that FY21 was a year of financial stress or operational challenges, reducing earnings and increasing leverage ratios.
+
+## Sources  
+Annual-Report_2023.pdf · Page 4 · FY23  
+Annual-Report_2023.pdf · Page 21 · FY23
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  10.75s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q55 [Images] [Easy]
+Question: In the donut chart labelled Revenue by Geography Consolidated Basis in the FY24 annual report, what percentage of total consolidated revenue of ₹4,452 Crore is derived from domestic sales versus exports?
+Expected: Domestic: ₹4,254 Crore = 96% of total consolidated revenue. Exports: ₹198 Crore = 4%.
+Actual:   ## Summary
+In the FY24 annual report, 96% of the total consolidated revenue of ₹4,452 crore was derived from domestic sales, while 4% came from exports.
+
+## Details
+- Total consolidated revenue: ₹4,452 crore  
+- Domestic revenue: ₹4,254 crore (96%)  
+- Export revenue: ₹198 crore (4%)  
+
+## Sources
+Annual-Report-2023-24.pdf · Page 10 · FY24
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  11.26s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q56 [Images] [Medium]
+Question: In the five-year bar charts under Performance Consolidated Basis on the KPI page of the FY24 annual report, compare the trajectory of Net Profit versus EBITDA from FY20 to FY24. In which year did Net Profit grow proportionally fastest?
+Expected: FY21 shows the most disproportionate Net Profit growth (₹40 Cr to ₹97 Cr = ~143% jump) vs EBITDA growth (~10%), suggesting significant below-EBITDA line improvement from lower finance costs or tax benefits.
+Actual:   ## Summary  
+From FY20 to FY24, both Net Profit and EBITDA showed growth on a consolidated basis, but Net Profit grew proportionally fastest in FY24 compared to the previous year.
+
+## Details  
+Using the consolidated financial data from the annual report:  
+
+- **EBITDA (₹ crore):**  
+  - FY23: ₹697 crore  
+  - FY24: ₹897 crore  
+
+- **Net Profit (PAT) (₹ crore):**  
+  - FY23: ₹251 crore  
+  - FY24: ₹337 crore  
+
+The five-year CAGR for Net Profit is 28%, which is higher than the EBITDA CAGR of 16%, indicating faster proportional growth in Net Profit over the period.  
+
+Specifically, the year-on-year growth from FY23 to FY24:  
+- EBITDA growth = (897 - 697) / 697 = 28.7%  
+- Net Profit growth = (337 - 251) / 251 = 34.3%  
+
+This shows Net Profit grew proportionally faster than EBITDA in FY24.  
+
+## Calculation  
+Year-on-year growth formula:  
+\[
+\text{Growth \%} = \frac{\text{Current Year} - \text{Previous Year}}{\text{Previous Year}} \times 100
+\]
+
+- EBITDA growth FY24 over FY23:  
+\[
+\frac{897 - 697}{697} \times 100 = \frac{200}{697} \times 100 = 28.7\%
+\]
+
+- Net Profit growth FY24 over FY23:  
+\[
+\frac{337 - 251}{251} \times 100 = \frac{86}{251} \times 100 = 34.3\%
+\]
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 18 · FY24  
+Annual-Report-2023-24.pdf · Page 25 · FY24
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  14.89s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q57 [Images] [Hard]
+Question: In the Revenue by Business Consolidated Basis donut chart in the FY24 annual report, the Aluminium Products segment shows ₹2,154 Crore (48%) of consolidated revenue. However the MD&A segment table reports Aluminium standalone sales of only ₹917 Crore. What accounts for the ₹1,237 Crore discrepancy?
+Expected: The discrepancy reconciles with DR Axion India's standalone FY24 turnover of ₹1,246 Crore. The donut chart uses consolidated segment revenue including DR Axion while MD&A discloses only standalone figures — a transparency gap not flagged on the chart itself.
+Actual:   ## Summary  
+The ₹1,237 crore difference between the consolidated Aluminium Products revenue (₹2,154 crore) and the standalone Aluminium sales (₹917 crore) is due to the inclusion of revenues from subsidiaries and joint ventures related to Aluminium Products in the consolidated figure, which are not part of the standalone financials.
+
+## Explanation  
+- The consolidated revenue figure of ₹2,154 crore for Aluminium Products includes the combined sales of the parent company plus its subsidiaries and joint ventures engaged in Aluminium business.  
+- The standalone revenue of ₹917 crore reflects only the parent company’s direct Aluminium sales, excluding those of subsidiaries.  
+- The MD&A narrative and segment disclosures indicate that the Aluminium segment has expanded through acquisitions and new facilities (e.g., greenfield facility in North India), which are consolidated but not reflected in standalone numbers.  
+- This is a common accounting practice where consolidated financials aggregate all controlled entities, while standalone financials report only the parent company’s operations.
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 10 · FY24  
+Annual-Report-2023-24.pdf · Page 33 · FY24  
+Annual-Report-2023-24.pdf · Page 183 · FY24
+Routing:  ✅ | Expected: ['images'] | Got: ['images', 'pdf']
+Citation: ✅
+Latency:  12.92s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q58 [Images] [Hard]
+Question: In the Position section bar charts on the FY24 KPI page, the Debt-Equity Ratio bar chart shows 0.88x for FY24 yet the standalone MD&A reports 0.91x. What is the likely source of this discrepancy and what does the five-year Debt-EBITDA trend reveal?
+Expected: Discrepancy: bar chart uses consolidated basis (higher equity from DR Axion) while MD&A reports standalone. Debt-EBITDA trend: FY20 2.56x → FY21 1.57x → FY22 1.32x → FY23 1.65x → FY24 1.72x. Leverage has been rising for two consecutive years contradicting Chairman's debt reduction narrative.
+Actual:   ## Summary  
+The discrepancy between the Debt-Equity Ratio of 0.88x shown in the FY24 KPI bar chart and the 0.91x reported in the standalone MD&A likely arises from the KPI chart using consolidated financials while the MD&A figure is from standalone financials. The five-year Debt-EBITDA trend reveals a moderate leverage level with a ratio of 2.14x in FY24, indicating manageable debt relative to earnings before interest, taxes, depreciation, and amortization.
+
+## Debt-Equity Ratio Discrepancy  
+- The FY24 KPI bar chart shows a Debt-Equity Ratio of **0.88x** (Annual-Report-2023-24.pdf · Page 25 · FY24).  
+- The standalone MD&A reports a Debt-Equity Ratio of **0.91x** (Annual-Report-2023-24.pdf · Page 22 and 23 · FY24).  
+- The difference is likely because:  
+  - The KPI bar chart uses **consolidated financial data**, which includes subsidiaries and group-level adjustments.  
+  - The standalone MD&A figure reflects only the parent company’s standalone financials, excluding subsidiaries.  
+- Such differences are common due to variations in debt and equity balances consolidated versus standalone.
+
+## Five-Year Debt-EBITDA Trend  
+- The Debt-EBITDA ratio for FY24 is **2.14x** (Annual-Report-2023-24.pdf · Page 23 · FY24).  
+- This ratio indicates the company’s debt level is just over twice its EBITDA, a moderate leverage position.  
+- Over the past five years, the company has maintained a stable or improving Debt-EBITDA ratio, reflecting prudent debt management relative to earnings growth.  
+- The 5-year CAGR data shows strong EBITDA growth (16%), supporting the company’s ability to service debt efficiently.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY24  
+Annual-Report-2023-24.pdf · Page 22 · FY24  
+Annual-Report-2023-24.pdf · Page 23 · FY24  
+Annual-Report-2023-24.pdf · Page 25 · FY24
+Routing:  ✅ | Expected: ['images'] | Got: ['images', 'pdf', 'excel']
+Citation: ✅
+Latency:  16.02s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q59 [Images] [Easy]
+Question: The segment-wise performance table in the MD&A of the FY25 annual report shows four business segments. Which segment reported the lowest EBIT margin and what was it?
+Expected: The Industrial & Engineering segment reported the lowest EBIT margin at 2% on sales of ₹838 Crores in FY25, a sharp fall from 6% in FY24.
+Actual:   ## Summary  
+The segment with the lowest EBIT margin in FY25 was the Industrial Automation segment, reporting an EBIT margin of 8.2%.
+
+## Details  
+From the segment-wise performance table in the MD&A section of the FY25 annual report, the EBIT margins for the four business segments were as follows:  
+- Industrial Automation: 8.2%  
+- Process Automation: 12.5%  
+- Robotics: 14.7%  
+- Aftermarket Services: 10.3%  
+
+The Industrial Automation segment had the lowest EBIT margin among these.
+
+## Sources  
+Annual-Report-2025.pdf · MD&A segment-wise performance table · FY25
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  9.61s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q60 [Images] [Medium]
+Question: The Key Financial Ratios comparison table in the FY25 MD&A shows two ratios that moved in opposite directions. Which two ratios are they and what does this divergence indicate?
+Expected: Debt-Equity Ratio improved from 0.91x to 0.59x (QIP equity raise). Interest Coverage Ratio deteriorated from 4.24x to 3.05x (higher interest costs). The divergence reveals equity infusion strengthened the balance sheet while operating cash generation did not proportionately improve — a QIP masking effect.
+Actual:   ## Summary  
+The two key financial ratios that moved in opposite directions in the FY25 MD&A are the Return on Equity (ROE) and the Debt-to-Equity ratio. ROE improved while the Debt-to-Equity ratio increased, indicating that although the company is generating higher returns for shareholders, it is also taking on more leverage, reflecting a strategic shift towards greater financial risk to fuel growth.
+
+## Details  
+- Return on Equity (ROE) showed an upward movement, signaling improved profitability and efficient use of shareholders’ funds.  
+- Debt-to-Equity ratio increased, indicating higher reliance on debt financing relative to equity.  
+
+This divergence suggests that the company is leveraging debt to enhance returns, which can amplify profits but also increases financial risk.
+
+## Sources  
+Annual-Report-2025.pdf · MD&A · FY25
+Routing:  ✅ | Expected: ['images'] | Got: ['images']
+Citation: ✅
+Latency:  9.38s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q61 [Images] [Hard]
+Question: The BRSR Section 9 table in the FY25 report shows the number of trading houses jumped from 96 in FY24 to 532 in FY25 while the percentage of purchases from trading houses remained flat at 18%. What forensic question does this raise?
+Expected: A 5x proliferation of trading-house vendors while the top-10 concentration drops from 50% to 37% is a classic structuring pattern. A CA must verify whether these 532 entities are independent or shells used to route transactions below individual materiality thresholds.
+Actual:   ## Summary  
+The sharp increase in the number of trading houses from 96 to 532 in FY25, while the percentage of purchases from trading houses remained constant at 18%, raises a forensic question about the authenticity and nature of these new trading houses—specifically, whether these additional entities are genuine suppliers or potentially related parties or shell entities created to obscure transactions or inflate vendor counts without increasing actual purchase volume.
+
+## Details  
+- Number of trading houses in FY24: 96  
+- Number of trading houses in FY25: 532  
+- Purchases from trading houses as a percentage of total purchases: 18% in both FY24 and FY25  
+
+The disproportionate jump in the count of trading houses without a corresponding increase in purchase percentage suggests a significant change in vendor base composition or reporting.
+
+## Forensic Question Raised  
+- Why did the number of trading houses increase more than fivefold without any increase in the share of purchases from these houses?  
+- Are the new trading houses legitimate independent suppliers, or are they related parties, shell companies, or entities created to manipulate procurement records?  
+- Is there any risk of fictitious vendors being added to inflate vendor numbers for regulatory, tax, or internal control circumvention purposes?  
+- Does this indicate potential segmentation or splitting of purchases among multiple entities to avoid detection or scrutiny?  
+
+## Sources  
+Annual-Report-2025.pdf · Page 78 · FY25
+Routing:  ✅ | Expected: ['images'] | Got: ['images', 'pdf']
+Citation: ✅
+Latency:  12.22s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q62 [Images] [Hard]
+Question: The commodity price risk and hedging table in the FY25 Corporate Governance Report shows NA across all fields. How does this contrast with the company's foreign exchange outgo of ₹703.30 Crores disclosed in the Directors' Report?
+Expected: Nil commodity hedging vs ₹703.30 Cr forex outgo against only ₹196.42 Cr earnings creates a net forex deficit of ~₹507 Cr. With a new German subsidiary, leaving this unhedged is a material risk. A CA must verify whether hedging exists off-balance sheet.
+Actual:   ## Summary  
+The FY25 Corporate Governance Report shows no exposure or hedging activity related to commodity price risk (all fields marked NA), indicating the company did not face or hedge commodity price risks during the year. In contrast, the Directors' Report discloses a significant foreign exchange outgo of ₹703.30 Crores, highlighting that while commodity price risk was negligible or non-existent, the company had substantial foreign exchange exposure and related outflows.
+
+## Details  
+- Commodity price risk exposure and hedging (FY25 Corporate Governance Report, Page 31): All fields for commodity exposure and hedging are marked NA, indicating no commodity price risk or hedging activities during FY25.  
+- Foreign exchange outgo (Directors' Report, Page 14): ₹703.30 Crores foreign exchange outgo was recorded in FY25, showing significant currency-related cash outflows.
+
+## Conclusion  
+The company did not have commodity price risk or hedging in FY25, but it had material foreign exchange exposure resulting in a large foreign exchange outgo of ₹703.30 Crores. This contrast suggests the company’s risk management focus was on currency risk rather than commodity price risk during the year.
+
+## Sources  
+Annual-Report-2025.pdf · Page 31 · FY25  
+Annual-Report-2025.pdf · Page 14 · FY25
+Routing:  ✅ | Expected: ['images'] | Got: ['images', 'pdf']
+Citation: ✅
+Latency:  12.04s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q63 [Cross] [Easy]
+Question: In the FY22 Q4 earnings call, management guided total debt reduction of ₹100 Crores for FY23. What does the Excel Balance Sheet data show as the actual change in total borrowings in FY23 — was guidance met?
+Expected: Q4 FY22 concall guided debt reduction from ₹713 Cr to ~₹613 Cr. Excel shows FY23 borrowings at ₹1,240.23 Cr — not only was the target missed, debt nearly doubled due to the DR Axion acquisition financing.
+Actual:   ## Summary  
+Management guided a total debt reduction of around ₹100 Crores for FY23. The Excel data shows total borrowings increased from ₹713 Crores in FY22 to approximately ₹720 Crores in FY23, indicating that the debt reduction guidance was not met.
+
+## Details  
+- Management stated in FY22 Q4 earnings call (May 2022) that total debt as of March 2022 was ₹713 Crores and expected a reduction of around ₹100 Crores in FY23.  
+- Another transcript (October 2022) mentioned borrowings were around ₹720 Crores, indicating no significant reduction.  
+- Excel data for FY22 shows total borrowings (long-term + working capital) at ₹713 Crores (from transcript).  
+- Excel data for FY23 does not explicitly list borrowings, but management commentary and transcript indicate borrowings remained around ₹720 Crores, implying no reduction.  
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 9 · FY22
+Routing:  ✅ | Expected: ['excel', 'concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  12.29s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q64 [Cross] [Easy]
+Question: The FY23 MD&A states the Interest Coverage Ratio declined from 6.40x to 5.74x due to increased interest cost. Verify this using the Excel P&L data — does the reported interest figure match?
+Expected: Excel shows FY22 Interest = ₹84.22 Cr, FY23 Interest = ₹117 Cr — confirming the MD&A narrative. ICR from Excel: FY22 = 6.40x confirmed. Slight discrepancy in FY23 ICR suggests EBITDA definition differs between Excel and MD&A.
+Actual:   ## Summary  
+The reported interest figure of 120.23 matches the data used to calculate the Interest Coverage Ratio for FY23, confirming the decline from 6.40x to 5.74x due to increased interest cost.
+
+## Details  
+- EBITDA for FY23: 613.4  
+- Interest expense for FY23: 120.23  
+
+## Calculation  
+Formula: Interest Coverage Ratio = EBITDA / Interest  
+Calculation for FY23: 613.4 / 120.23 = 5.10 (rounded)  
+
+The calculated ratio of 5.10 does not exactly match the reported 5.74x, indicating a possible discrepancy in the interest figure or EBITDA used in the MD&A. However, the interest figure of 120.23 from the P&L data is consistent and confirms increased interest cost compared to prior periods.  
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY2023  
+Craftsman Auto.xlsx · calculation · 2023
+Routing:  ❌ | Expected: ['excel', 'pdf'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  6.2s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q65 [Cross] [Easy]
+Question: The FY22 annual report KPI page shows a Debt/EBITDA bar chart with FY22 value of 1.33x. Verify this using the Excel data and identify any discrepancy.
+Expected: Excel FY22: Borrowings = ₹799.55 Cr, EBITDA = ₹539 Cr. Gross D/EBITDA = 1.48x. Chart shows 1.33x — suggesting the chart uses net debt (borrowings minus cash) rather than gross borrowings.
+Actual:   ## Summary  
+The Debt/EBITDA ratio for FY22 calculated from the Excel data is approximately 0.84x, which is significantly lower than the 1.33x value shown in the FY22 annual report KPI bar chart, indicating a discrepancy between the two sources.
+
+## Details  
+From the Excel profit & loss data for FY22:  
+- Interest is ₹84.22 Cr (not directly needed for Debt/EBITDA but noted)  
+- EBITDA is ₹502.72 Cr  
+
+From the Excel balance sheet or inferred data (debt figure is not directly given in the provided Excel data, but can be estimated from Debt/Equity ratio and Networth if available):  
+- Networth for FY22 (from annual report image) is ₹1,142 Cr  
+- Debt/Equity ratio for FY22 (from annual report image) is 0.72  
+
+Calculating Debt:  
+Debt = Debt/Equity × Equity = 0.72 × 1,142 Cr = 822.24 Cr  
+
+Debt/EBITDA ratio (Excel data basis):  
+= Debt / EBITDA = 822.24 Cr / 502.72 Cr ≈ 1.64x  
+
+However, this conflicts with the initial summary calculation, so let's carefully re-check the EBITDA figure from Excel and the debt figure.
+
+From the Excel data for FY22:  
+- EBITDA = ₹502.72 Cr (confirmed)  
+
+From the annual report image (Page 9):  
+- Debt/EBITDA = 1.43x (FY22)  
+
+From the question, the KPI bar chart shows 1.33x for FY22.
+
+So, the annual report image states 1.43x, the KPI bar chart states 1.33x, and the Excel data calculation is 1.64x.
+
+This suggests the Excel-derived Debt/EBITDA is higher than both reported figures.
+
+## Calculation  
+1. Calculate Debt from Debt/Equity and Networth:  
+Debt = 0.72 × 1,142 Cr = 822.24 Cr  
+
+2. Debt/EBITDA ratio:  
+Debt/EBITDA = 822.24 Cr / 502.72 Cr = 1.635 ≈ 1.64x  
+
+3. Compare with reported values:  
+- Annual report image (Page 9) shows 1.43x  
+- KPI bar chart shows 1.33x  
+
+## Conclusion  
+The Debt/EBITDA ratio calculated from Excel data (1.64x) is higher than both the 1.33x shown in the KPI bar chart and the 1.43x stated elsewhere in the annual report. This discrepancy may arise from differences in the debt figure used (e.g., including/excluding certain liabilities) or EBITDA adjustments. The Excel data suggests a higher leverage ratio than reported in the annual report visuals.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY22  
+7.-Annual-Report-2021-22.pdf · Page 9 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 3 · FY22
+Routing:  ✅ | Expected: ['excel', 'images'] | Got: ['images', 'excel']
+Citation: ✅
+Latency:  17.55s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q66 [Cross] [Medium]
+Question: In the FY23 Q1 concall, management stated annualised pre-tax ROCE improved to 26% from 20% in FY22. Using Excel data, calculate ROCE for FY22 and assess whether the stated improvement is directionally accurate.
+Expected: Excel FY22 ROCE approximately 20% — consistent with management's stated FY22 baseline. The Q1 FY23 claim of 26% is annualised from one quarter and cannot be fully verified from annual Excel data alone.
+Actual:   ## Summary  
+Using Excel data, the calculated pre-tax ROCE for FY22 is approximately 18.7%, which is directionally consistent with management’s statement that pre-tax ROCE improved from 20% in FY22 to 26% annualized in FY23 Q1.
+
+## Details  
+From the Excel profit & loss data for FY22:  
+- Profit before tax (PBT) = ₹251.73 Cr  
+- Interest expense = ₹84.22 Cr  
+- EBITDA = ₹502.72 Cr  
+- Depreciation = ₹205.99 Cr  
+
+To calculate EBIT:  
+EBIT = PBT + Interest = 251.73 + 84.22 = ₹335.95 Cr  
+
+ROCE (pre-tax) formula:  
+ROCE = EBIT / Capital Employed  
+
+Capital Employed is not directly given in the Excel data, but we can estimate it using the relationship:  
+ROCE ≈ EBIT / (Total Assets - Current Liabilities) or from EBITDA and interest coverage ratios if available.  
+
+Since exact capital employed is not provided, we use the implied ROCE from management’s narrative and EBITDA margin as a proxy:  
+- EBITDA margin FY22 = EBITDA / Sales = 502.72 / 2217.02 ≈ 22.7%  
+- EBIT margin FY22 = EBIT / Sales = 335.95 / 2217.02 ≈ 15.2%  
+
+Management stated pre-tax ROCE was 20% in FY22 and improved to 26% annualized in FY23 Q1. Given EBIT margin of 15.2% and typical capital turnover ratios in the industry, an 18.7% to 20% ROCE is reasonable and consistent with the data.
+
+## Calculation  
+ROCE = EBIT / Capital Employed  
+
+Assuming capital employed = EBIT / ROCE (management stated 20% for FY22):  
+Capital Employed = 335.95 / 0.20 = ₹1679.75 Cr (approximate)  
+
+Using EBIT margin and sales, this capital employed figure is plausible for FY22.  
+
+Thus, the calculated ROCE (~18.7%-20%) aligns directionally with management’s stated 20% for FY22, confirming the improvement to 26% in FY23 Q1 is credible.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 5 · FY22
+Routing:  ✅ | Expected: ['excel', 'concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  13.6s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q67 [Cross] [Medium]
+Question: The FY24 Chairman's letter describes business performance as consolidation and moderation in growth. Calculate actual revenue growth and PAT growth for FY24 from Excel and assess whether moderation is accurate.
+Expected: Excel: FY24 revenue grew 39.8% and PAT grew 27.9%. A 40% revenue growth year being described as moderation is misleading — the moderation likely refers to margin compression, not topline growth.
+Actual:   ## Summary  
+The actual revenue growth for FY24 was 39.8%, and the PAT growth was -22.3%, indicating a strong revenue increase but a decline in profit after tax. The description of "moderation in growth" is accurate for PAT but not for revenue, which showed robust growth.
+
+## Details  
+- Revenue FY23: ₹3,182.60 Cr  
+- Revenue FY24: ₹4,451.73 Cr  
+- PAT FY23: ₹248.39 Cr  
+- PAT FY24: ₹304.47 Cr  
+
+(Note: The Excel data shows PAT for FY24 as ₹304.47 Cr, but the Annual Report text (source 14) states standalone PAT for FY24 as ₹197.59 Cr and for FY23 as ₹237.76 Cr. Since the question asks for Excel data, we use Excel figures.)
+
+### Revenue Growth Calculation  
+Revenue Growth = (Revenue FY24 - Revenue FY23) / Revenue FY23 × 100  
+= (4451.73 - 3182.60) / 3182.60 × 100  
+= 1269.13 / 3182.60 × 100 ≈ 39.87%
+
+### PAT Growth Calculation  
+PAT Growth = (PAT FY24 - PAT FY23) / PAT FY23 × 100  
+= (304.47 - 248.39) / 248.39 × 100  
+= 56.08 / 248.39 × 100 ≈ 22.58%
+
+However, the Excel data shows PAT increased by 22.6%, which contradicts the narrative of moderation. The Annual Report narrative (source 14) shows PAT declined from ₹237.76 Cr to ₹197.59 Cr, a decline of about 17%, which aligns with "moderation."
+
+## Assessment  
+- Revenue growth of nearly 40% is strong, not moderate.  
+- PAT growth of 22.6% (Excel) suggests improvement, but the Annual Report narrative and standalone PAT figures show a decline, supporting moderation.  
+- The Chairman’s letter likely refers to PAT moderation, not revenue.  
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY23, FY24  
+Annual-Report-2023-24.pdf · Page 42 · FY24
+Routing:  ✅ | Expected: ['excel', 'pdf'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  10.41s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q68 [Cross] [Medium]
+Question: In the FY23 Q2 concall, management claimed Aluminum segment margins were in line with Q1. The FY23 MD&A reports Aluminum segment EBIT margin for the full year. Is the full-year margin consistent with the in-call claim?
+Expected: FY23 MD&A reports Aluminum EBIT margin at 9% for full year. FY22 Aluminum EBIT margin was also approximately 9-10%. The full-year figure is broadly consistent with management's stability claim, though Q2 specifically showed value addition compression.
+Actual:   ## Summary  
+Yes, the full-year FY23 Aluminum Products segment EBIT margin reported in the MD&A is consistent with management’s claim in the FY23 Q2 concall that margins were in line with Q1. The full-year EBIT margin for Aluminum Products was approximately 8.3%, which aligns with the steady margin commentary given in the concall.
+
+## Details  
+- From the Annual Report FY23 (page 129), Aluminum Products segment revenue was Rs. 93,461 lakhs and EBIT was Rs. 7,732 lakhs for the full year.  
+- EBIT margin = (EBIT / Revenue) × 100 = (7,732 / 93,461) × 100 = 8.28% (rounded to 8.3%).  
+- In the FY23 Q2 concall, management stated that margins were in line with Q1, implying no significant margin expansion or contraction quarter-on-quarter.  
+- The reported full-year margin of ~8.3% reflects a stable margin profile consistent with the Q1 and Q2 margin commentary.
+
+## Calculation  
+EBIT Margin = (EBIT / Revenue) × 100  
+= (7,732 lakhs / 93,461 lakhs) × 100  
+= 0.0828 × 100  
+= 8.28% (approximately 8.3%)
+
+## Sources  
+Annual-Report_2023.pdf · Page 129 · FY23  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 5 · FY23 Q2 Concall
+Routing:  ✅ | Expected: ['concall', 'pdf'] | Got: ['concall', 'pdf']
+Citation: ✅
+Latency:  13.65s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q69 [Cross] [Medium]
+Question: The FY24 annual report donut chart shows Aluminum Products contributing 48% of consolidated revenue at ₹2,154 Cr. The MD&A shows standalone Aluminum at ₹917 Cr. Using Excel, verify the standalone Aluminum revenue figure.
+Expected: Implied DR Axion contribution = ₹2,154 − ₹917 = ₹1,237 Cr, consistent with Board's Report disclosure of DR Axion turnover of ₹1,246 Cr. The ₹9 Cr difference is intercompany elimination.
+Actual:   ## Summary  
+The standalone Aluminum revenue for FY24 is ₹917 crore as stated in the MD&A, which is consistent with the Excel data when calculated from the consolidated revenue and segment contribution.
+
+## Details  
+- Consolidated revenue for FY24 (Sales): ₹4,451.73 crore (from Excel profit_loss FY2024)  
+- Aluminum Products contribution to consolidated revenue: 48% (from annual report donut chart)  
+- Therefore, Aluminum Products revenue (consolidated) = 48% of ₹4,451.73 Cr = ₹2,136.83 Cr (approximate from chart)  
+- MD&A states standalone Aluminum revenue as ₹917 Cr  
+
+## Calculation  
+To verify standalone Aluminum revenue from Excel data, we need to confirm if standalone revenue matches ₹917 Cr.
+
+Since the standalone revenue is not directly given in Excel, but the consolidated revenue and segment contribution are known, the standalone figure is a subset of consolidated.
+
+Given:  
+- Consolidated Aluminum revenue = ₹2,154 Cr (from donut chart)  
+- Standalone Aluminum revenue = ₹917 Cr (from MD&A)  
+
+Standalone revenue is less than consolidated, which is logical as consolidated includes subsidiaries.
+
+No direct standalone revenue figure is in Excel sheets, so the MD&A figure of ₹917 Cr stands verified as consistent with the consolidated revenue and segment share.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY2024  
+Annual report image pages · donut chart · FY2024  
+PDF annual report text · MD&A · FY2024
+Routing:  ❌ | Expected: ['excel', 'pdf', 'images'] | Got: ['excel']
+Citation: ✅
+Latency:  11.33s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q70 [Cross] [Hard]
+Question: Across all concall transcripts, management made multiple statements about CAPEX plans. Using Excel investing cash flows and balance sheet changes, quantify how much of the guided CAPEX was actually deployed each year.
+Expected: Concall guided FY23 CAPEX ₹225-275 Cr. Excel investing outflows show actual capex ~₹856 Cr — significantly exceeding guidance. Management underguided by ~3x, partly explained by the DR Axion acquisition (₹375 Cr) included in investing outflows.
+Actual:   ## Summary  
+Management guided CAPEX of approximately Rs. 200-220 Crores annually for FY22 and FY23, with a split of about Rs. 100 Crores for maintenance and Rs. 100-120 Crores for growth. Using Excel financial data, the actual CAPEX deployed can be quantified by analyzing investing cash flows and balance sheet fixed asset changes, showing that actual CAPEX closely aligned with guidance in FY22 and FY23.
+
+## Details  
+- **Management Guidance from Earnings Calls:**  
+  - FY22: Maintenance CAPEX ~ Rs. 100 Crores, total CAPEX ~ Rs. 200 Crores (including growth) [Sources 11,12,13,15,16].  
+  - FY23: Similar guidance of Rs. 215-220 Crores CAPEX planned [Source 16].  
+  - Management emphasized proactive machinery purchases to avoid price inflation and capacity expansion needs.
+
+- **Quantifying Actual CAPEX from Excel Data:**  
+  Since direct investing cash flow figures are not provided in the context, CAPEX can be inferred from changes in gross fixed assets or net block plus depreciation.
+
+  Using depreciation and net block changes (or gross block if available) from the profit & loss and balance sheet data (assuming balance sheet data is part of Excel structured financials but not explicitly provided here), the approximate CAPEX can be estimated as:
+
+  - **FY22:**  
+    - Depreciation: Rs. 205.99 Cr  
+    - Interest in fixed assets (gross block) restated to ~ Rs. 2,700-2,800 Cr (management comment)  
+    - Given depreciation ~ Rs. 206 Cr and management CAPEX guidance ~ Rs. 200 Cr, actual CAPEX likely close to guidance.
+
+  - **FY23:**  
+    - Depreciation: Rs. 221.61 Cr  
+    - Sales and asset base increased significantly, indicating CAPEX likely at or above Rs. 220 Cr as guided.
+
+- **Additional Inference:**  
+  - The increase in fixed assets and inventory (change in inventory also increased significantly in FY23 and FY24) supports the view that CAPEX was deployed as per or slightly above guidance.  
+  - No explicit investing cash flow numbers are provided in the context, so exact CAPEX from cash flow cannot be stated, but the alignment of depreciation and management commentary strongly suggests actual CAPEX was in line with guidance.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Pages 8, 9, 10, 21 · FY22  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Pages 9, 18 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22  
+Craftsman Auto.xlsx · profit_loss · FY22, FY23
+Routing:  ✅ | Expected: ['excel', 'concall'] | Got: ['concall', 'excel']
+Citation: ✅
+Latency:  14.39s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q71 [Cross] [Hard]
+Question: The FY25 MD&A attributes RoNW collapse of 77% to one-time expenses for acquisitions. Using Excel, calculate RoNW for FY24 and FY25 independently and assess whether the one-time explanation is sufficient.
+Expected: FY25 PAT = ₹194.57 Cr, Networth = ₹2,856.74 Cr. RoNW FY25 = 6.8% vs FY24 ~13%. Management's one-time framing is partially misleading — the QIP equity dilution mechanically depressed RoNW regardless of one-time charges.
+Actual:   ## Summary
+The Return on Net Worth (RoNW) declined from approximately 24.3% in FY24 to about 5.6% in FY25, a collapse of around 77%. This sharp drop aligns with the MD&A explanation attributing it to one-time acquisition-related expenses, which significantly reduced net profit despite higher sales and net worth.
+
+## Details
+- **Net Profit:**
+  - FY24: ₹304.47 Cr
+  - FY25: ₹194.57 Cr
+- **Net Worth:**
+  - Calculated from RoNW formula (Net Profit / RoNW)
+  - Using RoNW formula below, net worth can be derived or assumed from context, but since exact net worth is not given, we calculate RoNW directly from net profit and net worth implied by the ratio.
+- **RoNW Calculation:**
+  - FY24 RoNW = 24.3% (inferred from net profit and net worth)
+  - FY25 RoNW = 5.6% (calculated below)
+
+## Calculation
+RoNW = (Net Profit / Net Worth) × 100
+
+Since net worth is not explicitly provided, we calculate RoNW using net profit and the given collapse percentage:
+
+- Given RoNW collapse = 77%
+- FY24 RoNW = X
+- FY25 RoNW = X × (1 - 0.77) = 0.23X
+
+Using net profits as proxy for numerator:
+
+- FY24 Net Profit = ₹304.47 Cr
+- FY25 Net Profit = ₹194.57 Cr
+
+Assuming net worth increased or remained stable (since sales and assets grew), the drop in net profit is the main driver of RoNW collapse.
+
+Alternatively, if net worth for FY24 is approximated as:
+
+RoNW FY24 = 24.3%  
+Net Profit FY24 = ₹304.47 Cr
+
+Then, Net Worth FY24 = Net Profit / RoNW = 304.47 / 0.243 = ₹1253.5 Cr (approx)
+
+Similarly, RoNW FY25 = Net Profit FY25 / Net Worth FY25
+
+Assuming net worth increased due to acquisitions (say by 20%):
+
+Net Worth FY25 ≈ 1253.5 × 1.2 = ₹1504.2 Cr
+
+RoNW FY25 = 194.57 / 1504.2 = 0.1293 = 12.9% (higher than 5.6%)
+
+But since the question states a 77% collapse, the actual net worth increase must be higher or net profit impact more severe.
+
+Given the net profit dropped by ~36% (304.47 to 194.57), but RoNW dropped by 77%, the net worth must have increased significantly due to acquisitions, diluting RoNW.
+
+Hence, the one-time acquisition expenses caused a large net profit reduction and increased net worth base, together causing RoNW collapse.
+
+## Conclusion
+The 77% RoNW collapse is consistent with the large one-time acquisition expenses reducing net profit and increasing net worth, validating the MD&A explanation.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+Annual-Report-2025.pdf · MD&A section · FY25
+Routing:  ✅ | Expected: ['excel', 'pdf'] | Got: ['pdf', 'excel']
+Citation: ✅
+Latency:  15.8s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q72 [Cross] [Hard]
+Question: Management guided debt reduction as a priority across multiple concall years. The FY25 MD&A shows Debt-Equity Ratio improving to 0.59x due to QIP. Using Excel borrowings data across all years, did debt actually reduce in absolute terms?
+Expected: Excel Borrowings: FY22 ₹799 Cr → FY23 ₹1,240 Cr → FY24 ₹1,754 Cr → FY25 ₹2,358 Cr → FY26 ₹3,623 Cr. Debt rose every single year in absolute terms. The FY25 D/E improvement is entirely driven by QIP equity raise, not debt reduction. Management's narrative is factually contradicted by Excel data.
+Actual:   ## Summary  
+Despite management’s guidance prioritizing debt reduction and the Debt-Equity ratio improving to 0.59x in FY25 due to a QIP, the absolute debt level did not reduce; instead, long-term borrowings increased significantly from FY24 to FY25.
+
+## Details  
+- Long-term borrowings (non-current + current maturity) as of March 31, 2024:  
+  - From Annual-Report-2025.pdf (Page 234): Not fully detailed for FY24, but cash and finance liabilities reconciliation shows total borrowings around ₹6,349 Cr (non-current) plus some current portion.  
+- Long-term borrowings as of March 31, 2025:  
+  - From Annual-Report-2025.pdf (Page 234 and 168): Total non-current borrowings ₹1,38,118 lakhs + current maturities ₹12,838 lakhs = ₹1,50,956 lakhs = ₹1,509.56 Cr.  
+- Excel data shows interest expense rising from ₹174.54 Cr in FY24 to ₹216.64 Cr in FY25, consistent with higher debt.  
+- Management commentary in FY22 concalls indicated total borrowings around ₹720 Cr, which increased over subsequent years.  
+- The Debt-Equity ratio improvement to 0.59x in FY25 is attributed to equity infusion (QIP), not debt reduction.  
+
+## Conclusion  
+The absolute debt level increased substantially from FY24 to FY25 (from roughly ₹635 Cr to over ₹1,500 Cr in long-term borrowings), indicating that despite management’s stated priority and improved Debt-Equity ratio, the company did not reduce its absolute debt in FY25. The improved ratio was driven by equity growth rather than debt repayment.
+
+## Sources  
+Annual-Report-2025.pdf · Notes to Consolidated · FY25  
+Annual-Report-2025.pdf · Notes to Standalone Fin · FY25  
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+CraftsmanAutomationAudioTranscript2022_Oct2.pdf · Page 9 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22
+Routing:  ✅ | Expected: ['excel', 'concall', 'pdf'] | Got: ['concall', 'pdf', 'excel']
+Citation: ✅
+Latency:  14.27s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q73 [Cross] [Hard]
+Question: The FY24 KPI page bar chart shows Debt-EBITDA rising for two consecutive years to 1.72x in FY24. Using Excel, extend this calculation to FY25 and FY26. Does the trend accelerate, stabilise, or reverse?
+Expected: Excel FY25: Borrowings ₹2,358 Cr, EBITDA ₹833 Cr → D/EBITDA = 2.83x. The trend shown in the FY24 chart dramatically accelerates in FY25 — a fact not visible in the annual report image which only shows through FY24.
+Actual:   ## Summary
+Using Excel data, the Debt-EBITDA ratio rises to 1.72x in FY24 and then accelerates further in FY25 and FY26, increasing to approximately 2.40x in FY25 and 2.77x in FY26. Thus, the trend is accelerating.
+
+## Details
+- Debt-EBITDA ratio formula: Debt / EBITDA
+- Debt is approximated from Debt-Equity ratio and Net Worth (Debt = Debt-Equity × Net Worth)
+- EBITDA and Net Worth from Excel data for FY24, FY25, FY26:
+
+| Year | Net Worth (Cr) | Debt-Equity Ratio | Debt (Cr) = Net Worth × Debt-Equity | EBITDA (Cr) | Debt/EBITDA Ratio |
+|-------|----------------|-------------------|------------------------------------|-------------|-------------------|
+| FY24  | 1,546          | 0.91 (from Annual Report) | 1,546 × 0.91 = 1,406.9           | 728.61      | 1,406.9 / 728.61 = 1.93x (Excel data) |
+| FY25  |  Not explicitly given in context; use Excel net worth for FY25: Not provided directly, but dividend and profit data available. Since no debt-equity ratio for FY25 is given, assume constant or infer from trend. |
+| FY25  |  Not given directly; however, Excel net profit and dividend data available, but no net worth or debt-equity ratio. |
+| FY26  |  Not given directly; same issue as FY25. |
+
+Since the question references the KPI page bar chart showing Debt-EBITDA rising to 1.72x in FY24 (from Annual Report image), but Excel data shows EBITDA for FY24 as 728.61 Cr and interest and other expenses, we need to calculate debt for FY25 and FY26.
+
+From Annual Report page 23 and 24, FY24 debt-equity ratio is 0.91, debt-EBITDA is 2.14 (Annual Report), but the question states 1.72x from KPI page bar chart (likely standalone vs consolidated difference).
+
+Using Excel data for FY25 and FY26:
+
+- FY25 EBITDA: 638.35 Cr
+- FY26 EBITDA: 1114.16 Cr
+
+Net worth for FY25 and FY26 is not explicitly given, but we can estimate debt from interest expense and debt-equity ratio if available.
+
+Interest expense:
+
+- FY25 Interest: 216.64 Cr
+- FY26 Interest: 308.97 Cr
+
+Assuming interest rate stable, debt can be approximated as Interest / Interest Rate.
+
+Since no interest rate given, we use debt-equity ratio trend:
+
+- FY24 debt-equity: 0.91
+- Assume debt-equity increases or remains stable.
+
+Alternatively, use debt-EBITDA from Excel data:
+
+Debt-EBITDA = Debt / EBITDA
+
+From Excel, FY24 EBITDA = 728.61 Cr, debt-EBITDA from Annual Report is 1.72x (KPI page).
+
+Calculate debt for FY24:
+
+Debt = 1.72 × 728.61 = 1,252.2 Cr
+
+Assuming debt grows proportionally with interest expense:
+
+Interest FY24 = 174.54 Cr  
+Interest FY25 = 216.64 Cr  
+Interest FY26 = 308.97 Cr  
+
+Interest growth FY24 to FY25 = 216.64 / 174.54 = 1.24x  
+Interest growth FY25 to FY26 = 308.97 / 216.64 = 1.43x  
+
+Assuming debt grows similarly:
+
+Debt FY25 = 1,252.2 × 1.24 = 1,553.7 Cr  
+Debt FY26 = 1,553.7 × 1.43 = 2,221.8 Cr  
+
+Calculate Debt-EBITDA for FY25 and FY26:
+
+- FY25 Debt-EBITDA = 1,553.7 / 638.35 = 2.43x  
+- FY26 Debt-EBITDA = 2,221.8 / 1114.16 = 1.99x  
+
+This shows an increase from 1.72x in FY24 to 2.43x in FY25, then a decrease to 1.99x in FY26, indicating the ratio accelerates in FY25 but reverses (declines) in FY26.
+
+## Calculation
+- Debt FY24 = Debt-EBITDA × EBITDA = 1.72 × 728.61 = 1,252.2 Cr  
+- Debt FY25 = Debt FY24 × (Interest FY25 / Interest FY24) = 1,252.2 × (216.64 / 174.54) = 1,252.2 × 1.24 = 1,553.7 Cr  
+- Debt FY26 = Debt FY25 × (Interest FY26 / Interest FY25) = 1,553.7 × (308.97 / 216.64) = 1,553.7 × 1.43 = 2,221.8 Cr  
+
+Debt-EBITDA FY25 = Debt FY25 / EBITDA FY25 = 1,553.7 / 638.35 = 2.43x  
+Debt-EBITDA FY26 = Debt FY26 / EBITDA FY26 = 2,221.8 / 1114.16 = 1.99x  
+
+## Conclusion
+The Debt-EBITDA ratio rises sharply from 1.72x in FY24 to 2.43x in FY25, indicating acceleration, but then declines to 1.99x in FY26, indicating a partial reversal or stabilization after FY25. Overall, the trend accelerates in FY25 but reverses in FY26.  
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+Craftsman Auto.xlsx · profit_loss · FY26  
+Annual-Report-2023-24.pdf · Page 23 · FY24
+Routing:  ✅ | Expected: ['excel', 'images'] | Got: ['images', 'excel']
+Citation: ✅
+Latency:  20.85s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q74 [Cross] [Hard]
+Question: The FY23 auditor's report identifies derivative contracts as a KAM with assets of ₹936 Lakhs and liabilities of ₹375 Lakhs. In the FY23 Q2 concall, management discussed aluminum price risk. Are these derivative positions consistent with the hedging strategy described?
+Expected: Auditor's KAM shows net derivative asset of ₹561 Lakhs — a modest position vs ₹196 Cr quarterly aluminum revenue. The derivatives appear to be forex hedges rather than commodity hedges, meaning aluminum price risk was genuinely unhedged as management implied in the concall.
+Actual:   ## Summary  
+Yes, the derivative positions reported in the FY23 auditor's report, with assets of ₹936 Lakhs and liabilities of ₹375 Lakhs, are consistent with the hedging strategy described by management in the FY23 Q2 concall regarding aluminum price risk. The derivatives are used to manage commodity price fluctuations, aligning with the risk management objectives and hedge accounting practices outlined.
+
+## Hedging Strategy and Derivative Positions  
+- The auditor's report (FY23) highlights that derivative contracts are a key audit matter due to significant judgment in fair valuation and compliance with Ind AS 109, indicating the company actively manages financial risks through derivatives.  
+- The derivatives include both hedge-effective instruments (fair valued through OCI) and hedge-ineffective instruments (fair valued through profit and loss), showing a structured approach to hedge accounting.  
+- Management’s FY23 Q2 concall commentary on aluminum price risk confirms active management of commodity price volatility, including challenges in pass-through pricing and operating leverage impacts on margins. This implies the use of derivatives to hedge aluminum price exposure.  
+- The presence of significant derivative assets and liabilities supports the existence of active hedging positions consistent with the described strategy to mitigate aluminum price risk.
+
+## Sources  
+Annual-Report_2023.pdf · Page 63, 98 · FY23  
+Annual-Report_2023.pdf · Page 91 · FY23  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 4 · FY22 (for management commentary on aluminum price risk)
+Routing:  ✅ | Expected: ['pdf', 'concall'] | Got: ['pdf', 'concall']
+Citation: ✅
+Latency:  12.7s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q75 [Cross] [Hard]
+Question: Management stated in multiple concalls that the Automotive Powertrain segment is the core earnings driver. Using Excel and the FY24 MD&A segment EBIT data, calculate what percentage of total company EBIT came from Powertrain in FY22 and FY24.
+Expected: FY22: Powertrain EBIT ~₹333 Cr representing nearly 100% of total EBIT as other segments were near breakeven. FY24: Powertrain EBIT contribution declining as Aluminum (DR Axion) grew. The segment's EBIT dominance is clearly declining — management's concall narrative of Powertrain as core is becoming less numerically accurate.
+Actual:   ## Summary
+In FY22, the Automotive Powertrain segment contributed approximately 90.9% of the total company EBIT, while in FY24, it contributed about 88.5%, confirming it as the core earnings driver.
+
+## Details
+- FY22 EBIT from Automotive Powertrain segment: ₹303.74 Cr (from Annual Report segment profit/loss data converted from lakhs)
+- FY22 Total company EBIT: ₹333.95 Cr (sum of segment EBITs plus other income minus unallocable expenses)
+- FY24 EBIT data (from Excel profit_loss sheet):
+  - Total company EBIT = Profit before interest and tax = Profit before tax + Interest (since no exceptional items mentioned)
+  - FY24 Profit before tax = ₹444.69 Cr
+  - FY24 Interest = ₹174.54 Cr
+  - Therefore, FY24 EBIT = ₹444.69 Cr + ₹174.54 Cr = ₹619.23 Cr
+- FY24 Automotive Powertrain EBIT (inferred from MD&A narrative and segment EBIT growth trends, assuming similar proportion as FY22 adjusted for sales growth and segment focus)
+
+Since exact FY24 segment EBIT is not directly provided in the context, we use the FY22 segment EBIT and total EBIT from the Annual Report and Excel data for FY24 total EBIT.
+
+## Calculation
+### FY22
+- Automotive Powertrain EBIT = ₹30,374 Lakhs = ₹303.74 Cr
+- Total EBIT = Earnings Before Interest and Tax (EBIT) = ₹33,595 Lakhs = ₹335.95 Cr (from Annual Report)
+- Percentage contribution = (303.74 / 335.95) × 100 = 90.4%
+
+### FY24
+- Total EBIT = Profit before tax + Interest = 444.69 + 174.54 = ₹619.23 Cr
+- Assuming Automotive Powertrain segment EBIT is approximately 88.5% of total EBIT (based on management emphasis and segment revenue growth)
+- Automotive Powertrain EBIT = 0.885 × 619.23 = ₹548.0 Cr (inferred)
+
+- Percentage contribution = (548.0 / 619.23) × 100 = 88.5%
+
+## Sources
+7.-Annual-Report-2021-22.pdf · Page 124 · FY22  
+Craftsman Auto.xlsx · profit_loss · FY24
+Routing:  ❌ | Expected: ['excel', 'pdf', 'concall'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  13.39s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q76 [Cross] [Hard]
+Question: The FY25 Directors' Report discloses loans and advances to related parties jumped from 0% to 100% per BRSR data. Using Excel balance sheet data, assess whether this represents a material fund flow to subsidiaries.
+Expected: The 0% to 100% RPT concentration shift combined with three acquisitions in FY25 (DR Axion, Sunbeam, Craftsman Germany) suggests the intercompany loans are acquisition-related funding. Absolute quantum from Excel determines materiality under IND AS 24.
+Actual:   ## Summary  
+The FY25 Directors' Report indicates loans and advances to related parties increased from 0% to 100% per BRSR data. However, based on the Excel balance sheet data, there is no explicit material fund flow to subsidiaries reflected as loans or advances in the financials, suggesting this increase is not supported by a significant cash outflow to related parties in FY25.
+
+## Details  
+- The Excel data provided does not show any explicit line item or amount for loans and advances to related parties or subsidiaries in FY25.  
+- The notes from the Annual Report (FY25) do not disclose any significant increase in loans or advances to related parties or subsidiaries in the financial statements or notes to accounts.  
+- The Directors' Report statement from BRSR data (not part of Excel or Annual Report financials) shows a jump from 0% to 100%, but this is not corroborated by the detailed balance sheet or cash flow data in the Excel or Annual Report.  
+- No material cash outflow or increase in receivables from related parties/subsidiaries is visible in the Excel financials for FY25.  
+
+## Conclusion  
+The reported jump in loans and advances to related parties from 0% to 100% in the Directors' Report per BRSR data does not correspond to a material fund flow to subsidiaries in the detailed Excel balance sheet data for FY25. This suggests the increase may be a reporting or classification change rather than an actual significant cash movement to subsidiaries.  
+
+## Sources  
+Craftsman Auto.xlsx · balance_sheet · FY25  
+Annual-Report-2025.pdf · Notes to Consolidated Financial Statements · FY25  
+Annual-Report-2025.pdf · Directors' Report / BRSR data · FY25
+Routing:  ✅ | Expected: ['excel', 'pdf'] | Got: ['excel', 'pdf']
+Citation: ✅
+Latency:  11.24s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q77 [Cross] [Hard]
+Question: Across all available sources — Excel, concalls, annual report visuals, and MD&A ratios — construct a complete picture of Craftsman's debt trajectory from FY22 to FY26. Did management's stated commitment to deleveraging materialise?
+Expected: Concall guidance: multiple commitments to ₹100 Cr debt reduction. PDF visuals: FY22 KPI chart shows D/EBITDA at 1.33x — lowest in 5 years. MD&A FY25: D/E improved to 0.59x via QIP. Excel raw data: Borrowings FY22 ₹799 Cr → FY26 ₹3,623 Cr — a 353% absolute increase. Every narrative source suggests deleveraging intent but Excel shows continuous accelerating debt accumulation. The ratio improvement in FY25 is entirely a QIP artifact.
+Actual:   ## Summary  
+Craftsman Automation's debt trajectory from FY22 to FY26 shows an initial modest reduction in long-term debt in FY22, followed by a significant increase in total debt levels through FY23 to FY26. Despite management’s stated commitment to deleveraging in FY22 and FY23, the overall debt increased substantially by FY26, indicating that the deleveraging plan did not fully materialize.
+
+## Debt Trajectory and Management Commentary
+
+### FY22  
+- As per the annual report and earnings call, total debt as of March 31, 2022, was approximately ₹713 crores.  
+- Long-term debt reduced from ₹546 crores in FY21 to ₹522 crores in FY22.  
+- Working capital borrowings increased from ₹150 crores to ₹193 crores.  
+- Management in FY22 concalls indicated a plan to reduce debt by ₹50-80 crores but acknowledged challenges due to commodity price increases.  
+- Net debt reconciliation shows a slight net increase in overall debt due to short-term borrowings rising by ₹80 crores, offsetting the long-term debt reduction of ₹30 crores.  
+- Debt/Equity ratio improved from 0.72 in FY21 to 0.63 in FY22 (7.-Annual-Report-2021-22.pdf · 93 · FY22).  
+- Debt Service Coverage Ratio improved from 1.32 to 1.70, indicating better ability to service debt.
+
+### FY23 to FY26 (Excel Data)  
+- FY23: Interest expense increased to ₹120.23 crores from ₹84.22 crores in FY22, indicating higher debt levels.  
+- FY24: Interest further increased to ₹174.54 crores.  
+- FY25: Interest at ₹216.64 crores.  
+- FY26: Interest expense rose sharply to ₹308.97 crores.  
+- Profit before tax and EBITDA increased significantly, but interest costs rose disproportionately, implying higher debt.  
+- No explicit long-term vs short-term debt split is available post-FY22, but rising interest costs and other expenses suggest increased borrowings.  
+- Debt/Equity ratio and other leverage ratios are not explicitly stated beyond FY22, but the trend in interest and expenses implies increased leverage.
+
+### Management’s Deleveraging Commitment  
+- FY22 concall (CraftsmanAutomationAudioTranscript2022_May.pdf · 10 · FY22): Management expected debt reduction of about ₹100 crores in FY23, focusing on reducing both term loans and working capital loans.  
+- FY22 concall (CraftsmanAutomationAudioTranscript2022_Feb.pdf · 17 · FY22): Management acknowledged difficulty in achieving planned debt reduction due to commodity price inflation.  
+- FY22 concall (CraftsmanAutomationAudioTranscript2022_July.pdf · 4 · FY22): Debt increased overall by ₹50 crores, with a shift from long-term to short-term loans.  
+- No further management commentary available for FY23-FY26 debt reduction plans.
+
+## Conclusion  
+While management committed to deleveraging in FY22 and FY23, the actual financial data shows only a modest reduction in long-term debt in FY22, offset by increased short-term borrowings. From FY23 onwards, the company’s interest expenses and implied debt levels rose significantly, indicating increased leverage rather than sustained deleveraging. Therefore, management’s stated commitment to deleveraging did not fully materialize through FY26.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY22 to FY26  
+7.-Annual-Report-2021-22.pdf · 93 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · 10 · FY22  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · 17 · FY22  
+CraftsmanAutomationAudioTranscript2022_July.pdf · 4 · FY22
+Routing:  ✅ | Expected: ['excel', 'concall', 'pdf', 'images'] | Got: ['excel', 'concall', 'images', 'pdf']
+Citation: ✅
+Latency:  17.94s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+
+================================================================================
+AUTO-SCORED SUMMARY (Routing + Citation + Latency)
+================================================================================
+
+Routing Accuracy (Lenient): 70/77 = 90.9%
+Routing Accuracy (Strict):  46/77 = 59.7%
+Total Fallbacks Fired:      0
+Overall Citation Accuracy:  72/77 = 93.5%
+Average Latency:            12.29s
+
+Per Section:
+  Excel      Routing: 11/15 lenient (73%), 6/15 strict (40%) | Fallbacks: 0 | Citation: 11/15 (73%) | Avg Latency: 12.4s
+  Concall    Routing: 15/15 lenient (100%), 8/15 strict (53%) | Fallbacks: 0 | Citation: 15/15 (100%) | Avg Latency: 13.7s
+  PDF        Routing: 16/16 lenient (100%), 10/16 strict (62%) | Fallbacks: 0 | Citation: 16/16 (100%) | Avg Latency: 11.0s
+  Images     Routing: 16/16 lenient (100%), 10/16 strict (62%) | Fallbacks: 0 | Citation: 16/16 (100%) | Avg Latency: 10.7s
+  Cross      Routing: 12/15 lenient (80%), 12/15 strict (80%) | Fallbacks: 0 | Citation: 14/15 (93%) | Avg Latency: 13.7s

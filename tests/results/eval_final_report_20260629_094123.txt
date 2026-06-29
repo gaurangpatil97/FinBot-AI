@@ -1,0 +1,88 @@
+======================================================================
+  FINBOT EVALUATION FINAL REPORT
+  Generated: 2026-06-29 09:43:32
+  Source: 20260629_093843
+  Company: craftsman_automation_ltd
+======================================================================
+
+── SYSTEM OVERVIEW ──────────────────────────────────────────────────
+  Total questions evaluated: 15
+  Questions manually reviewed: 0
+
+── AUTO-SCORED METRICS ──────────────────────────────────────────────
+  Routing Accuracy:   7/15 = 46.7%
+  Citation Accuracy:  10/15 = 66.7%
+  Answer Correctness: NOT YET REVIEWED (set 'correct': true/false in JSON)
+
+  Latency:
+    Average: 9.25s
+    Min:     3.04s
+    Max:     19.96s
+
+── RAGAS METRICS ────────────────────────────────────────────────────
+  Questions evaluated: 11
+  Questions skipped:   4 (no chunks)
+  Faithfulness:        0.6731
+  Answer Relevancy:    0.8232
+  Context Recall:      0.1212
+  Context Precision:   0.2603
+  Hallucination Rate:  32.69%
+
+── CHUNK & RETRIEVAL METRICS ────────────────────────────────────────
+  Precision@K:        0.8081
+  Recall@K:           0.8333
+  F1@K:               0.7907
+  Questions Evaluated: 11
+
+── COMPLETENESS & COST METRICS ──────────────────────────────────────
+  Answer Completeness: Skipped (pass --completeness flag to run)
+  Total Cost:         $0.010630
+  Avg Cost/Query:     $0.000709
+  Min Cost/Query:     $0.000049
+  Max Cost/Query:     $0.001307
+  Total Tokens:       60276
+
+── PER SECTION BREAKDOWN ────────────────────────────────────────────
+  Section       Total    Routing   Citation    Correct    Avg Lat
+  --------------------------------------------------------------
+  Excel             3 0/3 (0%):>10 0/3 (0%):>10 not reviewed 9.2s:>10
+  Concall           3 3/3 (100%):>10 3/3 (100%):>10 not reviewed 12.8s:>10
+  PDF               3 2/3 (67%):>10 2/3 (67%):>10 not reviewed 7.3s:>10
+  Images            3 2/3 (67%):>10 3/3 (100%):>10 not reviewed 9.1s:>10
+  Cross             3 0/3 (0%):>10 2/3 (67%):>10 not reviewed 7.8s:>10
+
+── PER DIFFICULTY BREAKDOWN ─────────────────────────────────────────
+  Easy       Routing: 3/5 (60%) | Correct: not reviewed
+  Medium     Routing: 2/5 (40%) | Correct: not reviewed
+  Hard       Routing: 2/5 (40%) | Correct: not reviewed
+
+── FAILURE ANALYSIS ─────────────────────────────────────────────────
+
+  Routing Failures (8):
+    Q1 [Excel]: Expected ['excel'] | Got []
+    Q5 [Excel]: Expected ['excel'] | Got []
+    Q9 [Excel]: Expected ['excel'] | Got ['pdf']
+    Q32 [PDF]: Expected ['pdf'] | Got []
+    Q50 [Images]: Expected ['images'] | Got ['pdf']
+    Q63 [Cross]: Expected ['excel', 'concall'] | Got ['excel']
+    Q67 [Cross]: Expected ['excel', 'pdf'] | Got []
+    Q72 [Cross]: Expected ['excel', 'concall', 'pdf'] | Got ['excel', 'pdf']
+
+  Citation Failures (5):
+    Q1 [Excel]: What was the Net Profit reported by the company in FY26?...
+    Q5 [Excel]: Calculate the Operating Profit Margin for FY24 and FY25 and ...
+    Q9 [Excel]: In FY25, sales grew 27.8% YoY yet PBT fell 39.4% from FY24. ...
+    Q32 [PDF]: In the company's FY22 MD&A, which specific financial ratio s...
+    Q67 [Cross]: The FY24 Chairman's letter describes business performance as...
+
+── SUMMARY ──────────────────────────────────────────────────────────
+  Routing Accuracy:   46.7%
+  Citation Accuracy:  66.7%
+  Faithfulness:       0.6731
+  Context Recall:     0.1212
+  Context Precision:  0.2603
+  Hallucination Rate: 32.69%
+  Retrieval F1@K:     0.7907
+  Avg Cost/Query:     $0.000709
+  Avg Latency:        9.25s
+======================================================================

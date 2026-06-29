@@ -62,6 +62,7 @@ class QueryResponse(BaseModel):
     chunks: list[dict] = []  # Retrieved chunks — populated during eval mode for RAGAS
     routing_debug: Dict[str, Any] = Field(default_factory=dict)
     chart_data: Optional[ChartData] = None
+    token_usage: Optional[Dict[str, int]] = None
 
 
 class UploadResponse(BaseModel):
