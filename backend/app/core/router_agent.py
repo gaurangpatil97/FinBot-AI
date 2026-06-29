@@ -21,6 +21,7 @@ class RouteDecision:
     year: Optional[str]
     agent_used: str = "router"
     collections_searched: List[str] = field(default_factory=list)
+    sheet: Optional[str] = None
 
 
 CONCALL_KEYWORDS = [
@@ -67,6 +68,14 @@ IMAGE_FORCE_TRIGGERS = [
 def _keyword_route(question: str, company_slug: str, year: Optional[str] = None) -> RouteDecision:
     q = question.lower()
 
+    detected_sheet = None
+    if "balance sheet" in q or "balance_sheet" in q:
+        detected_sheet = "balance_sheet"
+    elif "cash flow" in q or "cash_flow" in q or "cashflow" in q:
+        detected_sheet = "cash_flow"
+    elif "profit" in q or "loss" in q or "p&l" in q or "p and l" in q or "income statement" in q:
+        detected_sheet = "profit_loss"
+
     # Force image route
     if any(trigger in q for trigger in IMAGE_FORCE_TRIGGERS):
         logger.info(f"[Router] Force → image for: '{q[:60]}'")
@@ -75,7 +84,8 @@ def _keyword_route(question: str, company_slug: str, year: Optional[str] = None)
             source_types=["images", "excel"],
             year=year,
             agent_used="keyword_fallback",
-            collections_searched=collections
+            collections_searched=collections,
+            sheet=detected_sheet
         )
 
     # Score sources
@@ -107,7 +117,8 @@ def _keyword_route(question: str, company_slug: str, year: Optional[str] = None)
         source_types=sources,
         year=year,
         agent_used="keyword_fallback",
-        collections_searched=collections
+        collections_searched=collections,
+        sheet=detected_sheet
     )
 
 
@@ -126,7 +137,8 @@ def route_question(
             extracted = match.group(1)
             extracted_year = f"20{extracted}" if len(extracted) == 2 else extracted
 
-    prompt = f"""You are a financial data router. Given a question, decide which data sources to search.
+    prompt = f"""You are a financial data router. Given a question, decide which data sources to search and if a specific financial sheet/statement is targeted.
+    If the question targets a specific financial sheet (e.g., profit_loss, balance_sheet, cash_flow, etc.), identify that sheet name dynamically (lowercase with underscores) and return it under the 'sheet' key. Otherwise return null.
 
     Available sources:
     - excel: structured financial data, precise numbers, 10 years of financials, ratios calculated from numbers
@@ -146,39 +158,39 @@ def route_question(
 
     Examples:
     # Neutral year placeholders — avoid benchmark phrasing bias
-    Q: What was the revenue in FYxx? → {{"source_types": ["excel"], "year": "2022"}}
-    Q: What is the company's operational strategy? → {{"source_types": ["pdf"], "year": null}}
-    Q: Who is the chairman and what framework does he highlight? → {{"source_types": ["pdf"], "year": null}}
-    Q: What are the risk factors mentioned in the annual report? → {{"source_types": ["pdf"], "year": null}}
-    Q: What did management guide for next quarter? → {{"source_types": ["concall"], "year": null}}
-    Q: Calculate the debt to equity ratio for FYxx? → {{"source_types": ["excel"], "year": "2023"}}
-    Q: What segment has higher margins and why? → {{"source_types": ["pdf"], "year": null}}
-    Q: Show me the revenue chart → {{"source_types": ["images"], "year": null}}
-    Q: What was EBITDA margin trend from FYxx to FYyy? → {{"source_types": ["excel", "pdf"], "year": null}}
-    Q: What was the revenue shown in the FYxx annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
-    Q: What percentage was shown in the annual report chart? → {{'source_types': ['images'], 'year': null}}
-    Q: What was the market cap shown in FYxx annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022'}}
-    Q: What does the annual report show about segment revenue? → {{'source_types': ['images', 'pdf'], 'year': null}}
-    Q: What was the ROCE shown in the annual report visuals? → {{'source_types': ['images'], 'year': null}}
-    Q: How many plants shown in annual report? → {{'source_types': ['images', 'pdf'], 'year': null}}
-    Q: What was H1 revenue as disclosed by management? → {{"source_types": ["concall"], "year": null}}
-    Q: What did management say in Q1 about margins? → {{"source_types": ["concall"], "year": null}}
-    Q: What was the quarterly EBIT for each segment? → {{"source_types": ["concall"], "year": null}}
-    Q: Compare H1 vs H2 performance? → {{"source_types": ["concall"], "year": null}}
-    Q: What is shown in the KPI bar chart? → {{"source_types": ["images"], "year": null}}
-    Q: What does the donut chart show for segment revenue? → {{"source_types": ["images"], "year": null}}
-    Q: What trend is visible in the bar chart? → {{"source_types": ["images"], "year": null}}
-    Q: What is shown in the infographic? → {{"source_types": ["images"], "year": null}}
-    Q: What does the MD&A ratio table show? → {{"source_types": ["images"], "year": null}}
-    Q: According to the MD&A what was the reason for decline? → {{"source_types": ["pdf"], "year": null}}
-    Q: What does the BRSR disclose? → {{"source_types": ["pdf"], "year": null}}
-    Q: What KAM did the auditor identify? → {{"source_types": ["pdf"], "year": null}}
+    Q: What was the revenue in FYxx? → {{"source_types": ["excel"], "year": "2022", "sheet": "profit_loss"}}
+    Q: What is the company's operational strategy? → {{"source_types": ["pdf"], "year": null, "sheet": null}}
+    Q: Who is the chairman and what framework does he highlight? → {{"source_types": ["pdf"], "year": null, "sheet": null}}
+    Q: What are the risk factors mentioned in the annual report? → {{"source_types": ["pdf"], "year": null, "sheet": null}}
+    Q: What did management guide for next quarter? → {{"source_types": ["concall"], "year": null, "sheet": null}}
+    Q: Calculate the debt to equity ratio for FYxx? → {{"source_types": ["excel"], "year": "2023", "sheet": "balance_sheet"}}
+    Q: What segment has higher margins and why? → {{"source_types": ["pdf"], "year": null, "sheet": null}}
+    Q: Show me the revenue chart → {{"source_types": ["images"], "year": null, "sheet": null}}
+    Q: What was EBITDA margin trend from FYxx to FYyy? → {{"source_types": ["excel", "pdf"], "year": null, "sheet": "profit_loss"}}
+    Q: What was the revenue shown in the FYxx annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022', 'sheet': 'profit_loss'}}
+    Q: What percentage was shown in the annual report chart? → {{'source_types': ['images'], 'year': null, 'sheet': null}}
+    Q: What was the market cap shown in FYxx annual report? → {{'source_types': ['images', 'pdf'], 'year': '2022', 'sheet': 'balance_sheet'}}
+    Q: What does the annual report show about segment revenue? → {{'source_types': ['images', 'pdf'], 'year': null, 'sheet': null}}
+    Q: What was the ROCE shown in the annual report visuals? → {{'source_types': ['images'], 'year': null, 'sheet': null}}
+    Q: How many plants shown in annual report? → {{'source_types': ['images', 'pdf'], 'year': null, 'sheet': null}}
+    Q: What was H1 revenue as disclosed by management? → {{"source_types": ["concall"], "year": null, "sheet": null}}
+    Q: What did management say in Q1 about margins? → {{"source_types": ["concall"], "year": null, "sheet": null}}
+    Q: What was the quarterly EBIT for each segment? → {{"source_types": ["concall"], "year": null, "sheet": null}}
+    Q: Compare H1 vs H2 performance? → {{"source_types": ["concall"], "year": null, "sheet": null}}
+    Q: What is shown in the KPI bar chart? → {{"source_types": ["images"], "year": null, "sheet": null}}
+    Q: What does the donut chart show for segment revenue? → {{"source_types": ["images"], "year": null, "sheet": null}}
+    Q: What trend is visible in the bar chart? → {{"source_types": ["images"], "year": null, "sheet": null}}
+    Q: What is shown in the infographic? → {{"source_types": ["images"], "year": null, "sheet": null}}
+    Q: What does the MD&A ratio table show? → {{"source_types": ["images"], "year": null, "sheet": null}}
+    Q: According to the MD&A what was the reason for decline? → {{"source_types": ["pdf"], "year": null, "sheet": null}}
+    Q: What does the BRSR disclose? → {{"source_types": ["pdf"], "year": null, "sheet": null}}
+    Q: What KAM did the auditor identify? → {{"source_types": ["pdf"], "year": null, "sheet": null}}
 
-Return ONLY a JSON object, no explanation, no markdown:
-{{"source_types": ["pdf"], "year": "2022"}}
+    Return ONLY a JSON object, no explanation, no markdown:
+    {{"source_types": ["pdf"], "year": "2022", "sheet": null}}
 
-Question: {question}
-"""
+    Question: {question}
+    """
 
     try:
         client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
@@ -209,15 +221,17 @@ Question: {question}
         if not source_types:
             raise ValueError("empty source_types")
         routed_year = result.get("year") or extracted_year
+        detected_sheet = result.get("sheet")
         collections = [f"{company_slug}_{source_type}" for source_type in source_types]
 
-        logger.info(f"[Router] LLM → {source_types} | Year: {routed_year}")
+        logger.info(f"[Router] LLM → {source_types} | Year: {routed_year} | Sheet: {detected_sheet}")
 
         return RouteDecision(
             source_types=source_types,
             year=routed_year,
             agent_used="llm",
             collections_searched=collections,
+            sheet=detected_sheet,
         )
     except Exception:
         logger.warning("[Router] LLM routing failed, falling back to keywords")

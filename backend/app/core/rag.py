@@ -137,10 +137,13 @@ def build_calculation_context(calc_result: dict, company_slug: str) -> list[dict
     ]
 
 
-def query_collection_all(collection_name: str, chroma_path: str = None) -> list[dict]:
+def query_collection_all(collection_name: str, chroma_path: str = None, sheet: str = None) -> list[dict]:
     collection = get_or_create_collection(collection_name, chroma_path=chroma_path)
     with CHROMA_QUERY_LATENCY.labels(collection_type="excel").time():
-        results = collection.get(include=["documents", "metadatas"])
+        if sheet:
+            results = collection.get(where={"sheet": sheet}, include=["documents", "metadatas"])
+        else:
+            results = collection.get(include=["documents", "metadatas"])
     documents = results.get("documents", []) or []
     metadatas = results.get("metadatas", []) or []
 
@@ -151,7 +154,7 @@ def query_collection_all(collection_name: str, chroma_path: str = None) -> list[
             "metadata": meta,
             "score": 1.0
         })
-    logger.info(f"Retrieved ALL {len(chunks)} chunks from '{collection_name}'")
+    logger.info(f"Retrieved ALL {len(chunks)} chunks from '{collection_name}' (sheet filter: {sheet})")
     return chunks
 
 
@@ -269,6 +272,25 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     # Step 3 — Decompose and embed the sub-queries
     sub_queries = decompose_query(question)
 
+    # Extract target sheet dynamically from routing context or calculation intent
+    target_sheet = None
+    if hasattr(decision, "sheet") and decision.sheet:
+        target_sheet = decision.sheet
+    
+    if not target_sheet:
+        try:
+            from app.core.calculation_agent import _match_hardcoded_formula, parse_computation_intent, is_computation_question
+            calc_intent = _match_hardcoded_formula(question)
+            if not calc_intent:
+                if is_computation_question(question).get("needs_calculation"):
+                    calc_intent = parse_computation_intent(question)
+            if calc_intent:
+                metrics = calc_intent.get("metrics", [])
+                if metrics:
+                    target_sheet = metrics[0].get("sheet")
+        except Exception as e:
+            logger.warning(f"Failed to extract sheet from calculation agent: {e}")
+
     # Step 4 — Retrieve chunks from routed collections
     all_chunks = []
     excel_all_chunks = []
@@ -283,7 +305,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
         if coll_type == "excel" and len(sub_queries) > 1:
             excel_chunks = query_collection_all(
                 f"{company_slug}_excel",
-                chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel"
+                chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel",
+                sheet=target_sheet
             )
             for chunk in excel_chunks:
                 content = str(chunk.get("content", ""))
@@ -306,6 +329,7 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                     f"{company_slug}_excel",
                     top_k=K_EXCEL,
                     year=_normalize_year(routed_year),
+                    sheet=target_sheet,
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel"
                 )
             elif coll_type == "pdf":

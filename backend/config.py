@@ -29,9 +29,9 @@ class Settings:
     ENABLE_IMAGE_EMBEDDING: bool = False
     EMBEDDING_MODEL: str = "BAAI/bge-large-en-v1.5"
     EMBEDDING_DEVICE: str = "cpu"
-    TOP_K_CHUNKS: int = 12
+    TOP_K_CHUNKS: int = 16
     EXCEL_FILE_PATH: str = str(BASE_DIR / "data" / "uploads")
-    TOP_K_CHUNKS_MULTI: int = 8
+    TOP_K_CHUNKS_MULTI: int = 12
     CHUNK_SIZE: int = 800
     CHUNK_OVERLAP: int = 150
     TOP_K_PDF: int = 8
