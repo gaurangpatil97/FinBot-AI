@@ -1,0 +1,82 @@
+======================================================================
+  FINBOT EVALUATION FINAL REPORT
+  Generated: 2026-06-29 23:17:17
+  Source: 20260629_223104
+  Company: craftsman_automation_ltd
+======================================================================
+
+── SYSTEM OVERVIEW ──────────────────────────────────────────────────
+  Total questions evaluated: 77
+  Questions manually reviewed: 0
+
+── AUTO-SCORED METRICS ──────────────────────────────────────────────
+  Routing Accuracy:   73/77 = 94.8%
+  Citation Accuracy:  74/77 = 96.1%
+  Answer Correctness: NOT YET REVIEWED (set 'correct': true/false in JSON)
+
+  Latency:
+    Average: 16.14s
+    Min:     7.33s
+    Max:     122.03s
+
+── RAGAS METRICS ────────────────────────────────────────────────────
+  Questions evaluated: 76
+  Questions skipped:   1 (no chunks)
+  Faithfulness:        0.6198
+  Answer Relevancy:    0.6994
+  Context Recall:      0.2714
+  Context Precision:   0.3607
+  Hallucination Rate:  38.02%
+
+── CHUNK & RETRIEVAL METRICS ────────────────────────────────────────
+  Precision@K:        0.7601
+  Recall@K:           0.9671
+  F1@K:               0.821
+  Questions Evaluated: 76
+
+── COMPLETENESS & COST METRICS ──────────────────────────────────────
+  Answer Completeness: Skipped (pass --completeness flag to run)
+  Total Cost:         $0.097160
+  Avg Cost/Query:     $0.001278
+  Min Cost/Query:     $0.000469
+  Max Cost/Query:     $0.002155
+  Total Tokens:       532042
+
+── PER SECTION BREAKDOWN ────────────────────────────────────────────
+  Section       Total    Routing   Citation    Correct    Avg Lat
+  --------------------------------------------------------------
+  Excel            15 15/15 (100%):>10 15/15 (100%):>10 not reviewed 14.1s:>10
+  Concall          15 14/15 (93%):>10 14/15 (93%):>10 not reviewed 17.2s:>10
+  PDF              16 16/16 (100%):>10 16/16 (100%):>10 not reviewed 14.2s:>10
+  Images           16 14/16 (88%):>10 14/16 (88%):>10 not reviewed 19.8s:>10
+  Cross            15 14/15 (93%):>10 15/15 (100%):>10 not reviewed 15.3s:>10
+
+── PER DIFFICULTY BREAKDOWN ─────────────────────────────────────────
+  Easy       Routing: 18/21 (86%) | Correct: not reviewed
+  Medium     Routing: 20/20 (100%) | Correct: not reviewed
+  Hard       Routing: 35/36 (97%) | Correct: not reviewed
+
+── FAILURE ANALYSIS ─────────────────────────────────────────────────
+
+  Routing Failures (4):
+    Q19 [Concall]: Expected ['craftsman_automation_ltd_concalls'] | Got ['craftsman_automation_ltd_excel']
+    Q47 [Images]: Expected ['craftsman_automation_ltd_images'] | Got []
+    Q54 [Images]: Expected ['craftsman_automation_ltd_images'] | Got ['craftsman_automation_ltd_excel']
+    Q64 [Cross]: Expected ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got ['craftsman_automation_ltd_excel']
+
+  Citation Failures (3):
+    Q19 [Concall]: What was the total debt of the company as of end of FY22 Q4,...
+    Q47 [Images]: In the About the company infographic page of the FY22 annual...
+    Q54 [Images]: In the Over the years bar chart section of the FY23 annual r...
+
+── SUMMARY ──────────────────────────────────────────────────────────
+  Routing Accuracy:   94.8%
+  Citation Accuracy:  96.1%
+  Faithfulness:       0.6198
+  Context Recall:     0.2714
+  Context Precision:  0.3607
+  Hallucination Rate: 38.02%
+  Retrieval F1@K:     0.821
+  Avg Cost/Query:     $0.001278
+  Avg Latency:        16.14s
+======================================================================
