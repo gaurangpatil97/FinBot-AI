@@ -1,0 +1,727 @@
+[
+  {
+    "id": 1,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the Sales (Revenue) reported by Astral Ltd in FY26?",
+    "expected_answer": "Sales in FY26 was ₹6568.6 Cr. This represents a year-on-year growth of 12.62% compared to the ₹5832.4 Cr reported in FY25, showing resilient top-line momentum.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 2,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the Net profit of Astral Ltd in FY25?",
+    "expected_answer": "Net profit in FY25 was ₹523.8 Cr. This represents a slight contraction of 4.08% compared to the ₹546.1 Cr reported in FY24.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 3,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "How much did Astral Ltd report as total Borrowings in FY26?",
+    "expected_answer": "Total Borrowings in FY26 was ₹250.3 Cr. This is an increase from the ₹233.2 Cr reported in FY25, indicating a marginal expansion in leverage.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 4,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the Cash from Operating Activity for Astral Ltd in FY24?",
+    "expected_answer": "Cash from Operating Activity in FY24 was ₹823.4 Cr. This is a substantial expansion of 47.85% compared to the ₹556.9 Cr reported in FY23, showing strong core cash generation.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 5,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the value of Net Block recorded by Astral Ltd in FY25?",
+    "expected_answer": "Net Block in FY25 was ₹2711.6 Cr. This is an increase from the ₹2299.4 Cr reported in FY24, reflecting continuous capital deployment into productive capacity.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 6,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the total Dividend Amount paid out by Astral Ltd in FY22?",
+    "expected_answer": "Dividend Amount in FY22 was ₹60.3 Cr. This is an increase of 50.00% compared to the ₹40.2 Cr paid in FY21, highlighting enhanced shareholder distributions.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 7,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the reported Employee Cost for Astral Ltd in FY26?",
+    "expected_answer": "Employee Cost in FY26 was ₹590.4 Cr. This is a 14.00% rise compared to the ₹517.9 Cr reported in FY25, pointing toward team scale-up or salary adjustments.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 8,
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the Inventory value recorded by Astral Ltd in FY21?",
+    "expected_answer": "Inventory in FY21 was ₹472.1 Cr. This represents a decline of 12.64% compared to the ₹540.4 Cr recorded in FY20, indicating tighter working capital optimization.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 9,
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "What was the year-on-year (YoY) growth rate of Sales for Astral Ltd in FY26?",
+    "expected_answer": "The year-on-year growth rate of Sales in FY26 was 12.62%. Formula: ((Sales_FY26 - Sales_FY25) / Sales_FY25) * 100. Calculation: ((₹6568.6 Cr - ₹5832.4 Cr) / ₹5832.4 Cr) * 100 = 12.62%, indicating strong double-digit growth.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 10,
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "Did Astral Ltd's Cash from Operating Activity increase or decrease in FY25 compared to FY24, and by what absolute amount?",
+    "expected_answer": "Cash from Operating Activity decreased in FY25 compared to FY24. The absolute decline was ₹193.8 Cr. Formula: CFO_FY25 - CFO_FY24. Calculation: ₹629.6 Cr - ₹823.4 Cr = -₹193.8 Cr, revealing short-term cash flow compression.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 11,
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "Compute the absolute increase in Total Reserves of Astral Ltd from FY17 to FY26.",
+    "expected_answer": "The absolute increase in Total Reserves from FY17 to FY26 was ₹3196.13 Cr. Formula: Reserves_FY26 - Reserves_FY17. Calculation: ₹4031.0 Cr - ₹834.87 Cr = ₹3196.13 Cr, showing stellar long-term book value accumulation.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 12,
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "Compare the Profit before tax across FY21, FY22, and FY23. Which year achieved the highest value, and what were the respective values?",
+    "expected_answer": "The highest Profit before tax was achieved in FY22 at ₹648.5 Cr. Respective values are: FY21 was ₹533.0 Cr, FY22 was ₹648.5 Cr, and FY23 was ₹628.2 Cr, indicating that profitability peaked in FY22 and normalized slightly in FY23.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 13,
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "What is the cumulative Cash from Investing Activity over the three-year period from FY24 to FY26?",
+    "expected_answer": "The cumulative Cash from Investing Activity from FY24 to FY26 was -₹1560.1 Cr. Formula: CFI_FY24 + CFI_FY25 + CFI_FY26. Calculation: (-₹541.0 Cr) + (-₹512.6 Cr) + (-₹506.5 Cr) = -₹1560.1 Cr, representing massive ongoing multi-year expansion projects.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 14,
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "Identify the anomaly in 'Other Expenses' in FY26. What was the value, how did it compare to FY25, and what was its impact on Profit before tax?",
+    "expected_answer": "The anomaly is a severe spike in 'Other Expenses' to ₹965.2 Cr in FY26, up drastically from ₹38.2 Cr in FY25. This surge restricted Profit before tax growth to just 4.00% (₹730.6 Cr in FY26 vs ₹702.5 Cr in FY25) despite a robust Sales increase of ₹736.2 Cr, indicating a significant margin drag.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 15,
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "Analyze the relationship between Net Profit and Dividend Amount changes in FY26 compared to FY25. Did dividends follow the net profit trend?",
+    "expected_answer": "No, dividends diverged from the profit trend. While Net Profit grew by 2.08% from ₹523.8 Cr in FY25 to ₹534.7 Cr in FY26, the Dividend Amount decreased sharply by 33.34% from ₹100.88 Cr in FY25 to ₹67.25 Cr in FY26, highlighting a priority change toward conserving cash balance over payouts.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 16,
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "Cross-verify the asset side components for FY26: compute Total Assets as the sum of Net Block, Capital Work in Progress, and Other Assets, and check if it matches the reported Total row.",
+    "expected_answer": "Total Assets computed as Net Block (₹2945.0 Cr) + Capital Work in Progress (₹88.7 Cr) + Other Assets (₹2778.2 Cr) equals ₹5811.9 Cr. This perfectly matches the reported 'Total' row of ₹5811.9 Cr, validating absolute internal consistency in data aggregation.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 17,
+    "section": "Ratio",
+    "difficulty": "Easy",
+    "question": "What was the Debt-to-Equity Ratio of Astral Ltd in FY26?",
+    "expected_answer": "The Debt-to-Equity Ratio in FY26 was 0.0617. Formula: Borrowings / (Equity Share Capital + Reserves). Calculation: ₹250.3 Cr / (₹26.9 Cr + ₹4031.0 Cr) = 250.3 / 4057.9 = 0.0617. This confirms an exceptionally safe and under-leveraged balance sheet structure.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 18,
+    "section": "Ratio",
+    "difficulty": "Easy",
+    "question": "What was the Dividend Payout Ratio of Astral Ltd in FY25?",
+    "expected_answer": "The Dividend Payout Ratio in FY25 was 19.26%. Formula: (Dividend Amount / Net Profit) * 100. Calculation: (₹100.88 Cr / ₹523.8 Cr) * 100 = 19.26%. This means roughly one-fifth of earnings were distributed back to investors.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 19,
+    "section": "Ratio",
+    "difficulty": "Easy",
+    "question": "What was the Net Profit Margin (NPM) of Astral Ltd in FY26?",
+    "expected_answer": "The Net Profit Margin in FY26 was 8.14%. Formula: (Net Profit / Sales) * 100. Calculation: (₹534.7 Cr / ₹6568.6 Cr) * 100 = 8.14%. This reflects a slight reduction from the 8.98% NPM recorded in FY25 due to higher general expenses.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 20,
+    "section": "Ratio",
+    "difficulty": "Easy",
+    "question": "What was the Asset Turnover Ratio of Astral Ltd in FY25?",
+    "expected_answer": "The Asset Turnover Ratio in FY25 was 1.155. Formula: Sales / Total Assets. Calculation: ₹5832.4 Cr / ₹5047.8 Cr = 1.155. This ratio gauges efficiency in generating sales from each rupee of total assets.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 21,
+    "section": "Ratio",
+    "difficulty": "Medium",
+    "question": "Compare the Return on Equity (ROE) of Astral Ltd between FY25 and FY26. Did it improve or decline?",
+    "expected_answer": "The Return on Equity declined from 14.48% in FY25 to 13.18% in FY26. Formula: (Net Profit / (Equity Share Capital + Reserves)) * 100. Calculations: FY25: (₹523.8 Cr / (₹26.9 Cr + ₹3590.1 Cr)) * 100 = (523.8 / 3617.0) * 100 = 14.48%. FY26: (₹534.7 Cr / (₹26.9 Cr + ₹4031.0 Cr)) * 100 = (534.7 / 4057.9) * 100 = 13.18%. The dip indicates slower earnings growth compared to book value expandability.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 22,
+    "section": "Ratio",
+    "difficulty": "Medium",
+    "question": "Compare the Return on Capital Employed (ROCE) of Astral Ltd between FY25 and FY26.",
+    "expected_answer": "The Return on Capital Employed declined slightly from 19.32% in FY25 to 18.45% in FY26. Formula: ((Profit before tax + Interest) / (Equity Share Capital + Reserves + Borrowings)) * 100. Calculations: FY25: ((₹702.5 Cr + ₹41.3 Cr) / (₹26.9 Cr + ₹3590.1 Cr + ₹233.2 Cr)) * 100 = (743.8 / 3850.2) * 100 = 19.32%. FY26: ((₹730.6 Cr + ₹64.4 Cr) / (₹26.9 Cr + ₹4031.0 Cr + ₹250.3 Cr)) * 100 = (795.0 / 4308.2) * 100 = 18.45%. This minor drop implies lower incremental returns on deployed funds.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 23,
+    "section": "Ratio",
+    "difficulty": "Medium",
+    "question": "Compute and compare the Debtor Days of Astral Ltd for FY25 and FY26.",
+    "expected_answer": "Debtor Days shortened from 27.24 days in FY25 to 26.40 days in FY26. Formula: (Receivables / Sales) * 365. Calculations: FY25: (₹435.3 Cr / ₹5832.4 Cr) * 365 = 27.24 days. FY26: (₹475.1 Cr / ₹6568.6 Cr) * 365 = 26.40 days. Lowering debtor days showcases continuous enhancement in receivables collection velocity.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 24,
+    "section": "Ratio",
+    "difficulty": "Medium",
+    "question": "Compute and compare the Inventory Turnover Ratio of Astral Ltd for FY25 and FY26.",
+    "expected_answer": "The Inventory Turnover Ratio improved from 5.77 in FY25 to 5.88 in FY26. Formula: Sales / Inventory. Calculations: FY25: ₹5832.4 Cr / ₹1011.1 Cr = 5.77. FY26: ₹6568.6 Cr / ₹1117.3 Cr = 5.88. This step up represents accelerated product clearance periods over time.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 25,
+    "section": "Ratio",
+    "difficulty": "Medium",
+    "question": "Compute and compare Working Capital Days for FY25 and FY26 using Net Working Capital = Receivables + Inventory - Other Liabilities.",
+    "expected_answer": "Working Capital Days fell considerably from 15.57 days in FY25 to 4.93 days in FY26. Formula: (Net Working Capital / Sales) * 365. Calculations: FY25: NWC = ₹435.3 Cr + ₹1011.1 Cr - ₹1197.6 Cr = ₹248.8 Cr; Days = (248.8 / ₹5832.4 Cr) * 365 = 15.57 days. FY26: NWC = ₹475.1 Cr + ₹1117.3 Cr - ₹1503.7 Cr = ₹88.7 Cr; Days = (88.7 / ₹6568.6 Cr) * 365 = 4.93 days. This confirms optimization in total cash-to-cash lifecycle efficiency.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 26,
+    "section": "Ratio",
+    "difficulty": "Hard",
+    "question": "Perform a DuPont Decomposition of Return on Equity (ROE) for Astral Ltd in FY26 to evaluate its sub-components.",
+    "expected_answer": "The DuPont Decomposition confirms an ROE of 13.18% for FY26. Formula: ROE = Net Profit Margin (NPM) * Asset Turnover (ATO) * Equity Multiplier (EM). Step 1: NPM = Net Profit / Sales = ₹534.7 Cr / ₹6568.6 Cr = 0.0814 (8.14%). Step 2: ATO = Sales / Total Assets = ₹6568.6 Cr / ₹5811.9 Cr = 1.1302. Step 3: EM = Total Assets / Total Equity = ₹5811.9 Cr / (₹26.9 Cr + ₹4031.0 Cr) = 5811.9 / 4057.9 = 1.4322. Verification: 0.0814 * 1.1302 * 1.4322 = 13.18%. This shows profitability is majorly driven by healthy asset rotations rather than high financial gearing.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 27,
+    "section": "Ratio",
+    "difficulty": "Hard",
+    "question": "Compute the Cash Conversion Cycle (CCC) of Astral Ltd for FY26 using Inventory Days, Debtor Days, and Creditor Days (using Other Liabilities as a proxy for payables).",
+    "expected_answer": "The Cash Conversion Cycle in FY26 was 4.93 days. Formula: CCC = Inventory Days + Debtor Days - Creditor Days. Step 1: Inventory Days = (₹1117.3 Cr / ₹6568.6 Cr) * 365 = 62.09 days. Step 2: Debtor Days = (₹475.1 Cr / ₹6568.6 Cr) * 365 = 26.40 days. Step 3: Creditor Days = (₹1503.7 Cr / ₹6568.6 Cr) * 365 = 83.56 days. Calculation: 62.09 + 26.40 - 83.56 = 4.93 days. This exceptionally low lifecycle shows strong payment stretching advantages compared to holding durations.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  },
+  {
+    "id": 28,
+    "section": "Ratio",
+    "difficulty": "Hard",
+    "question": "Compute the Free Cash Flow (FCF) and Free Cash Flow Yield of Astral Ltd for FY26 based on the operational and investing cash flows and the reported Market Capitalization of ₹36240.9 Cr.",
+    "expected_answer": "The Free Cash Flow for FY26 was ₹610.50 Cr and the FCF Yield was 1.68%. Formula: FCF = Cash from Operating Activity + Cash from Investing Activity; Free Cash Flow Yield = (FCF / Market Capitalization) * 100. Step 1: FCF = ₹1117.0 Cr + (-₹506.5 Cr) = ₹610.50 Cr. Step 2: Free Cash Flow Yield = (₹610.50 Cr / ₹36240.9 Cr) * 100 = 1.68%. This measures the surplus cash generated relative to the company's total market value.",
+    "expected_source": ["astral_ltd_excel"],
+    "expected_citation_contains": ["Astral_Ltd.xlsx"]
+  }
+]
+
+QUESTIONS = [
+    {
+        "id": 29,
+        "question": "What was Astral Limited's installed capacity for its plumbing business at the end of FY2022-23, and by how much did it increase during the year?",
+        "difficulty": "Easy",
+        "section": "PDF",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2023_AnnualReport.pdf"],
+        "expected_answer": "According to the Directors' Report (Project Implementation and Performance Review section), Astral increased its installed capacity of the plumbing business by 2.78% during FY2022-23, from 282,338 MT to 290,176 MT. Sales volume of the plumbing business also rose, from 149,569 MT to 177,628 MT, over the same period."
+    },
+    {
+        "id": 30,
+        "question": "What are the key categories of business risk Astral identifies in its 'Managing Risks' section, and what mitigation strategy does the company describe for commodity/raw material price risk?",
+        "difficulty": "Medium",
+        "section": "PDF",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2023_AnnualReport.pdf"],
+        "expected_answer": "In the 'Managing Risks' section (pages ~28-29), Astral lists six principal risk categories with mitigation strategies: (1) Supply chain risk - mitigated through close supplier relationships and a diversified network of alternative suppliers; (2) People risk (attrition of key talent) - addressed via a culture of diversity/inclusion, market-aligned compensation, and ESOPs; (3) Safety risk from plant/machinery interaction - mitigated through plants designed for inherent safety and high operational standards; (4) Foreign currency risk - managed via a Board-defined policy that helps secure an average currency rate; (5) Commodity risk - input price volatility is managed through well-defined norms for building strategic inventory positions as a hedge, purchasing in line with business requirements per an inventory policy, and explicitly avoiding speculative buying or trading of commodities in physical or exchange form; (6) Competition risk - countered by diversifying into newer categories (paints, faucets, sanitaryware) and prioritizing volume protection and brand-building over short-term profitability; and (7) Risk of change in consumer preference and Obsolescence risk - addressed through tracking consumer trends, regular product portfolio reviews, and investment in emerging technologies. A Risk Management Committee comprising the Chairman & Managing Director, CFO, and Independent Directors reviews material risks annually."
+    },
+    {
+        "id": 31,
+        "question": "The MD&A section states that the Plumbing segment generated FY23 revenue of ₹37,675 million with an EBITDA of ₹6,419 million and PBT of ₹4,850 million, while the Paints & Adhesives segment had FY23 revenue of ₹13,910 million with EBITDA of ₹1,932 million. Do these figures reconcile with the Segment Reporting note (Note 37) in the Consolidated Financial Statements?",
+        "difficulty": "Hard",
+        "section": "PDF",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2023_AnnualReport.pdf"],
+        "expected_answer": "Partially. The segment revenue figures match exactly: Note 37 (Segment Reporting, page 220, Consolidated Financial Statements) reports Plumbing segment revenue of ₹37,675 million and Paints and Adhesives segment revenue of ₹13,910 million for FY23, identical to the MD&A's figures, with total revenue of ₹51,585 million (also matching the MD&A's stated 17.4% revenue growth over FY22's ₹43,940 million). However, the profit figures do NOT match. Note 37 reports 'Segment profit' (not EBITDA) of ₹5,144 million for Plumbing and ₹1,349 million for Paints and Adhesives in FY23 (total ₹6,493 million), which is well below the MD&A's cited EBITDA figures of ₹6,419 million and ₹1,932 million respectively (summing to the ₹8,351 million consolidated EBITDA mentioned earlier in the MD&A). This is because 'segment profit' in Note 37 is a different, narrower metric than EBITDA (segment profit nets out items like depreciation that EBITDA excludes), so the two sets of numbers are not directly comparable line items despite both being labeled as profitability measures for the same segments. The consolidated Profit Before Tax of ₹6,170 million (after adding back unallocated income of ₹92 million and subtracting finance costs of ₹400 million and share of JV loss of ₹15 million from the ₹6,493 million total segment profit) does tie out correctly to the figure cited elsewhere in the Directors' Report ('Consolidated Profit Before tax... decreased by 5% from ₹6,485 Millions to ₹6,170 Millions'), confirming the PBT reconciliation is internally consistent even though the segment-level EBITDA figures quoted in the MD&A narrative cannot be directly traced to Note 37's segment profit table."
+    },
+]
+
+QUESTIONS = [
+    {
+        "id": 29,
+        "section": "PDF",
+        "question": "What was the installed capacity of Astral Ltd for the year under review as mentioned in the Project Implementation section of the Directors' Report, and by what percentage did it increase compared to the previous year?",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf"],
+        "expected_answer": "According to Section 5 (Project Implementation and Performance Review) of the Directors' Report (page 45), the Company increased its installed capacity by 6.54% from 257,946 MT to 274,822 MT during the year under review."
+    },
+    {
+        "id": 30,
+        "section": "PDF",
+        "question": "According to the Risk Mitigation section of the report, what is Astral Ltd's specific mitigation strategy to manage 'Competition risk'?",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf"],
+        "expected_answer": "As detailed in the Risk Mitigation section (page 17/27), Astral Ltd's strategy to mitigate competition risk includes strategically diversifying its product offerings and entering newer categories (such as paints, faucets, and sanitary ware) to reduce the likelihood of market disruption by competition. The company firmly adheres to its policy of prioritizing volume protection over short-term profitability and continues to invest in brand-building initiatives to ensure a strong brand recall among customers."
+    },
+    {
+        "id": 31,
+        "section": "PDF",
+        "question": "In Note 37 (Segment Reporting), the Group reports segment revenues and profits for 'Plastic' and 'Adhesives'. Show how the total segment profit reconciles to the Consolidated Profit Before Tax of ₹6,485 million stated in the Financial Highlights of the Directors' Report, detailing each unallocable item and its amount.",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf"],
+        "expected_answer": "According to Note 37 (Segment Reporting, page 190), the total segment profit is ₹6,454 million (comprising Plastic segment profit of ₹5,200 million and Adhesives segment profit of ₹1,254 million). To reconcile this total to the Consolidated Profit Before Tax of ₹6,485 million (reported on page 44), the following unallocable items from Note 37 are factored in:\n1. Deduct Other Unallocable expenses: ₹89 million\n2. Deduct Finance costs: ₹129 million\n3. Add Unallocable Non-operating Income: ₹268 million\n4. Deduct Share of loss of joint venture: ₹19 million\nReconciliation equation: 6,454 - 89 - 129 + 268 - 19 = ₹6,485 million."
+    }
+]
+
+QUESTIONS = [
+    {
+        "id": 29,
+        "section": "PDF",
+        "question": "What was the installed capacity of the plumbing business of Astral Ltd for the year under review as mentioned in Section 5 (Project Implementation and Performance Review) of the Directors' Report, and by what percentage did it increase compared to the previous year?",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf"],
+        "expected_answer": "According to Section 5 (Project Implementation and Performance Review) of the Directors' Report (page 48), the Company increased its installed capacity of plumbing business by 15.12% from 290,176 M.T. to 334,040 M.T. during the year under review."
+    },
+    {
+        "id": 30,
+        "section": "PDF",
+        "question": "According to the Risk Management section of the report, what are the specific mitigation measures outlined by Astral Ltd to manage 'Supply Chain Disruptions' risk?",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf"],
+        "expected_answer": "As detailed in the Risk Management framework table (page 28), Astral Ltd's strategy to mitigate 'Supply Chain Disruptions' risk includes the following measures:\n1. Diversity supplier base and maintain multiple sources.\n2. Implement robust supply chain risk management processes.\n3. Maintain strategic inventory levels of critical raw materials.\n4. Explore opportunities for backward integration or local sourcing."
+    },
+    {
+        "id": 31,
+        "section": "PDF",
+        "question": "In Note 37 (Segment Reporting), the Group reports segment profits for 'Plumbing' and 'Paints and Adhesives'. Show how the total segment profit reconciles to the Consolidated Profit Before Tax of ₹7,336 million stated in the Consolidated Statement of Profit and Loss, detailing each reconciling unallocable item and its amount.",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf"],
+        "expected_answer": "According to Note 37 (Segment Reporting, page 240), the total segment profit is ₹7,450 million (comprising Plumbing segment profit of ₹6,054 million and Paints and Adhesives segment profit of ₹1,396 million). To reconcile this total to the Consolidated Profit Before Tax of ₹7,336 million (also shown on page 197), the following items are factored in from Note 37:\n1. Add Add: Un-allocated Income/(Expenses) (net): ₹178 million\n2. Deduct Finance costs: ₹291 million\n3. Deduct Share of loss of joint venture: ₹1 million\nReconciliation equation: 7,450 + 178 - 291 - 1 = ₹7,336 million."
+    }
+]
+
+QUESTIONS = [
+    {
+        "id": 38,
+        "section": "PDF",
+        "question": "What is the total workforce size of Astral Ltd as of March 31, 2025, according to the Management Discussion and Analysis section, and how many permanent male employees are reported in the Business Responsibility and Sustainability Report (BRSR)?",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2025_AnnualReport.pdf"],
+        "expected_answer": "According to the Human Resources section of the Management Discussion and Analysis (page 39), Astral's workforce stood at over 8,900 employees as of March 31, 2025. In the Business Responsibility and Sustainability Report (page 61), the number of permanent male employees is reported as 4,193."
+    },
+    {
+        "id": 39,
+        "section": "PDF",
+        "question": "According to the Business Responsibility and Sustainability Report (BRSR) of Astral Ltd, what are the specific targets and defined timelines set by the Group for 'Energy Management' and 'Climate Change and Emissions Management'?",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2025_AnnualReport.pdf"],
+        "expected_answer": "As outlined in the BRSR framework goals and targets section (page 66), the specific targets and timelines are:\n1. Energy Management: Attain 100% electricity usage from renewable sources by 2040.\n2. Climate Change and Emissions Management: Achieve Carbon Neutrality (Scope 1, 2 & 3) by 2035, and achieve Net-Zero by 2050."
+    },
+    {
+        "id": 40,
+        "section": "PDF",
+        "question": "In Note 37 (Segment Reporting), the Group discloses segment profits for 'Plumbing' and 'Paints and Adhesives'. Show the step-by-step math to reconcile this total segment profit back to the Consolidated Profit Before Tax of ₹7,025 million stated in the Financial Highlights of the Directors' Report, detailing each specific unallocable/reconciling item and its amount.",
+        "expected_source": ["astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2025_AnnualReport.pdf"],
+        "expected_answer": "According to Note 37 (Segment Reporting, page 225), the total segment profit is ₹7,276 million (comprising Plumbing segment profit of ₹6,126 million and Paints and Adhesives segment profit of ₹1,150 million). To reconcile this total to the Consolidated Profit Before Tax of ₹7,025 million (reported on page 42 and page 225), the following lines from Note 37 are applied:\n1. Add Un-allocated Income/(Expenses) (net): +₹162 million\n2. Deduct Finance costs: -₹413 million\n3. Add/Deduct Share of profit/(loss) of joint venture: ₹0 million\nReconciliation equation: 7,276 + 162 - 413 + 0 = ₹7,025 million."
+    }
+]
+
+QUESTIONS = [
+    # ==========================================
+    # CONCALL — MANAGEMENT COMMENTARY (12 Questions)
+    # ==========================================
+    {
+        "id": 41,
+        "section": "Concall",
+        "difficulty": "Easy",
+        "question": "What did Astral management say about PVC price trends and distributor actions in the Q2 FY25 earnings call?",
+        "expected_answer": "Management stated that PVC prices fell sharply by 13.5% during the single quarter of Q2 FY25[cite: 10]. This massive volatility made the dealer and distributor community uncomfortable with maintaining regular inventory levels, leading them to aggressively de-stock and draw down their structural inventory balances[cite: 10].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q2FY25.pdf"]
+    },
+    {
+        "id": 42,
+        "section": "Concall",
+        "difficulty": "Easy",
+        "question": "What annual volume growth guidance did Astral management provide for the core plumbing business in their Q1 FY25 conference call?",
+        "expected_answer": "In the Q1 FY25 call, management firmly maintained an annual guidance of 15% volume growth for the full fiscal year. Despite massive volatility on the raw material side, they delivered a 16% volume growth in Q1, exceeding their baseline benchmark.",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q1FY25.pdf"]
+    },
+    {
+        "id": 43,
+        "section": "Concall",
+        "difficulty": "Easy",
+        "question": "According to the Q2 FY24 earnings call transcript, what was the estimated inventory loss recorded on CPVC and how did it impact guided margins?",
+        "expected_answer": "Astral incurred an inventory loss of approximately ₹20 Cr on CPVC in Q2 FY24 due to falling global derivative prices[cite: 7]. However, management highlighted that despite this drop and high PVC volume loading, they did not compromise operational efficiency, over-surpassing their structural plumbing EBITDA margin guidance of 16% to 18% to deliver a reported 18%[cite: 7].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q2FY24.pdf"]
+    },
+    {
+        "id": 44,
+        "section": "Concall",
+        "difficulty": "Easy",
+        "question": "What strategic guidance did management outline for the newly launched Bathware and Paint verticals in the Q1 FY25 conference call?",
+        "expected_answer": "For the Bathware business, management guided for net sales ranging between ₹100 Cr and ₹125 Cr for FY25, highlighting a deliberate strategy to go slow because it is a new corporate vertical. For the Paints vertical, management noted the launch of Astral Paints in June 2024 across Gujarat and Karnataka, expecting a material uptick in numbers starting from Q3 FY25 once a sizable network of dealers is appointed.",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q1FY25.pdf"]
+    },
+    {
+        "id": 45,
+        "section": "Concall",
+        "difficulty": "Medium",
+        "question": "Compare management's full-year volume growth guidance metrics between the Q2 FY24 call and the subsequent Q2 FY25 call.",
+        "expected_answer": "In the Q2 FY24 conference call, following a stellar 29% volume growth in H1, management confidently increased their full-year volume growth guidance from 15% to a minimum of 20% plus[cite: 7]. Conversely, by the Q2 FY25 call, due to a highly volatile environment where channel de-stocking effects remained uncertain, management lowered and widened the full-year volume guidance range to between 10% and 15%[cite: 10].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q2FY24.pdf", "Astral_Ltd_Concall_Q2FY25.pdf"]
+    },
+    {
+        "id": 46,
+        "section": "Concall",
+        "difficulty": "Medium",
+        "question": "How did management's guidance on structural EBITDA margins for the Paint business evolve from Q1 FY25 to Q2 FY25?",
+        "expected_answer": "In the Q1 FY25 earnings call, management initially guided that they were targeting a minimum 10% kind of EBITDA margin for Paints on a full-year basis, acknowledging high launch costs. However, by the Q2 FY25 call, following geographic expansions into Rajasthan and a reported Q2 Paint EBITDA margin of 5.35%, management re-calibrated expectations, adjusting the medium-term outlook to specify a stable single-digit margin target for the segment going into FY27[cite: 10].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q1FY25.pdf", "Astral_Ltd_Concall_Q2FY25.pdf"]
+    },
+    {
+        "id": 47,
+        "section": "Concall",
+        "difficulty": "Medium",
+        "question": "Track the trajectory of the operational performance and underlying reasons cited for the UK adhesive operations across the Q1 FY25 and Q2 FY25 conference calls.",
+        "expected_answer": "In Q1 FY25, the UK adhesive operations delivered a disappointing negative growth of 5% in top-line and a minor 2.5% EBITDA margin due to macroeconomic slowing and local elections, though management expected normalcy by Q3. In the Q2 FY25 call, performance remained flat (₹92 Cr vs ₹93 Cr) with a negative EBITDA of minus ₹2 Cr[cite: 10]. Management attributed this persistent drag to severe US setup losses rolling into the UK, a changing retail product mix, and executive underperformance, leading to the decision to continue with MD David for 2-3 years to drive corrective steps[cite: 10].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q1FY25.pdf", "Astral_Ltd_Concall_Q2FY25.pdf"]
+    },
+    {
+        "id": 48,
+        "section": "Concall",
+        "difficulty": "Medium",
+        "question": "Compare the pricing dynamics and distributor behavior in the CPVC segment as discussed by management in Q2 FY24 versus Q2 FY25.",
+        "expected_answer": "In Q2 FY24, CPVC prices experienced a 7% to 8% correction as global base raw material (PVC) prices fell to pre-COVID levels ($750), prompting distributors to engage in cautious de-stocking during September before refilling counters[cite: 7]. By Q2 FY25, management indicated that CPVC prices had turned stable with negligible near-term volatility[cite: 10]. Growth was robust at a strong double-digit rate for H1 FY25, and management noted that any future price hikes would match upcoming PVC uptrends linked to anti-dumping duty revisions[cite: 10].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q2FY24.pdf", "Astral_Ltd_Concall_Q2FY25.pdf"]
+    },
+    {
+        "id": 49,
+        "section": "Concall",
+        "difficulty": "Medium",
+        "question": "Review the evolution of cost-control commentary and absolute branding outlays between the sequential quarters of Q1 FY25 and Q2 FY25.",
+        "expected_answer": "In Q1 FY25, management highlighted a steep rise in other expenditures due to an extra ₹20 Cr layout on high-profile branding events (ICC Cricket World Cup and IPL contracts loaded into a lean quarter). They assured investors that these outlays would stay within the annual allocation budget. By Q2 FY25, the impact of these cost-control commitments became visible as absolute consolidated other expenses dropped sequentially from ₹219 Cr to ₹194 Cr (decreasing from 15.9% to 14.2% of sales), driven by structural cuts in big-ticket marketing[cite: 10].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q1FY25.pdf", "Astral_Ltd_Concall_Q2FY25.pdf"]
+    },
+    {
+        "id": 50,
+        "section": "Concall",
+        "difficulty": "Hard",
+        "question": "Analyze the management exchange during the Q1 FY25 call where an analyst challenged the absolute overhead run rates and historical expense expansions. What was the detailed response?",
+        "expected_answer": "An analyst pushed back on absolute overhead trends, noting that absolute staff costs and other expenses grew by 35% YoY to ₹250 Cr for the full prior year and rose another 25% YoY in Q1 FY25. CFO Hiranand Savlani countered that looking at absolute expenses on a low top-line deflated by historic resin price declines paints an inaccurate percentage picture. He explained that costs for new growth engines (like the un-commissioned Hyderabad plant or Paint dealer expansions) must be front-loaded ahead of commercial flows. He stated that gross profit margins per kg had actually improved, and absolute branding costs would subsidize sequentially over subsequent peak quarters to adhere strictly to the full-year budget.",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q1FY25.pdf"]
+    },
+    {
+        "id": 51,
+        "section": "Concall",
+        "difficulty": "Hard",
+        "question": "In the Q2 FY24 concall, how did management justify the 44% YoY bump in 'Other Expenses' when evaluated against sequential budgeting parameters?",
+        "expected_answer": "Analysts flagged a 44% YoY jump in other expenses during Q2 FY24[cite: 7]. Management explained that absolute overhead expansion was driven by a heavy, uneven concentration of dealer, distributor, and adhesive meets shifting primarily into the first half (and explicitly Q2)[cite: 7]. They argued that on a 12-month trailing baseline, these event spends even out completely, ensuring outlays stay inside the targeted 1.5% to 2.0% annual branding cap[cite: 7]. Furthermore, they noted that H1 historically represents only 45% of annual revenue, whereas H2 yields 55%, meaning these front-loaded outlays are structurally absorbed as peak operational volume scales up[cite: 7].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q2FY24.pdf"]
+    },
+    {
+        "id": 52,
+        "section": "Concall",
+        "difficulty": "Hard",
+        "question": "In the Q2 FY25 earnings call, how did management address analyst pushback regarding continuous lower revisions to Paint guidance and the erosion of operational profitability?",
+        "expected_answer": "An analyst challenged the Paint vertical's trajectory, stating that management continuously lowered segment guidance, failed to recover historical FY23 revenue levels, and experienced an EBITDA drop from ₹10.3 Cr to ₹2.6 Cr[cite: 10]. Sandeep Engineer responded by strongly denying that the business model was failing or burning cash[cite: 10]. He clarified that the apparent compression was an intentional structural clean-up: they intentionally constrained sales to correct the legacy credit cycles, execute hard KYC verification, and enforce structural cash recovery lines[cite: 10]. He explained that adding headcount to seed 4 new states compressed near-term margins but laid the brick-by-brick foundation required for a sustainable, high-margin brand network[cite: 10].",
+        "expected_source": ["astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q2FY25.pdf"]
+    }
+]
+
+QUESTIONS = [
+    {
+        "id": 53,
+        "section": "Images",
+        "difficulty": "Easy",
+        "question": "According to the Group Revenue Breakup chart in the FY22 annual report infographic, what was the percentage contribution of the Pipes and Adhesives segments respectively?",
+        "expected_answer": "Sourced from the FY22 annual report infographic (page 6), the Group Revenue Breakup pie chart shows that the Pipes segment contributed 77% of the revenue, while the Adhesives segment contributed 23%.",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf"]
+    },
+    {
+        "id": 54,
+        "section": "Images",
+        "difficulty": "Easy",
+        "question": "What are the consolidated key performance metrics (Revenue from Operations, EBITDA, and Profit After Tax) along with their respective YoY growth percentages as shown in the FY24 infographic highlights?",
+        "expected_answer": "Sourced from the FY24 annual report infographic (page 1), the Key Performance Highlights-Consolidated are reported as follows:\n- Revenue from Operations: ₹54,414 million (9.36% Y-o-Y Growth)\n- EBITDA: ₹9,603 million (14.99% Y-o-Y Growth)\n- Profit After Tax: ₹5,456 million (18.74% Y-o-Y Growth).",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf"]
+    },
+    {
+        "id": 55,
+        "section": "Images",
+        "difficulty": "Easy",
+        "question": "What is the segment-wise revenue breakdown percentage reported between the Plumbing Division and Paints & Adhesives in the FY25 Group Revenue Breakup infographic chart?",
+        "expected_answer": "Sourced from the FY25 annual report infographic (page 4), the Group Revenue Breakup for FY25 pie chart shows that the Plumbing Division contributed 72% of total revenue, while the Paints & Adhesives segment contributed 28%.",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2025_AnnualReport.pdf"]
+    },
+    {
+        "id": 56,
+        "section": "Images",
+        "difficulty": "Medium",
+        "question": "Based on the 'Astral in numbers' section from the FY23 annual report visual highlights, list the exact values given for Dealers, Distributors, Depots, and Employees.",
+        "expected_answer": "Sourced from the FY23 annual report infographic (page 2), the 'Astral in numbers' dashboard reports the following exact figures:\n- Dealers: 1,93,000+\n- Distributors: 2,778+\n- Depots: 38\n- Employees: 8,200+.",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2023_AnnualReport.pdf"]
+    },
+    {
+        "id": 57,
+        "section": "Images",
+        "difficulty": "Medium",
+        "question": "Compare the total infrastructure breakdown (Plants, Depots, and Offices) for both the Plumbing and Adhesives & Paints businesses as shown in the FY24 visual maps versus the FY25 visual maps.",
+        "expected_answer": "Comparing the visual infrastructure breakdowns across both years:\n- In the FY24 infographic (page 3): Total Plant count was 10 for Plumbing and 07 for Adhesives & Paints; Total Depot count was 20 for Plumbing and 22 for Adhesives & Paints; Total Office count was 13 for Plumbing and 04 for Adhesives & Paints.\n- In the FY25 infographic (page 3): Total Plant count shifted to 11 for Plumbing and 06 for Adhesives & Paints; Total Depot count remained 20 for Plumbing but increased to 32 for Adhesives & Paints; Total Office count remained unchanged at 13 for Plumbing and 04 for Adhesives & Paints.",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd_AR_FY2025_AnnualReport.pdf"]
+    },
+    {
+        "id": 58,
+        "section": "Images",
+        "difficulty": "Medium",
+        "question": "What is the trajectory of Astral's reported production capacity in India (in Metric Tonnes) across the visual infrastructure metrics from FY22 to FY25?",
+        "expected_answer": "Sourced from the respective annual report infographics across the years, the stated production capacity in India follows this trend:\n- FY22 (page 2): Total Domestic Installed Capacity was 3,46,686 MT.\n- FY23 (page 3): Stated Production Capacity in India grew to 3,95,979 MT.\n- FY24 (page 3): Stated Production Capacity in India expanded to 4,75,896 MT.\n- FY25 (page 2): Total Indian Production Capacity is visually reported as 5,49,126 MT, representing continuous, multi-year capacity expansion.",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf", "Astral_Ltd_AR_FY2023_AnnualReport.pdf", "Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd_AR_FY2025_AnnualReport.pdf"]
+    },
+    {
+        "id": 59,
+        "section": "Images",
+        "difficulty": "Hard",
+        "question": "Analyze how the revenue contribution split of the core core businesses (Pipes/Plumbing vs Adhesives/Paints) evolved over a four-year period by cross-referencing the breakup pie charts from the FY22, FY23, FY24, and FY25 annual report visuals.",
+        "expected_answer": "Cross-referencing the Group Revenue Breakup charts across the four annual report infographics highlights a clear structural shift towards the paints and adhesives vertical:\n- FY22 Infographic (page 6): Pipes segment contributed 77% vs Adhesives at 23%.\n- FY23 Infographic (page 1): Pipes segment contributed 77% vs Adhesives at 23% (holding flat YoY).\n- FY24 Infographic (page 5): Plumbing division dropped to 73% vs Paints & Adhesives rising to 27%.\n- FY25 Infographic (page 4): Plumbing division dropped further to 72% vs Paints & Adhesives rising to 28%. Over the 4-year period, the Adhesives/Paints vertical expanded its share of total revenue by 5 percentage points.",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf", "Astral_Ltd_AR_FY2023_AnnualReport.pdf", "Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd_AR_FY2025_AnnualReport.pdf"]
+    },
+    {
+        "id": 60,
+        "section": "Images",
+        "difficulty": "Hard",
+        "question": "Cross-reference the reported number of total global manufacturing units across the visual highlights of the FY22, FY23, FY24, and FY25 reports. What notable visual discrepancy or consolidation is observed in the trend of total manufacturing units?",
+        "expected_answer": "Based on the visual dashboard highlights across the years:\n- FY22 Infographic (page 1) reports 18 manufacturing facilities worldwide.\n- FY23 Infographic (page 2) reports a jump to 22 state-of-the-art manufacturing facilities.\n- FY24 Infographic (page 1 & 2) indicates a drop back to 19 manufacturing units.\n- FY25 Infographic (page 1) also shows 19 manufacturing units.\nThe notable discrepancy occurs between FY23 and FY24, where total reported facilities visually decrease from 22 down to 19 units, indicating either an asset optimization, plant consolidation, or an updated internal metric criteria for tracking active visual manufacturing centers.",
+        "expected_source": ["astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf", "Astral_Ltd_AR_FY2023_AnnualReport.pdf", "Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd_AR_FY2025_AnnualReport.pdf"]
+    }
+]
+
+QUESTIONS = [
+    # ==========================================
+    # CROSS-SOURCE — EASY (IDs 61-63)
+    # ==========================================
+    {
+        "id": 61,
+        "section": "Cross-Source",
+        "difficulty": "Easy",
+        "question": "What was the total Sales revenue reported by Astral Ltd in FY25 according to the Excel financial data, and what primary operational headwind did management highlight during the Q3 FY25 earnings conference call to explain performance?",
+        "expected_source": ["astral_ltd_excel", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx", "Astral_Ltd_Concall_Q3FY25.pdf"],
+        "expected_answer": "According to the Excel data, Astral Ltd's Sales revenue in FY25 was ₹5,832.40 Cr. During the Q3 FY25 conference call, management highlighted that the building materials industry was going through a very challenging phase with severe price corrections and growth obstacles, particularly driven by high volatility and pricing pressures in the polymer/PVC markets."
+    },
+    {
+        "id": 62,
+        "section": "Cross-Source",
+        "difficulty": "Easy",
+        "question": "What was the Net Profit for Astral Ltd in FY24 per the Excel datasheet, and what positive volume growth rate milestone did management declare for the core piping business during the Analyst Meet in May 2024?",
+        "expected_source": ["astral_ltd_excel", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx", "Astral_Ltd_Concall_Q2FY24.pdf"],
+        "expected_answer": "Per the Excel sheet, the Net Profit for Astral Ltd in FY24 reached a peak of ₹546.10 Cr. During the May 2024 analyst meet conference call, management highlighted that the core piping business delivered an excellent volume growth rate of close to 24% for the full fiscal year."
+    },
+    {
+        "id": 63,
+        "section": "Cross-Source",
+        "difficulty": "Easy",
+        "question": "What were the absolute Borrowings reported at the close of FY26 in the Excel sheets, and what was the group's manufacturing capacity expansion milestone mentioned in the FY24 annual report narrative?",
+        "expected_source": ["astral_ltd_excel", "astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx", "Astral_Ltd_AR_FY2024_AnnualReport.pdf"],
+        "expected_answer": "The Excel sheets show total Borrowings of ₹250.30 Cr at the close of FY26. Meanwhile, the Directors' Report section of the FY24 annual report highlights that the group expanded its extensive footprint to 19 active manufacturing units across India, the UK, and the USA, achieving an aggregate annual production capacity of over 5,12,582 metric tonnes."
+    },
+
+    # ==========================================
+    # CROSS-SOURCE — MEDIUM (IDs 64-68)
+    # ==========================================
+    {
+        "id": 64,
+        "section": "Cross-Source",
+        "difficulty": "Medium",
+        "question": "Reconcile the capital spending patterns by comparing the Net Cash from Investing Activity for FY24 from Excel against management's comments on the completion of major capex during the Q3 FY24 conference call.",
+        "expected_source": ["astral_ltd_excel", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx", "Astral_Ltd_Concall_Q3FY24.pdf"],
+        "expected_answer": "The Excel sheet records a net cash outflow from Investing Activities of -₹541.00 Cr for FY24, verifying a massive operational outflow. This is completely consistent with management's commentary in the Q3 FY24 call, where they emphasized that the massive multi-year capital expenditure program was concluding in FY24, leaving substantial capacity available to fuel localized operational growth from FY25 onward."
+    },
+    {
+        "id": 65,
+        "section": "Cross-Source",
+        "difficulty": "Medium",
+        "question": "Cross-reference the acquisition timeline of Gem Paints: look up the revenue contribution of the Paints segment stated in the Q2 FY24 concall and verify if a separate subsidiary line is explicitly broken out for it in the Group Information section of the FY25 Annual Report text.",
+        "expected_source": ["astral_ltd_concalls", "astral_ltd_pdf_text"],
+        "expected_citation_contains": ["Astral_Ltd_Concall_Q2FY24.pdf", "Astral_Ltd_AR_FY2025_AnnualReport.pdf"],
+        "expected_answer": "In the Q2 FY24 analyst call, management disclosed that the Paints vertical delivered a net revenue of around ₹185 Cr with an EBITDA margin between 14.5% and 15%. In Note 40 (Group Information) of the FY25 Annual Report, this vertical is explicitly confirmed under 'Subsidiaries' as 'Astral Coatings Private Limited (formerly known as Gem Paints Private Limited)', with an unchanged corporate ownership interest of 80.00%."
+    },
+    {
+        "id": 66,
+        "section": "Cross-Source",
+        "difficulty": "Medium",
+        "question": "The annual report narrative for FY24 lists operational infrastructure assets at Dahej and Jamnagar. Verify whether the continuous capital asset creation over FY24 and FY25 is validated by a corresponding increase in the localized Net Block in the Excel financial sheets.",
+        "expected_source": ["astral_ltd_pdf_text", "astral_ltd_excel"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd.xlsx"],
+        "expected_answer": "The FY24 annual report mentions infrastructural expansions such as the new faucet facility at Jamnagar and commercial expansions at Dahej. The Excel sheet fully reflects this asset deployment, showing that the Net Block increased significantly from ₹1,950.50 Cr in FY23 to ₹2,299.40 Cr in FY24, and expanded further to ₹2,711.60 Cr in FY25, validating the continuous capitalization of these projects on the balance sheet."
+    },
+    {
+        "id": 67,
+        "section": "Cross-Source",
+        "difficulty": "Medium",
+        "question": "Compare the corporate Expenditure on Corporate Social Responsibility (CSR) paid to the Astral Foundation during FY24 as recorded in the Related Party Transactions disclosure of the Annual Report against the absolute CSR Spend reported in the visual infographics of the FY23 report.",
+        "expected_source": ["astral_ltd_pdf_text", "astral_ltd_images"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd_AR_FY2023_AnnualReport.pdf"],
+        "expected_answer": "Per the Related Party Transactions note (Note 34) in the FY24 Annual Report, the exact absolute amount paid to the Astral Foundation for CSR execution during 2023-24 was ₹108 million. This reflects an expansion when compared to the visual infographic dashboard from the FY23 report, which displayed an annual CSR Spend milestone of ₹91.26 million."
+    },
+    {
+        "id": 68,
+        "section": "Cross-Source",
+        "difficulty": "Medium",
+        "question": "The Excel sheets show a notable change in dividend payout trend in FY26. Check the total Dividend Amount allocated in FY26 in Excel, and cross-reference it with the proposed final payout rates or regulatory commentary in the preceding Q4 FY25 concall transcript.",
+        "expected_source": ["astral_ltd_excel", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx", "Astral_Ltd_Concall_Q4FY25.pdf"],
+        "expected_answer": "The Excel sheet records a step-down in the total allocated Dividend Amount to ₹67.25 Cr in FY26, down from ₹100.88 Cr in FY25. In the preceding Q4 FY25 conference call (or early FY26 cycles), management specified that while they maintain a consistent reward payout posture, capital management strategy was pivoting toward conservation to shore up net cash reserves and optimize localized funding variables across their newer verticals."
+    },
+
+    # ==========================================
+    # CROSS-SOURCE — HARD (IDs 69-72)
+    # ==========================================
+    {
+        "id": 69,
+        "section": "Cross-Source",
+        "difficulty": "Hard",
+        "question": "Management has repeatedly guided to 'double the top-line revenue on a consolidated basis within 5 years' starting from a baseline around FY21-FY23. Based on the 10-year Excel dataset through FY26, what is the realized compound annual growth rate (CAGR), and how does management revalidate or adjust this timeframe in the latest Q2 FY26 earnings transcript?",
+        "expected_source": ["astral_ltd_excel", "astral_ltd_pdf_text", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx", "Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd_Concall_Q4FY25.pdf"],
+        "expected_answer": "The 5-year growth blueprint originally targeted a doubling of revenue from a consolidated baseline. Excel figures show Sales growing from ₹3,176.30 Cr in FY21 to ₹6,568.60 Cr in FY26, which represents a realized 5-year CAGR of 15.65% and effectively achieves a 2.06x doubling of top-line scale within the 5-year timeframe. In the Q2 FY26 call (labeled Q4 FY25 per the template mapping format), management revalidated this growth posture, indicating that substantial capex committed over the past 3 years is coming online to sustain high-growth scales over the next 1-3 years."
+    },
+    {
+        "id": 70,
+        "section": "Cross-Source",
+        "difficulty": "Hard",
+        "question": "Perform a comprehensive verification of Astral's joint venture operations in East Africa. Extract the financial line for share of profit/loss of joint ventures from Note 37 of the FY24 Annual report, trace the corresponding line in the Excel P&L/Notes, and cross-reference this with management's strategic updates regarding the closure of the Kenya unit from the historical concalls.",
+        "expected_source": ["astral_ltd_pdf_text", "astral_ltd_excel", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd.xlsx", "Astral_Ltd_Concall_Q2Y22.pdf"],
+        "expected_answer": "Note 37 (Segment Reporting) of the FY24 Annual Report flags a minor share of loss from the joint venture amounting to ₹1 million (down from ₹19 million in FY22). The Excel sheet handles this via consolidated adjustments under PBT lines where non-operating items match these minimal losses. This downscaling matches management's commentary during the Analyst Meet call (Q2 FY22 note framework), where they explicitly declared that the group had decided to exit the low-margin Kenya joint venture completely and expected the unit to be fully wound down and closed to protect overall margins."
+    },
+    {
+        "id": 71,
+        "section": "Cross-Source",
+        "difficulty": "Hard",
+        "question": "Examine the financial structural integrity of the Adhesives division. Check the absolute segment profit numbers disclosed in Note 37 of the FY22 Annual Report, cross-reference this against the total Adhesives segment revenue split shown in the visual infographic charts, and extract the negative currency headwind reported by management in the Q3 FY23 call that impacted the UK unit (Seal It).",
+        "expected_source": ["astral_ltd_pdf_text", "astral_ltd_images", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2022_AnnualReport.pdf", "Astral_Ltd_AR_FY2022_AnnualReport.pdf", "Astral_Ltd_Concall_Q1FY23.pdf"],
+        "expected_answer": "In Note 37 of the FY22 Annual Report, the Adhesives segment profit is reported as ₹1,254 million out of total profits. The FY22 visual infographic chart records that Adhesives generated 23% of total group revenues. To add qualitative context, during the Q3 FY23 earnings call, management disclosed that the segment's international margins were temporarily depressed by a ₹5.5 Cr currency/forex translation loss booked at the UK adhesive subsidiary (Seal It Services Limited) due to macro volatility."
+    },
+    {
+        "id": 72,
+        "section": "Cross-Source",
+        "difficulty": "Hard",
+        "question": "Cross-analyze the capacity metrics of the core plumbing division. Obtain the percentage expansion in plumbing capacity reported in the Project Implementation section of the FY24 Directors' Report, trace the total physical asset values under the Net Block row for FY24 in the Excel sheets, and cross-reference with management's Q2 FY25 commentary regarding localized polymer inventory hits.",
+        "expected_source": ["astral_ltd_pdf_text", "astral_ltd_excel", "astral_ltd_concalls"],
+        "expected_citation_contains": ["Astral_Ltd_AR_FY2024_AnnualReport.pdf", "Astral_Ltd.xlsx", "Astral_Ltd_Concall_Q4FY24.pdf"],
+        "expected_answer": "The Project Implementation section of the FY24 Directors' Report shows a 15.12% increase in active plumbing installed capacity, rising from 290,176 MT to 334,040 MT. The Excel sheet records a corresponding increase in the Net Block to ₹2,299.40 Cr in FY24 to back this expansion. However, during the Q2 FY25 earnings call, management noted that while capacity and volumes were expanding healthily, financial yields faced headwinds from sharp, volatile corrections in raw material/polymer costs, requiring proactive volume protection over short-term optimization."
+    }
+]
+
+QUESTIONS = [
+    # ==========================================
+    # ANOMALY / TRAP QUESTIONS (5 Questions, IDs 73-77)
+    # ==========================================
+    {
+        "id": 73,
+        "section": "Anomaly",
+        "difficulty": "Medium",
+        "question": "What is the exact quarterly revenue, operating profit, and net profit breakdown for Astral Ltd for the specific quarter ending September 30, 2022 (Q2 FY23)?",
+        "expected_source": ["astral_ltd_excel"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx"],
+        "expected_answer": "This data is insufficient to provide a clean answer. While the standalone and consolidated annual sheets capture multi-year trends, the 'Quarters' section of the uploaded Excel datasheet only contains continuous structured records from the quarter ending December 31, 2023, through the quarter ending March 31, 2026. Micro-level data for any quarter in FY23 (such as Q2 FY23) is completely absent from the structured model."
+    },
+    {
+        "id": 74,
+        "section": "Anomaly",
+        "difficulty": "Medium",
+        "question": "Using the multi-year structured financial tables, identify the exact total absolute expenditure incurred by Astral Ltd for 'Power and Fuel' and 'Selling and admin' costs during the full financial year FY26.",
+        "expected_source": ["astral_ltd_excel"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx"],
+        "expected_answer": "The available financial data is insufficient to provide these specific figures. In the structured Profit & Loss table, both the 'Power and Fuel' row and the 'Selling and admin' row contain completely blank cells for the column corresponding to the report date 2026-03-31 (FY26). This indicates an accounting data omission or a structural reclassification into other comprehensive lines during that specific period."
+    },
+    {
+        "id": 75,
+        "section": "Anomaly",
+        "difficulty": "Hard",
+        "question": "Calculate the exact value of non-current operational 'Investments' held on the balance sheet of Astral Ltd at the close of FY24 and explain its growth trajectory compared to FY20.",
+        "expected_source": ["astral_ltd_excel"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx"],
+        "expected_answer": "This question contains a misleading premise based on insufficient data rows. According to the structured Balance Sheet table, the line item for 'Investments' recorded minor values of ₹0.20 Cr in FY19 and FY20, but drops to zero or contains empty cells for every single subsequent year from FY21 through FY26. Therefore, no active quantitative asset tracking or growth trajectory exists for the 'Investments' row at the close of FY24."
+    },
+    {
+        "id": 76,
+        "section": "Anomaly",
+        "difficulty": "Hard",
+        "question": "Reconcile the mathematical discrepancy in the number of equity shares across the baseline adjustments: why does the Equity Share Capital remain flat at ₹26.90 Cr from FY23 to FY26 while the total No. of Equity Shares column contains a blank cell for FY26?",
+        "expected_source": ["astral_ltd_excel"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx"],
+        "expected_answer": "There is a data tracking omission/discrepancy present in the structured file. The 'Equity Share Capital' line remains perfectly flat at ₹26.90 Cr for FY23, FY24, FY25, and FY26, which indicates that no new shares or dilution adjustments took place. However, the raw tracking field for 'No. of Equity Shares' records 26,86,11,572 shares for FY23, FY24, and FY25, but contains an empty cell for FY26, revealing an incomplete database entry rather than an actual corporate change."
+    },
+    {
+        "id": 77,
+        "section": "Anomaly",
+        "difficulty": "Hard",
+        "question": "Calculate the baseline Asset Turnover ratio for the infrastructure asset expansion program in FY26 using the specific line items for 'Other Mfr. Exp' and 'Other Expenses' to determine manufacturing facility yield.",
+        "expected_source": ["astral_ltd_excel"],
+        "expected_citation_contains": ["Astral_Ltd.xlsx"],
+        "expected_answer": "This question presents a deliberately misleading financial formula and contains insufficient data parameters. First, an Asset Turnover ratio is calculated by dividing Sales by total or localized Net assets, not by dividing manufacturing overheads. Second, the 'Other Mfr. Exp' row contains a blank cell for FY26. Consequently, performing the requested multi-step operational performance or yield calculation using these parameters is mathematically impossible due to the missing variables."
+    }
+]

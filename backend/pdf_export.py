@@ -18,6 +18,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 import matplotlib.pyplot as plt
 import openai
+from fastapi import HTTPException
 from config import settings
 
 # Import the session DB to fetch messages
@@ -34,6 +35,28 @@ pdfmetrics.registerFont(TTFont('DejaVuSans-Bold', dejavu_bold_path))
 from reportlab.lib.fonts import addMapping
 addMapping('DejaVuSans', 0, 0, 'DejaVuSans')
 addMapping('DejaVuSans', 1, 0, 'DejaVuSans-Bold')
+
+
+def _resolve_excel_source_name(company_slug: str) -> str:
+    try:
+        with open(settings.COMPANIES_FILE, "r", encoding="utf-8") as handle:
+            payload = json.load(handle)
+    except Exception:
+        return "Financial Data.xlsx"
+
+    company = next((item for item in payload.get("companies", []) if item.get("slug") == company_slug), None)
+    if not company:
+        return "Financial Data.xlsx"
+
+    for file_record in company.get("files", []):
+        if file_record.get("file_type") != "excel":
+            continue
+
+        filename = file_record.get("filename")
+        if isinstance(filename, str) and filename.strip():
+            return filename.strip()
+
+    return "Financial Data.xlsx"
 
 # Theme constants (match globals.css)
 BACKGROUND_COLOR = HexColor("#e8ddc7")  # cream background for PDF page background (optional)
@@ -303,7 +326,10 @@ def generate_summary_pdf(session_id: str) -> bytes:
 
 def generate_report_pdf(session_id: str, template: str, sections: List[str]) -> bytes:
     session = sessions_db.get_session(session_id)
-    company_slug = session.get("company_slug", "craftsman_automation") if session else "craftsman_automation"
+    if not session or not session.get("company_slug"):
+        raise HTTPException(status_code=400, detail="company_slug missing from session")
+
+    company_slug = session["company_slug"]
     company_name = company_slug.replace("_", " ").title()
 
     buffer = io.BytesIO()
@@ -450,7 +476,7 @@ Return only the bullet points."""
             parse_and_append(f"## Risk Factors\n{content}")
 
         elif section == "sources":
-            source_name = "Craftsman Auto.xlsx" if "craftsman" in company_slug.lower() else "Financial Statements.xlsx"
+            source_name = _resolve_excel_source_name(company_slug)
             sources_text = f"- {source_name}\n- Annual Report PDF\n- Annual Report Images\n- Concall Transcripts"
             parse_and_append(f"## Sources\n{sources_text}")
 

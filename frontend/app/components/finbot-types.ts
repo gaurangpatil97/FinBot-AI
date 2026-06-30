@@ -58,6 +58,20 @@ export interface UploadedFileMetadata {
   quarter?: FinancialQuarter;
 }
 
+export interface ExistingFilesCollectionState {
+  exists: boolean;
+  filename?: string | null;
+  files?: string[];
+  quarters?: string[];
+}
+
+export interface ExistingFilesResponse {
+  excel: ExistingFilesCollectionState;
+  pdf: ExistingFilesCollectionState;
+  concall: ExistingFilesCollectionState;
+  images: ExistingFilesCollectionState;
+}
+
 export interface SavedCollectionState {
   key: CollectionKey;
   label: string;

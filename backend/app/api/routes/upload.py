@@ -30,7 +30,8 @@ async def upload_file(
     # Save file to disk
     upload_dir = Path(settings.BASE_UPLOAD_DIR) / company_slug / file_type
     upload_dir.mkdir(parents=True, exist_ok=True)
-    destination = upload_dir / file.filename
+    original_filename = Path(file.filename).name
+    destination = upload_dir / original_filename
 
     with destination.open("wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
@@ -49,7 +50,7 @@ async def upload_file(
             continue
         company.setdefault("files", []).append({
             "file_id": file_id,
-            "filename": file.filename,
+            "filename": original_filename,
             "file_type": file_type,
             "year": year,
             "quarter": quarter,
@@ -60,11 +61,11 @@ async def upload_file(
         break
 
     companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    logger.info(f"[Upload] Saved {file.filename} → {destination}")
+    logger.info(f"[Upload] Saved {original_filename} → {destination}")
 
     return UploadResponse(
         file_id=file_id,
-        filename=file.filename,
+        filename=original_filename,
         company_slug=company_slug,
         file_type=file_type,
         status="uploaded",
@@ -75,6 +76,7 @@ async def upload_file(
 async def generate_embeddings(
     company_slug: str,
     background_tasks: BackgroundTasks,
+    images_only: bool = False,
 ) -> EmbedResponse:
     """
     Trigger embedding generation for all uploaded files for a company.
@@ -104,12 +106,16 @@ async def generate_embeddings(
                 company["collections"][file_type]["status"] = "processing"
 
     for f in company.get("files", []):
-        if f.get("status") in ("uploaded", "ready", "error"):
-            f["status"] = "processing"
+        if images_only:
+            if f.get("status") in ("uploaded", "ready", "error", "pending"):
+                f["status"] = "processing"
+        else:
+            if f.get("status") in ("uploaded", "error", "pending"):
+                f["status"] = "processing"
     companies_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
     # Run ingestion in background
-    background_tasks.add_task(_run_ingestion, company_slug, files)
+    background_tasks.add_task(_run_ingestion, company_slug, files, images_only)
 
     return EmbedResponse(
         status="processing",
@@ -118,16 +124,37 @@ async def generate_embeddings(
     )
 
 
-def _run_ingestion(company_slug: str, files: list[dict]) -> None:
+def _run_ingestion(company_slug: str, files: list[dict], images_only: bool = False) -> None:
     """Background task — runs ingestor for each pending file."""
     for file_record in files:
         try:
+            file_type = file_record["file_type"]
+            filename = file_record["filename"]
+            status = file_record.get("status", "")
+            
+            if images_only:
+                if file_type != "pdf":
+                    logger.info(f"Skipping {filename} — images_only mode, not a PDF")
+                    continue
+                if not any(p in filename for p in settings.IMAGE_EMBED_FILENAME_PATTERNS):
+                    logger.info(f"Skipping {filename} — no matching image pattern")
+                    continue
+            else:
+                if status == "ready":
+                    logger.info(f"Skipping {filename} — already processed (status: ready)")
+                    continue
+                if status not in ("processing", "pending", "uploaded", "error"):
+                    logger.info(f"Skipping {filename} — status is {status}")
+                    continue
+
+            file_images_only = images_only if file_type == "pdf" else False
             result = ingest_uploaded_file(
                 company_slug=company_slug,
-                file_type=file_record["file_type"],
+                file_type=file_type,
                 file_path=Path(file_record["path"]),
                 year=file_record.get("year"),
                 quarter=file_record.get("quarter"),
+                images_only=file_images_only,
             )
             logger.success(f"[Embed] {file_record['filename']} → {result.chunks_created} chunks")
 

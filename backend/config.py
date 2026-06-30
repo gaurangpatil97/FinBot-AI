@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -26,7 +26,10 @@ class Settings:
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
     TMP_DIR: str = os.getenv("TMP_DIR", "")
-    ENABLE_IMAGE_EMBEDDING: bool = False
+    ENABLE_IMAGE_EMBEDDING: bool = os.getenv("ENABLE_IMAGE_EMBEDDING", "False").lower() == "true"
+    IMAGE_EMBED_FILENAME_PATTERNS: list = field(default_factory=lambda: [
+        x.strip() for x in os.getenv("IMAGE_EMBED_FILENAME_PATTERNS", "FY2022,FY2023").split(",") if x.strip()
+    ])
     EMBEDDING_MODEL: str = "BAAI/bge-large-en-v1.5"
     EMBEDDING_DEVICE: str = "cpu"
     TOP_K_CHUNKS: int = 16

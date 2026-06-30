@@ -316,7 +316,7 @@ function InlineChart({ chartData }: InlineChartProps) {
   );
 }
 
-function getCompanySlug(activeCompanyKey?: string): string {
+function getCompanySlug(activeCompanyKey?: string): string | null {
   if (activeCompanyKey) {
     return slugifyCompanyName(activeCompanyKey);
   }
@@ -334,7 +334,12 @@ function getCompanySlug(activeCompanyKey?: string): string {
       : typeof storedCompany.companyName === "string"
         ? storedCompany.companyName.trim()
         : "";
-  return slugifyCompanyName(activeName || "craftsman_automation_ltd");
+
+  if (activeName) {
+    return slugifyCompanyName(activeName);
+  }
+
+  return null;
 }
 
 export default function ChatWindow({ messages, activeCompanyKey, totalChunks, totalDocs, collectionCount, onQuickQuery }: ChatWindowProps) {
@@ -443,7 +448,7 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
                   <p className="mt-2 text-[var(--text-primary)]">Ask about financials, earnings calls, or annual reports.</p>
                 </>
               ) : (
-                <p className="text-[var(--text-secondary)]">Click "+ Upload Dataset" to get started.</p>
+                <p className="text-[var(--text-secondary)]">Please select a company from the sidebar before asking questions.</p>
               )}
             </div>
 

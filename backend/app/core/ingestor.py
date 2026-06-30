@@ -47,22 +47,36 @@ def ingest_uploaded_file(
     file_path: Path,
     year: Optional[str] = None,
     quarter: Optional[str] = None,
+    images_only: bool = False,
 ) -> IngestionResult:
-    logger.info(f"[Ingestor] {file_type} | {file_path.name} | {company_slug}")
+    logger.info(f"[Ingestor] {file_type} | {file_path.name} | {company_slug} | images_only={images_only}")
 
     filename = file_path.name
     total_chunks = 0
     main_collection = get_collection_name(company_slug, file_type)
 
-    # Check if collection already has data
-    collection = get_or_create_collection(
-        main_collection,
-        chroma_path=get_chroma_path(company_slug, file_type)
-    )
-    existing_count = collection.count()
-    if existing_count > 0:
-        logger.warning(f"[Ingestor] Collection {main_collection} already has {existing_count} chunks — overwriting")
-        collection.delete(where={"filename": file_path.name})
+    if images_only and file_type == "pdf":
+        logger.info(f"Running images-only mode for {filename} — skipping text extraction")
+        # Delete existing chunks in the images collection for this file
+        images_col_name = get_collection_name(company_slug, "images")
+        try:
+            images_collection = get_or_create_collection(
+                images_col_name,
+                chroma_path=get_chroma_path(company_slug, "images")
+            )
+            images_collection.delete(where={"filename": filename})
+        except Exception as exc:
+            logger.warning(f"Could not clear images collection for {filename}: {exc}")
+    else:
+        # Check if collection already has data
+        collection = get_or_create_collection(
+            main_collection,
+            chroma_path=get_chroma_path(company_slug, file_type)
+        )
+        existing_count = collection.count()
+        if existing_count > 0:
+            logger.warning(f"[Ingestor] Collection {main_collection} already has {existing_count} chunks — overwriting")
+            collection.delete(where={"filename": file_path.name})
 
     if file_type == "excel":
         pages = extract_excel(str(file_path))
@@ -80,39 +94,51 @@ def ingest_uploaded_file(
         update_company_index(company_slug, file_type, total_chunks, status="ready")
 
     elif file_type == "pdf":
-        # Text pipeline
-        try:
-            text_pages = extract_pdf(str(file_path))
-            text_chunks = chunk_documents(text_pages)
-            text_chunks = _tag_chunks(text_chunks, company_slug, filename, year=year)
-            text_chunks = generate_embeddings(text_chunks)
-            store_chunks(
-                text_chunks,
-                get_collection_name(company_slug, "pdf"),
-                chroma_path=get_chroma_path(company_slug, "pdf")
-            )
-            total_chunks += len(text_chunks)
-            logger.info(f"PDF text: {len(text_chunks)} chunks stored")
-            update_company_index(company_slug, "pdf", len(text_chunks), status="ready")
-        except Exception as exc:
-            logger.error(f"PDF text pipeline failed for {filename}: {exc}")
-            update_company_index(company_slug, "pdf", 0, status="error")
+        if not images_only:
+            # Text pipeline
+            try:
+                text_pages = extract_pdf(str(file_path))
+                text_chunks = chunk_documents(text_pages)
+                text_chunks = _tag_chunks(text_chunks, company_slug, filename, year=year)
+                text_chunks = generate_embeddings(text_chunks)
+                store_chunks(
+                    text_chunks,
+                    get_collection_name(company_slug, "pdf"),
+                    chroma_path=get_chroma_path(company_slug, "pdf")
+                )
+                total_chunks += len(text_chunks)
+                logger.info(f"PDF text: {len(text_chunks)} chunks stored")
+                update_company_index(company_slug, "pdf", len(text_chunks), status="ready")
+            except Exception as exc:
+                logger.error(f"PDF text pipeline failed for {filename}: {exc}")
+                update_company_index(company_slug, "pdf", 0, status="error")
 
         # Image pipeline — same PDF, processed via GPT-4o
         try:
-            image_pages = extract_images_from_pdf(str(file_path))
-            if image_pages:
-                image_chunks = chunk_documents(image_pages)
-                image_chunks = _tag_chunks(image_chunks, company_slug, filename, year=year)
-                image_chunks = generate_embeddings(image_chunks)
-                store_chunks(
-                    image_chunks,
-                    get_collection_name(company_slug, "images"),
-                    chroma_path=get_chroma_path(company_slug, "images")
-                )
-                total_chunks += len(image_chunks)
-                logger.info(f"PDF images: {len(image_chunks)} chunks stored")
-                update_company_index(company_slug, "images", len(image_chunks), status="ready")
+            should_embed_images = False
+            if settings.ENABLE_IMAGE_EMBEDDING:
+                has_pattern = any(pattern in filename for pattern in settings.IMAGE_EMBED_FILENAME_PATTERNS)
+                if has_pattern:
+                    should_embed_images = True
+                else:
+                    logger.info(f"Skipping image embedding for {filename} — no matching pattern")
+            
+            if should_embed_images:
+                image_pages = extract_images_from_pdf(str(file_path))
+                if image_pages:
+                    image_chunks = chunk_documents(image_pages)
+                    image_chunks = _tag_chunks(image_chunks, company_slug, filename, year=year)
+                    image_chunks = generate_embeddings(image_chunks)
+                    store_chunks(
+                        image_chunks,
+                        get_collection_name(company_slug, "images"),
+                        chroma_path=get_chroma_path(company_slug, "images")
+                    )
+                    total_chunks += len(image_chunks)
+                    logger.info(f"PDF images: {len(image_chunks)} chunks stored")
+                    update_company_index(company_slug, "images", len(image_chunks), status="ready")
+                else:
+                    update_company_index(company_slug, "images", 0, status="no-embeddings")
             else:
                 update_company_index(company_slug, "images", 0, status="no-embeddings")
         except Exception as exc:

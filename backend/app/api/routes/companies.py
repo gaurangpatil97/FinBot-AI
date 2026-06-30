@@ -19,7 +19,7 @@ COMPANIES_FILE = Path(settings.COMPANIES_FILE)
 def _read_companies_file() -> Dict[str, Any]:
     if not COMPANIES_FILE.exists():
         return {"companies": [], "active_company": None}
-    return json.loads(COMPANIES_FILE.read_text(encoding="utf-8-sig"))
+    return json.loads(COMPANIES_FILE.read_text(encoding="utf-8"))
 
 
 def _write_companies_file(payload: Dict[str, Any]) -> None:
@@ -49,6 +49,84 @@ def _metric_sheet_for_kpi(metric: str) -> tuple[str, str]:
         raise HTTPException(status_code=400, detail="Unsupported metric")
 
     return mapping[metric_key]
+
+
+def _normalize_fiscal_year_label(year: Any) -> str | None:
+    if not isinstance(year, str) or not year.strip():
+        return None
+
+    normalized = year.strip().upper()
+    if normalized.startswith("FY"):
+        return normalized
+    if normalized.isdigit() and len(normalized) == 2:
+        return f"FY{normalized}"
+    if normalized.isdigit() and len(normalized) == 4 and normalized.startswith("20"):
+        return f"FY{normalized[2:]}"
+    return normalized
+
+
+def _build_existing_files_payload(slug: str) -> Dict[str, Any]:
+    payload = _read_companies_file()
+    company = next((item for item in payload.get("companies", []) if item.get("slug") == slug), None)
+
+    if not company:
+        return {
+            "excel": {"exists": False, "filename": None},
+            "pdf": {"exists": False, "files": []},
+            "concall": {"exists": False, "quarters": []},
+            "images": {"exists": False, "files": []},
+        }
+
+    excel_files: List[str] = []
+    pdf_files: List[str] = []
+    concall_quarters: List[str] = []
+    images_files: List[str] = []
+
+    for file_record in company.get("files", []):
+        if not isinstance(file_record, dict):
+            continue
+
+        file_type = file_record.get("file_type")
+        filename = file_record.get("filename")
+        if not isinstance(filename, str) or not filename.strip():
+            continue
+
+        cleaned_filename = filename.strip()
+
+        if file_type == "excel":
+            excel_files.append(cleaned_filename)
+        elif file_type == "pdf":
+            pdf_files.append(cleaned_filename)
+        elif file_type == "concall":
+            quarter = file_record.get("quarter")
+            fiscal_year = _normalize_fiscal_year_label(file_record.get("year"))
+            if isinstance(quarter, str) and quarter.strip():
+                label = quarter.strip().upper()
+                if fiscal_year:
+                    concall_quarters.append(f"{label}_{fiscal_year}")
+                else:
+                    concall_quarters.append(label)
+        elif file_type == "images":
+            images_files.append(cleaned_filename)
+
+    return {
+        "excel": {
+            "exists": len(excel_files) > 0,
+            "filename": excel_files[0] if excel_files else None,
+        },
+        "pdf": {
+            "exists": len(pdf_files) > 0,
+            "files": pdf_files,
+        },
+        "concall": {
+            "exists": len(concall_quarters) > 0,
+            "quarters": concall_quarters,
+        },
+        "images": {
+            "exists": len(images_files) > 0,
+            "files": images_files,
+        },
+    }
 
 
 @router.get("/companies", response_model=List[dict])
@@ -156,6 +234,11 @@ def get_company_status(slug: str) -> dict:
         "collections": collections,
         "files": files,
     }
+
+
+@router.get("/companies/{slug}/existing-files")
+def get_existing_files(slug: str) -> dict:
+    return _build_existing_files_payload(slug)
 
 
 @router.get("/companies/{slug}/kpis")

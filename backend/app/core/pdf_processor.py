@@ -98,8 +98,8 @@ def describe_image(image_path: str, page_num: int) -> str:
                 if response.status_code != 200:
                     OPENAI_CALL_LATENCY.labels(model="gpt-4o", purpose="image_description").observe(duration)
                     OPENAI_CALL_COUNT.labels(model="gpt-4o", purpose="image_description", status="error").inc()
-                    logger.error(f"GPT-4o error on page {page_num}: {response.status_code} {response.text[:200]}")
-                    return ""
+                    logger.warning(f"GPT-4o error on page {page_num}: {response.status_code} {response.text[:200]}")
+                    return f"[Image description unavailable — API error on page {page_num}]"
                 
                 OPENAI_CALL_LATENCY.labels(model="gpt-4o", purpose="image_description").observe(duration)
                 OPENAI_CALL_COUNT.labels(model="gpt-4o", purpose="image_description", status="success").inc()
@@ -107,25 +107,27 @@ def describe_image(image_path: str, page_num: int) -> str:
                 duration = time.time() - start_t
                 OPENAI_CALL_LATENCY.labels(model="gpt-4o", purpose="image_description").observe(duration)
                 OPENAI_CALL_COUNT.labels(model="gpt-4o", purpose="image_description", status="error").inc()
-                raise e
+                logger.warning(f"API request failed on page {page_num}: {e}")
+                return f"[Image description unavailable — API error on page {page_num}]"
 
             result = response.json()
             description = result["choices"][0]["message"]["content"].strip()
 
             if len(description) < 20:
-                return ""
+                logger.warning(f"Description too short on page {page_num}")
+                return f"[Image description unavailable — API error on page {page_num}]"
 
             time.sleep(2)
 
             logger.info(f"GPT-4o described page {page_num}: {len(description)} chars")
             return description
 
-        logger.error(f"GPT-4o failed after 3 attempts on page {page_num}")
-        return ""
+        logger.warning(f"GPT-4o failed after 3 attempts on page {page_num}")
+        return f"[Image description unavailable — API error on page {page_num}]"
 
     except Exception as e:
-        logger.error(f"GPT-4o failed on page {page_num}: {e}")
-        return ""
+        logger.warning(f"GPT-4o failed on page {page_num}: {e}")
+        return f"[Image description unavailable — API error on page {page_num}]"
 
 
 def extract_images_from_pdf(file_path: str) -> list[dict]:
@@ -151,6 +153,7 @@ def extract_images_from_pdf(file_path: str) -> list[dict]:
     logger.info(f"Processing PDF (images): {filename}")
 
     doc_fitz = fitz.open(str(file_path))
+    first_image_checked = False
 
     for page_num in range(len(doc_fitz)):
         page_fitz = doc_fitz[page_num]
@@ -170,7 +173,18 @@ def extract_images_from_pdf(file_path: str) -> list[dict]:
             img_path = f"{tmp_dir}/page_{page_display_num}.png"
             pix.save(img_path)
 
-            description = describe_image(img_path, page_display_num)
+            if not first_image_checked:
+                first_image_checked = True
+                description = describe_image(img_path, page_display_num)
+                if not description or description.startswith("[Image description unavailable"):
+                    logger.error("Image embedding disabled — API credits may be exhausted")
+                    try:
+                        os.remove(img_path)
+                    except:
+                        pass
+                    break
+            else:
+                description = describe_image(img_path, page_display_num)
 
             try:
                 os.remove(img_path)

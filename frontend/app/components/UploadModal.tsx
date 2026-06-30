@@ -2,12 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { createCompany, generateEmbeddings, getCompanyStatus, uploadFile } from "../../lib/api";
+import { createCompany, generateEmbeddings, getCompanyStatus, getExistingFiles, uploadFile } from "../../lib/api";
 
 import type {
   CollectionKey,
   CollectionRecord,
   EmbeddingStatus,
+  ExistingFilesResponse,
   FinancialQuarter,
   FiscalYear,
   SavedCollectionState,
@@ -56,8 +57,6 @@ const zoneRules: Record<CollectionKey, string> = {
   images: "Accepts .pdf only",
 };
 
-const visibleKeys: CollectionKey[] = ["excel", "pdf", "concall"];
-
 const fiscalYears: FiscalYear[] = ["FY20", "FY21", "FY22", "FY23", "FY24", "FY25", "FY26"];
 const quarters: FinancialQuarter[] = ["Q1", "Q2", "Q3", "Q4"];
 
@@ -90,10 +89,6 @@ function mapCollectionStatus(status: unknown): EmbeddingStatus {
   }
 
   return "no-embeddings";
-}
-
-function delay(ms: number) {
-  return new Promise((resolve) => window.setTimeout(resolve, ms));
 }
 
 type BackendCollectionStatus = {
@@ -212,19 +207,123 @@ function collectionsFromDraft(draft: Record<CollectionKey, DraftFileItem[]>): Sa
 }
 
 function draftFromSession(session: SavedDatasetSession | null, companyName: string, ticker: string) {
-  if (!session) {
-    return {
-      companyName,
-      ticker,
-      files: defaultDraft(),
-    };
-  }
-
   return {
-    companyName: session.companyName,
-    ticker: session.ticker,
+    companyName: "",
+    ticker: "",
     files: defaultDraft(),
   };
+}
+
+type OverlapItem = {
+  id: string;
+  collection: CollectionKey;
+  fileId: string;
+  label: string;
+};
+
+type UploadStage = "uploading" | "processing" | "ready" | "failed";
+
+type PendingCollectionItem = {
+  key: CollectionKey;
+  label: string;
+};
+
+type PendingEmbeddingState = {
+  companyName: string;
+  companySlug: string;
+  ticker: string;
+  collections: PendingCollectionItem[];
+  startedAt: number;
+};
+
+const PENDING_EMBEDDING_STORAGE_KEY = "finbotai-pending-embedding";
+
+function summarizeDraftFiles(files: DraftFileItem[]) {
+  if (files.length === 0) {
+    return "";
+  }
+
+  if (files.length === 1) {
+    return files[0].name;
+  }
+
+  return `${files.length} files`;
+}
+
+function readPendingEmbeddingState(): PendingEmbeddingState | null {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(PENDING_EMBEDDING_STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+
+    const parsed = JSON.parse(raw) as PendingEmbeddingState;
+    if (
+      typeof parsed.companyName !== "string" ||
+      typeof parsed.companySlug !== "string" ||
+      typeof parsed.ticker !== "string" ||
+      !Array.isArray(parsed.collections) ||
+      typeof parsed.startedAt !== "number"
+    ) {
+      return null;
+    }
+
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function writePendingEmbeddingState(state: PendingEmbeddingState | null) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  if (!state) {
+    window.localStorage.removeItem(PENDING_EMBEDDING_STORAGE_KEY);
+    return;
+  }
+
+  window.localStorage.setItem(PENDING_EMBEDDING_STORAGE_KEY, JSON.stringify(state));
+}
+
+function formatProgressStatus(status: UploadStage) {
+  if (status === "uploading") {
+    return "Uploading...";
+  }
+
+  if (status === "processing") {
+    return "Processing...";
+  }
+
+  if (status === "ready") {
+    return "Ready";
+  }
+
+  return "Failed";
+}
+
+function normalizeQuarterToken(quarter?: string | null, year?: string | null) {
+  if (!quarter || !year) {
+    return "";
+  }
+
+  return `${quarter.trim().toUpperCase()}_${year.trim().toUpperCase()}`;
+}
+
+function normalizeDisplayQuarter(quarter?: string | null, year?: string | null) {
+  const cleanedQuarter = quarter?.trim().toUpperCase();
+  const cleanedYear = year?.trim().toUpperCase();
+
+  if (!cleanedQuarter) {
+    return "";
+  }
+
+  return cleanedYear ? `${cleanedQuarter} ${cleanedYear}` : cleanedQuarter;
 }
 
 export default function UploadModal({
@@ -243,20 +342,271 @@ export default function UploadModal({
   const [isGeneratingAll, setIsGeneratingAll] = useState(false);
   const [isEmbedding, setIsEmbedding] = useState(false);
   const [isPollingEmbedding, setIsPollingEmbedding] = useState(false);
+  const [isCheckingExistingFiles, setIsCheckingExistingFiles] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [existingFiles, setExistingFiles] = useState<ExistingFilesResponse | null>(null);
+  const [overlapCheckError, setOverlapCheckError] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [progressState, setProgressState] = useState<PendingEmbeddingState | null>(null);
+  const [collectionStages, setCollectionStages] = useState<Partial<Record<CollectionKey, UploadStage>>>({});
+  const [backendStatus, setBackendStatus] = useState<BackendCompanyStatus | null>(null);
+  const [completionMessage, setCompletionMessage] = useState<string | null>(null);
+  const [longRunningWarning, setLongRunningWarning] = useState(false);
   const fileInputRefs = useRef<Record<CollectionKey, HTMLInputElement | null>>({
     excel: null,
     pdf: null,
     concall: null,
     images: null,
   });
+  const collectionStagesRef = useRef<Partial<Record<CollectionKey, UploadStage>>>({});
   const timeouts = useRef<number[]>([]);
   const toastTimeout = useRef<number | null>(null);
   const totalFiles = useMemo(
     () => (Object.keys(draft.files) as CollectionKey[]).reduce((count, key) => count + draft.files[key].length, 0),
     [draft.files],
   );
+  const companySlug = useMemo(() => {
+    const companyNameValue = draft.companyName.trim();
+    return companyNameValue ? slugifyCompanyName(companyNameValue) : "";
+  }, [draft.companyName]);
+  const progressCompanySlug = progressState?.companySlug ?? companySlug;
+  const progressCompanyName = progressState?.companyName || draft.companyName.trim() || companyName;
+  const progressRows = useMemo(() => {
+    const sourceCollections = progressState?.collections ?? (Object.keys(draft.files) as CollectionKey[])
+      .filter((key) => draft.files[key].length > 0)
+      .map((key) => ({
+        key,
+        label: summarizeDraftFiles(draft.files[key]),
+      }));
+
+    return sourceCollections.map((item) => {
+      const backendCollection = backendStatus?.collections?.[item.key];
+      const backendStage = mapCollectionStatus(backendCollection?.status);
+      const localStage = collectionStagesRef.current[item.key];
+      const stage: UploadStage = backendStage === "ready" || backendStage === "processing" || backendStage === "failed"
+        ? backendStage
+        : localStage ?? "processing";
+
+      return {
+        key: item.key,
+        label: item.label,
+        fileLabel: item.key in draft.files ? summarizeDraftFiles(draft.files[item.key]) : item.label,
+        stage,
+        chunks: typeof backendCollection?.chunks === "number" ? backendCollection.chunks : 0,
+      };
+    });
+  }, [backendStatus, draft.files, progressState]);
+  const progressSummary = useMemo(() => {
+    const completed = progressRows.filter((row) => row.stage === "ready").length;
+    const failed = progressRows.filter((row) => row.stage === "failed").length;
+    return { completed, failed, total: progressRows.length };
+  }, [progressRows]);
+
+  const overlapItems = useMemo<OverlapItem[]>(() => {
+    if (!existingFiles) {
+      return [];
+    }
+
+    const items: OverlapItem[] = [];
+
+    if (draft.files.excel.length > 0 && existingFiles.excel.exists) {
+      const existingFilename = existingFiles.excel.filename?.trim();
+      items.push({
+        id: `excel:${draft.files.excel[0].id}`,
+        collection: "excel",
+        fileId: draft.files.excel[0].id,
+        label: "Excel already exists — remove from upload?",
+      });
+    }
+
+    const existingPdfNames = new Set((existingFiles.pdf.files ?? []).map((name) => name.trim().toLowerCase()));
+    for (const file of draft.files.pdf) {
+      if (existingPdfNames.has(file.name.trim().toLowerCase())) {
+        items.push({
+          id: `pdf:${file.id}`,
+          collection: "pdf",
+          fileId: file.id,
+          label: `PDF ${file.name} already exists — remove from upload?`,
+        });
+      }
+    }
+
+    const existingQuarterTokens = new Set((existingFiles.concall.quarters ?? []).map((quarter) => quarter.trim().toUpperCase()));
+    for (const file of draft.files.concall) {
+      const token = normalizeQuarterToken(file.quarter ?? null, file.year ?? null);
+      if (token && existingQuarterTokens.has(token)) {
+        items.push({
+          id: `concall:${file.id}`,
+          collection: "concall",
+          fileId: file.id,
+          label: `Concall ${normalizeDisplayQuarter(file.quarter ?? null, file.year ?? null)} already exists — remove from upload?`,
+        });
+      }
+    }
+
+    return items;
+  }, [draft.files, existingFiles]);
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const pendingEmbedding = readPendingEmbeddingState();
+
+    if (pendingEmbedding) {
+      const nextStages = pendingEmbedding.collections.reduce((accumulator, collection) => {
+        accumulator[collection.key] = "processing";
+        return accumulator;
+      }, {} as Partial<Record<CollectionKey, UploadStage>>);
+
+      setProgressState(pendingEmbedding);
+      collectionStagesRef.current = nextStages;
+      setCollectionStages(nextStages);
+      setBackendStatus(null);
+      setCompletionMessage(null);
+      setLongRunningWarning(Date.now() - pendingEmbedding.startedAt >= 5 * 60 * 1000);
+    } else {
+      setProgressState(null);
+      collectionStagesRef.current = {};
+      setCollectionStages({});
+      setBackendStatus(null);
+      setCompletionMessage(null);
+      setLongRunningWarning(false);
+    }
+
+    if (!companySlug || totalFiles === 0) {
+      setExistingFiles(null);
+      setOverlapCheckError(null);
+      setIsCheckingExistingFiles(false);
+      return;
+    }
+
+    let cancelled = false;
+
+    setIsCheckingExistingFiles(true);
+    setOverlapCheckError(null);
+
+    void getExistingFiles(companySlug)
+      .then((response) => {
+        if (!cancelled) {
+          setExistingFiles(response as ExistingFilesResponse);
+        }
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setExistingFiles(null);
+          setOverlapCheckError(error instanceof Error ? error.message : "Failed to check for overlapping files");
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setIsCheckingExistingFiles(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [open, companySlug, totalFiles]);
+
+  useEffect(() => {
+    if (!open || !progressState || !progressCompanySlug) {
+      return;
+    }
+
+    let cancelled = false;
+    let timeoutId: number | null = null;
+
+    const pollStatus = async () => {
+      try {
+        const status = (await getCompanyStatus(progressCompanySlug)) as BackendCompanyStatus;
+
+        if (cancelled) {
+          return;
+        }
+
+        setBackendStatus(status);
+
+        const collectionStatuses = status.collections ?? {};
+        const nextStages: Partial<Record<CollectionKey, UploadStage>> = {};
+
+        for (const item of progressState.collections) {
+          const backendCollection = collectionStatuses[item.key];
+          const backendStage = mapCollectionStatus(backendCollection?.status);
+
+          if (backendStage === "ready" || backendStage === "processing" || backendStage === "failed") {
+            nextStages[item.key] = backendStage;
+            continue;
+          }
+
+          nextStages[item.key] = collectionStages[item.key] ?? "processing";
+        }
+
+        const mergedStages = {
+          ...collectionStagesRef.current,
+          ...nextStages,
+        };
+
+        collectionStagesRef.current = mergedStages;
+        setCollectionStages(mergedStages);
+
+        const finishedStages = progressState.collections.map((item) => mergedStages[item.key] ?? "processing");
+        const allFinished = finishedStages.length > 0 && finishedStages.every((stage) => stage === "ready" || stage === "failed");
+
+        if (allFinished) {
+          const allReady = finishedStages.every((stage) => stage === "ready");
+          const message = allReady ? "All embeddings generated successfully!" : "Some collections failed — check logs";
+
+          setCompletionMessage(message);
+          setIsPollingEmbedding(false);
+          setIsEmbedding(false);
+          setLongRunningWarning(false);
+          writePendingEmbeddingState(null);
+          collectionStagesRef.current = mergedStages;
+
+          onSessionUpdate(buildSessionFromDraft(draft.files));
+
+          try {
+            await onEmbeddingComplete(progressCompanySlug);
+          } catch {
+            // Keep the progress screen visible even if the sidebar refresh fails.
+          }
+
+          return;
+        }
+
+        if (Date.now() - progressState.startedAt >= 5 * 60 * 1000) {
+          setLongRunningWarning(true);
+        }
+
+        timeoutId = window.setTimeout(() => {
+          void pollStatus();
+        }, EMBEDDING_POLL_INTERVAL_MS);
+      } catch {
+        if (cancelled) {
+          return;
+        }
+
+        if (Date.now() - progressState.startedAt >= 5 * 60 * 1000) {
+          setLongRunningWarning(true);
+        }
+
+        timeoutId = window.setTimeout(() => {
+          void pollStatus();
+        }, EMBEDDING_POLL_INTERVAL_MS);
+      }
+    };
+
+    void pollStatus();
+
+    return () => {
+      cancelled = true;
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [open, progressState, progressCompanySlug, onEmbeddingComplete]);
 
   useEffect(() => {
     if (!open) {
@@ -269,6 +619,9 @@ export default function UploadModal({
     setIsEmbedding(false);
     setIsPollingEmbedding(false);
     setIsGeneratingAll(false);
+    setExistingFiles(null);
+    setOverlapCheckError(null);
+    setIsCheckingExistingFiles(false);
   }, [open, session, companyName, ticker]);
 
   useEffect(
@@ -351,12 +704,16 @@ export default function UploadModal({
     updateFiles(key, (current) => current.map((file) => (file.id === fileId ? { ...file, ...changes } : file)));
   };
 
+  const removeFile = (key: CollectionKey, fileId: string) => {
+    updateFiles(key, (current) => current.filter((file) => file.id !== fileId));
+  };
+
   const buildSessionFromDraft = (files: Record<CollectionKey, DraftFileItem[]>) => {
     const collections = collectionsFromDraft(files);
 
     return {
-      companyName: draft.companyName.trim() || companyName,
-      ticker: draft.ticker.trim() || ticker,
+      companyName: draft.companyName,
+      ticker: draft.ticker,
       collections,
       readyCollections: collections.filter((collection) => collection.status === "ready").length,
       chunks: 3500,
@@ -376,22 +733,6 @@ export default function UploadModal({
     }, 2200);
   };
 
-  const waitForEmbeddingCompletion = async (companySlug: string) => {
-    const startedAt = Date.now();
-
-    while (Date.now() - startedAt < EMBEDDING_POLL_TIMEOUT_MS) {
-      const status = (await getCompanyStatus(companySlug)) as BackendCompanyStatus;
-
-      const values = Object.values(status.collections ?? {});
-      const stillProcessing = values.some((collection) => mapCollectionStatus(collection.status) === "processing");
-
-      if (!stillProcessing) {
-        return;
-      }
-      await delay(EMBEDDING_POLL_INTERVAL_MS);
-    }
-  };
-
   const handleGenerateAll = async () => {
     if (isEmbedding) {
       showToast("Embedding in progress, please wait");
@@ -403,17 +744,42 @@ export default function UploadModal({
     setIsGeneratingAll(true);
     setIsEmbedding(true);
     setIsPollingEmbedding(false);
+    setCompletionMessage(null);
+    setLongRunningWarning(false);
 
     try {
-      const companyNameValue = draft.companyName.trim() || companyName;
-      const tickerValue = draft.ticker.trim() || ticker;
+      const companyNameValue = draft.companyName;
+      const tickerValue = draft.ticker;
       const companySlug = slugifyCompanyName(companyNameValue);
       await createCompany(companyNameValue, companySlug, tickerValue);
 
-      const existingFilenames = getSessionFilenames(session);
-      const uploadTasks: Promise<{ fileId: string; ok: boolean }>[] = [];
+      const trackedCollections = (Object.keys(draft.files) as CollectionKey[]).filter((key) => draft.files[key].length > 0);
+      const pendingState: PendingEmbeddingState = {
+        companyName: companyNameValue,
+        companySlug,
+        ticker: tickerValue,
+        collections: trackedCollections.map((key) => ({
+          key,
+          label: summarizeDraftFiles(draft.files[key]),
+        })),
+        startedAt: Date.now(),
+      };
 
-      for (const key of visibleKeys) {
+      setProgressState(pendingState);
+      writePendingEmbeddingState(pendingState);
+
+      const initialStages = pendingState.collections.reduce((accumulator, item) => {
+        accumulator[item.key] = "uploading";
+        return accumulator;
+      }, {} as Partial<Record<CollectionKey, UploadStage>>);
+
+      collectionStagesRef.current = initialStages;
+      setCollectionStages(initialStages);
+
+      const existingFilenames = getSessionFilenames(session);
+      const uploadTasks: Promise<{ collection: CollectionKey; ok: boolean }>[] = [];
+
+      for (const key of trackedCollections) {
         for (const item of draft.files[key]) {
           if (isAlreadyOnServer(item.status)) {
             continue;
@@ -428,32 +794,41 @@ export default function UploadModal({
           }
           uploadTasks.push(
             uploadFile(item.file, companySlug, key, item.year, item.quarter)
-              .then(() => ({ fileId: item.id, ok: true }))
-              .catch(() => ({ fileId: item.id, ok: false })),
+              .then(() => ({ collection: key, ok: true }))
+              .catch(() => ({ collection: key, ok: false })),
           );
         }
       }
 
-      await Promise.all(uploadTasks);
+      const uploadResults = await Promise.all(uploadTasks);
+      const failedCollections = new Set(
+        uploadResults.filter((result) => !result.ok).map((result) => result.collection),
+      );
+
+      if (failedCollections.size > 0) {
+        const nextStages = {
+          ...collectionStagesRef.current,
+        };
+
+        for (const collection of failedCollections) {
+          nextStages[collection] = "failed";
+        }
+
+        collectionStagesRef.current = nextStages;
+        setCollectionStages(nextStages);
+      }
 
       await generateEmbeddings(companySlug).catch((error) => {
         throw error instanceof Error ? error : new Error("Failed to start embedding");
       });
 
       setIsPollingEmbedding(true);
-      await waitForEmbeddingCompletion(companySlug);
-
-      const nextSession = buildSessionFromDraft(draft.files);
-      onSessionUpdate(nextSession);
-      await onEmbeddingComplete(companySlug);
-      onClose();
     } catch (error) {
       const message = error instanceof Error ? error.message : "Failed to generate embeddings";
       setErrorMessage(message);
     } finally {
       setIsGeneratingAll(false);
       setIsEmbedding(false);
-      setIsPollingEmbedding(false);
     }
   };
 
@@ -462,8 +837,8 @@ export default function UploadModal({
     setIsSaving(true);
 
     try {
-      const companyNameValue = draft.companyName.trim() || companyName;
-      const tickerValue = draft.ticker.trim() || ticker;
+      const companyNameValue = draft.companyName;
+      const tickerValue = draft.ticker;
       const companySlug = slugifyCompanyName(companyNameValue);
 
       await createCompany(companyNameValue, companySlug, tickerValue);
@@ -620,7 +995,7 @@ export default function UploadModal({
               <input
                 value={draft.companyName}
                 onChange={(event) => setDraft((current) => ({ ...current, companyName: event.target.value }))}
-                placeholder="e.g. Craftsman Automation Ltd"
+                placeholder="e.g. Acme Industries Ltd"
                 className="w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none placeholder:text-[var(--text-secondary)]"
               />
             </label>
@@ -630,55 +1005,181 @@ export default function UploadModal({
               <input
                 value={draft.ticker}
                 onChange={(event) => setDraft((current) => ({ ...current, ticker: event.target.value }))}
-                placeholder="e.g. CRAFTSMAN.NS"
+                placeholder="e.g. ACME.NS"
                 className="w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-sm text-[var(--text-primary)] outline-none placeholder:text-[var(--text-secondary)]"
               />
             </label>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 mt-6">
-            {renderZone("excel")}
-            {renderZone("pdf")}
-            <div className="md:col-span-2">
-              {renderZone("concall")}
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-[var(--border)] px-6 py-5 flex items-center justify-end gap-3">
-          <p className="mr-auto text-xs text-[var(--text-secondary)]">{totalFiles} file{totalFiles === 1 ? "" : "s"} added</p>
-          
-          {toastMessage ? (
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-2.5 text-sm text-[var(--text-primary)]">
-              {toastMessage}
+          {isCheckingExistingFiles ? (
+            <div className="mt-6 rounded-3xl border border-[var(--border)] bg-[var(--surface-2)] p-4 text-sm text-[var(--text-secondary)]">
+              Checking for existing uploads...
             </div>
           ) : null}
 
-          <button
-            type="button"
-            onClick={() => void handleSave()}
-            disabled={isSaving || isGeneratingAll || isEmbedding}
-            className="rounded-xl border border-[var(--border)] bg-transparent px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition hover:bg-[var(--surface-2)] disabled:cursor-not-allowed disabled:opacity-70"
-          >
-            {isSaving ? "Saving..." : "Save & Close"}
-          </button>
+          {overlapCheckError ? (
+            <div className="mt-6 rounded-3xl border border-[var(--border)] bg-[var(--surface-2)] p-4 text-sm text-[var(--text-secondary)]">
+              {overlapCheckError}
+            </div>
+          ) : null}
 
-          <button
-            type="button"
-            onClick={() => void handleGenerateAll()}
-            disabled={isGeneratingAll || isEmbedding || isPollingEmbedding}
-            className="flex items-center justify-center rounded-xl bg-[#e8ddc7] px-5 py-2.5 text-sm font-semibold text-[#0a0a0c] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
-          >
-            {isPollingEmbedding || isEmbedding ? (
-              <span className="flex items-center gap-2">
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-[var(--bg)]/30 border-t-[var(--bg)]" />
-                Generating...
-              </span>
-            ) : (
-              "Generate All Embeddings"
-            )}
-          </button>
+          {overlapItems.length > 0 ? (
+            <div className="mt-6 rounded-3xl border border-[#e8ddc7] bg-[#e8ddc7]/10 p-4">
+              <p className="text-sm font-semibold text-[var(--text-primary)]">Existing uploads detected</p>
+              <div className="mt-3 space-y-2">
+                {overlapItems.map((item) => (
+                  <div key={item.id} className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-sm text-[var(--text-primary)]">
+                    <span className="min-w-0 flex-1">{item.label}</span>
+                    <button
+                      type="button"
+                      onClick={() => removeFile(item.collection, item.fileId)}
+                      className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--border)] bg-[var(--surface-2)] text-base font-semibold text-[var(--text-primary)] transition hover:bg-[var(--border)]"
+                      aria-label={`Remove ${item.label}`}
+                    >
+                      -
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {progressState ? (
+            <div className="mt-6 rounded-3xl border border-[var(--border)] bg-[var(--surface-2)] p-4">
+              <div className="flex flex-col gap-4 border-b border-[var(--border)] pb-4 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p className="text-xl font-semibold text-[var(--text-primary)]">{progressCompanyName}</p>
+                  <p className="mt-1 text-sm text-[var(--text-secondary)]">Embedding collections in the background</p>
+                </div>
+                <div className="rounded-full border border-[var(--border)] bg-[var(--surface-1)] px-3 py-1.5 text-sm font-medium text-[var(--text-secondary)]">
+                  {progressSummary.completed} of {progressSummary.total} collections ready
+                </div>
+              </div>
+
+              {completionMessage ? (
+                <div className={`mt-4 rounded-2xl border px-4 py-3 text-sm ${
+                  progressSummary.failed > 0
+                    ? "border-[#ef4444]/40 bg-[#ef4444]/10 text-[#fecaca]"
+                    : "border-[#22c55e]/30 bg-[#22c55e]/10 text-[#bbf7d0]"
+                }`}>
+                  {completionMessage}
+                </div>
+              ) : null}
+
+              {longRunningWarning ? (
+                <div className="mt-4 rounded-2xl border border-[#f59e0b]/40 bg-[#f59e0b]/10 px-4 py-3 text-sm text-[#fde68a]">
+                  Taking longer than expected — processing continues in background.
+                </div>
+              ) : null}
+
+              <div className="mt-4 space-y-3">
+                {progressRows.map((row) => {
+                  const isProcessing = row.stage === "processing" || row.stage === "uploading";
+                  return (
+                    <div key={row.key} className="flex items-center justify-between gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3">
+                      <div className="min-w-0 flex items-center gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-2)] text-xs font-semibold text-[var(--text-primary)]">
+                          {row.key === "excel" ? "XLSX" : row.key === "pdf" ? "PDF" : "CAL"}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="truncate text-sm font-medium text-[var(--text-primary)]">{zoneTitles[row.key]}</p>
+                          <p className="truncate text-xs text-[var(--text-secondary)]">{row.fileLabel || "No filename available"}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex shrink-0 items-center gap-2 text-sm font-medium text-[var(--text-primary)]">
+                        {row.stage === "ready" ? (
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#22c55e]/15 text-xs font-bold text-[#22c55e]">✓</span>
+                        ) : row.stage === "failed" ? (
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ef4444]/15 text-xs font-bold text-[#ef4444]">✕</span>
+                        ) : (
+                          <span className="h-5 w-5 animate-spin rounded-full border-2 border-[var(--border)] border-t-[#e8ddc7]" />
+                        )}
+                        <span className={isProcessing ? "text-[var(--text-secondary)]" : "text-[var(--text-primary)]"}>
+                          {formatProgressStatus(row.stage)}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--border)] pt-4">
+                <p className="text-sm text-[var(--text-secondary)]">
+                  {progressSummary.completed} of {progressSummary.total} collections ready
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="grid gap-4 md:grid-cols-2 mt-6">
+              {renderZone("excel")}
+              {renderZone("pdf")}
+              <div className="md:col-span-2">
+                {renderZone("concall")}
+              </div>
+            </div>
+          )}
         </div>
+
+        {progressState ? (
+          <div className="border-t border-[var(--border)] px-6 py-5 flex items-center justify-end gap-3">
+            {toastMessage ? (
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-2.5 text-sm text-[var(--text-primary)]">
+                {toastMessage}
+              </div>
+            ) : null}
+
+            {completionMessage ? (
+              <button
+                type="button"
+                onClick={() => {
+                  writePendingEmbeddingState(null);
+                  onClose();
+                }}
+                className="rounded-xl bg-[#e8ddc7] px-5 py-2.5 text-sm font-semibold text-[#0a0a0c] transition hover:opacity-90"
+              >
+                Continue to Chat
+              </button>
+            ) : (
+              <p className="mr-auto text-xs text-[var(--text-secondary)]">Processing continues in the background. You can close this modal anytime.</p>
+            )}
+          </div>
+        ) : (
+          <div className="border-t border-[var(--border)] px-6 py-5 flex items-center justify-end gap-3">
+            <p className="mr-auto text-xs text-[var(--text-secondary)]">{totalFiles} file{totalFiles === 1 ? "" : "s"} added</p>
+            
+            {toastMessage ? (
+              <div className="rounded-xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-2.5 text-sm text-[var(--text-primary)]">
+                {toastMessage}
+              </div>
+            ) : null}
+
+            <button
+              type="button"
+              onClick={() => void handleSave()}
+              disabled={isSaving || isGeneratingAll || isEmbedding}
+              className="rounded-xl border border-[var(--border)] bg-transparent px-5 py-2.5 text-sm font-semibold text-[var(--text-primary)] transition hover:bg-[var(--surface-2)] disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              {isSaving ? "Saving..." : "Save & Close"}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => void handleGenerateAll()}
+              disabled={isGeneratingAll || isEmbedding || isPollingEmbedding}
+              className="flex items-center justify-center rounded-xl bg-[#e8ddc7] px-5 py-2.5 text-sm font-semibold text-[#0a0a0c] transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              {isPollingEmbedding || isEmbedding ? (
+                <span className="flex items-center gap-2">
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-[var(--bg)]/30 border-t-[var(--bg)]" />
+                  Generating...
+                </span>
+              ) : (
+                "Generate All Embeddings"
+              )}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
