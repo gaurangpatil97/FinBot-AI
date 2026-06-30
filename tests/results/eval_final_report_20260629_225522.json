@@ -1,0 +1,101 @@
+{
+  "generated_at": "20260629_225522",
+  "source_file": "tests/results/eval_raw_results_20260629_223104.json",
+  "auto_metrics": {
+    "total": 77,
+    "routing_accuracy": 0.948051948051948,
+    "routing_correct": 73,
+    "citation_accuracy": 0.961038961038961,
+    "citation_correct": 74,
+    "answer_correctness": null,
+    "answer_correct": 0,
+    "answer_total_reviewed": 0,
+    "avg_latency": 16.1425974025974,
+    "min_latency": 7.33,
+    "max_latency": 122.03,
+    "sections": {
+      "Excel": {
+        "total": 15,
+        "routing_correct": 15,
+        "citation_correct": 15,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 211.51
+      },
+      "Concall": {
+        "total": 15,
+        "routing_correct": 14,
+        "citation_correct": 14,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 258.41999999999996
+      },
+      "PDF": {
+        "total": 16,
+        "routing_correct": 16,
+        "citation_correct": 16,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 227.93999999999997
+      },
+      "Images": {
+        "total": 16,
+        "routing_correct": 14,
+        "citation_correct": 14,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 316.1400000000001
+      },
+      "Cross": {
+        "total": 15,
+        "routing_correct": 14,
+        "citation_correct": 15,
+        "correct": 0,
+        "correct_total": 0,
+        "latency_total": 228.97
+      }
+    },
+    "difficulties": {
+      "Easy": {
+        "total": 21,
+        "routing_correct": 18,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Medium": {
+        "total": 20,
+        "routing_correct": 20,
+        "correct": 0,
+        "correct_total": 0
+      },
+      "Hard": {
+        "total": 36,
+        "routing_correct": 35,
+        "correct": 0,
+        "correct_total": 0
+      }
+    }
+  },
+  "ragas_metrics": {
+    "error": "RAGAS not available"
+  },
+  "chunk_metrics": {
+    "avg_precision_at_k": 0.7601,
+    "avg_recall_at_k": 0.9671,
+    "avg_f1_at_k": 0.821,
+    "questions_evaluated": 76
+  },
+  "completeness_metrics": {
+    "error": "Skipped (pass --completeness flag to run)"
+  },
+  "cost_metrics": {
+    "avg_cost_per_query": 0.001278,
+    "total_cost": 0.09716,
+    "min_cost": 0.000469,
+    "max_cost": 0.002155,
+    "total_tokens": 532042,
+    "total_prompt_tokens": 493478,
+    "total_completion_tokens": 38564,
+    "queries_with_token_usage": 76
+  }
+}
