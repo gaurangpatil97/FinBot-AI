@@ -63,7 +63,7 @@ def compute_auto_metrics(results: list) -> dict:
     total = len(results)
     routing_correct = sum(1 for r in results if r.get("routing_correct", False))
     citation_correct = sum(1 for r in results if r.get("citation_correct", False))
-    manual_correct = sum(1 for r in results if r.get("correct") is True)
+    manual_correct = sum(1 for r in results if r.get("correct") is True or r.get("correct") == 1)
     manual_total = sum(1 for r in results if r.get("correct") is not None)
     latencies = [r.get("latency_seconds", 0) for r in results]
 
@@ -86,7 +86,7 @@ def compute_auto_metrics(results: list) -> dict:
         sections[section]["latency_total"] += r.get("latency_seconds", 0)
         if r.get("correct") is not None:
             sections[section]["correct_total"] += 1
-            sections[section]["correct"] += int(r.get("correct", False))
+            sections[section]["correct"] += int(r.get("correct") is True or r.get("correct") == 1)
 
     # Per difficulty
     difficulties = {}
@@ -98,7 +98,7 @@ def compute_auto_metrics(results: list) -> dict:
         difficulties[diff]["routing_correct"] += int(r.get("routing_correct", False))
         if r.get("correct") is not None:
             difficulties[diff]["correct_total"] += 1
-            difficulties[diff]["correct"] += int(r.get("correct", False))
+            difficulties[diff]["correct"] += int(r.get("correct") is True or r.get("correct") == 1)
 
     return {
         "total": total,
@@ -182,6 +182,34 @@ def run_chunk_metrics(results: list) -> dict:
 
 # ── Completeness Judge ────────────────────────────────────────────────────────
 
+def judge_binary_correctness(question: str, expected_answer: str, actual_answer: str, openai_api_key: str) -> int:
+    if not openai_api_key:
+        return 0
+    try:
+        import openai
+        client = openai.OpenAI(api_key=openai_api_key)
+        system_prompt = (
+            "You are an evaluation judge. Compare the actual answer against the expected answer strictly on factual and numerical correctness.\n"
+            "Key figures, numbers, percentages, and named entities must match exactly. Ignore differences in phrasing, extra elaboration, or formatting.\n"
+            "Return exactly 1 if all key facts and figures in expected_answer are correctly present and accurate in actual_answer, or 0 if any key fact/figure is missing, wrong, or contradicted.\n"
+            "No partial credit. Output must be a single character: either 1 or 0, and nothing else."
+        )
+        user_message = f"Question: {question}\nExpected Answer: {expected_answer}\nActual Answer: {actual_answer}"
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_message}
+            ],
+            temperature=0,
+            max_tokens=10
+        )
+        content = response.choices[0].message.content.strip()
+        return 1 if "1" in content else 0
+    except Exception as e:
+        print(f"⚠️ Error in judge_binary_correctness: {e}")
+        return 0
+
 def run_completeness_judge(results: list, openai_api_key: str) -> dict:
     if not openai_api_key:
         return {"error": "OpenAI API key not provided"}
@@ -191,6 +219,8 @@ def run_completeness_judge(results: list, openai_api_key: str) -> dict:
 
     scores = []
     count = 0
+    binary_correct_count = 0
+    total_evaluated = 0
 
     system_prompt = (
         "You are an evaluation judge. Given a reference answer and a model's actual answer, "
@@ -205,6 +235,7 @@ def run_completeness_judge(results: list, openai_api_key: str) -> dict:
     for r in results:
         actual = r.get("actual_answer")
         expected = r.get("expected_answer")
+        question = r.get("question")
         if not actual or not expected:
             continue
 
@@ -228,17 +259,27 @@ def run_completeness_judge(results: list, openai_api_key: str) -> dict:
             count += 1
         except Exception as e:
             print(f"⚠️ Error running completeness judge for question {r.get('id')}: {e}")
-            continue
+            score = 0.0
+
+        # Run strict binary correctness judge
+        binary_score = judge_binary_correctness(question, expected, actual, openai_api_key)
+        r["correct"] = binary_score
+        binary_correct_count += binary_score
+        total_evaluated += 1
 
     if count == 0:
         return {
             "answer_completeness": 0.0,
-            "questions_evaluated": 0
+            "questions_evaluated": 0,
+            "binary_correct": 0,
+            "binary_total": 0
         }
 
     return {
         "answer_completeness": round(sum(scores) / count, 4),
-        "questions_evaluated": count
+        "questions_evaluated": count,
+        "binary_correct": binary_correct_count,
+        "binary_total": total_evaluated
     }
 
 
@@ -415,6 +456,12 @@ def generate_report(auto_metrics: dict, ragas_metrics: dict, chunk_metrics: dict
     else:
         lines.append(f"  Answer Correctness: NOT YET REVIEWED (set 'correct': true/false in JSON)")
 
+    if "binary_correct" in completeness_metrics and completeness_metrics["binary_total"] > 0:
+        bc = completeness_metrics["binary_correct"]
+        bt = completeness_metrics["binary_total"]
+        pct = (bc / bt) * 100
+        lines.append(f"  Strict Binary Correctness: {bc}/{bt} = {pct:.1f}%")
+
     lines.append(f"\n  Latency:")
     lines.append(f"    Average: {auto_metrics['avg_latency']:.2f}s")
     lines.append(f"    Min:     {auto_metrics['min_latency']:.2f}s")
@@ -511,6 +558,11 @@ def generate_report(auto_metrics: dict, ragas_metrics: dict, chunk_metrics: dict
     lines.append(f"  Citation Accuracy:  {auto_metrics['citation_accuracy']*100:.1f}%")
     if auto_metrics["answer_correctness"] is not None:
         lines.append(f"  Answer Correctness: {auto_metrics['answer_correctness']*100:.1f}%")
+    if "binary_correct" in completeness_metrics and completeness_metrics["binary_total"] > 0:
+        bc = completeness_metrics["binary_correct"]
+        bt = completeness_metrics["binary_total"]
+        pct = (bc / bt) * 100
+        lines.append(f"  Strict Binary Correctness: {bc}/{bt} correct ({pct:.1f}%)")
     if "faithfulness" in ragas_metrics:
         lines.append(f"  Faithfulness:       {ragas_metrics['faithfulness']}")
         lines.append(f"  Context Recall:     {ragas_metrics['context_recall']}")
@@ -584,6 +636,8 @@ def main():
         import os
         api_key = os.getenv("OPENAI_API_KEY", "")
         completeness_metrics = run_completeness_judge(results, api_key)
+        # Re-compute auto metrics so it displays the LLM-populated correctness results
+        auto_metrics = compute_auto_metrics(results)
     else:
         completeness_metrics = {"error": "Skipped (pass --completeness flag to run)"}
 

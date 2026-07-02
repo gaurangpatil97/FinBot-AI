@@ -29,6 +29,62 @@ export default function InputBar({
   const [isExporting, setIsExporting] = useState(false);
   const [exportError, setExportError] = useState<string | null>(null);
   const [reportModalOpen, setReportModalOpen] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+
+  const toggleRecording = async () => {
+    if (isRecording) {
+      if (mediaRecorderRef.current) {
+        mediaRecorderRef.current.stop();
+      }
+      setIsRecording(false);
+    } else {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mediaRecorder = new MediaRecorder(stream);
+        mediaRecorderRef.current = mediaRecorder;
+        audioChunksRef.current = [];
+
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            audioChunksRef.current.push(event.data);
+          }
+        };
+
+        mediaRecorder.onstop = async () => {
+          setIsTranscribing(true);
+          const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+          const formData = new FormData();
+          formData.append("file", audioBlob, "voice_input.webm");
+
+          try {
+            const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const res = await fetch(`${BASE_URL}/api/voice/transcribe`, {
+              method: "POST",
+              body: formData,
+            });
+            if (!res.ok) throw new Error("Transcription failed");
+            const data = await res.json();
+            if (data.text) {
+              onChange(value ? `${value} ${data.text}` : data.text);
+            }
+          } catch (err) {
+            console.error("Transcription error:", err);
+          } finally {
+            stream.getTracks().forEach((track) => track.stop());
+            setIsTranscribing(false);
+          }
+        };
+
+        mediaRecorder.start();
+        setIsRecording(true);
+      } catch (err) {
+        console.error("Microphone access error:", err);
+      }
+    }
+  };
 
   useEffect(() => {
     const textarea = textareaRef.current;
@@ -113,11 +169,37 @@ export default function InputBar({
       <div className="flex items-end gap-3 rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-3 relative">
         <button
           type="button"
-          onClick={onAttach}
-          className="grid h-12 w-12 place-items-center rounded-xl border border-[var(--border)] bg-[var(--surface-1)] text-lg text-[var(--text-secondary)] transition hover:bg-[var(--surface-2)]"
-          aria-label="Attach dataset"
+          onClick={toggleRecording}
+          disabled={isTranscribing}
+          title={isTranscribing ? "Transcribing..." : isRecording ? "Stop recording" : "Record voice input"}
+          aria-label={isTranscribing ? "Transcribing..." : isRecording ? "Stop recording" : "Record voice input"}
+          className={`grid h-12 w-12 place-items-center shrink-0 rounded-xl border transition ${
+            isTranscribing
+              ? "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-muted)] cursor-not-allowed"
+              : isRecording
+                ? "border-[#ef4444] bg-[#ef4444]/10 text-[#ef4444] animate-pulse"
+                : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]"
+          }`}
         >
-          📎
+          {isTranscribing ? (
+            <span className="h-4.5 w-4.5 animate-spin rounded-full border-2 border-transparent border-t-[var(--text-primary)]" />
+          ) : isRecording ? (
+            <span className="flex h-3 w-3 rounded-full bg-[#ef4444] animate-pulse" />
+          ) : (
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+              <path d="M19 10v1a7 7 0 0 1-14 0v-1" />
+              <line x1="12" y1="19" x2="12" y2="22" />
+            </svg>
+          )}
         </button>
 
         <label className="flex min-h-12 flex-1 items-start rounded-xl border border-[var(--border)] bg-[var(--surface-1)] px-4 py-3 text-sm text-[var(--text-secondary)] focus-within:border-[var(--border-strong)]">

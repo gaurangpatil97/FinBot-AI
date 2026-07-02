@@ -1,0 +1,2914 @@
+FinBot Evaluation Raw Results
+Run: 20260703_021833
+================================================================================
+
+Q1 [Excel] [Easy]
+Question: What was the Net Profit reported by the company in FY26?
+Expected: Net Profit in FY26 was ₹383.99 Cr — a recovery from ₹194.57 Cr in FY25 and the highest absolute net profit in the 10-year dataset.
+Actual:   ## Summary
+The Net Profit reported by Craftsman Automation Ltd in FY26 was ₹383.99 crore.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2026
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  7.61s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q2 [Excel] [Easy]
+Question: What were total Borrowings on the Balance Sheet as at end of FY24?
+Expected: Total Borrowings as at 31 March 2024 were ₹1,754.82 Cr, up from ₹1,240.23 Cr in FY23 — an increase of ₹514.59 Cr.
+Actual:   ## Summary
+Total Borrowings on the Balance Sheet as at the end of FY24 were ₹1,754.82 crore.
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY2024
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  8.36s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q3 [Excel] [Easy]
+Question: What was the Cash from Operating Activity in FY23?
+Expected: Cash from Operating Activity in FY23 was ₹607.66 Cr — the highest among all 10 years in the dataset.
+Actual:   ## Summary
+The Cash from Operating Activity in FY23 was ₹607.66 crore.
+
+## Sources
+Craftsman Auto.xlsx · cash_flow · 2023
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  9.83s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q4 [Excel] [Easy]
+Question: What was the Depreciation charge for the company in FY22?
+Expected: Depreciation in FY22 was ₹205.99 Cr, compared to ₹192.45 Cr in FY21 — a modest 7% increase.
+Actual:   ## Summary
+The Depreciation charge for Craftsman Automation Ltd in FY22 was ₹205.99 crore.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2022
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  7.37s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q5 [Excel] [Medium]
+Question: Calculate the Operating Profit Margin for FY24 and FY25 and comment on the trend. OPM = Operating Profit / Sales × 100
+Expected: FY24 OPM: 19.74%. FY25 OPM: 14.64%. OPM contracted sharply by ~510 bps despite 27.8% revenue growth — a significant margin deterioration.
+Actual:   ## Summary
+The Operating Profit Margin (OPM) for FY24 is 10.13% and for FY25 is 5.12%, indicating a significant decline in operating profitability from FY24 to FY25.
+
+## Details
+- FY24:
+  - EBITDA = ₹728.61
+  - Depreciation = ₹277.69
+  - Sales = ₹4451.73
+- FY25:
+  - EBITDA = ₹638.35
+  - Depreciation = ₹347.02
+  - Sales = ₹5690.48
+
+## Calculation
+Operating Profit = EBITDA - Depreciation  
+Operating Profit Margin (OPM) = (Operating Profit / Sales) × 100
+
+For FY24:  
+Operating Profit = 728.61 - 277.69 = ₹450.92  
+OPM = (450.92 / 4451.73) × 100 = 10.13%
+
+For FY25:  
+Operating Profit = 638.35 - 347.02 = ₹291.33  
+OPM = (291.33 / 5690.48) × 100 = 5.12%
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2025
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  8.3s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q6 [Excel] [Medium]
+Question: Compute the Debt-to-Equity ratio for FY25 and FY26 and assess the change in financial leverage.
+Expected: FY25 D/E = 0.83x. FY26 D/E = 1.11x. Borrowings rose 54% in one year while equity grew only 14%, indicating accelerating debt-funded capex.
+Actual:   ## Summary
+The Debt-to-Equity ratio for FY25 is 0.83 and for FY26 is 1.11, indicating an increase in financial leverage from FY25 to FY26.
+
+## Details
+- FY25 Borrowings = 2358.18
+- FY25 Networth = 2856.74
+- FY26 Borrowings = 3623.48
+- FY26 Networth = 3264.06
+
+## Calculation
+Debt-to-Equity ratio = Borrowings / Networth
+
+- FY25: 2358.18 / 2856.74 = 0.83
+- FY26: 3623.48 / 3264.06 = 1.11
+
+This shows that the company increased its borrowings relative to equity, raising financial leverage in FY26 compared to FY25.
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2026
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  7.9s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q7 [Excel] [Medium]
+Question: Calculate Debtor Days for FY23 and FY26 and compare receivable collection efficiency. Debtor Days = Receivables / Sales × 365
+Expected: FY23: 61.4 days. FY26: 50.2 days. Receivables grew 4.6x but Debtor Days improved from 61 to 50 days — a positive working capital signal.
+Actual:   ## Summary
+The Debtor Days for FY23 is 61.39 days and for FY26 is 50.23 days, indicating an improvement in receivable collection efficiency over this period.
+
+## Details
+- FY23 Receivables = ₹535.29 million  
+- FY23 Sales = ₹3182.6 million  
+- FY26 Receivables = ₹1110.54 million  
+- FY26 Sales = ₹8069.27 million  
+
+## Calculation
+Debtor Days formula:  
+\[
+\text{Debtor Days} = \frac{\text{Receivables}}{\text{Sales}} \times 365
+\]
+
+For FY23:  
+\[
+= \frac{535.29}{3182.6} \times 365 = 61.39 \text{ days}
+\]
+
+For FY26:  
+\[
+= \frac{1110.54}{8069.27} \times 365 = 50.23 \text{ days}
+\]
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2026
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  11.99s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q8 [Excel] [Medium]
+Question: Compute the Interest Coverage Ratio for FY22 and FY25 and evaluate debt serviceability. ICR = Operating Profit / Interest
+Expected: FY22 ICR: 6.34x. FY25 ICR: 3.85x. ICR has deteriorated significantly as debt servicing costs outpaced operating profit growth.
+Actual:   ## Summary
+The Interest Coverage Ratio (ICR) for FY22 is approximately 3.52 and for FY25 is approximately 1.34, indicating a decline in debt serviceability over the period.
+
+## Details
+- FY22:
+  - EBITDA = ₹502.72
+  - Depreciation = ₹205.99
+  - Interest = ₹84.22
+- FY25:
+  - EBITDA = ₹638.35
+  - Depreciation = ₹347.02
+  - Interest = ₹216.64
+
+## Calculation
+The formula for Interest Coverage Ratio (ICR) is:
+
+\[
+\text{ICR} = \frac{\text{Operating Profit}}{\text{Interest}}
+\]
+
+Operating Profit is approximated as EBITDA minus Depreciation.
+
+For FY22:
+
+\[
+\text{Operating Profit}_{22} = 502.72 - 205.99 = 296.73
+\]
+
+\[
+\text{ICR}_{22} = \frac{296.73}{84.22} = 3.52
+\]
+
+For FY25:
+
+\[
+\text{Operating Profit}_{25} = 638.35 - 347.02 = 291.33
+\]
+
+\[
+\text{ICR}_{25} = \frac{291.33}{216.64} = 1.34
+\]
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2025
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  10.43s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q9 [Excel] [Hard]
+Question: In FY25, sales grew 27.8% YoY yet PBT fell 39.4% from FY24. Identify all P&L drivers contributing to this PBT collapse and flag audit implications.
+Expected: Key drivers: OPM contracted from 19.74% to 14.64%; Interest rose from ₹174.54 Cr to ₹216.64 Cr; Other Income collapsed from ₹18.09 Cr to ₹0.30 Cr; Depreciation rose by ₹69.33 Cr. Audit flag: OPM compression on high-revenue year may indicate unrecorded liabilities or accelerated cost recognition.
+Actual:   ## Summary
+In FY25, despite a 27.8% YoY sales growth, Profit Before Tax (PBT) fell sharply by 39.4% compared to FY24. The key drivers of this PBT decline were significantly higher costs and expenses, including increased raw material consumption, employee costs, depreciation, and finance costs, alongside negative EBIT impacts from acquisitions and new plant start-up costs. From an audit perspective, these large fluctuations and negative EBIT contributions from new business segments and plants require careful scrutiny for valuation, impairment, and provisioning risks.
+
+## Details
+
+### Sales and PBT Figures
+- Sales FY24: ₹4,451.73 Cr (Craftsman Auto.xlsx · profit_loss · FY24)
+- Sales FY25: ₹5,690.48 Cr (Craftsman Auto.xlsx · profit_loss · FY25)
+- Sales growth = (5690.48 - 4451.73) / 4451.73 = 27.8%
+
+- PBT FY24: ₹444.69 Cr (Craftsman Auto.xlsx · profit_loss · FY24)
+- PBT FY25: ₹269.65 Cr (Craftsman Auto.xlsx · profit_loss · FY25)
+- PBT decline = (444.69 - 269.65) / 444.69 = 39.4%
+
+### Key P&L Drivers Contributing to PBT Decline
+
+1. **Raw Material Cost**
+   - FY24: ₹2,521.53 Cr
+   - FY25: ₹3,296.73 Cr
+   - Increase: ₹775.20 Cr (30.7% increase)
+   - This large increase in raw material cost outpaced sales growth, pressuring margins.
+
+2. **Change in Inventory**
+   - FY24: ₹150.22 Cr (positive impact)
+   - FY25: ₹194.66 Cr (positive impact)
+   - Inventory change improved, but not enough to offset other cost increases.
+
+3. **Power and Fuel**
+   - FY24: ₹262.51 Cr
+   - FY25: ₹367.57 Cr
+   - Increase: ₹105.06 Cr (40% increase), adding to operating expenses.
+
+4. **Other Manufacturing Expenses**
+   - FY24: ₹489.04 Cr
+   - FY25: ₹676.95 Cr
+   - Increase: ₹187.91 Cr (38.4% increase), significant cost pressure.
+
+5. **Employee Cost**
+   - FY24: ₹288.74 Cr
+   - FY25: ₹436.67 Cr
+   - Increase: ₹147.93 Cr (51.2% increase), reflecting higher manpower or wage inflation.
+
+6. **Selling and Administrative Expenses**
+   - FY24: ₹155.66 Cr
+   - FY25: ₹255.23 Cr
+   - Increase: ₹99.57 Cr (64% increase), indicating higher overheads.
+
+7. **Other Expenses**
+   - FY24: ₹5.64 Cr
+   - FY25: ₹18.98 Cr
+   - Increase: ₹13.34 Cr, a notable jump.
+
+8. **Depreciation**
+   - FY24: ₹277.69 Cr
+   - FY25: ₹347.02 Cr
+   - Increase: ₹69.33 Cr (25% increase), likely due to new assets or acquisitions.
+
+9. **Interest Expense**
+   - FY24: ₹174.54 Cr
+   - FY25: ₹216.64 Cr
+   - Increase: ₹42.10 Cr (24% increase), higher financial cost burden.
+
+10. **Other Income**
+    - FY24: ₹18.09 Cr
+    - FY25: ₹0.30 Cr
+    - Decrease: ₹17.79 Cr, reducing offset to expenses.
+
+### Additional Qualitative Drivers from Earnings Call
+
+- **Sunbeam Acquisition and Bhiwadi Plant Start-up Costs**  
+  - Sunbeam had a negative EBIT impact of approx. ₹9 Cr in Q3 FY25.  
+  - Bhiwadi plant had negative EBIT impact of approx. ₹20 Cr in Q3 FY25.  
+  - Combined negative EBIT impact of ~₹30 Cr in Aluminium segment (craftsman_concall_25Q1.pdf · Page 6 · FY25).  
+  - Management expects these to turn EBIT positive in FY26 (craftsman_concall_25Q2.pdf · Page 9 · FY25).
+
+- **Powertrain Segment**  
+  - Underwent modernization and low capacity utilization, impacting margins (craftsman_concall_25Q2.pdf · Page 3 · FY25).
+
+- **Change in Product Mix**  
+  - Increased aluminum business, which is largely pass-through with low margin, diluting overall profitability (craftsman_concall_25Q3.pdf · Page 12 · FY25).
+
+## Audit Implications
+
+- **Significant Increase in Costs and Expenses**  
+  The sharp rise in raw material, employee, and other operating costs requires audit focus on cost recognition, inventory valuation, and expense classification.
+
+- **Negative EBIT from New Acquisitions and Plants**  
+  The Sunbeam acquisition and Bhiwadi plant start-up losses raise concerns about asset impairment, goodwill valuation, and provisioning for losses. Auditors should verify management’s assumptions and estimates related to these assets.
+
+- **Depreciation and Capitalization**  
+  Increased depreciation suggests significant capital expenditure; auditors should verify asset additions, useful life assumptions, and impairment testing.
+
+- **Interest Expense Increase**  
+  Higher finance costs may indicate increased borrowings; auditors should assess debt covenants, interest accruals, and related disclosures.
+
+- **Other Income Drop**  
+  The decline in other income reduces offset to expenses; auditors should verify the nature and recognition of other income.
+
+- **Tax Provisioning**  
+  Given the PBT decline, auditors should review tax provisions for adequacy and deferred tax asset recognition.
+
+- **Disclosure and Transparency**  
+  The complexity of new business segments and start-up costs necessitates clear disclosure in financial statements and management commentary to comply with auditing and governance standards.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+craftsman_concall_25Q1.pdf · Page 6 · FY25  
+craftsman_concall_25Q2.pdf · Page 9 · FY25  
+craftsman_concall_25Q2.pdf · Page 3 · FY25  
+craftsman_concall_25Q3.pdf · Page 12 · FY25  
+Annual-Report-2025.pdf · Page 4 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  30.53s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q10 [Excel] [Hard]
+Question: Assess the Operating Cash Flow quality for FY25 and FY26 by computing OCF-to-Net-Profit ratio. Is the company's profit of high quality?
+Expected: OCF/NP: FY24: 1.69x, FY25: 1.46x, FY26: 1.36x. The ratio has declined persistently — profit quality is deteriorating. Earnings are increasingly accrual-based.
+Actual:   ## Summary
+The Operating Cash Flow (OCF) to Net Profit ratio for FY25 and FY26 cannot be computed because the Net Profit figures for these years are not available in the retrieved context. Therefore, the quality of the company's profit for FY25 and FY26 cannot be assessed based on OCF-to-Net-Profit ratio.
+
+## Details
+- Operating Cash Flow (OCF) for FY25: ₹283.33 Cr (Craftsman Auto.xlsx · cash_flow · FY2025)
+- Operating Cash Flow (OCF) for FY26: ₹521.68 Cr (Craftsman Auto.xlsx · cash_flow · FY2026)
+- Net Profit for FY25: Not available in the retrieved context
+- Net Profit for FY26: Not available in the retrieved context
+
+## Sources
+Craftsman Auto.xlsx · cash_flow · FY2025  
+Craftsman Auto.xlsx · cash_flow · FY2026
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  13.68s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q11 [Excel] [Hard]
+Question: The company shows a negative effective tax rate in FY17 where Net Profit exceeded PBT. Explain the mechanics and flag forensic concerns.
+Expected: FY17: PBT = ₹36.67 Cr; Tax = −₹43.07 Cr; Net Profit = ₹79.74 Cr. Effective tax rate = −117.5%. A tax credit of ₹43 Cr when PBT is only ₹37 Cr inflated Net Profit by 117% — auditors must verify DTA recognition criteria.
+Actual:   ## Summary
+In FY2017, Craftsman Automation Ltd reported a negative effective tax rate because the tax expense was negative (-₹43.07 Cr) while profit before tax (PBT) was positive at ₹36.67 Cr, resulting in net profit (₹79.74 Cr) exceeding PBT. This unusual situation arises from tax benefits or credits exceeding taxable income, which warrants forensic scrutiny for potential aggressive tax planning, deferred tax asset recognition, or accounting anomalies.
+
+## Details
+- Profit before tax (PBT) in FY2017: ₹36.67 Cr  
+- Tax expense in FY2017: -₹43.07 Cr (negative tax)  
+- Net profit in FY2017: ₹79.74 Cr (which is PBT + (-Tax))  
+- Effective tax rate = Tax / PBT = (-43.07) / 36.67 = -117.5% (negative and greater than 100% in absolute terms)
+
+The negative tax expense means the company recognized a tax credit or benefit that not only wiped out the tax liability but also increased net profit beyond PBT.
+
+## Explanation of Mechanics
+- Negative tax expense can occur due to recognition of deferred tax assets (DTAs) from prior losses or timing differences, tax refunds, or tax incentives/subsidies.
+- The tax credit recognized may relate to carry-forward losses, investment allowances, or other tax credits.
+- This results in net profit being higher than PBT because tax benefits are accounted as income (negative expense).
+
+## Forensic Concerns
+- Such a large negative tax expense relative to PBT is unusual and should be examined carefully.
+- Potential concerns include:
+  - Overstatement of deferred tax assets without sufficient future taxable profits to realize them.
+  - Aggressive tax planning or use of tax shelters.
+  - Errors or manipulation in tax accounting or recognition of tax credits.
+  - Lack of transparency or inadequate disclosure about the nature and sustainability of tax benefits.
+- Auditors and analysts should verify the validity and recoverability of deferred tax assets and ensure compliance with accounting standards (e.g., IND AS 12).
+- The company should disclose the components of tax expense clearly in notes to accounts to avoid misleading financial statement users.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2017
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  16.79s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q12 [Excel] [Hard]
+Question: Evaluate the capex intensity trend from FY23 to FY26 against OCF. Is the company's capex program self-funded or debt-reliant?
+Expected: OCF coverage of capex: FY23: 71%, FY24: 64%, FY25: 17%, FY26: 35%. The company is clearly NOT self-funding capex. Borrowings grew from ₹1,240 Cr (FY23) to ₹3,623 Cr (FY26).
+Actual:   ## Summary  
+From FY23 to FY26, Craftsman Automation’s capex intensity (capex relative to operating cash flow) is high, with capex significantly exceeding operating cash flow in FY25 and FY26, indicating a reliance on external financing (debt) rather than being fully self-funded by operating cash flow.
+
+## Details  
+Operating Cash Flow (OCF) and Investing Cash Flow (proxy for capex) from Excel data (in Crores):
+
+- FY23:  
+  - OCF = 607.66 Cr  
+  - Investing CF = -682.81 Cr (capex and other investing outflows)  
+
+- FY24:  
+  - OCF = 513.31 Cr  
+  - Investing CF = -625.37 Cr  
+
+- FY25:  
+  - OCF = 283.33 Cr  
+  - Investing CF = -1642.82 Cr  
+
+- FY26:  
+  - OCF = 521.68 Cr  
+  - Investing CF = -1313.16 Cr  
+
+From earnings call transcripts and annual report narrative:  
+- FY24 capex guidance is approximately Rs. 480 Cr (Rs. 320 Cr existing + Rs. 150-160 Cr new Greenfield plant) [craftsman_concall_23q4.pdf, pages 13, 17].  
+- FY25 and FY26 capex expected to continue at high levels with additional Rs. 100 Cr planned in FY26 for the new plant [craftsman_concall_23q4.pdf, page 13].  
+
+Financing Cash Flow (FCF) from Excel data (in Crores):  
+- FY23: +73.04 Cr (positive inflow)  
+- FY24: +148.23 Cr (positive inflow)  
+- FY25: +1393.42 Cr (large positive inflow)  
+- FY26: +827.46 Cr (large positive inflow)  
+
+This indicates significant external financing, especially in FY25 and FY26.
+
+## Calculation  
+Capex Intensity = |Investing Cash Flow| / Operating Cash Flow
+
+- FY23: 682.81 / 607.66 = 1.12  
+- FY24: 625.37 / 513.31 = 1.22  
+- FY25: 1642.82 / 283.33 = 5.80  
+- FY26: 1313.16 / 521.68 = 2.52  
+
+Capex intensity >1 means capex exceeds operating cash flow, requiring external funds.
+
+Net Financing Cash Flow (positive means net inflow from financing):  
+- FY23: +73.04 Cr (small inflow)  
+- FY24: +148.23 Cr (moderate inflow)  
+- FY25: +1393.42 Cr (very large inflow)  
+- FY26: +827.46 Cr (large inflow)  
+
+This confirms that the company is raising significant funds externally, likely debt, to fund capex in FY25 and FY26.
+
+## Conclusion  
+- In FY23 and FY24, capex slightly exceeds operating cash flow, with modest positive financing cash flow, indicating partial self-funding supplemented by some external financing.  
+- In FY25 and FY26, capex is multiple times operating cash flow, with very large positive financing cash flows, indicating heavy reliance on debt or external funds to finance capex.  
+- Therefore, the company’s capex program is not fully self-funded and is increasingly debt-reliant from FY25 onwards.
+
+## Sources  
+Craftsman Auto.xlsx · cash_flow · FY23 to FY26  
+craftsman_concall_23q4.pdf · pages 13, 17 · FY23  
+Annual-Report_2023.pdf · page 70 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  22.42s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q13 [Excel] [Hard]
+Question: In FY26, Other Expenses in the P&L is reported at ₹1,842.44 Cr — more than 5x the prior year figure of ₹18.98 Cr in FY25. Flag this anomaly and its implications.
+Expected: FY26 Other Expenses: ₹1,842.44 Cr — a 9,603% increase. This is likely a data reclassification anomaly. Cost structure analysis cannot be performed at sub-line level for FY26.
+Actual:   ## Summary  
+In FY26, Other Expenses are reported at ₹1,842.44 Cr, which is more than 97 times the FY25 figure of ₹18.98 Cr, indicating a significant anomaly that requires investigation due to its potential impact on profitability and financial analysis.
+
+## Details  
+- Other Expenses in FY26: ₹1,842.44 Cr  
+- Other Expenses in FY25: ₹18.98 Cr  
+
+The FY26 figure is drastically higher than FY25, showing an increase of over 1,800 Cr.
+
+## Implications  
+- Such a large increase in Other Expenses could severely impact the company’s profitability and margins for FY26.  
+- This anomaly may indicate a one-time charge, accounting error, or a change in expense classification that needs to be clarified.  
+- Without understanding the cause, financial ratios and forecasts based on these figures could be misleading.  
+- It is critical to review the notes to accounts or management commentary for explanations before drawing conclusions.
+
+## Sources  
+Craftsman Auto.xlsx · calculation · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  17.84s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q14 [Excel] [Hard]
+Question: The company paid zero dividend in FY20 and FY21 despite reporting net profits. Evaluate management's capital allocation consistency across the decade.
+Expected: FY20 dividend skip is explainable (COVID, revenue fell 18%). FY21 skip is more concerning — profits recovered to ₹97 Cr yet no dividend, coinciding with IPO. Post-IPO dividends resumed and scaled. Payout ratios remain low (5-10%), consistent with growth-capex-heavy phase.
+Actual:   ## Summary  
+The company did not pay any dividend in FY20 but paid dividends in FY21 and subsequent years despite fluctuating net profits. This indicates inconsistent capital allocation with a gap in dividend payments in FY20, followed by resumption and growth in dividends from FY21 onwards.
+
+## Details  
+- **FY20**: Net profit ₹40.01 Cr; Dividend paid: ₹0 Cr  
+- **FY21**: Net profit ₹97.36 Cr; Dividend paid: ₹0 Cr (Note: Dividend amount is not explicitly stated for FY21 in the context, but since FY21 dividend is not listed, it is assumed zero)  
+- **FY22**: Net profit ₹163.09 Cr; Dividend paid: ₹7.92 Cr  
+- **FY23**: Net profit ₹248.39 Cr; Dividend paid: ₹23.76 Cr  
+- **FY24**: Net profit ₹304.47 Cr; Dividend paid: ₹23.76 Cr  
+- **FY25**: Net profit ₹194.57 Cr; Dividend paid: ₹11.93 Cr  
+- **FY26**: Net profit ₹383.99 Cr; Dividend paid: ₹26.84 Cr  
+
+Earlier years:  
+- **FY18**: Net profit ₹31.53 Cr; Dividend paid: ₹1.01 Cr  
+- **FY19**: Net profit ₹97.37 Cr; Dividend paid: ₹5.03 Cr  
+
+## Analysis  
+- The company paid dividends in FY18 and FY19 despite lower net profits compared to FY20.  
+- In FY20, despite a positive net profit of ₹40.01 Cr, no dividend was paid, indicating a pause or change in capital allocation policy.  
+- FY21 dividend is not explicitly stated, but no dividend amount is listed, suggesting zero dividend again despite a higher net profit of ₹97.36 Cr.  
+- From FY22 onwards, dividends resumed and increased in line with rising net profits, showing a return to shareholder returns.  
+- Dividend payments appear to be roughly correlated with net profits but with some inconsistency in FY20 and FY21.  
+
+## Conclusion  
+Management's capital allocation shows inconsistency in dividend payments during FY20 and FY21 despite profitability, possibly reflecting a strategic decision to conserve cash or reinvest earnings during those years. However, from FY22 onwards, dividend payments resumed and increased, aligning more consistently with net profit growth.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY2017 to FY2026
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  17.66s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q15 [Excel] [Hard]
+Question: Inventory grew from ₹836 Cr in FY23 to ₹1,745 Cr in FY26 — a 109% increase while sales grew 153%. Analyse inventory efficiency and flag any buildup risk.
+Expected: Inventory days improved from 96 days (FY23) to 79 days (FY26) despite absolute inventory doubling. No buildup risk based on disclosed figures. However auditors should verify physical stock counts and provisioning policy.
+Actual:   ## Summary
+Inventory increased by 109% from ₹836 Cr in FY23 to ₹1,745 Cr in FY26, while sales grew by 153% over the same period. Inventory turnover ratio improved from 4.65 in FY23 to a higher level implied by sales growth, indicating better inventory efficiency despite the absolute inventory buildup. However, the large absolute increase in inventory and provision for slow-moving stock suggests a potential risk of inventory buildup.
+
+## Details
+
+- Inventory values (from Craftsman Auto.xlsx balance_sheet):
+  - FY23 Inventory: ₹836.01 Cr
+  - FY26 Inventory: ₹1,745.41 Cr
+  - Increase: ₹909.4 Cr (109% increase)
+
+- Sales growth (from Annual-Report_2023.pdf, page 102):
+  - Revenue from operations FY23: ₹3,18,260 Lakhs = ₹3,182.6 Cr
+  - Sales growth over FY23 to FY26 is stated as 153% (from question context)
+
+- Inventory turnover ratio (from Annual-Report_2023.pdf, page 96):
+  - FY22-23: 4.65
+  - FY21-22: 4.33
+  - This ratio is Sales / Average Inventory, so an increase indicates better efficiency.
+
+- Inventory composition and provisioning (from Annual-Report_2023.pdf, page 113):
+  - Provision for slow-moving inventory in FY23: ₹1.88 Cr (188 Lakhs)
+  - Previous year provision: ₹4.85 Cr (485 Lakhs)
+  - Inventory valued at net realizable value and some write-downs indicate some risk.
+
+## Analysis
+
+- Inventory grew 109%, but sales grew faster at 153%, which generally supports improved inventory turnover.
+- The inventory turnover ratio improved by 7% from 4.33 to 4.65 in FY23, indicating better efficiency in managing inventory relative to sales.
+- Despite this, the absolute inventory level nearly doubled, which could tie up working capital and increase holding costs.
+- The company has recognized provisions for slow-moving inventory, though the provision amount decreased in FY23 compared to FY22, which may indicate some improvement or revaluation.
+- The increase in inventory includes raw materials, work-in-progress, finished goods, and other components (from Annual-Report_2023.pdf, page 113), suggesting buildup across the supply chain.
+- The risk of inventory buildup exists if sales growth slows or if inventory is not converted efficiently into revenue, especially given the large absolute increase.
+
+## Conclusion
+Inventory efficiency has improved as indicated by a higher inventory turnover ratio and faster sales growth relative to inventory increase. However, the significant absolute increase in inventory and ongoing provisioning for slow-moving stock flag a potential buildup risk that requires monitoring to avoid working capital strain or obsolescence.
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY23, FY26  
+Annual-Report_2023.pdf · page 96 · FY23  
+Annual-Report_2023.pdf · page 102 · FY23  
+Annual-Report_2023.pdf · page 113 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  17.37s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q16 [Concall] [Easy]
+Question: What was the total consolidated H1 FY23 revenue reported by the company, and by what percentage did it exceed H1 FY22?
+Expected: H1 FY23 revenue was ₹1,447 crores, compared to ₹1,000 crores in H1 FY22 — a 44.7% increase.
+Actual:   ## Summary  
+The total consolidated revenue for H1 FY23 was ₹1,500 crore (inferred from context), which exceeded H1 FY22 revenue by approximately 35%.
+
+## Details  
+- Exact H1 FY23 revenue figure is not explicitly stated in the retrieved context. However, from the earnings call transcript (craftsman_concall_23q4.pdf · Page 11 · FY23), management mentioned storage solutions revenue for H1 FY23 as ₹164 crore, indicating partial segment revenue for H1 FY23.  
+- Full year FY22 sales from Excel data: ₹2,217.02 crore (Craftsman Auto.xlsx · profit_loss · FY22). Assuming roughly half for H1 FY22, estimated H1 FY22 revenue would be approximately ₹1,108.51 crore.  
+- The exact H1 FY23 consolidated revenue is not explicitly provided in the retrieved context, so the percentage increase cannot be precisely calculated.  
+
+## Calculation  
+Not possible due to lack of explicit H1 FY23 revenue figure in the retrieved context.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY22  
+craftsman_concall_23q4.pdf · Page 11 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  13.01s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q17 [Concall] [Easy]
+Question: What was the credit rating of the company at the time of the FY23 Q1 earnings call, and what was it upgraded from?
+Expected: The rating was upgraded to A+ with stable outlook, from A with stable outlook, as disclosed during the Q1 FY23 earnings call.
+Actual:   ## Summary  
+The retrieved context does not contain any information about the company's credit rating at the time of the FY23 Q1 earnings call, nor any details about an upgrade from a previous rating.
+
+## Sources  
+craftsman_concall_23Q1.pdf · Page 21 · FY23  
+Annual-Report_2023.pdf · Multiple pages · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  10.85s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q18 [Concall] [Easy]
+Question: What was the segment-wise EBIT for the Auto Powertrain, Aluminum Products, and Industrial & Engineering divisions in FY23 Q1?
+Expected: Auto Powertrain: ₹95 crores; Aluminum Products: ₹20 crores; Industrial & Engineering: ₹11 crores. Total EBIT: ₹112 crores.
+Actual:   ## Summary  
+In FY23 Q1, the segment-wise EBIT (value-addition) for Craftsman Automation Ltd was: Auto Powertrain ₹237 crores, Aluminum Products ₹86 crores, and Industrial & Engineering ₹63 crores.
+
+## Details  
+- Auto Powertrain segment EBIT (value-add): ₹237 crores  
+- Aluminum Products segment EBIT (value-add): ₹86 crores  
+- Industrial & Engineering segment EBIT (value-add): ₹63 crores  
+
+These figures were explicitly stated by management in the Q3 FY23 earnings call transcript.
+
+## Sources  
+craftsman_concall_23Q3.pdf · Page 6 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  9.02s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q19 [Concall] [Easy]
+Question: What was the total debt of the company as of end of FY22 Q4, and how was it split between long-term and working capital loans?
+Expected: Total debt as of March 2022 stood at ₹713 crores — long-term debt ₹522 crores and working capital loans ₹193 crores.
+Actual:   ## Summary  
+As of the end of FY22 Q4, the total debt of Craftsman Automation Ltd was ₹713 Crores, split between long-term debt of ₹522 Crores and working capital loans of ₹193 Crores.
+
+## Details  
+- Total debt as of March 2022: ₹713 Crores  
+- Long-term debt reduced from ₹546 Crores (previous year) to ₹522 Crores  
+- Working capital loan increased from ₹150 Crores to ₹193 Crores  
+
+This split and total debt figure were explicitly stated by management in the FY22 earnings call transcript.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  8.42s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q20 [Concall] [Medium]
+Question: Calculate the Debt-to-EBITDA ratio for FY23 H1 as disclosed by management, and compare it to the prior full-year ratio. What does the trend indicate?
+Expected: H1 FY23 Debt-to-EBITDA (annualised) = 1.08x, compared to 1.33x for full-year FY22. Trend indicates improving debt serviceability as EBITDA grew 31% YoY.
+Actual:   ## Summary
+The Debt-to-EBITDA ratio for FY23 H1 is approximately 1.49 as disclosed by management, which is slightly above the prior full-year ratio of about 1.5. The trend indicates that the company is maintaining a stable debt leverage level despite acquisitions and capex, with management expecting the ratio to improve going forward.
+
+## Details
+- Management stated in the Q4 FY23 concall that on a consolidated basis, the Debt-to-EBITDA ratio is at 1.49 for FY23 H1 (craftsman_concall_23q4.pdf · Page 15 · FY23).
+- For the prior full year (FY22), management indicated a Debt-to-EBITDA ratio of approximately 1.5 (craftsman_concall_23q4.pdf · Page 15 · FY23).
+- EBITDA figures mentioned:
+  - FY22 standalone EBITDA was INR 660-670 crores (craftsman_concall_23q3.pdf · Page 21 · FY23).
+  - FY23 EBITDA expected to increase by 10-15% over FY22 (craftsman_concall_23q3.pdf · Page 21 · FY23).
+- Debt figures:
+  - Gross debt around INR 700-800 crores in FY22/FY23 (craftsman_concall_23q1.pdf · Page 6 · FY23).
+  - Debt increased due to acquisition but net debt expected to reduce by INR 200 crores next year (craftsman_concall_23q2.pdf · Page 13 · FY23; craftsman_concall_23q4.pdf · Page 15 · FY23).
+
+## Calculation
+Debt-to-EBITDA ratio = Total Debt / EBITDA
+
+- Using management's stated ratio for FY23 H1: 1.49 (directly disclosed).
+- Prior full-year ratio approximately 1.5 (directly disclosed).
+
+No further calculation is needed as exact debt and EBITDA figures for FY23 H1 are not explicitly provided in the context, but the ratio is directly stated by management.
+
+## Interpretation
+The Debt-to-EBITDA ratio has remained stable around 1.5 from FY22 to FY23 H1 despite increased borrowings for acquisitions and capex. Management expects the ratio to improve (decline) going forward due to EBITDA growth and planned debt reduction, indicating controlled leverage and improving financial health.
+
+## Sources
+craftsman_concall_23q4.pdf · Page 15 · FY23  
+craftsman_concall_23q3.pdf · Page 21 · FY23  
+craftsman_concall_23q2.pdf · Page 13 · FY23  
+craftsman_concall_23q1.pdf · Page 6 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  14.32s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q21 [Concall] [Medium]
+Question: For FY23 Q2, management disclosed that aluminum prices fell approximately 10% QoQ but claimed operational margins were in line with Q1. Is this numerically consistent with the value addition numbers disclosed?
+Expected: Value addition dropped from ₹71 Cr (Q1) to ₹68 Cr (Q2). Management's normalisation claim: without price drop, value addition would have been ₹78 Cr. The ₹10 Cr gap is consistent with their 10% price drop claim.
+Actual:   ## Summary  
+Management stated in FY23 Q2 that aluminum prices fell about 10% quarter-on-quarter but operational margins remained in line with Q1. This is consistent with the value addition numbers disclosed, which showed a similar or slightly better value addition in Q2 compared to Q1 despite the price drop.
+
+## Details  
+- From craftsman_concall_23Q2.pdf (Page 5, FY23): Management confirmed that Q2 value addition was similar or slightly better than Q1, despite the drop in aluminum prices.  
+- From craftsman_concall_23Q1.pdf (Page 3, FY23): Q1 was described as an extraordinary quarter for aluminum business margins.  
+- Management explained that the aluminum price decline caused some margin pressure in Q2, but value addition held steady or improved slightly due to product mix and new products.  
+- No exact numeric value addition figures for Q1 and Q2 are provided in the context, but the qualitative statements confirm the consistency between price drop and stable value addition.
+
+## Sources  
+craftsman_concall_23Q2.pdf · Page 5 · FY23  
+craftsman_concall_23Q1.pdf · Page 3 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  14.0s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q22 [Concall] [Medium]
+Question: Compare the value addition for the Industrial & Engineering segment in FY23 Q2 with the same quarter of the prior year. What is the YoY growth rate?
+Expected: I&E value addition in Q2 FY23 = ₹76 crores vs Q2 FY22 = ₹42 crores — a YoY growth of ~81%. Value addition growing faster than revenue implies improvement in sales mix quality.
+Actual:   ## Summary  
+The value addition for the Industrial & Engineering segment in FY23 Q2 was INR 63 crores. The value addition for the same quarter in the prior year (FY22 Q2) is not explicitly provided in the retrieved context, so the YoY growth rate cannot be calculated.
+
+## Details  
+- FY23 Q2 Industrial & Engineering value addition: INR 63 crores (craftsman_concall_23Q3.pdf · Page 6)  
+- FY22 Q2 Industrial & Engineering value addition: Not available in the retrieved context
+
+## Sources  
+craftsman_concall_23Q3.pdf · Page 6 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  14.72s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q23 [Concall] [Medium]
+Question: The company revised its full-year FY23 CAPEX guidance upward from ₹225 crores to ₹275 crores. Identify the specific reason for the revision.
+Expected: An unplanned additional CAPEX of ~₹70 crores was triggered by a sizable aluminium business order received in April 2022, where the customer required production to start by Q4 FY23.
+Actual:   ## Summary  
+The company revised its full-year FY23 CAPEX guidance upward from ₹225 crores to ₹275 crores primarily due to the inclusion of a new Greenfield plant Phase-1 CAPEX of around ₹150-160 crores planned for FY24, which was brought forward and incorporated into the overall CAPEX plan.
+
+## Details  
+- Management confirmed a total CAPEX of ₹480 crores for FY24, split as ₹320 crores for existing CAPEX and ₹150-160 crores for Phase-1 of the new Greenfield plant (craftsman_concall_23q4.pdf · Pages 17, 20 · FY23).  
+- Earlier CAPEX guidance for FY23 was around ₹225 crores (implied from the question context, though exact earlier figure not explicitly stated in retrieved context).  
+- The increase to ₹275 crores reflects the acceleration and inclusion of the Greenfield plant CAPEX into the near-term plan (craftsman_concall_23q4.pdf · Pages 17, 20 · FY23).  
+- Management also mentioned that the CAPEX includes maintenance, growth, and automation components to improve efficiency and offset productivity losses (craftsman_concall_23Q3.pdf · Page 6 · FY23).  
+
+## Sources  
+craftsman_concall_23q4.pdf · Pages 17, 20 · FY23  
+craftsman_concall_23Q3.pdf · Page 6 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  12.23s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q24 [Concall] [Hard]
+Question: Management claimed in FY23 Q1 that the company's annualised pre-tax ROCE was 26%, an improvement from 20% for the full prior year. However total debt increased by ₹50 crores QoQ. Identify and explain the apparent contradiction.
+Expected: ROCE improved because EBIT grew and the company took cash discounts from creditors (enabled by credit rating upgrade), reducing net capital employed even as gross debt rose. The rise in short-term debt was working capital-driven, not capex-driven.
+Actual:   ## Summary  
+Management stated in FY23 Q1 that the annualised pre-tax ROCE improved to 26% from 20% in the prior full year, despite total debt increasing by ₹50 crores quarter-on-quarter. The apparent contradiction arises because the increase in debt was primarily due to a ₹375 crore acquisition outflow (DR Axion), which was not accompanied by equity raising, thus increasing debt but also expanding the asset base and future earnings potential, supporting higher ROCE. Additionally, management emphasized maintaining a stable debt-to-EBITDA ratio (~1.5x), indicating that the debt increase was strategic and aligned with growth, not a deterioration in capital efficiency.
+
+## Details  
+- Management explained in the FY23 Q4 concall (page 16) that the debt increase was due to a ₹375 crore outflow for the acquisition of DR Axion, which was funded by debt without equity issuance.  
+- They maintained that the debt-to-EBITDA ratio was stable at 1.49x on a consolidated basis, indicating controlled leverage relative to earnings.  
+- The acquisition and related CAPEX were driven by growth opportunities in Powertrain and Aluminum businesses, supported by government policies (Make in India, import reduction, new standards).  
+- The increase in debt is thus linked to investment in growth assets, which would increase capital employed and future earnings, explaining the improved ROCE despite higher absolute debt.  
+- From FY22 to FY23, borrowings increased from ₹799.55 crores to ₹1240.23 crores (Excel data), consistent with management’s explanation of increased debt due to acquisition and CAPEX.  
+- The ROCE improvement from 20% to 26% reflects better utilization of capital and earnings growth, not just a reduction in debt.
+
+## Explanation of Apparent Contradiction  
+- ROCE (Return on Capital Employed) = EBIT / (Debt + Equity - Non-Operating Assets)  
+- Although debt increased by ₹50 crores QoQ, the capital employed also increased due to acquisition and CAPEX, which are expected to generate higher EBIT going forward.  
+- The improved EBIT and earnings base led to a higher ROCE despite higher debt.  
+- Management’s focus on maintaining a stable debt-to-EBITDA ratio (~1.5x) shows that leverage is managed relative to earnings, not just absolute debt levels.  
+- Therefore, the increase in debt is not a negative signal but a strategic investment, consistent with improved capital efficiency and ROCE.
+
+## Sources  
+craftsman_concall_23q4.pdf · Page 16 · FY23  
+craftsman_concall_23Q1.pdf · Pages 6, 7, 8 · FY23  
+Craftsman Auto.xlsx · balance_sheet · FY22, FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  17.23s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q25 [Concall] [Hard]
+Question: Management stated during FY23 Q1 that bonus provision was front-loaded to Q1. Identify all staff cost one-offs disclosed across Q1 FY23 and Q3 FY22 calls, and assess the risk that normalised staff costs are being underestimated.
+Expected: Q3 FY22: bonus release of ~₹7 crores as one-off. Q1 FY23: bonus provision made early along with salary increases. The pattern reveals bonus recognition is being shifted between quarters — creating risk of distorted inter-quarter EBITDA comparisons.
+Actual:   ## Summary  
+Management stated in FY23 Q1 that the bonus provision was front-loaded to Q1, indicating a one-off increase in staff costs during that quarter. Additionally, in Q3 FY22, no explicit staff cost one-offs were mentioned in the retrieved context. The risk is that normalized staff costs may be underestimated in other quarters because the bonus expense was recognized upfront in Q1, causing an artificial reduction in staff costs in subsequent quarters.
+
+## Details  
+- From the FY23 Q1 earnings call transcript (craftsman_concall_23Q2.pdf), management explicitly mentioned that the bonus provision was front-loaded to Q1, causing a higher employee cost in that quarter.  
+- Management explained that the total manpower cost typically ranges between 4% and 5% of revenue, including both direct and indirect costs, implying that deviations from this range could be due to timing of provisions or contract labor mix.  
+- No other explicit one-off staff cost items or provisions were disclosed in the Q3 FY22 call or other retrieved earnings call transcripts.  
+- The front-loading of bonus provision in Q1 means that staff costs in Q2 and Q3 may appear lower than normal, potentially underestimating normalized staff costs if one looks at those quarters in isolation.
+
+## Risk Assessment  
+- Because the bonus provision was recognized fully or largely in Q1 FY23, subsequent quarters will not carry this expense, leading to a lower reported staff cost in those periods.  
+- This creates a risk that normalized staff costs are underestimated in quarters after Q1, which could mislead analysis if not adjusted for this timing difference.  
+- Without explicit disclosure of the bonus provision amount or its impact on employee cost figures, the exact magnitude of this risk cannot be quantified from the retrieved context.
+
+## Sources  
+craftsman_concall_23Q2.pdf · FY23  
+craftsman_concall_23Q1.pdf · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  14.74s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q26 [Concall] [Hard]
+Question: The company merged its Auto Aluminum and Industrial Aluminum sub-segments into a single Aluminum Products segment effective FY23 Q1. What financial reporting impact did this restructuring have?
+Expected: The restructuring makes direct YoY comparison unreliable without restatement. EBIT for Industrial & Engineering dropped dramatically which management attributed to product mix but could partly reflect removal of higher-margin aluminum sub-segments.
+Actual:   ## Summary  
+The restructuring merged the previously separate Aluminium Products sub-segment from Industrial & Engineering into a single Aluminium Products segment starting FY23 Q1, resulting in reclassification of prior period figures for comparability and a significant increase in reported Aluminium Products segment revenue and assets.
+
+## Details  
+- Prior to restructuring (FY22), Aluminium Products revenue was reported under Industrial & Engineering segment as ₹55,201 lakhs. Post restructuring (FY23), Aluminium Products segment revenue is ₹93,461 lakhs consolidated (Annual Report p.129) and ₹74,057 lakhs standalone (Annual Report p.129 & p.96).  
+- The Industrial & Engineering segment revenue correspondingly reduced from ₹51,066 lakhs in FY22 to ₹72,090 lakhs consolidated in FY23 (Annual Report p.129), reflecting the carve-out of Aluminium Products.  
+- Segment assets for Aluminium Products increased from ₹79,250 lakhs in FY22 to ₹1,44,972 lakhs in FY23 (Annual Report p.129), indicating the transfer of assets from Industrial & Engineering to Aluminium Products.  
+- Segment liabilities for Aluminium Products also increased from ₹37,445 lakhs in FY22 to ₹79,222 lakhs in FY23 (Annual Report p.129).  
+- Comparable period figures for FY22 were reclassified to reflect this new segment structure for consistency and comparability.  
+- The restructuring did not affect total consolidated revenue or profit but changed the segmental presentation and comparability of segment financials.
+
+## Sources  
+Annual-Report_2023.pdf · Page 129 · FY23  
+Annual-Report_2023.pdf · Page 96 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  22.07s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q27 [Concall] [Hard]
+Question: Management guided in FY22 Q4 for a ₹100 crore debt reduction in FY23. By FY23 Q2, total debt was ~₹720 crores. Verify whether the original guidance is still achievable and quantify the gap.
+Expected: Original guidance: debt reduction from ₹713 Cr to ~₹613 Cr. Q2 FY23 actual: ~₹720 Cr. Gap vs original guidance: ~₹107 crores. Management's explanation evolved from working capital driven to debt is under control.
+Actual:   ## Summary  
+Management initially guided in FY22 Q4 for a ₹100 crore debt reduction in FY23. By FY23 Q2, total debt was approximately ₹720 crores, which indicates that the original guidance is unlikely to be met given the debt level and subsequent commentary on debt movements.
+
+## Details  
+- FY22 Q4 guidance (from FY22 Q4 concall): Management expected debt to reduce by at least ₹100 crores in FY23.  
+- FY23 Q2 debt level (from FY23 Q2 concall and FY23 Q1 concall): Gross debt was around ₹700-720 crores, net debt around ₹650 crores as of December end (Q2 FY23).  
+- FY23 Q4 concall (latest available): Management explained that debt increased due to a ₹375 crore outflow for the DR Axion acquisition, which was not offset by equity raising, causing debt to rise. They maintained a target debt/EBITDA ratio of about 1.5x but acknowledged absolute debt may fluctuate due to new Greenfield projects and acquisitions.  
+- Management also mentioned in FY23 Q1 and Q2 concalls that debt should reduce by at least ₹200 crores next year (FY24), implying FY23 debt reduction was not on track.
+
+## Calculation  
+- Original debt at FY22 end (approximate from balance sheet and concall): Around ₹625-650 crores net debt.  
+- Debt at FY23 Q2: ~₹720 crores gross debt (net ₹650 crores).  
+- Expected debt reduction: ₹100 crores in FY23.  
+- Actual debt movement: Debt increased due to acquisition outflow, so debt reduction target was not met.  
+- Gap: Since debt increased rather than decreased, the gap is at least ₹100 crores plus the amount of increase. The acquisition alone added ₹375 crores to debt, so the shortfall relative to guidance is approximately ₹475 crores (₹375 crore acquisition increase + ₹100 crore expected reduction not realized).
+
+## Sources  
+craftsman_concall_23q4.pdf · Page 16 · FY23  
+craftsman_concall_23Q1.pdf · Pages 6, 8, 13 · FY23  
+craftsman_concall_23Q2.pdf · Page 13 · FY23  
+Craftsman Auto.xlsx · balance_sheet · FY22, FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  14.36s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q28 [Concall] [Hard]
+Question: Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT. Verify this claim using value addition data and assess whether there is an unacknowledged structural margin issue.
+Expected: VA margin deteriorated from 41.5% (Q1) to 34.7% (Q2) despite revenue increase. Management's explanation is plausible but not fully verifiable — the actual inventory holding cost vs replacement cost difference was never quantified precisely.
+Actual:   ## Summary  
+Management claimed in FY23 Q2 that Aluminum Products segment margins were maintained in line with Q1 despite a drop in reported EBIT, attributing the margin impact mainly to inventory cost and operating leverage. Using value addition data from Q1 and Q2 FY23, the value addition remained broadly stable (INR 86 crores in Q1 vs INR 79 crores in Q2), supporting the claim of margin stability on a value-add basis. However, reported EBIT margins showed pressure due to inventory and turnover reduction effects, indicating a structural margin challenge not fully acknowledged in EBIT figures.
+
+## Details  
+- Value addition for Aluminum Products segment:  
+  - Q1 FY23: INR 86 crores (craftsman_concall_23Q1.pdf · Page 6)  
+  - Q2 FY23: INR 79 crores (craftsman_concall_23Q2.pdf · Page 4)  
+
+- Reported EBIT margins for Aluminum Products segment:  
+  - FY22: 7% (Annual-Report_2023.pdf · Page 32)  
+  - FY23: 9% (Annual-Report_2023.pdf · Page 32)  
+  - Q2 FY23 EBIT margin reportedly under pressure (craftsman_concall_23Q1.pdf · Page 18-19)  
+
+- Management commentary (craftsman_concall_23Q1.pdf · Page 18-19):  
+  - Operating leverage is the major factor impacting EBIT margin.  
+  - Inventory cost impact is significant.  
+  - Value addition percentage remained stable sequentially, especially in Aluminum segment.  
+
+- Additional data on value addition to net block for Aluminum segment:  
+  - FY22: 42%  
+  - FY23: 67%  
+  - Q3 FY23: 59%  
+  - Q4 FY23: 76% (craftsman_concall_23Q2.pdf · Page 5)  
+
+## Assessment  
+- The value addition figures for Aluminum segment in Q1 and Q2 FY23 are close (INR 86 crores vs INR 79 crores), indicating stable operational margin on a value-add basis.  
+- Despite this, reported EBIT margins and absolute EBIT values are lower in Q2, primarily due to inventory cost fluctuations and turnover reduction, which distort EBIT margin visibility.  
+- The operating leverage improvement (value addition to net block rising from 42% in FY22 to 67% in FY23) suggests underlying operational efficiency gains.  
+- However, the absolute EBIT margin pressure and inventory-related distortions imply a structural margin issue at the EBIT level that is not fully captured by value addition metrics alone.  
+- Management’s claim is valid from a value-add perspective but understates the structural margin pressure visible in EBIT due to inventory and turnover effects.
+
+## Sources  
+craftsman_concall_23Q1.pdf · Page 6, 18-19 · FY23  
+craftsman_concall_23Q2.pdf · Page 4-5 · FY23  
+Annual-Report_2023.pdf · Page 32 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  19.27s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q29 [Concall] [Hard]
+Question: Management guided revenue of ₹600 crores for FY23 Q1 in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?
+Expected: Actual Q1 FY23 revenue = ₹676 crores, exceeding guidance by ~12.7%. Consistently conservative guidance followed by beats can indicate managed earnings narrative or sandbagging for investor optics.
+Actual:   ## Summary  
+Management guided revenue of ₹600 crores for Q1 FY23 in the FY22 Q4 call. The actual Q1 FY23 revenue was ₹318.26 crores, showing a significant shortfall. This gap implies that the company’s revenue performance in Q1 FY23 was substantially below management’s earlier expectations, possibly due to seasonality or slower ramp-up of new orders.
+
+## Details  
+- Management guidance (FY22 Q4 call): Revenue of ₹600 crores for Q1 FY23 (explicit figure from the question context).  
+- Actual Q1 FY23 revenue (from Annual-Report_2023.pdf, Page 118): ₹318,260 lakhs = ₹318.26 crores.  
+- The actual revenue is approximately 53% of the guided revenue (₹318.26 cr vs ₹600 cr).  
+- Management in the FY23 Q3 concall (craftsman_concall_23Q3.pdf, Page 9) mentioned seasonality effects and inventory corrections at customer end impacting Q1 numbers, indicating that subdued Q1 is a known pattern.
+
+## Conclusion  
+The actual Q1 FY23 revenue was nearly half of the guided ₹600 crores, reflecting a significant shortfall. Management’s commentary on seasonality and customer inventory adjustments suggests the gap was due to expected cyclical factors rather than unexpected operational issues.
+
+## Sources  
+Annual-Report_2023.pdf · Page 118 · FY23  
+craftsman_concall_23Q3.pdf · Page 9 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  14.37s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q30 [Concall] [Hard]
+Question: Across the FY22 Q3 and Q4 earnings calls, management made specific claims about the Daimler business risk stating only 8-9% impact by FY27-28. By Q1 FY23, a different number emerged — 15% of the Daimler portfolio by 2024. Identify the discrepancy.
+Expected: The disclosed impact shifted from 8-9% of Daimler value addition eventually (Q4 FY22) to 15% of Daimler portfolio by FY24 (Q1 FY23) — a meaningful escalation. The inconsistency between calls on the percentage at risk is a forensic flag for adequacy of risk disclosures.
+Actual:   ## Summary  
+Management in FY22 Q3 and Q4 earnings calls indicated that the Daimler business risk impact would be around 8-10% by FY27, whereas in Q1 FY23, the impact was stated as 15% of the Daimler portfolio by 2024, showing a higher near-term risk than previously communicated.
+
+## Details  
+- In the May 2022 earnings call (FY22 Q4), management stated:  
+  - Value addition from auto powertrain was around ₹760 Crores in FY22.  
+  - Daimler’s heavy-duty segment value addition was about ₹80-90 Crores.  
+  - The expected impact on Daimler business was about 10% by FY27.  
+  (Source: CraftsmanAutomationAudioTranscript2022_May.pdf · Pages 7, 9 · FY22)
+
+- In the same FY22 Q3 call (February 2022), management did not indicate a higher near-term impact and maintained the narrative of gradual impact over the medium term.  
+  (Source: CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 4 · FY22)
+
+- However, by Q1 FY23 (not fully detailed in the retrieved context but referenced in the question), management mentioned a 15% impact on the Daimler portfolio by 2024, which is earlier and larger than the 8-10% impact projected for FY27 in FY22 calls.
+
+## Conclusion  
+The discrepancy lies in the timing and magnitude of the Daimler business risk impact: earlier FY23 guidance indicated a 15% impact by 2024, whereas FY22 calls projected a smaller 8-10% impact by FY27, suggesting an increased and accelerated risk exposure to Daimler business in the more recent guidance.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Pages 7, 9 · FY22  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 4 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  19.68s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q31 [PDF] [Easy]
+Question: What specific operating model does the company's Chairman describe as its unique competitive differentiator in the Chairman's letter for FY22?
+Expected: The Chairman describes a Company-within-Company model — all verticals run as independent profit-making enterprises while sharing common philosophies, best-practices, and facilities.
+Actual:   ## Summary  
+The Chairman describes the company's unique operating model as one that provides exceptional speed of response, enabling rapid shifts from low-performing to high-performing sectors and preventing sharp declines during sectoral troughs. This dynamic and flexible model is highlighted as the most potent competitive advantage.
+
+## Details  
+- The operating model allows the company to quickly change focus from low-performing sectors such as auto components, castings, forgings, and gearboxes to high-performing sectors in a short time.  
+- This flexibility prevents sharp declines in performance during specific sectoral downturns.  
+- The Chairman emphasizes that in today’s dynamic ecosystem, fortunes and promises of a sector can change almost overnight, and the company’s unique operating model enables it to respond with speed.  
+- This speed of response is described as the most potent advantage of the model.  
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 10 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  10.93s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q32 [PDF] [Medium]
+Question: In the company's FY22 MD&A, which specific financial ratio showed the highest year-on-year percentage change, and what two factors does management explicitly attribute to this change?
+Expected: The Interest Coverage Ratio showed the highest change at +53% (from 4.17x in FY21 to 6.40x in FY22). Management attributes this to reduction in interest cost from ₹107 Cr to ₹84 Cr and increase in EBITDA from ₹447 Cr to ₹539 Cr.
+Actual:   ## Summary
+The financial ratio that showed the highest year-on-year percentage change in FY22 was the Return on Equity (ROE) ratio, which increased by 34%. Management explicitly attributes this improvement to enhanced profitability driven by the company’s ability to deliver quality products quickly through in-house design and manufacturing, and the significant growth in the storage solutions business.
+
+## Details
+- Return on Equity Ratio increased from 11% in FY21 to 15% in FY22, a 34% increase. (Source: 7.-Annual-Report-2021-22.pdf · Page 93 · FY22)
+- Management commentary in the MD&A highlights two key factors for improved profitability and thus ROE:
+  1. The company’s ability to deliver quality products with speed due to in-house design and manufacturing, which has earned the confidence of leading customers across sectors. (Source: 7.-Annual-Report-2021-22.pdf · Page 6 · FY22)
+  2. The ramp-up of the storage solutions business from ₹8 Crores in FY18 to ₹253 Crores in FY22, marking it as a key growth driver and an important change in the company’s business architecture. (Source: 7.-Annual-Report-2021-22.pdf · Page 6 · FY22)
+
+## Sources
+7.-Annual-Report-2021-22.pdf · Page 93 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 6 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  15.14s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q33 [PDF] [Hard]
+Question: The company's FY22 auditor identified two Key Audit Matters. What are they, and for the derivative contracts KAM, what is the combined carrying value of derivative assets and liabilities?
+Expected: Two KAMs: (1) Accounting for Derivative Contracts — derivative assets ₹855 Lakhs, liabilities ₹538 Lakhs. (2) Accounting for PPE. Hedge effectiveness testing requires an auditor's expert.
+Actual:   ## Summary  
+The two Key Audit Matters (KAMs) identified by the FY22 auditor are:  
+1. Accounting for derivative contracts due to significant judgment and estimates in fair valuation and complex compliance under Ind AS 109.  
+2. Going concern assessment of the Group, its associates, and joint venture.  
+
+For the derivative contracts KAM, the combined carrying value of derivative assets and liabilities as of March 31, 2022, is ₹1,393 Lakhs (₹855 Lakhs derivative assets + ₹538 Lakhs derivative liabilities).
+
+## Details  
+- The derivative contracts KAM relates to the significant judgment and estimates used in fair valuation and accounting of derivatives under Ind AS 109.  
+- The going concern KAM relates to the audit focus on the Group's ability to continue as a going concern.  
+- Carrying values as at March 31, 2022:  
+  - Derivative assets: ₹855 Lakhs  
+  - Derivative liabilities: ₹538 Lakhs  
+- Combined carrying value = ₹855 Lakhs + ₹538 Lakhs = ₹1,393 Lakhs
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Pages 61, 94-96, 111 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  12.44s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q34 [PDF] [Hard]
+Question: In the company's FY22 Directors' Report under Risk Management, what is the stated mitigation strategy against Funding Risk, and does the metric cited match the MD&A Key Ratios table?
+Expected: Mitigation strategy cites debt-equity ratio of 0.63x and net cash from operations of ₹322 Cr. MD&A independently reports Debt Equity Ratio as 0.63x for FY22 — confirming numerical consistency.
+Actual:   ## Summary  
+The FY22 Directors' Report states that the mitigation strategy against Funding Risk involves maintaining sufficient liquidity through fund and non-fund based working capital limits from various banks and investing surplus funds in bank fixed deposits with minimal mark-to-market risk. The cited Debt-Equity Ratio metric in the Directors' Report is 0.63 for FY22, which differs from the Debt/Equity Ratio of 0.72 reported in the MD&A Key Ratios table for FY22.
+
+## Details  
+- **Mitigation strategy against Funding Risk (Directors' Report, FY22):**  
+  - Maintain sufficient liquidity to meet financial obligations.  
+  - Obtain fund and non-fund based working capital limits from banks.  
+  - Invest surplus funds in bank fixed deposits carrying minimal mark-to-market risk.  
+  (Source: 7.-Annual-Report-2021-22.pdf · Page 120 · FY22)
+
+- **Debt-Equity Ratio figures:**  
+  - Directors' Report states Debt-Equity Ratio as 0.63 for FY22 (March 31, 2022).  
+  - MD&A Key Ratios table shows Debt/Equity Ratio as 0.72 for FY22.  
+  (Sources:  
+  7.-Annual-Report-2021-22.pdf · Page 118 · FY22 (Directors' Report)  
+  7.-Annual-Report-2021-22.pdf · Page 9 · FY22 (MD&A Key Ratios))
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 120 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 118 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 9 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  15.75s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q35 [PDF] [Easy]
+Question: What was the key inorganic highlight that the company disclosed in FY23, and what was the total consideration paid?
+Expected: Craftsman acquired a controlling stake (76%) in DR Axion India Private Limited in February 2023. The consideration paid was ₹375 Crores for 76% of total paid-up equity share capital.
+Actual:   ## Summary  
+The key inorganic highlight disclosed by the company in FY23 was the acquisition of a strategic business, with a total consideration paid of ₹1,371 crore.
+
+## Details  
+- The Annual Report FY23 highlights a 75% year-on-year growth in net cash flow, partly driven by inorganic growth through acquisitions.  
+- On page 19 of the Annual Report 2022-23, under the "Highlights, FY23" section, the company mentions inorganic growth as a key driver.  
+- The total consideration paid for the acquisition is explicitly stated as ₹1,371 crore.
+
+## Sources  
+Annual-Report_2023.pdf · Page 19 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  10.21s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q36 [PDF] [Medium]
+Question: According to the MD&A of the company for FY23, what was the stated reason for the decline in the Interest Coverage Ratio, and what does this imply about financing risk?
+Expected: ICR declined from 6.40x to 5.74x due to increase in interest cost from ₹84 Cr to ₹117 Cr — primarily driven by higher borrowings to fund the DR Axion acquisition.
+Actual:   ## Summary  
+According to the MD&A for FY23, the decline in the Interest Coverage Ratio was attributed to an increase in interest expense due to higher borrowings and rising interest rates. This implies an elevated financing risk as the company’s ability to cover interest costs from operating profits has weakened.
+
+## Details  
+- The MD&A section (Annual-Report_2023.pdf · Page 12/25 · FY23) discusses risk exposure and financing costs, highlighting that increased borrowings and interest rates have led to higher interest expenses.  
+- From the financial notes (Annual-Report_2023.pdf · Page 11/103 · FY23), interest expense increased from ₹7,699 lakhs in the previous year to ₹10,623 lakhs in FY23, indicating a significant rise in financing costs.  
+- The Interest Coverage Ratio decline reflects this increase in interest expense relative to operating profit, signaling higher financing risk due to greater debt servicing burden.
+
+## Sources  
+Annual-Report_2023.pdf · Page 25 · FY23  
+Annual-Report_2023.pdf · Page 103 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  11.02s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q37 [PDF] [Hard]
+Question: The Directors' Report of the company for FY23 states all RPTs were on arm's length basis. However the Risk Management Committee is chaired by the Chairman & Managing Director himself. What governance anomaly does this present?
+Expected: The person with the largest economic interest in related-party dealings chairs the body responsible for monitoring enterprise-wide risk. SEBI LODR Regulation 21 mandates an Independent Director should chair the Risk Management Committee at listed entities.
+Actual:   ## Summary  
+The governance anomaly is that the Risk Management Committee, which is responsible for overseeing the company’s risk framework including related party transactions (RPTs) risk, is chaired by the Chairman & Managing Director (an executive director), rather than by an independent director. This compromises the independence and objectivity expected in risk oversight, especially given that all RPTs are stated to be on arm’s length basis but are overseen by a committee chaired by a key executive potentially involved in such transactions.
+
+## Details  
+
+- The Risk Management Committee is chaired by Mr. Srinivasan Ravi, who is the Chairman and Managing Director (executive director) of the company (Annual-Report_2023.pdf · Page 27, 36 · FY23).  
+- The committee includes one independent director and senior management personnel but is not chaired by an independent director (Annual-Report_2023.pdf · Page 36 · FY23).  
+- The Directors’ Report states all Related Party Transactions (RPTs) were on arm’s length basis (implied from the question context).  
+- Best governance practices and SEBI Listing Regulations (Regulation 21) generally expect risk oversight committees, especially those dealing with RPTs and risk management, to be chaired by an independent director to ensure unbiased monitoring and reduce conflicts of interest.  
+- Having the Chairman & Managing Director chair the Risk Management Committee creates a conflict of interest risk, as he is both a key executive and the overseer of risk management, including RPTs.
+
+## Conclusion  
+The anomaly is a lack of independence in the chairmanship of the Risk Management Committee, which undermines the governance principle of independent oversight of risk and related party transactions, potentially impairing objective risk assessment and mitigation.
+
+## Sources  
+Annual-Report_2023.pdf · Page 27 · FY23  
+Annual-Report_2023.pdf · Page 36 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  13.41s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q38 [PDF] [Hard]
+Question: The Statutory Auditor identified two Key Audit Matters in the standalone audit of the company for FY23. For the derivative KAM, what is the carrying value of derivative assets and liabilities as at 31 March 2023, and does the auditor qualify the opinion?
+Expected: Derivative assets: ₹936 Lakhs, liabilities: ₹375 Lakhs (net asset ₹561 Lakhs). The audit opinion is unqualified — no Emphasis of Matter on hedge accounting. The KAM itself signals elevated audit effort in this area.
+Actual:   ## Summary
+As at 31 March 2023, the carrying value of derivative assets was ₹936 Lakhs and derivative liabilities were ₹375 Lakhs. The auditor did not qualify the opinion on this matter but identified accounting for derivative contracts as a Key Audit Matter due to significant judgment and estimates involved.
+
+## Details
+- Carrying value of derivative assets: ₹936 Lakhs  
+- Carrying value of derivative liabilities: ₹375 Lakhs  
+- The KAM relates to the significant judgment and estimates used in fair valuation and complex compliance under Ind AS 109 for derivatives.  
+- There is no mention of a qualified audit opinion; the auditor highlights this as a KAM due to materiality and complexity, not due to disagreement or qualification.
+
+## Sources
+Annual-Report_2023.pdf · Page 63 · FY23  
+Annual-Report_2023.pdf · Page 116 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  10.81s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q39 [PDF] [Easy]
+Question: What were the two Key Audit Matters identified by the statutory auditors of the company for FY24, and what percentage of total assets does PPE represent?
+Expected: Two KAMs: (1) Accounting for derivative contracts — derivative assets ₹943 Lakhs, liabilities ₹259 Lakhs. (2) Accounting for PPE. PPE including CWIP represents 48% of total assets.
+Actual:   ## Summary
+The two Key Audit Matters (KAMs) identified by the statutory auditors for FY24 were (1) the accounting for Property, Plant and Equipment (PPE), including its measurement, valuation, depreciation, and impairment assessment, and (2) the accounting and disclosure of derivatives. PPE represents approximately 48-49% of the Company’s total assets.
+
+## Details
+
+### Key Audit Matters for FY24
+1. **Accounting for Property, Plant and Equipment (PPE):**  
+   - This includes evaluation of initial recognition costs, valuation of PPE, review of useful lives, depreciation rates, impairment assessment, and physical verification of assets.  
+   - The audit involved testing the design and operating effectiveness of internal controls over these areas.  
+   - PPE is material to the financial statements, making this a significant audit focus.
+
+2. **Accounting and Disclosure of Derivatives:**  
+   - The audit focused on the significant judgments and estimates involved in the accounting for derivatives, including recognition, derecognition, and valuation in compliance with Ind AS 109.  
+   - Derivative contracts were material to the financial statements, requiring detailed audit procedures.
+
+### PPE as Percentage of Total Assets
+- PPE represents 48% of the Company’s total assets as per standalone financials (Annual Report page 121, FY24).  
+- For the Group consolidated financials, PPE represents 49% of total assets (Annual Report page 187, FY24).
+
+## Sources
+Annual-Report-2023-24.pdf · Page 121 · FY24  
+Annual-Report-2023-24.pdf · Page 187 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  14.41s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q40 [PDF] [Medium]
+Question: According to the MD&A of the company for FY24, what are the specific reasons cited for the deterioration in the Interest Coverage Ratio and the Debt-Equity Ratio, and what is the magnitude of each change?
+Expected: ICR deteriorated 26% from 5.74x to 4.24x due to increase in interest cost from ₹117 Cr to ₹155 Cr. Debt-Equity Ratio deteriorated 26% from 0.72x to 0.91x due to increase in borrowings.
+Actual:   ## Summary
+According to the MD&A for FY24, the deterioration in the Interest Coverage Ratio is attributed to an increase in interest expenses, while the deterioration in the Debt-Equity Ratio is due to an increase in borrowings. The exact magnitude of these changes is not explicitly stated in the MD&A.
+
+## Details
+- The Annual Report 2023-24 (page 55) states:
+  - Interest Coverage Ratio deterioration reason: "Increase in interest"
+  - Debt-Equity Ratio deterioration reason: "Increase in borrowings"
+- The report does not provide specific numeric values quantifying the magnitude of these ratio changes in the MD&A section.
+
+## Sources
+Annual-Report-2023-24.pdf · Page 55 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  14.09s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q41 [PDF] [Hard]
+Question: The Chairman's letter for FY24 describes a consolidation and moderation in growth. Cross-referencing MD&A segment-wise data, which segment experienced the sharpest EBIT margin compression and by how much?
+Expected: Automotive Powertrain experienced the sharpest compression — EBIT margin fell from 25% to 19%, a compression of 600 basis points. The Chairman's moderation characterisation omits this Powertrain deterioration.
+Actual:   ## Summary  
+The passenger vehicle (PV) segment experienced the sharpest EBIT margin compression in FY24, with a decline of 28 percentage points.
+
+## Details  
+- From the Annual Report 2023-24 (Page 19), it is stated that the passenger vehicle segment reported double-digit revenue growth but faced margin pressure.  
+- The same report (Page 19) quantifies EBIT margin changes, showing a 28% (percentage points) decline in EBIT margin for the passenger vehicle segment in FY24.  
+- No other segment's EBIT margin compression is explicitly quantified in the retrieved context, making the PV segment's 28 percentage points the sharpest.
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 19 · FY24  
+Annual-Report-2023-24.pdf · Page 16 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  11.98s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q42 [PDF] [Hard]
+Question: The company's Board Report for FY24 states all RPTs were arm's length and DR Axion posted turnover of ₹1,246 Cr in FY24. What forensic risk does the short acquisition history and consolidation timing create?
+Expected: DR Axion was acquired on 1 February 2023 — only 2 months consolidated in FY23. In FY24 it contributed a full year of ₹1,246 Cr revenue. This base-period asymmetry inflates consolidated growth optics. Intra-group transactions must be verified for arm's length pricing.
+Actual:   ## Summary  
+The short acquisition history and timing of consolidation of DR Axion, which posted a turnover of ₹1,246 Cr in FY24, create a forensic risk related to the potential for insufficient due diligence and limited historical financial data. This can increase the risk of undisclosed related party transactions (RPTs) or earnings management around the acquisition period, despite the Board Report stating all RPTs were at arm's length.
+
+## Details  
+
+- The Board Report for FY24 explicitly states that all related party transactions (RPTs) were conducted at arm's length.  
+- DR Axion, a recently acquired entity, reported a turnover of ₹1,246 Cr in FY24.  
+- The acquisition is recent enough that the consolidation timing may coincide with the first or early periods of integration into the group financials.  
+- A short acquisition history means limited prior financial and operational data is available for forensic review, increasing the risk that any irregularities or aggressive accounting practices around the acquisition date may go undetected.  
+- Consolidation timing risk arises because the financials of DR Axion are newly incorporated, and the controls, governance, and reporting standards may not yet be fully aligned with the parent company, potentially allowing for manipulation or misstatement.  
+
+## Forensic Risk Implications  
+
+- Limited historical data reduces the ability to perform trend analysis or detect anomalies in financial performance or transactions.  
+- The arm's length assertion on RPTs may be harder to verify independently due to the short period of association and limited transactional history.  
+- There is a risk that related party transactions could be structured or timed to influence reported turnover or profitability in the consolidation period.  
+- The timing of consolidation may mask pre-acquisition liabilities or overstate assets and revenues if due diligence was not comprehensive.  
+
+## Sources  
+Annual-Report-2023-24.pdf · Board Report · FY24  
+Annual-Report-2023-24.pdf · Notes to Consolidated Financial Statements · FY24 (Turnover of DR Axion ₹1,246 Cr)
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  15.33s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q43 [PDF] [Easy]
+Question: What is the credit rating assigned to the company's long-term and short-term loan facilities as affirmed during FY25?
+Expected: CRISIL reaffirmed long-term loan facilities as AA-/Stable and short-term loan facilities as A1+.
+Actual:   ## Summary  
+The credit rating assigned to the company's long-term loan facilities during FY25 was reaffirmed as AA-/Stable, and the short-term loan facilities were reaffirmed as A1+.
+
+## Sources  
+Annual-Report-2025.pdf · Page 8 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  9.97s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q44 [PDF] [Medium]
+Question: According to the FY25 MD&A, what was management's stated explanation for the significant deterioration in Operating Profit Margin, Net Profit Margin, and Return on Net Worth, and which ratio deteriorated most severely?
+Expected: Management attributed deterioration to one-time expenses for acquisitions and initial losses on greenfield projects. Return on Net Worth deteriorated most severely at 77% — from 13% in FY24 to 3% in FY25.
+Actual:   ## Summary  
+According to the FY25 MD&A, management attributed the significant deterioration in Operating Profit Margin, Net Profit Margin, and Return on Net Worth primarily to one-time expenses, decrease in profit after tax, and increase in equity capital due to QIP and acquisitions. Among these ratios, the Operating Profit Margin showed the most severe deterioration.
+
+## Details  
+- The MD&A section in the Annual-Report-2025.pdf (Page 19) states:  
+  - Operating Profit Margin deterioration was due to one-time expenses.  
+  - Net Profit Margin decline was linked to a decrease in profit after tax.  
+  - Return on Net Worth decline was due to an increase in equity capital on account of QIP and acquisitions.  
+- The exact severity of deterioration is indicated by the note on ratios showing a 25% change, with Operating Profit Margin specifically highlighted as impacted by one-time expenses.  
+- The Interest Coverage Ratio increased due to higher interest costs, but this is not part of the three ratios in question.  
+- The increase in equity capital diluted Return on Net Worth, contributing to its decline.  
+
+## Sources  
+Annual-Report-2025.pdf · Page 19 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  12.24s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q45 [PDF] [Hard]
+Question: The company's FY25 Directors' Report states all RPTs were arm's length. However what does the BRSR data reveal about the concentration of loans and advances with related parties in FY25?
+Expected: BRSR discloses loans and advances to related parties jumped from 0% to 100% of total loans and advances in one year. This complete shift warrants forensic examination of whether loans are to subsidiaries or represent undisclosed related-party financial exposure.
+Actual:   ## Summary  
+The BRSR data for FY25 reveals a significant concentration of loans and advances with related parties, indicating a material exposure despite the Directors' Report stating all related party transactions (RPTs) were at arm's length.
+
+## Details  
+- The BRSR disclosures show that a substantial portion of the company's loans and advances are extended to related parties.  
+- Exact figures or percentages quantifying this concentration are not explicitly provided in the retrieved context, but the mention of concentration implies a notable share of total loans and advances is with related parties.  
+- This contrasts with the Directors' Report assertion that all RPTs were conducted at arm's length, highlighting a potential governance or disclosure concern regarding the extent of related party exposure.
+
+## Sources  
+Annual-Report-2025.pdf · Page/Sheet: 33 · FY25 (BRSR data)  
+Annual-Report-2025.pdf · Directors' Report section (implied from question context)
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  9.94s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q46 [PDF] [Hard]
+Question: The Statutory Auditors identified only one KAM in the standalone audit for FY25. What was it, and does the absence of a KAM on the three acquisitions exceeding ₹740 Crores represent a gap?
+Expected: The sole KAM is Accounting for PPE (44% of total assets). The auditors did not designate the acquisitions as KAMs despite high-risk, high-judgement events involving goodwill recognition and fair value assessments. This is an audit quality concern.
+Actual:   ## Summary  
+The Statutory Auditors identified the valuation of Property, Plant and Equipment (PPE), including depreciation rates and related estimates/judgements, as the sole Key Audit Matter (KAM) in the standalone audit for FY25. The absence of a KAM related to the three acquisitions exceeding ₹740 Crores does represent a potential audit gap, as significant acquisitions typically warrant specific audit focus and disclosure under auditing standards.
+
+## Details  
+- The identified KAM was related to the audit of Property, Plant and Equipment, specifically focusing on valuation, depreciation rates, and management estimates/judgements (Annual-Report-2025.pdf · Page 109 · FY25).  
+- The Company made three major acquisitions during FY25:  
+  1. Remaining 24% equity of DR Axion India Private Limited, making it a wholly owned subsidiary (effective 1st July 2024).  
+  2. 100% equity stake of Craftsman Germany GmbH, including its subsidiary Craftsman Fronberg Guss GmbH (acquired 22nd July 2024).  
+  3. The total acquisition value exceeded ₹740 Crores (Annual-Report-2025.pdf · Page 54 · FY25).  
+- No KAM was reported related to these acquisitions in the standalone audit report or notes.
+
+## Analysis of Gap  
+- According to auditing standards such as SA 701 (Key Audit Matters), significant transactions like large acquisitions generally require specific audit attention and disclosure as KAMs due to their material impact and complexity.  
+- The absence of a KAM on these acquisitions, despite their material size (₹740 Crores+), suggests a potential gap in audit reporting or insufficient emphasis on these transactions in the standalone audit.  
+- This is especially relevant given the scale and strategic importance of these acquisitions, which would typically involve complex valuation, goodwill assessment, and integration risks warranting audit focus.
+
+## Sources  
+Annual-Report-2025.pdf · Page 109 · FY25  
+Annual-Report-2025.pdf · Page 54 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  12.99s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q47 [Images] [Easy]
+Question: In the About the company infographic page of the FY22 annual report, a donut chart shows the revenue split by business segment. What are the three business segments shown and their respective percentage contributions?
+Expected: Automotive Powertrain: 52%, Industrial & Engineering: 28%, Automotive Aluminium: 20%.
+Actual:   ## Summary  
+The three business segments shown in the FY22 annual report infographic donut chart are:  
+- Automotive – Powertrain: 52%  
+- Automotive – Aluminium Products: 20%  
+- Industrial & Engineering: 28%  
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 11 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 14 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 16 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  9.91s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q48 [Images] [Easy]
+Question: In the Key Performance Indicators section of the FY22 annual report, bar charts track Net Profit across five financial years FY18 to FY22. What were the Net Profit values in FY20 and FY21?
+Expected: FY20 Net Profit: ₹37 Crores. FY21 Net Profit: ₹97 Crores. The bar chart shows a steep recovery from the COVID-impacted FY20 trough.
+Actual:   ## Summary  
+The Net Profit values in the Key Performance Indicators section of the FY22 annual report for FY20 and FY21 were ₹40.01 crores and ₹97.36 crores respectively.
+
+## Details  
+- FY20 Net Profit: ₹40.01 crores (from Craftsman Auto.xlsx · profit_loss · FY2020)  
+- FY21 Net Profit: ₹97.36 crores (from Craftsman Auto.xlsx · profit_loss · FY2021)  
+
+These figures align with the net profit values tracked in the FY22 annual report's KPI bar charts for those years.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY2020  
+Craftsman Auto.xlsx · profit_loss · FY2021
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  9.97s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q49 [Images] [Medium]
+Question: In the KPI Position section bar charts of the FY22 annual report, what is the trend in the Debt/EBITDA ratio over the five-year period shown FY18 to FY22?
+Expected: FY18: 2.92x, FY19: 2.57x, FY20: 2.31x, FY21: 1.57x, FY22: 1.33x. Consistent downward improving trend — FY22 at 1.33x is the lowest in the five-year series.
+Actual:   ## Summary  
+The Debt/EBITDA ratio showed a declining trend over the five-year period from FY18 to FY22, reaching 1.43 in FY22.
+
+## Details  
+- The only explicit Debt/EBITDA ratio figure available in the retrieved context is for FY22, which is 1.43 (Source: 7.-Annual-Report-2021-22.pdf · Page 9 · FY22).  
+- The context does not provide explicit Debt/EBITDA ratios for FY18 to FY21.  
+- However, the presence of a Debt/EBITDA ratio in FY22 and the mention of growth in EBITDA over the years (20% growth in EBITDA in FY22 over FY21, and a CAGR of 17% for EBITDA) suggest improving EBITDA, which would typically reduce the Debt/EBITDA ratio if debt remains stable or grows slower.  
+- Without explicit Debt/EBITDA figures for FY18 to FY21, the exact trend values cannot be stated, but the FY22 figure of 1.43 indicates a moderate leverage level.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 9 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  15.08s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q50 [Images] [Hard]
+Question: In the FY22 annual report, opening pages contain CAGR infographics showing growth from FY18 to FY22 across Revenue, EBIT, EBITDA, and PAT. The PAT CAGR of 49% is significantly higher than Revenue CAGR of 11%. What specific caveat is noted on the Revenue CAGR infographic that a CA must flag?
+Expected: A footnote reads Excluding Excise Duty — the FY18 base figure excludes the pre-GST excise duty component, making the revenue CAGR comparison potentially understated. This means the PAT outperformance must be interpreted with this base effect in mind.
+Actual:   ## Summary  
+The Revenue CAGR infographic from FY18 to FY22 notes a significant caveat that the revenue growth includes a large jump in FY22 (43% growth over FY21), implying that the CAGR of 11% is influenced by this recent spike rather than steady growth. A Chartered Accountant must flag that the CAGR figure masks volatility and is not indicative of smooth, consistent revenue growth over the period.
+
+## Details  
+- Revenue CAGR from FY18 to FY22 is shown as 11%.  
+- FY22 revenue was ₹2,206 crores, which grew 43% over FY21 revenue.  
+- The infographic highlights that until a couple of years ago, the company’s architecture was different, implying structural changes affecting revenue growth.  
+- The large jump in FY22 revenue growth (43%) skews the CAGR upward, making the 11% CAGR less representative of the entire period’s growth trend.
+
+## Conclusion  
+The key caveat to flag is that the Revenue CAGR of 11% is not a smooth average growth rate but is heavily influenced by a sharp increase in FY22 revenue. This means the CAGR figure may overstate the underlying revenue growth trend and should be interpreted with caution.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 3 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 8 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  12.1s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q51 [Images] [Easy]
+Question: The Revenue mix across sectors FY23 donut chart on the An Edge above the rest visual page shows three business segments. What percentage does the Automotive Powertrain segment contribute to total revenue?
+Expected: Automotive Powertrain contributes 51% of total revenue. Remaining segments: Aluminium Products at 25% and Industrial & Engineering at 24%.
+Actual:   ## Summary
+The Automotive Powertrain segment contributes 51% to the total revenue in FY23 according to the revenue mix donut chart.
+
+## Sources
+Annual-Report_2023.pdf · Page 8 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  39.23s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q52 [Images] [Easy]
+Question: The Revenue mix across geographies FY23 donut chart in the annual report shows a domestic vs export split. What percentage of revenue is domestic?
+Expected: 92% domestic revenue and 8% export revenue. In FY04, over 80% of revenues came from exports — a near-complete reversal of geographic mix over ~19 years.
+Actual:   ## Summary
+The revenue from domestic markets in FY23 was 92% of the total revenue.
+
+## Details
+- Revenue mix across geographies (FY23):
+  - Domestic: 92%
+  - Export: 8%
+
+## Sources
+Annual-Report_2023.pdf · Page 10 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  9.87s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q53 [Images] [Medium]
+Question: In the Over the years financial performance multi-year bar chart section of the FY23 annual report, the Debt-equity Ratio chart shows values across FY19 to FY23. In which year did the ratio peak and what was the peak value?
+Expected: The ratio peaked in FY19 at 1.42x. The five-year trend shows consistent de-leveraging from 1.42x (FY19) to 0.63x (FY22), with a slight uptick to 0.72x in FY23 reflecting additional debt for the DR Axion acquisition.
+Actual:   ## Summary  
+The Debt-Equity Ratio peaked in FY23 with a value of 0.72 according to the multi-year financial performance chart in the FY23 annual report.
+
+## Details  
+- FY23 Debt-Equity Ratio: 0.72 (Page 89, Annual-Report_2023.pdf)  
+- FY22 Debt-Equity Ratio: 0.63 (Page 89, Annual-Report_2023.pdf)  
+- The context does not provide explicit Debt-Equity Ratio values for FY19 to FY21, but the multi-year chart referenced shows the peak at FY23 with 0.72.
+
+## Sources  
+Annual-Report_2023.pdf · Page 89 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  29.76s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q54 [Images] [Hard]
+Question: In the Over the years bar chart section of the FY23 annual report, the Debt-EBITDA Ratio chart shows a value for FY21 that appears anomalous relative to surrounding years. What does cross-reading against the Net Profit bar chart reveal?
+Expected: FY21 Debt-EBITDA ~1.57x but Net Profit shows ~₹37 Cr — a dramatic collapse. The combination of low net profit with moderate Debt-EBITDA confirms FY21 was a severe pandemic-impact year with high depreciation and finance cost load.
+Actual:   ## Summary  
+The Debt-EBITDA ratio for FY21 in the FY23 annual report's "Over the years" bar chart appears anomalously high compared to surrounding years. Cross-reading with the Net Profit bar chart reveals that FY21 had a relatively high net profit (₹97.36 Cr), which is consistent with improved profitability, indicating the anomaly in Debt-EBITDA ratio is not due to poor earnings but likely due to other factors such as elevated debt or lower EBITDA that year.
+
+## Details  
+- Debt-EBITDA ratio anomaly in FY21 is visible in the FY23 annual report bar chart section.  
+- Net Profit figures from Excel data:  
+  - FY20: ₹40.01 Cr  
+  - FY21: ₹97.36 Cr  
+  - FY22: ₹163.09 Cr  
+- EBITDA figures from Excel data:  
+  - FY20: ₹413.02 Cr  
+  - FY21: ₹432.02 Cr  
+  - FY22: ₹502.72 Cr  
+- Interest expense (proxy for debt cost) in FY21 was ₹107.28 Cr, lower than FY20 (₹148.60 Cr) but higher than FY22 (₹84.22 Cr).  
+- Sales and other costs do not show a drastic drop in FY21.
+
+## Interpretation  
+- The Net Profit bar chart shows a significant increase in FY21 compared to FY20, indicating improved profitability.  
+- EBITDA also increased slightly in FY21 compared to FY20, so the denominator in Debt-EBITDA ratio did not shrink.  
+- The anomaly in Debt-EBITDA ratio for FY21 is therefore unlikely due to EBITDA collapse or net profit drop.  
+- This suggests the Debt component (numerator) in the ratio was unusually high or recorded differently in FY21, causing the ratio anomaly.  
+- The net profit bar chart confirms that earnings were not the cause of the Debt-EBITDA ratio anomaly.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY20, FY21, FY22  
+FY23 Annual Report image pages · Over the years bar chart section
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  22.05s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q55 [Images] [Easy]
+Question: In the donut chart labelled Revenue by Geography Consolidated Basis in the FY24 annual report, what percentage of total consolidated revenue of ₹4,452 Crore is derived from domestic sales versus exports?
+Expected: Domestic: ₹4,254 Crore = 96% of total consolidated revenue. Exports: ₹198 Crore = 4%.
+Actual:   ## Summary
+In FY24, 96% of the total consolidated revenue of ₹4,452 crore was derived from domestic sales, and 4% was from exports.
+
+## Details
+- Total consolidated revenue: ₹4,452 crore  
+- Domestic revenue: ₹4,254 crore (96%)  
+- Export revenue: ₹198 crore (4%)  
+
+These figures are directly from the donut chart labelled "Revenue by Geography Consolidated Basis" in the FY24 annual report.
+
+## Sources
+Annual-Report-2023-24.pdf · Page 10 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  12.59s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q56 [Images] [Medium]
+Question: In the five-year bar charts under Performance Consolidated Basis on the KPI page of the FY24 annual report, compare the trajectory of Net Profit versus EBITDA from FY20 to FY24. In which year did Net Profit grow proportionally fastest?
+Expected: FY21 shows the most disproportionate Net Profit growth (₹40 Cr to ₹97 Cr = ~143% jump) vs EBITDA growth (~10%), suggesting significant below-EBITDA line improvement from lower finance costs or tax benefits.
+Actual:   ## Summary  
+From the five-year consolidated performance data in the FY24 annual report, Net Profit showed the fastest proportional growth in FY24 compared to EBITDA. Specifically, Net Profit increased significantly in FY24 relative to prior years, outpacing EBITDA growth proportionally in that year.
+
+## Details  
+The relevant data for consolidated Net Profit and EBITDA over the five years FY20 to FY24 is as follows (from the consolidated financials and growth rates):
+
+- From the 5-year CAGR figures on Page 25 (consolidated basis):  
+  - Net Profit (PAT) 5-year CAGR = 28%  
+  - EBITDA 5-year CAGR = 16%
+
+- Specific year-on-year figures for FY23 and FY24 from Page 18 (consolidated):  
+  - EBITDA FY23 = ₹697 crore  
+  - EBITDA FY24 = ₹897 crore  
+  - Net Profit FY23 = ₹251 crore  
+  - Net Profit FY24 = ₹337 crore  
+
+Calculating year-on-year growth for FY24:  
+- EBITDA growth FY24 = (897 - 697) / 697 = 200 / 697 ≈ 28.7%  
+- Net Profit growth FY24 = (337 - 251) / 251 = 86 / 251 ≈ 34.3%
+
+This shows Net Profit grew faster than EBITDA in FY24.
+
+For prior years (FY20 to FY23), exact year-on-year figures are not fully available in the retrieved context, but the 5-year CAGR indicates Net Profit grew faster overall.
+
+## Calculation  
+Year-on-year growth FY24:  
+- EBITDA growth = (EBITDA FY24 - EBITDA FY23) / EBITDA FY23  
+= (₹897 crore - ₹697 crore) / ₹697 crore = 28.7%
+
+- Net Profit growth = (Net Profit FY24 - Net Profit FY23) / Net Profit FY23  
+= (₹337 crore - ₹251 crore) / ₹251 crore = 34.3%
+
+Since Net Profit growth rate (34.3%) > EBITDA growth rate (28.7%) in FY24, FY24 is the year when Net Profit grew proportionally fastest relative to EBITDA.
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 18 · FY24  
+Annual-Report-2023-24.pdf · Page 25 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  18.28s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q57 [Images] [Hard]
+Question: In the Revenue by Business Consolidated Basis donut chart in the FY24 annual report, the Aluminium Products segment shows ₹2,154 Crore (48%) of consolidated revenue. However the MD&A segment table reports Aluminium standalone sales of only ₹917 Crore. What accounts for the ₹1,237 Crore discrepancy?
+Expected: The discrepancy reconciles with DR Axion India's standalone FY24 turnover of ₹1,246 Crore. The donut chart uses consolidated segment revenue including DR Axion while MD&A discloses only standalone figures — a transparency gap not flagged on the chart itself.
+Actual:   ## Summary
+The ₹1,237 Crore discrepancy between the consolidated Aluminium Products revenue (₹2,154 Crore) and the standalone Aluminium sales (₹917 Crore) is due to the inclusion of revenues from subsidiaries and joint ventures in the consolidated figure, which are not part of the standalone financials.
+
+## Details
+- The consolidated revenue for Aluminium Products is ₹2,154 Crore (Annual-Report-2023-24.pdf · Page 10 · FY24).
+- The standalone Aluminium sales are ₹917 Crore (Annual-Report-2023-24.pdf · MD&A segment table, implied from narrative and segment notes).
+- The difference of ₹1,237 Crore (₹2,154 Cr - ₹917 Cr) arises because consolidated revenue includes:
+  - Revenues from subsidiaries and joint ventures related to Aluminium Products.
+  - Possibly intercompany eliminations and additional business lines under Aluminium segment consolidated at group level.
+- The standalone financials report only the parent company’s Aluminium sales, excluding subsidiaries.
+- The Annual Report notes that the Aluminium segment includes DR Axion and other entities consolidated in group results but not reflected in standalone numbers (Annual-Report-2023-24.pdf · Page 33 and 248 · FY24).
+
+## Sources
+Annual-Report-2023-24.pdf · Page 10 · FY24  
+Annual-Report-2023-24.pdf · Page 33 · FY24  
+Annual-Report-2023-24.pdf · Page 248 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  15.47s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q58 [Images] [Hard]
+Question: In the Position section bar charts on the FY24 KPI page, the Debt-Equity Ratio bar chart shows 0.88x for FY24 yet the standalone MD&A reports 0.91x. What is the likely source of this discrepancy and what does the five-year Debt-EBITDA trend reveal?
+Expected: Discrepancy: bar chart uses consolidated basis (higher equity from DR Axion) while MD&A reports standalone. Debt-EBITDA trend: FY20 2.56x → FY21 1.57x → FY22 1.32x → FY23 1.65x → FY24 1.72x. Leverage has been rising for two consecutive years contradicting Chairman's debt reduction narrative.
+Actual:   ## Summary  
+The discrepancy between the Debt-Equity Ratio of 0.88x shown in the FY24 KPI bar chart and the 0.91x reported in the standalone MD&A likely arises from differences in the data source or calculation basis—such as consolidated versus standalone financials or timing differences in data capture. The five-year Debt-EBITDA trend reveals a moderate leverage level with a FY24 ratio of 2.14x, indicating manageable debt relative to earnings over the period.
+
+## Details  
+- The FY24 Debt-Equity Ratio is reported as 0.91x in the standalone MD&A (Annual-Report-2023-24.pdf · Page 184 · FY24).  
+- The FY24 Debt-Equity Ratio shown in the Position section bar chart on the KPI page is 0.88x (Annual-Report-2023-24.pdf · Page 22 · FY24).  
+- The standalone MD&A ratio (0.91x) is calculated as Total Debt / Shareholders’ Equity, likely from standalone balance sheet figures.  
+- The bar chart ratio (0.88x) may be based on consolidated figures or a slightly different definition of debt or equity, causing the minor difference.  
+- The five-year Debt-EBITDA ratio trend shows a FY24 figure of 2.14x (Annual-Report-2023-24.pdf · Page 23 · FY24), reflecting the company’s leverage relative to earnings before interest, tax, depreciation, and amortization.  
+- The 5-year CAGR data (Annual-Report-2023-24.pdf · Page 25 · FY24) indicates steady growth in revenue, EBITDA, and net worth, supporting the interpretation that leverage remains under control.
+
+## Conclusion  
+The small discrepancy in Debt-Equity ratios is likely due to differences in data scope or timing between standalone and consolidated reporting. The Debt-EBITDA trend at 2.14x for FY24 suggests the company maintains a moderate and sustainable leverage position over the five-year period.
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 22 · FY24  
+Annual-Report-2023-24.pdf · Page 23 · FY24  
+Annual-Report-2023-24.pdf · Page 184 · FY24  
+Annual-Report-2023-24.pdf · Page 25 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  16.41s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q59 [Images] [Easy]
+Question: The segment-wise performance table in the MD&A of the FY25 annual report shows four business segments. Which segment reported the lowest EBIT margin and what was it?
+Expected: The Industrial & Engineering segment reported the lowest EBIT margin at 2% on sales of ₹838 Crores in FY25, a sharp fall from 6% in FY24.
+Actual:   ## Summary  
+The segment that reported the lowest EBIT margin in the FY25 annual report MD&A is the "Others" segment. However, the exact EBIT margin figure for this segment is not available in the retrieved context.
+
+## Details  
+- The MD&A mentions four business segments: Powertrain, Aluminium Products, Industrial & Engineering, and Others (Annual-Report-2025.pdf · Page 19 · FY25).  
+- The Powertrain segment is described as a leading player in precision machining for various vehicle types.  
+- No explicit EBIT margin values for any of the segments, including "Others," are provided in the retrieved text or tables.  
+- The context does not contain a segment-wise EBIT margin table or specific EBIT margin percentages.
+
+## Sources  
+Annual-Report-2025.pdf · Page 19 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  12.51s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q60 [Images] [Medium]
+Question: The Key Financial Ratios comparison table in the FY25 MD&A shows two ratios that moved in opposite directions. Which two ratios are they and what does this divergence indicate?
+Expected: Debt-Equity Ratio improved from 0.91x to 0.59x (QIP equity raise). Interest Coverage Ratio deteriorated from 4.24x to 3.05x (higher interest costs). The divergence reveals equity infusion strengthened the balance sheet while operating cash generation did not proportionately improve — a QIP masking effect.
+Actual:   ## Summary  
+The two key financial ratios that moved in opposite directions in FY25 are the **Interest Coverage Ratio**, which increased, and the **Net Profit Margin**, which decreased. This divergence indicates that while the company’s ability to cover interest expenses improved due to lower interest costs, its overall profitability declined, likely impacted by one-time expenses and reduced net profits.
+
+## Details  
+From the FY25 MD&A section on significant changes in key ratios (Annual-Report-2025.pdf · Page 19 · FY25):
+
+- **Interest Coverage Ratio**: Increased due to a decrease in interest costs.
+- **Net Profit Margin**: Decreased, attributed to one-time expenses and a reduction in profit after tax.
+
+The report explicitly states:  
+- "Interest Coverage Ratio: Increase in interest cost coverage."  
+- "Net Profit Margin: Decrease due to one-time expenses and lower profit after tax."
+
+This shows the company managed to reduce its interest burden or improve EBIT relative to interest, but net profitability was adversely affected by other factors.
+
+## Conclusion  
+The opposite movement of these two ratios suggests improved financial leverage management (better interest coverage) but weaker bottom-line profitability, highlighting a mixed financial performance in FY25.
+
+## Sources  
+Annual-Report-2025.pdf · Page 19 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  17.65s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q61 [Images] [Hard]
+Question: The BRSR Section 9 table in the FY25 report shows the number of trading houses jumped from 96 in FY24 to 532 in FY25 while the percentage of purchases from trading houses remained flat at 18%. What forensic question does this raise?
+Expected: A 5x proliferation of trading-house vendors while the top-10 concentration drops from 50% to 37% is a classic structuring pattern. A CA must verify whether these 532 entities are independent or shells used to route transactions below individual materiality thresholds.
+Actual:   ## Summary  
+The sharp increase in the number of trading houses from 96 in FY24 to 532 in FY25, while the percentage of purchases from trading houses remained constant at 18%, raises a forensic question about the authenticity and nature of these trading houses—specifically, whether these additional trading houses are genuine suppliers or if there is potential related-party or circular trading to inflate purchase numbers without a corresponding increase in purchase volume.
+
+## Details  
+- Number of trading houses in FY24: 96  
+- Number of trading houses in FY25: 532  
+- Purchases from trading houses as a percentage of total purchases: 18% in both FY24 and FY25  
+
+The disproportionate jump in the count of trading houses (a more than fivefold increase) without any increase in the purchase percentage suggests that many new trading houses may have minimal or no real purchase transactions, or that purchases are being split artificially among many entities.
+
+## Forensic Question Raised  
+- Are the additional trading houses legitimate independent suppliers or entities?  
+- Is there any related-party relationship or undisclosed connections among these trading houses?  
+- Could this be an attempt to obscure the true nature of purchases or to inflate procurement figures artificially?  
+- Is there a risk of circular trading or fictitious transactions to manipulate financials or tax positions?
+
+## Sources  
+Annual-Report-2025.pdf · Page 78 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  21.32s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q62 [Images] [Hard]
+Question: The commodity price risk and hedging table in the FY25 Corporate Governance Report shows NA across all fields. How does this contrast with the company's foreign exchange outgo of ₹703.30 Crores disclosed in the Directors' Report?
+Expected: Nil commodity hedging vs ₹703.30 Cr forex outgo against only ₹196.42 Cr earnings creates a net forex deficit of ~₹507 Cr. With a new German subsidiary, leaving this unhedged is a material risk. A CA must verify whether hedging exists off-balance sheet.
+Actual:   ## Summary
+The commodity price risk and hedging table in the FY25 Corporate Governance Report shows no exposure or hedging activity related to commodities (all fields marked as NA), indicating the company did not face or hedge commodity price risk during the year. In contrast, the Directors' Report discloses a significant foreign exchange outgo of ₹703.30 Crores, highlighting that while commodity price risk was absent or immaterial, the company had substantial foreign exchange exposure and related outgo.
+
+## Details
+- Commodity price risk and hedging table (Annual-Report-2025.pdf · Page 31 · FY25) shows:
+  - Commodity exposure in INR: Nil
+  - % of exposure hedged through commodity derivatives: NA across all categories (domestic, international, OTC, exchange)
+- Foreign exchange outgo disclosed in Directors' Report (Annual-Report-2025.pdf · Page 14 · FY25):
+  - Foreign Exchange Outgo: ₹703.30 Crores
+
+This contrast indicates the company’s risk profile for FY25 involved significant foreign exchange exposure but no commodity price risk or hedging.
+
+## Sources
+Annual-Report-2025.pdf · Page 31 · FY25  
+Annual-Report-2025.pdf · Page 14 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  21.39s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q63 [Cross] [Easy]
+Question: In the FY22 Q4 earnings call, management guided total debt reduction of ₹100 Crores for FY23. What does the Excel Balance Sheet data show as the actual change in total borrowings in FY23 — was guidance met?
+Expected: Q4 FY22 concall guided debt reduction from ₹713 Cr to ~₹613 Cr. Excel shows FY23 borrowings at ₹1,240.23 Cr — not only was the target missed, debt nearly doubled due to the DR Axion acquisition financing.
+Actual:   ## Summary  
+Management guided a total debt reduction of ₹100 crores for FY23 in the FY22 Q4 earnings call. The Excel Balance Sheet data for FY23 shows borrowings of ₹1240.23 crores. However, the FY22 borrowings figure is not available in the retrieved context, so the actual change in total borrowings in FY23 cannot be determined from the provided data. Therefore, it is not possible to confirm whether the guidance was met.
+
+## Details  
+- FY23 Borrowings (from Excel Balance Sheet): ₹1240.23 crores  
+- FY22 Borrowings: This figure is not available in the retrieved context.
+
+## Sources  
+Craftsman Auto.xlsx · balance_sheet · FY23  
+craftsman_concall_23Q4.pdf · earnings call transcript · FY22 Q4 (guidance)
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  13.62s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q64 [Cross] [Easy]
+Question: The FY23 MD&A states the Interest Coverage Ratio declined from 6.40x to 5.74x due to increased interest cost. Verify this using the Excel P&L data — does the reported interest figure match?
+Expected: Excel shows FY22 Interest = ₹84.22 Cr, FY23 Interest = ₹117 Cr — confirming the MD&A narrative. ICR from Excel: FY22 = 6.40x confirmed. Slight discrepancy in FY23 ICR suggests EBITDA definition differs between Excel and MD&A.
+Actual:   ## Summary  
+The reported interest figure of ₹120.23 million in the Excel P&L data for FY23 matches the context of increased interest cost contributing to the decline in Interest Coverage Ratio from 6.40x to 5.74x.
+
+## Details  
+- EBITDA for FY23: ₹613.4 million  
+- Depreciation for FY23: ₹221.61 million  
+- Interest for FY23: ₹120.23 million  
+
+The interest figure of ₹120.23 million is consistent with the statement about increased interest cost causing the Interest Coverage Ratio to decline.
+
+## Calculation  
+Interest Coverage Ratio = (EBITDA - Depreciation) / Interest  
+= (613.4 - 221.61) / 120.23  
+= 391.79 / 120.23  
+= 3.26 (This is the calculated ratio from the Excel data, which is lower than the stated 5.74x, indicating possible differences in calculation basis or period.)
+
+## Sources  
+Craftsman Auto.xlsx · calculation · 2023  
+Craftsman Auto.xlsx · profit_loss · FY2023
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  8.26s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q65 [Cross] [Easy]
+Question: The FY22 annual report KPI page shows a Debt/EBITDA bar chart with FY22 value of 1.33x. Verify this using the Excel data and identify any discrepancy.
+Expected: Excel FY22: Borrowings = ₹799.55 Cr, EBITDA = ₹539 Cr. Gross D/EBITDA = 1.48x. Chart shows 1.33x — suggesting the chart uses net debt (borrowings minus cash) rather than gross borrowings.
+Actual:   ## Summary  
+The Debt/EBITDA ratio for FY22 calculated from the Excel data is approximately 0.84x, which differs from the 1.33x value shown in the FY22 annual report KPI bar chart, indicating a discrepancy between the two sources.
+
+## Details  
+From the Excel profit & loss data for FY22:  
+- EBITDA = ₹502.72 Cr (Craftsman Auto.xlsx · profit_loss · FY2022)  
+- Interest = ₹84.22 Cr (not directly needed for Debt/EBITDA but noted)  
+
+From the Excel data, the exact Debt figure is not directly provided. However, Debt/EBITDA ratio requires total debt and EBITDA. Since debt is not explicitly stated in the Excel data, we cannot directly calculate Debt/EBITDA from Excel alone.
+
+From the FY22 annual report image data (7.-Annual-Report-2021-22.pdf · Page 9 · FY22):  
+- Debt/EBITDA = 1.43x (stated)  
+- EBITDA = ₹630 Cr (stated)  
+- Debt/Equity ratio = 0.72  
+- Networth = ₹1,142 Cr  
+
+Using these, we can estimate Debt:  
+Debt = Debt/Equity × Equity = 0.72 × ₹1,142 Cr = ₹822.24 Cr (approximate)  
+
+Using EBITDA from Excel (₹502.72 Cr), Debt/EBITDA = ₹822.24 Cr / ₹502.72 Cr = 1.63x  
+Using EBITDA from Annual Report (₹630 Cr), Debt/EBITDA = ₹822.24 Cr / ₹630 Cr = 1.30x  
+
+The annual report KPI bar chart shows 1.33x, close to 1.30x calculated here.
+
+## Calculation  
+- Debt (estimated) = Debt/Equity × Networth = 0.72 × 1,142 = ₹822.24 Cr  
+- Debt/EBITDA (Excel EBITDA) = 822.24 / 502.72 = 1.63x  
+- Debt/EBITDA (Annual Report EBITDA) = 822.24 / 630 = 1.30x  
+
+The Excel profit & loss sheet EBITDA (₹502.72 Cr) is lower than the Annual Report EBITDA (₹630 Cr), causing the Debt/EBITDA ratio calculated from Excel data to be higher (1.63x) than the reported 1.33x.  
+
+However, the question states the Excel data shows Debt/EBITDA as 0.84x, which is inconsistent with the above. Since debt is not explicitly given in Excel, the 0.84x figure cannot be verified from Excel data alone.
+
+## Conclusion  
+- The annual report states Debt/EBITDA as 1.33x for FY22.  
+- Excel data does not provide explicit debt figures, so Debt/EBITDA cannot be directly calculated from Excel alone.  
+- Using debt estimated from annual report ratios and Excel EBITDA, Debt/EBITDA is approximately 1.63x, which is higher than 1.33x.  
+- Using annual report EBITDA, Debt/EBITDA is approximately 1.30x, close to 1.33x.  
+- Therefore, the Excel data and annual report EBITDA figures differ, causing discrepancy in Debt/EBITDA calculation.  
+
+The discrepancy arises because EBITDA figures differ between Excel (₹502.72 Cr) and Annual Report (₹630 Cr), and debt is not explicitly stated in Excel data.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY2022  
+7.-Annual-Report-2021-22.pdf · Page 9 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  21.15s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q66 [Cross] [Medium]
+Question: In the FY23 Q1 concall, management stated annualised pre-tax ROCE improved to 26% from 20% in FY22. Using Excel data, calculate ROCE for FY22 and assess whether the stated improvement is directionally accurate.
+Expected: Excel FY22 ROCE approximately 20% — consistent with management's stated FY22 baseline. The Q1 FY23 claim of 26% is annualised from one quarter and cannot be fully verified from annual Excel data alone.
+Actual:   ## Summary
+Using the Excel balance sheet data for FY22, the calculated pre-tax ROCE is approximately 20.3%, which aligns directionally with management's statement that pre-tax ROCE improved from 20% in FY22 to 26% annualized in FY23 Q1.
+
+## Details
+- Management stated in FY23 Q1 concall that annualized pre-tax ROCE improved to 26% from 20% in FY22 (Earnings call transcript context).
+- From Excel balance sheet for FY22:
+  - Networth (Equity + Reserves) = ₹1135.74 Cr
+  - Borrowings = ₹799.55 Cr
+- Total Capital Employed = Networth + Borrowings = ₹1135.74 Cr + ₹799.55 Cr = ₹1935.29 Cr
+- Pre-tax profit or EBIT for FY22 is not explicitly provided in the retrieved context, so we cannot calculate exact ROCE from EBIT.
+
+However, management in the FY22 earnings call (Source [15]) mentioned pre-tax ROCE was 2% in FY21 and turned positive in FY22, reaching around 20% (as per their guidance and commentary).
+
+## Calculation
+ROCE formula:  
+\[
+\text{ROCE} = \frac{\text{EBIT (Pre-tax Operating Profit)}}{\text{Capital Employed}} \times 100
+\]
+
+- Capital Employed (FY22) = ₹1135.74 Cr (Networth) + ₹799.55 Cr (Borrowings) = ₹1935.29 Cr
+
+- EBIT (Pre-tax Operating Profit) for FY22 is not available in the retrieved context, so exact ROCE calculation is not possible.
+
+Given management's statement of 20% pre-tax ROCE in FY22 and the capital employed figure, the EBIT implied would be approximately:  
+\[
+\text{EBIT} = 20\% \times 1935.29 = ₹387.06 \text{ Cr (approx.)}
+\]
+
+Since EBIT is not explicitly stated, this is an inferred figure based on management's ROCE claim.
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 4-5 · FY22  
+CraftsmanAutomationAudioTranscript2023_Q1.pdf (implied from question context, exact file not provided)
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  18.98s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q67 [Cross] [Medium]
+Question: The FY24 Chairman's letter describes business performance as consolidation and moderation in growth. Calculate actual revenue growth and PAT growth for FY24 from Excel and assess whether moderation is accurate.
+Expected: Excel: FY24 revenue grew 39.8% and PAT grew 27.9%. A 40% revenue growth year being described as moderation is misleading — the moderation likely refers to margin compression, not topline growth.
+Actual:   ## Summary  
+The actual revenue growth for FY24 was 39.8%, and the PAT growth was -16.9% (a decline). Therefore, the description of moderation in growth is accurate for PAT, but revenue growth was still strong and not moderate.
+
+## Details  
+- Revenue FY23 (Sales from Excel FY23): ₹3182.60 Cr  
+- Revenue FY24 (Sales from Excel FY24): ₹4451.73 Cr  
+- PAT FY23 (Net profit from Excel FY23): ₹248.39 Cr  
+- PAT FY24 (Net profit from Excel FY24): ₹304.47 Cr  
+
+However, the standalone PAT figures from the Annual Report text (FY24) show:  
+- PAT FY23: ₹237.76 Cr (Annual Report FY24, page 16)  
+- PAT FY24: ₹197.59 Cr (Annual Report FY24, page 16)  
+
+Since the question is about FY24 Chairman's letter and business performance, the standalone PAT from the Annual Report is more relevant for narrative consistency.
+
+Using Excel data for revenue and Annual Report standalone PAT for profit:
+
+- Revenue growth = (4451.73 - 3182.60) / 3182.60 = 1269.13 / 3182.60 = 0.3987 or 39.87%  
+- PAT growth = (197.59 - 237.76) / 237.76 = -40.17 / 237.76 = -0.1689 or -16.89%  
+
+## Calculation  
+**Revenue Growth:**  
+\[
+\frac{\text{Revenue FY24} - \text{Revenue FY23}}{\text{Revenue FY23}} = \frac{4451.73 - 3182.60}{3182.60} = 0.3987 = 39.87\%
+\]
+
+**PAT Growth:**  
+\[
+\frac{\text{PAT FY24} - \text{PAT FY23}}{\text{PAT FY23}} = \frac{197.59 - 237.76}{237.76} = -0.1689 = -16.89\%
+\]
+
+## Assessment  
+- Revenue growth of nearly 40% is strong and not moderate.  
+- PAT declined by nearly 17%, indicating moderation or deterioration in profitability.  
+
+Hence, the Chairman's letter describing "consolidation and moderation in growth" aligns with the PAT decline but understates the strong revenue growth. The moderation is accurate for profit but not for revenue.
+
+## Sources  
+Craftsman Auto.xlsx · profit_loss · FY23, FY24  
+Annual-Report-2023-24.pdf · Page 16 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  18.08s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q68 [Cross] [Medium]
+Question: In the FY23 Q2 concall, management claimed Aluminum segment margins were in line with Q1. The FY23 MD&A reports Aluminum segment EBIT margin for the full year. Is the full-year margin consistent with the in-call claim?
+Expected: FY23 MD&A reports Aluminum EBIT margin at 9% for full year. FY22 Aluminum EBIT margin was also approximately 9-10%. The full-year figure is broadly consistent with management's stability claim, though Q2 specifically showed value addition compression.
+Actual:   ## Summary  
+Yes, the full-year Aluminum segment EBIT margin reported in the FY23 MD&A is consistent with management’s claim in the FY23 Q2 concall that margins improved quarter-on-quarter and were in line with Q1.
+
+## Details  
+- From the FY23 Q2 concall transcript (craftsman_concall_23Q2.pdf, Page 5), management stated that Aluminum segment EBIT margins improved from 4% to 11.4% of sales by Q3 and that this improvement was not due to one-offs but due to better operating leverage. They implied Q2 margins were similar to Q1 margins, indicating a steady margin level in the first half of FY23.  
+- From the FY23 MD&A (Annual-Report_2023.pdf, Page 129), the Aluminum Products segment reported:  
+  - Revenue: ₹93,461 lakhs (₹934.61 Cr)  
+  - EBIT: ₹7,732 lakhs (₹77.32 Cr)  
+- Calculating the full-year EBIT margin for Aluminum Products segment:  
+  EBIT Margin = (EBIT / Revenue) × 100 = (7,732 / 93,461) × 100 ≈ 8.28%  
+
+- From the FY23 Q1 concall (craftsman_concall_23Q1.pdf, Page 17), management mentioned a 14% EBITDA margin for nine months, expecting Q4 to be better, which aligns with the EBIT margin being lower than EBITDA margin but showing improvement over the year.
+
+## Conclusion  
+- The full-year EBIT margin of approximately 8.3% is consistent with the Q2 concall claim that margins were improving and roughly in line with Q1, given the quarter-on-quarter margin improvement trend and operating leverage gains.  
+- The Q2 margin being close to Q1 and the full-year margin around 8.3% EBIT fits the narrative of gradual margin improvement without sudden one-offs.
+
+## Sources  
+craftsman_concall_23Q2.pdf · Page 5 · FY23  
+Annual-Report_2023.pdf · Page 129 · FY23  
+craftsman_concall_23Q1.pdf · Page 17 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  20.67s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q69 [Cross] [Medium]
+Question: The FY24 annual report donut chart shows Aluminum Products contributing 48% of consolidated revenue at ₹2,154 Cr. The MD&A shows standalone Aluminum at ₹917 Cr. Using Excel, verify the standalone Aluminum revenue figure.
+Expected: Implied DR Axion contribution = ₹2,154 − ₹917 = ₹1,237 Cr, consistent with Board's Report disclosure of DR Axion turnover of ₹1,246 Cr. The ₹9 Cr difference is intercompany elimination.
+Actual:   ## Summary  
+The standalone Aluminum Products revenue figure of ₹917 crore mentioned in the MD&A is not supported by the Excel data provided. The Excel profit & loss data does not explicitly break down standalone Aluminum revenue, so this figure cannot be verified from the Excel data.
+
+## Details  
+- The FY24 consolidated Aluminum Products revenue is ₹2,154 crore (Annual Report image data, Page 10 and 33).  
+- The MD&A states standalone Aluminum revenue as ₹917 crore (Annual Report narrative, implied but exact page not provided in context).  
+- The Excel profit & loss data for FY24 shows total sales of ₹4,451.73 crore but does not provide a segment-wise or standalone Aluminum revenue breakdown.  
+
+## Sources  
+Annual-Report-2023-24.pdf · Page 10, 33 · FY24  
+Craftsman Auto.xlsx · profit_loss · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images', 'craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  13.63s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q70 [Cross] [Hard]
+Question: Across all concall transcripts, management made multiple statements about CAPEX plans. Using Excel investing cash flows and balance sheet changes, quantify how much of the guided CAPEX was actually deployed each year.
+Expected: Concall guided FY23 CAPEX ₹225-275 Cr. Excel investing outflows show actual capex ~₹856 Cr — significantly exceeding guidance. Management underguided by ~3x, partly explained by the DR Axion acquisition (₹375 Cr) included in investing outflows.
+Actual:   ## Summary  
+Management guided CAPEX plans in the range of ₹200-250 crores for FY22 and FY23, increasing to around ₹480-500 crores for FY24, and about ₹750-800 crores for FY25 and FY26. Using the Excel cash flow data (investing cash flows), actual CAPEX deployed each year can be approximated by the absolute value of cash from investing activities (assuming primarily CAPEX outflows). Comparing these, actual CAPEX was lower than guided in FY22 and FY23, aligned or slightly lower in FY24, and significantly higher in FY25 and FY26.
+
+## Details  
+
+### Management CAPEX Guidance from Concall Transcripts  
+- FY22: Maintenance CAPEX ~₹100 crores; total CAPEX ~₹200-250 crores (Sources [14], [15], [16], [19])  
+- FY23: CAPEX guidance ~₹215-220 crores (Source [17])  
+- FY24: CAPEX guidance ~₹480-500 crores (Sources [11], [13], [21])  
+- FY25: CAPEX guidance ~₹750-800 crores (Sources [18], [22])  
+- FY26: CAPEX guidance ~₹800 crores (Source [22])  
+
+### Actual CAPEX (Investing Cash Flows from Excel)  
+Assuming investing cash flow outflows represent CAPEX (negative values):  
+- FY22: -₹209.01 crores (Source [6])  
+- FY23: -₹682.81 crores (Source [7])  
+- FY24: -₹625.37 crores (Source [8])  
+- FY25: -₹1,642.82 crores (Source [9])  
+- FY26: -₹1,313.16 crores (Source [10])  
+
+### Comparison  
+- FY22: Guided ~₹200-250 crores vs Actual ₹209.01 crores → Actual roughly in line with guidance  
+- FY23: Guided ~₹215-220 crores vs Actual ₹682.81 crores → Actual significantly higher than guidance  
+- FY24: Guided ~₹480-500 crores vs Actual ₹625.37 crores → Actual somewhat higher than guidance  
+- FY25: Guided ~₹750-800 crores vs Actual ₹1,642.82 crores → Actual more than double guidance  
+- FY26: Guided ~₹800 crores vs Actual ₹1,313.16 crores → Actual significantly higher than guidance  
+
+## Conclusion  
+Management’s CAPEX guidance was generally conservative for FY23 onwards, with actual CAPEX outflows exceeding guidance substantially in FY23, FY25, and FY26. FY22 actual CAPEX was close to guided levels, and FY24 actual CAPEX was moderately above guidance.
+
+## Sources  
+Craftsman Auto.xlsx · cash_flow · FY22  
+Craftsman Auto.xlsx · cash_flow · FY23  
+Craftsman Auto.xlsx · cash_flow · FY24  
+Craftsman Auto.xlsx · cash_flow · FY25  
+Craftsman Auto.xlsx · cash_flow · FY26  
+craftsman_concall_24Q1.pdf · Page 13 · FY24  
+craftsman_concall_23q4.pdf · Page 17, 20 · FY23  
+craftsman_concall_24Q4.pdf · Page 6 · FY24  
+craftsman_concall_25Q2.pdf · Page 5 · FY25  
+craftsman_concall_25Q3.pdf · Page 9 · FY26  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Pages 10, 20, 21 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  23.02s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q71 [Cross] [Hard]
+Question: The FY25 MD&A attributes RoNW collapse of 77% to one-time expenses for acquisitions. Using Excel, calculate RoNW for FY24 and FY25 independently and assess whether the one-time explanation is sufficient.
+Expected: FY25 PAT = ₹194.57 Cr, Networth = ₹2,856.74 Cr. RoNW FY25 = 6.8% vs FY24 ~13%. Management's one-time framing is partially misleading — the QIP equity dilution mechanically depressed RoNW regardless of one-time charges.
+Actual:   ## Summary
+Return on Net Worth (RoNW) declined from 22.3% in FY24 to 5.1% in FY25, a drop of approximately 77%. The sharp decline is consistent with the large one-time acquisition-related expenses reported in FY25, which significantly reduced net profit despite higher sales, supporting management’s explanation.
+
+## Details
+
+**Net Profit and Net Worth figures:**
+
+- **FY24:**
+  - Net Profit = ₹304.47 Cr (Craftsman Auto.xlsx · profit_loss · FY24)
+  - Net Worth = This figure is not explicitly provided in the retrieved context. However, RoNW for FY24 can be calculated if Net Worth is known.
+
+- **FY25:**
+  - Net Profit = ₹194.57 Cr (Craftsman Auto.xlsx · profit_loss · FY25)
+  - Net Worth = This figure is not explicitly provided in the retrieved context.
+
+Since Net Worth is not directly available, we use the RoNW values as stated or implied in the MD&A or calculate RoNW if Net Worth is available.
+
+**Calculation of RoNW:**
+
+RoNW = (Net Profit / Net Worth) × 100
+
+From the question, the RoNW collapse is 77%, so:
+
+RoNW_FY25 = RoNW_FY24 × (1 - 0.77) = RoNW_FY24 × 0.23
+
+Assuming RoNW_FY24 = 22.3% (implied from context or typical prior year data), then:
+
+RoNW_FY25 = 22.3% × 0.23 ≈ 5.1%
+
+**One-time expenses impact:**
+
+- From earnings call transcripts (craftsman_concall_25Q1.pdf and 25Q2.pdf), management confirmed significant one-time expenses related to acquisitions of DR Axion, Sunbeam, and Fronberg.
+- These one-time expenses increased "Other Expenses" in FY25, reducing profit before tax and net profit.
+- Despite sales increasing from ₹4451.73 Cr in FY24 to ₹5690.48 Cr in FY25, net profit declined from ₹304.47 Cr to ₹194.57 Cr, indicating profit compression due to these expenses.
+
+## Conclusion
+The RoNW decline from approximately 22.3% in FY24 to 5.1% in FY25 (a 77% drop) aligns with the large one-time acquisition-related expenses disclosed by management. This supports the explanation that the RoNW collapse is primarily due to these one-time costs rather than operational performance deterioration.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+craftsman_concall_25Q1.pdf · Page 8 · FY25  
+craftsman_concall_25Q2.pdf · Page 8 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  21.81s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q72 [Cross] [Hard]
+Question: Management guided debt reduction as a priority across multiple concall years. The FY25 MD&A shows Debt-Equity Ratio improving to 0.59x due to QIP. Using Excel borrowings data across all years, did debt actually reduce in absolute terms?
+Expected: Excel Borrowings: FY22 ₹799 Cr → FY23 ₹1,240 Cr → FY24 ₹1,754 Cr → FY25 ₹2,358 Cr → FY26 ₹3,623 Cr. Debt rose every single year in absolute terms. The FY25 D/E improvement is entirely driven by QIP equity raise, not debt reduction. Management's narrative is factually contradicted by Excel data.
+Actual:   ## Summary  
+Despite management’s guidance on debt reduction as a priority, the absolute borrowings (debt) increased consistently over the years according to the Excel data, rising from ₹777.03 Cr in FY2017 to ₹3,623.48 Cr in FY2026. Therefore, debt did not reduce in absolute terms during this period.
+
+## Details  
+Borrowings (₹ Cr) from Excel balance sheet data:  
+- FY2017: 777.03  
+- FY2018: 846.69  
+- FY2019: 985.26  
+- FY2020: 1058.43  
+- FY2021: 805.98 (a dip here)  
+- FY2022: 799.55 (slight dip continues)  
+- FY2023: 1240.23 (sharp increase)  
+- FY2024: 1754.82  
+- FY2025: 2358.18  
+- FY2026: 3623.48  
+
+The borrowings show a general upward trend with only minor decreases in FY2021 and FY2022, but from FY2023 onwards, borrowings increased sharply and substantially.
+
+## Sources  
+Craftsman Auto.xlsx · balance_sheet · FY2017 to FY2026  
+craftsman_concall_25Q1.pdf · FY25  
+craftsman_concall_25Q2.pdf · FY25  
+craftsman_concall_25Q4.pdf · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  15.26s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q73 [Cross] [Hard]
+Question: The FY24 KPI page bar chart shows Debt-EBITDA rising for two consecutive years to 1.72x in FY24. Using Excel, extend this calculation to FY25 and FY26. Does the trend accelerate, stabilise, or reverse?
+Expected: Excel FY25: Borrowings ₹2,358 Cr, EBITDA ₹833 Cr → D/EBITDA = 2.83x. The trend shown in the FY24 chart dramatically accelerates in FY25 — a fact not visible in the annual report image which only shows through FY24.
+Actual:   ## Summary
+Using Excel balance sheet data for FY25 and FY26 combined with EBITDA figures from the Annual Report, the Debt-EBITDA ratio rises from 1.72x in FY24 to approximately 3.65x in FY25 and further to about 5.07x in FY26, indicating the trend is accelerating sharply.
+
+## Details
+
+- Debt-EBITDA ratio for FY24 is given as 1.72x (Annual-Report-2023-24.pdf · Page 23 · FY24).
+- Debt is proxied by Borrowings from Excel data.
+- EBITDA for FY24 is taken as ₹897 crore (Annual-Report-2023-24.pdf · Page 18 · FY24).
+- EBITDA for FY25 and FY26 is not explicitly provided in the context, so this figure is not available.
+- However, since EBITDA for FY25 and FY26 is not available, we cannot calculate exact Debt-EBITDA for those years.
+- But the question asks to extend the calculation using Excel data, so we use Borrowings from Excel and EBITDA from Annual Report for FY24 only.
+- Since EBITDA for FY25 and FY26 is missing, the calculation cannot be completed fully.
+
+**Borrowings:**
+
+- FY24 Borrowings = ₹1,754.82 Cr (Craftsman Auto.xlsx · balance_sheet · FY24)
+- FY25 Borrowings = ₹2,358.18 Cr (Craftsman Auto.xlsx · balance_sheet · FY25)
+- FY26 Borrowings = ₹3,623.48 Cr (Craftsman Auto.xlsx · balance_sheet · FY26)
+
+**EBITDA:**
+
+- FY24 EBITDA = ₹897 Cr (Annual-Report-2023-24.pdf · Page 18 · FY24)
+- FY25 EBITDA = Not available
+- FY26 EBITDA = Not available
+
+## Calculation
+
+Since EBITDA for FY25 and FY26 is not available, we cannot calculate exact Debt-EBITDA ratios for those years. However, if we assume EBITDA remains constant at FY24 levels (₹897 Cr) for illustration only (not allowed per rules), the ratios would be:
+
+- FY25 Debt-EBITDA = Borrowings FY25 / EBITDA FY24 = 2358.18 / 897 ≈ 2.63x
+- FY26 Debt-EBITDA = Borrowings FY26 / EBITDA FY24 = 3623.48 / 897 ≈ 4.04x
+
+But this is an assumption and not allowed as per rules.
+
+Therefore, **this figure is not available in the retrieved context**.
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY24  
+Craftsman Auto.xlsx · balance_sheet · FY25  
+Craftsman Auto.xlsx · balance_sheet · FY26  
+Annual-Report-2023-24.pdf · Page 18 · FY24  
+Annual-Report-2023-24.pdf · Page 23 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  20.31s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q74 [Cross] [Hard]
+Question: The FY23 auditor's report identifies derivative contracts as a KAM with assets of ₹936 Lakhs and liabilities of ₹375 Lakhs. In the FY23 Q2 concall, management discussed aluminum price risk. Are these derivative positions consistent with the hedging strategy described?
+Expected: Auditor's KAM shows net derivative asset of ₹561 Lakhs — a modest position vs ₹196 Cr quarterly aluminum revenue. The derivatives appear to be forex hedges rather than commodity hedges, meaning aluminum price risk was genuinely unhedged as management implied in the concall.
+Actual:   ## Summary  
+The FY23 auditor's report identifies derivative contracts as a Key Audit Matter (KAM) related to hedging foreign exchange and interest rate risks, with derivative assets of ₹936 Lakhs and liabilities of ₹375 Lakhs. Management’s FY23 Q2 concall discussion on aluminum price risk does not align with these derivative positions, as the derivatives are used for currency and interest rate hedging, not commodity (aluminum price) risk.
+
+## Details  
+
+- **Auditor's report (FY23)**:  
+  - Derivative assets: ₹936 Lakhs  
+  - Derivative liabilities: ₹375 Lakhs  
+  - Derivatives are used to hedge foreign currency and interest rate risks arising from borrowings denominated in INR and foreign currency with fixed and floating rates.  
+  - These hedges are designated as cash flow or fair value hedges under Ind AS 109 (Annual-Report_2023.pdf · pages 63, 98 · FY23).
+
+- **Management commentary (FY23 Q2 concall)**:  
+  - Management discussed aluminum price risk and margin impact due to aluminum price fluctuations (craftsman_concall_23Q1.pdf · page 3 · FY23 and craftsman_concall_23Q2.pdf · page 12 · FY23).  
+  - No mention of derivative instruments used to hedge aluminum price risk.  
+  - The derivatives referenced in the auditor’s report relate to currency and interest rate risk mitigation, not commodity price risk.
+
+## Conclusion  
+The derivative positions reported in the FY23 auditor’s report are consistent with the company’s stated hedging strategy for foreign exchange and interest rate risks, but they do not cover aluminum price risk discussed by management. Therefore, the derivatives are not consistent with hedging aluminum price risk but are consistent with the stated currency and interest rate risk management policy.
+
+## Sources  
+Annual-Report_2023.pdf · pages 63, 98 · FY23  
+craftsman_concall_23Q1.pdf · page 3 · FY23  
+craftsman_concall_23Q2.pdf · page 12 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  20.12s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q75 [Cross] [Hard]
+Question: Management stated in multiple concalls that the Automotive Powertrain segment is the core earnings driver. Using Excel and the FY24 MD&A segment EBIT data, calculate what percentage of total company EBIT came from Powertrain in FY22 and FY24.
+Expected: FY22: Powertrain EBIT ~₹333 Cr representing nearly 100% of total EBIT as other segments were near breakeven. FY24: Powertrain EBIT contribution declining as Aluminum (DR Axion) grew. The segment's EBIT dominance is clearly declining — management's concall narrative of Powertrain as core is becoming less numerically accurate.
+Actual:   ## Summary
+The Powertrain segment contributed approximately 44.0% of total company EBIT in FY22 and approximately 44.0% in FY24, indicating a consistent share of total EBIT from this core segment in both years.
+
+## Details
+From the Annual Report 2023-24 (FY24) segment data (in Lakhs):
+
+- FY24 EBIT (Earnings Before Interest and Tax):
+  - Powertrain EBIT: ₹29,163 Lakhs
+  - Aluminium Products EBIT: ₹32,203 Lakhs
+  - Industrial & Engineering EBIT: ₹4,935 Lakhs
+  - Total Segment EBIT: ₹66,301 Lakhs
+  - Less: Unallocable Expenditure (not explicitly stated here, but EBIT after unallocable expenses and adding other income is given below)
+  - Add: Other Income (not explicitly stated here for EBIT calculation, so we use segment EBIT total as proxy)
+
+- FY24 Profit & Loss Excel data:
+  - EBITDA FY24: ₹728.61 Cr = ₹72,861 Lakhs
+  - Depreciation FY24: ₹27,769 Lakhs
+  - Interest FY24: ₹17,454 Lakhs
+  - Profit before tax FY24: ₹44,469 Lakhs
+
+Using EBIT = EBITDA - Depreciation (ignoring other income and unallocable expenses for this calculation):
+
+- EBIT FY24 (Excel) = ₹72,861 Lakhs - ₹27,769 Lakhs = ₹45,092 Lakhs (approximate company EBIT)
+
+From segment EBIT total (₹66,301 Lakhs) and company EBIT (₹45,092 Lakhs), the difference is due to unallocable expenses and other income.
+
+From Annual Report segment profit or loss note (Page 248), the EBIT after unallocable expenses and other income is:
+
+- EBIT (Earnings Before Interest and Tax) FY24 = ₹66,301 Lakhs (total segments) - Unallocable Expenditure + Other Income = ₹66,301 Lakhs - (Unallocable Expenditure) + (Other Income)
+
+Since exact unallocable expenditure and other income are not given explicitly here, we use the segment EBIT total as the denominator for percentage calculation, as this is the clearest consistent figure.
+
+Similarly, for FY22, the Excel data shows:
+
+- EBITDA FY22: ₹502.72 Cr = ₹50,272 Lakhs
+- Depreciation FY22: ₹20,599 Lakhs
+- EBIT FY22 = ₹50,272 Lakhs - ₹20,599 Lakhs = ₹29,673 Lakhs (approximate company EBIT)
+
+The segment EBIT for FY22 is not explicitly given in the retrieved context, so we cannot get Powertrain EBIT for FY22 from segment data.
+
+However, from the Annual Report FY24 segment revenue data (Page 182), the Powertrain segment revenue for FY22 is ₹917.46 Cr (₹91,746 Lakhs), but EBIT is not provided.
+
+Therefore, for FY22, exact Powertrain EBIT is not available in the retrieved context.
+
+## Calculation
+
+### FY24 Powertrain EBIT % of total segment EBIT
+
+- Powertrain EBIT = ₹29,163 Lakhs
+- Total segment EBIT = ₹66,301 Lakhs
+
+Percentage = (Powertrain EBIT / Total segment EBIT) × 100  
+= (29,163 / 66,301) × 100  
+= 43.98% ≈ 44.0%
+
+### FY22 Powertrain EBIT % of total company EBIT
+
+- Powertrain EBIT for FY22 is not available in the retrieved context.
+- Total company EBIT FY22 (approximate) = EBITDA - Depreciation = ₹50,272 Lakhs - ₹20,599 Lakhs = ₹29,673 Lakhs
+
+Since Powertrain EBIT for FY22 is not available, the percentage cannot be calculated.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY22  
+Craftsman Auto.xlsx · profit_loss · FY24  
+Annual-Report-2023-24.pdf · Page 248 · FY24  
+Annual-Report-2023-24.pdf · Page 182 · FY24
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  26.8s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q76 [Cross] [Hard]
+Question: The FY25 Directors' Report discloses loans and advances to related parties jumped from 0% to 100% per BRSR data. Using Excel balance sheet data, assess whether this represents a material fund flow to subsidiaries.
+Expected: The 0% to 100% RPT concentration shift combined with three acquisitions in FY25 (DR Axion, Sunbeam, Craftsman Germany) suggests the intercompany loans are acquisition-related funding. Absolute quantum from Excel determines materiality under IND AS 24.
+Actual:   ## Summary
+Based on the Excel balance sheet data from FY24 and FY25, there is no explicit line item or figure indicating loans and advances to related parties or subsidiaries. Therefore, it is not possible to confirm from the Excel data alone whether there was a material fund flow to subsidiaries corresponding to the 0% to 100% jump in loans and advances to related parties disclosed in the FY25 Directors' Report per BRSR data.
+
+## Details
+- The Excel balance sheets for FY24 and FY25 provide figures for Equity Share Capital, Reserves, Borrowings, Other Liabilities, Net Block, Capital Work in Progress, Investments, Other Assets, Receivables, Inventory, Cash & Bank, and Networth.
+- None of these line items explicitly represent loans and advances to related parties or subsidiaries.
+- There is no separate disclosure or breakdown of related party loans or advances in the Excel balance sheet data.
+- The jump from 0% to 100% in loans and advances to related parties mentioned in the Directors' Report (BRSR data) is not reflected or quantifiable from the Excel balance sheet figures provided.
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY24  
+Craftsman Auto.xlsx · balance_sheet · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  18.17s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q77 [Cross] [Hard]
+Question: Across all available sources — Excel, concalls, annual report visuals, and MD&A ratios — construct a complete picture of Craftsman's debt trajectory from FY22 to FY26. Did management's stated commitment to deleveraging materialise?
+Expected: Concall guidance: multiple commitments to ₹100 Cr debt reduction. PDF visuals: FY22 KPI chart shows D/EBITDA at 1.33x — lowest in 5 years. MD&A FY25: D/E improved to 0.59x via QIP. Excel raw data: Borrowings FY22 ₹799 Cr → FY26 ₹3,623 Cr — a 353% absolute increase. Every narrative source suggests deleveraging intent but Excel shows continuous accelerating debt accumulation. The ratio improvement in FY25 is entirely a QIP artifact.
+Actual:   ## Summary  
+Craftsman Automation's debt increased significantly from FY22 to FY26, rising from ₹799.55 Cr in FY22 to ₹3,623.48 Cr in FY26 according to Excel balance sheet data. Despite management's stated plans to reduce debt by ₹50-100 Cr annually around FY22 and FY23, the actual debt trajectory shows a sharp increase, indicating that the commitment to deleveraging did not materialize.
+
+## Details  
+- **Debt figures from Excel balance sheets (Borrowings):**  
+  - FY22: ₹799.55 Cr  
+  - FY23: ₹1,240.23 Cr  
+  - FY24: ₹1,754.82 Cr  
+  - FY25: ₹2,358.18 Cr  
+  - FY26: ₹3,623.48 Cr  
+
+- **Management commentary on debt reduction (Earnings call transcripts):**  
+  - FY22 (Feb 2022): Management expected debt reduction of ₹50-80 Cr compared to previous year. (Source: CraftsmanAutomationAudioTranscript2022_Feb.pdf)  
+  - FY23 (May 2022): Management expected debt to reduce by around ₹100 Cr, with long-term debt coming down from ₹546 Cr to ₹522 Cr and working capital loan expected not to increase further. (Source: CraftsmanAutomationAudioTranscript2022_May.pdf)  
+  - Actual long-term debt and working capital loan figures for FY22 from transcript: Long-term debt reduced from ₹546 Cr to ₹522 Cr, working capital increased from ₹150 Cr to ₹193 Cr. Total debt as of March 2022 was ₹713 Cr (likely short-term + long-term).  
+
+- **Debt-Equity and Debt Ratios (Annual report ratios FY22):**  
+  - Debt-Equity Ratio FY22: 0.72 (Annual Report 2021-22)  
+  - Debt/EBITDA FY22: 1.43 (Annual Report 2021-22)  
+
+- **Net worth and Reserves growth (Excel data):**  
+  - Net worth increased from ₹1,135.74 Cr in FY22 to ₹3,264.06 Cr in FY26, indicating equity growth alongside debt increase.  
+
+## Analysis  
+- Management planned modest debt reduction in FY22 and FY23, expecting ₹50-100 Cr reduction annually.  
+- Actual debt increased sharply year-on-year from ₹799.55 Cr in FY22 to ₹3,623.48 Cr in FY26, more than quadrupling over four years.  
+- While long-term debt showed some reduction in FY22 per management, working capital borrowings increased, and overall borrowings rose substantially in subsequent years.  
+- The large increase in borrowings contrasts with management's stated deleveraging intent, indicating that the commitment to reduce debt was not realized.  
+- The increase in net worth suggests equity infusion or retained earnings growth, but this did not offset the sharp rise in borrowings.  
+
+## Conclusion  
+Despite management's stated commitment to deleveraging around FY22 and FY23, Craftsman Automation's total borrowings increased significantly from ₹799.55 Cr in FY22 to ₹3,623.48 Cr in FY26. Therefore, the deleveraging commitment did not materialize, and the company’s debt trajectory shows a clear increase in leverage over this period.
+
+## Sources  
+Craftsman Auto.xlsx · balance_sheet · FY22 to FY26  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 15 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 93, 125 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_images']
+Citation: ✅
+Latency:  23.78s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q78 [Excel] [Easy]
+Question: What was the Net Profit reported by the company in FY26?
+Expected: Net Profit in FY26 was ₹383.99 Cr — a strong rebound from ₹194.57 Cr in FY25 and the highest net profit in the 10-year dataset.
+Actual:   ## Summary
+The Net Profit reported by Craftsman Automation Ltd in FY26 was ₹383.99 crore.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2026
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  10.47s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q79 [Excel] [Hard]
+Question: Compare the change in receivables and inventory from FY25 to FY26, and explain what it suggests about working capital pressure.
+Expected: Receivables rose from ₹920.59 Cr to ₹1110.54 Cr, and inventory rose from ₹1332.05 Cr to ₹1745.41 Cr. This indicates higher working capital pressure in FY26.
+Actual:   ## Summary
+From FY25 to FY26, receivables increased from ₹920.59 Cr to ₹1110.54 Cr (an increase of ₹189.95 Cr), and inventory increased from ₹1332.05 Cr to ₹1745.41 Cr (an increase of ₹413.36 Cr). The larger increase in inventory relative to receivables suggests rising working capital pressure, primarily due to higher inventory buildup.
+
+## Details
+- Receivables:
+  - FY25: ₹920.59 Cr
+  - FY26: ₹1110.54 Cr
+  - Increase: ₹1110.54 Cr - ₹920.59 Cr = ₹189.95 Cr
+
+- Inventory:
+  - FY25: ₹1332.05 Cr
+  - FY26: ₹1745.41 Cr
+  - Increase: ₹1745.41 Cr - ₹1332.05 Cr = ₹413.36 Cr
+
+The inventory increase is more than double the increase in receivables, indicating that the company is holding significantly more stock relative to the increase in sales on credit.
+
+## Interpretation
+The disproportionate rise in inventory compared to receivables suggests that the company is experiencing working capital pressure, likely due to slower inventory turnover or stocking up in anticipation of demand. This can tie up cash and increase financing needs, as more funds are locked in inventory rather than being converted into cash through sales.
+
+## Sources
+Craftsman Auto.xlsx · balance_sheet · FY25  
+Craftsman Auto.xlsx · balance_sheet · FY26
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  16.58s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q80 [Excel] [Medium]
+Question: What were the Sales and Net Profit figures in FY25, and what was the net profit margin for that year?
+Expected: FY25 Sales were ₹5690.48 Cr and Net Profit was ₹194.57 Cr, giving a net profit margin of about 3.42%.
+Actual:   ## Summary
+In FY25, the Sales were ₹5690.48 million, the Net Profit was ₹194.57 million, and the Net Profit Margin was 3.42%.
+
+## Details
+- Sales (FY25): ₹5690.48 million  
+- Net Profit (FY25): ₹194.57 million
+
+## Calculation
+Net Profit Margin = (Net Profit / Sales) * 100  
+= (194.57 / 5690.48) * 100  
+= 3.42
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2025
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  10.09s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q81 [Excel] [Hard]
+Question: In FY25, sales rose sharply but profit before tax fell versus FY24. Identify the major P&L drivers behind the decline in profitability.
+Expected: The main drivers were operating margin compression, higher interest expense, near-zero other income, and higher depreciation. These factors offset the revenue growth and caused PBT to fall.
+Actual:   ## Summary
+In FY25, despite a sharp increase in sales from ₹4451.73 Cr in FY24 to ₹5690.48 Cr, profit before tax (PBT) declined from ₹444.69 Cr to ₹269.65 Cr. The major drivers behind this decline were a significant rise in raw material costs, higher employee costs, increased selling and administrative expenses, and a sharp increase in interest expense, which together outweighed the sales growth.
+
+## Details
+
+- **Sales** increased by ₹1238.75 Cr (from ₹4451.73 Cr in FY24 to ₹5690.48 Cr in FY25).
+- **Raw Material Cost** rose from ₹2521.53 Cr to ₹3296.73 Cr, an increase of ₹775.20 Cr.
+- **Change in Inventory** increased from ₹150.22 Cr to ₹194.66 Cr (an increase of ₹44.44 Cr).
+- **Power and Fuel** increased from ₹262.51 Cr (FY24) to ₹367.57 Cr (FY25), an increase of ₹105.06 Cr.
+- **Other Manufacturing Expenses** rose from ₹489.04 Cr to ₹676.95 Cr, an increase of ₹187.91 Cr.
+- **Employee Cost** increased significantly from ₹288.74 Cr to ₹436.67 Cr, an increase of ₹147.93 Cr.
+- **Selling and Administrative Expenses** rose from ₹155.66 Cr to ₹255.23 Cr, an increase of ₹99.57 Cr.
+- **Other Expenses** increased from ₹5.64 Cr to ₹18.98 Cr, an increase of ₹13.34 Cr.
+- **Depreciation** increased from ₹277.69 Cr to ₹347.02 Cr, an increase of ₹69.33 Cr.
+- **Interest Expense** rose sharply from ₹174.54 Cr to ₹216.64 Cr, an increase of ₹42.10 Cr.
+- **Other Income** dropped from ₹18.09 Cr to ₹0.30 Cr, a decrease of ₹17.79 Cr.
+- **Profit before tax** fell from ₹444.69 Cr to ₹269.65 Cr, a decline of ₹175.04 Cr.
+
+## Analysis of Major Drivers
+
+- The **raw material cost** increase of ₹775.20 Cr is the largest expense increase, reflecting higher input costs or volume.
+- **Employee cost** and **selling & admin expenses** together increased by ₹247.50 Cr, indicating higher operational costs.
+- **Interest expense** increased by ₹42.10 Cr, adding to financial burden.
+- **Other manufacturing expenses** and **power & fuel** also increased substantially, adding ₹292.97 Cr combined.
+- The **drop in other income** by ₹17.79 Cr reduced offsetting income.
+- Despite higher sales, these cost increases and lower other income led to a significant reduction in profitability.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+Annual-Report-2025.pdf · Page/Sheet: 185, 186, 220 · FY25
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  18.68s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q82 [Excel] [Medium]
+Question: Calculate Debtor Days for FY23 and FY26 using Receivables / Sales × 365, and compare the change in receivable efficiency.
+Expected: FY23 Debtor Days were about 61.4 days, while FY26 Debtor Days were about 50.2 days. This indicates improved receivable collection efficiency.
+Actual:   ## Summary
+Debtor Days for FY23 is 61.39 days and for FY26 is 50.23 days, indicating an improvement in receivable efficiency as the company collects its receivables faster in FY26 compared to FY23.
+
+## Details
+- FY23 Receivables = ₹535.29 crore, Sales = ₹3182.6 crore  
+- FY26 Receivables = ₹1110.54 crore, Sales = ₹8069.27 crore  
+- Debtor Days FY23 = 61.39 days  
+- Debtor Days FY26 = 50.23 days  
+
+## Calculation
+Formula:  
+Debtor Days = (Receivables / Sales) × 365
+
+For FY23:  
+= (535.29 / 3182.6) × 365  
+= 0.1681 × 365  
+= 61.39 days (as given)
+
+For FY26:  
+= (1110.54 / 8069.27) × 365  
+= 0.1377 × 365  
+= 50.23 days (as given)
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2026
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ✅
+Latency:  11.44s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q83 [PDF] [Easy]
+Question: What was the company’s highest ever standalone sales reported in FY22?
+Expected: The highest ever standalone sales reported by the company in FY22 was ₹2,217.02 crore.
+Actual:   ## Summary
+The company’s highest ever standalone sales reported in FY22 were ₹2,217.02 crore.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · 2022
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  7.71s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q84 [PDF] [Easy]
+Question: How much did the company’s highest ever PAT increase to in FY22?
+Expected: The company’s highest ever Profit After Tax (PAT) increased to ₹163.09 crore in FY22.
+Actual:   ## Summary
+The company’s highest ever Profit After Tax (PAT) increased to ₹163.09 crore in FY22.
+
+## Details
+- PAT in FY22: ₹163.09 crore (highest recorded up to that year)
+- Previous years’ PAT for comparison:
+  - FY21: ₹97.36 crore
+  - FY20: ₹40.01 crore
+  - FY19: ₹97.37 crore
+
+This shows a significant increase in PAT in FY22 compared to prior years.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2022
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  11.25s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q85 [PDF] [Medium]
+Question: What was the EBITDA margin in FY22, and how did it change versus FY21?
+Expected: The EBITDA margin in FY22 was 22.68%, compared with 27.69% in FY21, so it decreased by 5.01 percentage points.
+Actual:   ## Summary
+The EBITDA margin in FY22 was 22.68%, which decreased from 27.69% in FY21.
+
+## Details
+- FY22 EBITDA margin: 22.68% (EBITDA = ₹502.72, Sales = ₹2217.02)
+- FY21 EBITDA margin: 27.69% (EBITDA = ₹432.02, Sales = ₹1559.95)
+
+## Calculation
+Using the formula EBITDA margin = (EBITDA / Sales) * 100:
+
+- FY22: (502.72 / 2217.02) * 100 = 22.68%
+- FY21: (432.02 / 1559.95) * 100 = 27.69%
+
+Change in EBITDA margin = 22.68% - 27.69% = -5.01 percentage points
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2021
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  8.01s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q86 [PDF] [Medium]
+Question: What was the debt-to-equity ratio in FY22, and how did it compare with FY21?
+Expected: The debt-to-equity ratio in FY22 was 0.70, compared with 0.83 in FY21, indicating lower leverage in FY22.
+Actual:   ## Summary
+The debt-to-equity ratio (borrowings to net worth) in FY22 was 0.7, which decreased from 0.83 in FY21, indicating a reduction in leverage.
+
+## Details
+- FY22 Borrowings: ₹799.55 million  
+- FY22 Networth: ₹1135.74 million  
+- FY21 Borrowings: ₹805.98 million  
+- FY21 Networth: ₹969.43 million  
+
+## Calculation
+Debt-to-equity ratio = Borrowings / Networth
+
+- FY22: 799.55 / 1135.74 = 0.7  
+- FY21: 805.98 / 969.43 = 0.83  
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2021
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  7.57s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q87 [PDF] [Easy]
+Question: The FY22 transcript says storage solutions revenue jumped from ₹104 crore in FY21 to ₹253 crore in FY22. What does this imply about the growth stage of the business?
+Expected: It indicates the storage solutions business was in a strong growth phase, with rapid scale-up from a smaller base and expanding market acceptance.
+Actual:   ## Summary  
+The increase in storage solutions revenue from ₹104 crore in FY21 to ₹253 crore in FY22 implies that the storage solutions business is in a rapid growth stage, showing strong momentum and significant scaling within a short period.
+
+## Growth  
+- Revenue grew from ₹104 crore in FY21 to ₹188 crore in the first 9 months of FY22, and finally to ₹253 crore for the full FY22 (Sources: CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 11; CraftsmanAutomationAudioTranscript2022_May.pdf · Page 15).  
+- Management highlighted that despite being a late entrant, the company is quickly closing in on becoming the number two player in the storage solutions market, which is dominated by a leader with three decades of presence (Source: CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 12).  
+- The company’s order book for storage solutions was close to ₹150 crore as of early FY22, indicating a strong pipeline (Source: CraftsmanAutomationAudioTranscript2022_May.pdf · Page 11).  
+- Management expects continued growth and margin improvement in this segment, reflecting confidence in scaling the business further (Sources: CraftsmanAutomationAudioTranscript2022_May.pdf · Page 11; CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 12).
+
+## Conclusion  
+The sharp revenue increase and management commentary indicate that the storage solutions business is transitioning from a nascent phase to a high-growth phase, rapidly expanding market share and scaling operations. This positions the segment as a key growth driver for the company going forward.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Pages 11-12 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Pages 11, 15 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  16.48s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q88 [PDF] [Medium]
+Question: The key financial ratios table in the FY22 transcript shows EBITDA margin fell from 29% to 24% and debt-to-equity improved from 0.72x to 0.63x. What does this divergence indicate about leverage versus operating profitability?
+Expected: It shows leverage improved because debt-to-equity fell, but operating profitability weakened because EBITDA margin declined. The balance sheet strengthened while margins compressed due to commodity inflation and pass-through timing.
+Actual:   ## Summary
+The divergence indicates that while the company’s operating profitability (EBITDA margin) declined from 29% to 24%, its leverage (debt-to-equity ratio) improved from 0.72x to 0.63x, meaning the company reduced its relative debt burden despite lower profitability.
+
+## Details
+- EBITDA margin fell from 29% to 24%, showing a decrease in operating profitability.
+- Debt-to-equity ratio improved from 0.72x to 0.63x, indicating reduced leverage.
+- Using the FY22 balance sheet data: Borrowings = 799.55, Networth = 1135.74, debt-to-equity ratio = 799.55 / 1135.74 = 0.70x (close to reported 0.72x).
+
+## Conclusion
+The company managed to lower its leverage by reducing debt or increasing equity, even though its operating profitability declined. This suggests a focus on strengthening the balance sheet despite margin pressures.
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  8.62s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q89 [PDF] [Medium]
+Question: The FY22 transcript says auto aluminium capacity utilization was about 57%, while EBITDA margin was still around 15%. What does this suggest about operating leverage in the segment?
+Expected: It suggests operating leverage was still limited. Even with moderate utilization, margins remained constrained because the segment was affected by commodity price pass-through lag and lower contribution from the two-wheeler mix.
+Actual:   ## Summary  
+The FY22 data shows that despite auto aluminium capacity utilization being only about 57%, the EBITDA margin remained around 15%, indicating significant operating leverage in the segment.
+
+## Details  
+- Auto aluminium capacity utilization: ~57% (from FY22 transcript)  
+- EBITDA margin: ~15% (from FY22 transcript and calculation)  
+- EBITDA (FY22): ₹502.72 million  
+- Sales (FY22): ₹2217.02 million  
+
+## Calculation  
+EBITDA margin = (EBITDA / Sales) * 100  
+= (502.72 / 2217.02) * 100  
+= 22.68% (calculated from provided values)  
+
+Note: The transcript states EBITDA margin was "around 15%", which may refer specifically to the auto aluminium segment, while the overall company EBITDA margin calculated here is 22.68%. The key point is that even at 57% capacity utilization, the segment maintains a healthy EBITDA margin.
+
+## Interpretation  
+Operating leverage refers to the extent to which fixed costs impact profitability. The fact that the segment achieves a relatively high EBITDA margin at just 57% capacity utilization suggests that fixed costs are spread over lower volumes without a proportionate drop in profitability, demonstrating strong operating leverage. This means that as capacity utilization increases, profitability is likely to improve significantly due to fixed cost absorption.
+
+## Sources  
+Craftsman Auto.xlsx · calculation · 2022  
+Craftsman Auto.xlsx · profit_loss · FY2022
+Routing:  ❌ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel']
+Citation: ❌
+Latency:  8.91s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q90 [PDF] [Hard]
+Question: The FY22 transcript notes the powertrain mix was roughly 54% CV, 18% farm, 20% off-highway, and 8% passenger vehicles. What concentration risk does this reveal for the segment?
+Expected: This reveals concentration in commercial vehicles and cyclical industrial-linked demand, with relatively low passenger vehicle exposure. The segment is vulnerable to swings in CV, farm, and off-highway demand rather than being evenly diversified.
+Actual:   ## Summary  
+The powertrain segment's revenue mix in FY22 shows a high concentration risk in the Commercial Vehicles (CV) sector, which accounts for 54% of the segment. This indicates that over half of the segment's business depends on the CV industry, making it vulnerable to downturns or cyclicality in that sector.
+
+## Details  
+- Commercial Vehicles (CV): 54%  
+- Farm sector: 18%  
+- Off-highway equipment: 20%  
+- Passenger Vehicles (PV): 8%  
+
+This mix was explicitly stated by management in the FY22 earnings call transcript (CraftsmanAutomationAudioTranscript2022_May.pdf · Page 13).
+
+## Analysis of Concentration Risk  
+- The majority share (54%) in CV means the segment is heavily reliant on the commercial vehicle industry’s performance. Any slowdown, regulatory change, or demand shock in CVs will disproportionately impact the powertrain segment’s revenue and profitability.  
+- The farm sector and off-highway together contribute 38%, which adds some diversification but these sectors are also cyclical and dependent on external factors like monsoon and inventory levels (as noted by management).  
+- Passenger vehicles form only 8%, indicating limited exposure to this potentially growing segment, which could be a missed diversification opportunity or a risk if CV demand weakens.  
+
+Thus, the segment’s revenue is significantly concentrated in CVs, exposing it to sector-specific cyclicality and market risks.
+
+## Sources  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 13 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 30 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  17.09s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q91 [Cross] [Easy]
+Question: The FY22 annual report shows highest ever standalone sales of ₹2,217.02 crore, while the Q2 FY23 concall says H1 sales were ₹1,447 crore. What does this tell you about the scale of the business in the first half of FY23 versus FY22 full year?
+Expected: It shows the business had already achieved about 65% of FY22 full-year standalone sales in just H1 FY23, indicating strong scaling and a faster run rate.
+Actual:   ## Summary  
+The standalone sales for the full year FY22 were ₹2,217.02 crore, while the H1 FY23 sales were ₹1,447 crore, indicating that the first half of FY23 achieved approximately 65.3% of the entire FY22 sales, suggesting a significant growth trajectory and a likely higher full-year sales in FY23 compared to FY22.
+
+## Details  
+- FY22 standalone sales: ₹2,217.02 crore (from Annual Report FY22)  
+- H1 FY23 sales: ₹1,447 crore (from Q2 FY23 concall transcript)  
+
+## Calculation  
+Percentage of FY22 full-year sales achieved in H1 FY23 = (H1 FY23 sales / FY22 full-year sales) × 100  
+= (₹1,447 crore / ₹2,217.02 crore) × 100  
+= 0.6529 × 100  
+= 65.3%  
+
+This means that in just the first half of FY23, the company has already achieved over 65% of the previous full year's sales, indicating strong growth momentum.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Note 2.1 Revenue from Operations · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Q2 FY23 Concall · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  21.67s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q92 [Cross] [Easy]
+Question: The FY22 annual report shows highest ever PAT of ₹163.09 crore, while the Q2 FY23 concall says H1 PAT was ₹116 crore. How close was H1 FY23 PAT to the full-year FY22 high?
+Expected: H1 FY23 PAT was about 71% of the full-year FY22 PAT, so the company had already earned a large portion of the previous year’s profit in just half a year.
+Actual:   ## Summary  
+The H1 FY23 PAT of ₹116 crore was approximately 71.1% of the full-year FY22 PAT of ₹163.09 crore, indicating that the company earned over two-thirds of the previous year's full PAT in just the first half of FY23.
+
+## Details  
+- FY22 full-year PAT: ₹163.09 crore (from Annual Report FY22)  
+- H1 FY23 PAT: ₹116 crore (from Q2 FY23 concall transcript)  
+
+## Calculation  
+Percentage of H1 FY23 PAT relative to FY22 full-year PAT = (H1 FY23 PAT / FY22 PAT) × 100  
+= (₹116 crore / ₹163.09 crore) × 100  
+= 0.711 × 100  
+= 71.1%
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 22 · FY22  
+CraftsmanAutomationAudioTranscript2023_Q2.pdf · Page 5 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  12.08s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q93 [Cross] [Medium]
+Question: The FY22 concall said storage solutions revenue was ₹253 crore for the year, and the Q2 FY23 concall said H1 FY23 storage solutions revenue was ₹199 crore. What does this imply about the pace of growth in storage solutions between FY22 and H1 FY23?
+Expected: It suggests storage solutions was growing rapidly, because H1 FY23 revenue had already reached most of the prior full-year FY22 revenue, pointing to a strong expansion trend.
+Actual:   ## Summary
+The storage solutions revenue was ₹253 crore in FY22 and ₹199 crore in H1 FY23, implying a strong growth pace. If the half-year revenue of ₹199 crore continues similarly in H2 FY23, the full year revenue for FY23 would be approximately ₹398 crore, representing a growth of about 57% over FY22.
+
+## Details
+- FY22 storage solutions revenue: ₹253 crore (Source: CraftsmanAutomationAudioTranscript2022_May.pdf · Page 9 · FY22)
+- H1 FY23 storage solutions revenue: ₹199 crore (Source: CraftsmanAutomationAudioTranscript2023_Q2.pdf, assumed from question context)
+- Management also mentioned expecting more than 50% growth in storage solutions revenue in FY23 compared to FY22 (Source: CraftsmanAutomationAudioTranscript2022_May.pdf · Page 9 · FY22)
+
+## Calculation
+Assuming H2 FY23 storage solutions revenue equals H1 FY23 revenue (₹199 crore), estimated FY23 revenue = 2 × ₹199 crore = ₹398 crore.
+
+Growth rate = [(₹398 crore - ₹253 crore) / ₹253 crore] × 100  
+= (₹145 crore / ₹253 crore) × 100  
+= 57.31%
+
+## Sources
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 9 · FY22  
+CraftsmanAutomationAudioTranscript2022_Feb.pdf · Page 11 · FY22
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  13.58s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q94 [Cross] [Hard]
+Question: The FY22 annual report says debt-to-equity improved to 0.63x, and the Q2 FY23 concall says it further improved to 0.58x. What does this trend say about balance-sheet leverage across the two periods?
+Expected: It indicates leverage kept improving, with the company relying less on debt relative to equity and showing a stronger balance sheet over time.
+Actual:   ## Summary  
+The debt-to-equity ratio improved from 0.63x in FY22 to 0.58x in Q2 FY23, indicating a reduction in balance-sheet leverage and a stronger equity base relative to debt over this period.
+
+## Details  
+- FY22 debt-to-equity ratio: 0.63x (7.-Annual-Report-2021-22.pdf · Page 93 · FY22)  
+- Q2 FY23 debt-to-equity ratio: 0.58x (CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY23 concall)  
+
+This decline in the ratio means the company has either reduced its debt, increased its equity, or both, leading to lower financial leverage.
+
+## Sources  
+7.-Annual-Report-2021-22.pdf · Page 93 · FY22  
+CraftsmanAutomationAudioTranscript2022_May.pdf · Page 10 · FY23 Concall
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  12.72s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q95 [Cross] [Hard]
+Question: The Q2 FY23 concall says auto powertrain H1 value addition was ₹232 crore, while the FY22 concall said the full-year auto powertrain value addition was ₹762 crore. What does this tell you about how much of the FY22 run rate had already been achieved by H1 FY23, and what concentration risk does that imply?
+Expected: The comparison suggests a strong run rate in H1 FY23, but it also raises concentration risk because performance is still heavily tied to the powertrain segment and its demand mix.
+Actual:   ## Summary  
+By H1 FY23, the auto powertrain segment had achieved a value addition of ₹232 crore, which is approximately 30.4% of the full-year FY22 value addition of ₹762 crore. This indicates that less than one-third of the previous full-year run rate was achieved in the first half of FY23, implying a significant concentration risk if the remaining half-year does not see a strong recovery or growth to meet or exceed the prior year’s performance.
+
+## Details  
+- H1 FY23 auto powertrain value addition: ₹232 crore (from Q2 FY23 concall)  
+- FY22 full-year auto powertrain value addition: ₹762 crore (from FY22 concall)  
+
+## Calculation  
+Percentage of FY22 full-year value addition achieved in H1 FY23 = (H1 FY23 value addition / FY22 full-year value addition) × 100  
+= (₹232 crore / ₹762 crore) × 100  
+= 30.44%  
+
+This means that only about 30.4% of the FY22 full-year value addition was achieved in the first half of FY23.
+
+## Implication on Concentration Risk  
+- Since only about 30% of the previous full-year value addition was achieved in H1 FY23, the auto powertrain segment’s performance is heavily dependent on the second half of FY23 to reach or surpass the prior year’s run rate.  
+- This concentration of value addition in the second half implies a risk if market conditions, demand, or operational factors do not improve as expected.  
+- The segment’s heavy reliance on the latter half of the year for revenue and value addition could expose the company to volatility and execution risk.  
+- Additionally, from the management commentary, the powertrain segment is dominated by heavy commercial vehicles and industrial engines, which are cyclical and sensitive to macroeconomic factors, further increasing concentration risk.
+
+## Sources  
+craftsman_concall_23Q2.pdf · Page 7 · FY23  
+craftsman_concall_22FY.pdf (implied from context, exact file not provided but referenced in question)
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  18.88s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q96 [Concall] [Easy]
+Question: What was the Q2 FY23 H1 PAT reported by management?
+Expected: H1 FY23 PAT was ₹116 crore.
+Actual:   ## Summary  
+The Q2 FY23 H1 PAT (Profit After Tax) reported by management is not explicitly stated in the retrieved context.
+
+## Sources  
+craftsman_concall_23Q1.pdf · Page 21 · FY23  
+craftsman_concall_23Q2.pdf · Pages 4, 10, 14, 20 · FY23  
+craftsman_concall_23Q3.pdf · Pages 8, 9, 13 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  11.21s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q97 [Concall] [Medium]
+Question: What was the H1 FY23 storage solutions revenue reported by management, and what did management say about automotive storage as a share of this business?
+Expected: H1 FY23 storage solutions revenue was ₹199 crore, and automotive storage was negligible.
+Actual:   ## Summary  
+Management reported H1 FY23 storage solutions revenue of Rs. 164 crores. They indicated that within the full year storage solutions revenue of Rs. 376 crores, automated storage accounted for Rs. 110 crores, implying a significant and growing share of the business.
+
+## Details  
+- H1 FY23 storage solutions revenue: Rs. 164 crores (craftsman_concall_23q4.pdf · Page 11)  
+- Full year FY23 storage solutions revenue: Rs. 376 crores (craftsman_concall_23Q2.pdf · Page 6)  
+- Automated storage revenue for full year FY23: Rs. 110 crores (craftsman_concall_23Q2.pdf · Page 6)  
+- Static storage revenue for full year FY23: Rs. 265 crores (craftsman_concall_23Q2.pdf · Page 6)  
+- Management noted a significant year-on-year change and increasing value orders in automated storage (craftsman_concall_23q4.pdf · Page 7)
+
+## Sources  
+craftsman_concall_23q4.pdf · Page 11 · FY23  
+craftsman_concall_23Q2.pdf · Page 6 · FY23  
+craftsman_concall_23q4.pdf · Page 7 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  11.37s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q98 [Concall] [Medium]
+Question: What was the company’s revised capex guidance for FY23, and why was it increased from the earlier estimate?
+Expected: FY23 capex guidance was revised to about ₹275 crore because of an additional unplanned aluminium order that required around ₹70 crore of extra capex.
+Actual:   ## Summary  
+The company’s revised capex guidance for FY23 was approximately INR 325-350 crores, increased from an earlier estimate of around INR 30-35 crores for Q4 alone, reflecting continued investment despite some delays in order inflows in Q1.
+
+## Details  
+- In Q1 FY23 concall, management estimated total FY24 capex at INR 325-350 crores, including maintenance and new investments (craftsman_concall_23Q1.pdf · Page 8).  
+- For Q4 FY23, management initially estimated capex in the region of INR 30-35 crores, noting some capex deliveries might shift between March and April (craftsman_concall_23Q1.pdf · Page 8).  
+- In Q3 FY23 concall, management explained that capex budget is usually spent by Q4, but due to a wait-and-watch approach and delayed order inflows in Q1, capex execution timing shifted. They confirmed that investment is continuing as planned, supporting the growth trajectory (craftsman_concall_23Q3.pdf · Page 7).  
+- In Q4 FY23 concall, management clarified that Rs. 150 crores of capex related to Phase-1 of a new Greenfield plant would be incurred in FY24, not FY25 as previously thought (craftsman_concall_23q4.pdf · Pages 17, 20).  
+
+The increase in capex guidance from the initial Q4 estimate to the full-year revised estimate reflects the resumption and continuation of investments after a slower start in Q1 due to delayed orders and a cautious market stance.
+
+## Sources  
+craftsman_concall_23Q1.pdf · Page 8 · FY23  
+craftsman_concall_23Q3.pdf · Page 7 · FY23  
+craftsman_concall_23q4.pdf · Pages 17, 20 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  15.23s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q99 [Concall] [Hard]
+Question: How did management explain the decline in aluminium margins in Q2 FY23 despite growth in revenue?
+Expected: Management said margins were hit by month-on-month drops in aluminium prices and by inventory effects, since the company carries 8 to 10 weeks of inventory and had to pass through lower prices to customers.
+Actual:   ## Summary  
+Management explained that the decline in aluminium margins in Q2 FY23 despite revenue growth was primarily due to insufficient scale and operating leverage, as well as fluctuations in raw material (aluminium) prices. The aluminium segment was still small in topline, and the margin was adversely affected by turnover reduction impacting value addition percentage.
+
+## Details  
+- For the nine-month period ending Q3 FY23, aluminium revenue was INR 543 crores with EBITDA of INR 76 crores, yielding a 14% EBITDA margin, expected to improve in Q4 (craftsman_concall_23Q1.pdf · Page 17 · FY23).  
+- Management stated that the aluminium segment is still small in topline, and a reduction in turnover or demand by INR 8 crores value addition adversely impacted the margin percentage (craftsman_concall_23Q1.pdf · Page 9 · FY23).  
+- The margin decline was not due to one-offs but linked to operating leverage and capacity utilization, which was improving but not yet sufficient (craftsman_concall_23Q2.pdf · Page 5 · FY23).  
+- Fluctuations in aluminium prices also contributed to margin pressure, but the main factor was the lack of scale and operating leverage (craftsman_concall_23Q1.pdf · Page 17 · FY23).  
+
+## Sources  
+craftsman_concall_23Q1.pdf · Pages 9, 17 · FY23  
+craftsman_concall_23Q2.pdf · Page 5 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text']
+Citation: ✅
+Latency:  12.3s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+Q100 [Concall] [Hard]
+Question: What was management’s explanation for the trend in debt and leverage during FY23, and what level of debt was mentioned?
+Expected: Management said debt was under control and expected to reduce by around ₹100 crore, with overall borrowings around ₹720 crore at that time.
+Actual:   ## Summary  
+Management explained in the FY23 earnings call that despite higher absolute debt due to acquisition-related borrowings and capex, the company expects a real reduction in debt by 15-20% compared to the previous year after adjusting for the acquisition payout. The net debt level mentioned was approximately INR 650 crores as of December end.
+
+## Details  
+- Management clarified that EBITDA for the nine months was INR 499 crores and expected better performance in Q4, implying improved cash flows.  
+- They stated that although absolute debt increased due to acquisition and capex, net debt (after adjusting for the DR Axion acquisition payout) would reduce by 15-20% compared to the previous year.  
+- In the Q1 FY23 concall, management mentioned gross debt was higher but net of cash, the debt was around INR 650 crores as of December end.  
+
+## Sources  
+craftsman_concall_23Q1.pdf · Page 13 · FY23  
+craftsman_concall_23Q1.pdf · Page 6 · FY23
+Routing:  ✅ | Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls']
+Citation: ✅
+Latency:  10.99s
+Correct:  [FILL MANUALLY: true/false]
+--------------------------------------------------------------------------------
+
+
+================================================================================
+AUTO-SCORED SUMMARY (Routing + Citation + Latency)
+================================================================================
+
+Routing Accuracy (Lenient): 92/100 = 92.0%
+Routing Accuracy (Strict):  41/100 = 41.0%
+Total Fallbacks Fired:      0
+Overall Citation Accuracy:  93/100 = 93.0%
+Average Latency:            14.87s
+
+Per Section:
+  Excel      Routing: 20/20 lenient (100%), 15/20 strict (75%) | Fallbacks: 0 | Citation: 20/20 (100%) | Avg Latency: 13.8s
+  Concall    Routing: 20/20 lenient (100%), 1/20 strict (5%) | Fallbacks: 0 | Citation: 20/20 (100%) | Avg Latency: 14.0s
+  PDF        Routing: 18/24 lenient (75%), 8/24 strict (33%) | Fallbacks: 0 | Citation: 18/24 (75%) | Avg Latency: 11.9s
+  Images     Routing: 15/16 lenient (94%), 3/16 strict (19%) | Fallbacks: 0 | Citation: 15/16 (94%) | Avg Latency: 17.7s
+  Cross      Routing: 19/20 lenient (95%), 14/20 strict (70%) | Fallbacks: 0 | Citation: 20/20 (100%) | Avg Latency: 18.1s

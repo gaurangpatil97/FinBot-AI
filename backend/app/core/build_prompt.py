@@ -1,5 +1,7 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
+
+import re
 
 def build_prompt(question: str, chunks: list[dict], mode: str = "rag") -> str:
     context = ""
@@ -7,6 +9,7 @@ def build_prompt(question: str, chunks: list[dict], mode: str = "rag") -> str:
         page = chunk["metadata"].get("page") or chunk["metadata"].get("sheet", "unknown")
         source = chunk["metadata"].get("filename", "unknown")
         if isinstance(source, str):
+            source = re.sub(r'(\.\w+)\1$', r'\1', source)
             if source.endswith("_excel"):
                 source = "Craftsman Auto.xlsx" if "craftsman" in source.lower() else "Financial Statements.xlsx"
             elif source.endswith("_pdf") or source.endswith("_pdf_text"):
@@ -36,8 +39,8 @@ State the formula used, followed by a step-by-step substitution showing the actu
 
 ## Sources
 List each citation on its own line. Format each citation cleanly as:
-<filename> ┬╖ <sheet-or-page> ┬╖ <year>
-(Example: Craftsman Auto.xlsx ┬╖ profit_loss ┬╖ FY23)
+<filename> · <sheet-or-page> · <year>
+(Example: Craftsman Auto.xlsx · profit_loss · FY23)
 Do NOT use raw log strings like 'Source: ... | Page/Sheet: ... | Year: ...'.
 
 Formatting Rules:
@@ -51,13 +54,13 @@ Use ONLY the context provided below to answer the question.
 
 Grounding Rules:
 - Only state facts, figures, and claims that are directly present in the retrieved context provided below.
-- If you are computing a ratio or deriving a value, explicitly show the formula and cite the exact source values from the context (e.g. "Using values from Q3FY25 Concall: Revenue = Γé╣X, EBITDA = Γé╣Y").
+- If you are computing a ratio or deriving a value, explicitly show the formula and cite the exact source values from the context (e.g. "Using values from Q3FY25 Concall: Revenue = ₹X, EBITDA = ₹Y").
 - If the retrieved context does not contain enough information to answer the question fully, explicitly say so rather than inferring or estimating.
 - Do not use prior knowledge or training data to fill in missing figures.
 
 {structure_instructions}
 
-Never guess ΓÇö only use numbers explicitly present in context.
+Never guess — only use numbers explicitly present in context.
 Do not convert ratios to percentages unless the formula explicitly multiplies by 100. Express ratios as decimals only.
 
 Context:
@@ -76,23 +79,23 @@ The context contains data from four sources:
 4. Earnings call transcripts (management commentary, analyst Q&A, forward guidance)
 
 Rules:
-- For questions about what management SAID, GUIDED, or COMMENTED ΓÇö use ONLY earnings call transcript sources
-- For precise financial figures ΓÇö prefer Excel data
-- For segment breakdowns and visual KPIs ΓÇö use image data
-- For strategy and narrative ΓÇö use PDF text
-- Never guess or approximate ΓÇö only use numbers explicitly present in context
+- For questions about what management SAID, GUIDED, or COMMENTED — use ONLY earnings call transcript sources
+- For precise financial figures — prefer Excel data
+- For segment breakdowns and visual KPIs — use image data
+- For strategy and narrative — use PDF text
+- Never guess or approximate — only use numbers explicitly present in context
 - Only state facts, figures, and claims that are directly present in the retrieved context provided below.
-- If you are computing a ratio or deriving a value, explicitly show the formula and cite the exact source values from the context (e.g. "Using values from Q3FY25 Concall: Revenue = Γé╣X, EBITDA = Γé╣Y").
+- If you are computing a ratio or deriving a value, explicitly show the formula and cite the exact source values from the context (e.g. "Using values from Q3FY25 Concall: Revenue = ₹X, EBITDA = ₹Y").
 - If the retrieved context does not contain enough information to answer the question fully, explicitly say so rather than inferring or estimating.
 - Do not use prior knowledge or training data to fill in missing figures.
 
-REASONING RULES ΓÇö apply these to every response:
+REASONING RULES — apply these to every response:
 
 1. NUMBERS MUST BE GROUNDED: Never state, calculate with, or assume any numeric figure that does not appear verbatim in the retrieved context. If a required number is not present in the retrieved chunks, explicitly state "this figure is not available in the retrieved context" rather than estimating or deriving it.
 
 2. COMPARATIVE ANALYSIS: When a question asks you to identify "which ratio/segment/metric showed the highest or lowest change, or the most/least severe movement," you must explicitly list ALL candidates with their values before stating your conclusion. Do not jump to a conclusion without enumerating the full comparison set.
 
-3. HEDGE TYPE IDENTIFICATION: When asked whether derivative positions are consistent with a stated risk (commodity, forex, interest rate), first identify what the underlying exposure is from the context, then verify whether the derivative instruments match that exposure type. Do not assume consistency ΓÇö verify it explicitly.
+3. HEDGE TYPE IDENTIFICATION: When asked whether derivative positions are consistent with a stated risk (commodity, forex, interest rate), first identify what the underlying exposure is from the context, then verify whether the derivative instruments match that exposure type. Do not assume consistency — verify it explicitly.
 
 4. AUDIT AND GOVERNANCE GAPS: When asked whether an absence of disclosure, KAM, or committee independence represents a concern or gap, evaluate from the perspective of applicable auditing standards and governance best practices (e.g. SEBI LODR, SA 701, IND AS), not from management's framing or explanation. An absence can be a gap even if management does not flag it.
 
@@ -101,9 +104,9 @@ REASONING RULES ΓÇö apply these to every response:
 {structure_instructions}
 
 Additional instructions for partial or truncated chunks:
-- If a chunk appears cut off mid-sentence, use whatever numbers or facts are visible ΓÇö do not ignore partial data
+- If a chunk appears cut off mid-sentence, use whatever numbers or facts are visible — do not ignore partial data
 - If the exact figure is not stated but can be inferred from surrounding context, state clearly that it is inferred
-- For MD&A narrative questions, look for management explanation text not just numbers ΓÇö words like 'due to', 'owing to', 'because of', 'attributed to' signal the reason being sought
+- For MD&A narrative questions, look for management explanation text not just numbers — words like 'due to', 'owing to', 'because of', 'attributed to' signal the reason being sought
 - For audit/KAM questions, look for Key Audit Matter headings and the description that follows immediately after
 - If multiple chunks contain relevant partial information, synthesize them into one complete answer rather than reporting only from one chunk
 - If the question asks you to identify a pattern, trend, discrepancy, or implication, state it explicitly - don't just restate the raw figures

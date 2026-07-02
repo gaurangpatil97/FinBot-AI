@@ -345,6 +345,27 @@ function getCompanySlug(activeCompanyKey?: string): string | null {
 export default function ChatWindow({ messages, activeCompanyKey, totalChunks, totalDocs, collectionCount, onQuickQuery }: ChatWindowProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const [welcome, setWelcome] = useState<WelcomeState | null>(null);
+  const [playingMessageId, setPlayingMessageId] = useState<string | null>(null);
+
+  const playVoice = (messageId: string, text: string) => {
+    if (playingMessageId === messageId) {
+      window.speechSynthesis.cancel();
+      setPlayingMessageId(null);
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.onend = () => setPlayingMessageId(null);
+    utterance.onerror = () => setPlayingMessageId(null);
+    setPlayingMessageId(messageId);
+    window.speechSynthesis.speak(utterance);
+  };
+
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis.cancel();
+    };
+  }, []);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -480,6 +501,19 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
 
       {messages.map((message) => {
         const assistant = message.role === "assistant";
+        const cleanedContent = assistant ? cleanContent(message.content) : "";
+        const lowerCleaned = cleanedContent.toLowerCase();
+        
+        let targetHeading: string | null = null;
+        if (assistant) {
+          if (lowerCleaned.includes("sources")) {
+            targetHeading = "sources";
+          } else if (lowerCleaned.includes("interpretation")) {
+            targetHeading = "interpretation";
+          } else if (lowerCleaned.includes("conclusion")) {
+            targetHeading = "conclusion";
+          }
+        }
 
         return (
           <div
@@ -493,12 +527,34 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
             ) : null}
 
             <div
-                className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-base leading-6 ${
+                className={`max-w-[min(48rem,90%)] rounded-2xl border px-4 py-3 text-base leading-6 relative group ${
                   assistant
                   ? "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-primary)]"
                   : "border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-primary)]"
                 }`}
             >
+              {assistant && !message.isLoading && !targetHeading && (
+                <div className="absolute right-3 top-3 z-10">
+                  <button
+                    type="button"
+                    onClick={() => playVoice(message.id, message.content)}
+                    title={playingMessageId === message.id ? "Pause" : "Listen"}
+                    aria-label={playingMessageId === message.id ? "Pause" : "Listen"}
+                    className={`grid h-8 w-8 place-items-center rounded-xl border transition ${
+                      playingMessageId === message.id
+                        ? "border-[#e8ddc7] bg-[#e8ddc7]/10 text-[#e8ddc7]"
+                        : "border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]"
+                    }`}
+                  >
+                    {playingMessageId === message.id ? (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5"><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></svg>
+                    )}
+                  </button>
+                </div>
+              )}
+
               {message.isLoading ? (
                 <PipelineStatus />
               ) : assistant ? (
@@ -514,7 +570,47 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
                       )}
                     </div>
                   )}
-                  {renderMessageContent(message.content)}
+
+                  <div className="prose prose-invert prose-base max-w-none prose-p:leading-relaxed prose-pre:bg-zinc-900">
+                    <ReactMarkdown
+                      remarkPlugins={[remarkMath, remarkGfm]}
+                      rehypePlugins={[rehypeKatex]}
+                      components={{
+                        h2: ({ node, children, ...props }) => {
+                          const text = Array.isArray(children) ? children.join("") : (children || "").toString();
+                          if (targetHeading && text.toLowerCase().includes(targetHeading)) {
+                            return (
+                              <div className="flex items-center justify-between border-b border-[var(--border)] pb-2 mb-4 mt-6">
+                                <h2 className="m-0 text-lg font-semibold text-[var(--text-primary)]" {...props}>
+                                  {children}
+                                </h2>
+                                <button
+                                  type="button"
+                                  onClick={() => playVoice(message.id, message.content)}
+                                  title={playingMessageId === message.id ? "Pause" : "Listen"}
+                                  aria-label={playingMessageId === message.id ? "Pause" : "Listen"}
+                                  className={`grid h-8 w-8 place-items-center rounded-xl border transition ${
+                                    playingMessageId === message.id
+                                      ? "border-[#e8ddc7] bg-[#e8ddc7]/10 text-[#e8ddc7]"
+                                      : "border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]"
+                                  }`}
+                                >
+                                  {playingMessageId === message.id ? (
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5"><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></svg>
+                                  ) : (
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></svg>
+                                  )}
+                                </button>
+                              </div>
+                            );
+                          }
+                          return <h2 {...props}>{children}</h2>;
+                        }
+                      }}
+                    >
+                      {cleanedContent}
+                    </ReactMarkdown>
+                  </div>
 
                   {message.chart_data && (
                     <div className="mt-3 border-t border-[var(--border)] pt-3">

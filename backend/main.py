@@ -13,6 +13,7 @@ from app.api.routes.companies import _build_existing_files_payload
 from app.api.routes.query import router as query_router
 from app.api.routes.sessions import router as sessions_router
 from app.api.routes.upload import router as upload_router
+from app.api.routes.voice import router as voice_router
 from config import settings
 
 from prometheus_fastapi_instrumentator import Instrumentator
@@ -43,6 +44,7 @@ app.include_router(companies_router, prefix="/api/v1")
 app.include_router(upload_router, prefix="/api/v1")
 app.include_router(query_router, prefix="/api/v1")
 app.include_router(sessions_router, prefix="/api/v1")
+app.include_router(voice_router, prefix="/api/voice")
 
 
 @app.get("/api/companies/{company_slug}/existing-files")

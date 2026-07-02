@@ -355,11 +355,12 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/images"
                 )
             elif coll_type == "concall":
+                concall_year = normalize_pdf_year(routed_year)
                 sub_chunks = query_collection(
                     query_embedding,
                     f"{company_slug}_concalls",
                     top_k=K_CONCALL,
-                    year=None,
+                    year=concall_year,
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/concall"
                 )
 
@@ -447,6 +448,9 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     seen = set()
     for chunk in top_chunks:
         filename = chunk["metadata"].get("filename", "unknown")
+        if isinstance(filename, str):
+            import re
+            filename = re.sub(r'(\.\w+)\1$', r'\1', filename)
         page = chunk["metadata"].get("page") or chunk["metadata"].get("sheet", "unknown")
         collection = chunk["metadata"].get("collection", "unknown")
         key = (filename, page)
