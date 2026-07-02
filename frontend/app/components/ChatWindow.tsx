@@ -362,17 +362,20 @@ export default function ChatWindow({ messages, activeCompanyKey, totalChunks, to
     const loadWelcome = async () => {
       const storedCompany = readStoredCompany();
       const activeSlug =
-        typeof storedCompany.slug === "string"
-          ? storedCompany.slug.trim()
-          : typeof storedCompany.companySlug === "string"
-            ? storedCompany.companySlug.trim()
-            : "";
+        activeCompanyKey
+          ? slugifyCompanyName(activeCompanyKey)
+          : typeof storedCompany.slug === "string"
+            ? storedCompany.slug.trim()
+            : typeof storedCompany.companySlug === "string"
+              ? storedCompany.companySlug.trim()
+              : "";
       const activeName =
-        typeof storedCompany.name === "string"
+        activeCompanyKey ||
+        (typeof storedCompany.name === "string"
           ? storedCompany.name.trim()
           : typeof storedCompany.companyName === "string"
             ? storedCompany.companyName.trim()
-            : "";
+            : "");
 
       try {
         const companies = (await getCompanies()) as CompanySummary[];

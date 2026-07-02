@@ -236,3 +236,36 @@ export async function saveMessage(
   if (!res.ok) throw new Error("Failed to save message");
   return res.json();
 }
+
+export async function fetchStockSummaryFromYahoo(ticker: string, companyName: string) {
+  const fallback = {
+    companyName,
+    exchangeLabel: "—",
+    ticker,
+    price: 0,
+    changePercent: 0,
+    direction: "up" as const,
+    points: [],
+    lastUpdated: "—",
+  };
+
+  try {
+    const response = await fetch(
+      `${BASE_URL}/api/v1/stock/${encodeURIComponent(ticker)}`
+    );
+
+    if (!response.ok) {
+      console.error(`Failed to fetch stock from backend proxy. Status: ${response.status}`);
+      return fallback;
+    }
+
+    const data = await response.json();
+    return {
+      ...data,
+      companyName,
+    };
+  } catch (err) {
+    console.error("Fetch error calling stock proxy endpoint:", err);
+    return fallback;
+  }
+}

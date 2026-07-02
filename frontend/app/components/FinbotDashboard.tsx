@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { getCompanies, getCompanyStatus, queryRAG, generateChart, analyzeData, saveMessage } from "../../lib/api";
+import { getCompanies, getCompanyStatus, queryRAG, generateChart, analyzeData, saveMessage, fetchStockSummaryFromYahoo } from "../../lib/api";
 
 import ChatWindow from "./ChatWindow";
 import InputBar from "./InputBar";
@@ -54,17 +54,11 @@ function getCompanySlugFromLocalStorage(activeCompanyName: string): string {
   try {
     const raw = window.localStorage.getItem(sessionStorageKey);
 
-    if (!raw) {
-      return slugifyCompanyName(activeCompanyName);
-    }
-
-    const parsed = JSON.parse(raw) as { companySlug?: string; companyName?: string };
-    if (typeof parsed.companySlug === "string" && parsed.companySlug.trim()) {
-      return parsed.companySlug.trim();
-    }
-
-    if (typeof parsed.companyName === "string" && parsed.companyName.trim()) {
-      return slugifyCompanyName(parsed.companyName);
+    if (raw) {
+      const parsed = JSON.parse(raw) as { companySlug?: string; companyName?: string };
+      if (parsed.companyName === activeCompanyName && typeof parsed.companySlug === "string" && parsed.companySlug.trim()) {
+        return parsed.companySlug.trim();
+      }
     }
   } catch {
     // Fallback to active company slug.
@@ -397,8 +391,13 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
   const defaultTicker = stock.ticker;
 
   const [companies, setCompanies] = useState<string[]>([defaultCompanyName]);
+  const [companyTickers, setCompanyTickers] = useState<Record<string, string>>({
+    "Craftsman Automation Ltd": "CRAFTSMAN.NS",
+    "Astral Ltd": "ASTRAL.NS"
+  });
   const [activeCompany, setActiveCompany] = useState(defaultCompanyName);
   const [activeTicker, setActiveTicker] = useState(defaultTicker);
+  const [activeStock, setActiveStock] = useState<StockSummary>(stock);
   const [collections, setCollections] = useState<CollectionRecord[]>(() => createInitialCollections(defaultCompanyName));
   const [, setDocuments] = useState<DocumentRecord[]>(() => syncDocuments(createInitialCollections(defaultCompanyName)));
   
@@ -499,6 +498,9 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
   useEffect(() => {
     const slug = getCompanySlugFromLocalStorage(activeCompany);
     loadSessions(slug);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("activeCompany", JSON.stringify({ name: activeCompany, slug }));
+    }
   }, [activeCompany, loadSessions]);
 
   useEffect(() => {
@@ -508,6 +510,43 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
       switchSession(storedSessionId);
     }
   }, [switchSession, activeSessionId]);
+
+  useEffect(() => {
+    const fetchAllCompanies = async () => {
+      try {
+        const list = await getCompanies();
+        if (Array.isArray(list)) {
+          const names = list.map((c: any) => c.name).filter(Boolean);
+          const tickers: Record<string, string> = {};
+          list.forEach((c: any) => {
+            if (c.name && c.ticker) {
+              tickers[c.name] = c.ticker;
+            }
+          });
+          setCompanyTickers((current) => ({ ...current, ...tickers }));
+          setCompanies((current) => {
+            const merged = new Set([...current, ...names]);
+            return Array.from(merged);
+          });
+        }
+      } catch (err) {
+        console.error("Failed to fetch companies:", err);
+      }
+    };
+    void fetchAllCompanies();
+  }, []);
+
+  useEffect(() => {
+    const fetchStock = async () => {
+      const ticker = companyTickers[activeCompany] || activeTicker;
+      if (ticker) {
+        const data = await fetchStockSummaryFromYahoo(ticker, activeCompany);
+        setActiveStock(data);
+        setActiveTicker(ticker);
+      }
+    };
+    void fetchStock();
+  }, [activeCompany, companyTickers, activeTicker]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -791,6 +830,12 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
       return;
     }
 
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem(sessionStorageKey);
+      window.localStorage.removeItem("activeSessionId");
+    }
+    setSavedSession(null);
+    setHasSession(false);
     setActiveCompany(value);
     clearState(); // Clear chat when switching companies
     setResumeBannerVisible(false);
@@ -809,7 +854,7 @@ function FinbotDashboardInner({ stock }: FinbotDashboardProps) {
           activeCompanySlug={getCompanySlugFromLocalStorage(activeCompany)}
           companies={companies}
           onSelectCompany={handleSelectCompany}
-          stock={stock}
+          stock={activeStock}
           collections={collections}
           filesByCollection={corpusFiles}
           onOpenUpload={() => setUploadOpen(true)}

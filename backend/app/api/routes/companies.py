@@ -328,3 +328,71 @@ def get_company_risks(slug: str) -> CompanyRiskReport:
         raise HTTPException(status_code=404, detail="Company not found")
         
     return compute_risk_flags(slug)
+
+@router.get("/stock/{ticker}")
+def get_stock_summary(ticker: str) -> dict:
+    import requests
+    from loguru import logger
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?interval=1d&range=7d"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    }
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        if not response.ok:
+            raise HTTPException(status_code=502, detail="Failed to fetch from Yahoo Finance")
+        
+        payload = response.json()
+        result = payload.get("chart", {}).get("result", [None])[0]
+        if not result:
+            raise HTTPException(status_code=404, detail="No stock data found for ticker")
+        
+        indicators = result.get("indicators", {})
+        quotes = indicators.get("quote", [{}])
+        closes_raw = quotes[0].get("close", []) if quotes else []
+        closes = [float(price) for price in closes_raw if price is not None]
+        
+        if not closes:
+            raise HTTPException(status_code=404, detail="No close prices found")
+        
+        meta = result.get("meta", {})
+        previous_close = meta.get("previousClose")
+        if previous_close is None:
+            previous_close = closes[0]
+            
+        current_price = meta.get("regularMarketPrice")
+        if current_price is None:
+            current_price = closes[-1]
+            
+        change_percent = 0.0
+        if previous_close != 0.0:
+            change_percent = ((current_price - previous_close) / previous_close) * 100.0
+            
+        direction = "up" if change_percent >= 0.0 else "down"
+        
+        points = [{"label": f"D{i+1}", "price": price} for i, price in enumerate(closes)]
+        
+        last_updated = "Today"
+        market_time = meta.get("regularMarketTime")
+        if market_time:
+            from datetime import datetime
+            last_updated = datetime.fromtimestamp(market_time).strftime("%d %b")
+            
+        ticker_symbol = meta.get("symbol", ticker)
+        exchange_name = meta.get("exchangeName")
+        exchange_label = f"{exchange_name} · {ticker.split('.')[0]}" if exchange_name else f"NSE · {ticker.split('.')[0]}"
+        
+        return {
+            "companyName": "", # Populated by frontend using activeCompany
+            "exchangeLabel": exchange_label.replace("NSI", "NSE"),
+            "ticker": ticker_symbol,
+            "price": current_price,
+            "changePercent": change_percent,
+            "direction": direction,
+            "points": points,
+            "lastUpdated": last_updated
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to fetch stock for ticker {ticker}: {e}")
+        raise HTTPException(status_code=500, detail=f"Stock proxy failed: {str(e)}")
