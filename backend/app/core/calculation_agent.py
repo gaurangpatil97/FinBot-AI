@@ -11,6 +11,19 @@ from app.db.vector_store import get_persistent_client
 settings = get_settings()
 
 HARDCODED_FORMULAS = {
+    "dupont decomposition": {
+        "computation_type": "derived",
+        "formula": "((metric1 / metric2) * (metric2 / (metric3 + metric4 + metric5)) * ((metric3 + metric4 + metric5) / metric6)) * 100",
+        "metrics": [
+            {"name": "Net profit", "sheet": "profit_loss"},
+            {"name": "Sales", "sheet": "profit_loss"},
+            {"name": "Net Block", "sheet": "balance_sheet"},
+            {"name": "Capital Work in Progress", "sheet": "balance_sheet"},
+            {"name": "Other Assets", "sheet": "balance_sheet"},
+            {"name": "Networth", "sheet": "balance_sheet"}
+        ],
+        "multiply_by_100": False
+    },
     "debt to equity": {
         "computation_type": "ratio",
         "formula": "metric1 / metric2",
@@ -29,13 +42,23 @@ HARDCODED_FORMULAS = {
         ],
         "multiply_by_100": False
     },
-    "interest coverage": {
+    "ebit interest coverage": {
         "computation_type": "ratio",
         "formula": "(metric1 - metric3) / metric2",
         "metrics": [
             {"name": "EBITDA", "sheet": "profit_loss"},
             {"name": "Interest", "sheet": "profit_loss"},
             {"name": "Depreciation", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "interest coverage": {
+        "computation_type": "ratio",
+        "formula": "(metric1 + metric3) / metric2",
+        "metrics": [
+            {"name": "Interest Coverage Ratio", "sheet": "profit_loss"},
+            {"name": "Interest", "sheet": "profit_loss"},
+            {"name": "Change in Inventory", "sheet": "profit_loss"}
         ],
         "multiply_by_100": False
     },
@@ -83,7 +106,7 @@ HARDCODED_FORMULAS = {
         ],
         "multiply_by_100": False
     },
-    "operating profit margin": {
+    "ebit operating profit margin": {
         "computation_type": "percentage",
         "formula": "((metric1 - metric3) / metric2) * 100",
         "metrics": [
@@ -93,11 +116,54 @@ HARDCODED_FORMULAS = {
         ],
         "multiply_by_100": False
     },
+    "operating profit margin": {
+        "computation_type": "percentage",
+        "formula": "((metric1 + metric3) / metric2) * 100",
+        "metrics": [
+            {"name": "Operating Profit Margin", "sheet": "profit_loss"},
+            {"name": "Sales", "sheet": "profit_loss"},
+            {"name": "Change in Inventory", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "debtor days": {
+        "computation_type": "ratio",
+        "formula": "(metric1 / metric2) * 365",
+        "metrics": [
+            {"name": "Receivables", "sheet": "balance_sheet"},
+            {"name": "Sales", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "working capital days": {
+        "computation_type": "ratio",
+        "formula": "((metric1 + metric2 - metric3) / metric4) * 365",
+        "metrics": [
+            {"name": "Receivables", "sheet": "balance_sheet"},
+            {"name": "Inventory", "sheet": "balance_sheet"},
+            {"name": "Other Liabilities", "sheet": "balance_sheet"},
+            {"name": "Sales", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
+    "cash conversion cycle": {
+        "computation_type": "ratio",
+        "formula": "((metric1 + metric2 - metric3) / metric4) * 365",
+        "metrics": [
+            {"name": "Inventory", "sheet": "balance_sheet"},
+            {"name": "Receivables", "sheet": "balance_sheet"},
+            {"name": "Other Liabilities", "sheet": "balance_sheet"},
+            {"name": "Sales", "sheet": "profit_loss"}
+        ],
+        "multiply_by_100": False
+    },
 }
 
 HARDCODED_FORMULA_ALIASES = {
+    "dupont decomposition": ["dupont decomposition", "dupont breakdown", "breakdown of roe using dupont", "dupont analysis"],
     "debt to equity": ["debt to equity", "debt-to-equity", "dte"],
     "cash conversion": ["cash conversion", "cash conversion ratio", "cash conversion ratio ", "ccr"],
+    "ebit interest coverage": ["ebit interest coverage", "ebit interest coverage ratio", "ebit icr"],
     "interest coverage": ["interest coverage", "interest coverage ratio", "icr"],
     "revenue growth": [
         "revenue growth",
@@ -111,7 +177,11 @@ HARDCODED_FORMULA_ALIASES = {
     "roe": ["roe", "return on equity"],
     "return on equity": ["return on equity", "roe"],
     "ebitda margin": ["ebitda margin"],
+    "ebit operating profit margin": ["ebit operating profit margin", "ebit opm", "ebit operating margin"],
     "operating profit margin": ["operating profit margin", "operating profit margin ", "opm", "operating margin"],
+    "debtor days": ["debtor days", "debtor-days", "debtors days", "days receivable", "receivable days"],
+    "working capital days": ["working capital days", "net working capital days", "working-capital-days"],
+    "cash conversion cycle": ["cash conversion cycle", "ccc"],
 }
 
 RISK_THRESHOLDS = {
@@ -190,6 +260,7 @@ def is_computation_question(question: str) -> dict:
 - margin: asking for a margin percentage (e.g. EBITDA margin, net profit margin)
 - growth: asking for growth rate between two periods
 - derived: any other calculation requiring arithmetic
+- dupont: asking for DuPont decomposition or breakdown of ROE
 
 Return ONLY JSON: {{"type": "lookup", "needs_calculation": false}} or {{"type": "ratio", "needs_calculation": true}}
 
@@ -259,6 +330,12 @@ Return this exact JSON structure:
 
 def fetch_metric(metric_name: str, sheet: str, year: str, company_slug: str | None = None) -> float | None:
     try:
+        # Map virtual metric names used for context labeling to their real database names
+        if metric_name == "Operating Profit Margin":
+            metric_name = "EBITDA"
+        elif metric_name == "Interest Coverage Ratio":
+            metric_name = "EBITDA"
+
         year = str(year).strip()
         year = re.sub(r"^FY\s*", "", year, flags=re.IGNORECASE).strip()
         if len(year) == 2 and year.isdigit():
@@ -488,6 +565,12 @@ def try_calculation(question: str, company_slug: str | None = None) -> dict | No
     if len(years) >= 2:
         metric_name = metrics[0].get("name") if metrics else "unknown"
         results: list[dict[str, object]] = []
+
+        if metric_name == "Operating Profit Margin":
+            metric_name = "Operating Profit Margin (OPM)"
+        elif metric_name == "Interest Coverage Ratio":
+            metric_name = "Interest Coverage Ratio (ICR)"
+
         trace.append(f"Multi-year metric: {metric_name}")
 
         for year in years:
@@ -499,12 +582,19 @@ def try_calculation(question: str, company_slug: str | None = None) -> dict | No
             if computed is None:
                 return None
 
+            m_used = []
+            for m in computed.get("metrics_used", []):
+                m_copy = dict(m)
+                if m_copy.get("name") in ["Operating Profit Margin", "Interest Coverage Ratio"]:
+                    m_copy["name"] = "EBITDA"
+                m_used.append(m_copy)
+
             results.append({
                 "year": year,
                 "answer": computed.get("answer"),
-                "formula_used": computed.get("formula_used"),
+                "formula_used": computed.get("formula_used").replace("Operating Profit Margin", "EBITDA").replace("Interest Coverage Ratio", "EBITDA"),
                 "values_used": computed.get("values_used"),
-                "metrics_used": computed.get("metrics_used"),
+                "metrics_used": m_used,
             })
 
         trace.append("Multi-year lookup completed")
@@ -525,8 +615,17 @@ def try_calculation(question: str, company_slug: str | None = None) -> dict | No
         logger.warning("[CalcAgent] Falling back to RAG at step: compute_answer")
         return None
 
-    for metric_name, metric_value in computed.get("values_used", {}).items():
-        trace.append(f"Fetched {metric_name}: {metric_value}")
+    m_used = []
+    for m in computed.get("metrics_used", []):
+        m_copy = dict(m)
+        if m_copy.get("name") in ["Operating Profit Margin", "Interest Coverage Ratio"]:
+            m_copy["name"] = "EBITDA"
+        m_used.append(m_copy)
+    computed["metrics_used"] = m_used
+    computed["formula_used"] = computed["formula_used"].replace("Operating Profit Margin", "EBITDA").replace("Interest Coverage Ratio", "EBITDA")
+
+    for metric_name_key, metric_value in computed.get("values_used", {}).items():
+        trace.append(f"Fetched {metric_name_key}: {metric_value}")
     trace.append(f"Result: {computed.get('answer')}")
 
     computed["trace"] = "\n".join(trace)
