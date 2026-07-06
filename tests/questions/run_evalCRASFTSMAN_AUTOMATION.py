@@ -186,22 +186,31 @@ QUESTIONS = [
         "expected_citation_contains": ["CraftsmanAutomation"],
     },
     {
-        "id": 17,
-        "section": "Concall",
-        "difficulty": "Easy",
-        "question": "What was the credit rating of the company at the time of the FY23 Q1 earnings call, and what was it upgraded from?",
-        "expected_answer": "The rating was upgraded to A+ with stable outlook, from A with stable outlook, as disclosed during the Q1 FY23 earnings call.",
-        "expected_source": ["craftsman_automation_ltd_concalls"],
-        "expected_citation_contains": ["CraftsmanAutomation"],
+    "id": 17,
+    "section": "Concall",
+    "difficulty": "Easy",
+    "question": "Management guided FY23 Q1 revenue at about ₹600 crore in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?",
+    "expected_answer": "Actual Q1 FY23 revenue was ₹676 crore, about 12.7% above the ₹600 crore guidance. Consistently conservative guidance followed by beats can suggest managed earnings narrative or sandbagging for investor optics.",
+    "expected_source": [
+      "CraftsmanAutomationAudioTranscript2022_May.pdf",
+      "craftsman_concall_23Q1.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
     },
     {
-        "id": 18,
-        "section": "Concall",
-        "difficulty": "Easy",
-        "question": "What was the segment-wise EBIT for the Auto Powertrain, Aluminum Products, and Industrial & Engineering divisions in FY23 Q1?",
-        "expected_answer": "Auto Powertrain: ₹95 crores; Aluminum Products: ₹20 crores; Industrial & Engineering: ₹11 crores. Total EBIT: ₹112 crores.",
-        "expected_source": ["craftsman_automation_ltd_concalls"],
-        "expected_citation_contains": ["CraftsmanAutomation"],
+    "id": 18,
+    "section": "Concall",
+    "difficulty": "Easy",
+    "question": "What was the revised FY23 capex guidance after the unexpected aluminium order, and what was the reason for the revision?",
+    "expected_answer": "The revised FY23 capex guidance was about ₹275 crore, up from the earlier ₹225-250 crore range. Management said the increase was driven by a sizeable aluminium order received in April 2022 that required production readiness by Q4 FY23, adding approximately ₹70 crore of unplanned capex.",
+    "expected_source": [
+      "craftsman_concall_23Q2.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
     },
     {
         "id": 19,
@@ -285,13 +294,17 @@ QUESTIONS = [
         "expected_citation_contains": ["CraftsmanAutomation"],
     },
     {
-        "id": 28,
-        "section": "Concall",
-        "difficulty": "Hard",
-        "question": "Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT. Verify this claim using value addition data and assess whether there is an unacknowledged structural margin issue.",
-        "expected_answer": "VA margin deteriorated from 41.5% (Q1) to 34.7% (Q2) despite revenue increase. Management's explanation is plausible but not fully verifiable — the actual inventory holding cost vs replacement cost difference was never quantified precisely.",
-        "expected_source": ["craftsman_automation_ltd_concalls"],
-        "expected_citation_contains": ["CraftsmanAutomation"],
+    "id": "R1",
+    "section": "Concall",
+    "difficulty": "Hard",
+    "question": "Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT. Verify this claim using value addition data and assess whether there is an unacknowledged structural margin issue.",
+    "expected_answer": "The claim is only partly supported. Q2 FY23 aluminium value addition was ₹68 crore versus ₹71 crore in Q1 FY23, while management attributed the margin pressure to the month-on-month aluminium price drop and inventory timing (8-10 weeks of inventory carried). The numbers suggest a timing-driven dip rather than a clearly proven structural margin break, but the exact inventory vs. replacement-price impact was not quantified precisely.",
+    "expected_source": [
+      "craftsman_concall_23Q2.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
     },
     {
         "id": 29,

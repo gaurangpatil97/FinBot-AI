@@ -1,0 +1,2674 @@
+ASTRAL RESULTS
+
+=============================
+ID: E1 | COMPANY: astral_ltd
+Q: What was the company's total revenue for each of the last 5 financial years?
+EXP: FY22: 4394.00, FY23: 5158.50, FY24: 5641.40, FY25: 5832.40, FY26: 6568.60
+EXCEPTION: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/query (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020FF138D8D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+=============================
+ID: E2 | COMPANY: astral_ltd
+Q: What was the net profit for each of the last 5 financial years?
+EXP: FY22: 483.80, FY23: 456.60, FY24: 546.10, FY25: 523.80, FY26: 534.70
+EXCEPTION: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/query (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020FF138E1A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+=============================
+ID: E3 | COMPANY: astral_ltd
+Q: What was the total borrowings (short-term + long-term debt) for each of the last 5 financial years?
+EXP: FY22: 98.30, FY23: 87.10, FY24: 119.40, FY25: 233.20, FY26: 250.30
+EXCEPTION: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/query (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020FF138EA10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+=============================
+ID: E4 | COMPANY: astral_ltd
+Q: What was the operating profit margin (operating profit / revenue × 100) for each of the last 5 financial years?
+EXP: FY22: 11.08, FY23: 16.16, FY24: 13.34, FY25: 15.26, FY26: 15.65
+EXCEPTION: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/v1/query (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020FF1351480>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+=============================
+ID: E5 | COMPANY: astral_ltd
+Q: What was the year-on-year revenue growth rate for each of the last 4 financial years?
+EXP: FY23: 17.40, FY24: 9.36, FY25: 3.39, FY26: 12.62
+RAW ANSWER:
+## Details
+
+The last 4 financial years based on the data are FY2023, FY2024, FY2025, and FY2026. The sales (revenue) figures for these years from the profit & loss data are:
+
+- FY2023 Sales: ₹5158.50 Cr  
+- FY2024 Sales: ₹5641.40 Cr  
+- FY2025 Sales: ₹5832.40 Cr  
+- FY2026 Sales: ₹6568.60 Cr  
+
+## Calculation
+
+Year-on-year revenue growth rate formula:  
+\[
+\text{Growth Rate} = \frac{\text{Current Year Sales} - \text{Previous Year Sales}}{\text{Previous Year Sales}} \times 100
+\]
+
+1. FY2024 growth over FY2023:  
+\[
+\frac{5641.40 - 5158.50}{5158.50} \times 100 = \frac{482.90}{5158.50} \times 100 = 9.36\%
+\]
+
+2. FY2025 growth over FY2024:  
+\[
+\frac{5832.40 - 5641.40}{5641.40} \times 100 = \frac{191.00}{5641.40} \times 100 = 3.39\%
+\]
+
+3. FY2026 growth over FY2025:  
+\[
+\frac{6568.60 - 5832.40}{5832.40} \times 100 = \frac{736.20}{5832.40} \times 100 = 12.62\%
+\]
+
+## Summary
+
+The year-on-year revenue growth rates for the last 4 financial years are:  
+- FY2024: 9.36%  
+- FY2025: 3.39%  
+- FY2026: 12.62%  
+
+(Note: The question asks for the last 4 years, but growth is calculated between years, so 3 growth rates are provided for FY24 over FY23, FY25 over FY24, and FY26 over FY25.)
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2023  
+Astral_Ltd.xlsx · profit_loss · FY2024  
+Astral_Ltd.xlsx · profit_loss · FY2025  
+Astral_Ltd.xlsx · profit_loss · FY2026
+
+=============================
+ID: E6 | COMPANY: astral_ltd
+Q: What was the free cash flow (operating cash flow minus capital expenditure) for each of the last 5 financial years?
+EXP: FY22: 614.60, FY23: 78.80, FY24: 282.40, FY25: 117.00, FY26: 610.50
+RAW ANSWER:
+## Details
+
+Free cash flow (FCF) is calculated as:
+
+**Free Cash Flow = Cash from Operating Activity - Capital Expenditure (Capex)**
+
+From the retrieved context:
+
+- Cash from Operating Activity for last 5 years (FY2022 to FY2026) is available from the cash flow sheets:
+  - FY2022: 543.10 Cr
+  - FY2023: 556.90 Cr
+  - FY2024: 823.40 Cr
+  - FY2025: 629.60 Cr
+  - FY2026: 1117.00 Cr
+
+- Capital Expenditure (Capex) is not explicitly stated in the cash flow data. However, Capex is typically reflected in "Cash from Investing Activity" as a negative outflow.
+
+- Cash from Investing Activity for last 5 years:
+  - FY2022: +71.50 Cr (positive inflow)
+  - FY2023: -478.10 Cr
+  - FY2024: -541.00 Cr
+  - FY2025: -512.60 Cr
+  - FY2026: -506.50 Cr
+
+Since Capex is a cash outflow, it is usually a negative number in investing activities. But FY2022 shows a positive investing cash flow (+71.50 Cr), which suggests net investing inflow (possibly from asset sales or investments), so Capex alone is not directly disclosed.
+
+No explicit Capex line item is provided in the retrieved context.
+
+## Calculation
+
+Because Capex is not explicitly disclosed, free cash flow cannot be precisely calculated.
+
+## Summary
+
+The free cash flow for the last 5 financial years cannot be determined from the retrieved context because the exact capital expenditure figures are not disclosed. Only operating cash flow and net investing cash flow are available, but investing cash flow includes other items besides Capex, so it cannot be used as a proxy.
+
+## Sources
+
+Astral_Ltd.xlsx · cash_flow · FY2022 to FY2026
+
+=============================
+ID: E7 | COMPANY: astral_ltd
+Q: What were the receivable days, inventory days, and payable days for each of the last 3 financial years?
+EXP: FY24: [Receivable: 24.3, Inventory: 85.4], FY25: [Receivable: 27.2, Inventory: 95.6], FY26: [Receivable: 26.4, Inventory: 102.3]. Payable days not computable from available data — no Trade Payables line item in this dataset.
+RAW ANSWER:
+## Details
+
+To calculate receivable days, inventory days, and payable days for the last 3 financial years (FY2024, FY2025, FY2026), we need the following data for each year:
+
+- Receivables (from Balance Sheet)
+- Inventory (from Balance Sheet)
+- Payables (specifically "Trade Payables" or "Current Liabilities - Trade Payables" if available)
+- Sales (from Profit & Loss)
+- Cost of Goods Sold (COGS) or Raw Material Cost + Change in Inventory + Other manufacturing expenses (to approximate COGS if exact COGS is not given)
+- Purchases or Payables turnover base (usually COGS or Raw Material Cost)
+
+**Important:**  
+- The exact line item "Trade Payables" or "Current Liabilities - Trade Payables" is NOT disclosed in the retrieved context. Only "Other Liabilities" and "Borrowings" are given, but these cannot be used as proxies for payables per Rule 2.  
+- Therefore, payable days cannot be calculated due to lack of payables data.
+
+### Data extracted for FY2024, FY2025, FY2026:
+
+| Metric               | FY2024           | FY2025           | FY2026           |
+|----------------------|------------------|------------------|------------------|
+| Sales (Cr)           | 5641.40          | 5832.40          | 6568.60          |
+| Raw Material Cost (Cr)| 3435.80          | 3426.00          | 3968.20          |
+| Change in Inventory (Cr) | 86.00         | 27.80            | 17.10            |
+| Other Mfr. Exp (Cr)  | 252.40           | 274.80           | Not separately given for FY2026 (only "Other Expenses" 965.20 Cr, but this is broader) |
+| Receivables (Cr)     | 375.80           | 435.30           | 475.10           |
+| Inventory (Cr)       | 913.40           | 1011.10          | 1117.30          |
+
+### Notes on COGS:
+
+- Raw Material Cost + Other Manufacturing Expenses + Power and Fuel + Change in Inventory usually approximate COGS.  
+- For FY2026, "Other Mfr. Exp" is not separately given; only "Other Expenses" is 965.20 Cr, which is too broad to use as COGS component.  
+- Therefore, for FY2026, we can only use Raw Material Cost and Change in Inventory for COGS approximation, but this is incomplete.  
+- For FY2024 and FY2025, Other Mfr. Exp is given, so we can approximate COGS as:  
+  COGS = Raw Material Cost + Other Mfr. Exp + Change in Inventory
+
+### Calculations for Receivable Days and Inventory Days:
+
+- Receivable Days = (Receivables / Sales) * 365  
+- Inventory Days = (Inventory / COGS) * 365
+
+### FY2024:
+
+- Sales = 5641.40 Cr  
+- Receivables = 375.80 Cr  
+- Inventory = 913.40 Cr  
+- Raw Material Cost = 3435.80 Cr  
+- Other Mfr. Exp = 252.40 Cr  
+- Change in Inventory = 86.00 Cr  
+
+COGS = Raw Material Cost + Other Mfr. Exp + Change in Inventory  
+= 3435.80 + 252.40 + 86.00 = 3774.20 Cr
+
+Receivable Days = (375.80 / 5641.40) * 365 = 24.31 days  
+Inventory Days = (913.40 / 3774.20) * 365 = 88.34 days
+
+### FY2025:
+
+- Sales = 5832.40 Cr  
+- Receivables = 435.30 Cr  
+- Inventory = 1011.10 Cr  
+- Raw Material Cost = 3426.00 Cr  
+- Other Mfr. Exp = 274.80 Cr  
+- Change in Inventory = 27.80 Cr  
+
+COGS = 3426.00 + 274.80 + 27.80 = 3728.60 Cr
+
+Receivable Days = (435.30 / 5832.40) * 365 = 27.24 days  
+Inventory Days = (1011.10 / 3728.60) * 365 = 98.95 days
+
+### FY2026:
+
+- Sales = 6568.60 Cr  
+- Receivables = 475.10 Cr  
+- Inventory = 1117.30 Cr  
+- Raw Material Cost = 3968.20 Cr  
+- Other Mfr. Exp = Not separately given  
+- Change in Inventory = 17.10 Cr  
+
+Since Other Mfr. Exp is not separately given, we cannot accurately calculate COGS. Using only Raw Material Cost + Change in Inventory:  
+COGS (approx) = 3968.20 + 17.10 = 3985.30 Cr (incomplete)
+
+Receivable Days = (475.10 / 6568.60) * 365 = 26.40 days  
+Inventory Days = (1117.30 / 3985.30) * 365 = 102.33 days (approximate, incomplete COGS)
+
+### Payable Days:
+
+- The exact "Trade Payables" or equivalent line item is not disclosed in the balance sheet or profit & loss data for any of the years.  
+- Therefore, payable days cannot be calculated.
+
+## Summary
+
+For the last three financial years, the receivable days and inventory days are:
+
+- FY2024: Receivable Days = 24.31 days, Inventory Days = 88.34 days  
+- FY2025: Receivable Days = 27.24 days, Inventory Days = 98.95 days  
+- FY2026: Receivable Days = 26.40 days, Inventory Days = 102.33 days (approximate due to incomplete COGS data)
+
+Payable days cannot be calculated as the required payables data is not disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2024, FY2025, FY2026  
+Astral_Ltd.xlsx · balance_sheet · FY2024, FY2025, FY2026
+
+=============================
+ID: E8 | COMPANY: astral_ltd
+Q: What was the total capex spent over the last 5 financial years combined, and what was the cumulative revenue growth over the same period? Did capex translate into proportional top-line growth?
+EXP: Total Capex (proxy from Investing CF): 2038.20, Cumulative Revenue Growth: 49.49%. FY22 had net investing inflow of 71.5 (excluded from capex sum). Capex of 2038 Cr drove only 49.5% revenue growth — relatively capital-intensive expansion.
+RAW ANSWER:
+## Details
+
+### Capex over last 5 financial years
+
+The exact capital expenditure (capex) figures for the last 5 financial years are not explicitly provided in the retrieved context from any source (Excel financials, Annual Report text, images, or earnings call transcripts). The context includes some information on Capital Work-in-Progress (CWIP) aging (pages 122, 126 of FY25 Annual Report) but does not disclose actual capex spent per year.
+
+- Capital Work-in-Progress as at March 31, 2025: ₹1,084 million (Consolidated), ₹885 million (Standalone)
+- Capital Work-in-Progress as at March 31, 2024: ₹1,408 million (Consolidated), ₹1,366 million (Standalone)
+
+These are balances of ongoing projects, not annual capex spend.
+
+No direct annual capex spend or additions to fixed assets are stated in the provided data.
+
+### Revenue over last 5 financial years
+
+From the Excel profit & loss data, the last 5 financial years (FY21 to FY25) revenues are:
+
+- FY21 Sales: ₹3,176.30 Cr
+- FY22 Sales: ₹4,394.00 Cr
+- FY23 Sales: ₹5,158.50 Cr
+- FY24 Sales: ₹5,641.40 Cr
+- FY25 Sales: ₹5,832.40 Cr
+
+### Cumulative revenue growth over last 5 years
+
+Calculate cumulative revenue growth from FY21 to FY25:
+
+- Baseline (FY21) = ₹3,176.30 Cr
+- Ending (FY25) = ₹5,832.40 Cr
+
+Formula:  
+Cumulative Growth (%) = [(Ending / Baseline) - 1] × 100  
+= [(5832.40 / 3176.30) - 1] × 100  
+= (1.835 - 1) × 100  
+= 83.5%
+
+### Capex vs Revenue growth proportionality
+
+Since capex figures are not disclosed, it is not possible to compare capex spend to revenue growth or assess if capex translated into proportional top-line growth.
+
+## Summary
+
+The cumulative revenue growth over the last 5 financial years (FY21 to FY25) was 83.5%, increasing from ₹3,176.30 Cr to ₹5,832.40 Cr. However, the total capex spent over this period is not disclosed in the retrieved context, so it is not possible to determine whether capex translated into proportional top-line growth.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY21 to FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 122, 126, 168, 219 · FY25
+
+=============================
+ID: E9 | COMPANY: astral_ltd
+Q: In which financial year did the gap between EBITDA and operating cash flow diverge the most, and by how much?
+EXP: Year: FY25, Divergence: 357.60. EBITDA (PBT + Interest + Depreciation) = 987.20, OCF = 629.60, Gap = 357.60
+RAW ANSWER:
+## Details
+
+We need to find the year in which the difference (gap) between EBITDA and Cash from Operating Activity (Operating Cash Flow) was the largest in absolute terms.
+
+From the Excel data:
+
+- EBITDA (in Cr) and Operating Cash Flow (in Cr) for each year:
+
+| Year | EBITDA (Cr) | Operating Cash Flow (Cr) |
+|-------|-------------|--------------------------|
+| 2017  | 258.62      | 114.19                   |
+| 2018  | 295.43      | 281.85                   |
+| 2019  | 339.50      | 342.00                   |
+| 2020  | 372.20      | 405.40                   |
+| 2021  | 686.80      | 664.10                   |
+| 2022  | 620.10      | 543.10                   |
+| 2023  | 821.70      | 556.90                   |
+| 2024  | 838.60      | 823.40                   |
+| 2025  | 918.10      | 629.60                   |
+| 2026  | 1044.80     | 1117.00                  |
+
+Calculate the absolute difference for each year:
+
+| Year | EBITDA - Operating Cash Flow (Cr) | Absolute Difference (Cr) |
+|-------|-----------------------------------|--------------------------|
+| 2017  | 258.62 - 114.19 = 144.43          | 144.43                   |
+| 2018  | 295.43 - 281.85 = 13.58           | 13.58                    |
+| 2019  | 339.50 - 342.00 = -2.50           | 2.50                     |
+| 2020  | 372.20 - 405.40 = -33.20          | 33.20                    |
+| 2021  | 686.80 - 664.10 = 22.70           | 22.70                    |
+| 2022  | 620.10 - 543.10 = 77.00           | 77.00                    |
+| 2023  | 821.70 - 556.90 = 264.80          | 264.80                   |
+| 2024  | 838.60 - 823.40 = 15.20           | 15.20                    |
+| 2025  | 918.10 - 629.60 = 288.50          | 288.50                   |
+| 2026  | 1044.80 - 1117.00 = -72.20        | 72.20                    |
+
+## Calculation
+
+The largest absolute difference is in FY2025:
+
+- Difference = 918.10 Cr (EBITDA) - 629.60 Cr (Operating Cash Flow) = 288.50 Cr
+
+## Summary
+
+The gap between EBITDA and operating cash flow diverged the most in FY2025, with a difference of 288.50 Cr.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2017 to FY2026  
+Astral_Ltd.xlsx · cash_flow · FY2017 to FY2026
+
+=============================
+ID: E10 | COMPANY: astral_ltd
+Q: What is the 3-year CAGR of revenue and the 3-year CAGR of total assets? Is the company growing revenue faster or slower than its asset base is expanding?
+EXP: Revenue 3Y CAGR: 8.39, Asset 3Y CAGR: 10.04. Revenue is growing SLOWER than asset base — indicating declining asset utilization efficiency.
+RAW ANSWER:
+## Details
+
+### Revenue Data (Sales) from Excel Profit & Loss:
+
+- FY2023 Sales: ₹5158.50 Cr  
+- FY2024 Sales: ₹5641.40 Cr  
+- FY2025 Sales: ₹5832.40 Cr  
+
+### Total Assets Data from Annual Report (Consolidated Balance Sheet):
+
+- Total assets as at March 31, 2023: This figure is not explicitly provided in the retrieved context.  
+- Total assets as at March 31, 2024: ₹56,414 million (₹5,641.4 Cr) [Source 20]  
+- Total assets as at March 31, 2025: ₹56,414 million (₹5,641.4 Cr) is mentioned for 2024, but for 2025 the exact total assets figure is not explicitly stated in the retrieved context. The closest available is the same figure repeated or partial data.  
+
+Since the exact total assets for FY2023 and FY2025 are not explicitly stated, we cannot calculate a 3-year CAGR for total assets.
+
+However, the total assets figure for FY2024 is ₹56,414 million (₹5,641.4 Cr) and for FY2025 is not explicitly available.
+
+### Revenue CAGR Calculation Period:
+
+Assuming the 3-year CAGR is from FY2023 to FY2025 (3 years):
+
+- Beginning value (FY2023): ₹5158.50 Cr  
+- Ending value (FY2025): ₹5832.40 Cr  
+- Number of years: 2 (FY2023 to FY2025 is 2 years difference, so CAGR over 2 years)  
+
+Formula for CAGR:  
+\[
+CAGR = \left(\frac{Ending\ Value}{Beginning\ Value}\right)^{\frac{1}{n}} - 1
+\]
+
+where \(n\) = number of years.
+
+### Total Assets:
+
+- Since total assets for FY2023 and FY2025 are not explicitly available, 3-year CAGR for total assets cannot be calculated.
+
+## Calculation
+
+### Revenue CAGR (FY2023 to FY2025, 2 years):
+
+\[
+CAGR = \left(\frac{5832.40}{5158.50}\right)^{\frac{1}{2}} - 1 = (1.1307)^{0.5} - 1 = 1.0633 - 1 = 0.0633 = 6.33\%
+\]
+
+### Total Assets CAGR:
+
+- Not calculable due to missing FY2023 and FY2025 total assets figures.
+
+## Summary
+
+The 2-year CAGR of revenue from FY2023 to FY2025 is 6.33%. The 3-year CAGR of total assets cannot be calculated because the total assets figures for FY2023 and FY2025 are not available in the retrieved context. Therefore, it is not possible to determine whether the company is growing revenue faster or slower than its asset base is expanding based on the provided data.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY23, FY24, FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 20 · FY25
+
+=============================
+ID: R1 | COMPANY: astral_ltd
+Q: What is the debt-to-equity ratio for each of the most recent 3 financial years?
+EXP: FY24: 0.04, FY25: 0.06, FY26: 0.06
+RAW ANSWER:
+## Details
+
+The debt-to-equity ratio is calculated as:
+
+\[
+\text{Debt-to-Equity Ratio} = \frac{\text{Borrowings}}{\text{Networth}}
+\]
+
+From the provided data:
+
+- FY2024:
+  - Borrowings = 119.4
+  - Networth = 3188.1
+  - Debt-to-Equity Ratio = 0.04 (already given)
+
+- FY2025:
+  - Borrowings = 233.2
+  - Networth = 3617.0
+  - Debt-to-Equity Ratio = 0.06 (already given)
+
+- FY2026:
+  - Borrowings = 250.3
+  - Networth = 4057.9
+  - Debt-to-Equity Ratio = 0.06 (already given)
+
+## Summary
+
+The debt-to-equity ratio for FY2024 is 0.04, for FY2025 is 0.06, and for FY2026 is 0.06.
+
+## Sources
+
+Financial Statements.xlsx · calculation · 2026
+
+=============================
+ID: R2 | COMPANY: astral_ltd
+Q: What is the current ratio for each of the most recent 3 financial years?
+EXP: FY24: 1.72, FY25: 1.85, FY26: 1.85
+RAW ANSWER:
+## Details
+
+The current ratio is calculated as:
+
+**Current Ratio = Current Assets / Current Liabilities**
+
+From the balance sheet data, the components of current assets and current liabilities must be identified exactly as stated. The retrieved context provides the following relevant line items for the most recent 3 financial years (FY2024, FY2025, FY2026):
+
+### Current Assets components available:
+- Receivables
+- Inventory
+- Cash & Bank
+
+No other current asset line items are explicitly disclosed.
+
+### Current Liabilities:
+- The exact line item "Current Liabilities" is **not disclosed** in the retrieved context.
+- The context provides "Other Liabilities" but this is a broader category and cannot be used as a proxy for current liabilities per Rule 2.
+
+Thus, since "Current Liabilities" is not explicitly disclosed, the current ratio cannot be calculated.
+
+### Data for FY2024, FY2025, FY2026:
+
+| Year | Receivables (Cr) | Inventory (Cr) | Cash & Bank (Cr) | Other Liabilities (Cr) | Borrowings (Cr) | Equity Share Capital (Cr) | Reserves (Cr) | Networth (Cr) |
+|-------|------------------|----------------|------------------|-----------------------|-----------------|---------------------------|---------------|---------------|
+| FY2024 | 375.80           | 913.40         | 609.60           | 1188.30               | 119.40          | 26.90                     | 3161.20       | 3188.10       |
+| FY2025 | 435.30           | 1011.10        | 608.30           | 1197.60               | 233.20          | 26.90                     | 3590.10       | 3617.00       |
+| FY2026 | 475.10           | 1117.30        | 943.40           | 1503.70               | 250.30          | 26.90                     | 4031.00       | 4057.90       |
+
+- Current Assets (sum of Receivables + Inventory + Cash & Bank):
+
+  - FY2024: 375.80 + 913.40 + 609.60 = 1898.80 Cr
+  - FY2025: 435.30 + 1011.10 + 608.30 = 2054.70 Cr
+  - FY2026: 475.10 + 1117.30 + 943.40 = 2535.80 Cr
+
+- Current Liabilities: Not disclosed explicitly.
+
+## Summary
+
+The current ratio for the most recent three financial years (FY2024, FY2025, FY2026) cannot be calculated because the exact figure for current liabilities is not disclosed in the retrieved context. While current assets components (receivables, inventory, cash & bank) are available, the absence of current liabilities data prevents computation of the current ratio.
+
+## Sources
+
+Astral_Ltd.xlsx · balance_sheet · FY2024  
+Astral_Ltd.xlsx · balance_sheet · FY2025  
+Astral_Ltd.xlsx · balance_sheet · FY2026
+
+=============================
+ID: R3 | COMPANY: astral_ltd
+Q: What is the return on equity (net profit / shareholders' equity × 100) for each of the most recent 3 financial years?
+EXP: FY24: 17.13, FY25: 14.48, FY26: 13.18
+RAW ANSWER:
+## Details
+
+The return on equity (ROE) is calculated as:
+
+\[
+\text{ROE} = \frac{\text{Net Profit}}{\text{Net Worth}} \times 100
+\]
+
+From the provided data:
+
+- FY2024:
+  - Net Profit = 546.1
+  - Net Worth = 3188.1
+  - ROE = 17.13 (already calculated)
+
+- FY2025:
+  - Net Profit = 523.8
+  - Net Worth = 3617.0
+  - ROE = 14.48 (already calculated)
+
+- FY2026:
+  - Net Profit = 534.7
+  - Net Worth = 4057.9
+  - ROE = 13.18 (already calculated)
+
+## Summary
+
+The return on equity for the most recent three financial years is 17.13 for FY2024, 14.48 for FY2025, and 13.18 for FY2026.
+
+## Sources
+
+Financial Statements.xlsx · calculation · 2026
+
+=============================
+ID: R4 | COMPANY: astral_ltd
+Q: What is the return on capital employed (EBIT / capital employed × 100) for each of the most recent 3 financial years?
+EXP: FY24: 23.06, FY25: 19.32, FY26: 18.45
+RAW ANSWER:
+## Details
+
+Return on Capital Employed (ROCE) is calculated as:
+
+\[
+\text{ROCE} = \frac{\text{EBIT}}{\text{Capital Employed}} \times 100
+\]
+
+Where:
+- EBIT = Profit before interest and tax = Profit before tax + Interest (since PBT is after interest)
+- Capital Employed = Total Assets - Current Liabilities or alternatively Net Worth + Borrowings (if Current Liabilities are not given)
+
+From the retrieved context:
+
+### Step 1: Extract EBIT for FY2024, FY2025, FY2026
+
+- FY2024:
+  - Profit before tax = 733.60 Cr
+  - Interest = 29.10 Cr
+  - EBIT = 733.60 + 29.10 = 762.70 Cr
+
+- FY2025:
+  - Profit before tax = 702.50 Cr
+  - Interest = 41.30 Cr
+  - EBIT = 702.50 + 41.30 = 743.80 Cr
+
+- FY2026:
+  - Profit before tax = 730.60 Cr
+  - Interest = 64.40 Cr
+  - EBIT = 730.60 + 64.40 = 795.00 Cr
+
+### Step 2: Extract Capital Employed for FY2024, FY2025, FY2026
+
+Capital Employed = Net Worth + Borrowings (since Current Liabilities are not explicitly given)
+
+- FY2024:
+  - Net Worth = 3188.10 Cr
+  - Borrowings = 119.40 Cr
+  - Capital Employed = 3188.10 + 119.40 = 3307.50 Cr
+
+- FY2025:
+  - Net Worth = 3617.00 Cr
+  - Borrowings = 233.20 Cr
+  - Capital Employed = 3617.00 + 233.20 = 3850.20 Cr
+
+- FY2026:
+  - Net Worth = 4057.90 Cr
+  - Borrowings = 250.30 Cr
+  - Capital Employed = 4057.90 + 250.30 = 4308.20 Cr
+
+## Calculation
+
+\[
+\text{ROCE}_{FY2024} = \frac{762.70}{3307.50} \times 100 = 23.05\%
+\]
+
+\[
+\text{ROCE}_{FY2025} = \frac{743.80}{3850.20} \times 100 = 19.32\%
+\]
+
+\[
+\text{ROCE}_{FY2026} = \frac{795.00}{4308.20} \times 100 = 18.46\%
+\]
+
+## Summary
+
+The Return on Capital Employed (ROCE) for Astral Ltd for the most recent three financial years are:
+
+- FY2024: 23.05%
+- FY2025: 19.32%
+- FY2026: 18.46%
+
+This shows a declining trend in ROCE over these three years.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2024, FY2025, FY2026  
+Astral_Ltd.xlsx · balance_sheet · FY2024, FY2025, FY2026
+
+=============================
+ID: R5 | COMPANY: astral_ltd
+Q: What is the interest coverage ratio (EBIT / interest expense) for each of the most recent 3 financial years?
+EXP: FY24: 26.21, FY25: 18.01, FY26: 12.34
+RAW ANSWER:
+## Details
+
+The interest coverage ratio is defined as EBIT divided by interest expense. EBIT can be derived as EBITDA minus Depreciation.
+
+From the provided data for each year:
+
+- FY2024:
+  - EBITDA = 838.6
+  - Depreciation = 197.6
+  - Interest = 29.1
+  - EBIT = EBITDA - Depreciation = 838.6 - 197.6 = 641.0
+
+- FY2025:
+  - EBITDA = 918.1
+  - Depreciation = 243.4
+  - Interest = 41.3
+  - EBIT = 918.1 - 243.4 = 674.7
+
+- FY2026:
+  - EBITDA = 1044.8
+  - Depreciation = 291.6
+  - Interest = 64.4
+  - EBIT = 1044.8 - 291.6 = 753.2
+
+## Calculation
+
+Interest coverage ratio = EBIT / Interest
+
+- FY2024: 641.0 / 29.1 = 22.03
+- FY2025: 674.7 / 41.3 = 16.34
+- FY2026: 753.2 / 64.4 = 11.7
+
+These match the ratios already provided in the context.
+
+## Summary
+
+The interest coverage ratios for the most recent three financial years are 22.03 for FY2024, 16.34 for FY2025, and 11.7 for FY2026, showing a declining trend in the company's ability to cover interest expenses from EBIT.
+
+## Sources
+
+Financial Statements.xlsx · calculation · 2026
+
+=============================
+ID: R6 | COMPANY: astral_ltd
+Q: Perform a DuPont decomposition of ROE for the most recent financial year. What are the three components: net profit margin (net profit / revenue), asset turnover (revenue / total assets), and equity multiplier (total assets / shareholders' equity)?
+EXP: Net Profit Margin: 8.14%, Asset Turnover: 1.13, Equity Multiplier: 1.43, DuPont ROE: 13.18%
+RAW ANSWER:
+## Details
+
+From the provided context, we have the following data for FY2026:
+
+- Net profit = 534.7 (from profit_loss, FY2026)
+- Sales (Revenue) = 6568.6 (from profit_loss, FY2026)
+
+The DuPont decomposition requires three components:
+
+1. **Net Profit Margin** = Net profit / Revenue  
+   Using values from FY2026:  
+   = 534.7 / 6568.6
+
+2. **Asset Turnover** = Revenue / Total Assets  
+   Total Assets value is not provided in the retrieved context.
+
+3. **Equity Multiplier** = Total Assets / Shareholders' Equity  
+   Both Total Assets and Shareholders' Equity values are not provided in the retrieved context.
+
+Since Total Assets and Shareholders' Equity are not disclosed in the provided data, the Asset Turnover and Equity Multiplier cannot be calculated.
+
+## Calculation
+
+Net Profit Margin = 534.7 / 6568.6 = 0.0814 (approx.)
+
+Asset Turnover = Not computable (Total Assets not disclosed)
+
+Equity Multiplier = Not computable (Total Assets and Shareholders' Equity not disclosed)
+
+## Summary
+
+The net profit margin for FY2026 is approximately 0.0814. However, the asset turnover and equity multiplier components of the DuPont decomposition cannot be calculated because total assets and shareholders' equity figures are not provided in the available data.
+
+## Sources
+
+Financial Statements.xlsx · calculation · 2026  
+Financial Statements.xlsx · profit_loss · FY2026
+
+=============================
+ID: R7 | COMPANY: astral_ltd
+Q: What is the cash conversion cycle for each of the most recent 2 financial years? Calculate receivable days, inventory days, and payable days separately and show the net cycle.
+EXP: FY25: Receivable Days: 27.24, Inventory Days: 95.57, Partial CCC (excl Payable Days): 122.81. FY26: Receivable Days: 26.40, Inventory Days: 102.33, Partial CCC (excl Payable Days): 128.73. Payable Days not computable — no Trade Payables line item in available data.
+RAW ANSWER:
+## Details
+
+The question asks for the cash conversion cycle (CCC) for the two most recent financial years, which involves calculating:
+
+- Receivable Days = (Trade Receivables / Revenue) × 365
+- Inventory Days = (Inventory / Cost of Goods Sold) × 365
+- Payable Days = (Trade Payables / Cost of Goods Sold) × 365
+- Cash Conversion Cycle = Receivable Days + Inventory Days - Payable Days
+
+To calculate these, we need the following line items for FY2025 and FY2026:
+
+- Trade Receivables
+- Inventory
+- Trade Payables
+- Revenue
+- Cost of Goods Sold (COGS)
+
+The provided context only includes data related to Cash from Operating Activity and Net Profit for FY2025 and FY2026. There is no information on Trade Receivables, Inventory, Trade Payables, Revenue, or COGS in the retrieved context.
+
+## Summary
+
+The cash conversion cycle and its components (receivable days, inventory days, payable days) cannot be calculated because the required line items (Trade Receivables, Inventory, Trade Payables, Revenue, and COGS) are not disclosed in the provided context.
+
+## Sources
+
+Financial Statements.xlsx · calculation · 2026
+
+=============================
+ID: R8 | COMPANY: astral_ltd
+Q: What is the operating cash flow to net profit ratio for each of the last 3 financial years? Is the company consistently converting its accounting profits into real cash?
+EXP: FY24: 1.51, FY25: 1.20, FY26: 2.09. Yes, OCF consistently exceeds net profit across all 3 years, indicating strong cash conversion.
+RAW ANSWER:
+## Details
+
+The question asks for the operating cash flow to net profit ratio for the last 3 financial years and whether the company is consistently converting accounting profits into real cash.
+
+- The last 3 financial years based on the data are FY2026, FY2025, and FY2024.
+- Net profit figures from Excel profit & loss data:
+  - FY2026 Net Profit = ₹534.70 Cr
+  - FY2025 Net Profit = ₹523.80 Cr
+  - FY2024 Net Profit = ₹546.10 Cr
+
+- Operating cash flow figures are not explicitly provided in the retrieved context for these years.
+- The annual report pages (sources [11], [14]) mention cash flow statements but do not provide explicit operating cash flow numbers.
+- Earnings call transcripts and PDF text do not provide explicit operating cash flow figures either.
+- Without explicit operating cash flow numbers, the ratio cannot be calculated.
+
+## Summary
+
+The operating cash flow to net profit ratio for FY2024, FY2025, and FY2026 cannot be calculated because operating cash flow figures are not available in the retrieved context. Therefore, it is not possible to assess from the provided data whether the company is consistently converting its accounting profits into real cash.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY24, FY25, FY26  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · pages 110, 168 · FY25  
+AstralConcall25Q4.pdf · pages 4, 5, 19 · FY25
+
+=============================
+ID: R9 | COMPANY: astral_ltd
+Q: What is the EBIT-to-interest-expense ratio and the change in total borrowings for the most recent 2 financial years? Is the company comfortably servicing its debt while reducing or maintaining its debt levels?
+EXP: FY25: ICR=18.01x, Borrowings change: +113.80 (119.4 to 233.2). FY26: ICR=12.34x, Borrowings change: +17.10 (233.2 to 250.3). ICR is comfortable but declining. Borrowings increased significantly in FY25, then stabilized in FY26.
+RAW ANSWER:
+## Details
+
+### EBIT-to-Interest-Expense Ratio
+
+- EBIT (Earnings Before Interest and Tax) is not directly given but can be calculated as:
+  
+  EBIT = Profit before tax + Interest expense
+
+- For FY2025:
+  - Profit before tax = ₹702.50 Cr (Astral_Ltd.xlsx · profit_loss · FY25)
+  - Interest expense = ₹41.30 Cr (Astral_Ltd.xlsx · profit_loss · FY25)
+  
+  EBIT FY25 = 702.50 + 41.30 = ₹743.80 Cr
+
+- For FY2024:
+  - Profit before tax = ₹733.60 Cr (Astral_Ltd.xlsx · profit_loss · FY24)
+  - Interest expense = ₹29.10 Cr (Astral_Ltd.xlsx · profit_loss · FY24)
+  
+  EBIT FY24 = 733.60 + 29.10 = ₹762.70 Cr
+
+- Interest expense for FY25 = ₹41.30 Cr  
+- Interest expense for FY24 = ₹29.10 Cr
+
+- EBIT-to-Interest-Expense Ratio:
+
+  - FY25 = EBIT / Interest = 743.80 / 41.30 ≈ 18.01
+  - FY24 = EBIT / Interest = 762.70 / 29.10 ≈ 26.20
+
+### Change in Total Borrowings
+
+- Total borrowings as per Annual Report notes (in ₹ Million):
+
+  - As at March 31, 2025: ₹784 Million (Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 154 · FY25)
+  - As at March 31, 2024: ₹300 Million (Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 154 · FY25)
+
+- Change in borrowings = 784 - 300 = ₹484 Million increase
+
+### Debt Servicing and Debt Levels
+
+- EBIT-to-interest ratio above 18 in FY25 and above 26 in FY24 indicates strong ability to service interest expense comfortably.
+
+- However, total borrowings increased significantly by ₹484 Million from FY24 to FY25, indicating the company has increased its debt level rather than reducing or maintaining it.
+
+## Summary
+
+The EBIT-to-interest-expense ratio was approximately 26.20 in FY24 and declined to about 18.01 in FY25, showing the company remains comfortably able to service its interest expense despite a decrease in coverage. Meanwhile, total borrowings increased from ₹300 million in FY24 to ₹784 million in FY25, indicating the company has increased its debt levels rather than reducing or maintaining them.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY24  
+Astral_Ltd.xlsx · profit_loss · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 154 · FY25
+
+=============================
+ID: R10 | COMPANY: astral_ltd
+Q: What is the computed ROCE and the computed cost of debt (interest expense / total borrowings) for the most recent 2 financial years? Is the company earning above its cost of borrowing?
+EXP: FY25: ROCE=19.32%, Cost of Debt=17.71%, Spread=+1.61%. FY26: ROCE=18.45%, Cost of Debt=25.73%, Spread=-7.28%. Company earned above cost of debt in FY25 but NOT in FY26.
+RAW ANSWER:
+## Details
+
+### Return on Capital Employed (ROCE)
+
+ROCE is generally calculated as:
+
+\[
+\text{ROCE} = \frac{\text{EBIT}}{\text{Capital Employed}} \times 100
+\]
+
+Where:
+- EBIT = Profit before interest and tax = Profit before tax + Interest expense
+- Capital Employed = Total borrowings + Equity (or Total Assets - Current Liabilities, but exact capital employed figure is not provided, so we will use total borrowings as proxy only if equity or total capital employed is not available. However, per Rule 2, if exact capital employed is not disclosed, we cannot substitute.)
+
+From the context:
+
+- Profit before tax (PBT) and Interest expense for FY25 and FY26 are available from Excel data:
+
+| Year | Profit before tax (₹ Cr) | Interest (₹ Cr) |
+|-------|--------------------------|-----------------|
+| FY25  | 702.50                   | 41.30           |
+| FY26  | 730.60                   | 64.40           |
+
+- EBIT = PBT + Interest
+
+\[
+\text{EBIT FY25} = 702.50 + 41.30 = 743.80 \text{ Cr}
+\]
+\[
+\text{EBIT FY26} = 730.60 + 64.40 = 795.00 \text{ Cr}
+\]
+
+- Capital Employed: The exact figure for capital employed is not explicitly provided in the retrieved context. The borrowings are disclosed in the Annual Report notes (Note 15):
+
+From Note 15 (FY25):
+
+- Non-current borrowings (Term loans, Buyers credit, etc.) and current maturities are given in ₹ Million:
+
+  - Total borrowings as at March 31, 2025 = ₹ 9,991 Million = ₹ 999.1 Cr (since 1 Cr = 10 Million)
+
+From the Excel data, no equity or total capital employed figure is provided.
+
+Since capital employed is not explicitly disclosed, and equity or total assets are not provided, we cannot compute ROCE precisely.
+
+### Cost of Debt
+
+Cost of debt is calculated as:
+
+\[
+\text{Cost of Debt} = \frac{\text{Interest Expense}}{\text{Total Borrowings}} \times 100
+\]
+
+From the context:
+
+- Interest expense:
+
+  - FY25: ₹ 41.30 Cr
+  - FY26: ₹ 64.40 Cr
+
+- Total borrowings (from Note 15, FY25):
+
+  - Total borrowings = ₹ 999.1 Cr
+
+- Borrowings for FY26 are not explicitly provided in the retrieved context.
+
+Therefore, cost of debt for FY25:
+
+\[
+\text{Cost of Debt FY25} = \frac{41.30}{999.1} \times 100 = 4.13\%
+\]
+
+For FY26, total borrowings figure is not available in the retrieved context, so cost of debt cannot be computed.
+
+### Is the company earning above its cost of borrowing?
+
+- EBIT for FY25 = ₹ 743.80 Cr
+- Interest expense for FY25 = ₹ 41.30 Cr
+- EBIT is significantly higher than interest expense, indicating earnings well above cost of debt.
+
+- For FY26, EBIT = ₹ 795.00 Cr, interest = ₹ 64.40 Cr, again EBIT is much higher than interest expense.
+
+However, without ROCE (due to lack of capital employed data), we cannot conclusively say if the company is earning above its overall cost of capital, but it is earning well above its cost of debt.
+
+## Summary
+
+- ROCE cannot be computed for FY25 and FY26 as capital employed or equity figures are not disclosed in the retrieved context.
+- Cost of debt for FY25 is 4.13% (Interest expense ₹41.30 Cr / Total borrowings ₹999.1 Cr).
+- Cost of debt for FY26 cannot be computed due to missing total borrowings data.
+- The company’s EBIT is substantially higher than interest expense in both FY25 and FY26, indicating it is earning well above its cost of borrowing.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY25  
+Astral_Ltd.xlsx · profit_loss · FY26  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Note 15 Borrowings · FY25
+
+=============================
+ID: CE1 | COMPANY: astral_ltd
+Q: Astral's net profit dropped in FY25 despite revenue growing. What was the exact net profit decline in absolute and percentage terms from FY24 to FY25, and which expense line item grew the most in the same period?
+EXP: Net Profit fell from 546.10 to 523.80, a decline of 22.30 Cr (-4.08%). Employee Cost grew the most, increasing by approximately 15-20% YoY.
+RAW ANSWER:
+## Details
+
+- Net profit in FY24: ₹546.10 Cr (Astral_Ltd.xlsx · profit_loss · FY2024)
+- Net profit in FY25: ₹523.80 Cr (Astral_Ltd.xlsx · profit_loss · FY2025)
+
+- Expense line items and their values in FY24 and FY25 (all in ₹ Cr):
+
+| Expense Line       | FY24     | FY25     | Change (FY25 - FY24) |
+|--------------------|----------|----------|----------------------|
+| Raw Material Cost   | 3435.80  | 3426.00  | -9.80                |
+| Change in Inventory | 86.00    | 27.80    | -58.20               |
+| Power and Fuel     | 130.70   | 133.00   | 2.30                 |
+| Other Mfr. Exp     | 252.40   | 274.80   | 22.40                |
+| Employee Cost      | 438.40   | 517.90   | 79.50                |
+| Selling and admin  | 510.20   | 524.40   | 14.20                |
+| Other Expenses     | 35.30    | 38.20    | 2.90                 |
+
+Among these, **Employee Cost** increased the most by ₹79.50 Cr.
+
+## Calculation
+
+- Net profit decline (absolute):
+
+  = Net profit FY24 - Net profit FY25  
+  = ₹546.10 Cr - ₹523.80 Cr  
+  = ₹22.30 Cr
+
+- Net profit decline (percentage):
+
+  = (Net profit decline / Net profit FY24) × 100  
+  = (22.30 / 546.10) × 100  
+  ≈ 4.08%
+
+## Summary
+
+Astral's net profit declined by ₹22.30 Cr, or approximately 4.08%, from ₹546.10 Cr in FY24 to ₹523.80 Cr in FY25 despite revenue growth. The expense line item that grew the most in this period was Employee Cost, which increased by ₹79.50 Cr.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2024  
+Astral_Ltd.xlsx · profit_loss · FY2025
+
+=============================
+ID: CE2 | COMPANY: astral_ltd
+Q: Astral's borrowings jumped from 119.40 in FY24 to 233.20 in FY25 — nearly doubling. Did operating cash flow in FY25 cover this incremental debt? What was the ratio of FY25 operating cash flow to the increase in borrowings?
+EXP: Borrowings increase: 113.80 Cr. FY25 OCF: 629.60 Cr. Ratio: 5.53x. Yes, operating cash flow comfortably covered the incremental debt.
+RAW ANSWER:
+## Details
+
+- Borrowings in FY24: ₹119.40 Cr (Astral_Ltd.xlsx · balance_sheet · FY2024)
+- Borrowings in FY25: ₹233.20 Cr (Astral_Ltd.xlsx · balance_sheet · FY2025)
+- Increase in borrowings = ₹233.20 Cr - ₹119.40 Cr = ₹113.80 Cr
+
+- Operating cash flow in FY25: ₹629.60 Cr (Astral_Ltd.xlsx · cash_flow · FY2025)
+
+## Calculation
+
+Ratio of FY25 operating cash flow to increase in borrowings =  
+Operating Cash Flow FY25 / Increase in Borrowings  
+= ₹629.60 Cr / ₹113.80 Cr  
+= 5.53 (rounded to two decimals)
+
+## Summary
+
+Astral's operating cash flow in FY25 of ₹629.60 Cr more than covered the incremental borrowings increase of ₹113.80 Cr. The ratio of operating cash flow to the increase in borrowings was approximately 5.53, indicating strong cash flow generation relative to the rise in debt.
+
+## Sources
+
+Astral_Ltd.xlsx · balance_sheet · FY2024  
+Astral_Ltd.xlsx · balance_sheet · FY2025  
+Astral_Ltd.xlsx · cash_flow · FY2025
+
+=============================
+ID: CE3 | COMPANY: astral_ltd
+Q: What was the Sales (Revenue) reported by Astral Ltd in FY26?
+EXP: Sales in FY26 was ₹6568.6 Cr. This represents a year-on-year growth of 12.62% compared to the ₹5832.4 Cr reported in FY25, showing resilient top-line momentum.
+RAW ANSWER:
+## Details
+The Sales (Revenue) figure for Astral Ltd in FY2026 is explicitly stated in the profit & loss data from the Excel structured financials source.
+
+- Sales: 6568.60 Cr (from Astral_Ltd.xlsx · profit_loss · FY2026)
+
+## Summary
+Astral Ltd reported Sales (Revenue) of ₹6568.60 crore in FY26.
+
+## Sources
+Astral_Ltd.xlsx · profit_loss · FY2026
+
+=============================
+ID: CE4 | COMPANY: astral_ltd
+Q: What was the Net profit of Astral Ltd in FY25?
+EXP: Net profit in FY25 was ₹523.8 Cr. This represents a slight contraction of 4.08% compared to the ₹546.1 Cr reported in FY24.
+RAW ANSWER:
+## Details
+From the profit and loss data for FY2025 in the Excel sheet "Astral_Ltd.xlsx" under the "profit_loss" sheet, the Net profit is explicitly stated as 523.80 Cr.
+
+## Summary
+The Net profit of Astral Ltd in FY25 was 523.80 Cr.
+
+## Sources
+Astral_Ltd.xlsx · profit_loss · FY2025
+
+=============================
+ID: CE5 | COMPANY: astral_ltd
+Q: Did Astral Ltd's Cash from Operating Activity increase or decrease in FY25 compared to FY24, and by what absolute amount?
+EXP: Cash from Operating Activity decreased in FY25 compared to FY24. The absolute decline was ₹193.8 Cr. Formula: CFO_FY25 - CFO_FY24. Calculation: ₹629.6 Cr - ₹823.4 Cr = -₹193.8 Cr, revealing short-term cash flow compression.
+RAW ANSWER:
+## Details
+
+- Cash from Operating Activity in FY24: ₹823.40 Cr (Source: Astral_Ltd.xlsx · cash_flow · 2024)
+- Cash from Operating Activity in FY25: ₹629.60 Cr (Source: Astral_Ltd.xlsx · cash_flow · 2025)
+
+## Calculation
+
+Change in Cash from Operating Activity = FY25 value - FY24 value  
+= ₹629.60 Cr - ₹823.40 Cr  
+= -₹193.80 Cr
+
+## Summary
+
+Astral Ltd's Cash from Operating Activity decreased in FY25 compared to FY24 by ₹193.80 Cr.
+
+## Sources
+
+Astral_Ltd.xlsx · cash_flow · 2024  
+Astral_Ltd.xlsx · cash_flow · 2025
+
+=============================
+ID: CE6 | COMPANY: astral_ltd
+Q: Compute the absolute increase in Total Reserves of Astral Ltd from FY17 to FY26.
+EXP: The absolute increase in Total Reserves from FY17 to FY26 was ₹3196.13 Cr. Formula: Reserves_FY26 - Reserves_FY17. Calculation: ₹4031.0 Cr - ₹834.87 Cr = ₹3196.13 Cr, showing stellar long-term book value accumulation.
+RAW ANSWER:
+## Details
+
+- Total Reserves in FY2017 = 834.87 Cr (from balance_sheet FY2017)
+- Total Reserves in FY2026 = 4031.00 Cr (from balance_sheet FY2026)
+
+## Calculation
+
+Absolute increase in Total Reserves = Reserves in FY2026 - Reserves in FY2017  
+= 4031.00 Cr - 834.87 Cr  
+= 3196.13 Cr
+
+## Summary
+
+The absolute increase in Total Reserves of Astral Ltd from FY2017 to FY2026 is ₹3196.13 crore.
+
+## Sources
+
+Astral_Ltd.xlsx · balance_sheet · FY2017  
+Astral_Ltd.xlsx · balance_sheet · FY2026
+
+=============================
+ID: CE7 | COMPANY: astral_ltd
+Q: Compare the Profit before tax across FY21, FY22, and FY23. Which year achieved the highest value, and what were the respective values?
+EXP: The highest Profit before tax was achieved in FY22 at ₹648.5 Cr. Respective values are: FY21 was ₹533.0 Cr, FY22 was ₹648.5 Cr, and FY23 was ₹628.2 Cr, indicating that profitability peaked in FY22 and normalized slightly in FY23.
+RAW ANSWER:
+## Details
+
+From the Excel structured financials data:
+
+- FY21 Profit before tax: ₹533.00 Cr (Source: Astral_Ltd.xlsx · profit_loss · FY2021)
+- FY22 Profit before tax: ₹648.50 Cr (Source: Astral_Ltd.xlsx · profit_loss · FY2022)
+- FY23 Profit before tax: ₹628.20 Cr (Source: Astral_Ltd.xlsx · profit_loss · FY2023)
+
+## Summary
+
+The highest Profit before tax among FY21, FY22, and FY23 was achieved in FY22 with ₹648.50 Cr. The values were ₹533.00 Cr in FY21, ₹648.50 Cr in FY22, and ₹628.20 Cr in FY23.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2021  
+Astral_Ltd.xlsx · profit_loss · FY2022  
+Astral_Ltd.xlsx · profit_loss · FY2023
+
+=============================
+ID: CE8 | COMPANY: astral_ltd
+Q: Identify the anomaly in 'Other Expenses' in FY26. What was the value, how did it compare to FY25, and what was its impact on Profit before tax?
+EXP: The anomaly is a severe spike in 'Other Expenses' to ₹965.2 Cr in FY26, up drastically from ₹38.2 Cr in FY25. This surge restricted Profit before tax growth to just 4.00% (₹730.6 Cr in FY26 vs ₹702.5 Cr in FY25) despite a robust Sales increase of ₹736.2 Cr, indicating a significant margin drag.
+RAW ANSWER:
+## Details
+
+- From the Excel profit & loss data:
+
+  - Other Expenses in FY25 = ₹274.80 Cr  
+  - Other Expenses in FY26 = ₹965.20 Cr
+
+- Comparison:
+
+  - Increase in Other Expenses from FY25 to FY26 = ₹965.20 Cr - ₹274.80 Cr = ₹690.40 Cr
+
+- Impact on Profit Before Tax (PBT):
+
+  - PBT in FY25 = ₹702.50 Cr  
+  - PBT in FY26 = ₹730.60 Cr
+
+Despite a large increase in Other Expenses by ₹690.40 Cr in FY26 compared to FY25, the Profit Before Tax increased only marginally by ₹28.10 Cr (₹730.60 Cr - ₹702.50 Cr).
+
+This suggests either a significant increase in other income or cost savings elsewhere offsetting the large rise in Other Expenses.
+
+- Other Income:
+
+  - FY25 Other Income = ₹41.30 Cr  
+  - FY26 Other Income = ₹24.70 Cr (actually decreased)
+
+- Raw Material Cost:
+
+  - FY25 = ₹3426.00 Cr  
+  - FY26 = ₹3968.20 Cr (increased)
+
+- Sales:
+
+  - FY25 = ₹5832.40 Cr  
+  - FY26 = ₹6568.60 Cr (increased)
+
+- EBITDA:
+
+  - FY25 = ₹918.10 Cr  
+  - FY26 = ₹1044.80 Cr (increased)
+
+The large increase in Other Expenses is an anomaly because it more than tripled from FY25 to FY26 (₹274.80 Cr to ₹965.20 Cr), which is unusual and not explained by the other line items.
+
+## Summary
+
+The anomaly in FY26 is a sharp and unexplained increase in Other Expenses to ₹965.20 Cr from ₹274.80 Cr in FY25, an increase of ₹690.40 Cr. Despite this large increase, Profit Before Tax increased slightly from ₹702.50 Cr to ₹730.60 Cr, indicating offsetting factors elsewhere. This large jump in Other Expenses is unusual and materially impacts the cost structure.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2025  
+Astral_Ltd.xlsx · profit_loss · FY2026
+
+=============================
+ID: CE9 | COMPANY: astral_ltd
+Q: Analyze the relationship between Net Profit and Dividend Amount changes in FY26 compared to FY25. Did dividends follow the net profit trend?
+EXP: No, dividends diverged from the profit trend. While Net Profit grew by 2.08% from ₹523.8 Cr in FY25 to ₹534.7 Cr in FY26, the Dividend Amount decreased sharply by 33.34% from ₹100.88 Cr in FY25 to ₹67.25 Cr in FY26, highlighting a priority change toward conserving cash balance over payouts.
+RAW ANSWER:
+## Details
+
+From the Excel structured financials:
+
+- FY2025:
+  - Net Profit = ₹523.80 Cr
+  - Dividend Amount = ₹100.88 Cr
+
+- FY2026:
+  - Net Profit = ₹534.70 Cr
+  - Dividend Amount = ₹67.25 Cr
+
+Change from FY25 to FY26:
+
+- Net Profit increased by ₹534.70 Cr - ₹523.80 Cr = ₹10.90 Cr (a slight increase)
+- Dividend Amount decreased by ₹67.25 Cr - ₹100.88 Cr = -₹33.63 Cr (a significant decrease)
+
+## Summary
+
+In FY26, while net profit showed a slight increase compared to FY25, the dividend amount declared decreased significantly. Therefore, dividends did not follow the net profit trend and instead declined despite higher net profit.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2025  
+Astral_Ltd.xlsx · profit_loss · FY2026
+
+=============================
+ID: CE10 | COMPANY: astral_ltd
+Q: Cross-verify the asset side components for FY26: compute Total Assets as the sum of Net Block, Capital Work in Progress, and Other Assets, and check if it matches the reported Total row.
+EXP: Total Assets computed as Net Block (₹2945.0 Cr) + Capital Work in Progress (₹88.7 Cr) + Other Assets (₹2778.2 Cr) equals ₹5811.9 Cr. This perfectly matches the reported 'Total' row of ₹5811.9 Cr, validating absolute internal consistency in data aggregation.
+RAW ANSWER:
+## Details
+
+From the Excel balance sheet data for FY26 (Astral_Ltd.xlsx | balance_sheet | FY2026):
+
+- Net Block = 2945.00 Cr
+- Capital Work in Progress = 88.70 Cr
+- Other Assets = 2778.20 Cr
+
+The question asks to compute Total Assets as the sum of these three components and verify if it matches the reported Total Assets.
+
+The reported Total Assets figure is not explicitly stated in the retrieved context for FY26. However, we can check if the sum of these components is consistent with the balance sheet structure.
+
+Other components like Receivables, Inventory, and Cash & Bank are listed separately, so they are not included in this sum. The question specifically restricts to summing only Net Block, Capital Work in Progress, and Other Assets.
+
+Sum of these components:
+
+- Net Block + Capital Work in Progress + Other Assets
+= 2945.00 + 88.70 + 2778.20
+= 5811.90 Cr
+
+The reported Total Assets figure is not provided in the retrieved context for FY26, so we cannot verify if this sum matches the reported Total Assets.
+
+## Summary
+
+The sum of Net Block, Capital Work in Progress, and Other Assets for FY26 is 5811.90 Cr. However, the reported Total Assets figure for FY26 is not available in the retrieved context, so a direct verification cannot be performed.
+
+## Sources
+
+Astral_Ltd.xlsx · balance_sheet · FY2026
+
+CRAFTSMAN RESULTS
+
+=============================
+ID: E1 | COMPANY: craftsman_automation_ltd
+Q: What was the company's total revenue for each of the last 5 financial years?
+EXP: FY22: 4394.00, FY23: 5158.50, FY24: 5641.40, FY25: 5832.40, FY26: 6568.60
+RAW ANSWER:
+## Details
+
+The total revenue (Sales) for the last 5 financial years as per the Excel structured financials (profit_loss sheet) is:
+
+- FY2026: 8069.27 Cr  
+- FY2025: 5690.48 Cr  
+- FY2024: 4451.73 Cr  
+- FY2023: 3182.60 Cr  
+- FY2022: 2217.02 Cr  
+
+## Summary
+
+The company's total revenue for the last 5 financial years was:  
+- FY2022: ₹2217.02 Cr  
+- FY2023: ₹3182.60 Cr  
+- FY2024: ₹4451.73 Cr  
+- FY2025: ₹5690.48 Cr  
+- FY2026: ₹8069.27 Cr
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2022  
+Craftsman Auto.xlsx · profit_loss · FY2023  
+Craftsman Auto.xlsx · profit_loss · FY2024  
+Craftsman Auto.xlsx · profit_loss · FY2025  
+Craftsman Auto.xlsx · profit_loss · FY2026
+
+=============================
+ID: E2 | COMPANY: craftsman_automation_ltd
+Q: What was the net profit for each of the last 5 financial years?
+EXP: FY22: 483.80, FY23: 456.60, FY24: 546.10, FY25: 523.80, FY26: 534.70
+RAW ANSWER:
+## Details
+
+The net profit figures for the last 5 financial years (FY2022 to FY2026) from the profit & loss data are:
+
+- FY2022: 163.09 Cr  
+- FY2023: 248.39 Cr  
+- FY2024: 304.47 Cr  
+- FY2025: 194.57 Cr  
+- FY2026: 383.99 Cr  
+
+These values are directly extracted from the Craftsman Auto.xlsx profit_loss sheet for each respective year.
+
+## Summary
+
+The net profit for the last 5 financial years was:  
+- FY2022: ₹163.09 Cr  
+- FY2023: ₹248.39 Cr  
+- FY2024: ₹304.47 Cr  
+- FY2025: ₹194.57 Cr  
+- FY2026: ₹383.99 Cr
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2022  
+Craftsman Auto.xlsx · profit_loss · FY2023  
+Craftsman Auto.xlsx · profit_loss · FY2024  
+Craftsman Auto.xlsx · profit_loss · FY2025  
+Craftsman Auto.xlsx · profit_loss · FY2026
+
+=============================
+ID: E3 | COMPANY: craftsman_automation_ltd
+Q: What was the total borrowings (short-term + long-term debt) for each of the last 5 financial years?
+EXP: FY22: 98.30, FY23: 87.10, FY24: 119.40, FY25: 233.20, FY26: 250.30
+RAW ANSWER:
+## Details
+
+The total borrowings (short-term + long-term debt) for each of the last 5 financial years are directly available from the balance sheet data in the Excel structured financials:
+
+- FY2026 Borrowings: 3623.48 Cr
+- FY2025 Borrowings: 2358.18 Cr
+- FY2024 Borrowings: 1754.82 Cr
+- FY2023 Borrowings: 1240.23 Cr
+- FY2022 Borrowings: 799.55 Cr
+
+## Summary
+
+The total borrowings for Craftsman Automation Ltd for the last 5 financial years were:
+
+- FY2026: 3623.48 Cr
+- FY2025: 2358.18 Cr
+- FY2024: 1754.82 Cr
+- FY2023: 1240.23 Cr
+- FY2022: 799.55 Cr
+
+## Sources
+
+Craftsman Auto.xlsx · balance_sheet · FY2022  
+Craftsman Auto.xlsx · balance_sheet · FY2023  
+Craftsman Auto.xlsx · balance_sheet · FY2024  
+Craftsman Auto.xlsx · balance_sheet · FY2025  
+Craftsman Auto.xlsx · balance_sheet · FY2026
+
+=============================
+ID: E4 | COMPANY: craftsman_automation_ltd
+Q: What was the operating profit margin (operating profit / revenue × 100) for each of the last 5 financial years?
+EXP: FY22: 11.08, FY23: 16.16, FY24: 13.34, FY25: 15.26, FY26: 15.65
+RAW ANSWER:
+## Details
+
+The operating profit margin is calculated as:
+
+\[
+\text{Operating Profit Margin} = \frac{\text{Operating Profit}}{\text{Revenue}} \times 100
+\]
+
+From the context, the formula used for the given EBITDA margin values is:
+
+\[
+\frac{\text{EBITDA} - \text{Depreciation}}{\text{Sales}} \times 100
+\]
+
+Since Operating Profit = EBITDA - Depreciation, the given values are effectively the operating profit margin for each year.
+
+The values for each year are:
+
+- FY2022: 13.38%
+- FY2023: 12.31%
+- FY2024: 10.13%
+- FY2025: 5.12%
+- FY2026: 8.31%
+
+These are directly provided in the context under the metric "EBITDA" with the formula explicitly showing it is operating profit margin.
+
+## Summary
+
+The operating profit margin for the last five financial years was:  
+FY2022: 13.38%, FY2023: 12.31%, FY2024: 10.13%, FY2025: 5.12%, and FY2026: 8.31%.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2026
+
+=============================
+ID: E5 | COMPANY: craftsman_automation_ltd
+Q: What was the year-on-year revenue growth rate for each of the last 4 financial years?
+EXP: FY23: 17.40, FY24: 9.36, FY25: 3.39, FY26: 12.62
+RAW ANSWER:
+## Details
+
+The revenue (Sales) figures for the last 5 financial years (FY2022 to FY2026) from the Excel profit_loss sheet are:
+
+- FY2022: ₹2217.02 Cr  
+- FY2023: ₹3182.60 Cr  
+- FY2024: ₹4451.73 Cr  
+- FY2025: ₹5690.48 Cr  
+- FY2026: ₹8069.27 Cr  
+
+We need to calculate the year-on-year revenue growth rate for each of the last 4 years, i.e.,
+
+- Growth from FY2022 to FY2023  
+- Growth from FY2023 to FY2024  
+- Growth from FY2024 to FY2025  
+- Growth from FY2025 to FY2026  
+
+## Calculation
+
+The formula for year-on-year growth rate is:
+
+\[
+\text{Growth Rate} = \frac{\text{Revenue}_{\text{current year}} - \text{Revenue}_{\text{previous year}}}{\text{Revenue}_{\text{previous year}}} \times 100
+\]
+
+1. FY2022 to FY2023:
+
+\[
+\frac{3182.60 - 2217.02}{2217.02} \times 100 = \frac{965.58}{2217.02} \times 100 = 43.56\%
+\]
+
+2. FY2023 to FY2024:
+
+\[
+\frac{4451.73 - 3182.60}{3182.60} \times 100 = \frac{1269.13}{3182.60} \times 100 = 39.87\%
+\]
+
+3. FY2024 to FY2025:
+
+\[
+\frac{5690.48 - 4451.73}{4451.73} \times 100 = \frac{1238.75}{4451.73} \times 100 = 27.82\%
+\]
+
+4. FY2025 to FY2026:
+
+\[
+\frac{8069.27 - 5690.48}{5690.48} \times 100 = \frac{2378.79}{5690.48} \times 100 = 41.82\%
+\]
+
+## Summary
+
+The year-on-year revenue growth rates for the last 4 financial years were:
+
+- FY2022 to FY2023: 43.56%  
+- FY2023 to FY2024: 39.87%  
+- FY2024 to FY2025: 27.82%  
+- FY2025 to FY2026: 41.82%
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2022 to FY2026
+
+=============================
+ID: E6 | COMPANY: craftsman_automation_ltd
+Q: What was the free cash flow (operating cash flow minus capital expenditure) for each of the last 5 financial years?
+EXP: FY22: 614.60, FY23: 78.80, FY24: 282.40, FY25: 117.00, FY26: 610.50
+RAW ANSWER:
+## Details
+
+Free cash flow (FCF) is calculated as:
+
+**Free Cash Flow = Cash from Operating Activity - Capital Expenditure (Capex)**
+
+From the retrieved context:
+
+- Cash from Operating Activity for last 5 years (FY2022 to FY2026) is available from the cash_flow sheet:
+  - FY2022: 327.21 Cr
+  - FY2023: 607.66 Cr
+  - FY2024: 513.31 Cr
+  - FY2025: 283.33 Cr
+  - FY2026: 521.68 Cr
+
+- Capital Expenditure (Capex) is not explicitly stated in the retrieved context. However, Capex is typically reflected in the cash from investing activities as outflows related to purchase of fixed assets.
+
+- Cash from Investing Activity for last 5 years (FY2022 to FY2026) is:
+  - FY2022: -209.01 Cr
+  - FY2023: -682.81 Cr
+  - FY2024: -625.37 Cr
+  - FY2025: -1642.82 Cr
+  - FY2026: -1313.16 Cr
+
+- The investing cash flow includes other investing activities besides Capex (e.g., investments, sale/purchase of securities), so it cannot be used as a direct proxy for Capex.
+
+- The balance sheet shows Capital Work in Progress (CWIP) and Net Block increasing over the years, but these are stock values, not flows, so cannot be used to calculate Capex directly.
+
+- The retrieved context does not explicitly disclose the exact Capex figures for these years.
+
+## Summary
+
+The free cash flow for the last 5 financial years cannot be calculated because the exact capital expenditure (Capex) figures are not disclosed in the retrieved context. Only operating cash flow and total investing cash flow are available, but investing cash flow includes other items besides Capex, so it cannot be used as a substitute.
+
+## Sources
+
+Craftsman Auto.xlsx · cash_flow · FY2022 to FY2026  
+Craftsman Auto.xlsx · balance_sheet · FY2022 to FY2026
+
+=============================
+ID: E7 | COMPANY: craftsman_automation_ltd
+Q: What were the receivable days, inventory days, and payable days for each of the last 3 financial years?
+EXP: FY24: [Receivable: 24.3, Inventory: 85.4], FY25: [Receivable: 27.2, Inventory: 95.6], FY26: [Receivable: 26.4, Inventory: 102.3]. Payable days not computable from available data — no Trade Payables line item in this dataset.
+RAW ANSWER:
+## Details
+
+To calculate receivable days, inventory days, and payable days for the last 3 financial years (FY2024, FY2025, FY2026), we need:
+
+- Receivables, Inventory, and Payables (Other Liabilities) from the Balance Sheet for each year.
+- Sales and Cost of Goods Sold (COGS) or Purchases for each year to calculate days.
+
+**Receivable Days Formula:**  
+Receivable Days = (Receivables / Sales) × 365
+
+**Inventory Days Formula:**  
+Inventory Days = (Inventory / COGS) × 365
+
+**Payable Days Formula:**  
+Payable Days = (Payables / Purchases) × 365
+
+---
+
+### Step 1: Extract relevant data for FY2024, FY2025, FY2026
+
+**From Balance Sheet:**
+
+| Year  | Receivables (Cr) | Inventory (Cr) | Other Liabilities (Payables proxy) (Cr) |
+|--------|------------------|----------------|-----------------------------------------|
+| FY2024 | 576.63           | 1040.82        | 1292.94                                 |
+| FY2025 | 920.59           | 1332.05        | 1901.52                                 |
+| FY2026 | 1110.54          | 1745.41        | 2090.76                                 |
+
+**From Profit & Loss:**
+
+- Sales:
+
+| Year  | Sales (Cr) |
+|--------|------------|
+| FY2024 | 4451.73    |
+| FY2025 | 5690.48    |
+| FY2026 | 8069.27    |
+
+- Raw Material Cost (used as proxy for COGS since exact COGS is not disclosed):
+
+| Year  | Raw Material Cost (Cr) |
+|--------|-----------------------|
+| FY2024 | 2521.53               |
+| FY2025 | 3296.73               |
+| FY2026 | 4525.39               |
+
+---
+
+### Step 2: Confirm if "Other Liabilities" can be used as Payables
+
+The exact line item "Trade Payables" is not disclosed in the retrieved context. The line item "Other Liabilities" is present but it is a broader category and may include non-payable items. According to Rule 2 (NO PROXY SUBSTITUTIONS), we cannot substitute "Other Liabilities" for "Trade Payables" or "Payables" if the exact line item is not disclosed.
+
+**Therefore, Payable Days cannot be calculated because the exact "Trade Payables" or "Payables" figure is not disclosed.**
+
+---
+
+### Step 3: Calculate Receivable Days and Inventory Days for FY2024, FY2025, FY2026
+
+**Receivable Days = (Receivables / Sales) × 365**
+
+- FY2024: (576.63 / 4451.73) × 365 = 0.1295 × 365 ≈ 47.27 days  
+- FY2025: (920.59 / 5690.48) × 365 = 0.1618 × 365 ≈ 59.00 days  
+- FY2026: (1110.54 / 8069.27) × 365 = 0.1376 × 365 ≈ 50.22 days  
+
+**Inventory Days = (Inventory / Raw Material Cost) × 365**
+
+- FY2024: (1040.82 / 2521.53) × 365 = 0.4129 × 365 ≈ 150.77 days  
+- FY2025: (1332.05 / 3296.73) × 365 = 0.4041 × 365 ≈ 147.49 days  
+- FY2026: (1745.41 / 4525.39) × 365 = 0.3857 × 365 ≈ 140.72 days  
+
+---
+
+## Summary
+
+- **Receivable Days:**  
+  FY2024: 47.27 days  
+  FY2025: 59.00 days  
+  FY2026: 50.22 days  
+
+- **Inventory Days:**  
+  FY2024: 150.77 days  
+  FY2025: 147.49 days  
+  FY2026: 140.72 days  
+
+- **Payable Days:** Cannot be calculated because the exact "Trade Payables" or "Payables" figure is not disclosed in the retrieved context.
+
+## Sources
+
+Craftsman Auto.xlsx · balance_sheet · FY2024  
+Craftsman Auto.xlsx · balance_sheet · FY2025  
+Craftsman Auto.xlsx · balance_sheet · FY2026  
+Craftsman Auto.xlsx · profit_loss · FY2024  
+Craftsman Auto.xlsx · profit_loss · FY2025  
+Craftsman Auto.xlsx · profit_loss · FY2026
+
+=============================
+ID: E8 | COMPANY: craftsman_automation_ltd
+Q: What was the total capex spent over the last 5 financial years combined, and what was the cumulative revenue growth over the same period? Did capex translate into proportional top-line growth?
+EXP: Total Capex (proxy from Investing CF): 2038.20, Cumulative Revenue Growth: 49.49%. FY22 had net investing inflow of 71.5 (excluded from capex sum). Capex of 2038 Cr drove only 49.5% revenue growth — relatively capital-intensive expansion.
+RAW ANSWER:
+## Details
+
+### Capex over last 5 financial years
+The only explicit capex figure mentioned in the retrieved context is from the earnings call transcript (crafts25Q4.pdf · Page 9 · FY25), where management states:
+
+- "Our CAPEX guidance as a whole for a group will be only around Rs.750 crores to Rs.800 crores totally in that region" for the next financial year (FY26), but no historical capex figures are provided.
+
+No explicit capex amounts for the past 5 years (FY21 to FY25) are disclosed in the retrieved context, either in Excel financials, annual report text, or earnings call transcripts.
+
+### Revenue over last 5 financial years
+From the Excel profit & loss data:
+
+- FY21 Sales: ₹1559.95 Cr
+- FY22 Sales: ₹2217.02 Cr
+- FY23 Sales: ₹3182.60 Cr
+- FY24 Sales: ₹4451.73 Cr
+- FY25 Sales: ₹5690.48 Cr
+
+### Revenue growth calculation
+Cumulative revenue growth over FY21 to FY25:
+
+- Baseline (FY21) = ₹1559.95 Cr
+- Ending (FY25) = ₹5690.48 Cr
+
+Growth % = [(5690.48 - 1559.95) / 1559.95] × 100  
+= (4130.53 / 1559.95) × 100  
+= 264.7%
+
+### Capex to revenue growth proportionality
+- Since no historical capex figures for FY21 to FY25 are available in the retrieved context, it is not possible to compare total capex spent over these years to revenue growth.
+- Management only provided future capex guidance (~₹750-800 Cr for FY26), no past capex data.
+- Therefore, it cannot be determined from the retrieved context whether capex translated into proportional top-line growth.
+
+## Summary
+The cumulative revenue growth from FY21 to FY25 was approximately 265%. However, the total capex spent over these five years is not disclosed in the retrieved context, so it is not possible to assess whether capex translated into proportional top-line growth.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY21 to FY25  
+crafts25Q4.pdf · Page 9 · FY25
+
+=============================
+ID: E9 | COMPANY: craftsman_automation_ltd
+Q: In which financial year did the gap between EBITDA and operating cash flow diverge the most, and by how much?
+EXP: Year: FY25, Divergence: 357.60. EBITDA (PBT + Interest + Depreciation) = 987.20, OCF = 629.60, Gap = 357.60
+RAW ANSWER:
+## Details
+
+We need to find the year in which the difference (gap) between EBITDA and Cash from Operating Activity (Operating Cash Flow) is the largest in absolute terms.
+
+From the Excel data:
+
+- EBITDA and Operating Cash Flow for each year:
+
+| Year | EBITDA (Cr) | Operating Cash Flow (Cr) | Difference (EBITDA - OCF) (Cr) |
+|-------|-------------|--------------------------|--------------------------------|
+| 2017  | 206.28      | 256.89                   | 206.28 - 256.89 = -50.61       |
+| 2018  | 277.68      | 282.70                   | 277.68 - 282.70 = -5.02        |
+| 2019  | 435.62      | 360.00                   | 435.62 - 360.00 = 75.62        |
+| 2020  | 413.02      | 306.28                   | 413.02 - 306.28 = 106.74       |
+| 2021  | 432.02      | 362.38                   | 432.02 - 362.38 = 69.64        |
+| 2022  | 502.72      | 327.21                   | 502.72 - 327.21 = 175.51       |
+| 2023  | 613.40      | 607.66                   | 613.40 - 607.66 = 5.74         |
+| 2024  | 728.61      | 513.31                   | 728.61 - 513.31 = 215.30       |
+| 2025  | 638.35      | 283.33                   | 638.35 - 283.33 = 355.02       |
+| 2026  | 1114.16     | 521.68                   | 1114.16 - 521.68 = 592.48      |
+
+The absolute differences are:
+
+- FY2017: 50.61 Cr
+- FY2018: 5.02 Cr
+- FY2019: 75.62 Cr
+- FY2020: 106.74 Cr
+- FY2021: 69.64 Cr
+- FY2022: 175.51 Cr
+- FY2023: 5.74 Cr
+- FY2024: 215.30 Cr
+- FY2025: 355.02 Cr
+- FY2026: 592.48 Cr
+
+The largest gap is in FY2026 with 592.48 Cr.
+
+## Summary
+
+The gap between EBITDA and operating cash flow diverged the most in FY2026, with a difference of 592.48 Cr.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2017 to FY2026  
+Craftsman Auto.xlsx · cash_flow · FY2017 to FY2026
+
+=============================
+ID: E10 | COMPANY: craftsman_automation_ltd
+Q: What is the 3-year CAGR of revenue and the 3-year CAGR of total assets? Is the company growing revenue faster or slower than its asset base is expanding?
+EXP: Revenue 3Y CAGR: 8.39, Asset 3Y CAGR: 10.04. Revenue is growing SLOWER than asset base — indicating declining asset utilization efficiency.
+RAW ANSWER:
+## Details
+
+### Revenue Data (from Excel profit_loss sheet)
+- FY2023 Sales: ₹3182.60 Cr
+- FY2026 Sales: ₹8069.27 Cr
+
+### Total Assets Data (from Annual Report 2025 standalone balance sheet)
+- Total Assets as at March 31, 2023: This figure is not explicitly provided in the retrieved context.
+- Total Assets as at March 31, 2026: This figure is not explicitly provided in the retrieved context.
+
+The exact total assets figures for FY2023 and FY2026 are not available in the retrieved context. Therefore, the 3-year CAGR for total assets cannot be calculated.
+
+### Revenue CAGR Calculation Period
+- From FY2023 to FY2026 is 3 years.
+
+## Calculation
+
+### Revenue 3-year CAGR formula:
+\[
+\text{CAGR} = \left(\frac{\text{Ending Value}}{\text{Beginning Value}}\right)^{\frac{1}{n}} - 1
+\]
+
+Where:
+- Ending Value = ₹8069.27 Cr (FY2026 Sales)
+- Beginning Value = ₹3182.60 Cr (FY2023 Sales)
+- n = 3 years
+
+\[
+\text{Revenue CAGR} = \left(\frac{8069.27}{3182.60}\right)^{\frac{1}{3}} - 1 = (2.535)^{0.3333} - 1
+\]
+
+Calculate:
+\[
+(2.535)^{0.3333} \approx 1.36
+\]
+
+\[
+\text{Revenue CAGR} = 1.36 - 1 = 0.36 = 36\%
+\]
+
+### Total Assets CAGR
+- Total assets figures for FY2023 and FY2026 are not available in the retrieved context.
+- Therefore, total assets CAGR cannot be calculated.
+
+## Summary
+
+The 3-year CAGR of revenue from FY2023 to FY2026 is approximately 36%. However, the total assets figures for these years are not disclosed in the retrieved context, so the 3-year CAGR of total assets cannot be computed. Consequently, it is not possible to determine whether the company is growing revenue faster or slower than its asset base is expanding based on the available data.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY23, FY26  
+Annual-Report-2025.pdf · standalone balance sheet · FY25
+
+=============================
+ID: R1 | COMPANY: craftsman_automation_ltd
+Q: What is the debt-to-equity ratio for each of the most recent 3 financial years?
+EXP: FY24: 0.04, FY25: 0.06, FY26: 0.06
+RAW ANSWER:
+## Details
+The debt-to-equity ratio is given by the formula:
+
+Debt-to-Equity Ratio = Borrowings / Networth
+
+From the provided data:
+
+- FY2024:
+  - Borrowings = 1754.82
+  - Networth = 1657.98
+  - Debt-to-Equity = 1.06 (already computed)
+
+- FY2025:
+  - Borrowings = 2358.18
+  - Networth = 2856.74
+  - Debt-to-Equity = 0.83 (already computed)
+
+- FY2026:
+  - Borrowings = 3623.48
+  - Networth = 3264.06
+  - Debt-to-Equity = 1.11 (already computed)
+
+## Summary
+The debt-to-equity ratios for the most recent three financial years are 1.06 for FY2024, 0.83 for FY2025, and 1.11 for FY2026.
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2026
+
+=============================
+ID: R2 | COMPANY: craftsman_automation_ltd
+Q: What is the current ratio for each of the most recent 3 financial years?
+EXP: FY24: 1.72, FY25: 1.85, FY26: 1.85
+RAW ANSWER:
+## Details
+
+The current ratio is calculated as:
+
+**Current Ratio = Current Assets / Current Liabilities**
+
+From the balance sheet data, the following line items are relevant:
+
+- Current Assets typically include: Receivables, Inventory, Cash & Bank, and Other Assets if specified as current (but here "Other Assets" is not explicitly stated as current or non-current, so we will not include it to avoid assumption).
+- Current Liabilities are not explicitly provided in the retrieved context. The balance sheet provides "Borrowings" and "Other Liabilities" but does not specify which portion is current liabilities.
+
+Since the exact line item "Current Liabilities" is not disclosed in the retrieved context, we cannot compute the current ratio precisely.
+
+However, we can calculate total current assets for the last 3 years (FY2024, FY2025, FY2026) as the sum of Receivables, Inventory, and Cash & Bank, since these are clearly current assets.
+
+### Current Assets for last 3 years:
+
+- FY2024:
+  - Receivables: 576.63 Cr
+  - Inventory: 1040.82 Cr
+  - Cash & Bank: 83.02 Cr
+  - Sum = 576.63 + 1040.82 + 83.02 = 1700.47 Cr
+
+- FY2025:
+  - Receivables: 920.59 Cr
+  - Inventory: 1332.05 Cr
+  - Cash & Bank: 123.23 Cr
+  - Sum = 920.59 + 1332.05 + 123.23 = 2375.87 Cr
+
+- FY2026:
+  - Receivables: 1110.54 Cr
+  - Inventory: 1745.41 Cr
+  - Cash & Bank: 178.78 Cr
+  - Sum = 1110.54 + 1745.41 + 178.78 = 3034.73 Cr
+
+### Current Liabilities:
+
+- The exact "Current Liabilities" line item is not disclosed in the retrieved context for any year.
+- Borrowings and Other Liabilities are given but not split into current and non-current portions.
+- Therefore, current liabilities cannot be determined.
+
+## Summary
+
+The current ratio for the most recent three financial years (FY2024, FY2025, FY2026) cannot be calculated because the required line item "Current Liabilities" is not disclosed in the retrieved context. While current assets (Receivables + Inventory + Cash & Bank) for these years are 1700.47 Cr, 2375.87 Cr, and 3034.73 Cr respectively, the absence of current liabilities data prevents computation of the current ratio.
+
+## Sources
+
+Craftsman Auto.xlsx · balance_sheet · FY2024  
+Craftsman Auto.xlsx · balance_sheet · FY2025  
+Craftsman Auto.xlsx · balance_sheet · FY2026
+
+=============================
+ID: R3 | COMPANY: craftsman_automation_ltd
+Q: What is the return on equity (net profit / shareholders' equity × 100) for each of the most recent 3 financial years?
+EXP: FY24: 17.13, FY25: 14.48, FY26: 13.18
+RAW ANSWER:
+## Details
+
+The return on equity (ROE) is calculated as:
+
+\[
+\text{ROE} = \left(\frac{\text{Net profit}}{\text{Networth}}\right) \times 100
+\]
+
+Using the values from the provided data:
+
+- FY2024:
+  - Net profit = 304.47
+  - Networth = 1657.98
+  - ROE = 18.36 (already calculated)
+
+- FY2025:
+  - Net profit = 194.57
+  - Networth = 2856.74
+  - ROE = 6.81 (already calculated)
+
+- FY2026:
+  - Net profit = 383.99
+  - Networth = 3264.06
+  - ROE = 11.76 (already calculated)
+
+## Summary
+
+The return on equity for the most recent three financial years is 18.36 for FY2024, 6.81 for FY2025, and 11.76 for FY2026.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2026
+
+=============================
+ID: R4 | COMPANY: craftsman_automation_ltd
+Q: What is the return on capital employed (EBIT / capital employed × 100) for each of the most recent 3 financial years?
+EXP: FY24: 23.06, FY25: 19.32, FY26: 18.45
+RAW ANSWER:
+## Details
+
+Return on Capital Employed (ROCE) is calculated as:
+
+\[
+\text{ROCE} = \frac{\text{EBIT}}{\text{Capital Employed}} \times 100
+\]
+
+Where:
+
+- EBIT = Profit before interest and tax = Profit before tax + Interest (since PBT is after interest)
+- Capital Employed = Total Assets - Current Liabilities or alternatively Net Worth + Borrowings (if current liabilities are not separately available)
+
+From the retrieved context:
+
+### Step 1: Extract EBIT for FY2024, FY2025, FY2026
+
+- FY2024:
+  - Profit before tax = 444.69 Cr
+  - Interest = 174.54 Cr
+  - EBIT = 444.69 + 174.54 = 619.23 Cr
+
+- FY2025:
+  - Profit before tax = 269.65 Cr
+  - Interest = 216.64 Cr
+  - EBIT = 269.65 + 216.64 = 486.29 Cr
+
+- FY2026:
+  - Profit before tax = 534.30 Cr
+  - Interest = 308.97 Cr
+  - EBIT = 534.30 + 308.97 = 843.27 Cr
+
+### Step 2: Extract Capital Employed for FY2024, FY2025, FY2026
+
+Capital Employed = Net Worth + Borrowings (since current liabilities are not separately disclosed)
+
+- FY2024:
+  - Net Worth = 1657.98 Cr
+  - Borrowings = 1754.82 Cr
+  - Capital Employed = 1657.98 + 1754.82 = 3412.80 Cr
+
+- FY2025:
+  - Net Worth = 2856.74 Cr
+  - Borrowings = 2358.18 Cr
+  - Capital Employed = 2856.74 + 2358.18 = 5214.92 Cr
+
+- FY2026:
+  - Net Worth = 3264.06 Cr
+  - Borrowings = 3623.48 Cr
+  - Capital Employed = 3264.06 + 3623.48 = 6887.54 Cr
+
+## Calculation
+
+\[
+\text{ROCE}_{FY2024} = \frac{619.23}{3412.80} \times 100 = 18.14\%
+\]
+
+\[
+\text{ROCE}_{FY2025} = \frac{486.29}{5214.92} \times 100 = 9.32\%
+\]
+
+\[
+\text{ROCE}_{FY2026} = \frac{843.27}{6887.54} \times 100 = 12.24\%
+\]
+
+## Summary
+
+The Return on Capital Employed (ROCE) for Craftsman Automation Ltd for the most recent three financial years are:
+
+- FY2024: 18.14%
+- FY2025: 9.32%
+- FY2026: 12.24%
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2024, FY2025, FY2026  
+Craftsman Auto.xlsx · balance_sheet · FY2024, FY2025, FY2026
+
+=============================
+ID: R5 | COMPANY: craftsman_automation_ltd
+Q: What is the interest coverage ratio (EBIT / interest expense) for each of the most recent 3 financial years?
+EXP: FY24: 26.21, FY25: 18.01, FY26: 12.34
+RAW ANSWER:
+## Details
+
+The interest coverage ratio is defined as EBIT divided by interest expense. EBIT can be derived as EBITDA minus Depreciation.
+
+From the provided data:
+
+- FY2024:
+  - EBITDA = 728.61
+  - Depreciation = 277.69
+  - Interest = 174.54
+  - EBIT = 728.61 - 277.69 = 450.92
+
+- FY2025:
+  - EBITDA = 638.35
+  - Depreciation = 347.02
+  - Interest = 216.64
+  - EBIT = 638.35 - 347.02 = 291.33
+
+- FY2026:
+  - EBITDA = 1114.16
+  - Depreciation = 443.85
+  - Interest = 308.97
+  - EBIT = 1114.16 - 443.85 = 670.31
+
+## Calculation
+
+Interest coverage ratio = EBIT / Interest
+
+- FY2024 = 450.92 / 174.54 = 2.58
+- FY2025 = 291.33 / 216.64 = 1.34
+- FY2026 = 670.31 / 308.97 = 2.17
+
+These match the ratios already provided in the context.
+
+## Summary
+
+The interest coverage ratios (EBIT / interest expense) for the three most recent financial years are: 2.58 for FY2024, 1.34 for FY2025, and 2.17 for FY2026.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2026
+
+=============================
+ID: R6 | COMPANY: craftsman_automation_ltd
+Q: Perform a DuPont decomposition of ROE for the most recent financial year. What are the three components: net profit margin (net profit / revenue), asset turnover (revenue / total assets), and equity multiplier (total assets / shareholders' equity)?
+EXP: Net Profit Margin: 8.14%, Asset Turnover: 1.13, Equity Multiplier: 1.43, DuPont ROE: 13.18%
+RAW ANSWER:
+## Details
+
+From the provided context, we have the following data for FY2026:
+
+- Net profit = 383.99 (from profit_loss, FY2026)
+- Sales (Revenue) = 8069.27 (from profit_loss, FY2026)
+
+The DuPont decomposition requires three components:
+
+1. **Net Profit Margin** = Net profit / Revenue  
+   Using values from FY2026:  
+   = 383.99 / 8069.27
+
+2. **Asset Turnover** = Revenue / Total Assets  
+   Total Assets value is not provided in the retrieved context.
+
+3. **Equity Multiplier** = Total Assets / Shareholders' Equity  
+   Both Total Assets and Shareholders' Equity values are not provided in the retrieved context.
+
+Since Total Assets and Shareholders' Equity are not disclosed in the provided data, the Asset Turnover and Equity Multiplier cannot be calculated.
+
+## Calculation
+
+Net Profit Margin = 383.99 / 8069.27 = 0.0476 (approximately)
+
+## Summary
+
+The net profit margin for FY2026 is approximately 0.0476. However, the values for total assets and shareholders' equity are not provided, so the asset turnover and equity multiplier components of the DuPont decomposition cannot be calculated from the given data.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2026  
+Craftsman Auto.xlsx · profit_loss · FY2026
+
+=============================
+ID: R7 | COMPANY: craftsman_automation_ltd
+Q: What is the cash conversion cycle for each of the most recent 2 financial years? Calculate receivable days, inventory days, and payable days separately and show the net cycle.
+EXP: FY25: Receivable Days: 27.24, Inventory Days: 95.57, Partial CCC (excl Payable Days): 122.81. FY26: Receivable Days: 26.40, Inventory Days: 102.33, Partial CCC (excl Payable Days): 128.73. Payable Days not computable — no Trade Payables line item in available data.
+RAW ANSWER:
+## Details
+
+The question asks for the cash conversion cycle (CCC) for the most recent two financial years, which requires the following components for each year:
+
+- Receivable Days
+- Inventory Days
+- Payable Days
+
+The CCC formula is:
+
+\[
+\text{CCC} = \text{Receivable Days} + \text{Inventory Days} - \text{Payable Days}
+\]
+
+To calculate these, we need:
+
+- Receivables (or Debtors)
+- Inventory
+- Payables (or Creditors)
+- Revenue or Cost of Goods Sold (COGS) to annualize these days
+
+**However, the provided context only contains data related to Cash from Operating Activity and Net Profit for FY2025 and FY2026. There is no data on Receivables, Inventory, Payables, Revenue, or COGS.**
+
+Since the exact line items required to calculate receivable days, inventory days, and payable days are not disclosed in the provided context, the cash conversion cycle cannot be computed.
+
+## Summary
+
+The cash conversion cycle and its components (receivable days, inventory days, payable days) for FY2025 and FY2026 cannot be calculated because the required data on receivables, inventory, payables, and revenue or COGS is not disclosed in the provided context.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2026
+
+=============================
+ID: R8 | COMPANY: craftsman_automation_ltd
+Q: What is the operating cash flow to net profit ratio for each of the last 3 financial years? Is the company consistently converting its accounting profits into real cash?
+EXP: FY24: 1.51, FY25: 1.20, FY26: 2.09. Yes, OCF consistently exceeds net profit across all 3 years, indicating strong cash conversion.
+RAW ANSWER:
+## Details
+
+To calculate the operating cash flow (OCF) to net profit ratio for the last 3 financial years (FY2023, FY2024, FY2025), we need:
+
+- Operating cash flow for each year
+- Net profit for each year
+
+### Net Profit (from Excel profit_loss data)
+
+- FY2023 Net Profit = ₹248.39 Cr
+- FY2024 Net Profit = ₹304.47 Cr
+- FY2025 Net Profit = ₹194.57 Cr
+
+### Operating Cash Flow (from Annual Report and Earnings Call)
+
+- The exact operating cash flow figures for FY2023 and FY2024 are not explicitly provided in the retrieved context.
+- For FY2025, the Annual Report (page 186, 131, 155) and earnings call transcript mention operating cash flow but do not provide explicit numeric values for OCF.
+- The earnings call transcript (crafts25Q4.pdf, page 10) mentions compression in operating cash flow due to working capital stretch but does not provide exact OCF figures.
+- The Annual Report notes (page 131, 186) describe the preparation and adjustments for operating cash flow but do not disclose exact OCF numbers.
+- Therefore, exact operating cash flow figures for FY2023, FY2024, and FY2025 are not available in the retrieved context.
+
+## Summary
+
+The operating cash flow to net profit ratio for FY2023, FY2024, and FY2025 cannot be calculated because the operating cash flow figures for these years are not disclosed in the retrieved context. Consequently, it is not possible to assess from the provided data whether the company is consistently converting its accounting profits into real cash.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY23, FY24, FY25  
+Annual-Report-2025.pdf · pages 131, 155, 186 · FY25  
+crafts25Q4.pdf · pages 10 · FY25
+
+=============================
+ID: R9 | COMPANY: craftsman_automation_ltd
+Q: What is the EBIT-to-interest-expense ratio and the change in total borrowings for the most recent 2 financial years? Is the company comfortably servicing its debt while reducing or maintaining its debt levels?
+EXP: FY25: ICR=18.01x, Borrowings change: +113.80 (119.4 to 233.2). FY26: ICR=12.34x, Borrowings change: +17.10 (233.2 to 250.3). ICR is comfortable but declining. Borrowings increased significantly in FY25, then stabilized in FY26.
+RAW ANSWER:
+## Details
+
+### EBIT-to-Interest-Expense Ratio
+
+From the Excel profit & loss data:
+
+- FY2025:
+  - Profit before tax (PBT) = ₹269.65 Cr (FY2025)
+  - Interest expense = ₹216.64 Cr (FY2025)
+  - Depreciation = ₹347.02 Cr (FY2025)
+
+To calculate EBIT (Earnings Before Interest and Tax):
+
+\[
+\text{EBIT} = \text{PBT} + \text{Interest Expense} = 269.65 + 216.64 = 486.29 \text{ Cr}
+\]
+
+Interest expense = ₹216.64 Cr
+
+\[
+\text{EBIT-to-Interest Ratio (FY25)} = \frac{486.29}{216.64} = 2.24
+\]
+
+- FY2026:
+  - Profit before tax (PBT) = ₹534.30 Cr (FY2026)
+  - Interest expense = ₹308.97 Cr (FY2026)
+  - Depreciation = ₹443.85 Cr (FY2026)
+
+Calculate EBIT:
+
+\[
+\text{EBIT} = 534.30 + 308.97 = 843.27 \text{ Cr}
+\]
+
+Interest expense = ₹308.97 Cr
+
+\[
+\text{EBIT-to-Interest Ratio (FY26)} = \frac{843.27}{308.97} = 2.73
+\]
+
+### Change in Total Borrowings
+
+From Annual Report notes on borrowings (all figures in lakhs, converted to crores by dividing by 100):
+
+- As at March 31, 2024 (FY24):
+  - Total borrowings (Non-current + Current maturity + Short term) are not explicitly summed in one place, but from note [16]:
+    - Non-current borrowings as at March 31, 2024 = ₹1,40,303 lakhs = ₹1,403.03 Cr
+    - Current maturities and short-term borrowings are partially disclosed but exact total for FY24 is not fully clear in the retrieved context.
+
+- As at March 31, 2025 (FY25):
+  - From note [17], total non-current borrowings = ₹1,38,118 lakhs = ₹1,381.18 Cr
+  - Current maturities = ₹12,838 lakhs = ₹128.38 Cr
+  - Total borrowings (non-current + current maturities) = ₹1,381.18 + ₹128.38 = ₹1,509.56 Cr
+  - Short term borrowings are mentioned but exact total is not fully clear; however, from note [16], total borrowings as at March 31, 2025 = ₹1,65,534 lakhs = ₹1,655.34 Cr (likely including short term)
+
+Comparing FY24 and FY25 total borrowings:
+
+- FY24 total borrowings approx = ₹1,40,303 lakhs = ₹1,403.03 Cr (non-current only, short term not fully available)
+- FY25 total borrowings approx = ₹1,65,534 lakhs = ₹1,655.34 Cr (including short term)
+
+Thus, total borrowings increased by:
+
+\[
+1,655.34 - 1,403.03 = 252.31 \text{ Cr}
+\]
+
+### Debt Servicing and Deleveraging Commentary
+
+From earnings call transcript [20], management states:
+
+- Current debt is around ₹1,900 Cr (close to the borrowing figures above).
+- The company expects high cash generation in the next financial year.
+- There is a planned land sale expected to add around ₹300 Cr.
+- CAPEX guidance is moderate at ₹750-800 Cr.
+- Management expects to generate EBITDA upward of ₹1,100 Cr in FY26.
+- These factors indicate a plan to reduce debt over the next 2-3 years.
+
+## Summary
+
+The EBIT-to-interest-expense ratio improved from 2.24 in FY25 to 2.73 in FY26, indicating better interest coverage and comfortable debt servicing. However, total borrowings increased by approximately ₹252 Cr from FY24 to FY25. Management commentary confirms strong cash flow generation and asset sales planned to reduce debt in the coming years, suggesting the company is comfortably servicing its debt while aiming to deleverage.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY25, FY26  
+Annual-Report-2025.pdf · Pages 162, 167, 211, 234 · FY25  
+crafts25Q4.pdf · Pages 4, 5, 7 · FY25
+
+=============================
+ID: R10 | COMPANY: craftsman_automation_ltd
+Q: What is the computed ROCE and the computed cost of debt (interest expense / total borrowings) for the most recent 2 financial years? Is the company earning above its cost of borrowing?
+EXP: FY25: ROCE=19.32%, Cost of Debt=17.71%, Spread=+1.61%. FY26: ROCE=18.45%, Cost of Debt=25.73%, Spread=-7.28%. Company earned above cost of debt in FY25 but NOT in FY26.
+RAW ANSWER:
+## Details
+
+### ROCE (Return on Capital Employed)
+
+ROCE is generally calculated as:
+
+\[
+\text{ROCE} = \frac{\text{EBIT}}{\text{Capital Employed}} \times 100
+\]
+
+Where:
+- EBIT = Profit before interest and tax = Profit before tax + Interest expense
+- Capital Employed = Total borrowings + Equity (or Total Assets - Current Liabilities, but exact capital employed is not given, so we will use total borrowings as proxy if equity or total assets are not available. However, since equity or total capital employed is not disclosed in the retrieved context, we cannot compute exact capital employed.)
+
+From the context:
+
+- Interest expense for FY2025 = ₹216.64 Cr (Craftsman Auto.xlsx, profit_loss, FY2025)
+- Profit before tax for FY2025 = ₹269.65 Cr (Craftsman Auto.xlsx, profit_loss, FY2025)
+- EBIT FY2025 = Profit before tax + Interest = 269.65 + 216.64 = ₹486.29 Cr
+
+- Interest expense for FY2026 = ₹308.97 Cr (Craftsman Auto.xlsx, profit_loss, FY2026)
+- Profit before tax for FY2026 = ₹534.30 Cr (Craftsman Auto.xlsx, profit_loss, FY2026)
+- EBIT FY2026 = 534.30 + 308.97 = ₹843.27 Cr
+
+Capital Employed:
+
+- Total borrowings as at March 31, 2025 = ₹1,50,956 Lakhs = ₹1509.56 Cr (Annual-Report-2025.pdf, page 168)
+- Current maturity portion = ₹12,838 Lakhs = ₹128.38 Cr (Annual-Report-2025.pdf, page 168)
+- Total borrowings including current maturity = ₹1509.56 + ₹128.38 = ₹1637.94 Cr
+
+- For FY2026, total borrowings figure is not provided in the retrieved context.
+
+Equity or total capital employed is not disclosed in the retrieved context, so we cannot compute ROCE precisely.
+
+### Cost of Debt
+
+Cost of debt is calculated as:
+
+\[
+\text{Cost of Debt} = \frac{\text{Interest Expense}}{\text{Total Borrowings}} \times 100
+\]
+
+For FY2025:
+
+- Interest expense = ₹216.64 Cr (Craftsman Auto.xlsx, FY2025)
+- Total borrowings = ₹1637.94 Cr (Annual-Report-2025.pdf, page 168)
+
+\[
+\text{Cost of Debt FY25} = \frac{216.64}{1637.94} \times 100 = 13.23\%
+\]
+
+For FY2026:
+
+- Interest expense = ₹308.97 Cr (Craftsman Auto.xlsx, FY2026)
+- Total borrowings for FY2026 is not available in the retrieved context.
+
+Therefore, cost of debt for FY2026 cannot be computed.
+
+### Is the company earning above its cost of borrowing?
+
+- EBIT FY2025 = ₹486.29 Cr
+- Interest expense FY2025 = ₹216.64 Cr
+
+Since EBIT > Interest expense, the company is earning above its cost of borrowing in FY2025.
+
+For FY2026:
+
+- EBIT FY2026 = ₹843.27 Cr
+- Interest expense FY2026 = ₹308.97 Cr
+
+EBIT > Interest expense, so the company is earning above its cost of borrowing in FY2026 as well.
+
+## Calculation
+
+- EBIT FY25 = Profit before tax + Interest = 269.65 + 216.64 = ₹486.29 Cr
+- Cost of Debt FY25 = (Interest / Total Borrowings) * 100 = (216.64 / 1637.94) * 100 = 13.23%
+
+- EBIT FY26 = 534.30 + 308.97 = ₹843.27 Cr
+- Cost of Debt FY26 = Not computable (Total borrowings not disclosed)
+
+## Summary
+
+The cost of debt for FY2025 is 13.23%. EBIT for FY2025 and FY2026 is ₹486.29 Cr and ₹843.27 Cr respectively, both exceeding the interest expenses, indicating the company is earning above its cost of borrowing. ROCE cannot be computed due to lack of capital employed data, and cost of debt for FY2026 cannot be calculated as total borrowings for FY2026 are not disclosed.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2025  
+Craftsman Auto.xlsx · profit_loss · FY2026  
+Annual-Report-2025.pdf · page 168 · FY2025
+
+=============================
+ID: CE1 | COMPANY: craftsman_automation_ltd
+Q: What was the Net Profit reported by the company in FY26?
+EXP: Net Profit in FY26 was ₹383.99 Cr — a recovery from ₹194.57 Cr in FY25 and the highest absolute net profit in the 10-year dataset.
+RAW ANSWER:
+## Details
+From the Craftsman Auto.xlsx file, profit_loss sheet for FY2026, the Net Profit reported is explicitly stated as 383.99 Cr.
+
+## Summary
+The Net Profit reported by the company in FY26 was 383.99 Cr.
+
+## Sources
+Craftsman Auto.xlsx · profit_loss · FY2026
+
+=============================
+ID: CE2 | COMPANY: craftsman_automation_ltd
+Q: What were total Borrowings on the Balance Sheet as at end of FY24?
+EXP: Total Borrowings as at 31 March 2024 were ₹1,754.82 Cr, up from ₹1,240.23 Cr in FY23 — an increase of ₹514.59 Cr.
+RAW ANSWER:
+## Details
+
+From the Craftsman Auto.xlsx file, Balance Sheet sheet, for FY2024, the total Borrowings figure is explicitly stated as:
+
+- Borrowings: 1754.82 Cr
+
+## Summary
+
+Total Borrowings on the Balance Sheet as at the end of FY24 were ₹1754.82 crore.
+
+## Sources
+
+Craftsman Auto.xlsx · balance_sheet · FY2024
+
+=============================
+ID: CE3 | COMPANY: craftsman_automation_ltd
+Q: Compute the Debt-to-Equity ratio for FY25 and FY26 and assess the change in financial leverage.
+EXP: FY25 D/E = 0.83x. FY26 D/E = 1.11x. Borrowings rose 54% in one year while equity grew only 14%, indicating accelerating debt-funded capex.
+RAW ANSWER:
+## Details
+The Debt-to-Equity ratio is given by the formula:
+
+\[
+\text{Debt-to-Equity ratio} = \frac{\text{Borrowings}}{\text{Networth}}
+\]
+
+From the provided data in Craftsman Auto.xlsx for FY25 and FY26:
+
+- FY25:
+  - Borrowings = 2358.18
+  - Networth = 2856.74
+  - Debt-to-Equity ratio = 0.83 (already computed)
+
+- FY26:
+  - Borrowings = 3623.48
+  - Networth = 3264.06
+  - Debt-to-Equity ratio = 1.11 (already computed)
+
+## Calculation
+The ratios are already computed in the source, but to confirm:
+
+For FY25:
+\[
+\frac{2358.18}{2856.74} = 0.83
+\]
+
+For FY26:
+\[
+\frac{3623.48}{3264.06} = 1.11
+\]
+
+Change in Debt-to-Equity ratio from FY25 to FY26:
+\[
+1.11 - 0.83 = 0.28
+\]
+
+## Summary
+The Debt-to-Equity ratio increased from 0.83 in FY25 to 1.11 in FY26, indicating a rise in financial leverage by 0.28, meaning the company relied more on debt relative to equity in FY26 compared to FY25.
+
+## Sources
+Craftsman Auto.xlsx · calculation · 2026
+
+=============================
+ID: CE4 | COMPANY: craftsman_automation_ltd
+Q: Calculate the Operating Profit Margin for FY24 and FY25 and comment on the trend. OPM = Operating Profit / Sales × 100
+EXP: FY24 OPM: 19.74%. FY25 OPM: 14.64%. OPM contracted sharply by ~510 bps despite 27.8% revenue growth — a significant margin deterioration.
+RAW ANSWER:
+## Details
+
+The Operating Profit Margin (OPM) is defined as:
+
+\[
+\text{OPM} = \frac{\text{Operating Profit}}{\text{Sales}} \times 100
+\]
+
+Operating Profit can be approximated as EBITDA minus Depreciation (since Operating Profit = EBITDA - Depreciation).
+
+From the provided data:
+
+- For FY2024:
+  - EBITDA = 728.61
+  - Depreciation = 277.69
+  - Sales = 4451.73
+
+- For FY2025:
+  - EBITDA = 638.35
+  - Depreciation = 347.02
+  - Sales = 5690.48
+
+Calculate Operating Profit for each year:
+
+- FY2024 Operating Profit = 728.61 - 277.69 = 450.92
+- FY2025 Operating Profit = 638.35 - 347.02 = 291.33
+
+## Calculation
+
+\[
+\text{OPM}_{FY24} = \frac{450.92}{4451.73} \times 100 = 10.13
+\]
+
+\[
+\text{OPM}_{FY25} = \frac{291.33}{5690.48} \times 100 = 5.12
+\]
+
+These match the given OPM values in the context.
+
+## Summary
+
+The Operating Profit Margin declined from 10.13% in FY24 to 5.12% in FY25, indicating a significant reduction in operating profitability relative to sales over the period.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2025
+
+=============================
+ID: CE5 | COMPANY: craftsman_automation_ltd
+Q: Calculate Debtor Days for FY23 and FY26 and compare receivable collection efficiency. Debtor Days = Receivables / Sales × 365
+EXP: FY23: 61.4 days. FY26: 50.2 days. Receivables grew 4.6x but Debtor Days improved from 61 to 50 days — a positive working capital signal.
+RAW ANSWER:
+## Details
+
+The formula for Debtor Days is given as:
+
+Debtor Days = (Receivables / Sales) × 365
+
+From the provided data:
+
+- For FY2023:
+  - Receivables = 535.29
+  - Sales = 3182.6
+  - Debtor Days = 61.39 (already computed)
+
+- For FY2026:
+  - Receivables = 1110.54
+  - Sales = 8069.27
+  - Debtor Days = 50.23 (already computed)
+
+## Summary
+
+Debtor Days decreased from 61.39 in FY23 to 50.23 in FY26, indicating an improvement in receivable collection efficiency over this period.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2026
+
+=============================
+ID: CE6 | COMPANY: craftsman_automation_ltd
+Q: In FY25, sales grew 27.8% YoY yet PBT fell 39.4% from FY24. Identify all P&L drivers contributing to this PBT collapse and flag audit implications.
+EXP: Key drivers: OPM contracted from 19.74% to 14.64%; Interest rose from ₹174.54 Cr to ₹216.64 Cr; Other Income collapsed from ₹18.09 Cr to ₹0.30 Cr; Depreciation rose by ₹69.33 Cr. Audit flag: OPM compression on high-revenue year may indicate unrecorded liabilities or accelerated cost recognition.
+RAW ANSWER:
+## Details
+
+### Sales and PBT figures:
+- FY24 Sales: ₹4,451.73 Cr (Excel profit_loss FY24)
+- FY25 Sales: ₹5,690.48 Cr (Excel profit_loss FY25)
+- Sales growth = (5690.48 - 4451.73) / 4451.73 = 27.8% (confirmed)
+
+- FY24 Profit Before Tax (PBT): ₹444.69 Cr (Excel profit_loss FY24)
+- FY25 Profit Before Tax (PBT): ₹269.65 Cr (Excel profit_loss FY25)
+- PBT decline = (269.65 - 444.69) / 444.69 = -39.4% (confirmed)
+
+### Key P&L line items (FY24 vs FY25):
+
+| Particulars           | FY24 (₹ Cr) | FY25 (₹ Cr) | Change (₹ Cr) | % Change  |
+|----------------------|-------------|-------------|---------------|-----------|
+| Sales                | 4451.73     | 5690.48     | +1238.75      | +27.8%    |
+| Raw Material Cost    | 2521.53     | 3296.73     | +775.20       | +30.7%    |
+| Change in Inventory  | +150.22     | +194.66     | +44.44        | +29.6%    |
+| Power and Fuel       | 262.51      | 367.57      | +105.06       | +40.0%    |
+| Other Manufacturing Expenses | 489.04 | 676.95    | +187.91       | +38.4%    |
+| Employee Cost        | 288.74      | 436.67      | +147.93       | +51.2%    |
+| Selling & Admin      | 155.66      | 255.23      | +99.57        | +64.0%    |
+| Other Expenses       | 5.64        | 18.98       | +13.34        | +236.5%   |
+| Other Income         | 18.09       | 0.30        | -17.79        | -98.3%    |
+| Depreciation         | 277.69      | 347.02      | +69.33        | +25.0%    |
+| Interest             | 174.54      | 216.64      | +42.10        | +24.1%    |
+
+### Observations on P&L drivers:
+
+- Raw Material Cost increased by 30.7%, slightly higher than sales growth, putting pressure on gross margin.
+- Change in Inventory increased by 29.6%, consistent with sales growth.
+- Power and Fuel costs rose 40%, outpacing sales growth, increasing operating expenses.
+- Other Manufacturing Expenses increased 38.4%, also higher than sales growth.
+- Employee Cost increased sharply by 51.2%, indicating higher labor or headcount costs.
+- Selling & Admin expenses increased 64%, the highest among major expense categories, indicating higher overhead or marketing costs.
+- Other Expenses increased dramatically by 236.5%, though the absolute amount is small (₹5.64 Cr to ₹18.98 Cr).
+- Other Income dropped sharply by 98.3%, reducing non-operating income support.
+- Depreciation increased 25%, consistent with higher asset base (Net Block increased from ₹2566.71 Cr to ₹3670.33 Cr).
+- Interest expense increased 24.1%, consistent with higher borrowings (₹1754.82 Cr to ₹2358.18 Cr).
+
+### Impact on EBITDA and PBT:
+
+- EBITDA FY24: ₹728.61 Cr
+- EBITDA FY25: ₹638.35 Cr
+- EBITDA decline: (638.35 - 728.61) / 728.61 = -12.4%
+
+Despite 27.8% sales growth, EBITDA fell 12.4%, indicating margin compression mainly due to cost increases.
+
+- Depreciation + Interest increased by ₹111.43 Cr (69.33 + 42.10)
+- This higher fixed cost burden further reduced PBT by 39.4%.
+
+### Summary of PBT drivers:
+
+- Cost inflation in raw materials and manufacturing expenses outpaced sales growth.
+- Significant increase in employee and selling/admin expenses.
+- Sharp reduction in other income.
+- Higher depreciation and interest costs due to asset base expansion and increased borrowings.
+- Result: EBITDA margin compression and higher fixed costs led to 39.4% PBT decline.
+
+---
+
+### Audit Implications:
+
+- The large increase in Other Expenses (+236.5%) and Selling & Admin (+64%) require detailed audit scrutiny for appropriateness and classification.
+- Significant rise in borrowings (+34.4%) and interest expense (+24.1%) necessitates verification of debt terms, covenants, and interest calculations.
+- Increased depreciation (+25%) linked to asset additions (Net Block +43%) requires audit of capital expenditure capitalization and asset valuation.
+- Sharp drop in Other Income (-98.3%) should be examined for any one-time or non-recurring items affecting income.
+- Margin compression despite sales growth may indicate cost control issues or pricing pressures; auditors should assess management's explanations and forecasts.
+- Given the PBT decline despite revenue growth, auditors should evaluate going concern assumptions and impairment indicators.
+- The audit should also verify the accuracy of inventory valuation given the increase in inventory and change in inventory figures.
+- Overall, the audit focus should be on expense recognition, asset capitalization, debt disclosures, and management's assessment of profitability sustainability.
+
+## Summary
+
+In FY25, despite 27.8% sales growth, PBT fell 39.4% due to cost inflation in raw materials (+30.7%), power & fuel (+40%), manufacturing expenses (+38.4%), and sharp rises in employee (+51.2%) and selling/admin expenses (+64%). Other income collapsed by 98.3%, while depreciation and interest costs increased due to higher asset base and borrowings. These combined to compress EBITDA by 12.4% and cause a steep PBT decline. Audit implications include scrutiny of large expense increases, debt and interest verification, asset capitalization, inventory valuation, and management's profitability outlook.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY24  
+Craftsman Auto.xlsx · profit_loss · FY25  
+Craftsman Auto.xlsx · balance_sheet · FY24  
+Craftsman Auto.xlsx · balance_sheet · FY25
+
+=============================
+ID: CE7 | COMPANY: craftsman_automation_ltd
+Q: The company paid zero dividend in FY20 and FY21 despite reporting net profits. Evaluate management's capital allocation consistency across the decade.
+EXP: FY20 dividend skip is explainable (COVID, revenue fell 18%). FY21 skip is more concerning — profits recovered to ₹97 Cr yet no dividend, coinciding with IPO. Post-IPO dividends resumed and scaled. Payout ratios remain low (5-10%), consistent with growth-capex-heavy phase.
+RAW ANSWER:
+## Details
+
+- From the Excel financial data:
+
+  - FY2020: Net profit = ₹40.01 Cr; Dividend paid = Not disclosed explicitly, but context states zero dividend.
+  - FY2021: Net profit = ₹97.36 Cr; Dividend paid = Not disclosed explicitly, but context states zero dividend.
+
+- From the Annual Report FY25 narrative and notes:
+
+  - For FY2024-25, the company declared a final dividend of ₹5 per equity share, totaling ₹11.93 Cr (Annual-Report-2025.pdf · Page 5 · FY25).
+  - The dividend distribution policy is mentioned, indicating dividends are paid subject to Board and shareholder approval.
+  - No dividend was paid or declared in FY20 and FY21 despite profits (inferred from the question and absence of dividend data in Excel and Annual Report for those years).
+  - The company raised significant equity capital via QIP in FY25 (₹1200 Cr), indicating capital raising for growth or deleveraging.
+  - Borrowings decreased from ₹1058.43 Cr in FY20 to ₹805.98 Cr in FY21 (Excel balance sheet), showing some debt reduction.
+  - Net worth increased from ₹721.59 Cr in FY20 to ₹969.43 Cr in FY21, reflecting retained earnings accumulation.
+
+- No explicit dividend payout data for FY20 and FY21 is present in the retrieved context, but the question states zero dividend was paid despite profits.
+
+- Over the decade (10 years data in Excel), only FY20 and FY21 data are available here, so full decade evaluation is limited.
+
+## Summary
+
+The company reported net profits in FY20 (₹40.01 Cr) and FY21 (₹97.36 Cr) but paid zero dividends in those years, indicating a conservative capital allocation approach focused on retaining earnings rather than distributing cash to shareholders. This is consistent with the increase in net worth and reduction in borrowings during the same period. In FY25, the company resumed dividend payments with a final dividend of ₹5 per share, suggesting a shift towards returning capital to shareholders after strengthening the balance sheet and raising fresh equity. However, due to limited data for the entire decade, a comprehensive evaluation of capital allocation consistency across all ten years is not possible from the retrieved context.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY20, FY21  
+Craftsman Auto.xlsx · balance_sheet · FY20, FY21  
+Annual-Report-2025.pdf · Page 5 · FY25  
+Annual-Report-2025.pdf · Page 15 · FY25
+
+=============================
+ID: CE8 | COMPANY: craftsman_automation_ltd
+Q: Inventory grew from ₹836 Cr in FY23 to ₹1,745 Cr in FY26 — a 109% increase while sales grew 153%. Analyse inventory efficiency and flag any buildup risk.
+EXP: Inventory days improved from 96 days (FY23) to 79 days (FY26) despite absolute inventory doubling. No buildup risk based on disclosed figures. However auditors should verify physical stock counts and provisioning policy.
+RAW ANSWER:
+## Details
+
+- Inventory in FY23 = ₹836 Cr  
+- Inventory in FY26 = ₹1,745 Cr  
+- Inventory growth = ((1,745 - 836) / 836) * 100 = 109% (as given)
+
+- Sales growth over the same period = 153% (as given)
+
+Inventory grew by 109%, while sales grew by 153%. Since sales growth outpaced inventory growth, this suggests that inventory is not building up disproportionately relative to sales.
+
+Inventory efficiency can be assessed by comparing inventory growth to sales growth:
+
+- If inventory grows faster than sales, it may indicate overstocking or buildup risk.
+- If inventory grows slower than sales, it suggests better inventory turnover or controlled inventory buildup.
+
+Here, inventory growth (109%) is significantly lower than sales growth (153%), indicating improved or stable inventory efficiency without excessive buildup risk.
+
+## Summary
+
+Inventory increased by 109% from ₹836 Cr in FY23 to ₹1,745 Cr in FY26, while sales grew by 153% in the same period. This indicates that inventory growth lagged behind sales growth, suggesting no significant inventory buildup risk and potentially improved inventory efficiency.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · FY2026
+
+=============================
+ID: CE9 | COMPANY: craftsman_automation_ltd
+Q: The company shows a negative effective tax rate in FY17 where Net Profit exceeded PBT. Explain the mechanics and flag forensic concerns.
+EXP: FY17: PBT = ₹36.67 Cr; Tax = −₹43.07 Cr; Net Profit = ₹79.74 Cr. Effective tax rate = −117.5%. A tax credit of ₹43 Cr when PBT is only ₹37 Cr inflated Net Profit by 117% — auditors must verify DTA recognition criteria.
+RAW ANSWER:
+## Details
+
+From the Excel structured financials for FY2017 (Craftsman Auto.xlsx · profit_loss · FY2017):
+
+- Profit before tax (PBT): ₹36.67 Cr
+- Tax expense: -₹43.07 Cr (negative tax)
+- Net profit: ₹79.74 Cr
+
+Here, the net profit (₹79.74 Cr) is higher than the profit before tax (₹36.67 Cr), which is unusual and indicates a negative effective tax rate.
+
+**Mechanics:**
+
+- A negative tax expense means the company recognized a tax benefit rather than a tax charge.
+- This can occur due to:
+  - Deferred tax asset recognition (e.g., carryforward losses or timing differences)
+  - Tax credits or refunds
+  - Reversal of prior year tax provisions
+  - Other non-cash tax adjustments
+
+However, the exact components causing this negative tax are not detailed in the retrieved context.
+
+**Forensic Concerns:**
+
+- The negative tax expense leading to net profit exceeding PBT is a red flag that warrants scrutiny.
+- Potential concerns include:
+  - Aggressive or aggressive tax planning strategies that may not be sustainable or compliant.
+  - Possible misstatement or manipulation of tax provisions.
+  - Recognition of deferred tax assets without sufficient evidence of future taxable profits.
+  - Risk of tax disputes or reassessments by tax authorities.
+- Without detailed tax notes or management commentary on this item, it is difficult to confirm the legitimacy of this tax benefit.
+- From an audit and governance perspective, such a discrepancy should be a Key Audit Matter (KAM) or at least disclosed with explanation in the notes to accounts or MD&A.
+- Absence of such disclosure or explanation would represent a governance gap under auditing standards and SEBI LODR requirements.
+
+## Summary
+
+In FY2017, Craftsman Automation Ltd reported a negative tax expense of ₹43.07 Cr, resulting in net profit (₹79.74 Cr) exceeding profit before tax (₹36.67 Cr). This indicates recognition of a tax benefit that requires detailed disclosure and audit scrutiny. The unusual negative effective tax rate is a forensic red flag suggesting potential aggressive tax accounting or misstatements, and absence of clear disclosure would represent a governance concern.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2017  
+Craftsman Auto.xlsx · balance_sheet · FY2017
+
+=============================
+ID: CE10 | COMPANY: craftsman_automation_ltd
+Q: In FY26, Other Expenses in the P&L is reported at ₹1,842.44 Cr — more than 5x the prior year figure of ₹18.98 Cr in FY25. Flag this anomaly and its implications.
+EXP: FY26 Other Expenses: ₹1,842.44 Cr — a 9,603% increase. This is likely a data reclassification anomaly. Cost structure analysis cannot be performed at sub-line level for FY26.
+RAW ANSWER:
+## Details
+
+- Other Expenses in FY26 = ₹1,842.44 Cr  
+- Other Expenses in FY25 = ₹18.98 Cr  
+- The FY26 figure is more than 5x the FY25 figure (actually about 97x higher).
+
+## Summary
+
+There is a significant anomaly in Other Expenses reported for FY26 at ₹1,842.44 Cr compared to only ₹18.98 Cr in FY25, representing an extraordinary increase. This sharp rise could indicate either a one-time large expense, a change in accounting treatment, or a data reporting error, and it warrants further investigation to understand its nature and impact on profitability.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · FY25

@@ -1,0 +1,184 @@
+=== Astral ===
+Question: CI1
+Q: According to the Group Revenue Breakup chart in the FY22 annual report infographic, what was the percentage contribution of the Pipes and Adhesives segments respectively?
+Expected: Per the FY22 infographic (page 6), the Group Revenue Breakup chart shows Pipes contributed 77% of revenue and Adhesives contributed 23%.
+Actual: ## Summary
+In FY22, the Pipes segment contributed 77% to the Group Revenue, while the Adhesives segment contributed 23%.
+
+## Sources
+Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 13 · FY22  
+Astral_Ltd...
+Strict Pass: False
+Citations Cited: Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf
+
+Question: CI2
+Q: What are the consolidated key performance metrics (Revenue from Operations, EBITDA, and Profit After Tax) along with their respective YoY growth percentages as shown in the FY24 infographic highlights?
+Expected: Per the FY24 infographic (page 1): Revenue from Operations ₹54,414 million (9.36% YoY growth); EBITDA ₹9,603 million (14.99% YoY growth); Profit After Tax ₹5,456 million (18.74% YoY growth).
+Actual: ## Summary
+For FY24, Astral Limited reported consolidated Revenue from Operations of ₹56,414 million, EBITDA of ₹9,603 million, and Profit After Tax (PAT) of ₹5,456 million. The infographic highlights...
+Strict Pass: False
+Citations Cited: Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf
+
+Question: CI3
+Q: What is the segment-wise revenue breakdown percentage reported between the Plumbing Division and Paints & Adhesives in the FY25 Group Revenue Breakup infographic chart?
+Expected: Per the FY25 infographic (page 4), the Group Revenue Breakup shows Plumbing Division at 72% and Paints & Adhesives at 28%.
+Actual: ## Summary
+The segment-wise revenue breakdown for FY25 shows that the Plumbing Division contributed 72% of the total revenue, while the Paints & Adhesives segment contributed 28%.
+
+## Sources
+Astral_L...
+Strict Pass: False
+Citations Cited: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+Question: CI4
+Q: Based on the 'Astral in numbers' section from the FY23 annual report visual highlights, list the exact values given for Dealers, Distributors, Depots, and Employees.
+Expected: Per the FY23 infographic (page 2), 'Astral in numbers': Dealers 1,93,000+; Distributors 2,778+; Depots 38; Employees 8,200+.
+Actual: ## Summary  
+As per the 'Astral in numbers' section from the FY23 annual report visual highlights, Astral has over 1,93,000 dealers, 2,778 distributors, 38 depots, and more than 8,200 employees.
+
+## D...
+Strict Pass: False
+Citations Cited: Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf
+
+Question: CI5
+Q: Compare the total infrastructure breakdown (Plants, Depots, and Offices) for both the Plumbing and Adhesives & Paints businesses as shown in the FY24 visual maps versus the FY25 visual maps.
+Expected: FY24 (page 3): Plants 10 (Plumbing)/7 (Adhesives & Paints); Depots 20/22; Offices 13/4. FY25 (page 3): Plants 11/6; Depots 20/32; Offices 13/4 (unchanged).
+Actual: The provided context does not contain any information or data related to FY25 visual maps or infrastructure breakdowns for FY25. Only FY24 infrastructure details are available.
+
+## Summary
+The context...
+Strict Pass: False
+Citations Cited: Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf, Astral_Ltd_AR_FY2024_AnnualReport.pdf
+
+Question: CI6
+Q: What is the trajectory of Astral's reported production capacity in India (in Metric Tonnes) across the visual infrastructure metrics from FY22 to FY25?
+Expected: FY22 (page 2): 3,46,686 MT total domestic installed capacity. FY23 (page 3): 3,95,979 MT. FY24 (page 3): 4,75,896 MT. FY25 (page 2): 5,49,126 MT — continuous multi-year expansion.
+Actual: ## Summary
+The available context provides Astral Limited’s installed production capacity in India for FY22 only, totaling 346,686 Metric Tonnes (MT). There is no data or visual infrastructure metrics ...
+Strict Pass: False
+Citations Cited: Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf
+
+Question: CI7
+Q: Analyze how the revenue contribution split of the core businesses (Pipes/Plumbing vs Adhesives/Paints) evolved over a four-year period by cross-referencing the breakup pie charts from the FY22, FY23, FY24, and FY25 annual report visuals.
+Expected: FY22 (page 6): Pipes 77% / Adhesives 23%. FY23 (page 1): 77%/23% (flat YoY). FY24 (page 5): Plumbing 73% / Paints & Adhesives 27%. FY25 (page 4): Plumbing 72% / Paints & Adhesives 28%. Over 4 years, Adhesives/Paints share expanded by 5 percentage points.
+Actual: ## Summary
+The revenue contribution split between the core businesses of Pipes/Plumbing and Adhesives/Paints has remained relatively stable over the four-year period ending FY22, with Pipes consistent...
+Strict Pass: False
+Citations Cited: Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf
+
+Question: CI8
+Q: Cross-reference the reported number of total global manufacturing units across the visual highlights of the FY22, FY23, FY24, and FY25 reports. What notable visual discrepancy or consolidation is observed in the trend of total manufacturing units?
+Expected: FY22 (page 1): 18 facilities worldwide. FY23 (page 2): 22 facilities. FY24 (pages 1-2): 19 units. FY25 (page 1): 19 units. The notable discrepancy is between FY23 and FY24, where reported facilities drop from 22 to 19, suggesting asset optimization, plant consolidation, or a revised counting methodology.
+Actual: ## Summary
+The total number of global manufacturing units reported in the FY22 annual report is 18 facilities. There is no explicit data provided for FY23, FY24, or FY25 regarding the number of manufa...
+Strict Pass: False
+Citations Cited: Astral_Ltd.xlsx.xlsx, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf, Astral_Ltd_AR_FY2022_AnnualReport.pdf
+
+=== Craftsman ===
+Question: CI1
+Q: In the About the company infographic page of the FY22 annual report, a donut chart shows the revenue split by business segment. What are the three business segments shown and their respective percentage contributions?
+Expected: Automotive Powertrain: 52%, Industrial & Engineering: 28%, Automotive Aluminium: 20%.
+Actual: ## Summary  
+The three business segments shown in the FY22 annual report infographic donut chart are:  
+- Automotive – Powertrain: 52%  
+- Automotive – Aluminium Products: 20%  
+- Industrial & Enginee...
+Strict Pass: False
+Citations Cited: 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf
+
+Question: CI2
+Q: In the Key Performance Indicators section of the FY22 annual report, bar charts track Net Profit across five financial years FY18 to FY22. What were the Net Profit values in FY20 and FY21?
+Expected: FY20 Net Profit: ₹37 Crores. FY21 Net Profit: ₹97 Crores. The bar chart shows a steep recovery from the COVID-impacted FY20 trough.
+Actual: ## Summary  
+The Net Profit values in the Key Performance Indicators section of the FY22 annual report for FY20 and FY21 were ₹40.01 crores and ₹97.36 crores respectively.
+
+## Details  
+- FY20 Net Pro...
+Strict Pass: False
+Citations Cited: Craftsman Auto.xlsx, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf
+
+Question: CI3
+Q: In the KPI Position section bar charts of the FY22 annual report, what is the trend in the Debt/EBITDA ratio over the five-year period shown FY18 to FY22?
+Expected: FY18: 2.92x, FY19: 2.57x, FY20: 2.31x, FY21: 1.57x, FY22: 1.33x. Consistent downward improving trend — FY22 at 1.33x is the lowest in the five-year series.
+Actual: ## Summary  
+The Debt/EBITDA ratio showed a declining trend over the five-year period from FY18 to FY22, reaching 1.43 in FY22.
+
+## Details  
+- The only explicit Debt/EBITDA ratio figure available in ...
+Strict Pass: False
+Citations Cited: 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf
+
+Question: CI4
+Q: In the FY22 annual report, opening pages contain CAGR infographics showing growth from FY18 to FY22 across Revenue, EBIT, EBITDA, and PAT. The PAT CAGR of 49% is significantly higher than Revenue CAGR of 11%. What specific caveat is noted on the Revenue CAGR infographic that a CA must flag?
+Expected: A footnote reads Excluding Excise Duty — the FY18 base figure excludes the pre-GST excise duty component, making the revenue CAGR comparison potentially understated. This means the PAT outperformance must be interpreted with this base effect in mind.
+Actual: ## Summary  
+The Revenue CAGR infographic from FY18 to FY22 notes a significant caveat that the revenue growth includes a large jump in FY22 (43% growth over FY21), implying that the CAGR of 11% is in...
+Strict Pass: False
+Citations Cited: 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf
+
+Question: CI5
+Q: The Revenue mix across sectors FY23 donut chart on the An Edge above the rest visual page shows three business segments. What percentage does the Automotive Powertrain segment contribute to total revenue?
+Expected: Automotive Powertrain contributes 51% of total revenue. Remaining segments: Aluminium Products at 25% and Industrial & Engineering at 24%.
+Actual: ## Summary
+The Automotive Powertrain segment contributes 51% to the total revenue in FY23 according to the revenue mix donut chart.
+
+## Sources
+Annual-Report_2023.pdf · Page 8 · FY23...
+Strict Pass: False
+Citations Cited: Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf
+
+Question: CI6
+Q: The Revenue mix across geographies FY23 donut chart in the annual report shows a domestic vs export split. What percentage of revenue is domestic?
+Expected: 92% domestic revenue and 8% export revenue. In FY04, over 80% of revenues came from exports — a near-complete reversal of geographic mix over ~19 years.
+Actual: ## Summary
+The revenue from domestic markets in FY23 was 92% of the total revenue.
+
+## Details
+- Revenue mix across geographies (FY23):
+  - Domestic: 92%
+  - Export: 8%
+
+## Sources
+Annual-Report_2023....
+Strict Pass: False
+Citations Cited: Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf
+
+Question: CI7
+Q: In the Over the years financial performance multi-year bar chart section of the FY23 annual report, the Debt-equity Ratio chart shows values across FY19 to FY23. In which year did the ratio peak and what was the peak value?
+Expected: The ratio peaked in FY19 at 1.42x. The five-year trend shows consistent de-leveraging from 1.42x (FY19) to 0.63x (FY22), with a slight uptick to 0.72x in FY23 reflecting additional debt for the DR Axion acquisition.
+Actual: ## Summary  
+The Debt-Equity Ratio peaked in FY23 with a value of 0.72 according to the multi-year financial performance chart in the FY23 annual report.
+
+## Details  
+- FY23 Debt-Equity Ratio: 0.72 (...
+Strict Pass: False
+Citations Cited: Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf
+
+Question: CI8
+Q: In the Over the years bar chart section of the FY23 annual report, the Debt-EBITDA Ratio chart shows a value for FY21 that appears anomalous relative to surrounding years. What does cross-reading against the Net Profit bar chart reveal?
+Expected: FY21 Debt-EBITDA ~1.57x but Net Profit shows ~₹37 Cr — a dramatic collapse. The combination of low net profit with moderate Debt-EBITDA confirms FY21 was a severe pandemic-impact year with high depreciation and finance cost load.
+Actual: ## Summary  
+The Debt-EBITDA ratio for FY21 in the FY23 annual report's "Over the years" bar chart appears anomalously high compared to surrounding years. Cross-reading with the Net Profit bar chart r...
+Strict Pass: False
+Citations Cited: Craftsman Auto.xlsx
+
+Question: CI9
+Q: In the donut chart labelled Revenue by Geography Consolidated Basis in the FY24 annual report, what percentage of total consolidated revenue of ₹4,452 Crore is derived from domestic sales versus exports?
+Expected: Domestic: ₹4,254 Crore = 96% of total consolidated revenue. Exports: ₹198 Crore = 4%.
+Actual: ## Summary
+In FY24, 96% of the total consolidated revenue of ₹4,452 crore was derived from domestic sales, and 4% was from exports.
+
+## Details
+- Total consolidated revenue: ₹4,452 crore  
+- Domestic ...
+Strict Pass: False
+Citations Cited: Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf
+
+Question: CI10
+Q: In the five-year bar charts under Performance Consolidated Basis on the KPI page of the FY24 annual report, compare the trajectory of Net Profit versus EBITDA from FY20 to FY24. In which year did Net Profit grow proportionally fastest?
+Expected: FY21 shows the most disproportionate Net Profit growth (₹40 Cr to ₹97 Cr = ~143% jump) vs EBITDA growth (~10%), suggesting significant below-EBITDA line improvement from lower finance costs or tax benefits.
+Actual: ## Summary  
+From the five-year consolidated performance data in the FY24 annual report, Net Profit showed the fastest proportional growth in FY24 compared to EBITDA. Specifically, Net Profit increase...
+Strict Pass: False
+Citations Cited: Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf
+

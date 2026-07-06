@@ -1,0 +1,43 @@
+I have scored and manually graded the Craftsman Automation run_001 benchmark results using the exact same strict and lenient manual grading methodology as the Astral run_001 baseline.
+
+The manual grading report has been saved to: 
+
+craftsman_manual_grading_report.md
+
+Here are the breakdown tables and critical findings:
+
+A) Overall Scores Table
+Metric	Count / Score	Percentage
+Routing Accuracy	33/100	33.00%
+Answer Correctness (Strict)	22/100	22.00%
+Answer Correctness (Lenient)	50/100	50.00%
+B) By Section Table
+Section	Total Qs	Routing Accuracy %	Answer Correctness (Strict) %	Answer Correctness (Lenient) %
+Excel	20	40.0%	45.0%	65.0%
+Ratio	10	0.0%	0.0%	20.0%
+PDF	20	55.0%	20.0%	35.0%
+Concall	20	15.0%	10.0%	40.0%
+Images	10	30.0%	10.0%	70.0%
+Cross-Source	15	26.7%	33.3%	73.3%
+Anomaly	5	80.0%	20.0%	40.0%
+C) By Difficulty Table
+Difficulty	Total Qs	Routing Accuracy %	Answer Correctness (Strict) %	Answer Correctness (Lenient) %
+Easy	11	27.3%	36.4%	81.8%
+Medium	58	31.0%	15.5%	31.0%
+Hard	31	38.7%	29.0%	74.2%
+D) By Type Table
+Question Type	Total Qs	Routing Accuracy %	Answer Correctness (Strict) %	Answer Correctness (Lenient) %
+Agnostic (40)	40	22.5%	7.5%	22.5%
+Company-Specific (60)	60	40.0%	31.7%	68.3%
+Critical Findings
+1. Severe Routing Failures on Ratio & Concall Sections
+Ratio (0% Routing Accuracy): The system failed to route a single question in the Ratio section to the correct Excel collection (craftsman_automation_excel). Instead, it routed to the PDF collection or general collections. Without direct access to the Excel-structured financials, the model could not retrieve key items (like total assets or net profit), resulting in a 0% strict accuracy score.
+Concall (15% Routing Accuracy): Concall routing was extremely low. The router consistently failed to search the earnings call transcripts, opting instead for PDF annual reports or Excel structured files, which starved the LLM of the necessary management commentary.
+2. Agnostic vs. Company-Specific Performance Discrepancy
+Agnostic (7.5% Strict / 22.5% Lenient): Because the agnostic questions were written with generic terms, the RAG system struggled to identify which Craftsman Automation sources were relevant, often failing to route or retrieve correctly. In contrast, Company-Specific questions scored 31.7% Strict / 68.3% Lenient because their specific references to Craftsman entities, plants, and metrics triggered much more precise retrieval.
+3. Impact of Newly Added FY22 Q4 Concall Data (crafts22Q4.pdf)
+The addition of the FY22 Q4 earnings call transcript successfully resolved several historical data gaps.
+Questions CC5 (I&E segment YoY growth comparison), CC7 (Daimler business risk discrepancy), and CX1 (Debt reduction guidance vs actual balance sheet borrowings) succeeded for both Strict and Lenient grading because the system was able to retrieve crafts22Q4.pdf.
+Additionally, CC1, CC8, and CC9 succeeded for Lenient grading (achieving partially correct scores) due to elements extracted from the newly added transcript, though they missed some secondary details.
+4. Comparison to Astral Ltd Baseline
+Overall Lag: Craftsman's overall metrics (33% Routing, 22% Strict, 50% Lenient) lag significantly behind Astral's baseline (58% Routing, 30% Strict, 68% Lenient). This is primarily driven by the catastrophic routing failures in the Ratio and Concall sections, confirming that Craftsman's collection metadata or query expansion mappings require significant optimization compared to the Astral baseline.

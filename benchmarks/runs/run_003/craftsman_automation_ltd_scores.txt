@@ -1,0 +1,1374 @@
+============================================================
+  BENCHMARK SUMMARY - CRAFTSMAN_AUTOMATION_LTD
+============================================================
+Total Questions:          100
+Total Routing Accuracy:   92/100 (92.00%)
+Total Citation Accuracy:  52/100 (52.00%)
+
+Per-Section Breakdown:
+  Excel           | Routing: 20/20 (100.0%) | Citations: 16/20 (80.0%)
+  Ratio           | Routing: 10/10 (100.0%) | Citations: 5/10 (50.0%)
+  Concall         | Routing: 18/20 (90.0%) | Citations: 6/20 (30.0%)
+  PDF             | Routing: 18/20 (90.0%) | Citations: 3/20 (15.0%)
+  Images          | Routing: 9/10 (90.0%) | Citations: 3/10 (30.0%)
+  Cross-Source    | Routing: 12/15 (80.0%) | Citations: 15/15 (100.0%)
+  Anomaly         | Routing: 5/5 (100.0%) | Citations: 4/5 (80.0%)
+============================================================
+
+============================================================
+  RAGAS OVERALL AVERAGES
+============================================================
+Faithfulness:        0.8119
+Answer Relevancy:    0.565
+Context Recall:      0.3352
+Context Precision:   0.2001
+============================================================
+
+Per-Section RAGAS Breakdown:
+  Excel          :
+    faithfulness      : 0.7849
+    answer_relevancy  : 0.6521
+    context_recall    : 0.3042
+    context_precision : 0.2989
+  Ratio          :
+    faithfulness      : 0.8788
+    answer_relevancy  : 0.4484
+    context_recall    : 0.3333
+    context_precision : 0.0129
+  Concall        :
+    faithfulness      : 0.7815
+    answer_relevancy  : 0.4553
+    context_recall    : 0.195
+    context_precision : 0.0636
+  PDF            :
+    faithfulness      : 0.8049
+    answer_relevancy  : 0.6811
+    context_recall    : 0.3433
+    context_precision : 0.1203
+  Images         :
+    faithfulness      : 0.8418
+    answer_relevancy  : 0.6329
+    context_recall    : 0.2833
+    context_precision : 0.2353
+  Cross-Source   :
+    faithfulness      : 0.819
+    answer_relevancy  : 0.6611
+    context_recall    : 0.4778
+    context_precision : 0.2849
+  Anomaly        :
+    faithfulness      : 0.8553
+    answer_relevancy  : 0.0
+    context_recall    : 0.6667
+    context_precision : 0.7189
+============================================================
+
+
+FinBot Benchmark Report (CRAFTSMAN_AUTOMATION_LTD)
+Run: run_003
+================================================================================
+
+Q1 (ID: E1) [Excel]
+Question: What was the company's total revenue for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  9.2s
+--------------------------------------------------------------------------------
+
+Q2 (ID: E2) [Excel]
+Question: What was the net profit for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  9.06s
+--------------------------------------------------------------------------------
+
+Q3 (ID: E3) [Excel]
+Question: What was the total borrowings (short-term + long-term debt) for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  10.23s
+--------------------------------------------------------------------------------
+
+Q4 (ID: E4) [Excel]
+Question: What was the operating profit margin (operating profit / revenue × 100) for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd.xlsx'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  11.68s
+--------------------------------------------------------------------------------
+
+Q5 (ID: E5) [Excel]
+Question: What was the year-on-year revenue growth rate for each of the last 4 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  13.79s
+--------------------------------------------------------------------------------
+
+Q6 (ID: E6) [Excel]
+Question: What was the free cash flow (operating cash flow minus capital expenditure) for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  17.66s
+--------------------------------------------------------------------------------
+
+Q7 (ID: E7) [Excel]
+Question: What were the receivable days, inventory days, and payable days for each of the last 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  42.87s
+--------------------------------------------------------------------------------
+
+Q8 (ID: E8) [Excel]
+Question: What was the total capex spent over the last 5 financial years combined, and what was the cumulative revenue growth over the same period? Did capex translate into proportional top-line growth?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  16.69s
+--------------------------------------------------------------------------------
+
+Q9 (ID: E9) [Excel]
+Question: In which financial year did the gap between EBITDA and operating cash flow diverge the most, and by how much?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  37.11s
+--------------------------------------------------------------------------------
+
+Q10 (ID: E10) [Excel]
+Question: What is the 3-year CAGR of revenue and the 3-year CAGR of total assets? Is the company growing revenue faster or slower than its asset base is expanding?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  19.98s
+--------------------------------------------------------------------------------
+
+Q11 (ID: R1) [Ratio]
+Question: What is the debt-to-equity ratio for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd.xlsx'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  9.98s
+--------------------------------------------------------------------------------
+
+Q12 (ID: R2) [Ratio]
+Question: What is the current ratio for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  14.76s
+--------------------------------------------------------------------------------
+
+Q13 (ID: R3) [Ratio]
+Question: What is the return on equity (net profit / shareholders' equity × 100) for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd.xlsx'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_excel'])
+Latency:  8.92s
+--------------------------------------------------------------------------------
+
+Q14 (ID: R4) [Ratio]
+Question: What is the return on capital employed (EBIT / capital employed × 100) for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  16.38s
+--------------------------------------------------------------------------------
+
+Q15 (ID: R5) [Ratio]
+Question: What is the interest coverage ratio (EBIT / interest expense) for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd.xlsx'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  10.33s
+--------------------------------------------------------------------------------
+
+Q16 (ID: R6) [Ratio]
+Question: Perform a DuPont decomposition of ROE for the most recent financial year. What are the three components: net profit margin (net profit / revenue), asset turnover (revenue / total assets), and equity multiplier (total assets / shareholders' equity)?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd.xlsx'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  9.8s
+--------------------------------------------------------------------------------
+
+Q17 (ID: R7) [Ratio]
+Question: What is the cash conversion cycle for each of the most recent 2 financial years? Calculate receivable days, inventory days, and payable days separately and show the net cycle.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd.xlsx'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_excel'])
+Latency:  11.89s
+--------------------------------------------------------------------------------
+
+Q18 (ID: R8) [Ratio]
+Question: What is the operating cash flow to net profit ratio for each of the last 3 financial years? Is the company consistently converting its accounting profits into real cash?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  18.81s
+--------------------------------------------------------------------------------
+
+Q19 (ID: R9) [Ratio]
+Question: What is the EBIT-to-interest-expense ratio and the change in total borrowings for the most recent 2 financial years? Is the company comfortably servicing its debt while reducing or maintaining its debt levels?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  18.48s
+--------------------------------------------------------------------------------
+
+Q20 (ID: R10) [Ratio]
+Question: What is the computed ROCE and the computed cost of debt (interest expense / total borrowings) for the most recent 2 financial years? Is the company earning above its cost of borrowing?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  21.65s
+--------------------------------------------------------------------------------
+
+Q21 (ID: C1) [Concall]
+Question: What are the key revenue drivers and priorities outlined by management for the coming year?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf'] | Got: ['crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  19.19s
+--------------------------------------------------------------------------------
+
+Q22 (ID: C2) [Concall]
+Question: What factors did management attribute the company's performance to in the most recent quarter?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['AstralConcall25Q3.pdf'] | Got: ['crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  15.89s
+--------------------------------------------------------------------------------
+
+Q23 (ID: C3) [Concall]
+Question: What near-term risks or challenges did management highlight during the calls?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q2.pdf'] | Got: ['crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  13.87s
+--------------------------------------------------------------------------------
+
+Q24 (ID: C4) [Concall]
+Question: What is management's volume and margin guidance for the core business divisions?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['AstralConcall25Q3.pdf', 'AstralConcall25Q2.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  16.53s
+--------------------------------------------------------------------------------
+
+Q25 (ID: C5) [Concall]
+Question: What was the impact of raw material price volatility, and what inventory loss/gain was reported?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['AstralConcall25Q2.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q4.pdf'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  18.45s
+--------------------------------------------------------------------------------
+
+Q26 (ID: C6) [Concall]
+Question: What are the capital expenditure (capex) plans and guidance for the current and next fiscal year?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q3.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q4.pdf'] | Got: ['Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  14.24s
+--------------------------------------------------------------------------------
+
+Q27 (ID: C7) [Concall]
+Question: What capacity additions or plant updates did management detail?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q3.pdf', 'AstralConcall25Q4.pdf'] | Got: ['crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf'])
+Latency:  11.67s
+--------------------------------------------------------------------------------
+
+Q28 (ID: C8) [Concall]
+Question: What updates did management provide regarding new acquisitions, overseas offices, or capacity expansion?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q3.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  14.76s
+--------------------------------------------------------------------------------
+
+Q29 (ID: C9) [Concall]
+Question: What EBITDA margin contractions or fluctuations did management report, and what were the reasons?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['AstralConcall25Q2.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q4.pdf'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  7.86s
+--------------------------------------------------------------------------------
+
+Q30 (ID: C10) [Concall]
+Question: What is management's stance on debt reduction, cash utilization, and working capital normalization?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf', 'AstralConcall25Q2.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  13.09s
+--------------------------------------------------------------------------------
+
+Q31 (ID: P1) [PDF]
+Question: What are the reportable business segments of the group, and what was their segment revenue for the current vs previous year?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  12.57s
+--------------------------------------------------------------------------------
+
+Q32 (ID: P2) [PDF]
+Question: What key business risks does the company identify in its Risk Management framework, and what are their mitigation measures?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  19.51s
+--------------------------------------------------------------------------------
+
+Q33 (ID: P3) [PDF]
+Question: What transactions with related parties were disclosed in the financial statements, and what was the compensation of key management personnel?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  16.41s
+--------------------------------------------------------------------------------
+
+Q34 (ID: P4) [PDF]
+Question: What contingent liabilities and commitments were reported by the company at the close of the financial year?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  10.93s
+--------------------------------------------------------------------------------
+
+Q35 (ID: P5) [PDF]
+Question: What operational capacity expansions, capital expenditures, or strategic acquisitions did the company detail in the annual report?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  15.12s
+--------------------------------------------------------------------------------
+
+Q36 (ID: P6) [PDF]
+Question: What Key Audit Matters (KAM) did the independent auditor identify, and what was the auditor's response to them?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  13.7s
+--------------------------------------------------------------------------------
+
+Q37 (ID: P7) [PDF]
+Question: What segment profit, segment assets, and segment liabilities were reported for the company's core segments?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  12.74s
+--------------------------------------------------------------------------------
+
+Q38 (ID: P8) [PDF]
+Question: What are the top three largest line items under 'Other Expenses' in the standalone financial statements, and how did they change YoY?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  13.17s
+--------------------------------------------------------------------------------
+
+Q39 (ID: P9) [PDF]
+Question: What new or amended accounting standards were disclosed, and what was their impact?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  11.29s
+--------------------------------------------------------------------------------
+
+Q40 (ID: P10) [PDF]
+Question: What provisions (current and non-current) for employee benefits or other liabilities were disclosed, and what schedules were provided?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  16.05s
+--------------------------------------------------------------------------------
+
+Q41 (ID: CE1) [Excel]
+Question: What was the Net Profit reported by the company in FY26?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Craftsman Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  7.49s
+--------------------------------------------------------------------------------
+
+Q42 (ID: CE2) [Excel]
+Question: What were total Borrowings on the Balance Sheet as at end of FY24?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Craftsman Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  8.76s
+--------------------------------------------------------------------------------
+
+Q43 (ID: CE3) [Excel]
+Question: Compute the Debt-to-Equity ratio for FY25 and FY26 and assess the change in financial leverage.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Craftsman Auto.xlsx'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  9.86s
+--------------------------------------------------------------------------------
+
+Q44 (ID: CE4) [Excel]
+Question: Calculate the Operating Profit Margin for FY24 and FY25 and comment on the trend. OPM = Operating Profit / Sales × 100
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Craftsman Auto.xlsx'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  12.28s
+--------------------------------------------------------------------------------
+
+Q45 (ID: CE5) [Excel]
+Question: Calculate Debtor Days for FY23 and FY26 and compare receivable collection efficiency. Debtor Days = Receivables / Sales × 365
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Craftsman Auto.xlsx'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_excel'])
+Latency:  16.05s
+--------------------------------------------------------------------------------
+
+Q46 (ID: CE6) [Excel]
+Question: In FY25, sales grew 27.8% YoY yet PBT fell 39.4% from FY24. Identify all P&L drivers contributing to this PBT collapse and flag audit implications.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Craftsman Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  25.29s
+--------------------------------------------------------------------------------
+
+Q47 (ID: CE7) [Excel]
+Question: The company paid zero dividend in FY20 and FY21 despite reporting net profits. Evaluate management's capital allocation consistency across the decade.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Craftsman Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  17.05s
+--------------------------------------------------------------------------------
+
+Q48 (ID: CE8) [Excel]
+Question: Inventory grew from ₹836 Cr in FY23 to ₹1,745 Cr in FY26 — a 109% increase while sales grew 153%. Analyse inventory efficiency and flag any buildup risk.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Craftsman Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  20.73s
+--------------------------------------------------------------------------------
+
+Q49 (ID: CE9) [Excel]
+Question: The company shows a negative effective tax rate in FY17 where Net Profit exceeded PBT. Explain the mechanics and flag forensic concerns.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Craftsman Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  16.94s
+--------------------------------------------------------------------------------
+
+Q50 (ID: CE10) [Excel]
+Question: In FY26, Other Expenses in the P&L is reported at ₹1,842.44 Cr — more than 5x the prior year figure of ₹18.98 Cr in FY25. Flag this anomaly and its implications.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Craftsman Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  20.9s
+--------------------------------------------------------------------------------
+
+Q51 (ID: CP1) [PDF]
+Question: What was the key inorganic highlight that the company disclosed in FY23, and what was the total consideration paid?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  9.71s
+--------------------------------------------------------------------------------
+
+Q52 (ID: CP2) [PDF]
+Question: What were the two Key Audit Matters identified by the statutory auditors of the company for FY24, and what percentage of total assets does PPE represent?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf'])
+Latency:  14.02s
+--------------------------------------------------------------------------------
+
+Q53 (ID: CP3) [PDF]
+Question: In the company's FY22 MD&A, which specific financial ratio showed the highest year-on-year percentage change, and what two factors does management explicitly attribute to this change?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf'])
+Latency:  14.87s
+--------------------------------------------------------------------------------
+
+Q54 (ID: CP4) [PDF]
+Question: According to the FY25 MD&A, what was management's stated explanation for the significant deterioration in Operating Profit Margin, Net Profit Margin, and Return on Net Worth, and which ratio deteriorated most severely?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  20.82s
+--------------------------------------------------------------------------------
+
+Q55 (ID: CP5) [PDF]
+Question: According to the MD&A of the company for FY24, what are the specific reasons cited for the deterioration in the Interest Coverage Ratio and the Debt-Equity Ratio, and what is the magnitude of each change?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf'])
+Latency:  16.49s
+--------------------------------------------------------------------------------
+
+Q56 (ID: CP6) [PDF]
+Question: The company's Board Report for FY24 states all RPTs were arm's length and DR Axion posted turnover of ₹1,246 Cr in FY24. What forensic risk does the short acquisition history and consolidation timing create?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf'])
+Latency:  13.17s
+--------------------------------------------------------------------------------
+
+Q57 (ID: CP7) [PDF]
+Question: The company's FY25 Directors' Report states all RPTs were arm's length. However what does the BRSR data reveal about the concentration of loans and advances with related parties in FY25?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  10.64s
+--------------------------------------------------------------------------------
+
+Q58 (ID: CP8) [PDF]
+Question: The Directors' Report of the company for FY23 states all RPTs were on arm's length basis. However the Risk Management Committee is chaired by the Chairman & Managing Director himself. What governance anomaly does this present?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  13.62s
+--------------------------------------------------------------------------------
+
+Q59 (ID: CP9) [PDF]
+Question: The Statutory Auditors identified only one KAM in the standalone audit for FY25. What was it, and does the absence of a KAM on the three acquisitions exceeding ₹740 Crores represent a gap?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  12.99s
+--------------------------------------------------------------------------------
+
+Q60 (ID: CP10) [PDF]
+Question: The Statutory Auditor identified two Key Audit Matters in the standalone audit of the company for FY23. For the derivative KAM, what is the carrying value of derivative assets and liabilities as at 31 March 2023, and does the auditor qualify the opinion?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  12.4s
+--------------------------------------------------------------------------------
+
+Q61 (ID: CC1) [Concall]
+Question: What was the revised FY23 capex guidance after the unexpected aluminium order, and what was the reason for the revision?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['crafts25Q2.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'crafts23Q4.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q4.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q4.pdf', 'Annual-Report_2023.pdf', 'crafts23Q4.pdf'])
+Latency:  18.18s
+--------------------------------------------------------------------------------
+
+Q62 (ID: CC2) [Concall]
+Question: Management guided FY23 Q1 revenue at about ₹600 crore in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf', 'crafts25Q1.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf'])
+Latency:  18.36s
+--------------------------------------------------------------------------------
+
+Q63 (ID: CC3) [Concall]
+Question: For FY23 Q2, management disclosed that aluminum prices fell approximately 10% QoQ but claimed operational margins were in line with Q1. Is this numerically consistent with the value addition numbers disclosed?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  17.51s
+--------------------------------------------------------------------------------
+
+Q64 (ID: CC4) [Concall]
+Question: The company revised its full-year FY23 CAPEX guidance upward from ₹225 crores to ₹275 crores. Identify the specific reason for the revision.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf'] | Got: ['Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q4.pdf', 'crafts23Q4.pdf', 'crafts23Q4.pdf', 'crafts23Q4.pdf'])
+Latency:  14.1s
+--------------------------------------------------------------------------------
+
+Q65 (ID: CC5) [Concall]
+Question: Compare the value addition for the Industrial & Engineering segment in FY23 Q2 with the same quarter of the prior year. What is the YoY growth rate?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'crafts23Q2.pdf', 'crafts23Q2.pdf', 'crafts23Q2.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q2.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  15.35s
+--------------------------------------------------------------------------------
+
+Q66 (ID: CC6) [Concall]
+Question: Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT. Verify this claim using value addition data and assess whether there is an unacknowledged structural margin issue.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['crafts25Q2.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  22.72s
+--------------------------------------------------------------------------------
+
+Q67 (ID: CC7) [Concall]
+Question: Across the FY22 Q3 and Q4 earnings calls, management made specific claims about the Daimler business risk stating only 8-9% impact by FY27-28. By Q1 FY23, a different number emerged — 15% of the Daimler portfolio by 2024. Identify the discrepancy.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf'] | Got: ['Craftsman Auto.xlsx', 'crafts22Q1.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q1.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q1.pdf'])
+Latency:  16.34s
+--------------------------------------------------------------------------------
+
+Q68 (ID: CC8) [Concall]
+Question: Management stated during FY23 Q1 that bonus provision was front-loaded to Q1. Identify all staff cost one-offs disclosed across Q1 FY23 and Q3 FY22 calls, and assess the risk that normalised staff costs are being underestimated.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf'])
+Latency:  17.3s
+--------------------------------------------------------------------------------
+
+Q69 (ID: CC9) [Concall]
+Question: Management guided in FY22 Q4 for a ₹100 crore debt reduction in FY23. By FY23 Q2, total debt was ~₹720 crores. Verify whether the original guidance is still achievable and quantify the gap.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'crafts22Q2.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q2.pdf', 'crafts22Q2.pdf', 'crafts22Q2.pdf'])
+Latency:  16.71s
+--------------------------------------------------------------------------------
+
+Q70 (ID: CC10) [Concall]
+Question: Management guided revenue of ₹600 crores for FY23 Q1 in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['crafts25Q4.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf'])
+Latency:  14.48s
+--------------------------------------------------------------------------------
+
+Q71 (ID: CI1) [Images]
+Question: The Revenue mix across geographies FY23 donut chart in the annual report shows a domestic vs export split. What percentage of revenue is domestic?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  8.56s
+--------------------------------------------------------------------------------
+
+Q72 (ID: CI2) [Images]
+Question: The Revenue mix across sectors FY23 donut chart on the An Edge above the rest visual page shows three business segments. What percentage does the Automotive Powertrain segment contribute to total revenue?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  10.52s
+--------------------------------------------------------------------------------
+
+Q73 (ID: CI3) [Images]
+Question: The Key Financial Ratios comparison table in the FY25 MD&A shows two ratios that moved in opposite directions. Which two ratios are they and what does this divergence indicate?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'])
+Citation: ✅ PASS (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  17.02s
+--------------------------------------------------------------------------------
+
+Q74 (ID: CI4) [Images]
+Question: In the Over the years financial performance multi-year bar chart section of the FY23 annual report, the Debt-equity Ratio chart shows values across FY19 to FY23. In which year did the ratio peak and what was the peak value?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  11.48s
+--------------------------------------------------------------------------------
+
+Q75 (ID: CI5) [Images]
+Question: In the five-year bar charts under Performance Consolidated Basis on the KPI page of the FY24 annual report, compare the trajectory of Net Profit versus EBITDA from FY20 to FY24. In which year did Net Profit grow proportionally fastest?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf'])
+Latency:  17.14s
+--------------------------------------------------------------------------------
+
+Q76 (ID: CI6) [Images]
+Question: In the Position section bar charts on the FY24 KPI page, the Debt-Equity Ratio bar chart shows 0.88x for FY24 yet the standalone MD&A reports 0.91x. What is the likely source of this discrepancy and what does the five-year Debt-EBITDA trend reveal?
+Routing:  ❌ FAIL (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf'])
+Latency:  16.87s
+--------------------------------------------------------------------------------
+
+Q77 (ID: CI7) [Images]
+Question: The BRSR Section 9 table in the FY25 report shows the number of trading houses jumped from 96 in FY24 to 532 in FY25 while the percentage of purchases from trading houses remained flat at 18%. What forensic question does this raise?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'])
+Citation: ✅ PASS (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  15.92s
+--------------------------------------------------------------------------------
+
+Q78 (ID: CI8) [Images]
+Question: In the Revenue by Business Consolidated Basis donut chart in the FY24 annual report, the Aluminium Products segment shows ₹2,154 Crore (48%) of consolidated revenue. However the MD&A segment table reports Aluminium standalone sales of only ₹917 Crore. What accounts for the ₹1,237 Crore discrepancy?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf'])
+Latency:  16.83s
+--------------------------------------------------------------------------------
+
+Q79 (ID: CI9) [Images]
+Question: The commodity price risk and hedging table in the FY25 Corporate Governance Report shows NA across all fields. How does this contrast with the company's foreign exchange outgo of ₹703.30 Crores disclosed in the Directors' Report?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'])
+Citation: ✅ PASS (Expected: ['Annual-Report-2025.pdf'] | Got: ['Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  19.39s
+--------------------------------------------------------------------------------
+
+Q80 (ID: CI10) [Images]
+Question: In the FY22 annual report, opening pages contain CAGR infographics showing growth from FY18 to FY22 across Revenue, EBIT, EBITDA, and PAT. The PAT CAGR of 49% is significantly higher than Revenue CAGR of 11%. What specific caveat is noted on the Revenue CAGR infographic that a CA must flag?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_images'] | Got: ['craftsman_automation_ltd_images', 'craftsman_automation_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['Annual-Report-2025.pdf'] | Got: ['7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf'])
+Latency:  23.68s
+--------------------------------------------------------------------------------
+
+Q81 (ID: CX1) [Cross-Source]
+Question: In the FY22 Q4 earnings call, management guided total debt reduction of ₹100 Crores for FY23. What does the Excel Balance Sheet data show as the actual change in total borrowings in FY23 — was guidance met?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q4.pdf', 'crafts23Q4.pdf', 'crafts23Q4.pdf'])
+Latency:  45.14s
+--------------------------------------------------------------------------------
+
+Q82 (ID: CX2) [Cross-Source]
+Question: The FY23 MD&A states the Interest Coverage Ratio declined from 6.40x to 5.74x due to increased interest cost. Verify this using the Excel P&L data — does the reported interest figure match?
+Routing:  ❌ FAIL (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['craftsman_automation_ltd_excel'])
+Latency:  27.43s
+--------------------------------------------------------------------------------
+
+Q83 (ID: CX3) [Cross-Source]
+Question: The FY22 annual report KPI page shows a Debt/EBITDA bar chart with FY22 value of 1.33x. Verify this using the Excel data and identify any discrepancy.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'crafts22Q4.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q4.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q4.pdf', '7.-Annual-Report-2021-22.pdf'])
+Latency:  17.49s
+--------------------------------------------------------------------------------
+
+Q84 (ID: CX4) [Cross-Source]
+Question: In the FY23 Q1 concall, management stated annualised pre-tax ROCE improved to 26% from 20% in FY22. Using Excel data, calculate ROCE for FY22 and assess whether the stated improvement is directionally accurate.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf'])
+Latency:  22.2s
+--------------------------------------------------------------------------------
+
+Q85 (ID: CX5) [Cross-Source]
+Question: The FY24 Chairman's letter describes business performance as consolidation and moderation in growth. Calculate actual revenue growth and PAT growth for FY24 from Excel and assess whether moderation is accurate.
+Routing:  ❌ FAIL (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf'])
+Latency:  20.55s
+--------------------------------------------------------------------------------
+
+Q86 (ID: CX6) [Cross-Source]
+Question: In the FY23 Q2 concall, management claimed Aluminum segment margins were in line with Q1. The FY23 MD&A reports Aluminum segment EBIT margin for the full year. Is the full-year margin consistent with the in-call claim?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf', 'crafts23Q1.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf'])
+Latency:  17.05s
+--------------------------------------------------------------------------------
+
+Q87 (ID: CX7) [Cross-Source]
+Question: The FY24 annual report donut chart shows Aluminum Products contributing 48% of consolidated revenue at ₹2,154 Cr. The MD&A shows standalone Aluminum at ₹917 Cr. Using Excel, verify the standalone Aluminum revenue figure.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_images'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'Annual-Report-2023-24.pdf'])
+Latency:  14.27s
+--------------------------------------------------------------------------------
+
+Q88 (ID: CX8) [Cross-Source]
+Question: Across all concall transcripts, management made multiple statements about CAPEX plans. Using Excel investing cash flows and balance sheet changes, quantify how much of the guided CAPEX was actually deployed each year.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls'] | Got: ['Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  15.75s
+--------------------------------------------------------------------------------
+
+Q89 (ID: CX9) [Cross-Source]
+Question: The FY25 MD&A attributes RoNW collapse of 77% to one-time expenses for acquisitions. Using Excel, calculate RoNW for FY24 and FY25 independently and assess whether the one-time explanation is sufficient.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  19.97s
+--------------------------------------------------------------------------------
+
+Q90 (ID: CX10) [Cross-Source]
+Question: Management guided debt reduction as a priority across multiple concall years. The FY25 MD&A shows Debt-Equity Ratio improving to 0.59x due to QIP. Using Excel borrowings data across all years, did debt actually reduce in absolute terms?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf', 'crafts25Q4.pdf'])
+Latency:  14.97s
+--------------------------------------------------------------------------------
+
+Q91 (ID: CX11) [Cross-Source]
+Question: The FY24 KPI page bar chart shows Debt-EBITDA rising for two consecutive years to 1.72x in FY24. Using Excel, extend this calculation to FY25 and FY26. Does the trend accelerate, stabilise, or reverse?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_images'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf'])
+Latency:  15.57s
+--------------------------------------------------------------------------------
+
+Q92 (ID: CX12) [Cross-Source]
+Question: The FY23 auditor's report identifies derivative contracts as a KAM with assets of ₹936 Lakhs and liabilities of ₹375 Lakhs. In the FY23 Q2 concall, management discussed aluminum price risk. Are these derivative positions consistent with the hedging strategy described?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'Annual-Report_2023.pdf', 'crafts23Q2.pdf', 'crafts23Q2.pdf', 'crafts23Q2.pdf', 'crafts23Q2.pdf'])
+Latency:  16.42s
+--------------------------------------------------------------------------------
+
+Q93 (ID: CX13) [Cross-Source]
+Question: Management stated in multiple concalls that the Automotive Powertrain segment is the core earnings driver. Using Excel and the FY24 MD&A segment EBIT data, calculate what percentage of total company EBIT came from Powertrain in FY22 and FY24.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'Annual-Report-2023-24.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf', 'crafts24Q4.pdf'])
+Latency:  21.65s
+--------------------------------------------------------------------------------
+
+Q94 (ID: CX14) [Cross-Source]
+Question: The FY25 Directors' Report discloses loans and advances to related parties jumped from 0% to 100% per BRSR data. Using Excel balance sheet data, assess whether this represents a material fund flow to subsidiaries.
+Routing:  ❌ FAIL (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf', 'Annual-Report-2025.pdf'])
+Latency:  20.81s
+--------------------------------------------------------------------------------
+
+Q95 (ID: CX15) [Cross-Source]
+Question: Across all available sources — Excel, concalls, annual report visuals, and MD&A ratios — construct a complete picture of Craftsman's debt trajectory from FY22 to FY26. Did management's stated commitment to deleveraging materialise?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_images'])
+Citation: ✅ PASS (Expected: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls', 'craftsman_automation_ltd_pdf_text', 'craftsman_automation_ltd_images'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q4.pdf', '7.-Annual-Report-2021-22.pdf', 'crafts22Q4.pdf', 'crafts22Q4.pdf', 'crafts22Q4.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf', '7.-Annual-Report-2021-22.pdf'])
+Latency:  19.68s
+--------------------------------------------------------------------------------
+
+Q96 (ID: CA1) [Anomaly]
+Question: What was the exact Capital Expenditure (purchase of fixed assets) for Craftsman Automation in FY25?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Craftsman_Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  10.3s
+--------------------------------------------------------------------------------
+
+Q97 (ID: CA2) [Anomaly]
+Question: What is the current ratio for Craftsman Automation for FY25 and FY26?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Craftsman_Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  13.45s
+--------------------------------------------------------------------------------
+
+Q98 (ID: CA3) [Anomaly]
+Question: Calculate the Payable Days for Craftsman Automation for FY25 and FY26 and compute the full Cash Conversion Cycle.
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Craftsman_Auto.xlsx'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_excel'])
+Latency:  12.53s
+--------------------------------------------------------------------------------
+
+Q99 (ID: CA4) [Anomaly]
+Question: What were the quarterly revenue and operating profit figures for Craftsman Automation for Q1 FY22 (quarter ending June 2021)?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel', 'craftsman_automation_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Craftsman_Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf', 'crafts22Q1.pdf'])
+Latency:  13.64s
+--------------------------------------------------------------------------------
+
+Q100 (ID: CA5) [Anomaly]
+Question: What was the Free Cash Flow yield (FCF / Market Cap) for Craftsman Automation in FY26?
+Routing:  ✅ PASS (Expected: ['craftsman_automation_ltd_excel'] | Got: ['craftsman_automation_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Craftsman_Auto.xlsx'] | Got: ['Craftsman Auto.xlsx', 'Craftsman Auto.xlsx', 'Craftsman Auto.xlsx'])
+Latency:  11.88s
+--------------------------------------------------------------------------------
+
+
+============================================================
+  INDIVIDUAL RAGAS SCORES
+============================================================
+
+Q1 (ID: E1) [Excel]
+  Faithfulness:      0.625
+  Answer Relevancy:  0.9902515023075052
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q2 (ID: E2) [Excel]
+  Faithfulness:      0.9230769230769231
+  Answer Relevancy:  0.9072419948182717
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q3 (ID: E3) [Excel]
+  Faithfulness:      0.8461538461538461
+  Answer Relevancy:  0.9174214052504427
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q4 (ID: E4) [Excel]
+  Faithfulness:      0.5789473684210527
+  Answer Relevancy:  0.9735325323246778
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q5 (ID: E5) [Excel]
+  Faithfulness:      0.2777777777777778
+  Answer Relevancy:  0.952770828750562
+  Context Recall:    0.25
+  Context Precision: 0.0
+------------------------------
+Q6 (ID: E6) [Excel]
+  Faithfulness:      0.7777777777777778
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q7 (ID: E7) [Excel]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9583591066830719
+  Context Recall:    0.5
+  Context Precision: 0.0
+------------------------------
+Q8 (ID: E8) [Excel]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    1.0
+  Context Precision: 0.0
+------------------------------
+Q9 (ID: E9) [Excel]
+  Faithfulness:      0.9743589743589743
+  Answer Relevancy:  0.9414394081383244
+  Context Recall:    0.0
+  Context Precision: 0.11111111109999999
+------------------------------
+Q10 (ID: E10) [Excel]
+  Faithfulness:      0.9047619047619048
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q11 (ID: R1) [Ratio]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.917421316226836
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q12 (ID: R2) [Ratio]
+  Faithfulness:      0.7857142857142857
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q13 (ID: R3) [Ratio]
+  Faithfulness:      0.875
+  Answer Relevancy:  0.8666352760796286
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q14 (ID: R4) [Ratio]
+  Faithfulness:      0.9666666666666667
+  Answer Relevancy:  0.8649321610403641
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q15 (ID: R5) [Ratio]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.8990798455244907
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q16 (ID: R6) [Ratio]
+  Faithfulness:      0.8
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q17 (ID: R7) [Ratio]
+  Faithfulness:      0.5555555555555556
+  Answer Relevancy:  0.0
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.0
+------------------------------
+Q18 (ID: R8) [Ratio]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    1.0
+  Context Precision: 0.06666666666
+------------------------------
+Q19 (ID: R9) [Ratio]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9359465938149264
+  Context Recall:    1.0
+  Context Precision: 0.0
+------------------------------
+Q20 (ID: R10) [Ratio]
+  Faithfulness:      0.8048780487804879
+  Answer Relevancy:  0.0
+  Context Recall:    1.0
+  Context Precision: 0.06249999999375
+------------------------------
+Q21 (ID: C1) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9457300771826321
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q22 (ID: C2) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.931329417466268
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q23 (ID: C3) [Concall]
+  Faithfulness:      0.9545454545454546
+  Answer Relevancy:  0.9590437247525078
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q24 (ID: C4) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.8690589727488831
+  Context Recall:    0.5
+  Context Precision: 0.0
+------------------------------
+Q25 (ID: C5) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q26 (ID: C6) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.11111111109999999
+------------------------------
+Q27 (ID: C7) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.8502994929041492
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q28 (ID: C8) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.8879339683821548
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q29 (ID: C9) [Concall]
+  Faithfulness:      0.6666666666666666
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q30 (ID: C10) [Concall]
+  Faithfulness:      0.6470588235294118
+  Answer Relevancy:  0.8920662507929293
+  Context Recall:    0.25
+  Context Precision: 0.0
+------------------------------
+Q31 (ID: P1) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q32 (ID: P2) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9081633909913985
+  Context Recall:    0.5
+  Context Precision: 0.0
+------------------------------
+Q33 (ID: P3) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.8737533477260214
+  Context Recall:    0.16666666666666666
+  Context Precision: 0.10096153845649039
+------------------------------
+Q34 (ID: P4) [PDF]
+  Faithfulness:      0.8
+  Answer Relevancy:  0.9256202036518384
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q35 (ID: P5) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q36 (ID: P6) [PDF]
+  Faithfulness:      0.9354838709677419
+  Answer Relevancy:  0.897331667932232
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q37 (ID: P7) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9427951817823347
+  Context Recall:    0.25
+  Context Precision: 0.0
+------------------------------
+Q38 (ID: P8) [PDF]
+  Faithfulness:      0.9411764705882353
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q39 (ID: P9) [PDF]
+  Faithfulness:      0.625
+  Answer Relevancy:  0.9035686194331224
+  Context Recall:    0.2
+  Context Precision: 0.19999999998
+------------------------------
+Q40 (ID: P10) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9015385515874431
+  Context Recall:    1.0
+  Context Precision: 0.0
+------------------------------
+Q41 (ID: CE1) [Excel]
+  Faithfulness:      0.75
+  Answer Relevancy:  0.9755035414731056
+  Context Recall:    0.0
+  Context Precision: 0.9999999999
+------------------------------
+Q42 (ID: CE2) [Excel]
+  Faithfulness:      0.6666666666666666
+  Answer Relevancy:  0.9084248254679655
+  Context Recall:    0.0
+  Context Precision: 0.49999999995
+------------------------------
+Q43 (ID: CE3) [Excel]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9357638840090344
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.9999999999
+------------------------------
+Q44 (ID: CE4) [Excel]
+  Faithfulness:      0.8235294117647058
+  Answer Relevancy:  0.8845364431236223
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.0
+------------------------------
+Q45 (ID: CE5) [Excel]
+  Faithfulness:      0.5833333333333334
+  Answer Relevancy:  0.8687677295419611
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.9999999999
+------------------------------
+Q46 (ID: CE6) [Excel]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9235477193251639
+  Context Recall:    1.0
+  Context Precision: 0.3499999999825
+------------------------------
+Q47 (ID: CE7) [Excel]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9037091492120862
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q48 (ID: CE8) [Excel]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.44526307025670936
+------------------------------
+Q49 (ID: CE9) [Excel]
+  Faithfulness:      0.3
+  Answer Relevancy:  0.0
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.5714285713999999
+------------------------------
+Q50 (ID: CE10) [Excel]
+  Faithfulness:      0.6666666666666666
+  Answer Relevancy:  0.0
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.9999999999
+------------------------------
+Q51 (ID: CP1) [PDF]
+  Faithfulness:      0.75
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q52 (ID: CP2) [PDF]
+  Faithfulness:      0.9583333333333334
+  Answer Relevancy:  0.9691998057435048
+  Context Recall:    1.0
+  Context Precision: 0.19999999998
+------------------------------
+Q53 (ID: CP3) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9566527334432061
+  Context Recall:    1.0
+  Context Precision: 0.19999999998
+------------------------------
+Q54 (ID: CP4) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9052460202520726
+  Context Recall:    1.0
+  Context Precision: 0.249999999975
+------------------------------
+Q55 (ID: CP5) [PDF]
+  Faithfulness:      0.8
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q56 (ID: CP6) [PDF]
+  Faithfulness:      0.0
+  Answer Relevancy:  0.8969825904106886
+  Context Recall:    0.25
+  Context Precision: 0.16666666665
+------------------------------
+Q57 (ID: CP7) [PDF]
+  Faithfulness:      0.36363636363636365
+  Answer Relevancy:  0.8629036266073902
+  Context Recall:    0.0
+  Context Precision: 0.49999999995
+------------------------------
+Q58 (ID: CP8) [PDF]
+  Faithfulness:      0.3333333333333333
+  Answer Relevancy:  0.8995217305512299
+  Context Recall:    0.5
+  Context Precision: 0.5317460317283068
+------------------------------
+Q59 (ID: CP9) [PDF]
+  Faithfulness:      0.5909090909090909
+  Answer Relevancy:  0.8686526536550815
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.0909090909
+------------------------------
+Q60 (ID: CP10) [PDF]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9095235226013028
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.16666666665
+------------------------------
+Q61 (ID: CC1) [Concall]
+  Faithfulness:      0.8181818181818182
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q62 (ID: CC2) [Concall]
+  Faithfulness:      0.6666666666666666
+  Answer Relevancy:  0.0
+  Context Recall:    0.5
+  Context Precision: 0.20238095237420634
+------------------------------
+Q63 (ID: CC3) [Concall]
+  Faithfulness:      0.6923076923076923
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.249999999975
+------------------------------
+Q64 (ID: CC4) [Concall]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q65 (ID: CC5) [Concall]
+  Faithfulness:      0.23076923076923078
+  Answer Relevancy:  0.9473860455287358
+  Context Recall:    0.5
+  Context Precision: 0.16025641024839743
+------------------------------
+Q66 (ID: CC6) [Concall]
+  Faithfulness:      0.8125
+  Answer Relevancy:  0.0
+  Context Recall:    0.4
+  Context Precision: 0.2245754245698102
+------------------------------
+Q67 (ID: CC7) [Concall]
+  Faithfulness:      0.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.5
+  Context Precision: 0.0
+------------------------------
+Q68 (ID: CC8) [Concall]
+  Faithfulness:      0.9411764705882353
+  Answer Relevancy:  0.8896288881129557
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.13025210083382352
+------------------------------
+Q69 (ID: CC9) [Concall]
+  Faithfulness:      0.6
+  Answer Relevancy:  0.9331300733764256
+  Context Recall:    0.25
+  Context Precision: 0.12698412697777778
+------------------------------
+Q70 (ID: CC10) [Concall]
+  Faithfulness:      0.6
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.06666666666
+------------------------------
+Q71 (ID: CI1) [Images]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9063090541823012
+  Context Recall:    0.5
+  Context Precision: 0.49999999995
+------------------------------
+Q72 (ID: CI2) [Images]
+  Faithfulness:      0.7777777777777778
+  Answer Relevancy:  0.8923245087822803
+  Context Recall:    1.0
+  Context Precision: 0.8666666666377778
+------------------------------
+Q73 (ID: CI3) [Images]
+  Faithfulness:      0.875
+  Answer Relevancy:  0.9383138453021401
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.3333333333
+------------------------------
+Q74 (ID: CI4) [Images]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q75 (ID: CI5) [Images]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q76 (ID: CI6) [Images]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.8824865998036877
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.0
+------------------------------
+Q77 (ID: CI7) [Images]
+  Faithfulness:      0.0
+  Answer Relevancy:  0.9184758422267262
+  Context Recall:    0.0
+  Context Precision: 0.1249999999875
+------------------------------
+Q78 (ID: CI8) [Images]
+  Faithfulness:      0.8947368421052632
+  Answer Relevancy:  0.9143229910209927
+  Context Recall:    0.0
+  Context Precision: 0.1944444444347222
+------------------------------
+Q79 (ID: CI9) [Images]
+  Faithfulness:      0.9375
+  Answer Relevancy:  0.8764301739235423
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.3333333333
+------------------------------
+Q80 (ID: CI10) [Images]
+  Faithfulness:      0.9333333333333333
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q81 (ID: CX1) [Cross-Source]
+  Faithfulness:      0.75
+  Answer Relevancy:  0.886677108361208
+  Context Recall:    0.0
+  Context Precision: 0.29441160690670004
+------------------------------
+Q82 (ID: CX2) [Cross-Source]
+  Faithfulness:      0.4666666666666667
+  Answer Relevancy:  0.9267675218290193
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.9999999999
+------------------------------
+Q83 (ID: CX3) [Cross-Source]
+  Faithfulness:      0.4444444444444444
+  Answer Relevancy:  0.9168010839109529
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.474999999988125
+------------------------------
+Q84 (ID: CX4) [Cross-Source]
+  Faithfulness:      0.6666666666666666
+  Answer Relevancy:  0.9086332360418458
+  Context Recall:    1.0
+  Context Precision: 0.5870950037551471
+------------------------------
+Q85 (ID: CX5) [Cross-Source]
+  Faithfulness:      0.95
+  Answer Relevancy:  0.0
+  Context Recall:    0.5
+  Context Precision: 0.24090909090106058
+------------------------------
+Q86 (ID: CX6) [Cross-Source]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9213373258266905
+  Context Recall:    0.6666666666666666
+  Context Precision: 0.2694805194715368
+------------------------------
+Q87 (ID: CX7) [Cross-Source]
+  Faithfulness:      0.8571428571428571
+  Answer Relevancy:  0.0
+  Context Recall:    0.5
+  Context Precision: 0.2896825396728836
+------------------------------
+Q88 (ID: CX8) [Cross-Source]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.0
+------------------------------
+Q89 (ID: CX9) [Cross-Source]
+  Faithfulness:      0.4090909090909091
+  Answer Relevancy:  0.841472495949282
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.083333333325
+------------------------------
+Q90 (ID: CX10) [Cross-Source]
+  Faithfulness:      0.8333333333333334
+  Answer Relevancy:  0.0
+  Context Recall:    1.0
+  Context Precision: 0.23095238094468254
+------------------------------
+Q91 (ID: CX11) [Cross-Source]
+  Faithfulness:      0.9473684210526315
+  Answer Relevancy:  0.9018697014431275
+  Context Recall:    0.5
+  Context Precision: 0.3666666666544445
+------------------------------
+Q92 (ID: CX12) [Cross-Source]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9113771880382068
+  Context Recall:    1.0
+  Context Precision: 0.0909090909
+------------------------------
+Q93 (ID: CX13) [Cross-Source]
+  Faithfulness:      0.96
+  Answer Relevancy:  0.9167251631440045
+  Context Recall:    0.0
+  Context Precision: 0.09999999999
+------------------------------
+Q94 (ID: CX14) [Cross-Source]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.8650703797866027
+  Context Recall:    0.5
+  Context Precision: 0.15476190475416668
+------------------------------
+Q95 (ID: CX15) [Cross-Source]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.9192472054116516
+  Context Recall:    0.5
+  Context Precision: 0.0909090909
+------------------------------
+Q96 (ID: CA1) [Anomaly]
+  Faithfulness:      0.9166666666666666
+  Answer Relevancy:  0.0
+  Context Recall:    1.0
+  Context Precision: 0.3333333333
+------------------------------
+Q97 (ID: CA2) [Anomaly]
+  Faithfulness:      0.8571428571428571
+  Answer Relevancy:  0.0
+  Context Recall:    1.0
+  Context Precision: 0.99999999998
+------------------------------
+Q98 (ID: CA3) [Anomaly]
+  Faithfulness:      0.7333333333333333
+  Answer Relevancy:  0.0
+  Context Recall:    0.0
+  Context Precision: 0.9999999999
+------------------------------
+Q99 (ID: CA4) [Anomaly]
+  Faithfulness:      0.7692307692307693
+  Answer Relevancy:  0.0
+  Context Recall:    0.3333333333333333
+  Context Precision: 0.2611111111024074
+------------------------------
+Q100 (ID: CA5) [Anomaly]
+  Faithfulness:      1.0
+  Answer Relevancy:  0.0
+  Context Recall:    1.0
+  Context Precision: 0.9999999999666667
+------------------------------

@@ -61,6 +61,52 @@ def is_valid_financial_query(question: str, company_slug: str) -> bool:
         return True
 
 
+def classify_time_series(question: str):
+    import re
+    q_lower = question.lower()
+    
+    years_found = re.findall(r"fy\s*\d{2,4}|20\d{2}", q_lower)
+    years_found = list(set(years_found))
+    if len(years_found) > 0 and len(years_found) <= 3:
+        return "SPECIFIC_YEARS", years_found
+        
+    broad_patterns = [
+        r"last \d+\s*(?:financial )?years",
+        r"most recent \d+\s*(?:financial )?years",
+        r"\d+-year",
+        r"trend",
+        r"over the years",
+        r"historical",
+        r"past \d+\s*(?:financial )?years",
+        r"decade",
+        r"how has .* changed over time",
+        r"year-on-year trend",
+        r"each of the most recent \d+ financial years"
+    ]
+    for p in broad_patterns:
+        if re.search(p, q_lower):
+            return "FULL_TIME_SERIES", []
+            
+    try:
+        prompt = f"""You must classify the following financial question into one of two categories:
+        FULL_TIME_SERIES: The question asks for data over all available years, a long trend (e.g. 5+ years), or historical analysis.
+        SPECIFIC_YEARS: The question asks for data from specific, targeted years (e.g. a comparison between 2 specific years, or a single year's value).
+        
+        Question: {question}
+        
+        Return ONLY JSON: {{"category": "FULL_TIME_SERIES"}} or {{"category": "SPECIFIC_YEARS"}}"""
+        client = openai.OpenAI(api_key=settings.OPENAI_API_KEY)
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0
+        )
+        cat = json.loads(response.choices[0].message.content.strip())["category"]
+        return cat, []
+    except Exception as e:
+        return "FULL_TIME_SERIES", []
+
+
 
 from app.core.build_prompt import build_prompt
 from app.core.clarifier_agent import decompose_query
@@ -140,13 +186,30 @@ def build_calculation_context(calc_result: dict, company_slug: str) -> list[dict
     ]
 
 
-def query_collection_all(collection_name: str, chroma_path: str = None, sheet: str = None) -> list[dict]:
+def query_collection_all(collection_name: str, chroma_path: str = None, sheet: str = None, years: list[str] = None) -> list[dict]:
     collection = get_or_create_collection(collection_name, chroma_path=chroma_path)
     with CHROMA_QUERY_LATENCY.labels(collection_type="excel").time():
+        where_clauses = []
         if sheet:
-            results = collection.get(where={"sheet": sheet}, include=["documents", "metadatas"])
+            where_clauses.append({"sheet": sheet})
+        if years:
+            if len(years) == 1:
+                where_clauses.append({"year": years[0]})
+            else:
+                where_clauses.append({"year": {"$in": years}})
+        
+        if len(where_clauses) == 0:
+            where = None
+        elif len(where_clauses) == 1:
+            where = where_clauses[0]
+        else:
+            where = {"$and": where_clauses}
+            
+        if where:
+            results = collection.get(where=where, include=["documents", "metadatas"])
         else:
             results = collection.get(include=["documents", "metadatas"])
+            
     documents = results.get("documents", []) or []
     metadatas = results.get("metadatas", []) or []
 
@@ -157,7 +220,7 @@ def query_collection_all(collection_name: str, chroma_path: str = None, sheet: s
             "metadata": meta,
             "score": 1.0
         })
-    logger.info(f"Retrieved ALL {len(chunks)} chunks from '{collection_name}' (sheet filter: {sheet})")
+    logger.info(f"Retrieved ALL {len(chunks)} chunks from '{collection_name}' (sheet filter: {sheet}, years filter: {years})")
     return chunks
 
 
@@ -166,10 +229,71 @@ def _normalize_year(year: str | None) -> str | None:
         year = year[0] if year else None
     if year is None:
         return None
-    val = str(year).replace("FY", "").strip()
+    val = str(year).upper().replace("FY", "").strip()
     if len(val) == 2 and val.isdigit():
         val = f"20{val}"
     return val
+
+
+PDF_YEAR_TO_FILENAME = {
+    "astral_ltd": {
+        "FY22": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "FY23": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "FY24": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "FY25": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+    },
+    "craftsman_automation_ltd": {
+        "FY22": "7.-Annual-Report-2021-22.pdf",
+        "FY23": "Annual-Report_2023.pdf",
+        "FY24": "Annual-Report-2023-24.pdf",
+        "FY25": "Annual-Report-2025.pdf",
+    },
+}
+
+LATEST_PDF_YEAR = {"astral_ltd": "FY25", "craftsman_automation_ltd": "FY25"}
+
+def resolve_pdf_filename(company_slug: str, routed_year: str | None) -> str:
+    mapping = PDF_YEAR_TO_FILENAME.get(company_slug, {})
+    if routed_year:
+        yr_key = normalize_pdf_year(routed_year)
+        if yr_key and yr_key in mapping:
+            return mapping[yr_key]
+    latest_key = LATEST_PDF_YEAR.get(company_slug)
+    return mapping.get(latest_key, "")
+
+
+LATEST_CONCALL_QUARTER = {
+    "astral_ltd": {
+        "FY22": "Q4",
+        "FY23": "Q4",
+        "FY24": "Q4",
+        "FY25": "Q4",
+    },
+    "craftsman_automation_ltd": {
+        "FY22": "Q4",
+        "FY23": "Q4",
+        "FY24": "Q4",
+        "FY25": "Q4",
+    },
+}
+
+def resolve_concall_quarter(question: str, company_slug: str, resolved_year: str | None) -> str:
+    q = question.lower()
+    if "q1" in q or "first quarter" in q: return "Q1"
+    if "q2" in q or "second quarter" in q: return "Q2"
+    if "q3" in q or "third quarter" in q: return "Q3"
+    if "q4" in q or "fourth quarter" in q: return "Q4"
+    if "h1" in q or "first half" in q: return "Q2"
+    if "h2" in q or "second half" in q: return "Q4"
+    
+    year_key = normalize_pdf_year(resolved_year)
+    mapping = LATEST_CONCALL_QUARTER.get(company_slug, {})
+    if year_key and year_key in mapping:
+        return mapping[year_key]
+    
+    # Global fallback if year not found or not specified
+    latest_year = LATEST_PDF_YEAR.get(company_slug, "FY25")
+    return mapping.get(latest_year, "Q4")
 
 
 def normalize_pdf_year(routed_year: str | None) -> str | None:
@@ -177,10 +301,15 @@ def normalize_pdf_year(routed_year: str | None) -> str | None:
         routed_year = routed_year[0] if routed_year else None
     if routed_year is None:
         return None
+        
+    if routed_year.startswith("FY") and len(routed_year) == 6 and routed_year[2:].isdigit():
+        return f"FY{routed_year[-2:]}"
     if routed_year.startswith("FY"):
         return routed_year
     if len(routed_year) == 4 and routed_year.isdigit():
         return f"FY{routed_year[-2:]}"
+    if len(routed_year) == 2 and routed_year.isdigit():
+        return f"FY{routed_year}"
     return routed_year
 
 
@@ -275,24 +404,8 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     # Step 3 — Decompose and embed the sub-queries
     sub_queries = decompose_query(question)
 
-    # Extract target sheet dynamically from routing context or calculation intent
     target_sheet = None
-    if hasattr(decision, "sheet") and decision.sheet:
-        target_sheet = decision.sheet
-    
-    if not target_sheet:
-        try:
-            from app.core.calculation_agent import _match_hardcoded_formula, parse_computation_intent, is_computation_question
-            calc_intent = _match_hardcoded_formula(question)
-            if not calc_intent:
-                if is_computation_question(question).get("needs_calculation"):
-                    calc_intent = parse_computation_intent(question)
-            if calc_intent:
-                metrics = calc_intent.get("metrics", [])
-                if metrics:
-                    target_sheet = metrics[0].get("sheet")
-        except Exception as e:
-            logger.warning(f"Failed to extract sheet from calculation agent: {e}")
+
 
     # Step 4 — Retrieve chunks from routed collections
     all_chunks = []
@@ -305,11 +418,22 @@ def answer_query(request: QueryRequest) -> QueryResponse:
     K_IMAGES = settings.TOP_K_IMAGES
 
     for coll_type in source_types:
-        if coll_type == "excel" and len(sub_queries) > 1:
+        if coll_type == "excel":
+            excel_class, excel_years = classify_time_series(question)
+            query_years = None
+            if excel_class == "SPECIFIC_YEARS" and excel_years:
+                query_years = []
+                for y in excel_years:
+                    ny = _normalize_year(y)
+                    if ny: query_years.append(ny)
+                if not query_years:
+                    query_years = None
+
             excel_chunks = query_collection_all(
                 f"{company_slug}_excel",
                 chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/excel",
-                sheet=target_sheet
+                sheet=target_sheet,
+                years=query_years
             )
             for chunk in excel_chunks:
                 content = str(chunk.get("content", ""))
@@ -337,13 +461,24 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                 )
             elif coll_type == "pdf":
                 pdf_year = normalize_pdf_year(routed_year)
+                pdf_filename = resolve_pdf_filename(company_slug, pdf_year)
+                logger.info(f"DEBUG pdf_filename_resolution: slug={company_slug}, yr={pdf_year}, file={pdf_filename}")
                 sub_chunks = query_collection(
                     query_embedding,
                     f"{company_slug}_pdf_text",
                     top_k=K_PDF,
-                    year=pdf_year,
+                    filename=pdf_filename,
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/pdf"
                 )
+                logger.info(f"DEBUG sub_chunks_len: {len(sub_chunks)}")
+                if len(sub_chunks) < K_PDF // 2:
+                    logger.warning("Filename filter yielded few results - falling back to full PDF query")
+                    sub_chunks = query_collection(
+                        query_embedding,
+                        f"{company_slug}_pdf_text",
+                        top_k=K_PDF,
+                        chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/pdf"
+                    )
             elif coll_type == "images":
                 image_year = normalize_pdf_year(routed_year)
                 sub_chunks = query_collection_by_type(
@@ -355,14 +490,26 @@ def answer_query(request: QueryRequest) -> QueryResponse:
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/images"
                 )
             elif coll_type == "concall":
-                concall_year = normalize_pdf_year(routed_year)
+                concall_year = normalize_pdf_year(routed_year) or LATEST_PDF_YEAR.get(company_slug)
+                concall_quarter = resolve_concall_quarter(question, company_slug, concall_year)
+                logger.info(f"DEBUG concall sub_query: text='{sub_q}', routed_year='{routed_year}', concall_year='{concall_year}', concall_quarter='{concall_quarter}'")
                 sub_chunks = query_collection(
                     query_embedding,
                     f"{company_slug}_concalls",
                     top_k=K_CONCALL,
                     year=concall_year,
+                    quarter=concall_quarter,
                     chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/concall"
                 )
+                if len(sub_chunks) < K_CONCALL // 2:
+                    logger.warning(f"Quarter filter '{concall_quarter}' yielded few results - falling back to unfiltered quarter")
+                    sub_chunks = query_collection(
+                        query_embedding,
+                        f"{company_slug}_concalls",
+                        top_k=K_CONCALL,
+                        year=concall_year,
+                        chroma_path=f"{settings.CHROMA_BASE_DIR}/{company_slug}/concall"
+                    )
 
             for chunk in sub_chunks:
                 content = str(chunk.get("content", ""))

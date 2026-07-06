@@ -1,0 +1,283 @@
+{
+  "id": "P1",
+  "expected_answer": "The Company (standalone) has three reportable segments plus 'Others': Powertrain – revenue ₹1,68,272 lakhs (FY24-25) vs ₹1,55,837 lakhs (FY23-24); Aluminium Products – revenue ₹1,15,957 lakhs vs ₹91,746 lakhs; Industrial & Engineering – revenue ₹83,827 lakhs vs ₹73,196 lakhs; Others – revenue ₹16,739 lakhs vs Nil. Total revenue from operations: ₹3,84,795 lakhs (FY24-25) vs ₹3,20,779 lakhs (FY23-24). Segments are Powertrain, Aluminium Products, and Industrial & Engineering (Others is a residual category for insignificant segments).",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Notes to Standalone Financial Statements, Note 3.11 'Segment Reporting', section (a) Segment disclosure, Page 171"
+}
+{
+  "id": "P2",
+  "expected_answer": "The Risk Management Committee maintains active oversight of risk and mitigation strategies. Identified key risks of the Company include: Strategic Risk, Operational Risk, Environment, Safety and Governance (ESG) Risk, and Information & Cyber Security Risk. The Company states it has a robust risk mitigation plan to minimize identified risks through continuous monitoring and mitigating actions.",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Management Discussion and Analysis, Section H 'Risks and Concerns', Page 19"
+}
+{
+  "id": "P3",
+  "expected_answer": "Standalone related-party transactions for FY2024-25 (vs FY2023-24, ₹ in Lakhs) include: Purchase of Goods & Services – Subsidiaries ₹47 (₹70), Joint Ventures ₹501 (₹489); Sale of Goods & Services – Subsidiaries ₹19,304 (₹2,150), Joint Ventures ₹5,916 (₹5,597); Reimbursement of Expenditure to Subsidiaries ₹393 (Nil); Reimbursement of Expenditure from Subsidiaries ₹361 (Nil); Remuneration to Key Management Personnel ₹989 (₹692); Commission to KMP ₹149 (₹1,000); Sitting Fee ₹27 (₹22); Interest Income from Subsidiaries ₹346 (Nil); Rental income – Subsidiaries ₹67 (₹4), Joint Ventures ₹2 (₹2); Management Services Income – Subsidiaries ₹1,000 (Nil). Significant counterparties named include Carl Stahl Craftsman Enterprises Private Limited, Craftsman Europe BV-Netherlands, DR Axion India Private Limited, and Sunbeam Lightweighting Solutions Private Limited, with individual transaction values listed in the note (e.g., Sale of Goods & Services to DR Axion India Private Limited: ₹12,941 Lakhs; to Sunbeam Lightweighting Solutions Private Limited: ₹4,964 Lakhs). Balances outstanding at year-end (March 31, 2025) include Trade Receivables from Subsidiaries ₹888, Joint Ventures ₹983; Trade Payables to Subsidiaries ₹268; Loans Receivable from Subsidiaries ₹6,640 (marked with *); Remuneration payable to KMP ₹15.",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Notes to Standalone Financial Statements, Note 3.5 'Related party disclosure', sections (c), (d) and (e), Pages 164-166"
+}
+{
+  "id": "P4",
+  "expected_answer": "Standalone Contingent Liabilities as at March 31, 2025 (vs March 31, 2024, ₹ in Lakhs): a. Claims against the Company not acknowledged as debt – Excise Duty ₹7 (₹7), Service tax ₹104 (₹67), Goods and Service Tax ₹1,952 (₹16), Income tax ₹307 (₹823). b. Sales Bills discounted ₹8,646 (₹4,617). Additionally, Commitment on capital account not provided as on March 31, 2025 was ₹40,548 Lakhs (₹25,144 Lakhs as at March 31, 2024) — disclosed under Commitments in the same note.",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Notes to Standalone Financial Statements, Note 3.6 'Contingent Liabilities and Commitments', section (a) Contingent Liabilities, Page 167"
+}
+{
+  "id": "P5",
+  "expected_answer": "The MD&A/Director's Report describes: (1) Development of a new off-highway components facility, described as 'a significant step towards scaling up its presence in this high-potential segment' (Powertrain segment); (2) Acquisition of assets of Fronberg Guss GmbH, bringing capacity, capabilities, a skilled workforce, and long-term customer relationships in Europe as part of the strategy to diversify geographically in iron castings and engineered systems; (3) Expansion of the Aluminium Products segment footprint through strategic inclusion of DR Axion and Sunbeam, enhancing machining and casting capabilities; (4) Commencement of cast iron manufacturing operations with green energy and machine tool parts. Outlook focus areas listed include optimizing capital structure through targeted debt reduction and diversifying revenue streams by growing the non-automotive portfolio. Separately, in the Notes to Standalone Financial Statements, Commitment on capital account not provided as on March 31, 2025 is stated as ₹40,548 Lakhs (₹25,144 Lakhs as at March 31, 2024).",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Management Discussion and Analysis, Sections C (Outlook) and F (Segment-wise Performance), Pages 17-18; and Note 3.6(b) 'Commitments', Page 167"
+}
+{
+  "id": "P6",
+  "expected_answer": "In the Independent Auditor's Report on the Consolidated Financial Statements, two Key Audit Matters (KAMs) were raised: (1) 'Accounting for Property, Plant and Equipment' — PPE (including CWIP) represents 48% of the Group's total assets; considered a KAM due to the material value and judgments/estimates involved (useful life, residual value, impairment/CGU assessment). Auditor's response: evaluated design and operating effectiveness of internal controls over initial recognition costs, valuation and useful lives, and physical verification; tested self-constructed assets on a sample basis; obtained management's technical confirmations for useful lives differing from Schedule II; reviewed residual values, CGU identification, discount factor computations, and impairment assumptions; physically inspected a sample of assets; reviewed physical verification reports. (2) 'Accounting for Business Combinations' — related to acquisition of 100% stake in Sunbeam Lightweighting Solutions Private Limited and Craftsman Germany GmbH (and its subsidiaries), involving complex judgments (acquirer/control determination, purchase price allocation, goodwill/bargain purchase recognition, and Ind AS 103 disclosures). Auditor's response: assessed acquisition agreements and control criteria under Ind AS 110/103; verified acquisition dates; reviewed purchase consideration calculations including contingent consideration; assessed fair valuation methodologies for purchase price allocation; verified goodwill/bargain purchase computation; reviewed disclosure compliance with Ind AS 103. Note: the Standalone Financial Statements' Auditor's Report lists only the PPE matter as a Key Audit Matter (not Business Combinations).",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Independent Auditor's Report on Consolidated Financial Statements, 'Key Audit Matters' section, Pages 174-176 (standalone equivalent on Pages 107-109 covers only the PPE matter)"
+}
+{
+  "id": "P7",
+  "expected_answer": "Standalone Segment Profit or Loss (₹ in Lakhs), FY2024-25 vs FY2023-24: Powertrain ₹24,857 (₹29,163); Aluminium Products ₹11,600 (₹12,902); Industrial & Engineering ₹1,717 (₹4,673); Others ₹248 (Nil); Total Segments ₹38,422 (₹46,738). Segment Assets as at March 31, 2025 vs March 31, 2024: Powertrain ₹1,76,711 (₹1,54,572); Aluminium Products ₹1,66,955 (₹1,09,219); Industrial & Engineering ₹1,09,880 (₹86,324); Total Segments ₹4,53,546 (₹3,50,115). Segment Liabilities: Powertrain ₹1,01,851 (₹94,667); Aluminium Products ₹1,24,967 (₹59,650); Industrial & Engineering ₹72,432 (₹59,106); Total Segments ₹2,99,250 (₹2,13,423). Note: The document discloses Segment Profit or Loss, Segment Assets, and Segment Liabilities, but does not separately disclose 'segment-wise capital employed' as a distinct line item — Not disclosed in this annual report under that specific term.",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Notes to Standalone Financial Statements, Note 3.11 'Segment Reporting', section (a) Segment disclosure, Pages 171-172"
+}
+{
+  "id": "P8",
+  "expected_answer": "Standalone 'Other Expenses' (Note 2.7) for FY2024-25 vs FY2023-24 (₹ in Lakhs) — the three largest individual line items in FY2024-25 were: (1) Stores, Spares & tool consumed: ₹24,796 vs ₹20,696, an increase of ₹4,100; (2) Power & Fuel: ₹21,548 vs ₹17,710, an increase of ₹3,838; (3) Payment to contractors: ₹8,441 vs ₹5,849, an increase of ₹2,592. Total Other Expenses were ₹88,833 Lakhs (FY24-25) vs ₹72,243 Lakhs (FY23-24).",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Notes to Standalone Financial Statements, Note 2.7 'Other Expenses', Page 150"
+}
+{
+  "id": "P9",
+  "expected_answer": "The document states: 'During the year ended March 31, 2025, MCA has not notified any new standards or amendments to the existing standards applicable to the company.' No accounting policy changes or new accounting standards were adopted during the financial year, and no impact amount is quantified since none were adopted.",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Notes to Standalone Financial Statements, Section C 'Recent Accounting Developments — New Accounting Standards/Amendments notified but not yet effective', Page (unnumbered, preceding Note 1.1)"
+}
+{
+  "id": "P10",
+  "expected_answer": "Standalone Short Term Provisions (Note 1.32) as at March 31, 2025 vs March 31, 2024 (₹ in Lakhs): Provision for employee benefits — Gratuity ₹630 (₹505); Other Provisions — Provision for Warranty Cost ₹280 (₹230), Provision for Rejection ₹160 (₹127); Total ₹1,070 (₹862). Movement in Provision for product warranties (FY2024-25): Opening ₹230, Expired during the year ₹230, Warranty provided for current year ₹280, Closing ₹280. Movement in Provision for Rejection (FY2024-25): Opening ₹127, Expired during the year ₹127, Rejection provided for current year ₹160, Closing ₹160. Additionally, Note 2.7 'Other Expenses' discloses Provisions charged during the year: Warranty ₹45 (₹41 in FY23-24), Rejections ₹34 (₹(3) in FY23-24), Doubtful debts ₹933 (₹(94) in FY23-24).",
+  "expected_source": ["Annual-Report-2025.pdf"],
+  "expected_routing": ["craftsman_automation_pdf_text"],
+  "citation": "Notes to Standalone Financial Statements, Note 1.32 'Short Term Provisions', Page 147; and Note 2.7 'Other Expenses', Page 150"
+}
+
+
+
+[
+  {
+    "id": "C1",
+    "expected_answer": "For FY26, management reiterated guidance of Rs.7,000 crores revenue, Rs.1,100 crores EBITDA, and Rs.650-700 crores EBIT (already at Rs.512 crores EBIT for FY25). Priorities include: ramping up the new stationary engine/heavy powertrain business via Kothavadi plant and Fronberg foundry, scaling alloy wheel plants at Bhiwadi (~Rs.300+ crores) and Hosur (~Rs.150 crores) for FY26, consolidating/stabilizing Sunbeam (plant shift from Gurgaon to Bhiwadi, VRS settlement), growing DR Axion (~10% CAGR) and overall Craftsman aluminium business (>20% CAGR), and deleveraging via the Gurgaon land sale (~Rs.300 crores) with CAPEX guidance of Rs.750-800 crores at group level.",
+    "expected_source": ["crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi (Chairman & MD), opening remarks and Q&A responses to Mukesh (Anand Rathi) and Abhishek K Jain (AlfAccurate), crafts25Q4.pdf, pages 1-8"
+  },
+  {
+    "id": "C2",
+    "expected_answer": "For Q4 FY25, management attributed the improvement mainly to better operating leverage in the powertrain segment after ~18 months of modernization/repair costs, some revival in the farm sector and commercial vehicle sector, and multinational-set-up plants in India starting production. Alloy wheel revenue reached ~Rs.40 crores (EBITDA-neutral, EBIT negative ~Rs.5 crores, described as reaching 'operational breakeven'). Sunbeam Q4 revenue was ~Rs.300 crores with Rs.23 crores EBITDA (one-time items included). Aluminium consolidated Q4 revenue was ~Rs.1,000 crores overall, aided by Sunbeam's six months of consolidation.",
+    "expected_source": ["crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi, responses to Mukesh (Anand Rathi Institutional Equities) and Abhishek K Jain (AlfAccurate), crafts25Q4.pdf, pages 1-6"
+  },
+  {
+    "id": "C3",
+    "expected_answer": "Management highlighted: (1) the geopolitical situation and tariffs, though stated the company is 'quite insulated'; (2) the long gestation period (18-24 months development + ~1 year customer validation) for the new stationary engine business meaning no three-digit revenue until FY27; (3) for Sunbeam, tier-1 OEM customers in North America require validation before production can move to the new Bhiwadi site, which is taking 'a few months more'; (4) for the Sunbeam aluminium business, Q1 will be 'weak', with a full turnaround dependent on completing the Gurgaon-to-Bhiwadi plant shift and VRS settlement by Q4 FY26.",
+    "expected_source": ["crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi, opening remarks and responses to Abhishek K Jain (AlfAccurate) and Mukesh Saraf (Avendus Spark), crafts25Q4.pdf, pages 1, 4-5, 7"
+  },
+  {
+    "id": "C4",
+    "expected_answer": "Management guided FY26 consolidated revenue of Rs.7,000 crores, EBITDA of Rs.1,100 crores, and EBIT in the range of Rs.650-700 crores (depreciation ~Rs.450 crores). Craftsman's own conventional business capacity utilization was 'slightly below 70%' with upper limit of 85-90%; aluminium business (Sunbeam/DR Axion) operating at ~70-75%, expected to touch 80-85% by Q2 FY26. Sunbeam standalone: blended EBITDA guided at 8-10% for FY26 (Q1 weak, Q4 strongest), with revenue guided flat at ~Rs.1,200 crores. Craftsman (standalone) organic growth guided at >20% CAGR for FY26-FY27; DR Axion growth guided at 8-10% for FY26 (slightly higher than 10% in FY27).",
+    "expected_source": ["crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi, opening remarks and responses to Abhishek K Jain (AlfAccurate) and Mitul Shah (DAM Capital), crafts25Q4.pdf, pages 1, 5-6"
+  },
+  {
+    "id": "C5",
+    "expected_answer": "Discussed qualitatively but no specific figure given for the Q4 FY25 quarter itself — management said 'there is always the question of commodity price aluminum. So, that will also change the top line a little' but did not quantify the impact (Srinivasan Ravi, response to Abhishek K Jain). In an earlier quarter (Q2 FY25 call), when directly asked whether aluminium/raw material price changes impacted that quarter's standalone aluminium margin decline (11.8% vs 13.2% prior quarter), management explicitly stated: 'No, I don't think so. I think aluminium-wise, we are more or less same,' attributing the margin decline instead to Bhiwadi start-up expenses, not to raw material price movements.",
+    "expected_source": ["crafts25Q4.pdf", "crafts25Q2.pdf"],
+    "citation": "Srinivasan Ravi, response to Abhishek K Jain (AlfAccurate), crafts25Q4.pdf, page 3-4; and response to Mumuksh Mandlesha (Anand Rathi), crafts25Q2.pdf, page 13"
+  },
+  {
+    "id": "C6",
+    "expected_answer": "For FY26, management guided a group-level CAPEX of Rs.750-800 crores. Of this, Rs.550 crores is allocated to standalone Craftsman. For Sunbeam and DR Axion, management said 'we will take it as it comes' (not fixed). An additional Rs.40-50 crores was flagged for repair/maintenance of old equipment at Fronberg (under evaluation). No further break-up by specific project (e.g., Kothavadi/Bhiwadi individually) was given for FY26 in this transcript.",
+    "expected_source": ["crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi, responses to Abhishek K Jain (AlfAccurate) and Mitul Shah (DAM Capital), crafts25Q4.pdf, pages 4-6"
+  },
+  {
+    "id": "C7",
+    "expected_answer": "Specific figures given: Bhiwadi alloy wheel plant guided at 'around Rs.300 crores plus' revenue for FY26, and Hosur alloy wheel plant at 'around Rs.150 crores' for FY26 (reiterated from prior call); by FY27, each of the two plants (Bhiwadi and Hosur) is expected to contribute 'more than Rs.400 crores' on the top line. Sunbeam FY26 revenue guided at 'around 1,200 crores'. DR Axion Q4 FY25 revenue was Rs.376 crores. The new stationary/heavy-engine powertrain business is targeted to reach $100 million (~Rs.800-850 crores) revenue by FY29/2030, with Kothavadi machining-only revenue (ex-industrial engines) of ~Rs.150 crores expected for the full next financial year.",
+    "expected_source": ["crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi, responses to Ram (Avendus Spark), Mukesh Saraf (Avendus Spark), and Mumuksh Mandlesha (Anand Rathi), crafts25Q4.pdf, pages 4, 8-9"
+  },
+  {
+    "id": "C8",
+    "expected_answer": "Management discussed: (1) Fronberg Foundry (Germany) acquisition — completed and operational since 1st October 2024 as 'Craftsman Fronberg Guss GmbH'; investment stated in the Q3 call (30 Jan 2025) as INR 154 crores total (INR 94 crores for acquisition + INR 60 crores working capital), giving global foundry capability for the new stationary engine business, with first three-digit revenue expected in FY27 and business peaking at $100 million by 2029/2030. (2) DR Axion — acquisition of the balance 24% stake completed for INR 250 crores (Q3 call), making it a wholly-owned aluminium subsidiary. (3) Sunbeam — became a wholly-owned subsidiary from 9th October 2024, with investment of INR 606 crores as OCD (Q3 call); some of this to be recovered via the planned Gurgaon land sale (~Rs.300 crores). No new geography or product line beyond stationary engines/heavy engine castings and alloy wheels was discussed with a stated timeline/investment in the Q4 FY25 transcript.",
+    "expected_source": ["crafts25Q3.pdf", "crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi, opening remarks, crafts25Q3.pdf, page 1; and Srinivasan Ravi, response to Mukesh (Anand Rathi), crafts25Q4.pdf, page 2"
+  },
+  {
+    "id": "C9",
+    "expected_answer": "Quantified margin impacts: In Q3 FY25, Sunbeam was EBITDA-positive but EBIT-negative at 'minus INR 9 crores'; the Bhiwadi plant had a negative EBIT of 'around INR 20 crores' due to start-up costs; combined, these two items impacted the Aluminium segment EBIT by 'around close to INR 30 crores' in Q3 FY25 alone (Jinesh Gandhi Q&A, Q3 call). Also in Q3 FY25, standalone 'Other expenses' (INR 148 crores) were flagged as one-time items from Sunbeam equipment transfer and aluminium alloy inventory rationalization to DR Axion. In Q4 FY25, alloy wheel was 'EBITDA-neutral and EBIT negative of around Rs.5 crores'; a one-off employee cost item in Germany (consolidated) was quantified at 'Rs.4.5 crores'.",
+    "expected_source": ["crafts25Q3.pdf", "crafts25Q4.pdf"],
+    "citation": "Srinivasan Ravi, response to Jinesh Gandhi (Ambit Capital), crafts25Q3.pdf, page 5; and response to Mukesh (Anand Rathi) and Abhishek K Jain (AlfAccurate), crafts25Q4.pdf, pages 1, 6"
+  },
+  {
+    "id": "C10",
+    "expected_answer": "Debt: Consolidated net debt for FY25 projected at ~Rs.1,900 crores with debt-to-EBITDA of 2.24x (would have been 1.88x had the Gurgaon land sale of ~Rs.300 crores occurred in FY25). Management guided consolidated debt-to-EBITDA to come down to around 1.4x in FY26 (per the Q3 call), and in the Q4 call, debt was expected to reduce to 'INR 1,400 crores' at the consolidated level next year, aided by the land sale and lower capex. In the Q2 (Oct 2024) call, management stated a longer-term comfort zone of 1 to 1.5x debt-to-EBITDA, expecting to return to that range within 'one more year of operations.' No dividend payout policy or specific dividend figures were discussed anywhere in these transcripts — Not disclosed in the transcript.",
+    "expected_source": ["crafts25Q3.pdf", "crafts25Q4.pdf", "crafts25Q2.pdf"],
+    "citation": "Srinivasan Ravi, opening remarks and response to Jinesh Gandhi (Ambit Capital), crafts25Q3.pdf, pages 4, 6; response to Abhishek Jain (AlfAccurate), crafts25Q4.pdf, page 8; opening remarks, crafts25Q2.pdf, page 2"
+  }
+]
+
+
+[
+  {
+    "id": "E1",
+    "expected_answer": "FY22: 2217.02, FY23: 3182.60, FY24: 4451.73, FY25: 5690.48, FY26: 8069.27",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Data Sheet, row 'Sales' under PROFIT & LOSS section, taken directly (in Rs. Cr)."
+  },
+  {
+    "id": "E2",
+    "expected_answer": "FY22: 163.09, FY23: 248.39, FY24: 304.47, FY25: 194.57, FY26: 383.99",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Data Sheet, row 'Net profit' under PROFIT & LOSS section, taken directly."
+  },
+  {
+    "id": "E3",
+    "expected_answer": "FY22: 799.55, FY23: 1240.23, FY24: 1754.82, FY25: 2358.18, FY26: 3623.48",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Data Sheet only has a single combined 'Borrowings' line item under BALANCE SHEET; it is NOT broken into short-term vs long-term debt. Values shown are total borrowings. Breakdown into short-term/long-term is Not available in this dataset."
+  },
+  {
+    "id": "E4",
+    "expected_answer": "FY22: 24.09, FY23: 21.48, FY24: 19.74, FY25: 14.64, FY26: 15.34",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Data Sheet has no direct 'Operating Profit' line for annual P&L (only appears in the Quarters section). Derived using the identity confirmed against the Quarters tab (Operating Profit = Sales - Expenses = PBT - Other Income + Depreciation + Interest): Operating Profit = PBT - Other Income + Depreciation + Interest. Margin = Operating Profit / Sales x 100. E.g. FY22: (251.73 - 7.78 + 205.99 + 84.22)/2217.02*100 = 24.09."
+  },
+  {
+    "id": "E5",
+    "expected_answer": "FY23: 43.55, FY24: 39.88, FY25: 27.83, FY26: 41.80",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Formula: (Sales_t - Sales_t-1)/Sales_t-1 x 100. E.g. FY23: (3182.60-2217.02)/2217.02*100 = 43.55."
+  },
+  {
+    "id": "E6",
+    "expected_answer": "Not available in this dataset.",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Data Sheet's CASH FLOW section only has 4 aggregate lines: Cash from Operating Activity, Cash from Investing Activity, Cash from Financing Activity, Net Cash Flow. There is no distinct 'Capex' / 'Purchase of Fixed Assets' line item, and Cash from Investing Activity also includes non-capex items (investments, etc.), so it cannot be used as a reliable capex substitute. True FCF cannot be computed from this dataset. For reference only (not equivalent to capex), Cash from Investing Activity was: FY22: -209.01, FY23: -682.81, FY24: -625.37, FY25: -1642.82, FY26: -1313.16."
+  },
+  {
+    "id": "E7",
+    "expected_answer": "FY24: Receivable Days 47.28, Inventory Days 106.33, Payable Days Not available in this dataset. | FY25: Receivable Days 59.05, Inventory Days 100.09, Payable Days Not available in this dataset. | FY26: Receivable Days 50.23, Inventory Days 93.25, Payable Days Not available in this dataset.",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Receivable Days = Receivables/Sales x 365 (no separate COGS/credit sales line, so Sales used as denominator). Inventory Days = Inventory/(Sales - Operating Profit) x 365, using 'Sales - Operating Profit' as a COGS proxy since no explicit COGS line exists (Operating Profit derived as in E4). Payable Days requires a 'Trade Payables' line item, which does not exist in the Data Sheet (Balance Sheet only has an aggregate 'Other Liabilities' line, not payables-specific) -> Not available in this dataset."
+  },
+  {
+    "id": "E8",
+    "expected_answer": "Total capex FY22-FY26 combined: Not available in this dataset. | Cumulative revenue growth FY22-FY26: 263.97",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Capex not available (see E6 rationale). Cumulative revenue growth = (Sales_FY26 - Sales_FY22)/Sales_FY22 x 100 = (8069.27-2217.02)/2217.02*100 = 263.97."
+  },
+  {
+    "id": "E9",
+    "expected_answer": "FY22: EBITDA 534.16, OCF 327.21, Gap 206.95 | FY23: EBITDA 683.61, OCF 607.66, Gap 75.95 | FY24: EBITDA 878.83, OCF 513.31, Gap 365.52 | FY25: EBITDA 833.01, OCF 283.33, Gap 549.68 | FY26: EBITDA 1237.59, OCF 521.68, Gap 715.91 | Maximum divergence: FY26, gap of 715.91",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "EBITDA derived as in E4 (PBT - Other Income + Depreciation + Interest, matching the direct 'Operating Profit' figure confirmed against the Quarters tab). OCF = 'Cash from Operating Activity' row directly. Gap = EBITDA - OCF; widest absolute gap is FY26."
+  },
+  {
+    "id": "E10",
+    "expected_answer": "3-year Revenue CAGR (FY23-FY26): 36.36 | 3-year Total Assets CAGR (FY23-FY26): 33.11 | Revenue is growing faster than Total Assets.",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "CAGR = (End Value/Start Value)^(1/3) - 1, x100, using FY23 as start and FY26 as end (3-year span). Revenue: (8069.27/3182.60)^(1/3)-1 = 36.36%. Total Assets: (8978.30/3806.72)^(1/3)-1 = 33.11%. Total Assets row is the Balance Sheet 'Total' (Total Assets side)."
+  }
+]
+
+
+[
+  {
+    "id": "R1",
+    "expected_answer": "FY24: 1.06, FY25: 0.83, FY26: 1.11",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Formula: Borrowings / (Equity Share Capital + Reserves). FY24: 1754.82/(10.56+1647.42)=1754.82/1657.98=1.06. FY25: 2358.18/(11.93+2844.81)=2358.18/2856.74=0.83. FY26: 3623.48/(11.93+3252.13)=3623.48/3264.06=1.11."
+  },
+  {
+    "id": "R2",
+    "expected_answer": "Not computable — Current Assets and Current Liabilities not available in this dataset.",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Balance Sheet in Data Sheet only provides aggregate line items (Borrowings, Other Liabilities, Net Block, CWIP, Investments, Other Assets, Cash & Bank) — it does not separate current vs. non-current assets or liabilities. No reliable proxy exists for a current ratio without conflating short- and long-term items, so this is left as not computable rather than estimated."
+  },
+  {
+    "id": "R3",
+    "expected_answer": "FY24: 18.36, FY25: 6.81, FY26: 11.76",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Formula: Net Profit / (Equity Share Capital + Reserves) x 100. FY24: 304.47/1657.98*100=18.36. FY25: 194.57/2856.74*100=6.81. FY26: 383.99/3264.06*100=11.76."
+  },
+  {
+    "id": "R4",
+    "expected_answer": "FY24: 18.14, FY25: 9.32, FY26: 12.24",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "EBIT = PBT + Interest. Capital Employed = Total Assets - Other Liabilities (proxy, since a separate 'Current Liabilities' line is not available in this dataset — noted per instructions). FY24: EBIT=444.69+174.54=619.23; CapEmployed=4705.74-1292.94=3412.80; ROCE=619.23/3412.80*100=18.14. FY25: EBIT=269.65+216.64=486.29; CapEmployed=7116.44-1901.52=5214.92; ROCE=486.29/5214.92*100=9.32. FY26: EBIT=534.30+308.97=843.27; CapEmployed=8978.30-2090.76=6887.54; ROCE=843.27/6887.54*100=12.24."
+  },
+  {
+    "id": "R5",
+    "expected_answer": "FY24: 3.55, FY25: 2.24, FY26: 2.73",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Formula: EBIT / Interest Expense (EBIT = PBT + Interest, as defined). FY24: 619.23/174.54=3.55. FY25: 486.29/216.64=2.24. FY26: 843.27/308.97=2.73."
+  },
+  {
+    "id": "R6",
+    "expected_answer": "FY26: Net Profit Margin 4.76%, Asset Turnover 0.90x, Equity Multiplier 2.75x, ROE (reconstructed) 11.76%",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Net Profit Margin = Net Profit/Sales x 100 = 383.99/8069.27*100=4.76. Asset Turnover = Sales/Total Assets = 8069.27/8978.30=0.90. Equity Multiplier = Total Assets/(Equity Share Capital+Reserves) = 8978.30/3264.06=2.75. Reconstructed ROE = 4.76% x 0.90 x 2.75 = 11.76%, matching R3's direct ROE calc for FY26."
+  },
+  {
+    "id": "R7",
+    "expected_answer": "FY25: Receivable Days 59.05, Inventory Days 100.09, Payable Days Not computable — Trade Payables not available in this dataset. | FY26: Receivable Days 50.23, Inventory Days 93.25, Payable Days Not computable — Trade Payables not available in this dataset. Cash Conversion Cycle: Not computable (missing Payable Days component) for either year.",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Receivable Days = Receivables/Sales x 365 (no separate credit sales/COGS line, so Sales used as denominator). Inventory Days = Inventory/(Sales - Operating Profit) x 365, using 'Sales - Operating Profit' as a COGS proxy since no explicit COGS line exists (Operating Profit = PBT - Other Income + Depreciation + Interest, per prior derivation). Payable Days = Trade Payables/COGS x 365 cannot be computed since the Balance Sheet only has an aggregate 'Other Liabilities' line, not a distinct trade payables line item. Because CCC = Receivable Days + Inventory Days - Payable Days requires all three components, CCC itself is not computable."
+  },
+  {
+    "id": "R8",
+    "expected_answer": "FY24: 1.69, FY25: 1.46, FY26: 1.36. OCF is consistently above Net Profit in all 3 years.",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "Formula: Cash from Operating Activity / Net Profit. FY24: 513.31/304.47=1.69. FY25: 283.33/194.57=1.46. FY26: 521.68/383.99=1.36. Ratio is >1 in all three years, meaning OCF exceeded reported net profit each year, though the margin of excess has been shrinking (1.69x -> 1.46x -> 1.36x)."
+  },
+  {
+    "id": "R9",
+    "expected_answer": "FY25: EBIT/Interest 2.24 | FY26: EBIT/Interest 2.73. Change in Total Borrowings FY25->FY26: +1265.30",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "EBIT/Interest as computed in R5 (EBIT = PBT + Interest). Change in Borrowings = Borrowings_FY26 - Borrowings_FY25 = 3623.48 - 2358.18 = 1265.30 (an increase)."
+  },
+  {
+    "id": "R10",
+    "expected_answer": "FY25: ROCE 9.32, Cost of Debt 9.19 | FY26: ROCE 12.24, Cost of Debt 8.53. The company is earning above its cost of borrowing in both years (ROCE > Cost of Debt), and the spread widened from FY25 (0.13 pts) to FY26 (3.71 pts).",
+    "expected_source": ["Craftsman_Auto.xlsx"],
+    "expected_routing": ["craftsman_automation_excel"],
+    "notes": "ROCE as computed in R4. Cost of Debt = Interest Expense / Total Borrowings x 100. FY25: 216.64/2358.18*100=9.19. FY26: 308.97/3623.48*100=8.53. Note this cost of debt uses closing-balance borrowings (not average), which is a simplification given only year-end Borrowings figures are available in the dataset."
+  }
+]

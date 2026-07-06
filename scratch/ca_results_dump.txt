@@ -1,0 +1,102 @@
+--- Extracting from d:\FinBot\benchmarks\runs\run_001\astral_ltd_results.json ---
+ID: CA1
+Question: What is the exact quarterly revenue, operating profit, and net profit breakdown for Astral Ltd for the specific quarter ending September 30, 2022 (Q2 FY23)?
+Expected Answer: This data is insufficient. The 'Quarters' section of the Excel datasheet only contains continuous structured records from the quarter ending December 31, 2023 through March 31, 2026. Quarterly data for any FY23 quarter (such as Q2 FY23) is absent from the structured model.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['concall', 'excel'], 'year': '2022', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA2
+Question: Using the multi-year structured financial tables, identify the exact total absolute expenditure incurred by Astral Ltd for 'Power and Fuel' and 'Selling and admin' costs during the full financial year FY26.
+Expected Answer: This data is insufficient. In the structured P&L table, both 'Power and Fuel' and 'Selling and admin' rows are blank for the FY26 (2026-03-31) column, indicating a data omission or reclassification into other lines.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['excel'], 'year': '2026', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA3
+Question: Calculate the exact value of non-current operational 'Investments' held on the balance sheet of Astral Ltd at the close of FY24 and explain its growth trajectory compared to FY20.
+Expected Answer: This question rests on a misleading premise. The 'Investments' row shows minor values of ₹0.20 Cr in FY19 and FY20, but is zero or blank for every year from FY21 through FY26. No quantitative growth trajectory exists for this line at FY24.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['excel', 'pdf'], 'year': '2024', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA4
+Question: Reconcile the mathematical discrepancy in the number of equity shares across the baseline adjustments: why does the Equity Share Capital remain flat at ₹26.90 Cr from FY23 to FY26 while the total No. of Equity Shares column contains a blank cell for FY26?
+Expected Answer: This is a data tracking omission, not a corporate action. Equity Share Capital is flat at ₹26.90 Cr for FY23-FY26 (no dilution occurred). The 'No. of Equity Shares' field records 26,86,11,572 shares for FY23-FY25 but is blank for FY26, indicating an incomplete database entry.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['excel', 'pdf', 'concall'], 'year': '2026', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA5
+Question: Calculate the baseline Asset Turnover ratio for the infrastructure asset expansion program in FY26 using the specific line items for 'Other Mfr. Exp' and 'Other Expenses' to determine manufacturing facility yield.
+Expected Answer: This question is based on a flawed formula and missing data. Asset Turnover is Sales divided by total/net assets, not manufacturing overheads. Additionally, the 'Other Mfr. Exp' row is blank for FY26, making the requested calculation impossible due to missing variables.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['excel'], 'year': '2026', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+--- Extracting from d:\FinBot\benchmarks\runs\run_001\craftsman_automation_ltd_results.json ---
+ID: CA1
+Question: What was the exact Capital Expenditure (purchase of fixed assets) for Craftsman Automation in FY25?
+Expected Answer: Not available in this dataset. The Cash Flow section only provides aggregate lines (Cash from Operating Activity, Cash from Investing Activity, Cash from Financing Activity, Net Cash Flow). There is no distinct Capex line item.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['excel'], 'year': '2025', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA2
+Question: What is the current ratio for Craftsman Automation for FY25 and FY26?
+Expected Answer: Not computable from this dataset. The Balance Sheet only provides aggregate line items (Borrowings, Other Liabilities, Net Block, CWIP, Investments, Other Assets, Cash & Bank). Current Assets and Current Liabilities are not separately disclosed.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['excel'], 'year': '2025', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA3
+Question: Calculate the Payable Days for Craftsman Automation for FY25 and FY26 and compute the full Cash Conversion Cycle.
+Expected Answer: Payable Days not computable. The Balance Sheet has only an aggregate 'Other Liabilities' line — no distinct Trade Payables figure. Without Payable Days, the Cash Conversion Cycle cannot be computed. Receivable Days and Inventory Days are individually computable but CCC requires all three components.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['calculation'], 'year': '2025', 'method': 'calculation_agent'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA4
+Question: What were the quarterly revenue and operating profit figures for Craftsman Automation for Q1 FY22 (quarter ending June 2021)?
+Expected Answer: Not available in this dataset. The Quarters section of the Excel datasheet only contains data from December 2023 onward. Quarterly data for any FY22 quarter is absent.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['concall'], 'year': '2022', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------
+ID: CA5
+Question: What was the Free Cash Flow yield (FCF / Market Cap) for Craftsman Automation in FY26?
+Expected Answer: Not computable. First, FCF itself cannot be reliably computed because the dataset has no distinct Capex line item (only aggregate Cash from Investing Activity). Second, Market Cap is not available in the financial dataset. Both components required for this ratio are missing.
+Actual Answer: None
+Grade strict: N/A
+Routing debug: {'source_types': ['excel'], 'year': '2026', 'method': 'llm'}
+Routed sources: None
+Actual citations: None
+Grade actual metrics: {}
+----------------------------------------

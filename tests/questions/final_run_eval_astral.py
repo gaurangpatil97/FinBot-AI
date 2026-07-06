@@ -1,6 +1,6 @@
 """
 FinBot Evaluation Script — run_eval_astral.py
-Fires all 77 evaluation questions at the FinBot API and saves raw results for Astral Ltd.
+Fires all 100 evaluation questions at the FinBot API and saves raw results for Astral Ltd.
 
 Usage:
     python run_eval_astral.py

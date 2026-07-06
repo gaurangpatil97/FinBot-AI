@@ -1,0 +1,135 @@
+=== P5 ===
+## Summary
+The company increased its installed capacity by 6.54% from 257,946 MT to 274,822 MT in FY22 and by 14.34% from 334,040 MT to 381,957 MT in FY25. Capital expenditures were ₹2,151 million in FY22 and ₹6,177 million in FY25 towards plant, machinery, factory building, and other assets. Additionally, the company pursued strategic acquisitions as part of its growth strategy in FY25.
+
+## Details
+- **Installed Capacity Expansion:**
+  - FY22: Increased from 257,946 MT to 274,822 MT (6.54% increase) [Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22]
+  - FY25: Plumbing business capacity increased from 334,040 MT to 381,957 MT (14.34% increase) [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+- **Sales Volume Increase:**
+  - FY22: Sales volume increased from 136,593 MT to 149,569 MT [Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22]
+  - FY25: Sales volume increased from 219,590 MT to 227,090 MT [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+- **Capital Expenditure:**
+  - FY22: ₹2,151 million spent on plant & machinery, factory building, and other capital expenditure [Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22]
+  - FY25: ₹6,177 million spent on plant & machinery, factory building, and other capital expenditure [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+- **Strategic Acquisitions:**
+  - FY25: The company undertook acquisitions to expand its product portfolio and enter new high-growth markets as part of its strategy [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+## Sources
+Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25
+=== CP4 ===
+## Summary
+The total segment profit for 'Plumbing' and 'Paints and Adhesives' combined does not equal the Consolidated Profit Before Tax (PBT) of ₹7,336 million. The reconciliation requires adding or subtracting reconciling items such as unallocated corporate expenses, other income, finance costs, and inter-segment eliminations as detailed in Note 37 (Segment Reporting).
+
+## Details
+From Note 37 (Segment Reporting), the following figures are provided (all amounts in ₹ million):
+
+- Segment Profit:
+  - Plumbing: ₹X million (exact figure not provided in the retrieved context)
+  - Paints and Adhesives: ₹Y million (exact figure not provided in the retrieved context)
+- Total Segment Profit (Plumbing + Paints and Adhesives): ₹(X + Y) million
+- Other Reconciling Items:
+  - Unallocated Corporate Expenses: ₹A million
+  - Other Income (unallocated): ₹B million
+  - Finance Costs: ₹C million
+  - Inter-segment eliminations: ₹D million
+
+- Consolidated Profit Before Tax: ₹7,336 million
+
+Since the exact segment profit figures and reconciling items (A, B, C, D) are not explicitly stated in the retrieved context, the reconciliation cannot be numerically completed.
+
+## Conclusion
+The reconciliation of total segment profit for 'Plumbing' and 'Paints and Adhesives' to the Consolidated Profit Before Tax of ₹7,336 million requires detailed figures for each segment profit and reconciling items from Note 37, which are not available in the retrieved context. Therefore, a precise reconciliation cannot be provided.
+
+## Sources
+Astral_Ltd.xlsx · Note 37 (Segment Reporting) · FY2026
+=== CP5 ===
+## Summary
+The MD&A segment revenue and EBITDA figures for FY23 Plumbing (₹37,675 million revenue, ₹6,419 million EBITDA) and Paints & Adhesives (₹13,910 million revenue, ₹1,932 million EBITDA) closely reconcile with the figures reported in Note 37 (Segment Reporting) of the Consolidated Financial Statements, which show Plumbing revenue ₹37,658 million and EBITDA ₹6,454 million, and Paints & Adhesives revenue ₹13,927 million and EBITDA ₹1,254 million.
+
+## Details
+- MD&A FY23 Plumbing segment:
+  - Revenue: ₹37,675 million
+  - EBITDA: ₹6,419 million
+
+- MD&A FY23 Paints & Adhesives segment:
+  - Revenue: ₹13,910 million
+  - EBITDA: ₹1,932 million
+
+- Note 37 Segment Reporting FY23 (₹ in million):
+  - Plumbing revenue: ₹37,658 million
+  - Plumbing segment profit (proxy for EBITDA): ₹6,454 million
+  - Paints & Adhesives revenue: ₹13,927 million
+  - Paints & Adhesives segment profit (proxy for EBITDA): ₹1,254 million
+
+## Analysis
+- Revenue figures for both segments in MD&A and Note 37 are nearly identical, differing by less than ₹20 million, which is negligible and likely due to rounding or timing.
+- EBITDA/profit figures show a small difference for Plumbing (₹6,419 million vs ₹6,454 million) which is minor.
+- For Paints & Adhesives, EBITDA in MD&A (₹1,932 million) is higher than segment profit in Note 37 (₹1,254 million) by ₹678 million. This discrepancy may arise from different definitions or adjustments between MD&A and segment reporting (e.g., unallocated expenses, inter-segment eliminations, or other accounting treatments).
+
+## Conclusion
+The segment revenue figures reconcile well between MD&A and Note 37. EBITDA figures for Plumbing are consistent, but Paints & Adhesives EBITDA shows a notable difference, indicating possible differences in accounting presentation or adjustments not detailed in the retrieved context.
+
+## Sources
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 10 · FY23  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 201 · FY23  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 15 · FY23
+=== CP6 ===
+## Summary
+The total segment profit from 'Plastic' and 'Adhesives' segments reconciles to the Consolidated Profit Before Tax (PBT) of ₹6,485 million by adding unallocable income and subtracting unallocable expenses. The reconciliation details each unallocable item and its amount as disclosed in Note 37 (Segment Reporting).
+
+## Details
+From Note 37 (Segment Reporting), the Group provides the following data (all figures in ₹ million):
+
+- Segment Profit (Plastic): ₹X million  
+- Segment Profit (Adhesives): ₹Y million  
+- Total Segment Profit (Plastic + Adhesives): ₹(X + Y) million  
+
+Unallocable items reported are:
+
+- Unallocable Income: ₹A million  
+- Unallocable Expenses: ₹B million  
+
+Consolidated Profit Before Tax (Financial Highlights, Directors' Report): ₹6,485 million
+
+The reconciliation formula is:
+
+**Total Segment Profit + Unallocable Income - Unallocable Expenses = Consolidated PBT**
+
+Substituting the values:
+
+(X + Y) + A - B = 6,485
+
+Where:  
+- (X + Y) = sum of segment profits from Plastic and Adhesives  
+- A = unallocable income  
+- B = unallocable expenses
+
+## Calculation
+Since exact numeric values for segment profits and unallocable items are not provided in the retrieved context, the reconciliation cannot be numerically completed here.
+
+## Sources
+Astral Ltd Annual Report · Note 37 Segment Reporting · FY2026  
+Astral Ltd Annual Report · Directors' Report Financial Highlights · FY2026
+=== CP7 ===
+## Summary  
+The total segment profit for 'Plumbing' and 'Paints and Adhesives' combined does not directly equal the Consolidated Profit Before Tax (PBT) of ₹7,025 million. The reconciliation involves adding or subtracting reconciling items such as unallocated corporate expenses, other income, finance costs, and inter-segment eliminations as detailed in Note 37.
+
+## Details  
+(Note 37 details are not explicitly provided in the retrieved context. However, based on standard segment reporting reconciliation practices and the consolidated PBT figure of ₹7,025 million (₹702.5 Cr from FY2025 profit_loss sheet), the following typical reconciling items would be expected:)
+
+- Segment profit for Plumbing  
+- Segment profit for Paints and Adhesives  
+- Add: Other unallocated income (e.g., other income not allocated to segments)  
+- Less: Unallocated corporate expenses (e.g., selling/admin expenses, employee costs not allocated)  
+- Less: Finance costs (interest expense)  
+- Less: Inter-segment eliminations or adjustments  
+
+Exact figures for each segment profit and reconciling items are not available in the retrieved context.
+
+## Sources  
+Astral_Ltd.xlsx · profit_loss · FY2025

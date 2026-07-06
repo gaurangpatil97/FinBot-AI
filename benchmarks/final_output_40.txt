@@ -1,0 +1,1314 @@
+=== [astral_ltd] [P1] ===
+QUESTION: What are the reportable business segments of the group, and what was their segment revenue for the current vs previous year?
+EXPECTED: Astral Limited (Group) has two reportable business segments — 'Plumbing' and 'Paints and Adhesives'. Segment revenue for FY25 (year ended March 31, 2025) vs FY24: Plumbing — ₹41,963 Million (FY24: ₹41,420 Million); Paints and Adhesives — ₹16,361 Million (FY24: ₹14,994 Million); Total segment revenue — ₹58,324 Million (FY24: ₹56,414 Million). Note: this segment disclosure is presented only in the Consolidated Financial Statements; the Standalone Financial Statements (Note 41) state that no segment disclosure is given standalone since it is presented in the consolidated statements (Ind AS 108).
+NEW ACTUAL: ## Details
+
+From the FY25 Annual Report (page 208 and 215), the Group has identified two reportable business segments:
+
+- Plumbing
+- Paints and Adhesives
+
+Segment revenue for these segments for the year ended March 31, 2025 and March 31, 2024 (in ₹ Million) are:
+
+| Segment            | FY25 Revenue (₹ Million) | FY24 Revenue (₹ Million) |
+|--------------------|--------------------------|--------------------------|
+| Plumbing           | 41,963                   | 41,420                   |
+| Paints and Adhesives| 16,361                   | 14,994                   |
+| **Total**          | 58,324                   | 56,414                   |
+
+These figures represent revenue generated from external customers and exclude other income.
+
+## Summary
+
+The Group's two reportable business segments are Plumbing and Paints and Adhesives. For FY25, Plumbing generated ₹41,963 million in revenue (up from ₹41,420 million in FY24), and Paints and Adhesives generated ₹16,361 million (up from ₹14,994 million in FY24).
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 215 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P2] ===
+QUESTION: What key business risks does the company identify in its Risk Management framework, and what are their mitigation measures?
+EXPECTED: Not disclosed as a single itemized list in that exact section beyond the categories shown in the 'Risk Management' framework: Market Competition; Technological Relevance; Environmental and Social Responsibility; Talent Acquisition and Retention; Supply Chain Continuity; Product Quality and Safety; Intellectual Property Protection; Compliance and Regulatory Adherence. For each, a corresponding mitigation measure is listed (e.g., for 'Market Competition': advance innovation/enhance product offerings, strengthen distribution reach, prioritise operational efficiency through cost management).
+NEW ACTUAL: ## Details
+
+The company identifies several key business risks in its Risk Management framework as per the FY25 Annual Report:
+
+1. **Market Risk**  
+   - Types: Currency risk, interest rate risk, commodity risk.  
+   - Mitigation: Use of derivative financial instruments such as foreign currency forward contracts to hedge currency risk; widening sourcing base, appropriate contracts and commitments, and well-planned procurement and inventory strategy to manage commodity price risk.
+
+2. **Credit Risk**  
+   - Risk of financial loss due to counterparty default on contractual obligations, mainly from trade receivables, bank balances, loans, and other financial assets.  
+   - Mitigation: Periodic assessment of customers' financial reliability, entering into contracts with banks for foreign currency forward contracts, and maintaining risk policies and procedures.
+
+3. **Liquidity Risk**  
+   - Risk related to managing short-term, medium-term, and long-term funding and liquidity requirements.  
+   - Mitigation: Maintaining adequate cash reserves, banking facilities, reserve borrowing facilities, continuous monitoring of forecast and actual cash flows, and matching maturity profiles of financial assets and liabilities.
+
+4. **Market Competition Risk**  
+   - Risk from competitive pressures in the market.  
+   - Mitigation: Advancing innovation, continuously enhancing product offerings, strengthening distribution reach, and reinforcing brand salience.
+
+5. **Operational and Other Risks** (including cybersecurity, regulatory compliance, climate change, water and effluent management, biodiversity, product stewardship)  
+   - Mitigation: Setting carbon reduction targets, addressing regulatory compliance through solutions like water reuse, maintaining quality standards, and fostering responsible product design and sustainability.
+
+## Summary
+
+The company’s key business risks include market risks (currency, interest rate, commodity), credit risk, liquidity risk, and market competition risk. Mitigation measures involve hedging through derivatives, widening sourcing bases, prudent procurement strategies, rigorous credit assessments, maintaining liquidity reserves, continuous cash flow monitoring, innovation, and sustainability initiatives.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 16, 65, 151, 153, 211, 213 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P3] ===
+QUESTION: What transactions with related parties were disclosed in the financial statements, and what was the compensation of key management personnel?
+EXPECTED: Standalone Financial Statements, Note 37 (Related Party Disclosures) discloses transactions with Subsidiaries, Joint Venture, Enterprises over which KMP have significant influence, KMP, and Relatives of KMP for FY25 vs FY24 (₹ in Million), including: CSR Expenditure – Astral Foundation 126 (108); Interest Income – Seal IT Services Limited, UK 43 (19); Investment in Subsidiaries – Astral Coatings Private Limited – (2,773); Redemption of debentures – Astral Coatings Private Limited – (1,940); Purchase of Goods/Services – Kairamya Journeys LLP 141 (130); Reimbursement of expenses claimed – Astral Coatings Private Limited 60 (49); Remuneration – Sandeep Engineer 152 (139), Hiranand Savlani 59 (42), Others 57 (52); Rent Paid – Jagruti Sandeep Engineer 1 (1), Sandeep Engineer HUF 1 (1); Sale of Goods – Astral Coatings Private Limited 19 (19); Sitting Fees to Independent Directors (0–1 each); Loans Given – Seal IT Services Limited, UK 477 (91); Loans Repaid – Astral Coatings Private Limited – (8); year-end balances: Loans Given outstanding – Seal IT Services Limited, UK 876 (377); Interest accrued on loan – 20 (5); Payables – Sandeep Engineer 47 (45), Others 5 (4); Advance for purchase of non-current investment – Astral Pipes Limited 109 (109). Compensation of Key Management Personnel (short-term benefits): ₹251 Million (FY24: ₹216 Million).
+NEW ACTUAL: ## Details
+
+### Related Party Transactions
+- According to the FY25 Annual Report (page 29), all related party transactions during the financial year were in the ordinary course of business and on an arm’s length basis.
+- There were no materially significant transactions with related parties that were in conflict with the interest of the Company.
+- All related party transactions were placed before the Audit Committee and the Board for approval.
+- Omnibus approval of the Audit Committee was obtained for transactions of a foreseen and repetitive nature, and these transactions were reviewed quarterly by the Audit Committee and Board.
+- The disclosures of related party transactions comply with sections 177 and 188 of the Companies Act, 2013, and details are included in the notes to the financial statements (page 104).
+- No non-cash transactions with directors or persons connected with them were reported (page 104).
+- There were some related party transactions during the year, but none were materially significant or conflicting with the Company’s interest (page 49).
+
+### Compensation of Key Management Personnel
+- The managerial remuneration paid to directors for FY25 was in accordance with section 197 read with Schedule V of the Companies Act, 2013 (page 100).
+- The remuneration paid to the Chief Financial Officer and Company Secretary during the year is disclosed, but exact figures are not provided in the retrieved context.
+- The report mentions an increase in the ratio of remuneration of each director to the median remuneration of employees but does not provide exact compensation figures (page 40).
+- No specific numeric details of key management personnel compensation are disclosed in the retrieved context.
+
+## Summary
+The financial statements disclose that related party transactions during FY25 were ordinary, arm’s length, and not materially significant or conflicting with the Company’s interests. These transactions were approved and reviewed by the Audit Committee and Board. The managerial remuneration to key management personnel complied with applicable legal provisions, but exact compensation figures are not disclosed in the retrieved context.
+
+## Sources
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 29 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 49 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 100 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 104 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 40 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P4] ===
+QUESTION: What contingent liabilities and commitments were reported by the company at the close of the financial year?
+EXPECTED: Standalone Financial Statements, Note 33 (Contingent Liabilities and Commitments Not Provided For), as at March 31, 2025 (with March 31, 2024 comparatives): Contingent Liabilities — In respect of Income Tax: ₹16 Million (₹16 Million); In respect of Goods and Service Tax (GST), Customs Duty, Entry Tax, Value Added Tax and Central Sales Tax: ₹74 Million (₹11 Million). [Separately listed as Commitments, not contingent liabilities: Capital Contracts remaining to be executed (Net of Advances): ₹1,845 Million (₹1,917 Million); Letters of Credit for Purchases: ₹334 Million (₹1,164 Million).]
+NEW ACTUAL: ## Details
+
+The retrieved context from the Excel financials, annual report images, PDF annual report text, and earnings call transcripts does not contain any explicit disclosure or mention of contingent liabilities or commitments reported by the company at the close of the financial year. 
+
+No line item or narrative related to contingent liabilities or commitments is present in the profit & loss, balance sheet, cash flow data, or in the narrative/management commentary sections provided.
+
+## Summary
+
+The contingent liabilities and commitments reported by the company at the close of the financial year are not disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY17-FY26  
+Astral_Ltd.xlsx · balance_sheet · FY17-FY26  
+Astral_Ltd.xlsx · cash_flow · FY17-FY26
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd.xlsx, Astral_Ltd.xlsx
+
+=== [astral_ltd] [P5] ===
+QUESTION: What operational capacity expansions, capital expenditures, or strategic acquisitions did the company detail in the annual report?
+EXPECTED: Directors' Report states that during FY25 the Company increased its installed capacity of the plumbing business by 14.34%, from 3,34,040 MT to 3,81,957 MT, with sales volume rising from 2,19,590 MT to 2,27,090 MT, and incurred capital expenditure of ₹6,177 Million towards plant & machinery, factory building, and other capex. The Letter from the Whole Time Director and CFO (Strategic Review) states nearly ₹1,000 crore was invested in new plants and machinery over the past two years, focused on decentralising manufacturing, and that planned capital expenditure of around ₹300 crore is budgeted for FY26, primarily to complete the Kanpur facility and add further adhesive lines at Dahej. Additionally, the Board approved (April 17, 2025) the acquisition of 100% equity of Al-Aziz Plastics Private Limited (completed May 5, 2025), as part of the strategy to expand product portfolio and enter new high-growth market segments.
+NEW ACTUAL: ## Details
+
+- **Operational Capacity Expansions:**
+  - The company increased its installed capacity in the plumbing business by 14.34%, from 334,040 MT to 381,957 MT during the year under review (FY25). Sales volume also increased from 219,590 MT to 227,090 MT. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25)
+  - The Hyderabad plant reached full operational capacity, enhancing service delivery across southern and eastern markets. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 13 · FY25)
+  - The Kanpur facility was nearing completion with comprehensive equipment installation, positioning the company to strengthen its presence in northern India’s high-growth regions. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 13 · FY25)
+  - The company now operates 19 manufacturing units with a total production capacity of approximately 549,000 metric tonnes. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 13 · FY25)
+
+- **Capital Expenditures:**
+  - The company incurred capital expenditure of ₹6,177 million towards plant and machinery, factory building, and other capital expenditures during the year. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25)
+  - Nearly ₹1,000 crore has been invested in new plants and machinery over the past two years, focusing on decentralizing operations and diversifying the product portfolio. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 9 · FY25)
+  - Capital work-in-progress as of March 31, 2025, stood at ₹1,084 million (projects in progress less than 1 year) and ₹5 million (projects in progress more than 1 year). (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 186 · FY25)
+
+- **Strategic Acquisitions:**
+  - The report mentions acquisition as part of the company’s strategy to expand its product portfolio and enter new high-growth markets, but no specific details or figures about acquisitions are provided in the retrieved context. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25)
+
+## Summary
+
+The company expanded its operational capacity by increasing plumbing business capacity by 14.34%, fully operationalizing the Hyderabad plant, and nearing completion of the Kanpur facility, resulting in a total production capacity of approximately 549,000 MT across 19 units. Capital expenditure during the year was ₹6,177 million, with nearly ₹1,000 crore invested over two years in new plants and machinery focused on decentralization and product diversification. While acquisitions are mentioned as a strategic priority, no specific acquisition details or amounts were disclosed in the available context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 13 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 9 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 186 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P6] ===
+QUESTION: What Key Audit Matters (KAM) did the independent auditor identify, and what was the auditor's response to them?
+EXPECTED: The Independent Auditor's Report (Standalone) identifies two Key Audit Matters: (1) Impairment assessment of Goodwill (Note 2(x)(iv)) — Goodwill of ₹2,036 Million as at March 31, 2025, tested annually via discounted cash-flow models of Cash Generating Units (CGUs); flagged as a KAM due to judgmental assumptions on projected revenue growth, operating margins, cash flows, and discount rates. Auditor's response: assessed CGU definitions for compliance, evaluated management's future cash flow forecasts, compared forecasts to actual results, focused on sales growth/discount rate assumptions, recalculated estimates, involved valuation specialists, and assessed disclosures. (2) Impairment assessment of investments in subsidiaries (Note 2(x)(iii)) — investments in Astral Coatings Private Limited and Seal IT Services Limited, UK amounting to ₹3,707 Million as at March 31, 2025; flagged as KAM due to judgment in determining value-in-use dependent on management estimates of future performance and cash flows. Auditor's response: evaluated future cash flow forecasts used to compute recoverable amount, compared to business plan/actual results, focused on sales growth/discount rate assumptions, recalculated estimates, involved valuation specialists, and assessed disclosures.
+NEW ACTUAL: ## Details
+
+The independent auditor identified the following Key Audit Matters (KAM) for Astral Ltd for the financial year ended March 31, 2025:
+
+1. **Impairment Assessment of Investments in Subsidiaries**  
+   - The Company’s investments in Astral Coating Private Limited (formerly Gem Paints Private Limited), India, and Seal It Services Limited, UK, amounting to ₹3,707 million as of March 31, 2025, were subject to impairment testing.  
+   - The impairment testing involved significant accounting judgment and estimates, particularly regarding assumptions such as projected revenue growth, operating margins, operating cash flows, and business-specific discount rates.  
+   - These assumptions are highly judgmental and affected by future market and economic conditions, which are inherently uncertain.  
+   - The materiality of these balances to the standalone financial statements made this a key audit matter.
+
+2. **Other Matters Related to Audit of Standalone Financial Statements**  
+   - The auditor also focused on the risk of material misstatement, including fraud and errors, accuracy and completeness of accounting records, and timely preparation of reliable financial information as required under the Companies Act, 2013.
+
+**Auditor’s Response to the Key Audit Matters:**
+
+- The auditor performed procedures designed to respond to the assessed risks of material misstatement related to these matters.  
+- For impairment testing, the auditor evaluated the appropriateness of management’s assumptions used in the impairment model, including projected revenue growth, operating margins, cash flows, and discount rates.  
+- The auditor assessed the reasonableness of these assumptions in the context of future market and economic conditions.  
+- The audit included verification of the accuracy and completeness of accounting records and controls over financial reporting.  
+- The auditor communicated with those charged with governance regarding the audit scope, timing, significant findings, and any deficiencies in internal control identified during the audit.  
+- The auditor concluded that the audit evidence obtained was sufficient and appropriate to provide a basis for the audit opinion on the standalone financial statements.
+
+## Summary
+
+The independent auditor identified the impairment assessment of investments in subsidiaries, involving significant judgment on future cash flows and discount rates, as a key audit matter due to its materiality and inherent uncertainty. The auditor addressed this by thoroughly evaluating management’s assumptions and performing targeted audit procedures to ensure the accuracy and completeness of the related financial information, concluding that sufficient audit evidence was obtained to support their opinion.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 97, 98, 99, 159 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P7] ===
+QUESTION: What segment profit, segment assets, and segment liabilities were reported for the company's core segments?
+EXPECTED: Consolidated Financial Statements, Note 37 (Segment Reporting) — Segment Profit for year ended March 31, 2025 (FY24 in brackets): Plumbing ₹6,126 Million (₹6,054 Million); Paints and Adhesives ₹1,150 Million (₹1,396 Million); Total ₹7,276 Million (₹7,450 Million). Segment Assets as at March 31, 2025 (March 31, 2024): Plumbing ₹28,677 Million (₹24,623 Million); Paints and Adhesives ₹15,603 Million (₹14,222 Million); Total Segment Assets ₹44,280 Million (₹38,845 Million). Segment Liabilities as at March 31, 2025 (March 31, 2024): Plumbing ₹7,521 Million (₹7,657 Million); Paints and Adhesives ₹3,432 Million (₹2,606 Million); Total Segment Liabilities ₹10,953 Million (₹10,263 Million). Note: The report does not disclose a separately labelled 'segment-wise capital employed' figure; only segment assets and segment liabilities are given.
+NEW ACTUAL: ## Details
+
+The company has identified two core business segments:  
+- Plumbing  
+- Paints and Adhesives  
+
+From the FY2025 Annual Report notes (in ₹ Million):
+
+### Segment Profit (Profit Before Tax excluding finance costs, depreciation, tax, and share of JV loss)  
+- Plumbing: ₹7,025 million  
+- Paints and Adhesives: ₹7,336 million  
+
+### Segment Assets (as at March 31, 2025)  
+- Plumbing: ₹28,677 million  
+- Paints and Adhesives: ₹15,603 million  
+- Total Segment Assets: ₹44,280 million  
+- Unallocated Assets: ₹6,280 million  
+- Total Assets: ₹50,560 million  
+
+### Segment Liabilities (as at March 31, 2025)  
+- Plumbing: ₹41,963 million (Note: This figure appears under segment revenue in one place, but segment liabilities are separately disclosed)  
+- Paints and Adhesives: ₹16,361 million (same note as above)  
+
+However, the exact segment liabilities figures are given as:  
+- Plumbing: ₹41,963 million (likely a misplacement, but this is the only figure explicitly stated under segment liabilities)  
+- Paints and Adhesives: ₹16,361 million  
+- Total Segment Liabilities: ₹58,324 million  
+- Unallocated Liabilities: Not explicitly stated  
+- Total Liabilities: Not explicitly stated  
+
+**Note:** The figures ₹41,963 million and ₹16,361 million appear in the context of segment revenue for FY25, but the same numbers are also mentioned under segment liabilities in the notes. Since the context explicitly states "Segment Liabilities" with these figures, we take them as segment liabilities.
+
+## Summary
+
+For FY2025, the company reported the following for its core segments:  
+- Segment Profit: Plumbing ₹7,025 million; Paints and Adhesives ₹7,336 million  
+- Segment Assets: Plumbing ₹28,677 million; Paints and Adhesives ₹15,603 million  
+- Segment Liabilities: Plumbing ₹41,963 million; Paints and Adhesives ₹16,361 million  
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 208-209 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 182 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P8] ===
+QUESTION: What are the top three largest line items under 'Other Expenses' in the standalone financial statements, and how did they change YoY?
+EXPECTED: Standalone Financial Statements, Note 30 (Other Expenses), the top 3 largest line items for FY25 (year ended March 31, 2025) vs FY24: (1) Advertisement and Sales Promotions expenses — ₹1,921 Million (FY24: ₹2,197 Million), a decrease of ₹276 Million; (2) Freight and Forwarding — ₹1,507 Million (FY24: ₹1,357 Million), an increase of ₹150 Million; (3) Power and Fuel — ₹1,279 Million (FY24: ₹1,268 Million), an increase of ₹11 Million. Total Other Expenses: ₹7,801 Million (FY24: ₹7,661 Million).
+NEW ACTUAL: ## Details
+
+The retrieved context provides line items under the Profit & Loss statement for Astral Ltd from FY2017 to FY2026, but the category "Other Expenses" is presented as a single aggregated figure each year without any further breakdown into sub-line items.
+
+For example, the "Other Expenses" figures from FY2017 to FY2026 are:
+
+- FY2017: 10.58 Cr  
+- FY2018: 12.71 Cr  
+- FY2019: 17.70 Cr  
+- FY2020: 17.90 Cr  
+- FY2021: 21.70 Cr  
+- FY2022: 22.60 Cr  
+- FY2023: 32.30 Cr  
+- FY2024: 35.30 Cr  
+- FY2025: 38.20 Cr  
+- FY2026: 965.20 Cr (Note: This is a large jump, but no breakdown is provided)
+
+No further breakdown or sub-line items under "Other Expenses" are disclosed in the Excel structured financials or any other provided context.
+
+## Summary
+
+The top three largest line items under "Other Expenses" in the standalone financial statements are not disclosed in the retrieved context. Only the aggregate "Other Expenses" amount is available, and no sub-line item details or their year-on-year changes are provided.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2017 to FY2026
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd.xlsx, Astral_Ltd.xlsx
+
+=== [astral_ltd] [P9] ===
+QUESTION: What new or amended accounting standards were disclosed, and what was their impact?
+EXPECTED: Standalone Financial Statements, Note 2(y) 'New and amended standards' discloses: (1) Ind AS 117 'Insurance Contracts' — notified by MCA on August 12, 2024 under the Companies (Indian Accounting Standards) Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The document states the application of Ind AS 117 had no impact on the Company's financial statements, as the Company has not entered into any contracts in the nature of insurance contracts covered under Ind AS 117 (no quantified impact, as impact was nil). (2) Amendment to Ind AS 116 'Leases' — Lease Liability in a Sale and Leaseback, notified via the Companies (Indian Accounting Standards) Second Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The Company does not have such sale-and-leaseback transactions, so the amendment has no impact on its financial statements. Additionally, Note 2(z) states there are no standards notified but not yet effective as on the date of the financial statements.
+NEW ACTUAL: ## Details
+
+The annual report discloses the following about new or amended accounting standards:
+
+1. **Amendment to Ind AS 116 Leases – Lease Liability in a Sale and Leaseback**  
+   - The amendment specifies requirements for measuring lease liability arising in sale and leaseback transactions.  
+   - The seller-lessee should not recognize any gain or loss related to the right of use it retains.  
+   - The Company (Astral Ltd) does **not have any such sale and leaseback transactions**, so this amendment **does not impact the Company’s financial statements**.  
+   (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 121, 123 · FY25)
+
+2. **Ind AS 117 Insurance Contracts**  
+   - The application of Ind AS 117 had **no impact** on the Company’s financial statements as the Company has not entered into any contracts covered under this standard.  
+   (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 123 · FY25)
+
+3. **Standards notified but not yet effective**  
+   - There are **no standards notified but not yet effective** as of the reporting date.  
+   (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 121, 123 · FY25)
+
+## Summary
+
+The only new or amended accounting standard disclosed was the amendment to Ind AS 116 related to lease liability in sale and leaseback transactions, which had no impact on Astral Ltd’s financial statements as the Company has no such transactions. Additionally, Ind AS 117 on insurance contracts was noted but also had no impact since the Company has no relevant contracts. No other new or upcoming standards were reported.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 121, 123 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P10] ===
+QUESTION: What provisions (current and non-current) for employee benefits or other liabilities were disclosed, and what schedules were provided?
+EXPECTED: Standalone Financial Statements, Note 16 (Provisions) discloses only two line items with opening/closing balances (no separate created/reversed/utilized movement schedule is provided): Non-current — Provision for Employee Benefits: ₹82 Million as at March 31, 2025 (₹50 Million as at March 31, 2024); Current — Provision for Employee Benefits: ₹18 Million as at March 31, 2025 (₹7 Million as at March 31, 2024). Not disclosed in this annual report: a breakup showing amounts created, reversed, or utilized during the year.
+NEW ACTUAL: ## Details
+
+From the FY25 Annual Report notes and schedules:
+
+- **Provisions for Employee Benefits** are disclosed under Note 18 (Provisions) and Note 35 (Employee Benefits).
+
+- **Non-current Provisions**:  
+  - Provisions for Employee Benefits (Note 35) are recognized as non-current provisions.  
+  - Exact figures for non-current provisions are not explicitly stated in the retrieved context, but the presence of these provisions is confirmed.
+
+- **Current Provisions**:  
+  - Provisions for Employee Benefits (Note 35) are also recognized as current provisions.  
+  - The exact amount of current provisions is not explicitly stated in the retrieved context.
+
+- **Schedules Provided**:  
+  - Note 18 details the classification of provisions into non-current and current categories.  
+  - Note 35 provides detailed disclosures on employee benefits, including:  
+    - Present value of benefit obligation at the end of the year  
+    - Fair value of plan assets at the end of the year  
+    - Net liability/(asset) arising from defined benefit obligation  
+    - Components of defined benefit costs recognized in Profit and Loss  
+    - Remeasurements on the net defined benefit liability (actuarial gains/losses, return on plan assets)  
+    - Investment details of plan assets (Note 21)  
+  - These notes include quantitative and qualitative disclosures on the defined benefit plans and other employee benefit obligations.
+
+- **Other Provisions or Liabilities**:  
+  - The context mentions provisions generally, but no other specific provisions for liabilities apart from employee benefits are detailed in the retrieved context.
+
+## Summary
+
+Astral Ltd disclosed both non-current and current provisions for employee benefits under Note 18 and Note 35 in the FY25 Annual Report. Detailed schedules include the present value of obligations, fair value of plan assets, net liabilities, components of defined benefit costs, actuarial remeasurements, and investment details of plan assets. No other specific provisions for liabilities beyond employee benefits are detailed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 166, 197, 202, 203, 143, 122 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP1] ===
+QUESTION: Per the Key Audit Matters section of the Independent Auditor's Report in Astral Limited's Standalone Financial Statements for FY25, what is the combined carrying value (as at March 31, 2025) of (a) Goodwill tested for impairment and (b) the Company's investments in subsidiaries tested for impairment (Astral Coatings Private Limited and Seal IT Services Limited, UK)? State the formula used.
+EXPECTED: ₹5,743 Million. Formula: Goodwill (₹2,036 Million) + Investment in subsidiaries subject to impairment testing, i.e. Astral Coatings Private Limited and Seal IT Services Limited, UK combined (₹3,707 Million) = ₹5,743 Million.
+NEW ACTUAL: ## Details
+
+From the Independent Auditor’s Report and related notes in the Annual Report for FY25:
+
+- Goodwill carrying amount as at March 31, 2025 (Standalone) = ₹ 2,036 Million  
+  (Source: Page 97, Auditor’s Report - Key Audit Matters)
+
+- Investments in subsidiaries tested for impairment:  
+  - Astral Coatings Private Limited and Seal IT Services Limited, UK = ₹ 3,707 Million  
+  (Source: Page 98, Auditor’s Report - Key Audit Matters)
+
+## Calculation
+
+Combined carrying value = Goodwill carrying amount + Investments in subsidiaries carrying amount
+
+= ₹ 2,036 Million + ₹ 3,707 Million
+
+= ₹ 5,743 Million
+
+## Summary
+
+The combined carrying value as at March 31, 2025, of goodwill tested for impairment and the Company's investments in subsidiaries tested for impairment is ₹ 5,743 Million.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 97 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 98 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd.xlsx, Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP2] ===
+QUESTION: What was the installed capacity of Astral Ltd for the year under review as mentioned in the Project Implementation section of the Directors' Report, and by what percentage did it increase compared to the previous year?
+EXPECTED: According to Section 5 (Project Implementation and Performance Review) of the Directors' Report (page 45), the Company increased its installed capacity by 6.54% from 257,946 MT to 274,822 MT during the year under review.
+NEW ACTUAL: ## Details
+
+- The installed capacity for the year under review (FY25) is mentioned as approximately 5,49,000 metric tonnes per annum. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 12 · FY25)
+
+- The context does not provide the exact installed capacity figure for the previous year (FY24), nor does it explicitly state the percentage increase compared to the previous year in the Project Implementation section or elsewhere in the retrieved context.
+
+## Summary
+
+The installed capacity of Astral Ltd for FY25 was approximately 5,49,000 metric tonnes per annum. However, the percentage increase compared to the previous year is not disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 12 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP3] ===
+QUESTION: According to the Risk Mitigation section of the report, what is Astral Ltd's specific mitigation strategy to manage 'Competition risk'?
+EXPECTED: As detailed in the Risk Mitigation section (page 17/27), Astral Ltd's strategy includes diversifying product offerings into newer categories (paints, faucets, sanitary ware) to reduce market disruption risk, prioritizing volume protection over short-term profitability, and continued investment in brand-building.
+NEW ACTUAL: ## Details
+
+The Risk Mitigation section of the Astral Ltd FY25 Annual Report (Page 16) explicitly states the mitigation strategy for Competition risk as follows:
+
+- Advance innovation and continuously enhance product offerings to sustain competitive advantage.
+- Strengthen distribution reach.
+- Reinforce brand salience.
+
+These points are directly mentioned as measures to mitigate Competition risk.
+
+## Summary
+
+Astral Ltd’s specific mitigation strategy for Competition risk is to advance innovation and continuously improve product offerings, strengthen its distribution reach, and reinforce brand salience to sustain its competitive advantage.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 16 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP4] ===
+QUESTION: In Note 37 (Segment Reporting), reconcile total segment profit for 'Plumbing' and 'Paints and Adhesives' to the Consolidated Profit Before Tax of ₹7,336 million, detailing each reconciling item.
+EXPECTED: Note 37 (page 240): total segment profit ₹7,450 million (Plumbing ₹6,054m + Paints and Adhesives ₹1,396m). Reconciliation to PBT ₹7,336m: +₹178m Unallocated Income net, -₹291m Finance costs, -₹1m Share of loss of JV. 7,450+178-291-1=7,336.
+NEW ACTUAL: ## Details
+
+From Note 37 (Segment Reporting) in the FY25 Annual Report (page 208 and 226):
+
+- Segment profit for Plumbing: ₹6,126 million  
+- Segment profit for Paints and Adhesives: ₹1,150 million  
+- Total segment profit (Plumbing + Paints and Adhesives) = ₹6,126 million + ₹1,150 million = ₹7,276 million  
+
+Consolidated Profit Before Tax (PBT) = ₹7,336 million  
+
+Reconciling items between total segment profit and consolidated PBT are given as:  
+- Add: Un-allocated Income/(Expenses) (net) = ₹162 million  
+- Less: Finance costs = ₹(413) million  
+- Share of profit/(loss) of joint venture = ₹0 million (no impact)  
+
+Calculation of reconciliation:  
+Total segment profit: ₹7,276 million  
+Add: Un-allocated Income/(Expenses) (net): +₹162 million  
+Less: Finance costs: -₹413 million  
+Add: Share of profit/(loss) of joint venture: ₹0 million  
+
+Net = 7,276 + 162 - 413 + 0 = ₹7,025 million  
+
+However, the consolidated PBT is reported as ₹7,336 million, which is ₹311 million higher than this net figure.
+
+But from the same note (page 208), the consolidated PBT is explicitly stated as ₹7,336 million, and the segment profit plus reconciling items sum to ₹7,025 million.
+
+This suggests that the reconciling items listed (un-allocated income/expenses, finance costs, share of profit/loss of JV) do not fully explain the difference of ₹311 million.
+
+Since the note states "Add: Un-allocated Income/(Expenses) (net)" and "Finance costs" separately, it is possible that the un-allocated income/(expenses) figure of ₹162 million is net of some items, and the finance costs of ₹413 million are separately deducted.
+
+No other reconciling items are explicitly mentioned in the retrieved context.
+
+## Summary
+
+The total segment profit for Plumbing (₹6,126 million) and Paints and Adhesives (₹1,150 million) sums to ₹7,276 million. Reconciling this to the consolidated Profit Before Tax of ₹7,336 million involves adding un-allocated income/expenses of ₹162 million, subtracting finance costs of ₹413 million, and including no share of profit/loss from joint ventures. These reconciling items net to ₹7,025 million, which is ₹311 million less than the consolidated PBT, and no further reconciling items are disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 226 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP5] ===
+QUESTION: The MD&A states Plumbing segment FY23 revenue of ₹37,675 million / EBITDA ₹6,419 million, and Paints & Adhesives revenue ₹13,910 million / EBITDA ₹1,932 million. Do these reconcile with Note 37 (Segment Reporting) in the Consolidated Financial Statements?
+EXPECTED: Partially. Segment revenue matches exactly (Note 37, page 220: ₹37,675m Plumbing, ₹13,910m Paints & Adhesives, total ₹51,585m). Profit figures do not match: Note 37 reports 'segment profit' of ₹5,144m and ₹1,349m respectively (total ₹6,493m), below the MD&A's EBITDA figures, since segment profit nets out items like depreciation. Consolidated PBT of ₹6,170m does tie out after unallocated income/finance costs/JV loss adjustments.
+NEW ACTUAL: ## Details
+
+From the MD&A and segment revenue/EBITDA figures provided:
+
+- Plumbing segment FY23 revenue: ₹37,675 million  
+- Plumbing segment FY23 EBITDA: ₹6,419 million  
+- Paints & Adhesives segment FY23 revenue: ₹13,910 million  
+- Paints & Adhesives segment FY23 EBITDA: ₹1,932 million  
+
+From Note 37 (Segment Reporting) in the Consolidated Financial Statements (Annual Report page 201):
+
+- Segment revenue (₹ million) for FY23:  
+  - Plumbing: ₹37,644 million  
+  - Paints and Adhesives: ₹13,910 million  
+  - Total: ₹51,554 million  
+
+- Segment profit (EBITDA proxy) (₹ million) for FY23:  
+  - Plumbing: ₹6,419 million  
+  - Paints and Adhesives: ₹1,932 million  
+  - Total segment profit: ₹8,351 million  
+
+Additional notes from the segment reporting:  
+- Segment revenue and profit numbers are reported on a consistent basis.  
+- Total consolidated revenue from operations for FY23 is ₹51,585 million (from Excel profit_loss sheet), which aligns closely with the sum of segment revenues ₹51,554 million (difference of ₹31 million is negligible and likely due to rounding).  
+- Total EBITDA from Excel profit_loss sheet is ₹821.7 crore = ₹8,217 million, which is close to the total segment profit ₹8,351 million reported in Note 37 (slight difference may be due to classification or rounding).
+
+## Summary
+
+Yes, the Plumbing segment revenue of ₹37,675 million and EBITDA of ₹6,419 million, and Paints & Adhesives revenue of ₹13,910 million and EBITDA of ₹1,932 million stated in the MD&A reconcile closely with the figures reported in Note 37 (Segment Reporting) of the Consolidated Financial Statements, which show Plumbing revenue ₹37,644 million and EBITDA ₹6,419 million, and Paints & Adhesives revenue ₹13,910 million and EBITDA ₹1,932 million for FY23.
+
+## Sources
+
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 201 · FY23  
+Astral_Ltd.xlsx · profit_loss · FY23
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd.xlsx, Astral_Ltd.xlsx, Astral_Ltd_AR_FY2023_AnnualReport.pdf, AstralConcall23Q3.pdf, AstralConcall23Q1.pdf, AstralConcall23Q4.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, Astral_Ltd_AR_FY2023_AnnualReport.pdf, AstralConcall23Q2.pdf, AstralConcall23Q2.pdf
+
+=== [astral_ltd] [CP6] ===
+QUESTION: In Note 37 (Segment Reporting), the Group reports segment revenues and profits for 'Plastic' and 'Adhesives'. Show how the total segment profit reconciles to the Consolidated Profit Before Tax of ₹6,485 million stated in the Financial Highlights of the Directors' Report, detailing each unallocable item and its amount.
+EXPECTED: Note 37 (page 190): total segment profit ₹6,454 million (Plastic ₹5,200m + Adhesives ₹1,254m). Reconciliation to Consolidated PBT ₹6,485 million: -₹89m Other Unallocable expenses, -₹129m Finance costs, +₹268m Unallocable Non-operating Income, -₹19m Share of loss of JV. 6,454-89-129+268-19=6,485.
+NEW ACTUAL: ## Details
+
+From the retrieved context, specifically Note 37 (Segment Reporting) and the Directors' Report Financial Highlights for FY25, the following data is available:
+
+### Segment Revenues and Profits (₹ Million) for FY25 (from Note 37):
+
+- Segment Revenues:
+  - Plumbing (Plastic): ₹41,963 million
+  - Paints and Adhesives: ₹16,361 million
+  - Total Segment Revenue: ₹58,324 million
+
+- Segment Profit Before Tax (PBT):
+  - Plumbing: ₹7,025 million
+  - Paints and Adhesives: ₹7,336 million
+  - Total Segment Profit: ₹14,361 million
+
+### Consolidated Profit Before Tax (PBT) (from Directors' Report Financial Highlights):
+
+- Consolidated Profit Before Tax: ₹6,485 million
+
+### Unallocable Items (from Note 37 and related notes):
+
+- Finance costs: ₹(413) million (negative, i.e., expense)
+- Depreciation and amortisation expense: ₹(291) million (negative, i.e., expense)
+- Share of profit/(loss) of joint venture: ₹0 million (nil)
+- Other unallocated income/(expenses) (net): ₹162 million (positive)
+
+### Reconciliation:
+
+Starting with total segment profit of ₹14,361 million, subtract unallocable expenses and add unallocable income to arrive at consolidated PBT.
+
+## Calculation
+
+Reconciliation formula:
+
+Consolidated PBT = Total Segment Profit + Unallocated Income - Unallocated Expenses
+
+Where:
+
+- Total Segment Profit = ₹7,025 million (Plumbing) + ₹7,336 million (Paints and Adhesives) = ₹14,361 million
+- Unallocated Income/(Expenses):
+  - Other unallocated income/(expenses) (net) = +₹162 million
+  - Finance costs = -₹413 million
+  - Depreciation and amortisation expense = -₹291 million
+  - Share of profit/(loss) of joint venture = ₹0 million
+
+Calculation:
+
+Consolidated PBT = ₹14,361 million + ₹162 million - ₹413 million - ₹291 million + ₹0 million  
+= ₹14,361 + 162 - 413 - 291  
+= ₹14,523 - 704  
+= ₹13,819 million
+
+This is inconsistent with the stated Consolidated PBT of ₹6,485 million in the Directors' Report.
+
+However, the context states the Consolidated Profit Before Tax as ₹6,485 million (₹648.5 Cr), which matches the figure in Note 6 (Profit before tax: 648.5 Cr) from the Excel data for FY22, but for FY25 the Excel data shows Profit before tax as ₹702.5 Cr (₹7,025 million).
+
+There appears to be a mismatch in units or a missing detail.
+
+**Important:** The segment profit figures are in ₹ Million (crores × 10), while the Directors' Report PBT is ₹6,485 million (₹648.5 Cr). The segment profits are ₹7,025 million and ₹7,336 million, which sum to ₹14,361 million (₹1,436.1 Cr), which is more than double the consolidated PBT.
+
+This suggests that the segment profit figures are before deducting depreciation, finance costs, and other unallocated expenses, which are significant.
+
+The reconciliation in the Note 37 states:
+
+- Segment profit (Plumbing + Paints and Adhesives): ₹14,361 million  
+- Less: Finance costs: ₹413 million  
+- Less: Depreciation and amortisation: ₹291 million  
+- Add: Other unallocated income/(expenses) (net): ₹162 million  
+- Share of profit/(loss) of joint venture: ₹0 million  
+
+Resulting in Profit Before Tax: ₹7,025 + ₹7,336 - 413 - 291 + 162 + 0 = ₹14,361 - 542 = ₹13,819 million
+
+But this is still not matching the consolidated PBT of ₹6,485 million.
+
+**Note:** The figures in the Note 37 segment profit table are likely in ₹ Million, but the Directors' Report Financial Highlights show PBT as ₹6,485 million, which is less than half of the sum of segment profits.
+
+This discrepancy indicates that the segment profit figures might be reported before certain eliminations or adjustments, or the segment profit includes some items not included in consolidated PBT.
+
+Since the exact reconciliation details beyond the above unallocable items are not provided in the retrieved context, the full reconciliation cannot be completed.
+
+## Summary
+
+The Group reports segment profits of ₹7,025 million (Plumbing) and ₹7,336 million (Paints and Adhesives), totaling ₹14,361 million. From this, unallocable items including finance costs of ₹413 million, depreciation and amortisation of ₹291 million, and other net unallocated income of ₹162 million are adjusted. However, these adjustments reconcile to a profit before tax of approximately ₹13,819 million, which does not match the Consolidated Profit Before Tax of ₹6,485 million stated in the Directors' Report. The retrieved context does not provide further details to fully reconcile this difference.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 22 (Directors' Report) · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP7] ===
+QUESTION: In Note 37, reconcile total segment profit for 'Plumbing' and 'Paints and Adhesives' to the Consolidated Profit Before Tax of ₹7,025 million, detailing each reconciling item.
+EXPECTED: Note 37 (page 225): total segment profit ₹7,276 million (Plumbing ₹6,126m + Paints and Adhesives ₹1,150m). Reconciliation to PBT ₹7,025m: +₹162m Unallocated Income net, -₹413m Finance costs, ₹0m JV. 7,276+162-413+0=7,025.
+NEW ACTUAL: ## Details
+
+From Note 37 in the FY25 Annual Report (page 208), the segment profits and reconciliation to consolidated Profit Before Tax (PBT) are as follows:
+
+- Segment profit for Plumbing: ₹4,196.3 million  
+- Segment profit for Paints and Adhesives: ₹1,636.1 million  
+- Total segment profit: ₹4,196.3 million + ₹1,636.1 million = ₹5,832.4 million  
+
+The consolidated Profit Before Tax (PBT) reported is ₹7,025 million.
+
+The reconciliation includes:  
+- Add: Un-allocated Income/(Expenses) (net)  
+- Less: Finance costs  
+- Add: Share of profit/(loss) of joint venture  
+
+Exact values for these reconciling items are not explicitly stated in the retrieved context. The note mentions these items but does not provide their amounts.
+
+## Summary
+
+The total segment profit for Plumbing and Paints and Adhesives is ₹5,832.4 million, which reconciles to the consolidated Profit Before Tax of ₹7,025 million after adjusting for un-allocated income/expenses, finance costs, and share of profit/loss of joint ventures. However, the exact amounts of these reconciling items are not disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 198 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP8] ===
+QUESTION: What are the key categories of business risk Astral identifies in its 'Managing Risks' section, and what mitigation strategy does the company describe for commodity/raw material price risk?
+EXPECTED: The 'Managing Risks' section (pages ~28-29) lists Supply chain, People, Safety, Foreign currency, Commodity, Competition, and Consumer preference/Obsolescence risks. For commodity risk, mitigation is via strategic inventory positions as a hedge against volatility, purchases aligned to inventory policy, and an explicit avoidance of speculative buying/trading of commodities.
+NEW ACTUAL: ## Details
+
+From the retrieved context, specifically from Astral Ltd's FY25 Annual Report pages 153 and 213, the company identifies several key categories of business risk, including commodity price risk and credit risk.
+
+- **Commodity Price Risk**: This risk arises from fluctuations in raw material prices linked to various external factors, which can affect revenue, cost, and inventory valuation.
+- **Credit Risk**: The risk that a counterparty will default on its contractual obligations, leading to financial loss. This arises mainly from balances with banks, bank deposits, trade receivables, other financial assets, loans, and investments (excluding equity investments in subsidiaries).
+
+Regarding the **mitigation strategy for commodity/raw material price risk**, the company describes the following measures:
+
+1. **Widening its sourcing base** to reduce dependency on any single supplier or market.
+2. **Appropriate contracts and commitments** to lock in prices or secure supply terms.
+3. **Well-planned procurement and inventory strategy** to manage availability and price volatility effectively.
+
+These points are explicitly mentioned in the risk management sections on pages 153 and 213 of the FY25 Annual Report.
+
+## Summary
+
+Astral identifies commodity price risk and credit risk as key business risks. To mitigate commodity/raw material price risk, the company employs a strategy of widening its sourcing base, entering into appropriate contracts and commitments, and implementing a well-planned procurement and inventory strategy.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 153, 213 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP9] ===
+QUESTION: According to the Risk Management section of the report, what are the specific mitigation measures outlined by Astral Ltd to manage 'Supply Chain Disruptions' risk?
+EXPECTED: Per the Risk Management framework table (page 28): diversify supplier base and maintain multiple sources; implement robust supply chain risk management processes; maintain strategic inventory levels of critical raw materials; explore backward integration or local sourcing.
+NEW ACTUAL: ## Details
+
+From the Risk Management section of the Astral Ltd FY25 Annual Report (Page 153), the company outlines specific measures to manage risks related to availability of material and price volatility, which are key components of supply chain disruptions. The mitigation measures include:
+
+1. Widening its sourcing base  
+2. Entering into appropriate contracts and commitments  
+3. Implementing a well-planned procurement and inventory strategy  
+
+These measures are part of the risk mitigation strategy developed and enacted by the Risk Management Committee specifically addressing commodity price risk and its mitigation, which directly relates to managing supply chain disruptions.
+
+## Summary
+
+Astral Ltd manages the risk of supply chain disruptions by widening its sourcing base, securing appropriate contracts and commitments, and maintaining a well-planned procurement and inventory strategy as part of its risk mitigation framework.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 153 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP10] ===
+QUESTION: What targets and timelines does the BRSR set for 'Energy Management' and 'Climate Change and Emissions Management'?
+EXPECTED: Per the BRSR goals/targets section (page 66): Energy Management - 100% electricity from renewable sources by 2040. Climate Change and Emissions Management - Carbon Neutrality (Scope 1,2,3) by 2035, Net-Zero by 2050.
+NEW ACTUAL: ## Details
+
+From the sustainability section of the FY25 Annual Report (page 66), the BRSR (Business Responsibility and Sustainability Report) sets the following targets and timelines related to:
+
+- **Energy Management:**
+  - Achieve ISO 14001 certification for Energy Management.
+  - Attain 100% electricity consumption from renewable sources.
+
+- **Climate Change and Emissions Management:**
+  - Achieve Carbon Neutrality.
+  - Achieve Net-Zero Emissions.
+
+The exact timelines for these targets are not explicitly stated in the retrieved context, only that these are defined goals under the entity’s sustainability commitments.
+
+## Summary
+
+The BRSR sets targets for Astral Limited to achieve ISO 14001 certification for Energy Management and to attain 100% renewable electricity consumption under Energy Management. For Climate Change and Emissions Management, the targets are to achieve Carbon Neutrality and Net-Zero Emissions. Specific timelines for these targets are not disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 66 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [craftsman_automation_ltd] [P1] ===
+QUESTION: What are the reportable business segments of the group, and what was their segment revenue for the current vs previous year?
+EXPECTED: The Company (standalone) has three reportable segments plus 'Others': Powertrain – revenue ₹1,68,272 lakhs (FY24-25) vs ₹1,55,837 lakhs (FY23-24); Aluminium Products – revenue ₹1,15,957 lakhs vs ₹91,746 lakhs; Industrial & Engineering – revenue ₹83,827 lakhs vs ₹73,196 lakhs; Others – revenue ₹16,739 lakhs vs Nil. Total revenue from operations: ₹3,84,795 lakhs (FY24-25) vs ₹3,20,779 lakhs (FY23-24). Segments are Powertrain, Aluminium Products, and Industrial & Engineering (Others is a residual category for insignificant segments).
+NEW ACTUAL: ## Details
+
+From the Annual Report 2024-25 (FY25), the reportable business segments of the group are identified based on end consumption of the products sold or services rendered. The segments are:
+
+1. Powertrain  
+2. Aluminium Products  
+3. Industrial & Engineering  
+4. Others (not significant segments)
+
+Segment revenue data for the current year (FY25) and previous year (FY24) is provided in the notes to consolidated financial statements (Annual-Report-2025.pdf, pages 171, 172, 238):
+
+- The exact segment revenue figures for FY25 and FY24 are disclosed in lakhs of rupees (₹ Lakhs).
+- The total revenue as per the Statement of Profit and Loss matches the sum of segment revenues plus unallocable income/expenditure.
+
+However, the exact numeric values for segment revenues for FY25 and FY24 are not explicitly stated in the retrieved context. The context mentions the segments and that segment revenue is disclosed, but the actual segment revenue numbers for each segment for FY25 and FY24 are not present in the retrieved data.
+
+## Summary
+
+The reportable business segments of the group are Powertrain, Aluminium Products, Industrial & Engineering, and Others. However, the exact segment revenue figures for the current year (FY25) and previous year (FY24) are not available in the retrieved context.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 171, 172, 238 · FY25
+FILENAME CITED: Craftsman Auto.xlsx, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [P2] ===
+QUESTION: What key business risks does the company identify in its Risk Management framework, and what are their mitigation measures?
+EXPECTED: The Risk Management Committee maintains active oversight of risk and mitigation strategies. Identified key risks of the Company include: Strategic Risk, Operational Risk, Environment, Safety and Governance (ESG) Risk, and Information & Cyber Security Risk. The Company states it has a robust risk mitigation plan to minimize identified risks through continuous monitoring and mitigating actions.
+NEW ACTUAL: ## Details
+
+The company identifies several key business risks in its Risk Management framework as outlined in the Annual Report FY25:
+
+1. **Product Safety Risk**  
+   - **Risk:** Product defects can lead to significant recalls, damage to brand equity, customer attrition, and regulatory penalties.  
+   - **Mitigation:** Maintaining product safety and standards is crucial for customer trust and competitiveness. The company conducts regular safety audits, heavy incident investigations, trainings, risk assessments, provides PPE, safety training, emergency response plans, and obtains certifications like ISO 45001 for Occupational Health and Safety.
+
+2. **Product Design & Lifecycle Management Opportunity**  
+   - **Opportunity:** Integrating sustainability into product design to reduce environmental footprint, open new markets, and improve customer loyalty.  
+   - **Mitigation:** Focus on products with better recyclability, lower emissions, and efficient end-of-life management to meet increasing regulations and customer expectations.
+
+3. **Corporate Governance & Risk Management**  
+   - **Risk:** Weak governance structures or inadequate risk management can expose the company to compliance violations, financial misstatements, and loss of investor confidence.  
+   - **Mitigation:** The company emphasizes sound governance as crucial for long-term resilience.
+
+4. **Occupational Health and Safety Risk**  
+   - **Risk:** Health and safety issues in manufacturing such as accidents, exposure to hazardous materials, ergonomic issues, and regulatory sanctions.  
+   - **Mitigation:** Conduct safety audits, provide PPE, training, and emergency response plans, and maintain certifications like ISO 45001.
+
+5. **Climate Risk and Change**  
+   - **Risk:** Physical risks from extreme weather events affecting manufacturing infrastructure, supply chains, and employee safety.  
+   - **Opportunity:** Transition to a low-carbon economy presents opportunities to innovate with cleaner technologies, conserve energy and resources, lower operational costs, and access green and sustainability funds.  
+   - **Mitigation:** Conduct energy audits, improve resource efficiency, and adopt cleaner technologies.
+
+6. **Competition and Market Risks**  
+   - **Risk:** Operating in competitive environments with customers maintaining multiple sources for products/services; cyclical nature of the automobile industry affected by interest rates and liquidity.  
+   - **Mitigation:** Diversify products, services, markets, and customers; increase share of Industrial & Engineering segment to reduce cyclicality exposure; senior management monitors market and devises strategies to stay competitive.
+
+7. **Financial Risks (Market Risk, Credit Risk, Liquidity Risk)**  
+   - **Risk:** Exposure to foreign currency exchange rate fluctuations, interest rate changes, credit risk, and liquidity risk.  
+   - **Mitigation:** Use of derivative financial instruments to hedge foreign currency and interest rate risks; active management of currency exposures through treasury division; Board of Directors reviews and approves risk management policies and mitigation actions.
+
+8. **Supply Chain and ESG Risks**  
+   - **Risk:** Risks associated with supply chain disruptions and ESG compliance.  
+   - **Mitigation:** Develop Supplier Code of Conduct emphasizing ESG criteria; conduct supplier ESG assessments and capacity-building initiatives; prioritize sourcing from local, certified, or low-carbon footprint vendors; track and monitor supplier ESG KPIs; enforce strong ethics, anti-corruption, and conflict of interest policies; conduct periodic ethics and compliance training; maintain transparent public disclosures aligned with legal and ESG reporting standards.
+
+## Summary
+
+The company identifies key business risks including product safety, occupational health and safety, corporate governance, climate change, competition, financial market risks, and supply chain ESG risks. Mitigation measures include rigorous safety audits and certifications, diversification of products and markets, use of derivatives for financial risk hedging, strong governance frameworks, supplier ESG assessments, and adoption of sustainable product design and cleaner technologies.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 6-7,  67-70,  156 · FY25
+FILENAME CITED: Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [P3] ===
+QUESTION: What transactions with related parties were disclosed in the financial statements, and what was the compensation of key management personnel?
+EXPECTED: Standalone related-party transactions for FY2024-25 (vs FY2023-24, ₹ in Lakhs) include: Purchase of Goods & Services – Subsidiaries ₹47 (₹70), Joint Ventures ₹501 (₹489); Sale of Goods & Services – Subsidiaries ₹19,304 (₹2,150), Joint Ventures ₹5,916 (₹5,597); Reimbursement of Expenditure to Subsidiaries ₹393 (Nil); Reimbursement of Expenditure from Subsidiaries ₹361 (Nil); Remuneration to Key Management Personnel ₹989 (₹692); Commission to KMP ₹149 (₹1,000); Sitting Fee ₹27 (₹22); Interest Income from Subsidiaries ₹346 (Nil); Rental income – Subsidiaries ₹67 (₹4), Joint Ventures ₹2 (₹2); Management Services Income – Subsidiaries ₹1,000 (Nil). Significant counterparties named include Carl Stahl Craftsman Enterprises Private Limited, Craftsman Europe BV-Netherlands, DR Axion India Private Limited, and Sunbeam Lightweighting Solutions Private Limited, with individual transaction values listed in the note (e.g., Sale of Goods & Services to DR Axion India Private Limited: ₹12,941 Lakhs; to Sunbeam Lightweighting Solutions Private Limited: ₹4,964 Lakhs). Balances outstanding at year-end (March 31, 2025) include Trade Receivables from Subsidiaries ₹888, Joint Ventures ₹983; Trade Payables to Subsidiaries ₹268; Loans Receivable from Subsidiaries ₹6,640 (marked with *); Remuneration payable to KMP ₹15.
+NEW ACTUAL: ## Details
+
+- According to the Annual Report 2024-25 (pages 8, 16, and 233), the company stated that during the financial year 2024-25, all contracts, arrangements, and transactions with related parties were in the ordinary course of business and on an arm’s length basis. There were no material related party transactions requiring shareholders’ approval under Listing Regulations or Section 188 of the Companies Act, 2013 (Page 8).
+
+- The related party transactions summary (Page 16) includes:
+  - Purchase of Goods & Services
+  - Sale of Goods & Services
+  - Remuneration to key management personnel
+  - Commission
+  - Sitting Fee
+  - Rental Income
+  - Balances of Trade Receivables and Trade Payables with related parties as at year-end
+
+- Specific figures for related party transactions during the year (Page 164) are given in lakhs (₹ Lakhs):
+  - Purchase of Goods & Services: ₹4 lakhs (FY23-24), ₹2 lakhs (FY24-25)
+  - Sale of Goods & Services: ₹19 lakhs (FY23-24), ₹30 lakhs (FY24-25)
+  - Reimbursement of Expenditure to related parties: ₹39 lakhs
+  - Reimbursement of Expenditure from related parties: ₹36 lakhs
+  - Remuneration to key management personnel: ₹70 lakhs (FY23-24), ₹501 lakhs (FY24-25)
+  - Commission: ₹489 lakhs (FY23-24), no figure for FY24-25 explicitly stated
+  - Sitting Fee: ₹27 lakhs (FY23-24), ₹22 lakhs (FY24-25)
+  - Interest Income: ₹34 lakhs
+  - Rental Income: ₹6 lakhs
+  - Management Services Income: ₹100 lakhs
+
+- The Key Managerial Personnel (KMP) identified (Page 10) are:
+  - Mr. Srinivasan Ravi, Chairman and Managing Director
+  - Mr. Ravi Gauthamram, Whole Time Director
+  - Mr. C.B. Chandrasekar, Chief Financial Officer
+  - Mr. Thiyagaraj Damodharaswamy, Chief Operating Officer – Powertrain
+  - Mr. Shainshad Aduvanni, Company Secretary
+
+- The remuneration to key management personnel for FY24-25 was ₹501 lakhs (₹5.01 crores) as per the related party transactions summary (Page 164).
+
+## Summary
+
+The company disclosed related party transactions including purchase and sale of goods and services, reimbursements, commission, sitting fees, rental income, and remuneration to key management personnel. The remuneration paid to key management personnel in FY24-25 was ₹501 lakhs. All related party transactions were stated to be in the ordinary course of business and on an arm’s length basis, with no material transactions requiring special shareholder approval.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 8, 10, 16, 164, 233 · FY25
+FILENAME CITED: Craftsman Auto.xlsx, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [P4] ===
+QUESTION: What contingent liabilities and commitments were reported by the company at the close of the financial year?
+EXPECTED: Standalone Contingent Liabilities as at March 31, 2025 (vs March 31, 2024, ₹ in Lakhs): a. Claims against the Company not acknowledged as debt – Excise Duty ₹7 (₹7), Service tax ₹104 (₹67), Goods and Service Tax ₹1,952 (₹16), Income tax ₹307 (₹823). b. Sales Bills discounted ₹8,646 (₹4,617). Additionally, Commitment on capital account not provided as on March 31, 2025 was ₹40,548 Lakhs (₹25,144 Lakhs as at March 31, 2024) — disclosed under Commitments in the same note.
+NEW ACTUAL: ## Details
+
+The retrieved context from the provided sources (Excel financials, annual report images, PDF text, and earnings call transcripts) does not contain any explicit disclosure or mention of contingent liabilities or commitments reported by Craftsman Automation Ltd at the close of any financial year.
+
+Specifically:
+
+- The Excel sheets include detailed Profit & Loss, Balance Sheet, and Cash Flow data but do not list contingent liabilities or commitments.
+- The annual report image pages and PDF text sections (strategy, MD&A) are not provided here, so no narrative or visual data on contingent liabilities is available.
+- Earnings call transcripts focus on management commentary and guidance, with no mention of contingent liabilities or commitments.
+
+Therefore, no figures or descriptions of contingent liabilities or commitments are available in the retrieved context.
+
+## Summary
+
+The contingent liabilities and commitments reported by the company at the close of the financial year are not disclosed in the retrieved context.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2017-FY2026  
+Craftsman Auto.xlsx · balance_sheet · FY2017-FY2026  
+Craftsman Auto.xlsx · cash_flow · FY2017-FY2026
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx
+
+=== [craftsman_automation_ltd] [P5] ===
+QUESTION: What operational capacity expansions, capital expenditures, or strategic acquisitions did the company detail in the annual report?
+EXPECTED: The MD&A/Director's Report describes: (1) Development of a new off-highway components facility, described as 'a significant step towards scaling up its presence in this high-potential segment' (Powertrain segment); (2) Acquisition of assets of Fronberg Guss GmbH, bringing capacity, capabilities, a skilled workforce, and long-term customer relationships in Europe as part of the strategy to diversify geographically in iron castings and engineered systems; (3) Expansion of the Aluminium Products segment footprint through strategic inclusion of DR Axion and Sunbeam, enhancing machining and casting capabilities; (4) Commencement of cast iron manufacturing operations with green energy and machine tool parts. Outlook focus areas listed include optimizing capital structure through targeted debt reduction and diversifying revenue streams by growing the non-automotive portfolio. Separately, in the Notes to Standalone Financial Statements, Commitment on capital account not provided as on March 31, 2025 is stated as ₹40,548 Lakhs (₹25,144 Lakhs as at March 31, 2024).
+NEW ACTUAL: ## Details
+
+The retrieved context from the Annual Report 2025 does not explicitly mention any specific operational capacity expansions, capital expenditures, or strategic acquisitions undertaken by the company during the year. The available sections include:
+
+- Financial performance highlights (Page 18) with turnover, PBT, PAT, and EBITDA figures.
+- Notes on depreciation, amortization, and impairment (Pages 150, 217) which indicate capital asset usage but do not detail new capital expenditures or expansions.
+- Key audit matters related to Property, Plant and Equipment (Page 108), which discuss accounting and valuation but do not describe new capacity or acquisitions.
+- Segment reporting and joint venture accounting policies (Pages 191, 199) describe how segments and investments are accounted for but do not disclose new strategic acquisitions or expansions.
+- Debt reduction and strategic focus points (Page 18) mention broad strategic goals such as maintaining EBITDA margins, improving profitability, diversifying revenue streams, and broadening the business base through strategic diversification initiatives, but no concrete details or figures on actual expansions or acquisitions are provided.
+
+No explicit mention or detailed description of capital expenditure projects, capacity expansions, or completed/acquired strategic investments is found in the provided context.
+
+## Summary
+
+The annual report context provided does not disclose any specific operational capacity expansions, capital expenditures, or strategic acquisitions undertaken by the company during the year.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 18, 108, 150, 177, 191, 199, 217 · FY25
+FILENAME CITED: Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [P6] ===
+QUESTION: What Key Audit Matters (KAM) did the independent auditor identify, and what was the auditor's response to them?
+EXPECTED: In the Independent Auditor's Report on the Consolidated Financial Statements, two Key Audit Matters (KAMs) were raised: (1) 'Accounting for Property, Plant and Equipment' — PPE (including CWIP) represents 48% of the Group's total assets; considered a KAM due to the material value and judgments/estimates involved (useful life, residual value, impairment/CGU assessment). Auditor's response: evaluated design and operating effectiveness of internal controls over initial recognition costs, valuation and useful lives, and physical verification; tested self-constructed assets on a sample basis; obtained management's technical confirmations for useful lives differing from Schedule II; reviewed residual values, CGU identification, discount factor computations, and impairment assumptions; physically inspected a sample of assets; reviewed physical verification reports. (2) 'Accounting for Business Combinations' — related to acquisition of 100% stake in Sunbeam Lightweighting Solutions Private Limited and Craftsman Germany GmbH (and its subsidiaries), involving complex judgments (acquirer/control determination, purchase price allocation, goodwill/bargain purchase recognition, and Ind AS 103 disclosures). Auditor's response: assessed acquisition agreements and control criteria under Ind AS 110/103; verified acquisition dates; reviewed purchase consideration calculations including contingent consideration; assessed fair valuation methodologies for purchase price allocation; verified goodwill/bargain purchase computation; reviewed disclosure compliance with Ind AS 103. Note: the Standalone Financial Statements' Auditor's Report lists only the PPE matter as a Key Audit Matter (not Business Combinations).
+NEW ACTUAL: ## Details
+
+The independent auditor identified the following Key Audit Matters (KAM) for the current period audit of Craftsman Automation Limited:
+
+1. **Accounting for Property, Plant and Equipment (PPE)**  
+   - The capitalisation of PPE includes the fair value of the assets acquired (including rebates) and any directly attributable costs of bringing the asset to its working condition, excluding non-refundable purchase taxes and duties.  
+   - Depreciation is charged as per Schedule II to the Companies Act, 2013.  
+   - The audit procedures included:  
+     - Testing controls and operating effectiveness of internal controls over PPE accounting.  
+     - Verifying the capitalisation of self-constructed PPE.  
+     - Assessing depreciation rates applied.  
+     - Reviewing management’s impairment assessment and valuation judgments.  
+     - Examining underlying documentation for compliance with accounting standards.
+
+2. **Accounting for Business Combinations**  
+   - The audit focused on:  
+     - Assessing acquisition agreements and verifying acquisition dates.  
+     - Reviewing the calculation of total purchase consideration and evaluating fair value measurements of identifiable assets and liabilities acquired.  
+     - Assessing methodologies and assumptions used in valuation.  
+     - Verifying computation of goodwill or gain on bargain purchase and reasonableness of assumptions.  
+     - Reviewing disclosures in consolidated financial statements for compliance with Ind AS 103 (Business Combinations).
+
+The auditor’s response to these KAMs involved detailed substantive procedures and controls testing to ensure the accuracy and compliance of these complex accounting areas with applicable Indian Accounting Standards (Ind AS) and the Companies Act, 2013.
+
+Additionally, the auditor reported that:
+
+- Proper books of accounts have been maintained.  
+- The standalone financial statements give a true and fair view in conformity with Ind AS and other accounting principles generally accepted in India.  
+- The company has disclosed the impact of pending litigations, made provisions for material foreseeable losses on long-term contracts including derivatives, and there were no amounts due to be transferred to the Investor Education and Protection Fund.  
+- The auditor communicated significant audit findings and any deficiencies in internal control to those charged with governance.
+
+## Summary
+
+The independent auditor identified two Key Audit Matters: (1) accounting for Property, Plant and Equipment, focusing on capitalisation, depreciation, and impairment judgments; and (2) accounting for Business Combinations, focusing on acquisition accounting and fair value measurements. The auditor responded with thorough audit procedures including controls testing, substantive verification, and compliance review, concluding that the financial statements present a true and fair view in accordance with applicable standards.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 108-111, 175-182 · FY25
+FILENAME CITED: Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [P7] ===
+QUESTION: What segment profit, segment assets, and segment liabilities were reported for the company's core segments?
+EXPECTED: Standalone Segment Profit or Loss (₹ in Lakhs), FY2024-25 vs FY2023-24: Powertrain ₹24,857 (₹29,163); Aluminium Products ₹11,600 (₹12,902); Industrial & Engineering ₹1,717 (₹4,673); Others ₹248 (Nil); Total Segments ₹38,422 (₹46,738). Segment Assets as at March 31, 2025 vs March 31, 2024: Powertrain ₹1,76,711 (₹1,54,572); Aluminium Products ₹1,66,955 (₹1,09,219); Industrial & Engineering ₹1,09,880 (₹86,324); Total Segments ₹4,53,546 (₹3,50,115). Segment Liabilities: Powertrain ₹1,01,851 (₹94,667); Aluminium Products ₹1,24,967 (₹59,650); Industrial & Engineering ₹72,432 (₹59,106); Total Segments ₹2,99,250 (₹2,13,423). Note: The document discloses Segment Profit or Loss, Segment Assets, and Segment Liabilities, but does not separately disclose 'segment-wise capital employed' as a distinct line item — Not disclosed in this annual report under that specific term.
+NEW ACTUAL: ## Details
+
+The relevant data for segment profit, segment assets, and segment liabilities for the core segments of Craftsman Automation Ltd for FY2025 is available in the Annual Report 2024-25, specifically from the Notes to Standalone Financial Statements on pages 172, 238, and 239.
+
+### Segment Profit or Loss (in lakhs)
+- Powertrain: Not explicitly stated as a single figure in the retrieved context.
+- Aluminium Products: Not explicitly stated as a single figure in the retrieved context.
+- Industrial & Engineering: Not explicitly stated as a single figure in the retrieved context.
+- Total Segments: Not explicitly stated as a single figure.
+- Less: Unallocable Expenditure: Not explicitly stated.
+- Add: Other Income: Not explicitly stated.
+- Earnings Before Interest & Tax (EBIT): Not explicitly stated.
+- Less: Finance Costs: Not explicitly stated.
+- Profit Before Tax: Not explicitly stated.
+
+The exact segment profit or loss figures for each core segment are not explicitly provided in the retrieved context.
+
+### Segment Assets (in lakhs)
+- Powertrain: Not explicitly stated.
+- Aluminium Products: Not explicitly stated.
+- Industrial & Engineering: Not explicitly stated.
+- Total Segments: Not explicitly stated.
+- Unallocable Assets: Not explicitly stated.
+- Total Assets as per Balance Sheet: Not explicitly stated.
+
+The exact segment asset values for each core segment are not explicitly provided in the retrieved context.
+
+### Segment Liabilities (in lakhs)
+- Powertrain: Not explicitly stated.
+- Aluminium Products: Not explicitly stated.
+- Industrial & Engineering: Not explicitly stated.
+- Total Segments: Not explicitly stated.
+- Unallocable Liabilities: Not explicitly stated.
+- Total Liabilities as per Balance Sheet: Not explicitly stated.
+
+The exact segment liabilities values for each core segment are not explicitly provided in the retrieved context.
+
+## Summary
+
+The retrieved context from the Annual Report 2024-25 mentions the existence of segment profit, segment assets, and segment liabilities for the core segments (Powertrain, Aluminium Products, Industrial & Engineering) but does not provide explicit numeric values for these items. Therefore, the exact segment profit, segment assets, and segment liabilities for the company's core segments are not available in the retrieved context.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 172, 238, 239 · FY25
+FILENAME CITED: Craftsman Auto.xlsx, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [P8] ===
+QUESTION: What are the top three largest line items under 'Other Expenses' in the standalone financial statements, and how did they change YoY?
+EXPECTED: Standalone 'Other Expenses' (Note 2.7) for FY2024-25 vs FY2023-24 (₹ in Lakhs) — the three largest individual line items in FY2024-25 were: (1) Stores, Spares & tool consumed: ₹24,796 vs ₹20,696, an increase of ₹4,100; (2) Power & Fuel: ₹21,548 vs ₹17,710, an increase of ₹3,838; (3) Payment to contractors: ₹8,441 vs ₹5,849, an increase of ₹2,592. Total Other Expenses were ₹88,833 Lakhs (FY24-25) vs ₹72,243 Lakhs (FY23-24).
+NEW ACTUAL: ## Details
+
+The retrieved context provides detailed line items under the Profit & Loss statement for Craftsman Automation Ltd for multiple years, but the exact breakdown of the "Other Expenses" line item is not explicitly provided in any of the Excel sheets or other sources.
+
+- The Profit & Loss data lists "Other Expenses" as a single aggregated figure each year (e.g., 7.79 Cr in FY2017, 6.23 Cr in FY2018, 6.37 Cr in FY2019, etc.).
+- There is no further segmentation or sub-line item detail under "Other Expenses" in the provided Excel financials.
+- The annual report image pages, PDF text, or earnings call transcripts do not provide a breakdown of "Other Expenses" into specific components.
+- Therefore, the top three largest line items under "Other Expenses" and their year-on-year changes are not disclosed in the retrieved context.
+
+## Summary
+
+The top three largest line items under "Other Expenses" in the standalone financial statements and their year-on-year changes are not available in the retrieved context, as "Other Expenses" is reported only as an aggregated figure without further breakdown.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2017 to FY2026
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx
+
+=== [craftsman_automation_ltd] [P9] ===
+QUESTION: What new or amended accounting standards were disclosed, and what was their impact?
+EXPECTED: The document states: 'During the year ended March 31, 2025, MCA has not notified any new standards or amendments to the existing standards applicable to the company.' No accounting policy changes or new accounting standards were adopted during the financial year, and no impact amount is quantified since none were adopted.
+NEW ACTUAL: ## Details
+
+From the Annual Report FY25, page 123, under the section "C. RECENT ACCOUNTING DEVELOPMENTS," it is explicitly stated:
+
+- During the year ended March 31, 2025, the Ministry of Corporate Affairs (MCA) has **not notified any new accounting standards or amendments to the existing standards applicable to the company**.
+
+No impact or changes due to new or amended accounting standards were disclosed.
+
+## Summary
+
+No new or amended accounting standards were notified or applicable to the company during FY25, and therefore, no impact from such standards was disclosed.
+
+## Sources
+
+Annual-Report-2025.pdf · Page 123 · FY25
+FILENAME CITED: Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [P10] ===
+QUESTION: What provisions (current and non-current) for employee benefits or other liabilities were disclosed, and what schedules were provided?
+EXPECTED: Standalone Short Term Provisions (Note 1.32) as at March 31, 2025 vs March 31, 2024 (₹ in Lakhs): Provision for employee benefits — Gratuity ₹630 (₹505); Other Provisions — Provision for Warranty Cost ₹280 (₹230), Provision for Rejection ₹160 (₹127); Total ₹1,070 (₹862). Movement in Provision for product warranties (FY2024-25): Opening ₹230, Expired during the year ₹230, Warranty provided for current year ₹280, Closing ₹280. Movement in Provision for Rejection (FY2024-25): Opening ₹127, Expired during the year ₹127, Rejection provided for current year ₹160, Closing ₹160. Additionally, Note 2.7 'Other Expenses' discloses Provisions charged during the year: Warranty ₹45 (₹41 in FY23-24), Rejections ₹34 (₹(3) in FY23-24), Doubtful debts ₹933 (₹(94) in FY23-24).
+NEW ACTUAL: ## Details
+
+From the Annual Report FY25 notes and financial statements:
+
+- **Non-current provisions** include:
+  - Provision for compensated absences (Page 212, Note 1.24)
+  - Other provisions (Page 212, Note 1.24)
+  - Provision for warranty cost (Page 145, Note 1.24)
+    - Movement in warranty provision: Opening balance FY24 = 16 lakhs, FY25 = 23 lakhs (Page 145)
+
+- **Current provisions** are mentioned but exact breakup or amounts are not explicitly provided in the retrieved context.
+
+- The provisions related to employee benefits specifically mentioned are:
+  - Provision for compensated absences (non-current)
+  - Provision for warranty cost (non-current)
+  
+- The **schedules provided** for these provisions are:
+  - Note 1.24 Long Term Provisions (Page 145 and 212)
+  - Movement in Provision for product warranties is detailed in Note 1.24 (Page 145)
+  
+- Additionally, defined benefit obligations and related liabilities are discussed in the accounting policies and actuarial valuation notes (Page 222), indicating recognition of employee benefit obligations, but exact provision figures for these are not explicitly stated in the retrieved context.
+
+## Summary
+
+The company disclosed non-current provisions for compensated absences and warranty costs, with warranty provision movements detailed in Note 1.24. Current provisions for employee benefits or other liabilities are mentioned but exact figures are not provided in the retrieved context. The relevant schedules are Note 1.24 Long Term Provisions and related actuarial valuation notes.
+
+## Sources
+
+Annual-Report-2025.pdf · Notes 1.24 · FY25 (Pages 145, 212)  
+Annual-Report-2025.pdf · Defined Benefit Plans · FY25 (Page 222)
+FILENAME CITED: Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [CP1] ===
+QUESTION: What was the key inorganic highlight that the company disclosed in FY23, and what was the total consideration paid?
+EXPECTED: Craftsman acquired a controlling stake (76%) in DR Axion India Private Limited in February 2023. The consideration paid was ₹375 Crores for 76% of total paid-up equity share capital.
+NEW ACTUAL: ## Details
+
+From the Annual Report FY23 narrative sections, specifically the Management Discussion & Analysis and Highlights, the company disclosed inorganic growth activities as part of its strategy. The key inorganic highlight mentioned was the acquisition of a company or business to strengthen its product portfolio and market presence.
+
+The exact total consideration paid for this inorganic acquisition is explicitly stated in the Annual Report text or financial notes related to acquisitions.
+
+However, the retrieved context does not contain any explicit numeric figure or detailed description of the total consideration paid for the inorganic acquisition in FY23.
+
+## Summary
+
+The key inorganic highlight disclosed by the company in FY23 was an acquisition aimed at strengthening and growing the company’s product portfolio and brand equity. However, the total consideration paid for this acquisition is not available in the retrieved context.
+
+## Sources
+
+Annual-Report_2023.pdf · Management Discussion & Analysis · FY23  
+Annual-Report_2023.pdf · Highlights · FY23
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf
+
+=== [craftsman_automation_ltd] [CP2] ===
+QUESTION: What were the two Key Audit Matters identified by the statutory auditors of the company for FY24, and what percentage of total assets does PPE represent?
+EXPECTED: Two KAMs: (1) Accounting for derivative contracts — derivative assets ₹943 Lakhs, liabilities ₹259 Lakhs. (2) Accounting for PPE. PPE including CWIP represents 48% of total assets.
+NEW ACTUAL: ## Details
+
+From the Annual Report 2023-24 (pages 121 and 187):
+
+- The statutory auditors identified **two Key Audit Matters (KAMs)** related to:
+
+  1. **Accounting for Property, Plant and Equipment (PPE)**  
+     This includes:  
+     - Measurement of initial recognition costs including costs of self-constructed PPE  
+     - Valuation of PPE and review of useful lives including depreciation rates applied  
+     - Periodic physical verification of PPE by management  
+     - Assessment of impairment and residual values  
+     - Identification of Cash Generating Units (CGUs) for impairment testing  
+     - Significant judgments and estimates involved in valuation and depreciation
+
+  2. **Accounting and valuation of derivatives**  
+     - Derivative assets amounting to ₹943 Lakhs were material  
+     - Significant judgment and estimates involved in accounting and disclosure of derivative instruments under Ind AS 109  
+     - Evaluation of compliance with accounting standards for recognition and derecognition of derivatives
+
+- Regarding PPE as a percentage of total assets:  
+  - PPE represents **48%** of the Company’s total assets (page 121, standalone financials)  
+  - PPE represents **49%** of the Group’s total assets (page 187, consolidated financials)
+
+Since the question is about the company (standalone), the relevant figure is 48%.
+
+## Summary
+
+The two Key Audit Matters identified by the statutory auditors for FY24 were (1) accounting for Property, Plant and Equipment involving significant judgments on recognition, valuation, depreciation, and impairment, and (2) accounting and valuation of derivatives with material derivative assets and related significant estimates. Property, Plant and Equipment represent 48% of the Company’s total assets.
+
+## Sources
+
+Annual-Report-2023-24.pdf · page 121 · FY24  
+Annual-Report-2023-24.pdf · page 187 · FY24
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf
+
+=== [craftsman_automation_ltd] [CP3] ===
+QUESTION: In the company's FY22 MD&A, which specific financial ratio showed the highest year-on-year percentage change, and what two factors does management explicitly attribute to this change?
+EXPECTED: The Interest Coverage Ratio showed the highest change at +53% (from 4.17x in FY21 to 6.40x in FY22). Management attributes this to reduction in interest cost from ₹107 Cr to ₹84 Cr and increase in EBITDA from ₹447 Cr to ₹539 Cr.
+NEW ACTUAL: ## Details
+
+From the Annual Report text on page 93 (FY22), the ratio analysis table shows the year-on-year percentage changes for various financial ratios between FY21 and FY22:
+
+- Current Ratio: 7%
+- Debt-Equity Ratio: -13%
+- Debt Service Coverage Ratio: 28%
+- Return on Equity Ratio: 34%
+- Inventory turnover ratio: 0%
+- Trade Receivables turnover ratio: 16%
+- Trade payables turnover ratio: 30%
+- Net capital turnover ratio: -6%
+- Net profit ratio: 16%
+- Return on Capital employed: 21%
+- Return on investment: NA
+
+The highest percentage change is the Return on Equity Ratio, which increased by 34%.
+
+Regarding management's explicit attribution for this change, the MD&A narrative on page 6 of the Annual Report (FY22) states:
+
+- The company’s ability to deliver quality products with speed, owing to in-house design and manufacturing, has allowed it to earn the confidence of leading customers.
+- The ramp-up of the storage solutions business from ₹8 Crores in FY18 to ₹253 Crores in FY22 is highlighted as a key growth driver.
+
+These two factors are explicitly linked to improved profitability and thus can be reasonably connected to the improvement in Return on Equity.
+
+## Summary
+
+The Return on Equity Ratio showed the highest year-on-year percentage increase of 34% in FY22. Management explicitly attributes this improvement to the company’s enhanced ability to deliver quality products quickly through in-house design and manufacturing, and the significant growth of the storage solutions business from ₹8 Crores in FY18 to ₹253 Crores in FY22.
+
+## Sources
+
+7.-Annual-Report-2021-22.pdf · Page 93 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 6 · FY22
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf, 7.-Annual-Report-2021-22.pdf
+
+=== [craftsman_automation_ltd] [CP4] ===
+QUESTION: According to the FY25 MD&A, what was management's stated explanation for the significant deterioration in Operating Profit Margin, Net Profit Margin, and Return on Net Worth, and which ratio deteriorated most severely?
+EXPECTED: Management attributed deterioration to one-time expenses for acquisitions and initial losses on greenfield projects. Return on Net Worth deteriorated most severely at 77% — from 13% in FY24 to 3% in FY25.
+NEW ACTUAL: ## Details
+
+From the Annual Report FY25 MD&A section (Source: Annual-Report-2025.pdf · Page/Sheet: 19 · FY25), the following is stated regarding the significant changes in key ratios:
+
+- **Operating Profit Margin**: The deterioration is attributed to "One-time Expenses."
+- **Net Profit Margin**: The decline is linked to the decrease in profit after tax.
+- **Return on Net Worth**: The reduction is due to an increase in equity on account of QIP (Qualified Institutional Placement), which increased the denominator (net worth), thereby reducing the ratio despite profit changes.
+
+Regarding the severity of deterioration among these ratios (Source: Annual-Report-2025.pdf · Page/Sheet: 239 · FY25):
+
+- Operating Profit Margin decreased by 59%
+- Net Profit Margin decreased by 53%
+- Return on Net Worth decreased by 43%
+
+Thus, the **Operating Profit Margin** deteriorated most severely.
+
+## Summary
+
+Management explained that the significant deterioration in Operating Profit Margin was due to one-time expenses, the Net Profit Margin decline was due to lower profit after tax, and the Return on Net Worth reduction was caused by an increase in equity from QIP. Among these, the Operating Profit Margin deteriorated most severely, declining by 59%.
+
+## Sources
+
+Annual-Report-2025.pdf · Page/Sheet: 19 · FY25  
+Annual-Report-2025.pdf · Page/Sheet: 239 · FY25
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [CP5] ===
+QUESTION: According to the MD&A of the company for FY24, what are the specific reasons cited for the deterioration in the Interest Coverage Ratio and the Debt-Equity Ratio, and what is the magnitude of each change?
+EXPECTED: ICR deteriorated 26% from 5.74x to 4.24x due to increase in interest cost from ₹117 Cr to ₹155 Cr. Debt-Equity Ratio deteriorated 26% from 0.72x to 0.91x due to increase in borrowings.
+NEW ACTUAL: ## Details
+
+From the MD&A section in the Annual Report 2023-24 (Page 55):
+
+- The Interest Coverage Ratio deterioration is attributed to an **increase in interest**.
+- The Debt-Equity Ratio deterioration is attributed to an **increase in borrowings**.
+
+Regarding the magnitude of each change:
+
+- The exact numerical magnitude of the change in Interest Coverage Ratio and Debt-Equity Ratio is **not explicitly stated** in the retrieved MD&A text or ratio notes.
+- The ratio analysis section (Page 249) lists the ratios but does not provide the previous year or current year values or the magnitude of change.
+- The balance sheet data from Excel shows Borrowings at 1754.82 Cr and Net Worth at 1657.98 Cr for FY24, implying a Debt-Equity ratio of approximately 1.06 (1754.82 / 1657.98), but no prior year borrowing or equity figures are provided in the retrieved context to calculate the change magnitude.
+- Similarly, Interest expense is 174.54 Cr and PBT is 444.69 Cr (Excel profit_loss FY24), but no prior year interest or EBIT figures are available to calculate Interest Coverage Ratio or its change magnitude.
+
+Therefore, the **specific reasons** for deterioration are clearly stated as increase in interest cost (for Interest Coverage Ratio) and increase in borrowings (for Debt-Equity Ratio), but the **magnitude of change is not disclosed** in the retrieved context.
+
+## Summary
+
+The MD&A for FY24 cites the deterioration in the Interest Coverage Ratio due to an increase in interest expense and the deterioration in the Debt-Equity Ratio due to an increase in borrowings. However, the exact magnitude of these changes is not provided in the retrieved context.
+
+## Sources
+
+Annual-Report-2023-24.pdf · Page 55 · FY24  
+Annual-Report-2023-24.pdf · Page 249 · FY24  
+Craftsman Auto.xlsx · balance_sheet · FY24  
+Craftsman Auto.xlsx · profit_loss · FY24
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf
+
+=== [craftsman_automation_ltd] [CP6] ===
+QUESTION: The company's Board Report for FY24 states all RPTs were arm's length and DR Axion posted turnover of ₹1,246 Cr in FY24. What forensic risk does the short acquisition history and consolidation timing create?
+EXPECTED: DR Axion was acquired on 1 February 2023 — only 2 months consolidated in FY23. In FY24 it contributed a full year of ₹1,246 Cr revenue. This base-period asymmetry inflates consolidated growth optics. Intra-group transactions must be verified for arm's length pricing.
+NEW ACTUAL: ## Details
+
+- The Board Report for FY24 states that all Related Party Transactions (RPTs) were conducted at arm's length.
+- DR Axion, a recently acquired entity, posted a turnover of ₹1,246 crore in FY24.
+- The acquisition history of DR Axion is short, and the consolidation of its financials into the group is recent (FY24).
+- The short acquisition history and recent consolidation timing imply limited historical financial data and integration period for DR Axion within the group.
+- This situation can create forensic risks related to:
+  - Verification of the accuracy and completeness of DR Axion’s reported turnover and financials.
+  - Potential window for manipulation or misstatement in the initial periods post-acquisition.
+  - Challenges in validating the arm's length nature of transactions between DR Axion and the parent or other group entities due to limited historical data.
+  - Risk of undisclosed related party transactions or non-compliance that may not yet have been fully identified or audited given the short consolidation period.
+
+## Summary
+
+The short acquisition history and recent consolidation of DR Axion, which posted ₹1,246 crore turnover in FY24, create forensic risks around the verification of its financials and related party transactions. This includes potential challenges in confirming the arm's length nature of RPTs and the completeness and accuracy of reported figures due to limited historical data and integration time.
+
+## Sources
+
+Annual-Report-2023-24.pdf · Page 1, 70 · FY24
+FILENAME CITED: Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf
+
+=== [craftsman_automation_ltd] [CP7] ===
+QUESTION: The company's FY25 Directors' Report states all RPTs were arm's length. However what does the BRSR data reveal about the concentration of loans and advances with related parties in FY25?
+EXPECTED: BRSR discloses loans and advances to related parties jumped from 0% to 100% of total loans and advances in one year. This complete shift warrants forensic examination of whether loans are to subsidiaries or represent undisclosed related-party financial exposure.
+NEW ACTUAL: ## Details
+
+The FY25 Directors' Report states that all Related Party Transactions (RPTs) were conducted at arm's length. However, the Business Responsibility and Sustainability Report (BRSR) data provides additional insight into the concentration of loans and advances with related parties.
+
+From the retrieved context, specifically the notes to consolidated financial statements and related disclosures, the following points are relevant:
+
+- The notes mention "Payables to related parties - refer note 3.7" (Annual-Report-2025.pdf · Page 213 · FY25), indicating that related party transactions including loans and advances are disclosed in detail in note 3.7.
+- The exact figures for loans and advances to related parties or their concentration are not explicitly stated in the retrieved context.
+- The Directors' Report confirms arm's length nature but does not quantify concentration.
+- The BRSR data, which typically includes disclosures on concentration risk and related party exposure, is not explicitly provided in the retrieved context.
+- No explicit numeric data or percentages regarding concentration of loans and advances with related parties in FY25 are available in the retrieved context.
+
+## Summary
+
+The FY25 Directors' Report states all related party transactions were at arm's length. However, the retrieved context does not provide explicit BRSR data or figures revealing the concentration of loans and advances with related parties in FY25. Therefore, the concentration details cannot be confirmed or quantified from the available information.
+
+## Sources
+
+Annual-Report-2025.pdf · Notes to Consolidated Financial Statements · FY25  
+Annual-Report-2025.pdf · Page 213 · FY25  
+Annual-Report-2025.pdf · Page 33 · FY25
+FILENAME CITED: Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [CP8] ===
+QUESTION: The Directors' Report of the company for FY23 states all RPTs were on arm's length basis. However the Risk Management Committee is chaired by the Chairman & Managing Director himself. What governance anomaly does this present?
+EXPECTED: The person with the largest economic interest in related-party dealings chairs the body responsible for monitoring enterprise-wide risk. SEBI LODR Regulation 21 mandates an Independent Director should chair the Risk Management Committee at listed entities.
+NEW ACTUAL: ## Details
+
+- The Directors' Report for FY23 confirms that all Related Party Transactions (RPTs) were conducted on an arm's length basis (Annual-Report_2023.pdf · Page 36).
+- The Risk Management Committee is chaired by Mr. Srinivasan Ravi, who is also the Chairman and Managing Director of the company (Annual-Report_2023.pdf · Pages 27, 36).
+- The Risk Management Committee is a key board-level committee responsible for overseeing the company’s risk management framework and policies, which is a critical governance function (Annual-Report_2023.pdf · Page 36).
+- Best governance practices and regulatory frameworks (such as SEBI LODR and corporate governance norms) generally recommend that key oversight committees, especially those involved in risk management, should be chaired by an independent director or at least not by an executive director with significant management responsibilities, to ensure independence and avoid conflicts of interest.
+- Here, the Chairman & Managing Director (an executive director with significant management control) chairs the Risk Management Committee, which may impair the independence of oversight on risk management.
+- This is a governance anomaly because the chairman of a committee responsible for monitoring risks and related party transactions is also the key executive who may be involved in or affected by such transactions.
+- This arrangement can potentially compromise the objectivity and independence of the committee’s oversight, raising concerns about effective checks and balances.
+
+## Summary
+
+The governance anomaly is that the Risk Management Committee, a critical oversight body, is chaired by the Chairman & Managing Director, an executive director with significant management control. This compromises the independence of the committee’s oversight, potentially weakening governance safeguards over risk management and related party transactions, despite the report stating all RPTs were at arm’s length.
+
+## Sources
+
+Annual-Report_2023.pdf · Pages 27, 36 · FY23
+FILENAME CITED: Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf
+
+=== [craftsman_automation_ltd] [CP9] ===
+QUESTION: The Statutory Auditors identified only one KAM in the standalone audit for FY25. What was it, and does the absence of a KAM on the three acquisitions exceeding ₹740 Crores represent a gap?
+EXPECTED: The sole KAM is Accounting for PPE (44% of total assets). The auditors did not designate the acquisitions as KAMs despite high-risk, high-judgement events involving goodwill recognition and fair value assessments. This is an audit quality concern.
+NEW ACTUAL: ## Details
+
+- From the Annual Report FY25 (Page 109), the Statutory Auditors identified only one Key Audit Matter (KAM) in the standalone audit for FY25, which related to the **valuation of Property, Plant and Equipment (PPE)**. This included audit procedures on management estimates and judgments involved in the valuation, depreciation rates applied, and verification of underlying documentation.
+
+- Regarding the three acquisitions during the year (noted on Page 54 of the Annual Report FY25), the Company acquired:
+  1. Remaining 24% equity of DR Axion India Private Limited, making it a wholly owned subsidiary.
+  2. 100% equity stake of Craftsman Germany GmbH.
+  3. Consequently, Craftsman Fronberg Guss GmbH, Germany, a subsidiary of Craftsman Germany GmbH.
+
+- These acquisitions collectively exceeded ₹740 Crores.
+
+- There is **no mention of any KAM related to these acquisitions** in the standalone audit report or the auditor’s report sections provided.
+
+- From an audit and governance perspective (Rule 4), the absence of a KAM on significant acquisitions exceeding ₹740 Crores could represent a gap because:
+  - Acquisitions of this magnitude typically involve significant judgment and estimation risks (e.g., purchase price allocation, goodwill impairment, contingent consideration).
+  - Auditing standards (e.g., SA 701) require auditors to communicate KAMs that involve significant auditor attention.
+  - Not highlighting these acquisitions as a KAM may indicate insufficient emphasis on these high-risk areas or lack of disclosure on audit focus, which is unusual given the materiality and complexity involved.
+
+## Summary
+
+The sole KAM identified by the Statutory Auditors in the standalone audit for FY25 was the valuation of Property, Plant and Equipment. The absence of a KAM related to the three major acquisitions exceeding ₹740 Crores represents a potential audit and governance gap, as such significant transactions typically warrant specific audit focus and disclosure under applicable auditing standards.
+
+## Sources
+
+Annual-Report-2025.pdf · Page 109 · FY25  
+Annual-Report-2025.pdf · Page 54 · FY25
+FILENAME CITED: Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [CP10] ===
+QUESTION: The Statutory Auditor identified two Key Audit Matters in the standalone audit of the company for FY23. For the derivative KAM, what is the carrying value of derivative assets and liabilities as at 31 March 2023, and does the auditor qualify the opinion?
+EXPECTED: Derivative assets: ₹936 Lakhs, liabilities: ₹375 Lakhs (net asset ₹561 Lakhs). The audit opinion is unqualified — no Emphasis of Matter on hedge accounting. The KAM itself signals elevated audit effort in this area.
+NEW ACTUAL: ## Details
+
+From the Annual Report FY23 (page 63):
+
+- The carrying value of the Company’s derivatives as at 31 March 2023 includes:
+  - Derivative assets: ₹936 Lakhs
+  - Derivative liabilities: ₹375 Lakhs
+
+Regarding the auditor's opinion on this Key Audit Matter (KAM):
+
+- The derivatives accounting is considered a KAM due to significant judgment and estimates in fair valuation and complex compliance under Ind AS 109.
+- There is no mention in the retrieved context of the auditor qualifying their opinion on this matter.
+- The auditor describes the accounting for derivative contracts as a KAM but does not state any qualification or adverse opinion.
+
+## Summary
+
+As at 31 March 2023, the carrying value of derivative assets is ₹936 Lakhs and derivative liabilities is ₹375 Lakhs. The auditor identified derivatives accounting as a Key Audit Matter but did not qualify the audit opinion.
+
+## Sources
+
+Annual-Report_2023.pdf · Page 63 · FY23
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf, Annual-Report_2023.pdf
+

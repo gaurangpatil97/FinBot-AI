@@ -1,0 +1,833 @@
+[
+  {
+    "id": "CE1",
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What was the Net Profit reported by the company in FY26?",
+    "expected_answer": "Net Profit in FY26 was ₹383.99 Cr — a recovery from ₹194.57 Cr in FY25 and the highest absolute net profit in the 10-year dataset.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE2",
+    "section": "Excel",
+    "difficulty": "Easy",
+    "question": "What were total Borrowings on the Balance Sheet as at end of FY24?",
+    "expected_answer": "Total Borrowings as at 31 March 2024 were ₹1,754.82 Cr, up from ₹1,240.23 Cr in FY23 — an increase of ₹514.59 Cr.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE3",
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "Compute the Debt-to-Equity ratio for FY25 and FY26 and assess the change in financial leverage.",
+    "expected_answer": "FY25 D/E = 0.83x. FY26 D/E = 1.11x. Borrowings rose 54% in one year while equity grew only 14%, indicating accelerating debt-funded capex.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE4",
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "Calculate the Operating Profit Margin for FY24 and FY25 and comment on the trend. OPM = Operating Profit / Sales × 100",
+    "expected_answer": "FY24 OPM: 19.74%. FY25 OPM: 14.64%. OPM contracted sharply by ~510 bps despite 27.8% revenue growth — a significant margin deterioration.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE5",
+    "section": "Excel",
+    "difficulty": "Medium",
+    "question": "Calculate Debtor Days for FY23 and FY26 and compare receivable collection efficiency. Debtor Days = Receivables / Sales × 365",
+    "expected_answer": "FY23: 61.4 days. FY26: 50.2 days. Receivables grew 4.6x but Debtor Days improved from 61 to 50 days — a positive working capital signal.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE6",
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "In FY25, sales grew 27.8% YoY yet PBT fell 39.4% from FY24. Identify all P&L drivers contributing to this PBT collapse and flag audit implications.",
+    "expected_answer": "Key drivers: OPM contracted from 19.74% to 14.64%; Interest rose from ₹174.54 Cr to ₹216.64 Cr; Other Income collapsed from ₹18.09 Cr to ₹0.30 Cr; Depreciation rose by ₹69.33 Cr. Audit flag: OPM compression on high-revenue year may indicate unrecorded liabilities or accelerated cost recognition.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE7",
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "The company paid zero dividend in FY20 and FY21 despite reporting net profits. Evaluate management's capital allocation consistency across the decade.",
+    "expected_answer": "FY20 dividend skip is explainable (COVID, revenue fell 18%). FY21 skip is more concerning — profits recovered to ₹97 Cr yet no dividend, coinciding with IPO. Post-IPO dividends resumed and scaled. Payout ratios remain low (5-10%), consistent with growth-capex-heavy phase.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE8",
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "Inventory grew from ₹836 Cr in FY23 to ₹1,745 Cr in FY26 — a 109% increase while sales grew 153%. Analyse inventory efficiency and flag any buildup risk.",
+    "expected_answer": "Inventory days improved from 96 days (FY23) to 79 days (FY26) despite absolute inventory doubling. No buildup risk based on disclosed figures. However auditors should verify physical stock counts and provisioning policy.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE9",
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "The company shows a negative effective tax rate in FY17 where Net Profit exceeded PBT. Explain the mechanics and flag forensic concerns.",
+    "expected_answer": "FY17: PBT = ₹36.67 Cr; Tax = −₹43.07 Cr; Net Profit = ₹79.74 Cr. Effective tax rate = −117.5%. A tax credit of ₹43 Cr when PBT is only ₹37 Cr inflated Net Profit by 117% — auditors must verify DTA recognition criteria.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CE10",
+    "section": "Excel",
+    "difficulty": "Hard",
+    "question": "In FY26, Other Expenses in the P&L is reported at ₹1,842.44 Cr — more than 5x the prior year figure of ₹18.98 Cr in FY25. Flag this anomaly and its implications.",
+    "expected_answer": "FY26 Other Expenses: ₹1,842.44 Cr — a 9,603% increase. This is likely a data reclassification anomaly. Cost structure analysis cannot be performed at sub-line level for FY26.",
+    "expected_source": [
+      "Craftsman Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CP1",
+    "section": "PDF",
+    "difficulty": "Easy",
+    "question": "What was the key inorganic highlight that the company disclosed in FY23, and what was the total consideration paid?",
+    "expected_answer": "Craftsman acquired a controlling stake (76%) in DR Axion India Private Limited in February 2023. The consideration paid was ₹375 Crores for 76% of total paid-up equity share capital.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP2",
+    "section": "PDF",
+    "difficulty": "Easy",
+    "question": "What were the two Key Audit Matters identified by the statutory auditors of the company for FY24, and what percentage of total assets does PPE represent?",
+    "expected_answer": "Two KAMs: (1) Accounting for derivative contracts — derivative assets ₹943 Lakhs, liabilities ₹259 Lakhs. (2) Accounting for PPE. PPE including CWIP represents 48% of total assets.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP3",
+    "section": "PDF",
+    "difficulty": "Medium",
+    "question": "In the company's FY22 MD&A, which specific financial ratio showed the highest year-on-year percentage change, and what two factors does management explicitly attribute to this change?",
+    "expected_answer": "The Interest Coverage Ratio showed the highest change at +53% (from 4.17x in FY21 to 6.40x in FY22). Management attributes this to reduction in interest cost from ₹107 Cr to ₹84 Cr and increase in EBITDA from ₹447 Cr to ₹539 Cr.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP4",
+    "section": "PDF",
+    "difficulty": "Medium",
+    "question": "According to the FY25 MD&A, what was management's stated explanation for the significant deterioration in Operating Profit Margin, Net Profit Margin, and Return on Net Worth, and which ratio deteriorated most severely?",
+    "expected_answer": "Management attributed deterioration to one-time expenses for acquisitions and initial losses on greenfield projects. Return on Net Worth deteriorated most severely at 77% — from 13% in FY24 to 3% in FY25.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP5",
+    "section": "PDF",
+    "difficulty": "Medium",
+    "question": "According to the MD&A of the company for FY24, what are the specific reasons cited for the deterioration in the Interest Coverage Ratio and the Debt-Equity Ratio, and what is the magnitude of each change?",
+    "expected_answer": "ICR deteriorated 26% from 5.74x to 4.24x due to increase in interest cost from ₹117 Cr to ₹155 Cr. Debt-Equity Ratio deteriorated 26% from 0.72x to 0.91x due to increase in borrowings.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP6",
+    "section": "PDF",
+    "difficulty": "Hard",
+    "question": "The company's Board Report for FY24 states all RPTs were arm's length and DR Axion posted turnover of ₹1,246 Cr in FY24. What forensic risk does the short acquisition history and consolidation timing create?",
+    "expected_answer": "DR Axion was acquired on 1 February 2023 — only 2 months consolidated in FY23. In FY24 it contributed a full year of ₹1,246 Cr revenue. This base-period asymmetry inflates consolidated growth optics. Intra-group transactions must be verified for arm's length pricing.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP7",
+    "section": "PDF",
+    "difficulty": "Hard",
+    "question": "The company's FY25 Directors' Report states all RPTs were arm's length. However what does the BRSR data reveal about the concentration of loans and advances with related parties in FY25?",
+    "expected_answer": "BRSR discloses loans and advances to related parties jumped from 0% to 100% of total loans and advances in one year. This complete shift warrants forensic examination of whether loans are to subsidiaries or represent undisclosed related-party financial exposure.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP8",
+    "section": "PDF",
+    "difficulty": "Hard",
+    "question": "The Directors' Report of the company for FY23 states all RPTs were on arm's length basis. However the Risk Management Committee is chaired by the Chairman & Managing Director himself. What governance anomaly does this present?",
+    "expected_answer": "The person with the largest economic interest in related-party dealings chairs the body responsible for monitoring enterprise-wide risk. SEBI LODR Regulation 21 mandates an Independent Director should chair the Risk Management Committee at listed entities.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP9",
+    "section": "PDF",
+    "difficulty": "Hard",
+    "question": "The Statutory Auditors identified only one KAM in the standalone audit for FY25. What was it, and does the absence of a KAM on the three acquisitions exceeding ₹740 Crores represent a gap?",
+    "expected_answer": "The sole KAM is Accounting for PPE (44% of total assets). The auditors did not designate the acquisitions as KAMs despite high-risk, high-judgement events involving goodwill recognition and fair value assessments. This is an audit quality concern.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CP10",
+    "section": "PDF",
+    "difficulty": "Hard",
+    "question": "The Statutory Auditor identified two Key Audit Matters in the standalone audit of the company for FY23. For the derivative KAM, what is the carrying value of derivative assets and liabilities as at 31 March 2023, and does the auditor qualify the opinion?",
+    "expected_answer": "Derivative assets: ₹936 Lakhs, liabilities: ₹375 Lakhs (net asset ₹561 Lakhs). The audit opinion is unqualified — no Emphasis of Matter on hedge accounting. The KAM itself signals elevated audit effort in this area.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_pdf_text"
+    ]
+  },
+  {
+    "id": "CC1",
+    "section": "Concall",
+    "difficulty": "Easy",
+    "question": "What was the revised FY23 capex guidance after the unexpected aluminium order, and what was the reason for the revision?",
+    "expected_answer": "The revised FY23 capex guidance was about ₹275 crore, up from the earlier ₹225-250 crore range. Management said the increase was driven by a sizeable aluminium order received in April 2022 that required production readiness by Q4 FY23, adding approximately ₹70 crore of unplanned capex.",
+    "expected_source": [
+      "crafts25Q2.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC2",
+    "section": "Concall",
+    "difficulty": "Easy",
+    "question": "Management guided FY23 Q1 revenue at about ₹600 crore in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?",
+    "expected_answer": "Actual Q1 FY23 revenue was ₹676 crore, about 12.7% above the ₹600 crore guidance. Consistently conservative guidance followed by beats can suggest managed earnings narrative or sandbagging for investor optics.",
+    "expected_source": [
+      "crafts25Q4.pdf",
+      "crafts25Q1.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC3",
+    "section": "Concall",
+    "difficulty": "Medium",
+    "question": "For FY23 Q2, management disclosed that aluminum prices fell approximately 10% QoQ but claimed operational margins were in line with Q1. Is this numerically consistent with the value addition numbers disclosed?",
+    "expected_answer": "Value addition dropped from ₹71 Cr (Q1) to ₹68 Cr (Q2). Management's normalisation claim: without price drop, value addition would have been ₹78 Cr. The ₹10 Cr gap is consistent with their 10% price drop claim.",
+    "expected_source": [
+      "crafts25Q4.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC4",
+    "section": "Concall",
+    "difficulty": "Medium",
+    "question": "The company revised its full-year FY23 CAPEX guidance upward from ₹225 crores to ₹275 crores. Identify the specific reason for the revision.",
+    "expected_answer": "An unplanned additional CAPEX of ~₹70 crores was triggered by a sizable aluminium business order received in April 2022, where the customer required production to start by Q4 FY23.",
+    "expected_source": [
+      "crafts25Q4.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC5",
+    "section": "Concall",
+    "difficulty": "Medium",
+    "question": "Compare the value addition for the Industrial & Engineering segment in FY23 Q2 with the same quarter of the prior year. What is the YoY growth rate?",
+    "expected_answer": "I&E value addition in Q2 FY23 = ₹76 crores vs Q2 FY22 = ₹42 crores — a YoY growth of ~81%. Value addition growing faster than revenue implies improvement in sales mix quality.",
+    "expected_source": [
+      "crafts25Q4.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC6",
+    "section": "Concall",
+    "difficulty": "Hard",
+    "question": "Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT. Verify this claim using value addition data and assess whether there is an unacknowledged structural margin issue.",
+    "expected_answer": "The claim is only partly supported. Q2 FY23 aluminium value addition was ₹68 crore versus ₹71 crore in Q1 FY23, while management attributed the margin pressure to the month-on-month aluminium price drop and inventory timing (8-10 weeks of inventory carried). The numbers suggest a timing-driven dip rather than a clearly proven structural margin break, but the exact inventory vs. replacement-price impact was not quantified precisely.",
+    "expected_source": [
+      "crafts25Q2.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC7",
+    "section": "Concall",
+    "difficulty": "Hard",
+    "question": "Across the FY22 Q3 and Q4 earnings calls, management made specific claims about the Daimler business risk stating only 8-9% impact by FY27-28. By Q1 FY23, a different number emerged — 15% of the Daimler portfolio by 2024. Identify the discrepancy.",
+    "expected_answer": "The disclosed impact shifted from 8-9% of Daimler value addition eventually (Q4 FY22) to 15% of Daimler portfolio by FY24 (Q1 FY23) — a meaningful escalation. The inconsistency between calls on the percentage at risk is a forensic flag for adequacy of risk disclosures.",
+    "expected_source": [
+      "crafts25Q4.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC8",
+    "section": "Concall",
+    "difficulty": "Hard",
+    "question": "Management stated during FY23 Q1 that bonus provision was front-loaded to Q1. Identify all staff cost one-offs disclosed across Q1 FY23 and Q3 FY22 calls, and assess the risk that normalised staff costs are being underestimated.",
+    "expected_answer": "Q3 FY22: bonus release of ~₹7 crores as one-off. Q1 FY23: bonus provision made early along with salary increases. The pattern reveals bonus recognition is being shifted between quarters — creating risk of distorted inter-quarter EBITDA comparisons.",
+    "expected_source": [
+      "crafts25Q4.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC9",
+    "section": "Concall",
+    "difficulty": "Hard",
+    "question": "Management guided in FY22 Q4 for a ₹100 crore debt reduction in FY23. By FY23 Q2, total debt was ~₹720 crores. Verify whether the original guidance is still achievable and quantify the gap.",
+    "expected_answer": "Original guidance: debt reduction from ₹713 Cr to ~₹613 Cr. Q2 FY23 actual: ~₹720 Cr. Gap vs original guidance: ~₹107 crores. Management's explanation evolved from working capital driven to debt is under control.",
+    "expected_source": [
+      "crafts25Q4.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CC10",
+    "section": "Concall",
+    "difficulty": "Hard",
+    "question": "Management guided revenue of ₹600 crores for FY23 Q1 in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?",
+    "expected_answer": "Actual Q1 FY23 revenue = ₹676 crores, exceeding guidance by ~12.7%. Consistently conservative guidance followed by beats can indicate managed earnings narrative or sandbagging for investor optics.",
+    "expected_source": [
+      "crafts25Q4.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CI1",
+    "section": "Images",
+    "difficulty": "Easy",
+    "question": "The Revenue mix across geographies FY23 donut chart in the annual report shows a domestic vs export split. What percentage of revenue is domestic?",
+    "expected_answer": "92% domestic revenue and 8% export revenue. In FY04, over 80% of revenues came from exports — a near-complete reversal of geographic mix over ~19 years.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI2",
+    "section": "Images",
+    "difficulty": "Easy",
+    "question": "The Revenue mix across sectors FY23 donut chart on the An Edge above the rest visual page shows three business segments. What percentage does the Automotive Powertrain segment contribute to total revenue?",
+    "expected_answer": "Automotive Powertrain contributes 51% of total revenue. Remaining segments: Aluminium Products at 25% and Industrial & Engineering at 24%.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI3",
+    "section": "Images",
+    "difficulty": "Medium",
+    "question": "The Key Financial Ratios comparison table in the FY25 MD&A shows two ratios that moved in opposite directions. Which two ratios are they and what does this divergence indicate?",
+    "expected_answer": "Debt-Equity Ratio improved from 0.91x to 0.59x (QIP equity raise). Interest Coverage Ratio deteriorated from 4.24x to 3.05x (higher interest costs). The divergence reveals equity infusion strengthened the balance sheet while operating cash generation did not proportionately improve — a QIP masking effect.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI4",
+    "section": "Images",
+    "difficulty": "Medium",
+    "question": "In the Over the years financial performance multi-year bar chart section of the FY23 annual report, the Debt-equity Ratio chart shows values across FY19 to FY23. In which year did the ratio peak and what was the peak value?",
+    "expected_answer": "The ratio peaked in FY19 at 1.42x. The five-year trend shows consistent de-leveraging from 1.42x (FY19) to 0.63x (FY22), with a slight uptick to 0.72x in FY23 reflecting additional debt for the DR Axion acquisition.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI5",
+    "section": "Images",
+    "difficulty": "Medium",
+    "question": "In the five-year bar charts under Performance Consolidated Basis on the KPI page of the FY24 annual report, compare the trajectory of Net Profit versus EBITDA from FY20 to FY24. In which year did Net Profit grow proportionally fastest?",
+    "expected_answer": "FY21 shows the most disproportionate Net Profit growth (₹40 Cr to ₹97 Cr = ~143% jump) vs EBITDA growth (~10%), suggesting significant below-EBITDA line improvement from lower finance costs or tax benefits.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI6",
+    "section": "Images",
+    "difficulty": "Hard",
+    "question": "In the Position section bar charts on the FY24 KPI page, the Debt-Equity Ratio bar chart shows 0.88x for FY24 yet the standalone MD&A reports 0.91x. What is the likely source of this discrepancy and what does the five-year Debt-EBITDA trend reveal?",
+    "expected_answer": "Discrepancy: bar chart uses consolidated basis (higher equity from DR Axion) while MD&A reports standalone. Debt-EBITDA trend: FY20 2.56x → FY21 1.57x → FY22 1.32x → FY23 1.65x → FY24 1.72x. Leverage has been rising for two consecutive years contradicting Chairman's debt reduction narrative.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI7",
+    "section": "Images",
+    "difficulty": "Hard",
+    "question": "The BRSR Section 9 table in the FY25 report shows the number of trading houses jumped from 96 in FY24 to 532 in FY25 while the percentage of purchases from trading houses remained flat at 18%. What forensic question does this raise?",
+    "expected_answer": "A 5x proliferation of trading-house vendors while the top-10 concentration drops from 50% to 37% is a classic structuring pattern. A CA must verify whether these 532 entities are independent or shells used to route transactions below individual materiality thresholds.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI8",
+    "section": "Images",
+    "difficulty": "Hard",
+    "question": "In the Revenue by Business Consolidated Basis donut chart in the FY24 annual report, the Aluminium Products segment shows ₹2,154 Crore (48%) of consolidated revenue. However the MD&A segment table reports Aluminium standalone sales of only ₹917 Crore. What accounts for the ₹1,237 Crore discrepancy?",
+    "expected_answer": "The discrepancy reconciles with DR Axion India's standalone FY24 turnover of ₹1,246 Crore. The donut chart uses consolidated segment revenue including DR Axion while MD&A discloses only standalone figures — a transparency gap not flagged on the chart itself.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI9",
+    "section": "Images",
+    "difficulty": "Hard",
+    "question": "The commodity price risk and hedging table in the FY25 Corporate Governance Report shows NA across all fields. How does this contrast with the company's foreign exchange outgo of ₹703.30 Crores disclosed in the Directors' Report?",
+    "expected_answer": "Nil commodity hedging vs ₹703.30 Cr forex outgo against only ₹196.42 Cr earnings creates a net forex deficit of ~₹507 Cr. With a new German subsidiary, leaving this unhedged is a material risk. A CA must verify whether hedging exists off-balance sheet.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CI10",
+    "section": "Images",
+    "difficulty": "Hard",
+    "question": "In the FY22 annual report, opening pages contain CAGR infographics showing growth from FY18 to FY22 across Revenue, EBIT, EBITDA, and PAT. The PAT CAGR of 49% is significantly higher than Revenue CAGR of 11%. What specific caveat is noted on the Revenue CAGR infographic that a CA must flag?",
+    "expected_answer": "A footnote reads Excluding Excise Duty — the FY18 base figure excludes the pre-GST excise duty component, making the revenue CAGR comparison potentially understated. This means the PAT outperformance must be interpreted with this base effect in mind.",
+    "expected_source": [
+      "Annual-Report-2025.pdf"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_images"
+    ]
+  },
+  {
+    "id": "CX1",
+    "section": "Cross-Source",
+    "difficulty": "Easy",
+    "question": "In the FY22 Q4 earnings call, management guided total debt reduction of ₹100 Crores for FY23. What does the Excel Balance Sheet data show as the actual change in total borrowings in FY23 — was guidance met?",
+    "expected_answer": "Q4 FY22 concall guided debt reduction from ₹713 Cr to ~₹613 Cr. Excel shows FY23 borrowings at ₹1,240.23 Cr — not only was the target missed, debt nearly doubled due to the DR Axion acquisition financing.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_concalls"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX2",
+    "section": "Cross-Source",
+    "difficulty": "Easy",
+    "question": "The FY23 MD&A states the Interest Coverage Ratio declined from 6.40x to 5.74x due to increased interest cost. Verify this using the Excel P&L data — does the reported interest figure match?",
+    "expected_answer": "Excel shows FY22 Interest = ₹84.22 Cr, FY23 Interest = ₹117 Cr — confirming the MD&A narrative. ICR from Excel: FY22 = 6.40x confirmed. Slight discrepancy in FY23 ICR suggests EBITDA definition differs between Excel and MD&A.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX3",
+    "section": "Cross-Source",
+    "difficulty": "Easy",
+    "question": "The FY22 annual report KPI page shows a Debt/EBITDA bar chart with FY22 value of 1.33x. Verify this using the Excel data and identify any discrepancy.",
+    "expected_answer": "Excel FY22: Borrowings = ₹799.55 Cr, EBITDA = ₹539 Cr. Gross D/EBITDA = 1.48x. Chart shows 1.33x — suggesting the chart uses net debt (borrowings minus cash) rather than gross borrowings.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_images"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX4",
+    "section": "Cross-Source",
+    "difficulty": "Medium",
+    "question": "In the FY23 Q1 concall, management stated annualised pre-tax ROCE improved to 26% from 20% in FY22. Using Excel data, calculate ROCE for FY22 and assess whether the stated improvement is directionally accurate.",
+    "expected_answer": "Excel FY22 ROCE approximately 20% — consistent with management's stated FY22 baseline. The Q1 FY23 claim of 26% is annualised from one quarter and cannot be fully verified from annual Excel data alone.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_concalls"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX5",
+    "section": "Cross-Source",
+    "difficulty": "Medium",
+    "question": "The FY24 Chairman's letter describes business performance as consolidation and moderation in growth. Calculate actual revenue growth and PAT growth for FY24 from Excel and assess whether moderation is accurate.",
+    "expected_answer": "Excel: FY24 revenue grew 39.8% and PAT grew 27.9%. A 40% revenue growth year being described as moderation is misleading — the moderation likely refers to margin compression, not topline growth.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX6",
+    "section": "Cross-Source",
+    "difficulty": "Medium",
+    "question": "In the FY23 Q2 concall, management claimed Aluminum segment margins were in line with Q1. The FY23 MD&A reports Aluminum segment EBIT margin for the full year. Is the full-year margin consistent with the in-call claim?",
+    "expected_answer": "FY23 MD&A reports Aluminum EBIT margin at 9% for full year. FY22 Aluminum EBIT margin was also approximately 9-10%. The full-year figure is broadly consistent with management's stability claim, though Q2 specifically showed value addition compression.",
+    "expected_source": [
+      "craftsman_automation_ltd_concalls",
+      "craftsman_automation_ltd_pdf_text"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX7",
+    "section": "Cross-Source",
+    "difficulty": "Medium",
+    "question": "The FY24 annual report donut chart shows Aluminum Products contributing 48% of consolidated revenue at ₹2,154 Cr. The MD&A shows standalone Aluminum at ₹917 Cr. Using Excel, verify the standalone Aluminum revenue figure.",
+    "expected_answer": "Implied DR Axion contribution = ₹2,154 − ₹917 = ₹1,237 Cr, consistent with Board's Report disclosure of DR Axion turnover of ₹1,246 Cr. The ₹9 Cr difference is intercompany elimination.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_images"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX8",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "Across all concall transcripts, management made multiple statements about CAPEX plans. Using Excel investing cash flows and balance sheet changes, quantify how much of the guided CAPEX was actually deployed each year.",
+    "expected_answer": "Concall guided FY23 CAPEX ₹225-275 Cr. Excel investing outflows show actual capex ~₹856 Cr — significantly exceeding guidance. Management underguided by ~3x, partly explained by the DR Axion acquisition (₹375 Cr) included in investing outflows.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_concalls"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX9",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "The FY25 MD&A attributes RoNW collapse of 77% to one-time expenses for acquisitions. Using Excel, calculate RoNW for FY24 and FY25 independently and assess whether the one-time explanation is sufficient.",
+    "expected_answer": "FY25 PAT = ₹194.57 Cr, Networth = ₹2,856.74 Cr. RoNW FY25 = 6.8% vs FY24 ~13%. Management's one-time framing is partially misleading — the QIP equity dilution mechanically depressed RoNW regardless of one-time charges.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX10",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "Management guided debt reduction as a priority across multiple concall years. The FY25 MD&A shows Debt-Equity Ratio improving to 0.59x due to QIP. Using Excel borrowings data across all years, did debt actually reduce in absolute terms?",
+    "expected_answer": "Excel Borrowings: FY22 ₹799 Cr → FY23 ₹1,240 Cr → FY24 ₹1,754 Cr → FY25 ₹2,358 Cr → FY26 ₹3,623 Cr. Debt rose every single year in absolute terms. The FY25 D/E improvement is entirely driven by QIP equity raise, not debt reduction. Management's narrative is factually contradicted by Excel data.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_concalls",
+      "craftsman_automation_ltd_pdf_text"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX11",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "The FY24 KPI page bar chart shows Debt-EBITDA rising for two consecutive years to 1.72x in FY24. Using Excel, extend this calculation to FY25 and FY26. Does the trend accelerate, stabilise, or reverse?",
+    "expected_answer": "Excel FY25: Borrowings ₹2,358 Cr, EBITDA ₹833 Cr → D/EBITDA = 2.83x. The trend shown in the FY24 chart dramatically accelerates in FY25 — a fact not visible in the annual report image which only shows through FY24.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_images"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX12",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "The FY23 auditor's report identifies derivative contracts as a KAM with assets of ₹936 Lakhs and liabilities of ₹375 Lakhs. In the FY23 Q2 concall, management discussed aluminum price risk. Are these derivative positions consistent with the hedging strategy described?",
+    "expected_answer": "Auditor's KAM shows net derivative asset of ₹561 Lakhs — a modest position vs ₹196 Cr quarterly aluminum revenue. The derivatives appear to be forex hedges rather than commodity hedges, meaning aluminum price risk was genuinely unhedged as management implied in the concall.",
+    "expected_source": [
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX13",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "Management stated in multiple concalls that the Automotive Powertrain segment is the core earnings driver. Using Excel and the FY24 MD&A segment EBIT data, calculate what percentage of total company EBIT came from Powertrain in FY22 and FY24.",
+    "expected_answer": "FY22: Powertrain EBIT ~₹333 Cr representing nearly 100% of total EBIT as other segments were near breakeven. FY24: Powertrain EBIT contribution declining as Aluminum (DR Axion) grew. The segment's EBIT dominance is clearly declining — management's concall narrative of Powertrain as core is becoming less numerically accurate.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX14",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "The FY25 Directors' Report discloses loans and advances to related parties jumped from 0% to 100% per BRSR data. Using Excel balance sheet data, assess whether this represents a material fund flow to subsidiaries.",
+    "expected_answer": "The 0% to 100% RPT concentration shift combined with three acquisitions in FY25 (DR Axion, Sunbeam, Craftsman Germany) suggests the intercompany loans are acquisition-related funding. Absolute quantum from Excel determines materiality under IND AS 24.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CX15",
+    "section": "Cross-Source",
+    "difficulty": "Hard",
+    "question": "Across all available sources — Excel, concalls, annual report visuals, and MD&A ratios — construct a complete picture of Craftsman's debt trajectory from FY22 to FY26. Did management's stated commitment to deleveraging materialise?",
+    "expected_answer": "Concall guidance: multiple commitments to ₹100 Cr debt reduction. PDF visuals: FY22 KPI chart shows D/EBITDA at 1.33x — lowest in 5 years. MD&A FY25: D/E improved to 0.59x via QIP. Excel raw data: Borrowings FY22 ₹799 Cr → FY26 ₹3,623 Cr — a 353% absolute increase. Every narrative source suggests deleveraging intent but Excel shows continuous accelerating debt accumulation. The ratio improvement in FY25 is entirely a QIP artifact.",
+    "expected_source": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_concalls",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_images"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel",
+      "craftsman_automation_ltd_pdf_text",
+      "craftsman_automation_ltd_concalls"
+    ]
+  },
+  {
+    "id": "CA1",
+    "section": "Anomaly",
+    "difficulty": "Medium",
+    "question": "What was the exact Capital Expenditure (purchase of fixed assets) for Craftsman Automation in FY25?",
+    "expected_answer": "Not available in this dataset. The Cash Flow section only provides aggregate lines (Cash from Operating Activity, Cash from Investing Activity, Cash from Financing Activity, Net Cash Flow). There is no distinct Capex line item.",
+    "expected_source": [
+      "Craftsman_Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CA2",
+    "section": "Anomaly",
+    "difficulty": "Medium",
+    "question": "What is the current ratio for Craftsman Automation for FY25 and FY26?",
+    "expected_answer": "Not computable from this dataset. The Balance Sheet only provides aggregate line items (Borrowings, Other Liabilities, Net Block, CWIP, Investments, Other Assets, Cash & Bank). Current Assets and Current Liabilities are not separately disclosed.",
+    "expected_source": [
+      "Craftsman_Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CA3",
+    "section": "Anomaly",
+    "difficulty": "Hard",
+    "question": "Calculate the Payable Days for Craftsman Automation for FY25 and FY26 and compute the full Cash Conversion Cycle.",
+    "expected_answer": "Payable Days not computable. The Balance Sheet has only an aggregate 'Other Liabilities' line — no distinct Trade Payables figure. Without Payable Days, the Cash Conversion Cycle cannot be computed. Receivable Days and Inventory Days are individually computable but CCC requires all three components.",
+    "expected_source": [
+      "Craftsman_Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CA4",
+    "section": "Anomaly",
+    "difficulty": "Hard",
+    "question": "What were the quarterly revenue and operating profit figures for Craftsman Automation for Q1 FY22 (quarter ending June 2021)?",
+    "expected_answer": "Not available in this dataset. The Quarters section of the Excel datasheet only contains data from December 2023 onward. Quarterly data for any FY22 quarter is absent.",
+    "expected_source": [
+      "Craftsman_Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  },
+  {
+    "id": "CA5",
+    "section": "Anomaly",
+    "difficulty": "Hard",
+    "question": "What was the Free Cash Flow yield (FCF / Market Cap) for Craftsman Automation in FY26?",
+    "expected_answer": "Not computable. First, FCF itself cannot be reliably computed because the dataset has no distinct Capex line item (only aggregate Cash from Investing Activity). Second, Market Cap is not available in the financial dataset. Both components required for this ratio are missing.",
+    "expected_source": [
+      "Craftsman_Auto.xlsx"
+    ],
+    "expected_routing": [
+      "craftsman_automation_ltd_excel"
+    ]
+  }
+]

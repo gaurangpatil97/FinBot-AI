@@ -459,6 +459,44 @@ def compute_answer(intent: dict, company_slug: str | None = None) -> dict | None
         logger.error(f"Failed to compute answer: {exc}")
         return None
 
+def resolve_relative_years(question: str, company_slug: str) -> list[str] | None:
+    lowered = question.lower()
+    num_years = None
+    match = re.search(r"most recent (\d+) (?:financial )?years|last (\d+) (?:financial )?years|past (\d+) (?:financial )?years", lowered)
+    if match:
+        extracted = match.group(1) or match.group(2) or match.group(3)
+        num_years = int(extracted)
+    elif "most recent" in lowered or "latest" in lowered or "current" in lowered:
+        num_years = 1
+    elif not re.search(r"20\d\d|fy\d\d", lowered):
+        num_years = 1 # Catch-all for no year mentioned
+    
+    if num_years is None:
+        return None
+        
+        
+    try:
+        chroma_path = str(settings.BASE_DIR / "chroma_store" / company_slug / "excel")
+        company_client = get_persistent_client(chroma_path)
+        collection_name = f"{company_slug}_excel"
+        collection = company_client.get_collection(collection_name)
+        
+        res = collection.get(include=["metadatas"])
+        metas = res.get("metadatas") or []
+        distinct_years = set()
+        for m in metas:
+            if m and "year" in m:
+                distinct_years.add(str(m["year"]))
+                
+        sorted_desc = sorted(list(distinct_years), reverse=True)
+        if not sorted_desc:
+            return []
+            
+        top_n = sorted_desc[:num_years]
+        return sorted(top_n)
+    except Exception as e:
+        logger.error(f"[CalcAgent] Failed to resolve relative years: {e}")
+        return []
 
 def try_calculation(question: str, company_slug: str | None = None) -> dict | None:
     trace: list[str] = []
@@ -478,6 +516,16 @@ def try_calculation(question: str, company_slug: str | None = None) -> dict | No
         if intent is None:
             logger.warning("[CalcAgent] Falling back to RAG at step: parse_computation_intent")
             return None
+
+    years = intent.get("years", [])
+    if company_slug:
+        resolved = resolve_relative_years(question, company_slug)
+        if resolved is not None:
+            intent["years"] = resolved
+            logger.info(f"[CalcAgent] Overriding/Resolved relative years for '{question[:30]}...': {resolved}")
+
+    trace.append(f"Intent: {intent.get('computation_type')}")
+    trace.append(f"Formula: {intent.get('formula')}")
 
     if intent.get("computation_type") == 'trend' and len(intent.get("years", [])) >= 2:
         logger.warning('[CalcAgent] Multi-year trend detected, falling back to RAG + clarifier')

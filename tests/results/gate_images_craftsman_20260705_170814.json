@@ -1,0 +1,532 @@
+{
+  "company": "Craftsman Automation",
+  "timestamp": "20260705_170814",
+  "results": [
+    {
+      "question_id": "CI1",
+      "section": "Images",
+      "question": "In the About the company infographic page of the FY22 annual report, a donut chart shows the revenue split by business segment. What are the three business segments shown and their respective percentage contributions?",
+      "expected_answer": "Automotive Powertrain: 52%, Industrial & Engineering: 28%, Automotive Aluminium: 20%.",
+      "actual_answer": "## Details\n\nFrom the retrieved context, the relevant data about the revenue split by business segment in FY22 is found in the infographic description on page 12 of the FY22 annual report (Source [4]):\n\n- The three business segments shown in the donut chart are:\n  1. CV (Commercial Vehicles) - 54%\n  2. Off-Highway - 20%\n  3. Tractor - 18%\n  4. PV (Passenger Vehicles) - 8%\n\nSince the question asks for the three business segments shown, the top three segments by percentage contribution are CV, Off-Highway, and Tractor.\n\n## Summary\n\nThe three business segments shown in the FY22 annual report infographic donut chart and their respective revenue contributions are: Commercial Vehicles (54%), Off-Highway (20%), and Tractor (18%).\n\n## Sources\n\n7.-Annual-Report-2021-22.pdf · Page 12 · FY22",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 124,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 93,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 114,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 12,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 107,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 30,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 82,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 125,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 75,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        }
+      ],
+      "actual_citation_filenames": [
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "craftsman_automation_ltd_pdf_text"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI2",
+      "section": "Images",
+      "question": "In the Key Performance Indicators section of the FY22 annual report, bar charts track Net Profit across five financial years FY18 to FY22. What were the Net Profit values in FY20 and FY21?",
+      "expected_answer": "FY20 Net Profit: ₹37 Crores. FY21 Net Profit: ₹97 Crores. The bar chart shows a steep recovery from the COVID-impacted FY20 trough.",
+      "actual_answer": "## Details\n\nThe question asks for Net Profit values for FY20 and FY21 as shown in the Key Performance Indicators (KPI) section of the FY22 annual report, specifically from the bar charts tracking Net Profit across FY18 to FY22.\n\nFrom the Excel structured financials (most precise source for exact financial figures):\n\n- FY20 Net Profit: ₹40.01 Cr (Source: Craftsman Auto.xlsx · profit_loss · FY2020)\n- FY21 Net Profit: ₹97.36 Cr (Source: Craftsman Auto.xlsx · profit_loss · FY2021)\n\nFrom the PDF annual report text (KPI section, FY22 annual report):\n\n- The narrative and other sections confirm the trend but do not provide exact bar chart values for Net Profit in FY20 and FY21.\n- The bar chart data itself is not explicitly transcribed in the retrieved context, but the Excel data is authoritative for exact figures.\n\n## Summary\n\nThe Net Profit values for FY20 and FY21, as tracked in the FY22 annual report KPI section bar charts, are ₹40.01 crore for FY20 and ₹97.36 crore for FY21, based on the precise Excel financial data.\n\n## Sources\n\nCraftsman Auto.xlsx · profit_loss · FY2020  \nCraftsman Auto.xlsx · profit_loss · FY2021",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Craftsman Auto.xlsx",
+          "page": "profit_loss",
+          "collection": "craftsman_automation_ltd_excel"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 9,
+          "collection": "craftsman_automation_ltd_images"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 3,
+          "collection": "craftsman_automation_ltd_images"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 39,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 101,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 100,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 15,
+          "collection": "craftsman_automation_ltd_images"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 22,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 114,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 68,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 12,
+          "collection": "craftsman_automation_ltd_images"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Craftsman Auto.xlsx",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "craftsman_automation_ltd_excel",
+        "craftsman_automation_ltd_images",
+        "craftsman_automation_ltd_pdf_text"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI3",
+      "section": "Images",
+      "question": "In the KPI Position section bar charts of the FY22 annual report, what is the trend in the Debt/EBITDA ratio over the five-year period shown FY18 to FY22?",
+      "expected_answer": "FY18: 2.92x, FY19: 2.57x, FY20: 2.31x, FY21: 1.57x, FY22: 1.33x. Consistent downward improving trend — FY22 at 1.33x is the lowest in the five-year series.",
+      "actual_answer": "I could not find relevant information in the corpus. Please ensure embeddings have been generated.",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [],
+      "actual_citation_filenames": [],
+      "citation_correct": false,
+      "collections_searched": [
+        "images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI4",
+      "section": "Images",
+      "question": "In the FY22 annual report, opening pages contain CAGR infographics showing growth from FY18 to FY22 across Revenue, EBIT, EBITDA, and PAT. The PAT CAGR of 49% is significantly higher than Revenue CAGR of 11%. What specific caveat is noted on the Revenue CAGR infographic that a CA must flag?",
+      "expected_answer": "A footnote reads Excluding Excise Duty — the FY18 base figure excludes the pre-GST excise duty component, making the revenue CAGR comparison potentially understated. This means the PAT outperformance must be interpreted with this base effect in mind.",
+      "actual_answer": "## Details\n\nThe FY22 annual report opening pages include CAGR infographics showing growth from FY18 to FY22 for Revenue, EBIT, EBITDA, and PAT. The PAT CAGR is 49%, which is much higher than the Revenue CAGR of 11%. \n\nThe infographic for Revenue CAGR specifically contains a caveat or note that this growth is \"Until a couple of years ago, it was considered only as a flanking vertical,\" indicating that the revenue base or business architecture changed during the period, which may affect the comparability or interpretation of the Revenue CAGR.\n\nThis caveat implies that the revenue growth figure may be influenced by structural changes in the company’s business segments or reporting, and thus the Revenue CAGR may not represent a pure organic growth rate.\n\n## Summary\n\nThe Revenue CAGR infographic in the FY22 annual report opening pages includes a caveat stating that until a couple of years ago, the relevant business was considered only a flanking vertical, indicating a change in company architecture. A Chartered Accountant must flag this as it suggests the Revenue CAGR may be affected by changes in business structure, impacting comparability and interpretation.\n\n## Sources\n\n7.-Annual-Report-2021-22.pdf · Page 6 · FY22",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 75,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 6,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 107,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 100,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 68,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 82,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "7.-Annual-Report-2021-22.pdf",
+          "page": 124,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        }
+      ],
+      "actual_citation_filenames": [
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf",
+        "7.-Annual-Report-2021-22.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "craftsman_automation_ltd_pdf_text"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI5",
+      "section": "Images",
+      "question": "The Revenue mix across sectors FY23 donut chart on the An Edge above the rest visual page shows three business segments. What percentage does the Automotive Powertrain segment contribute to total revenue?",
+      "expected_answer": "Automotive Powertrain contributes 51% of total revenue. Remaining segments: Aluminium Products at 25% and Industrial & Engineering at 24%.",
+      "actual_answer": "I could not find relevant information in the corpus. Please ensure embeddings have been generated.",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [],
+      "actual_citation_filenames": [],
+      "citation_correct": false,
+      "collections_searched": [
+        "images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI6",
+      "section": "Images",
+      "question": "The Revenue mix across geographies FY23 donut chart in the annual report shows a domestic vs export split. What percentage of revenue is domestic?",
+      "expected_answer": "92% domestic revenue and 8% export revenue. In FY04, over 80% of revenues came from exports — a near-complete reversal of geographic mix over ~19 years.",
+      "actual_answer": "## Details\n\nThe question asks for the percentage of revenue that is domestic according to the FY23 donut chart showing the revenue mix across geographies (domestic vs export) in the annual report.\n\n- The context includes a reference to image/chart data for segment breakdowns and visual KPIs.\n- The donut chart with the domestic vs export revenue split is mentioned as part of the annual report image pages.\n- However, the retrieved context does not contain the exact numeric values or percentages from the FY23 donut chart for domestic and export revenue split.\n- No explicit percentage or numeric figure for domestic revenue share is present in the provided text or tables.\n\n## Summary\n\nThe exact percentage of revenue that is domestic according to the FY23 revenue mix donut chart is not available in the retrieved context.\n\n## Sources\n\nAnnual-Report_2023.pdf · Page/Sheet: 11, 24, 102, 118 · FY23",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 102,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 24,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 118,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 69,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 11,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 85,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 103,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "craftsman_automation_ltd_pdf_text"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI7",
+      "section": "Images",
+      "question": "In the Over the years financial performance multi-year bar chart section of the FY23 annual report, the Debt-equity Ratio chart shows values across FY19 to FY23. In which year did the ratio peak and what was the peak value?",
+      "expected_answer": "The ratio peaked in FY19 at 1.42x. The five-year trend shows consistent de-leveraging from 1.42x (FY19) to 0.63x (FY22), with a slight uptick to 0.72x in FY23 reflecting additional debt for the DR Axion acquisition.",
+      "actual_answer": "## Details\n\nThe question refers to the Debt-Equity Ratio values shown in the multi-year bar chart section of the FY23 annual report, specifically from FY19 to FY23.\n\nFrom the retrieved context, the Debt-Equity Ratio values explicitly stated for FY22 and FY23 are:\n\n- FY22: 0.63 (from multiple sources including pages 129 and 96)\n- FY23: 0.72 (from multiple sources including pages 129 and 96)\n\nNo explicit Debt-Equity Ratio values for FY19, FY20, or FY21 are provided in the retrieved context.\n\nSince the question asks for the peak year and value from FY19 to FY23, and only FY22 and FY23 values are available, it is not possible to determine the peak year or value for the entire FY19-FY23 period from the retrieved context.\n\n## Summary\n\nThe Debt-Equity Ratio values for FY22 (0.63) and FY23 (0.72) are available, but the ratio values for FY19, FY20, and FY21 are not disclosed in the retrieved context. Therefore, it is not possible to identify the peak year or peak value of the Debt-Equity Ratio over FY19 to FY23 from the provided data.\n\n## Sources\n\nAnnual-Report_2023.pdf · Page 129 · FY23  \nAnnual-Report_2023.pdf · Page 96 · FY23",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 82,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 129,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 83,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 116,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 89,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 123,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report_2023.pdf",
+          "page": 96,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf",
+        "Annual-Report_2023.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "craftsman_automation_ltd_pdf_text"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI8",
+      "section": "Images",
+      "question": "In the Over the years bar chart section of the FY23 annual report, the Debt-EBITDA Ratio chart shows a value for FY21 that appears anomalous relative to surrounding years. What does cross-reading against the Net Profit bar chart reveal?",
+      "expected_answer": "FY21 Debt-EBITDA ~1.57x but Net Profit shows ~₹37 Cr — a dramatic collapse. The combination of low net profit with moderate Debt-EBITDA confirms FY21 was a severe pandemic-impact year with high depreciation and finance cost load.",
+      "actual_answer": "## Details\n\n- From the Excel data for FY21 and FY23:\n\n  - FY21 EBITDA = 432.02 Cr  \n  - FY21 Borrowings (Debt) = 805.98 Cr  \n  - FY21 Net Profit = 97.36 Cr\n\n  - FY23 EBITDA = 613.40 Cr  \n  - FY23 Borrowings (Debt) = 1240.23 Cr  \n  - FY23 Net Profit = 248.39 Cr\n\n- The Debt-EBITDA ratio for FY21 can be calculated as:  \n  Debt-EBITDA = Borrowings / EBITDA = 805.98 / 432.02 ≈ 1.87\n\n- The Debt-EBITDA ratio for FY23 is:  \n  1240.23 / 613.40 ≈ 2.02\n\n- The question states the FY21 Debt-EBITDA ratio in the bar chart appears anomalous relative to surrounding years (likely meaning it looks unusually high or low).\n\n- Cross-reading with the Net Profit bar chart for FY21 shows a relatively low net profit of 97.36 Cr compared to FY23 net profit of 248.39 Cr, indicating FY21 was a lower profit year.\n\n- The anomaly in Debt-EBITDA ratio for FY21 in the chart could be due to the relatively high EBITDA (432.02 Cr) compared to debt (805.98 Cr), resulting in a lower ratio than expected given the low net profit.\n\n- This suggests that while net profit was low in FY21, EBITDA was relatively strong, which affects the Debt-EBITDA ratio making it appear anomalous when compared to net profit trends.\n\n## Summary\n\nThe anomalous Debt-EBITDA ratio value for FY21 in the bar chart, when cross-read with the Net Profit bar chart, reveals that despite a relatively low net profit in FY21, the EBITDA was comparatively high, resulting in a Debt-EBITDA ratio that appears inconsistent with the net profit trend. This explains the anomaly as EBITDA and net profit moved differently that year.\n\n## Sources\n\nCraftsman Auto.xlsx · profit_loss · FY2021  \nCraftsman Auto.xlsx · profit_loss · FY2023  \nCraftsman Auto.xlsx · balance_sheet · FY2021  \nCraftsman Auto.xlsx · balance_sheet · FY2023",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Craftsman Auto.xlsx",
+          "page": "profit_loss",
+          "collection": "craftsman_automation_ltd_excel"
+        },
+        {
+          "filename": "Craftsman Auto.xlsx",
+          "page": "balance_sheet",
+          "collection": "craftsman_automation_ltd_excel"
+        },
+        {
+          "filename": "Craftsman Auto.xlsx",
+          "page": "cash_flow",
+          "collection": "craftsman_automation_ltd_excel"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Craftsman Auto.xlsx",
+        "Craftsman Auto.xlsx",
+        "Craftsman Auto.xlsx"
+      ],
+      "citation_correct": false,
+      "collections_searched": [
+        "craftsman_automation_ltd_excel"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI9",
+      "section": "Images",
+      "question": "In the donut chart labelled Revenue by Geography Consolidated Basis in the FY24 annual report, what percentage of total consolidated revenue of ₹4,452 Crore is derived from domestic sales versus exports?",
+      "expected_answer": "Domestic: ₹4,254 Crore = 96% of total consolidated revenue. Exports: ₹198 Crore = 4%.",
+      "actual_answer": "## Details\n\nThe donut chart labelled \"Revenue by Geography Consolidated Basis\" in the FY24 annual report shows the split of total consolidated revenue of ₹4,452 Crore between domestic sales and exports.\n\nFrom the context:\n\n- Total consolidated revenue for FY24 = ₹4,451.73 Crore (rounded to ₹4,452 Crore) [Source: Annual-Report-2023-24.pdf · Page 42 · FY24]\n- The export contribution percentage is explicitly stated as 6.54% [Source: Annual-Report-2023-24.pdf · Page 92 · FY24]\n\nSince the export revenue is 6.54% of total consolidated revenue, the domestic revenue percentage is the remainder:\n\nDomestic revenue % = 100% - 6.54% = 93.46%\n\n## Calculation\n\n- Export revenue = 6.54% of ₹4,452 Crore = (6.54 / 100) * 4,452 = ₹291.2 Crore (approx, for reference only)\n- Domestic revenue = 93.46% of ₹4,452 Crore = (93.46 / 100) * 4,452 = ₹4,160.8 Crore (approx, for reference only)\n\n(Note: The question only asks for percentages, so the exact revenue figures are not required.)\n\n## Summary\n\nAccording to the donut chart in the FY24 annual report, 93.46% of the total consolidated revenue of ₹4,452 Crore is derived from domestic sales, while 6.54% comes from exports.\n\n## Sources\n\nAnnual-Report-2023-24.pdf · Page 42 · FY24  \nAnnual-Report-2023-24.pdf · Page 92 · FY24",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 228,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 190,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 22,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 225,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 20,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 229,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 160,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 184,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 226,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 42,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        },
+        {
+          "filename": "Annual-Report-2023-24.pdf",
+          "page": 92,
+          "collection": "craftsman_automation_ltd_pdf_text"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf",
+        "Annual-Report-2023-24.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "craftsman_automation_ltd_pdf_text"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI10",
+      "section": "Images",
+      "question": "In the five-year bar charts under Performance Consolidated Basis on the KPI page of the FY24 annual report, compare the trajectory of Net Profit versus EBITDA from FY20 to FY24. In which year did Net Profit grow proportionally fastest?",
+      "expected_answer": "FY21 shows the most disproportionate Net Profit growth (₹40 Cr to ₹97 Cr = ~143% jump) vs EBITDA growth (~10%), suggesting significant below-EBITDA line improvement from lower finance costs or tax benefits.",
+      "actual_answer": "I could not find relevant information in the corpus. Please ensure embeddings have been generated.",
+      "expected_citations": [
+        "Annual-Report"
+      ],
+      "actual_citations": [],
+      "actual_citation_filenames": [],
+      "citation_correct": false,
+      "collections_searched": [
+        "images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    }
+  ]
+}

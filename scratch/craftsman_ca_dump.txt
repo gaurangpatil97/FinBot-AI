@@ -1,0 +1,177 @@
+--- CA1 ---
+Routing: ['excel']
+## Details
+
+Capital Expenditure (CapEx) typically appears as a cash outflow under investing activities in the cash flow statement, often labeled as "purchase of fixed assets" or similar.
+
+From the cash flow data for FY25 (Craftsman Auto.xlsx · cash_flow · 2025):
+
+- Cash from Investing Activity: -1642.82 Cr
+
+This figure represents net cash used in investing activities, which includes purchase of fixed assets (CapEx) minus proceeds from sale of fixed assets or investments.
+
+No separate line item explicitly states the exact purchase of fixed assets.
+
+From the balance sheet (Craftsman Auto.xlsx · balance_sheet · 2025):
+
+- Net Block (net fixed assets) = 3670.33 Cr
+- Capital Work in Progress = 345.26 Cr
+
+However, without prior year net block or CWIP figures, we cannot calculate the increase in fixed assets.
+
+No explicit CapEx figure is provided in the retrieved context.
+
+## Summary
+
+The exact Capital Expenditure (purchase of fixed assets) for FY25 is not explicitly stated in the retrieved context. The cash flow from investing activities is -1642.82 Cr, which likely includes CapEx, but the precise amount of fixed asset purchases is not separately disclosed.
+
+## Sources
+
+Craftsman Auto.xlsx · cash_flow · 2025  
+Craftsman Auto.xlsx · balance_sheet · 2025
+
+--- CA2 ---
+Routing: ['excel']
+## Details
+
+The current ratio is calculated as:
+
+**Current Ratio = Current Assets / Current Liabilities**
+
+From the balance sheet data for FY25 and FY26, we identify:
+
+### Current Assets components:
+- Receivables
+- Inventory
+- Cash & Bank
+
+### Current Liabilities:
+- Other Liabilities (assuming these are current liabilities as no separate current liabilities figure is given)
+
+**FY25:**
+
+- Receivables = 920.59 Cr
+- Inventory = 1332.05 Cr
+- Cash & Bank = 123.23 Cr  
+- Total Current Assets = 920.59 + 1332.05 + 123.23 = 2375.87 Cr
+
+- Other Liabilities = 1901.52 Cr (assumed current liabilities)
+
+**FY26:**
+
+- Receivables = 1110.54 Cr
+- Inventory = 1745.41 Cr
+- Cash & Bank = 178.78 Cr  
+- Total Current Assets = 1110.54 + 1745.41 + 178.78 = 3034.73 Cr
+
+- Other Liabilities = 2090.76 Cr (assumed current liabilities)
+
+## Calculation
+
+**FY25 Current Ratio = Total Current Assets / Current Liabilities**  
+= 2375.87 / 1901.52  
+= 1.25 (rounded to two decimals)
+
+**FY26 Current Ratio = Total Current Assets / Current Liabilities**  
+= 3034.73 / 2090.76  
+= 1.45 (rounded to two decimals)
+
+## Summary
+
+The current ratio for Craftsman Automation Ltd was 1.25 in FY25 and improved to 1.45 in FY26, indicating better short-term liquidity in FY26 compared to FY25.
+
+## Sources
+
+Craftsman Auto.xlsx · balance_sheet · FY25  
+Craftsman Auto.xlsx · balance_sheet · FY26
+
+--- CA3 ---
+Routing: ['calculation']
+## Details
+
+The question asks for Payable Days and the full Cash Conversion Cycle (CCC) for FY25 and FY26 for Craftsman Automation. To calculate these, we need the following components:
+
+- Payable Days = (Trade Payables / Cost of Goods Sold) × 365
+- Cash Conversion Cycle = Inventory Days + Receivable Days - Payable Days
+
+However, the provided context only includes data related to Cash from Operating Activity and Net Profit for FY25 and FY26:
+
+- FY25:
+  - Cash from Operating Activity = 283.33
+  - Net Profit = 194.57
+  - Ratio (Cash from Operating Activity / Net Profit) = 1.46
+
+- FY26:
+  - Cash from Operating Activity = 521.68
+  - Net Profit = 383.99
+  - Ratio (Cash from Operating Activity / Net Profit) = 1.36
+
+No data is provided for Trade Payables, Cost of Goods Sold, Inventory, or Receivables, which are essential to calculate Payable Days and the Cash Conversion Cycle.
+
+## Summary
+
+The data required to calculate Payable Days and the full Cash Conversion Cycle for FY25 and FY26 is not available in the provided context. Therefore, these metrics cannot be computed.
+
+## Sources
+
+Craftsman Auto.xlsx · calculation · 2026
+
+--- CA4 ---
+Routing: ['concall', 'excel']
+## Details
+
+From the retrieved context, the quarterly revenue and operating profit figures for Q1 FY22 (quarter ended June 2021) are not explicitly stated in the Excel financial data, which only provides annual figures for FY21 and FY22.
+
+The earnings call transcript for Q1 FY22 (crafts22Q1.pdf) contains management commentary but does not provide explicit quarterly revenue or operating profit numbers.
+
+- The Excel data shows:
+  - FY21 Sales: ₹1559.95 Cr
+  - FY22 Sales: ₹2217.02 Cr
+  - FY21 Profit before tax: ₹148.76 Cr
+  - FY22 Profit before tax: ₹251.73 Cr
+
+- No quarterly breakdown for Q1 FY22 revenue or operating profit is given in the Excel sheets.
+
+- The earnings call transcripts for Q1 FY22 (crafts22Q1.pdf) do not provide explicit numeric revenue or operating profit figures for Q1 FY22.
+
+## Summary
+
+The exact quarterly revenue and operating profit figures for Craftsman Automation for Q1 FY22 (quarter ending June 2021) are not available in the retrieved context.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY21, FY22  
+crafts22Q1.pdf · pages 1, 4, 11, 13 · FY22
+
+--- CA5 ---
+Routing: ['excel']
+## Details
+
+To calculate Free Cash Flow (FCF) and then Free Cash Flow Yield (FCF / Market Cap), we need:
+
+- Free Cash Flow (FCF) = Cash from Operating Activities - Capital Expenditures (CapEx)
+- Market Capitalization (Market Cap) = Share Price × Number of Shares (or Equity Share Capital × Market Price per share)
+
+From the provided context:
+
+- Cash from Operating Activity (FY26) = 521.68 Cr (from cash_flow sheet)
+- Capital Expenditure (CapEx) is not explicitly stated. However, Net Block and Capital Work in Progress are given, but these are balance sheet items, not direct CapEx.
+- Since CapEx is not explicitly provided, we cannot calculate FCF precisely.
+
+Market Cap:
+
+- Equity Share Capital = 11.93 Cr (from balance_sheet)
+- Number of shares = Equity Share Capital / Face Value per share (face value not provided)
+- Market price per share is not provided in the context.
+
+Therefore, Market Cap cannot be calculated from the given data.
+
+## Summary
+
+Free Cash Flow (FCF) cannot be calculated because Capital Expenditure (CapEx) is not provided in the retrieved context. Similarly, Market Capitalization cannot be determined as the market price per share or number of shares outstanding is not available. Hence, Free Cash Flow Yield (FCF / Market Cap) for FY26 cannot be computed from the provided data.
+
+## Sources
+
+Craftsman Auto.xlsx · cash_flow · FY26  
+Craftsman Auto.xlsx · balance_sheet · FY26
+

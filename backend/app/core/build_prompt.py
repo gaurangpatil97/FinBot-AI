@@ -24,18 +24,19 @@ def build_prompt(question: str, chunks: list[dict], mode: str = "rag") -> str:
 
     structure_instructions = """You MUST structure your response using the following layout and markdown ## headings (do NOT use bold-text-as-heading like **Summary:**):
 
-## Summary
-Provide a 1-2 sentence direct answer and key conclusion up front (including the key figure with units if quantitative).
-
 ## Details
-(Include this section for calculations or direct data lookups. Omit for qualitative/narrative questions.)
-Provide the exact figures used, broken down by year/metric.
+(Include this section for calculations, direct data lookups, or narrative reasoning.)
+Provide the exact figures used, broken down by year/metric. Work through the Grounding Rules here first to establish if the data is available.
 
 ## Calculation
 (Only include this section if a calculation was performed. Omit for direct lookups or qualitative questions.)
 State the formula used, followed by a step-by-step substitution showing the actual numbers.
 
-(For qualitative/narrative questions, instead of Details/Calculation, use clear thematic ## sub-headings as appropriate, e.g., ## Growth, ## Profitability, ## Risk, ## Outlook, ## Conclusion.)
+## Summary
+Provide a 1-2 sentence direct answer and key conclusion.
+The Summary must be consistent with your Details section. If Details concludes a figure is not available/not disclosed/not computable, the Summary must say the same — never state a hallucinated or proxied number in the Summary that contradicts your own Details.
+
+(For qualitative/narrative questions, instead of Details/Calculation, use clear thematic ## sub-headings as appropriate, e.g., ## Growth, ## Profitability, ## Risk, ## Outlook, ## Conclusion. But always ensure your final Summary is grounded in the reasoning established in the prior sections.)
 
 ## Sources
 List each citation on its own line. Format each citation cleanly as:
@@ -57,6 +58,9 @@ Grounding Rules:
 - If you are computing a ratio or deriving a value, explicitly show the formula and cite the exact source values from the context (e.g. "Using values from Q3FY25 Concall: Revenue = ₹X, EBITDA = ₹Y").
 - If the retrieved context does not contain enough information to answer the question fully, explicitly say so rather than inferring or estimating.
 - Do not use prior knowledge or training data to fill in missing figures.
+- CONFLICTING DATA SOURCES: When multiple sources provide conflicting figures for the same metric (e.g. Operating Cash Flow appears in both Excel financial data and PDF Annual Report text), ALWAYS prioritize the Excel/structured-data source over PDF/narrative text, since Excel data is the authoritative structured source.
+- EXPLICIT BASELINE EXTRACTION: When asked for a 'change', 'difference', 'increase', 'growth', or comparison between two time periods, you MUST explicitly extract BOTH the baseline value and the ending value from the retrieved context before calculating or stating the answer — do not stop after finding only one of the two values.
+- NO PROXY SUBSTITUTIONS: If a question requires a SPECIFIC named line item (e.g. 'Current Liabilities', 'Capex', 'Trade Payables') and that exact line item is not present in the retrieved data, you MUST NOT substitute a different, broader, or related line item in its place — even if you explicitly label it as an assumption or proxy. Using a substitute line item to force a calculation is equivalent to hallucination and is forbidden. In this case, state clearly that the required line item is not disclosed and the calculation cannot be performed. Do not perform the calculation with substituted values under any circumstances, even with a caveat.
 
 {structure_instructions}
 
@@ -93,13 +97,19 @@ REASONING RULES — apply these to every response:
 
 1. NUMBERS MUST BE GROUNDED: Never state, calculate with, or assume any numeric figure that does not appear verbatim in the retrieved context. If a required number is not present in the retrieved chunks, explicitly state "this figure is not available in the retrieved context" rather than estimating or deriving it.
 
-2. COMPARATIVE ANALYSIS: When a question asks you to identify "which ratio/segment/metric showed the highest or lowest change, or the most/least severe movement," you must explicitly list ALL candidates with their values before stating your conclusion. Do not jump to a conclusion without enumerating the full comparison set.
+2. NO PROXY SUBSTITUTIONS: If a question requires a SPECIFIC named line item (e.g. 'Current Liabilities', 'Capex', 'Trade Payables') and that exact line item is not present in the retrieved data, you MUST NOT substitute a different, broader, or related line item in its place — even if you explicitly label it as an assumption or proxy. Using a substitute line item to force a calculation is equivalent to hallucination and is forbidden. In this case, state clearly that the required line item is not disclosed and the calculation cannot be performed. Do not perform the calculation with substituted values under any circumstances, even with a caveat.
+
+3. COMPARATIVE ANALYSIS: When a question asks you to identify "which ratio/segment/metric showed the highest or lowest change, or the most/least severe movement," you must explicitly list ALL candidates with their values before stating your conclusion. Do not jump to a conclusion without enumerating the full comparison set.
 
 3. HEDGE TYPE IDENTIFICATION: When asked whether derivative positions are consistent with a stated risk (commodity, forex, interest rate), first identify what the underlying exposure is from the context, then verify whether the derivative instruments match that exposure type. Do not assume consistency — verify it explicitly.
 
 4. AUDIT AND GOVERNANCE GAPS: When asked whether an absence of disclosure, KAM, or committee independence represents a concern or gap, evaluate from the perspective of applicable auditing standards and governance best practices (e.g. SEBI LODR, SA 701, IND AS), not from management's framing or explanation. An absence can be a gap even if management does not flag it.
 
 5. PERCENTAGE OF TOTAL CALCULATIONS: When computing a segment's or item's share of a total, verify that your denominator includes ALL segments or items, not just those mentioned in the question. State each component and the total explicitly before computing the share.
+
+6. CONFLICTING DATA SOURCES: When multiple sources provide conflicting figures for the same metric (e.g. Operating Cash Flow appears in both Excel financial data and PDF Annual Report text), ALWAYS prioritize the Excel/structured-data source over PDF/narrative text, since Excel data is the authoritative structured source.
+
+7. EXPLICIT BASELINE EXTRACTION: When asked for a 'change', 'difference', 'increase', 'growth', or comparison between two time periods, you MUST explicitly extract BOTH the baseline value and the ending value from the retrieved context before calculating or stating the answer — do not stop after finding only one of the two values.
 
 {structure_instructions}
 

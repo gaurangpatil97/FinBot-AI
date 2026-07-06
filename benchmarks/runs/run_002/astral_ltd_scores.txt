@@ -1,0 +1,722 @@
+============================================================
+  BENCHMARK SUMMARY - ASTRAL_LTD
+============================================================
+Total Questions:          100
+Total Routing Accuracy:   93/100 (93.00%)
+Total Citation Accuracy:  92/100 (92.00%)
+
+Per-Section Breakdown:
+  Excel           | Routing: 20/20 (100.0%) | Citations: 20/20 (100.0%)
+  Ratio           | Routing: 10/10 (100.0%) | Citations: 10/10 (100.0%)
+  Concall         | Routing: 18/20 (90.0%) | Citations: 16/20 (80.0%)
+  PDF             | Routing: 18/20 (90.0%) | Citations: 18/20 (90.0%)
+  Images          | Routing: 10/10 (100.0%) | Citations: 8/10 (80.0%)
+  Cross-Source    | Routing: 12/15 (80.0%) | Citations: 15/15 (100.0%)
+  Anomaly         | Routing: 5/5 (100.0%) | Citations: 5/5 (100.0%)
+============================================================
+
+
+FinBot Benchmark Report (ASTRAL_LTD)
+Run: run_002
+================================================================================
+
+Q1 (ID: E1) [Excel]
+Question: What was the company's total revenue for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  11.5s
+--------------------------------------------------------------------------------
+
+Q2 (ID: E2) [Excel]
+Question: What was the net profit for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  8.49s
+--------------------------------------------------------------------------------
+
+Q3 (ID: E3) [Excel]
+Question: What was the total borrowings (short-term + long-term debt) for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  10.59s
+--------------------------------------------------------------------------------
+
+Q4 (ID: E4) [Excel]
+Question: What was the operating profit margin (operating profit / revenue × 100) for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  14.01s
+--------------------------------------------------------------------------------
+
+Q5 (ID: E5) [Excel]
+Question: What was the year-on-year revenue growth rate for each of the last 4 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  11.03s
+--------------------------------------------------------------------------------
+
+Q6 (ID: E6) [Excel]
+Question: What was the free cash flow (operating cash flow minus capital expenditure) for each of the last 5 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  13.22s
+--------------------------------------------------------------------------------
+
+Q7 (ID: E7) [Excel]
+Question: What were the receivable days, inventory days, and payable days for each of the last 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  17.39s
+--------------------------------------------------------------------------------
+
+Q8 (ID: E8) [Excel]
+Question: What was the total capex spent over the last 5 financial years combined, and what was the cumulative revenue growth over the same period? Did capex translate into proportional top-line growth?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  14.31s
+--------------------------------------------------------------------------------
+
+Q9 (ID: E9) [Excel]
+Question: In which financial year did the gap between EBITDA and operating cash flow diverge the most, and by how much?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  15.34s
+--------------------------------------------------------------------------------
+
+Q10 (ID: E10) [Excel]
+Question: What is the 3-year CAGR of revenue and the 3-year CAGR of total assets? Is the company growing revenue faster or slower than its asset base is expanding?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  32.53s
+--------------------------------------------------------------------------------
+
+Q11 (ID: R1) [Ratio]
+Question: What is the debt-to-equity ratio for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  10.6s
+--------------------------------------------------------------------------------
+
+Q12 (ID: R2) [Ratio]
+Question: What is the current ratio for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  14.86s
+--------------------------------------------------------------------------------
+
+Q13 (ID: R3) [Ratio]
+Question: What is the return on equity (net profit / shareholders' equity × 100) for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  10.81s
+--------------------------------------------------------------------------------
+
+Q14 (ID: R4) [Ratio]
+Question: What is the return on capital employed (EBIT / capital employed × 100) for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  15.19s
+--------------------------------------------------------------------------------
+
+Q15 (ID: R5) [Ratio]
+Question: What is the interest coverage ratio (EBIT / interest expense) for each of the most recent 3 financial years?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  9.98s
+--------------------------------------------------------------------------------
+
+Q16 (ID: R6) [Ratio]
+Question: Perform a DuPont decomposition of ROE for the most recent financial year. What are the three components: net profit margin (net profit / revenue), asset turnover (revenue / total assets), and equity multiplier (total assets / shareholders' equity)?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  13.68s
+--------------------------------------------------------------------------------
+
+Q17 (ID: R7) [Ratio]
+Question: What is the cash conversion cycle for each of the most recent 2 financial years? Calculate receivable days, inventory days, and payable days separately and show the net cycle.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  14.93s
+--------------------------------------------------------------------------------
+
+Q18 (ID: R8) [Ratio]
+Question: What is the operating cash flow to net profit ratio for each of the last 3 financial years? Is the company consistently converting its accounting profits into real cash?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  17.02s
+--------------------------------------------------------------------------------
+
+Q19 (ID: R9) [Ratio]
+Question: What is the EBIT-to-interest-expense ratio and the change in total borrowings for the most recent 2 financial years? Is the company comfortably servicing its debt while reducing or maintaining its debt levels?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  20.77s
+--------------------------------------------------------------------------------
+
+Q20 (ID: R10) [Ratio]
+Question: What is the computed ROCE and the computed cost of debt (interest expense / total borrowings) for the most recent 2 financial years? Is the company earning above its cost of borrowing?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  21.15s
+--------------------------------------------------------------------------------
+
+Q21 (ID: C1) [Concall]
+Question: What are the key revenue drivers and priorities outlined by management for the coming year?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  15.83s
+--------------------------------------------------------------------------------
+
+Q22 (ID: C2) [Concall]
+Question: What factors did management attribute the company's performance to in the most recent quarter?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['AstralConcall25Q3.pdf'] | Got: ['AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  13.15s
+--------------------------------------------------------------------------------
+
+Q23 (ID: C3) [Concall]
+Question: What near-term risks or challenges did management highlight during the calls?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q2.pdf'] | Got: ['AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  14.16s
+--------------------------------------------------------------------------------
+
+Q24 (ID: C4) [Concall]
+Question: What is management's volume and margin guidance for the core business divisions?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls'])
+Citation: ❌ FAIL (Expected: ['AstralConcall25Q3.pdf', 'AstralConcall25Q2.pdf'] | Got: ['AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  11.9s
+--------------------------------------------------------------------------------
+
+Q25 (ID: C5) [Concall]
+Question: What was the impact of raw material price volatility, and what inventory loss/gain was reported?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ❌ FAIL (Expected: ['AstralConcall25Q2.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q4.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  14.93s
+--------------------------------------------------------------------------------
+
+Q26 (ID: C6) [Concall]
+Question: What are the capital expenditure (capex) plans and guidance for the current and next fiscal year?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q3.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q4.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  15.21s
+--------------------------------------------------------------------------------
+
+Q27 (ID: C7) [Concall]
+Question: What capacity additions or plant updates did management detail?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q3.pdf', 'AstralConcall25Q4.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  13.01s
+--------------------------------------------------------------------------------
+
+Q28 (ID: C8) [Concall]
+Question: What updates did management provide regarding new acquisitions, overseas offices, or capacity expansion?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q3.pdf'] | Got: ['AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  18.18s
+--------------------------------------------------------------------------------
+
+Q29 (ID: C9) [Concall]
+Question: What EBITDA margin contractions or fluctuations did management report, and what were the reasons?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q2.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q4.pdf'] | Got: ['AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  11.48s
+--------------------------------------------------------------------------------
+
+Q30 (ID: C10) [Concall]
+Question: What is management's stance on debt reduction, cash utilization, and working capital normalization?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall25Q4.pdf', 'AstralConcall25Q2.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  12.66s
+--------------------------------------------------------------------------------
+
+Q31 (ID: P1) [PDF]
+Question: What are the reportable business segments of the group, and what was their segment revenue for the current vs previous year?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  11.58s
+--------------------------------------------------------------------------------
+
+Q32 (ID: P2) [PDF]
+Question: What key business risks does the company identify in its Risk Management framework, and what are their mitigation measures?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  16.2s
+--------------------------------------------------------------------------------
+
+Q33 (ID: P3) [PDF]
+Question: What transactions with related parties were disclosed in the financial statements, and what was the compensation of key management personnel?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  15.19s
+--------------------------------------------------------------------------------
+
+Q34 (ID: P4) [PDF]
+Question: What contingent liabilities and commitments were reported by the company at the close of the financial year?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  9.73s
+--------------------------------------------------------------------------------
+
+Q35 (ID: P5) [PDF]
+Question: What operational capacity expansions, capital expenditures, or strategic acquisitions did the company detail in the annual report?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  20.56s
+--------------------------------------------------------------------------------
+
+Q36 (ID: P6) [PDF]
+Question: What Key Audit Matters (KAM) did the independent auditor identify, and what was the auditor's response to them?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  13.7s
+--------------------------------------------------------------------------------
+
+Q37 (ID: P7) [PDF]
+Question: What segment profit, segment assets, and segment liabilities were reported for the company's core segments?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  16.3s
+--------------------------------------------------------------------------------
+
+Q38 (ID: P8) [PDF]
+Question: What are the top three largest line items under 'Other Expenses' in the standalone financial statements, and how did they change YoY?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  29.15s
+--------------------------------------------------------------------------------
+
+Q39 (ID: P9) [PDF]
+Question: What new or amended accounting standards were disclosed, and what was their impact?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  12.14s
+--------------------------------------------------------------------------------
+
+Q40 (ID: P10) [PDF]
+Question: What provisions (current and non-current) for employee benefits or other liabilities were disclosed, and what schedules were provided?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  14.46s
+--------------------------------------------------------------------------------
+
+Q41 (ID: CE1) [Excel]
+Question: Astral's net profit dropped in FY25 despite revenue growing. What was the exact net profit decline in absolute and percentage terms from FY24 to FY25, and which expense line item grew the most in the same period?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  18.44s
+--------------------------------------------------------------------------------
+
+Q42 (ID: CE2) [Excel]
+Question: Astral's borrowings jumped from 119.40 in FY24 to 233.20 in FY25 — nearly doubling. Did operating cash flow in FY25 cover this incremental debt? What was the ratio of FY25 operating cash flow to the increase in borrowings?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd.xlsx'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  14.37s
+--------------------------------------------------------------------------------
+
+Q43 (ID: CE3) [Excel]
+Question: What was the Sales (Revenue) reported by Astral Ltd in FY26?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  12.86s
+--------------------------------------------------------------------------------
+
+Q44 (ID: CE4) [Excel]
+Question: What was the Net profit of Astral Ltd in FY25?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  9.01s
+--------------------------------------------------------------------------------
+
+Q45 (ID: CE5) [Excel]
+Question: Did Astral Ltd's Cash from Operating Activity increase or decrease in FY25 compared to FY24, and by what absolute amount?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf', 'AstralConcall25Q4.pdf'])
+Latency:  12.18s
+--------------------------------------------------------------------------------
+
+Q46 (ID: CE6) [Excel]
+Question: Compute the absolute increase in Total Reserves of Astral Ltd from FY17 to FY26.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  10.12s
+--------------------------------------------------------------------------------
+
+Q47 (ID: CE7) [Excel]
+Question: Compare the Profit before tax across FY21, FY22, and FY23. Which year achieved the highest value, and what were the respective values?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  17.29s
+--------------------------------------------------------------------------------
+
+Q48 (ID: CE8) [Excel]
+Question: Identify the anomaly in 'Other Expenses' in FY26. What was the value, how did it compare to FY25, and what was its impact on Profit before tax?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  15.84s
+--------------------------------------------------------------------------------
+
+Q49 (ID: CE9) [Excel]
+Question: Analyze the relationship between Net Profit and Dividend Amount changes in FY26 compared to FY25. Did dividends follow the net profit trend?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  13.01s
+--------------------------------------------------------------------------------
+
+Q50 (ID: CE10) [Excel]
+Question: Cross-verify the asset side components for FY26: compute Total Assets as the sum of Net Block, Capital Work in Progress, and Other Assets, and check if it matches the reported Total row.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  17.78s
+--------------------------------------------------------------------------------
+
+Q51 (ID: CP1) [PDF]
+Question: Per the Key Audit Matters section of the Independent Auditor's Report in Astral Limited's Standalone Financial Statements for FY25, what is the combined carrying value (as at March 31, 2025) of (a) Goodwill tested for impairment and (b) the Company's investments in subsidiaries tested for impairment (Astral Coatings Private Limited and Seal IT Services Limited, UK)? State the formula used.
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  12.87s
+--------------------------------------------------------------------------------
+
+Q52 (ID: CP2) [PDF]
+Question: What was the installed capacity of Astral Ltd for the year under review as mentioned in the Project Implementation section of the Directors' Report, and by what percentage did it increase compared to the previous year?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf'])
+Latency:  18.49s
+--------------------------------------------------------------------------------
+
+Q53 (ID: CP3) [PDF]
+Question: According to the Risk Mitigation section of the report, what is Astral Ltd's specific mitigation strategy to manage 'Competition risk'?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  9.99s
+--------------------------------------------------------------------------------
+
+Q54 (ID: CP4) [PDF]
+Question: In Note 37 (Segment Reporting), reconcile total segment profit for 'Plumbing' and 'Paints and Adhesives' to the Consolidated Profit Before Tax of ₹7,336 million, detailing each reconciling item.
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  18.27s
+--------------------------------------------------------------------------------
+
+Q55 (ID: CP5) [PDF]
+Question: The MD&A states Plumbing segment FY23 revenue of ₹37,675 million / EBITDA ₹6,419 million, and Paints & Adhesives revenue ₹13,910 million / EBITDA ₹1,932 million. Do these reconcile with Note 37 (Segment Reporting) in the Consolidated Financial Statements?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'AstralConcall23Q4.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf'])
+Latency:  19.15s
+--------------------------------------------------------------------------------
+
+Q56 (ID: CP6) [PDF]
+Question: In Note 37 (Segment Reporting), the Group reports segment revenues and profits for 'Plastic' and 'Adhesives'. Show how the total segment profit reconciles to the Consolidated Profit Before Tax of ₹6,485 million stated in the Financial Highlights of the Directors' Report, detailing each unallocable item and its amount.
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  17.25s
+--------------------------------------------------------------------------------
+
+Q57 (ID: CP7) [PDF]
+Question: In Note 37, reconcile total segment profit for 'Plumbing' and 'Paints and Adhesives' to the Consolidated Profit Before Tax of ₹7,025 million, detailing each reconciling item.
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  29.49s
+--------------------------------------------------------------------------------
+
+Q58 (ID: CP8) [PDF]
+Question: What are the key categories of business risk Astral identifies in its 'Managing Risks' section, and what mitigation strategy does the company describe for commodity/raw material price risk?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  11.81s
+--------------------------------------------------------------------------------
+
+Q59 (ID: CP9) [PDF]
+Question: According to the Risk Management section of the report, what are the specific mitigation measures outlined by Astral Ltd to manage 'Supply Chain Disruptions' risk?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  9.23s
+--------------------------------------------------------------------------------
+
+Q60 (ID: CP10) [PDF]
+Question: What targets and timelines does the BRSR set for 'Energy Management' and 'Climate Change and Emissions Management'?
+Routing:  ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  9.64s
+--------------------------------------------------------------------------------
+
+Q61 (ID: CC1) [Concall]
+Question: During the Q2 FY2024 call, management said Astral had increased pipe capacity from 2.90 lakh MT to 3.10 lakh MT after adding 20,000 MT within existing plants. What are the three new plant capacities being added, and what is the total incremental capacity from those three plants?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['AstralConcall24Q2.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf'])
+Latency:  13.74s
+--------------------------------------------------------------------------------
+
+Q62 (ID: CC2) [Concall]
+Question: In the Q2 FY2024 call, Astral said its water tanks had received a first-ever certification that no other market tank had at that time, and it also claimed a first for its firefighting system. What were those two certifications?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['AstralConcall24Q2.pdf'] | Got: ['Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf'])
+Latency:  10.49s
+--------------------------------------------------------------------------------
+
+Q63 (ID: CC3) [Concall]
+Question: What annual volume growth guidance did Astral management provide for the core plumbing business in their Q1 FY25 conference call?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf'])
+Latency:  11.63s
+--------------------------------------------------------------------------------
+
+Q64 (ID: CC4) [Concall]
+Question: According to the Q2 FY24 earnings call transcript, what was the estimated inventory loss recorded on CPVC and how did it impact guided margins?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf'])
+Latency:  13.27s
+--------------------------------------------------------------------------------
+
+Q65 (ID: CC5) [Concall]
+Question: How did management's guidance on structural EBITDA margins for the Paint business evolve from Q1 FY25 to Q2 FY25?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel'])
+Citation: ❌ FAIL (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel'])
+Latency:  8.26s
+--------------------------------------------------------------------------------
+
+Q66 (ID: CC6) [Concall]
+Question: Track the trajectory of the operational performance and underlying reasons cited for the UK adhesive operations across the Q1 FY25 and Q2 FY25 conference calls.
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf'])
+Latency:  20.2s
+--------------------------------------------------------------------------------
+
+Q67 (ID: CC7) [Concall]
+Question: Compare the pricing dynamics and distributor behavior in the CPVC segment as discussed by management in Q2 FY24 versus Q2 FY25.
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf'])
+Latency:  19.05s
+--------------------------------------------------------------------------------
+
+Q68 (ID: CC8) [Concall]
+Question: Analyze the management exchange during the Q1 FY25 call where an analyst challenged the absolute overhead run rates and historical expense expansions. What was the detailed response?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf', 'AstralConcall25Q1.pdf'])
+Latency:  15.08s
+--------------------------------------------------------------------------------
+
+Q69 (ID: CC9) [Concall]
+Question: In the Q2 FY24 concall, how did management justify the 44% YoY bump in 'Other Expenses' when evaluated against sequential budgeting parameters?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf'])
+Latency:  13.34s
+--------------------------------------------------------------------------------
+
+Q70 (ID: CC10) [Concall]
+Question: In the Q2 FY25 earnings call, how did management address analyst pushback regarding continuous lower revisions to Paint guidance and the erosion of operational profitability?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf', 'AstralConcall25Q2.pdf'])
+Latency:  13.49s
+--------------------------------------------------------------------------------
+
+Q71 (ID: CI1) [Images]
+Question: According to the Group Revenue Breakup chart in the FY22 annual report infographic, what was the percentage contribution of the Pipes and Adhesives segments respectively?
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_images'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf'])
+Latency:  9.95s
+--------------------------------------------------------------------------------
+
+Q72 (ID: CI2) [Images]
+Question: What are the consolidated key performance metrics (Revenue from Operations, EBITDA, and Profit After Tax) along with their respective YoY growth percentages as shown in the FY24 infographic highlights?
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_images'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf'])
+Latency:  13.5s
+--------------------------------------------------------------------------------
+
+Q73 (ID: CI3) [Images]
+Question: Based on the 'Astral in numbers' section from the FY23 annual report visual highlights, list the exact values given for Dealers, Distributors, Depots, and Employees.
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_images'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf'])
+Latency:  11.3s
+--------------------------------------------------------------------------------
+
+Q74 (ID: CI4) [Images]
+Question: Compare the total infrastructure breakdown (Plants, Depots, and Offices) for both the Plumbing and Adhesives & Paints businesses as shown in the FY24 visual maps versus the FY25 visual maps.
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls', 'astral_ltd_images'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf'])
+Latency:  26.3s
+--------------------------------------------------------------------------------
+
+Q75 (ID: CI5) [Images]
+Question: What is the trajectory of Astral's reported production capacity in India (in Metric Tonnes) across the visual infrastructure metrics from FY22 to FY25?
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_images'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf'])
+Latency:  12.55s
+--------------------------------------------------------------------------------
+
+Q76 (ID: CI6) [Images]
+Question: Analyze how the revenue contribution split of the core businesses (Pipes/Plumbing vs Adhesives/Paints) evolved over a four-year period by cross-referencing the breakup pie charts from the FY22, FY23, FY24, and FY25 annual report visuals.
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_images'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf'])
+Latency:  15.37s
+--------------------------------------------------------------------------------
+
+Q77 (ID: CI7) [Images]
+Question: Cross-reference the reported number of total global manufacturing units across the visual highlights of the FY22, FY23, FY24, and FY25 reports. What notable visual discrepancy or consolidation is observed in the trend of total manufacturing units?
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_images', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf'])
+Latency:  17.56s
+--------------------------------------------------------------------------------
+
+Q78 (ID: CI8) [Images]
+Question: What is the segment-wise revenue breakdown percentage reported between the Plumbing Division and Paints & Adhesives in the FY25 Group Revenue Breakup infographic chart?
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_pdf_text', 'astral_ltd_images'])
+Citation: ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  14.19s
+--------------------------------------------------------------------------------
+
+Q79 (ID: CI9) [Images]
+Question: Using the 'Total Depot' figures for the Adhesives & Paints business shown in the state-wise infrastructure maps of the FY24 and FY25 annual reports, calculate the percentage increase in Adhesives & Paints depots from FY24 to FY25. State the formula used.
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_images'])
+Citation: ❌ FAIL (Expected: ['astral24-images.pdf', 'astral25-images.pdf'] | Got: ['Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf'])
+Latency:  12.65s
+--------------------------------------------------------------------------------
+
+Q80 (ID: CI10) [Images]
+Question: Using the Distributors figures shown in the corporate overview infographics of the FY22, FY23, FY24, and FY25 annual reports, calculate the 3-year CAGR in Distributor count from FY22 to FY25. State the formula used.
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_excel', 'astral_ltd_images'])
+Citation: ❌ FAIL (Expected: ['astral22-images.pdf', 'astral25-images.pdf'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf'])
+Latency:  14.22s
+--------------------------------------------------------------------------------
+
+Q81 (ID: CX1) [Cross-Source]
+Question: The FY23 Annual Report states that the Company spent ₹91.26 million on CSR and also provides the related party transaction disclosure involving Astral Foundation. Using the FY23 Annual Report and the Excel workbook, compare the CSR amount spent in FY23 against the Dividend Amount recorded for FY23 in Excel, and identify whether the dividend payout was higher or lower than the CSR spend by how much.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf'])
+Latency:  13.51s
+--------------------------------------------------------------------------------
+
+Q82 (ID: CX2) [Cross-Source]
+Question: The FY23 Annual Report says Astral spent ₹91.26 million on CSR, and the Excel workbook shows the FY23 net profit. Using these two sources, calculate the implied CSR percentage of FY23 net profit, then compare it with the statutory 2% benchmark mentioned in the Annual Report and state whether the company spent above or below the benchmark.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'Astral_Ltd_AR_FY2023_AnnualReport.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf', 'AstralConcall23Q4.pdf'])
+Latency:  12.8s
+--------------------------------------------------------------------------------
+
+Q83 (ID: CX3) [Cross-Source]
+Question: The FY22 Annual Report highlights consolidated revenue of ₹43,940 million and a CSR spend of ₹62.29 million, while the Excel workbook gives the full FY22 and FY23 sales series. Using the FY22 Annual Report and the Excel workbook, determine how much FY23 sales increased over FY22 sales, then compare that growth in rupee terms against the FY22 CSR spend to see whether the sales increase was more than 50 times the CSR spend.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'Astral_Ltd_AR_FY2022_AnnualReport.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf', 'AstralConcall22Q4.pdf'])
+Latency:  14.74s
+--------------------------------------------------------------------------------
+
+Q84 (ID: CX4) [Cross-Source]
+Question: What was the total Sales revenue reported by Astral Ltd in FY25 according to the Excel financial data, and what primary operational headwind did management highlight during the Q3 FY25 earnings conference call to explain performance?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls', 'astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf', 'AstralConcall25Q3.pdf'])
+Latency:  10.85s
+--------------------------------------------------------------------------------
+
+Q85 (ID: CX5) [Cross-Source]
+Question: What was the Net Profit for Astral Ltd in FY24 per the Excel datasheet, and what positive volume growth rate milestone did management declare for the core piping business during the Analyst Meet in May 2024?
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls', 'astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf'])
+Latency:  12.27s
+--------------------------------------------------------------------------------
+
+Q86 (ID: CX6) [Cross-Source]
+Question: What were the absolute Borrowings reported at the close of FY26 in the Excel sheets, and what was the group's manufacturing capacity expansion milestone mentioned in the FY24 annual report narrative?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel', 'astral_ltd_pdf_text'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  9.39s
+--------------------------------------------------------------------------------
+
+Q87 (ID: CX7) [Cross-Source]
+Question: Reconcile the capital spending patterns by comparing the Net Cash from Investing Activity for FY24 from Excel against management's comments on the completion of major capex during the Q3 FY24 conference call.
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls', 'astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall24Q3.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q3.pdf', 'AstralConcall24Q3.pdf'])
+Latency:  13.81s
+--------------------------------------------------------------------------------
+
+Q88 (ID: CX8) [Cross-Source]
+Question: Cross-reference the acquisition timeline of Gem Paints: look up the revenue contribution of the Paints segment stated in the Q2 FY24 concall and verify if a separate subsidiary line is explicitly broken out for it in the Group Information section of the FY25 Annual Report text.
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_concalls', 'astral_ltd_pdf_text'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf'])
+Latency:  15.42s
+--------------------------------------------------------------------------------
+
+Q89 (ID: CX9) [Cross-Source]
+Question: The annual report narrative for FY24 lists operational infrastructure assets at Dahej and Jamnagar. Verify whether the continuous capital asset creation over FY24 and FY25 is validated by a corresponding increase in the localized Net Block in the Excel financial sheets.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf'])
+Latency:  19.33s
+--------------------------------------------------------------------------------
+
+Q90 (ID: CX10) [Cross-Source]
+Question: Compare the corporate Expenditure on Corporate Social Responsibility (CSR) paid to the Astral Foundation during FY24 as recorded in the Related Party Transactions disclosure of the Annual Report against the absolute CSR Spend reported in the visual infographics of the FY23 report.
+Routing:  ✅ PASS (Expected: ['astral_ltd_images'] | Got: ['astral_ltd_excel', 'astral_ltd_images', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_images'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf'])
+Latency:  13.15s
+--------------------------------------------------------------------------------
+
+Q91 (ID: CX11) [Cross-Source]
+Question: The Excel sheets show a notable change in dividend payout trend in FY26. Check the total Dividend Amount allocated in FY26 in Excel, and cross-reference it with the proposed final payout rates or regulatory commentary in the preceding Q4 FY25 concall transcript.
+Routing:  ❌ FAIL (Expected: ['astral_ltd_concalls', 'astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  13.59s
+--------------------------------------------------------------------------------
+
+Q92 (ID: CX12) [Cross-Source]
+Question: Management has repeatedly guided to 'double the top-line revenue on a consolidated basis within 5 years' starting from a baseline around FY21-FY23. Based on the 10-year Excel dataset through FY26, what is the realized compound annual growth rate (CAGR), and how does management revalidate or adjust this timeframe in the latest available earnings transcript?
+Routing:  ❌ FAIL (Expected: ['astral_ltd_concalls', 'astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  16.37s
+--------------------------------------------------------------------------------
+
+Q93 (ID: CX13) [Cross-Source]
+Question: Perform a comprehensive verification of Astral's joint venture operations. Extract the financial line for share of profit/loss of joint ventures from Note 37 of the FY24 Annual report, trace the corresponding line in the Excel P&L/Notes, and cross-reference this with management's strategic updates regarding the closure of the Kenya unit from historical concalls.
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls', 'astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_excel', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf'])
+Latency:  15.95s
+--------------------------------------------------------------------------------
+
+Q94 (ID: CX14) [Cross-Source]
+Question: Examine the financial structural integrity of the Adhesives division. Check the absolute segment profit numbers disclosed in Note 37 of the FY22 Annual Report, cross-reference this against the total Adhesives segment revenue split shown in the visual infographic charts, and extract the negative currency headwind reported by management in the Q3 FY23 call that impacted the UK unit (Seal It).
+Routing:  ❌ FAIL (Expected: ['astral_ltd_concalls', 'astral_ltd_images'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_images', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  18.51s
+--------------------------------------------------------------------------------
+
+Q95 (ID: CX15) [Cross-Source]
+Question: Cross-analyze the capacity metrics of the core plumbing division. Obtain the percentage expansion in plumbing capacity reported in the Project Implementation section of the FY24 Directors' Report, trace the total physical asset values under the Net Block row for FY24 in the Excel sheets, and cross-reference with management's Q2 FY25 commentary regarding localized polymer inventory hits.
+Routing:  ✅ PASS (Expected: ['astral_ltd_concalls', 'astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_pdf_text', 'astral_ltd_excel', 'astral_ltd_concalls'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall24Q2.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q2.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q2.pdf', 'AstralConcall24Q2.pdf'])
+Latency:  16.44s
+--------------------------------------------------------------------------------
+
+Q96 (ID: CA1) [Anomaly]
+Question: What is the exact quarterly revenue, operating profit, and net profit breakdown for Astral Ltd for the specific quarter ending September 30, 2022 (Q2 FY23)?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'AstralConcall23Q2.pdf', 'AstralConcall23Q2.pdf', 'AstralConcall23Q2.pdf', 'AstralConcall23Q2.pdf', 'AstralConcall23Q2.pdf', 'AstralConcall23Q2.pdf', 'AstralConcall23Q2.pdf', 'AstralConcall23Q2.pdf'])
+Latency:  12.15s
+--------------------------------------------------------------------------------
+
+Q97 (ID: CA2) [Anomaly]
+Question: Using the multi-year structured financial tables, identify the exact total absolute expenditure incurred by Astral Ltd for 'Power and Fuel' and 'Selling and admin' costs during the full financial year FY26.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  9.43s
+--------------------------------------------------------------------------------
+
+Q98 (ID: CA3) [Anomaly]
+Question: Calculate the exact value of non-current operational 'Investments' held on the balance sheet of Astral Ltd at the close of FY24 and explain its growth trajectory compared to FY20.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text', 'astral_ltd_concalls'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'Astral_Ltd_AR_FY2024_AnnualReport.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf', 'AstralConcall24Q4.pdf'])
+Latency:  14.81s
+--------------------------------------------------------------------------------
+
+Q99 (ID: CA4) [Anomaly]
+Question: Reconcile the mathematical discrepancy in the number of equity shares across the baseline adjustments: why does the Equity Share Capital remain flat at ₹26.90 Cr from FY23 to FY26 while the total No. of Equity Shares column contains a blank cell for FY26?
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel', 'astral_ltd_pdf_text'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'Astral_Ltd_AR_FY2025_AnnualReport.pdf'])
+Latency:  16.7s
+--------------------------------------------------------------------------------
+
+Q100 (ID: CA5) [Anomaly]
+Question: Calculate the baseline Asset Turnover ratio for the infrastructure asset expansion program in FY26 using the specific line items for 'Other Mfr. Exp' and 'Other Expenses' to determine manufacturing facility yield.
+Routing:  ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['astral_ltd_excel'])
+Citation: ✅ PASS (Expected: ['astral_ltd_excel'] | Got: ['Astral_Ltd.xlsx', 'Astral_Ltd.xlsx', 'Astral_Ltd.xlsx'])
+Latency:  13.18s
+--------------------------------------------------------------------------------
+

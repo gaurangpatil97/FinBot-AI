@@ -1,0 +1,437 @@
+ASTRAL RESULTS
+
+ID: E1 | astral_ltd
+EXP: FY22: 4394.00, FY23: 5158.50, FY24: 5641.40, FY25: 5832.40, FY26: 6568.60
+ACTUAL SUMMARY:
+NO ANSWER
+----------------------------------------
+
+ID: E2 | astral_ltd
+EXP: FY22: 483.80, FY23: 456.60, FY24: 546.10, FY25: 523.80, FY26: 534.70
+ACTUAL SUMMARY:
+NO ANSWER
+----------------------------------------
+
+ID: E3 | astral_ltd
+EXP: FY22: 98.30, FY23: 87.10, FY24: 119.40, FY25: 233.20, FY26: 250.30
+ACTUAL SUMMARY:
+NO ANSWER
+----------------------------------------
+
+ID: E4 | astral_ltd
+EXP: FY22: 11.08, FY23: 16.16, FY24: 13.34, FY25: 15.26, FY26: 15.65
+ACTUAL SUMMARY:
+NO ANSWER
+----------------------------------------
+
+ID: E5 | astral_ltd
+EXP: FY23: 17.40, FY24: 9.36, FY25: 3.39, FY26: 12.62
+ACTUAL SUMMARY:
+The year-on-year revenue growth rates for the last 4 financial years are:  
+- FY2024: 9.36%  
+- FY2025: 3.39%  
+- FY2026: 12.62%  
+
+(Note: The question asks for the last 4 years, but growth is calculated between years, so 3 growth rates are provided for FY24 over FY23, FY25 over FY24, and FY26 over FY25.)
+----------------------------------------
+
+ID: E6 | astral_ltd
+EXP: FY22: 614.60, FY23: 78.80, FY24: 282.40, FY25: 117.00, FY26: 610.50
+ACTUAL SUMMARY:
+The free cash flow for the last 5 financial years cannot be determined from the retrieved context because the exact capital expenditure figures are not disclosed. Only operating cash flow and net investing cash flow are available, but investing cash flow includes other items besides Capex, so it cannot be used as a proxy.
+----------------------------------------
+
+ID: E7 | astral_ltd
+EXP: FY24: [Receivable: 24.3, Inventory: 85.4], FY25: [Receivable: 27.2, Inventory: 95.6], FY26: [Receivable: 26.4, Inventory: 102.3]. Payable days not computable from available data — no Trade Payables line item in this dataset.
+ACTUAL SUMMARY:
+For the last three financial years, the receivable days and inventory days are:
+
+- FY2024: Receivable Days = 24.31 days, Inventory Days = 88.34 days  
+- FY2025: Receivable Days = 27.24 days, Inventory Days = 98.95 days  
+- FY2026: Receivable Days = 26.40 days, Inventory Days = 102.33 days (approximate due to incomplete COGS data)
+
+Payable days cannot be calculated as the required payables data is not disclosed in the retrieved context.
+----------------------------------------
+
+ID: E8 | astral_ltd
+EXP: Total Capex (proxy from Investing CF): 2038.20, Cumulative Revenue Growth: 49.49%. FY22 had net investing inflow of 71.5 (excluded from capex sum). Capex of 2038 Cr drove only 49.5% revenue growth — relatively capital-intensive expansion.
+ACTUAL SUMMARY:
+The cumulative revenue growth over the last 5 financial years (FY21 to FY25) was 83.5%, increasing from ₹3,176.30 Cr to ₹5,832.40 Cr. However, the total capex spent over this period is not disclosed in the retrieved context, so it is not possible to determine whether capex translated into proportional top-line growth.
+----------------------------------------
+
+ID: E9 | astral_ltd
+EXP: Year: FY25, Divergence: 357.60. EBITDA (PBT + Interest + Depreciation) = 987.20, OCF = 629.60, Gap = 357.60
+ACTUAL SUMMARY:
+The gap between EBITDA and operating cash flow diverged the most in FY2025, with a difference of 288.50 Cr.
+----------------------------------------
+
+ID: E10 | astral_ltd
+EXP: Revenue 3Y CAGR: 8.39, Asset 3Y CAGR: 10.04. Revenue is growing SLOWER than asset base — indicating declining asset utilization efficiency.
+ACTUAL SUMMARY:
+The 2-year CAGR of revenue from FY2023 to FY2025 is 6.33%. The 3-year CAGR of total assets cannot be calculated because the total assets figures for FY2023 and FY2025 are not available in the retrieved context. Therefore, it is not possible to determine whether the company is growing revenue faster or slower than its asset base is expanding based on the provided data.
+----------------------------------------
+
+ID: R1 | astral_ltd
+EXP: FY24: 0.04, FY25: 0.06, FY26: 0.06
+ACTUAL SUMMARY:
+The debt-to-equity ratio for FY2024 is 0.04, for FY2025 is 0.06, and for FY2026 is 0.06.
+----------------------------------------
+
+ID: R2 | astral_ltd
+EXP: FY24: 1.72, FY25: 1.85, FY26: 1.85
+ACTUAL SUMMARY:
+The current ratio for the most recent three financial years (FY2024, FY2025, FY2026) cannot be calculated because the exact figure for current liabilities is not disclosed in the retrieved context. While current assets components (receivables, inventory, cash & bank) are available, the absence of current liabilities data prevents computation of the current ratio.
+----------------------------------------
+
+ID: R3 | astral_ltd
+EXP: FY24: 17.13, FY25: 14.48, FY26: 13.18
+ACTUAL SUMMARY:
+The return on equity for the most recent three financial years is 17.13 for FY2024, 14.48 for FY2025, and 13.18 for FY2026.
+----------------------------------------
+
+ID: R4 | astral_ltd
+EXP: FY24: 23.06, FY25: 19.32, FY26: 18.45
+ACTUAL SUMMARY:
+The Return on Capital Employed (ROCE) for Astral Ltd for the most recent three financial years are:
+
+- FY2024: 23.05%
+- FY2025: 19.32%
+- FY2026: 18.46%
+
+This shows a declining trend in ROCE over these three years.
+----------------------------------------
+
+ID: R5 | astral_ltd
+EXP: FY24: 26.21, FY25: 18.01, FY26: 12.34
+ACTUAL SUMMARY:
+The interest coverage ratios for the most recent three financial years are 22.03 for FY2024, 16.34 for FY2025, and 11.7 for FY2026, showing a declining trend in the company's ability to cover interest expenses from EBIT.
+----------------------------------------
+
+ID: R6 | astral_ltd
+EXP: Net Profit Margin: 8.14%, Asset Turnover: 1.13, Equity Multiplier: 1.43, DuPont ROE: 13.18%
+ACTUAL SUMMARY:
+The net profit margin for FY2026 is approximately 0.0814. However, the asset turnover and equity multiplier components of the DuPont decomposition cannot be calculated because total assets and shareholders' equity figures are not provided in the available data.
+----------------------------------------
+
+ID: R7 | astral_ltd
+EXP: FY25: Receivable Days: 27.24, Inventory Days: 95.57, Partial CCC (excl Payable Days): 122.81. FY26: Receivable Days: 26.40, Inventory Days: 102.33, Partial CCC (excl Payable Days): 128.73. Payable Days not computable — no Trade Payables line item in available data.
+ACTUAL SUMMARY:
+The cash conversion cycle and its components (receivable days, inventory days, payable days) cannot be calculated because the required line items (Trade Receivables, Inventory, Trade Payables, Revenue, and COGS) are not disclosed in the provided context.
+----------------------------------------
+
+ID: R8 | astral_ltd
+EXP: FY24: 1.51, FY25: 1.20, FY26: 2.09. Yes, OCF consistently exceeds net profit across all 3 years, indicating strong cash conversion.
+ACTUAL SUMMARY:
+The operating cash flow to net profit ratio for FY2024, FY2025, and FY2026 cannot be calculated because operating cash flow figures are not available in the retrieved context. Therefore, it is not possible to assess from the provided data whether the company is consistently converting its accounting profits into real cash.
+----------------------------------------
+
+ID: R9 | astral_ltd
+EXP: FY25: ICR=18.01x, Borrowings change: +113.80 (119.4 to 233.2). FY26: ICR=12.34x, Borrowings change: +17.10 (233.2 to 250.3). ICR is comfortable but declining. Borrowings increased significantly in FY25, then stabilized in FY26.
+ACTUAL SUMMARY:
+The EBIT-to-interest-expense ratio was approximately 26.20 in FY24 and declined to about 18.01 in FY25, showing the company remains comfortably able to service its interest expense despite a decrease in coverage. Meanwhile, total borrowings increased from ₹300 million in FY24 to ₹784 million in FY25, indicating the company has increased its debt levels rather than reducing or maintaining them.
+----------------------------------------
+
+ID: R10 | astral_ltd
+EXP: FY25: ROCE=19.32%, Cost of Debt=17.71%, Spread=+1.61%. FY26: ROCE=18.45%, Cost of Debt=25.73%, Spread=-7.28%. Company earned above cost of debt in FY25 but NOT in FY26.
+ACTUAL SUMMARY:
+- ROCE cannot be computed for FY25 and FY26 as capital employed or equity figures are not disclosed in the retrieved context.
+- Cost of debt for FY25 is 4.13% (Interest expense ₹41.30 Cr / Total borrowings ₹999.1 Cr).
+- Cost of debt for FY26 cannot be computed due to missing total borrowings data.
+- The company’s EBIT is substantially higher than interest expense in both FY25 and FY26, indicating it is earning well above its cost of borrowing.
+----------------------------------------
+
+ID: CE1 | astral_ltd
+EXP: Net Profit fell from 546.10 to 523.80, a decline of 22.30 Cr (-4.08%). Employee Cost grew the most, increasing by approximately 15-20% YoY.
+ACTUAL SUMMARY:
+Astral's net profit declined by ₹22.30 Cr, or approximately 4.08%, from ₹546.10 Cr in FY24 to ₹523.80 Cr in FY25 despite revenue growth. The expense line item that grew the most in this period was Employee Cost, which increased by ₹79.50 Cr.
+----------------------------------------
+
+ID: CE2 | astral_ltd
+EXP: Borrowings increase: 113.80 Cr. FY25 OCF: 629.60 Cr. Ratio: 5.53x. Yes, operating cash flow comfortably covered the incremental debt.
+ACTUAL SUMMARY:
+Astral's operating cash flow in FY25 of ₹629.60 Cr more than covered the incremental borrowings increase of ₹113.80 Cr. The ratio of operating cash flow to the increase in borrowings was approximately 5.53, indicating strong cash flow generation relative to the rise in debt.
+----------------------------------------
+
+ID: CE3 | astral_ltd
+EXP: Sales in FY26 was ₹6568.6 Cr. This represents a year-on-year growth of 12.62% compared to the ₹5832.4 Cr reported in FY25, showing resilient top-line momentum.
+ACTUAL SUMMARY:
+Astral Ltd reported Sales (Revenue) of ₹6568.60 crore in FY26.
+----------------------------------------
+
+ID: CE4 | astral_ltd
+EXP: Net profit in FY25 was ₹523.8 Cr. This represents a slight contraction of 4.08% compared to the ₹546.1 Cr reported in FY24.
+ACTUAL SUMMARY:
+The Net profit of Astral Ltd in FY25 was 523.80 Cr.
+----------------------------------------
+
+ID: CE5 | astral_ltd
+EXP: Cash from Operating Activity decreased in FY25 compared to FY24. The absolute decline was ₹193.8 Cr. Formula: CFO_FY25 - CFO_FY24. Calculation: ₹629.6 Cr - ₹823.4 Cr = -₹193.8 Cr, revealing short-term cash flow compression.
+ACTUAL SUMMARY:
+Astral Ltd's Cash from Operating Activity decreased in FY25 compared to FY24 by ₹193.80 Cr.
+----------------------------------------
+
+ID: CE6 | astral_ltd
+EXP: The absolute increase in Total Reserves from FY17 to FY26 was ₹3196.13 Cr. Formula: Reserves_FY26 - Reserves_FY17. Calculation: ₹4031.0 Cr - ₹834.87 Cr = ₹3196.13 Cr, showing stellar long-term book value accumulation.
+ACTUAL SUMMARY:
+The absolute increase in Total Reserves of Astral Ltd from FY2017 to FY2026 is ₹3196.13 crore.
+----------------------------------------
+
+ID: CE7 | astral_ltd
+EXP: The highest Profit before tax was achieved in FY22 at ₹648.5 Cr. Respective values are: FY21 was ₹533.0 Cr, FY22 was ₹648.5 Cr, and FY23 was ₹628.2 Cr, indicating that profitability peaked in FY22 and normalized slightly in FY23.
+ACTUAL SUMMARY:
+The highest Profit before tax among FY21, FY22, and FY23 was achieved in FY22 with ₹648.50 Cr. The values were ₹533.00 Cr in FY21, ₹648.50 Cr in FY22, and ₹628.20 Cr in FY23.
+----------------------------------------
+
+ID: CE8 | astral_ltd
+EXP: The anomaly is a severe spike in 'Other Expenses' to ₹965.2 Cr in FY26, up drastically from ₹38.2 Cr in FY25. This surge restricted Profit before tax growth to just 4.00% (₹730.6 Cr in FY26 vs ₹702.5 Cr in FY25) despite a robust Sales increase of ₹736.2 Cr, indicating a significant margin drag.
+ACTUAL SUMMARY:
+The anomaly in FY26 is a sharp and unexplained increase in Other Expenses to ₹965.20 Cr from ₹274.80 Cr in FY25, an increase of ₹690.40 Cr. Despite this large increase, Profit Before Tax increased slightly from ₹702.50 Cr to ₹730.60 Cr, indicating offsetting factors elsewhere. This large jump in Other Expenses is unusual and materially impacts the cost structure.
+----------------------------------------
+
+ID: CE9 | astral_ltd
+EXP: No, dividends diverged from the profit trend. While Net Profit grew by 2.08% from ₹523.8 Cr in FY25 to ₹534.7 Cr in FY26, the Dividend Amount decreased sharply by 33.34% from ₹100.88 Cr in FY25 to ₹67.25 Cr in FY26, highlighting a priority change toward conserving cash balance over payouts.
+ACTUAL SUMMARY:
+In FY26, while net profit showed a slight increase compared to FY25, the dividend amount declared decreased significantly. Therefore, dividends did not follow the net profit trend and instead declined despite higher net profit.
+----------------------------------------
+
+ID: CE10 | astral_ltd
+EXP: Total Assets computed as Net Block (₹2945.0 Cr) + Capital Work in Progress (₹88.7 Cr) + Other Assets (₹2778.2 Cr) equals ₹5811.9 Cr. This perfectly matches the reported 'Total' row of ₹5811.9 Cr, validating absolute internal consistency in data aggregation.
+ACTUAL SUMMARY:
+The sum of Net Block, Capital Work in Progress, and Other Assets for FY26 is 5811.90 Cr. However, the reported Total Assets figure for FY26 is not available in the retrieved context, so a direct verification cannot be performed.
+----------------------------------------
+
+ID: E1 | craftsman_automation_ltd
+EXP: FY22: 4394.00, FY23: 5158.50, FY24: 5641.40, FY25: 5832.40, FY26: 6568.60
+ACTUAL SUMMARY:
+The company's total revenue for the last 5 financial years was:  
+- FY2022: ₹2217.02 Cr  
+- FY2023: ₹3182.60 Cr  
+- FY2024: ₹4451.73 Cr  
+- FY2025: ₹5690.48 Cr  
+- FY2026: ₹8069.27 Cr
+----------------------------------------
+
+ID: E2 | craftsman_automation_ltd
+EXP: FY22: 483.80, FY23: 456.60, FY24: 546.10, FY25: 523.80, FY26: 534.70
+ACTUAL SUMMARY:
+The net profit for the last 5 financial years was:  
+- FY2022: ₹163.09 Cr  
+- FY2023: ₹248.39 Cr  
+- FY2024: ₹304.47 Cr  
+- FY2025: ₹194.57 Cr  
+- FY2026: ₹383.99 Cr
+----------------------------------------
+
+ID: E3 | craftsman_automation_ltd
+EXP: FY22: 98.30, FY23: 87.10, FY24: 119.40, FY25: 233.20, FY26: 250.30
+ACTUAL SUMMARY:
+The total borrowings for Craftsman Automation Ltd for the last 5 financial years were:
+
+- FY2026: 3623.48 Cr
+- FY2025: 2358.18 Cr
+- FY2024: 1754.82 Cr
+- FY2023: 1240.23 Cr
+- FY2022: 799.55 Cr
+----------------------------------------
+
+ID: E4 | craftsman_automation_ltd
+EXP: FY22: 11.08, FY23: 16.16, FY24: 13.34, FY25: 15.26, FY26: 15.65
+ACTUAL SUMMARY:
+The operating profit margin for the last five financial years was:  
+FY2022: 13.38%, FY2023: 12.31%, FY2024: 10.13%, FY2025: 5.12%, and FY2026: 8.31%.
+----------------------------------------
+
+ID: E5 | craftsman_automation_ltd
+EXP: FY23: 17.40, FY24: 9.36, FY25: 3.39, FY26: 12.62
+ACTUAL SUMMARY:
+The year-on-year revenue growth rates for the last 4 financial years were:
+
+- FY2022 to FY2023: 43.56%  
+- FY2023 to FY2024: 39.87%  
+- FY2024 to FY2025: 27.82%  
+- FY2025 to FY2026: 41.82%
+----------------------------------------
+
+ID: E6 | craftsman_automation_ltd
+EXP: FY22: 614.60, FY23: 78.80, FY24: 282.40, FY25: 117.00, FY26: 610.50
+ACTUAL SUMMARY:
+The free cash flow for the last 5 financial years cannot be calculated because the exact capital expenditure (Capex) figures are not disclosed in the retrieved context. Only operating cash flow and total investing cash flow are available, but investing cash flow includes other items besides Capex, so it cannot be used as a substitute.
+----------------------------------------
+
+ID: E7 | craftsman_automation_ltd
+EXP: FY24: [Receivable: 24.3, Inventory: 85.4], FY25: [Receivable: 27.2, Inventory: 95.6], FY26: [Receivable: 26.4, Inventory: 102.3]. Payable days not computable from available data — no Trade Payables line item in this dataset.
+ACTUAL SUMMARY:
+- **Receivable Days:**  
+  FY2024: 47.27 days  
+  FY2025: 59.00 days  
+  FY2026: 50.22 days  
+
+- **Inventory Days:**  
+  FY2024: 150.77 days  
+  FY2025: 147.49 days  
+  FY2026: 140.72 days  
+
+- **Payable Days:** Cannot be calculated because the exact "Trade Payables" or "Payables" figure is not disclosed in the retrieved context.
+----------------------------------------
+
+ID: E8 | craftsman_automation_ltd
+EXP: Total Capex (proxy from Investing CF): 2038.20, Cumulative Revenue Growth: 49.49%. FY22 had net investing inflow of 71.5 (excluded from capex sum). Capex of 2038 Cr drove only 49.5% revenue growth — relatively capital-intensive expansion.
+ACTUAL SUMMARY:
+The cumulative revenue growth from FY21 to FY25 was approximately 265%. However, the total capex spent over these five years is not disclosed in the retrieved context, so it is not possible to assess whether capex translated into proportional top-line growth.
+----------------------------------------
+
+ID: E9 | craftsman_automation_ltd
+EXP: Year: FY25, Divergence: 357.60. EBITDA (PBT + Interest + Depreciation) = 987.20, OCF = 629.60, Gap = 357.60
+ACTUAL SUMMARY:
+The gap between EBITDA and operating cash flow diverged the most in FY2026, with a difference of 592.48 Cr.
+----------------------------------------
+
+ID: E10 | craftsman_automation_ltd
+EXP: Revenue 3Y CAGR: 8.39, Asset 3Y CAGR: 10.04. Revenue is growing SLOWER than asset base — indicating declining asset utilization efficiency.
+ACTUAL SUMMARY:
+The 3-year CAGR of revenue from FY2023 to FY2026 is approximately 36%. However, the total assets figures for these years are not disclosed in the retrieved context, so the 3-year CAGR of total assets cannot be computed. Consequently, it is not possible to determine whether the company is growing revenue faster or slower than its asset base is expanding based on the available data.
+----------------------------------------
+
+ID: R1 | craftsman_automation_ltd
+EXP: FY24: 0.04, FY25: 0.06, FY26: 0.06
+ACTUAL SUMMARY:
+The debt-to-equity ratios for the most recent three financial years are 1.06 for FY2024, 0.83 for FY2025, and 1.11 for FY2026.
+----------------------------------------
+
+ID: R2 | craftsman_automation_ltd
+EXP: FY24: 1.72, FY25: 1.85, FY26: 1.85
+ACTUAL SUMMARY:
+The current ratio for the most recent three financial years (FY2024, FY2025, FY2026) cannot be calculated because the required line item "Current Liabilities" is not disclosed in the retrieved context. While current assets (Receivables + Inventory + Cash & Bank) for these years are 1700.47 Cr, 2375.87 Cr, and 3034.73 Cr respectively, the absence of current liabilities data prevents computation of the current ratio.
+----------------------------------------
+
+ID: R3 | craftsman_automation_ltd
+EXP: FY24: 17.13, FY25: 14.48, FY26: 13.18
+ACTUAL SUMMARY:
+The return on equity for the most recent three financial years is 18.36 for FY2024, 6.81 for FY2025, and 11.76 for FY2026.
+----------------------------------------
+
+ID: R4 | craftsman_automation_ltd
+EXP: FY24: 23.06, FY25: 19.32, FY26: 18.45
+ACTUAL SUMMARY:
+The Return on Capital Employed (ROCE) for Craftsman Automation Ltd for the most recent three financial years are:
+
+- FY2024: 18.14%
+- FY2025: 9.32%
+- FY2026: 12.24%
+----------------------------------------
+
+ID: R5 | craftsman_automation_ltd
+EXP: FY24: 26.21, FY25: 18.01, FY26: 12.34
+ACTUAL SUMMARY:
+The interest coverage ratios (EBIT / interest expense) for the three most recent financial years are: 2.58 for FY2024, 1.34 for FY2025, and 2.17 for FY2026.
+----------------------------------------
+
+ID: R6 | craftsman_automation_ltd
+EXP: Net Profit Margin: 8.14%, Asset Turnover: 1.13, Equity Multiplier: 1.43, DuPont ROE: 13.18%
+ACTUAL SUMMARY:
+The net profit margin for FY2026 is approximately 0.0476. However, the values for total assets and shareholders' equity are not provided, so the asset turnover and equity multiplier components of the DuPont decomposition cannot be calculated from the given data.
+----------------------------------------
+
+ID: R7 | craftsman_automation_ltd
+EXP: FY25: Receivable Days: 27.24, Inventory Days: 95.57, Partial CCC (excl Payable Days): 122.81. FY26: Receivable Days: 26.40, Inventory Days: 102.33, Partial CCC (excl Payable Days): 128.73. Payable Days not computable — no Trade Payables line item in available data.
+ACTUAL SUMMARY:
+The cash conversion cycle and its components (receivable days, inventory days, payable days) for FY2025 and FY2026 cannot be calculated because the required data on receivables, inventory, payables, and revenue or COGS is not disclosed in the provided context.
+----------------------------------------
+
+ID: R8 | craftsman_automation_ltd
+EXP: FY24: 1.51, FY25: 1.20, FY26: 2.09. Yes, OCF consistently exceeds net profit across all 3 years, indicating strong cash conversion.
+ACTUAL SUMMARY:
+The operating cash flow to net profit ratio for FY2023, FY2024, and FY2025 cannot be calculated because the operating cash flow figures for these years are not disclosed in the retrieved context. Consequently, it is not possible to assess from the provided data whether the company is consistently converting its accounting profits into real cash.
+----------------------------------------
+
+ID: R9 | craftsman_automation_ltd
+EXP: FY25: ICR=18.01x, Borrowings change: +113.80 (119.4 to 233.2). FY26: ICR=12.34x, Borrowings change: +17.10 (233.2 to 250.3). ICR is comfortable but declining. Borrowings increased significantly in FY25, then stabilized in FY26.
+ACTUAL SUMMARY:
+The EBIT-to-interest-expense ratio improved from 2.24 in FY25 to 2.73 in FY26, indicating better interest coverage and comfortable debt servicing. However, total borrowings increased by approximately ₹252 Cr from FY24 to FY25. Management commentary confirms strong cash flow generation and asset sales planned to reduce debt in the coming years, suggesting the company is comfortably servicing its debt while aiming to deleverage.
+----------------------------------------
+
+ID: R10 | craftsman_automation_ltd
+EXP: FY25: ROCE=19.32%, Cost of Debt=17.71%, Spread=+1.61%. FY26: ROCE=18.45%, Cost of Debt=25.73%, Spread=-7.28%. Company earned above cost of debt in FY25 but NOT in FY26.
+ACTUAL SUMMARY:
+The cost of debt for FY2025 is 13.23%. EBIT for FY2025 and FY2026 is ₹486.29 Cr and ₹843.27 Cr respectively, both exceeding the interest expenses, indicating the company is earning above its cost of borrowing. ROCE cannot be computed due to lack of capital employed data, and cost of debt for FY2026 cannot be calculated as total borrowings for FY2026 are not disclosed.
+----------------------------------------
+
+ID: CE1 | craftsman_automation_ltd
+EXP: Net Profit in FY26 was ₹383.99 Cr — a recovery from ₹194.57 Cr in FY25 and the highest absolute net profit in the 10-year dataset.
+ACTUAL SUMMARY:
+The Net Profit reported by the company in FY26 was 383.99 Cr.
+----------------------------------------
+
+ID: CE2 | craftsman_automation_ltd
+EXP: Total Borrowings as at 31 March 2024 were ₹1,754.82 Cr, up from ₹1,240.23 Cr in FY23 — an increase of ₹514.59 Cr.
+ACTUAL SUMMARY:
+Total Borrowings on the Balance Sheet as at the end of FY24 were ₹1754.82 crore.
+----------------------------------------
+
+ID: CE3 | craftsman_automation_ltd
+EXP: FY25 D/E = 0.83x. FY26 D/E = 1.11x. Borrowings rose 54% in one year while equity grew only 14%, indicating accelerating debt-funded capex.
+ACTUAL SUMMARY:
+The Debt-to-Equity ratio increased from 0.83 in FY25 to 1.11 in FY26, indicating a rise in financial leverage by 0.28, meaning the company relied more on debt relative to equity in FY26 compared to FY25.
+----------------------------------------
+
+ID: CE4 | craftsman_automation_ltd
+EXP: FY24 OPM: 19.74%. FY25 OPM: 14.64%. OPM contracted sharply by ~510 bps despite 27.8% revenue growth — a significant margin deterioration.
+ACTUAL SUMMARY:
+The Operating Profit Margin declined from 10.13% in FY24 to 5.12% in FY25, indicating a significant reduction in operating profitability relative to sales over the period.
+----------------------------------------
+
+ID: CE5 | craftsman_automation_ltd
+EXP: FY23: 61.4 days. FY26: 50.2 days. Receivables grew 4.6x but Debtor Days improved from 61 to 50 days — a positive working capital signal.
+ACTUAL SUMMARY:
+Debtor Days decreased from 61.39 in FY23 to 50.23 in FY26, indicating an improvement in receivable collection efficiency over this period.
+----------------------------------------
+
+ID: CE6 | craftsman_automation_ltd
+EXP: Key drivers: OPM contracted from 19.74% to 14.64%; Interest rose from ₹174.54 Cr to ₹216.64 Cr; Other Income collapsed from ₹18.09 Cr to ₹0.30 Cr; Depreciation rose by ₹69.33 Cr. Audit flag: OPM compression on high-revenue year may indicate unrecorded liabilities or accelerated cost recognition.
+ACTUAL SUMMARY:
+of PBT drivers:
+
+- Cost inflation in raw materials and manufacturing expenses outpaced sales growth.
+- Significant increase in employee and selling/admin expenses.
+- Sharp reduction in other income.
+- Higher depreciation and interest costs due to asset base expansion and increased borrowings.
+- Result: EBITDA margin compression and higher fixed costs led to 39.4% PBT decline.
+
+---
+
+### Audit Implications:
+
+- The large increase in Other Expenses (+236.5%) and Selling & Admin (+64%) require detailed audit scrutiny for appropriateness and classification.
+- Significant rise in borrowings (+34.4%) and interest expense (+24.1%) necessitates verification of debt terms, covenants, and interest calculations.
+- Increased depreciation (+25%) linked to asset additions (Net Block +43%) requires audit of capital expenditure capitalization and asset valuation.
+- Sharp drop in Other Income (-98.3%) should be examined for any one-time or non-recurring items affecting income.
+- Margin compression despite sales growth may indicate cost control issues or pricing pressures; auditors should assess management's explanations and forecasts.
+- Given the PBT decline despite revenue growth, auditors should evaluate going concern assumptions and impairment indicators.
+- The audit should also verify the accuracy of inventory valuation given the increase in inventory and change in inventory figures.
+- Overall, the audit focus should be on expense recognition, asset capitalization, debt disclosures, and management's assessment of profitability sustainability.
+----------------------------------------
+
+ID: CE7 | craftsman_automation_ltd
+EXP: FY20 dividend skip is explainable (COVID, revenue fell 18%). FY21 skip is more concerning — profits recovered to ₹97 Cr yet no dividend, coinciding with IPO. Post-IPO dividends resumed and scaled. Payout ratios remain low (5-10%), consistent with growth-capex-heavy phase.
+ACTUAL SUMMARY:
+The company reported net profits in FY20 (₹40.01 Cr) and FY21 (₹97.36 Cr) but paid zero dividends in those years, indicating a conservative capital allocation approach focused on retaining earnings rather than distributing cash to shareholders. This is consistent with the increase in net worth and reduction in borrowings during the same period. In FY25, the company resumed dividend payments with a final dividend of ₹5 per share, suggesting a shift towards returning capital to shareholders after strengthening the balance sheet and raising fresh equity. However, due to limited data for the entire decade, a comprehensive evaluation of capital allocation consistency across all ten years is not possible from the retrieved context.
+----------------------------------------
+
+ID: CE8 | craftsman_automation_ltd
+EXP: Inventory days improved from 96 days (FY23) to 79 days (FY26) despite absolute inventory doubling. No buildup risk based on disclosed figures. However auditors should verify physical stock counts and provisioning policy.
+ACTUAL SUMMARY:
+Inventory increased by 109% from ₹836 Cr in FY23 to ₹1,745 Cr in FY26, while sales grew by 153% in the same period. This indicates that inventory growth lagged behind sales growth, suggesting no significant inventory buildup risk and potentially improved inventory efficiency.
+----------------------------------------
+
+ID: CE9 | craftsman_automation_ltd
+EXP: FY17: PBT = ₹36.67 Cr; Tax = −₹43.07 Cr; Net Profit = ₹79.74 Cr. Effective tax rate = −117.5%. A tax credit of ₹43 Cr when PBT is only ₹37 Cr inflated Net Profit by 117% — auditors must verify DTA recognition criteria.
+ACTUAL SUMMARY:
+In FY2017, Craftsman Automation Ltd reported a negative tax expense of ₹43.07 Cr, resulting in net profit (₹79.74 Cr) exceeding profit before tax (₹36.67 Cr). This indicates recognition of a tax benefit that requires detailed disclosure and audit scrutiny. The unusual negative effective tax rate is a forensic red flag suggesting potential aggressive tax accounting or misstatements, and absence of clear disclosure would represent a governance concern.
+----------------------------------------
+
+ID: CE10 | craftsman_automation_ltd
+EXP: FY26 Other Expenses: ₹1,842.44 Cr — a 9,603% increase. This is likely a data reclassification anomaly. Cost structure analysis cannot be performed at sub-line level for FY26.
+ACTUAL SUMMARY:
+There is a significant anomaly in Other Expenses reported for FY26 at ₹1,842.44 Cr compared to only ₹18.98 Cr in FY25, representing an extraordinary increase. This sharp rise could indicate either a one-time large expense, a change in accounting treatment, or a data reporting error, and it warrants further investigation to understand its nature and impact on profitability.
+----------------------------------------
+

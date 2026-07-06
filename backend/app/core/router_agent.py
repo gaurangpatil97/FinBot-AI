@@ -23,7 +23,7 @@ class RouteDecision:
     collections_searched: List[str] = field(default_factory=list)
     sheet: Optional[str] = None
 
-
+# Keeping  the fallback router source-agnostic so it does not encode one company's vocabulary.
 CONCALL_KEYWORDS = [
     "management said", "management guided", "management mentioned",
     "management commentary", "management claimed", "management highlighted",
@@ -31,7 +31,6 @@ CONCALL_KEYWORDS = [
     "what did", "guidance", "analyst asked",
     "forward guidance", "next quarter", "target", "commentary",
     "q1 fy", "q2 fy", "q3 fy", "q4 fy", "h1 fy", "h2 fy",
-    # Keep the fallback router source-agnostic so it does not encode one company's vocabulary.
     "quarterly", "investor call", "half year", "first half", "second half",
     "we expect", "company guided", "going forward",
 ]
@@ -148,9 +147,10 @@ def route_question(
 
     Key routing rules:
     - If the question asks to verify, cross-check, or compare information across different document types (e.g. comparing what management said in an earnings call against figures reported in the annual report or financial statements), you MUST route to ALL relevant sources simultaneously.
+    - If you detect a cross-check or multi-source question, you MUST return a safe over-fetch baseline of AT LEAST ["excel", "pdf", "concall"].
     - Questions containing words like "verify", "confirm", "cross-check", "reconcile", "management claimed", "actual vs guided", "did the company achieve" are strong signals for multi-source routing.
     - When in doubt between single-source and multi-source, prefer multi-source.
-    - H1, H2, Q1, Q2, Q3, Q4, quarterly, half-year → concall
+    - H1, H2, Q1, Q2, Q3, Q4, quarterly, half-year → concall, excel
     - bar chart, donut chart, KPI chart, infographic, visual, table → images
     - MD&A, BRSR, auditor, KAM, Directors Report → pdf (Note: if asking about a TABLE or CHART within these sections, route to images instead)
     - specific numbers, ratios, calculations → excel
@@ -173,9 +173,9 @@ def route_question(
     Q: What does the annual report show about segment revenue? → {{'source_types': ['images', 'pdf'], 'year': null, 'sheet': null}}
     Q: What was the ROCE shown in the annual report visuals? → {{'source_types': ['images'], 'year': null, 'sheet': null}}
     Q: How many plants shown in annual report? → {{'source_types': ['images', 'pdf'], 'year': null, 'sheet': null}}
-    Q: What was H1 revenue as disclosed by management? → {{"source_types": ["concall"], "year": null, "sheet": null}}
+    Q: What was H1 revenue as disclosed by management? → {{"source_types": ["concall", "excel"], "year": null, "sheet": null}}
     Q: What did management say in Q1 about margins? → {{"source_types": ["concall"], "year": null, "sheet": null}}
-    Q: What was the quarterly EBIT for each segment? → {{"source_types": ["concall"], "year": null, "sheet": null}}
+    Q: What was the quarterly EBIT for each segment? → {{"source_types": ["concall", "excel"], "year": null, "sheet": null}}
     Q: Compare H1 vs H2 performance? → {{"source_types": ["concall"], "year": null, "sheet": null}}
     Q: What is shown in the KPI bar chart? → {{"source_types": ["images"], "year": null, "sheet": null}}
     Q: What does the donut chart show for segment revenue? → {{"source_types": ["images"], "year": null, "sheet": null}}
@@ -200,9 +200,9 @@ def route_question(
             response = client.chat.completions.create(
                 model="gpt-4.1-mini",
                 messages=[{"role": "user", "content": prompt}],
-                temperature=0
-            )
+             )
             duration = time.time() - start_t
+
             from app.core.token_tracker import record_token_usage
             record_token_usage(response)
             OPENAI_CALL_LATENCY.labels(model="gpt-4.1-mini", purpose="routing").observe(duration)
@@ -226,7 +226,7 @@ def route_question(
 
         logger.info(f"[Router] LLM → {source_types} | Year: {routed_year} | Sheet: {detected_sheet}")
 
-        return RouteDecision(
+        decision = RouteDecision(
             source_types=source_types,
             year=routed_year,
             agent_used="llm",
@@ -235,4 +235,23 @@ def route_question(
         )
     except Exception:
         logger.warning("[Router] LLM routing failed, falling back to keywords")
-        return _keyword_route(question, company_slug, extracted_year)
+        decision = _keyword_route(question, company_slug, extracted_year)
+
+    # POST-LLM DETERMINISTIC CHECK FOR CROSS-SOURCE
+    cross_source_triggers = ["cross-reference", "reconcile", "verify", "cross-check", "compare", "extend", "across all available sources"]
+    if any(trigger in q for trigger in cross_source_triggers):
+        baseline_sources = {"excel", "pdf", "concall"}
+        current_sources = set(decision.source_types)
+        
+        # Add images only if explicitly mentioned
+        if any(kw in q for kw in IMAGE_KEYWORDS):
+            baseline_sources.add("images")
+            
+        new_source_types = list(current_sources.union(baseline_sources))
+        
+        if set(decision.source_types) != set(new_source_types):
+            decision.source_types = new_source_types
+            decision.collections_searched = [f"{company_slug}_{s}" for s in new_source_types]
+            logger.info(f"[Router] Cross-source detected. Enforced safe overfetch: {decision.source_types}")
+
+    return decision

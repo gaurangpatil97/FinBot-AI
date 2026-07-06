@@ -1,0 +1,876 @@
+--- ASTRAL ---
+========== P1 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 209, 'collection': 'astral_ltd_pdf_text'}
+  3. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 198, 'collection': 'astral_ltd_pdf_text'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 137, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 208, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 3, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 182, 'collection': 'astral_ltd_pdf_text'}
+  8. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 95, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the FY25 Annual Report (Page 208), the Group has identified two reportable business segments:
+
+1. Plumbing
+2. Paints and Adhesives
+
+Segment Revenue for the year ended March 31, 2025 and March 31, 2024 (in ₹ Million):
+
+- Plumbing:  
+  - FY25 = 41,963  
+  - FY24 = 41,420
+
+- Paints and Adhesives:  
+  - FY25 = 16,361  
+  - FY24 = 14,994
+
+- Total Segment Revenue:  
+  - FY25 = 58,324  
+  - FY24 = 56,414
+
+There were no inter-segment revenues reported.
+
+## Summary
+
+The Group's reportable business segments are Plumbing and Paints and Adhesives. For FY25, Plumbing segment revenue was ₹41,963 million (up from ₹41,420 million in FY24), and Paints and Adhesives segment revenue was ₹16,361 million (up from ₹14,994 million in FY24).
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25
+
+EXPECTED ANSWER:
+Astral Limited (Group) has two reportable business segments — 'Plumbing' and 'Paints and Adhesives'. Segment revenue for FY25 (year ended March 31, 2025) vs FY24: Plumbing — ₹41,963 Million (FY24: ₹41,420 Million); Paints and Adhesives — ₹16,361 Million (FY24: ₹14,994 Million); Total segment revenue — ₹58,324 Million (FY24: ₹56,414 Million). Note: this segment disclosure is presented only in the Consolidated Financial Statements; the Standalone Financial Statements (Note 41) state that no segment disclosure is given standalone since it is presented in the consolidated statements (Ind AS 108).
+==================================
+
+========== P3 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 29, 'collection': 'astral_ltd_pdf_text'}
+  3. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 49, 'collection': 'astral_ltd_pdf_text'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 30, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 45, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 159, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 99, 'collection': 'astral_ltd_pdf_text'}
+  8. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 98, 'collection': 'astral_ltd_pdf_text'}
+  9. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 161, 'collection': 'astral_ltd_pdf_text'}
+  10. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 164, 'collection': 'astral_ltd_pdf_text'}
+  11. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 100, 'collection': 'astral_ltd_pdf_text'}
+  12. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 40, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+- According to the FY25 Annual Report text (page 29), all related party transactions during the financial year were in the ordinary course of business and on an arm’s length basis. There were no materially significant transactions with related parties that were in conflict with the interest of the company. Therefore, no Form AOC-2 annexure was provided.
+
+- All related party transactions were placed before the Audit Committee and the Board for approval. Omnibus approval was obtained for transactions of a foreseen and repetitive nature, and these transactions were reviewed quarterly by the Audit Committee and Board.
+
+- The FY25 Annual Report (page 49) confirms that there were some related party transactions during the year, but none were materially significant or conflicting with the company’s interest. Details of these transactions are included in the notes to the accounts (exact figures or nature of transactions are not provided in the retrieved context).
+
+- Regarding the compensation of key management personnel, the retrieved context does not provide explicit figures or details of the remuneration paid to key management personnel. The report mentions managerial remuneration compliance with legal provisions (page 100 and 159), but no specific compensation numbers for key management personnel are disclosed in the retrieved context.
+
+## Summary
+
+The financial statements disclosed that related party transactions during FY25 were in the ordinary course of business, at arm’s length, and not materially significant or conflicting with the company’s interests. These transactions were approved and reviewed by the Audit Committee and Board. However, specific details or amounts of related party transactions and the compensation of key management personnel are not disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 29, 49, 100, 159 · FY25
+
+EXPECTED ANSWER:
+Standalone Financial Statements, Note 37 (Related Party Disclosures) discloses transactions with Subsidiaries, Joint Venture, Enterprises over which KMP have significant influence, KMP, and Relatives of KMP for FY25 vs FY24 (₹ in Million), including: CSR Expenditure – Astral Foundation 126 (108); Interest Income – Seal IT Services Limited, UK 43 (19); Investment in Subsidiaries – Astral Coatings Private Limited – (2,773); Redemption of debentures – Astral Coatings Private Limited – (1,940); Purchase of Goods/Services – Kairamya Journeys LLP 141 (130); Reimbursement of expenses claimed – Astral Coatings Private Limited 60 (49); Remuneration – Sandeep Engineer 152 (139), Hiranand Savlani 59 (42), Others 57 (52); Rent Paid – Jagruti Sandeep Engineer 1 (1), Sandeep Engineer HUF 1 (1); Sale of Goods – Astral Coatings Private Limited 19 (19); Sitting Fees to Independent Directors (0–1 each); Loans Given – Seal IT Services Limited, UK 477 (91); Loans Repaid – Astral Coatings Private Limited – (8); year-end balances: Loans Given outstanding – Seal IT Services Limited, UK 876 (377); Interest accrued on loan – 20 (5); Payables – Sandeep Engineer 47 (45), Others 5 (4); Advance for purchase of non-current investment – Astral Pipes Limited 109 (109). Compensation of Key Management Personnel (short-term benefits): ₹251 Million (FY24: ₹216 Million).
+==================================
+
+========== P4 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd.xlsx', 'page': 'balance_sheet', 'collection': 'astral_ltd_excel'}
+  3. {'filename': 'Astral_Ltd.xlsx', 'page': 'cash_flow', 'collection': 'astral_ltd_excel'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+The retrieved context from the Excel financials, annual report images, PDF annual report text, and earnings call transcripts does not contain any explicit disclosure or mention of contingent liabilities or commitments reported by the company at the close of the financial year. 
+
+No line item or narrative related to contingent liabilities or commitments is present in the profit & loss, balance sheet, cash flow data, or in the narrative/management commentary sections provided.
+
+## Summary
+
+The contingent liabilities and commitments reported by the company at the close of the financial year are not available in the retrieved context.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY17-FY26  
+Astral_Ltd.xlsx · balance_sheet · FY17-FY26  
+Astral_Ltd.xlsx · cash_flow · FY17-FY26
+
+EXPECTED ANSWER:
+Standalone Financial Statements, Note 33 (Contingent Liabilities and Commitments Not Provided For), as at March 31, 2025 (with March 31, 2024 comparatives): Contingent Liabilities — In respect of Income Tax: ₹16 Million (₹16 Million); In respect of Goods and Service Tax (GST), Customs Duty, Entry Tax, Value Added Tax and Central Sales Tax: ₹74 Million (₹11 Million). [Separately listed as Commitments, not contingent liabilities: Capital Contracts remaining to be executed (Net of Advances): ₹1,845 Million (₹1,917 Million); Letters of Credit for Purchases: ₹334 Million (₹1,164 Million).]
+==================================
+
+========== P7 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 208, 'collection': 'unknown'}
+  3. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 182, 'collection': 'astral_ltd_pdf_text'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 209, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 108, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 154, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 21, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the FY25 Annual Report segment data (Page 208):
+
+### Segment Profit (₹ in Million)
+- Plumbing: 6,126
+- Paints and Adhesives: 1,150
+- Total Segment Profit: 7,276
+
+### Segment Assets (₹ in Million)
+- Plumbing: 28,677
+- Paints and Adhesives: 15,603
+- Total Segment Assets: 44,280
+
+### Segment Liabilities (₹ in Million)
+- Plumbing: 7,521
+- Paints and Adhesives: 3,432
+- Total Segment Liabilities: 10,953
+
+These figures are for the year ended March 31, 2025.
+
+## Summary
+
+For FY25, the company reported segment profits of ₹6,126 million for Plumbing and ₹1,150 million for Paints and Adhesives. Segment assets were ₹28,677 million and ₹15,603 million respectively, while segment liabilities stood at ₹7,521 million and ₹3,432 million respectively for these core segments.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 209 · FY25
+
+EXPECTED ANSWER:
+Consolidated Financial Statements, Note 37 (Segment Reporting) — Segment Profit for year ended March 31, 2025 (FY24 in brackets): Plumbing ₹6,126 Million (₹6,054 Million); Paints and Adhesives ₹1,150 Million (₹1,396 Million); Total ₹7,276 Million (₹7,450 Million). Segment Assets as at March 31, 2025 (March 31, 2024): Plumbing ₹28,677 Million (₹24,623 Million); Paints and Adhesives ₹15,603 Million (₹14,222 Million); Total Segment Assets ₹44,280 Million (₹38,845 Million). Segment Liabilities as at March 31, 2025 (March 31, 2024): Plumbing ₹7,521 Million (₹7,657 Million); Paints and Adhesives ₹3,432 Million (₹2,606 Million); Total Segment Liabilities ₹10,953 Million (₹10,263 Million). Note: The report does not disclose a separately labelled 'segment-wise capital employed' figure; only segment assets and segment liabilities are given.
+==================================
+
+========== P8 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd.xlsx', 'page': 'balance_sheet', 'collection': 'astral_ltd_excel'}
+  3. {'filename': 'Astral_Ltd.xlsx', 'page': 'cash_flow', 'collection': 'astral_ltd_excel'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+The retrieved context provides detailed line items for the Profit & Loss statement of Astral Ltd for multiple years, including a line item called "Other Expenses." However, the context does not break down "Other Expenses" into sub-line items or components. The data only shows the aggregate figure for "Other Expenses" each year, for example:
+
+- FY2017: Other Expenses = ₹10.58 Cr  
+- FY2018: Other Expenses = ₹12.71 Cr  
+- FY2019: Other Expenses = ₹17.70 Cr  
+- FY2020: Other Expenses = ₹17.90 Cr  
+- FY2021: Other Expenses = ₹21.70 Cr  
+- FY2022: Other Expenses = ₹22.60 Cr  
+- FY2023: Other Expenses = ₹32.30 Cr  
+- FY2024: Other Expenses = ₹35.30 Cr  
+- FY2025: Other Expenses = ₹38.20 Cr  
+- FY2026: Other Expenses = ₹965.20 Cr (Note: This is a large jump, but no breakdown is provided)
+
+No further breakdown or sub-classification of "Other Expenses" into specific line items is available in the retrieved context.
+
+## Summary
+
+The retrieved context does not disclose the top three largest line items under "Other Expenses" in the standalone financial statements, nor their year-on-year changes. Only the aggregate "Other Expenses" figures are available, without any detailed breakdown.
+
+## Sources
+
+Astral_Ltd.xlsx · profit_loss · FY2017 to FY2026
+
+EXPECTED ANSWER:
+Standalone Financial Statements, Note 30 (Other Expenses), the top 3 largest line items for FY25 (year ended March 31, 2025) vs FY24: (1) Advertisement and Sales Promotions expenses — ₹1,921 Million (FY24: ₹2,197 Million), a decrease of ₹276 Million; (2) Freight and Forwarding — ₹1,507 Million (FY24: ₹1,357 Million), an increase of ₹150 Million; (3) Power and Fuel — ₹1,279 Million (FY24: ₹1,268 Million), an increase of ₹11 Million. Total Other Expenses: ₹7,801 Million (FY24: ₹7,661 Million).
+==================================
+
+========== P9 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 161, 'collection': 'astral_ltd_pdf_text'}
+  2. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 99, 'collection': 'astral_ltd_pdf_text'}
+  3. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 97, 'collection': 'astral_ltd_pdf_text'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 182, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 183, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 158, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 123, 'collection': 'astral_ltd_pdf_text'}
+  8. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 121, 'collection': 'astral_ltd_pdf_text'}
+  9. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 30, 'collection': 'astral_ltd_pdf_text'}
+  10. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 122, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+The disclosures related to new or amended accounting standards for the year ended March 31, 2025, are as follows:
+
+- Amendment to Ind AS 116 Leases – Lease Liability in a Sale and Leaseback:  
+  The MCA notified the Companies (Indian Accounting Standards) Second Amendment Rules, 2024, amending Ind AS 116 with respect to lease liability measurement in sale and leaseback transactions. The amendment requires that the seller-lessee does not recognize any gain or loss related to the right of use it retains.  
+  Impact: The Group/Company does not have any such sale and leaseback transactions; hence, this amendment does not have any impact on the Group’s or Company’s financial statements. (Sources: Astral_Ltd_AR_FY2025_AnnualReport.pdf Pages 121, 123)
+
+- Ind AS 117 Insurance Contracts:  
+  The application of Ind AS 117 had no impact on the Company’s financial statements as the Company has not entered into any contracts in the nature of insurance contracts covered under Ind AS 117. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf Page 123)
+
+- Standards notified but not yet effective:  
+  There are no standards that are notified and not yet effective as on the date of the report. (Sources: Astral_Ltd_AR_FY2025_AnnualReport.pdf Pages 121, 123)
+
+## Summary
+
+The only new/amended accounting standard disclosed was the amendment to Ind AS 116 related to lease liability in sale and leaseback transactions, which had no impact on the Group as it has no such transactions. Ind AS 117 on insurance contracts also had no impact as the Company has no insurance contracts. No other new or notified standards were pending applicability.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 121, 123 · FY25
+
+EXPECTED ANSWER:
+Standalone Financial Statements, Note 2(y) 'New and amended standards' discloses: (1) Ind AS 117 'Insurance Contracts' — notified by MCA on August 12, 2024 under the Companies (Indian Accounting Standards) Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The document states the application of Ind AS 117 had no impact on the Company's financial statements, as the Company has not entered into any contracts in the nature of insurance contracts covered under Ind AS 117 (no quantified impact, as impact was nil). (2) Amendment to Ind AS 116 'Leases' — Lease Liability in a Sale and Leaseback, notified via the Companies (Indian Accounting Standards) Second Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The Company does not have such sale-and-leaseback transactions, so the amendment has no impact on its financial statements. Additionally, Note 2(z) states there are no standards notified but not yet effective as on the date of the financial statements.
+==================================
+
+========== P10 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 108, 'collection': 'astral_ltd_pdf_text'}
+  2. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 166, 'collection': 'unknown'}
+  3. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 196, 'collection': 'astral_ltd_pdf_text'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 137, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 119, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 188, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 197, 'collection': 'astral_ltd_pdf_text'}
+  8. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 178, 'collection': 'astral_ltd_pdf_text'}
+  9. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 203, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the retrieved context, the following provisions related to employee benefits and other liabilities are disclosed:
+
+- **Note 16 - Provisions (Page 166, FY25 Annual Report PDF):**  
+  - Non-current Provisions for Employee Benefits: ₹82 million (as at March 31, 2025)  
+  - Non-current Provisions for Employee Benefits: ₹50 million (as at March 31, 2024)  
+  - Current Provisions for Employee Benefits: ₹18 million (as at March 31, 2025)  
+  - Current Provisions for Employee Benefits: ₹7 million (as at March 31, 2024)  
+
+- **Additional details on provisions and employee benefits (Page 111 and 203, FY25 Annual Report PDF):**  
+  - The provisions are recognized for employee benefits such as gratuity and compensated absences.  
+  - The actuarial valuation method used is the Projected Unit Credit method.  
+  - The liability for accumulated leaves and other long-term employee benefits is recognized at present value of estimated future cash outflows.  
+  - The net liability arising from defined benefit obligations is disclosed, including the present value of benefit obligation and fair value of plan assets.  
+  - Components of defined benefit costs recognized in the Statement of Profit and Loss and remeasurement on net defined benefit liability are detailed.  
+
+- **Schedules provided:**  
+  - Note 16 provides opening and closing balances of provisions for employee benefits (current and non-current).  
+  - Note 35 (referred to in the provisions note) likely contains detailed disclosures on employee benefits, including actuarial assumptions and movement in defined benefit obligations.  
+  - Notes on other financial liabilities and current liabilities also mention provisions but do not provide a detailed breakup beyond employee benefits.  
+
+- **No breakup of amounts created, reversed, or utilized during the year is provided.**  
+
+## Summary
+
+The company disclosed provisions for employee benefits as ₹82 million (non-current) and ₹18 million (current) as of March 31, 2025, with comparative figures for the previous year. These provisions relate to defined benefit obligations such as gratuity and compensated absences, with actuarial valuations performed using the Projected Unit Credit method. The schedules provided include Note 16 (Provisions) and Note 35 (Employee Benefits), which detail opening/closing balances and actuarial assumptions, but no detailed movement or utilization of provisions is disclosed.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 166 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 111 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 203 · FY25
+
+EXPECTED ANSWER:
+Standalone Financial Statements, Note 16 (Provisions) discloses only two line items with opening/closing balances (no separate created/reversed/utilized movement schedule is provided): Non-current — Provision for Employee Benefits: ₹82 Million as at March 31, 2025 (₹50 Million as at March 31, 2024); Current — Provision for Employee Benefits: ₹18 Million as at March 31, 2025 (₹7 Million as at March 31, 2024). Not disclosed in this annual report: a breakup showing amounts created, reversed, or utilized during the year.
+==================================
+
+========== CP1 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd.xlsx', 'page': 'balance_sheet', 'collection': 'astral_ltd_excel'}
+  3. {'filename': 'Astral_Ltd.xlsx', 'page': 'cash_flow', 'collection': 'astral_ltd_excel'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 98, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 218, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 181, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 222, 'collection': 'astral_ltd_pdf_text'}
+  8. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 104, 'collection': 'unknown'}
+  9. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 174, 'collection': 'astral_ltd_pdf_text'}
+  10. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 97, 'collection': 'astral_ltd_pdf_text'}
+  11. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 158, 'collection': 'astral_ltd_pdf_text'}
+  12. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 175, 'collection': 'astral_ltd_pdf_text'}
+  13. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 182, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the Independent Auditor’s Report in the Standalone Financial Statements for FY25:
+
+- Goodwill carrying amount as at March 31, 2025: ₹ 2,036 Million (Source [11])
+- Investments in subsidiaries tested for impairment (Astral Coatings Private Limited and Seal IT Services Limited, UK): ₹ 3,707 Million as at March 31, 2025 (Source [4])
+
+## Calculation
+
+Combined carrying value = Goodwill carrying amount + Investments in subsidiaries carrying amount  
+= ₹ 2,036 Million + ₹ 3,707 Million  
+= ₹ 5,743 Million
+
+## Summary
+
+The combined carrying value as at March 31, 2025, of goodwill tested for impairment and the Company's investments in subsidiaries tested for impairment is ₹ 5,743 Million.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 98 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 97 · FY25
+
+EXPECTED ANSWER:
+₹5,743 Million. Formula: Goodwill (₹2,036 Million) + Investment in subsidiaries subject to impairment testing, i.e. Astral Coatings Private Limited and Seal IT Services Limited, UK combined (₹3,707 Million) = ₹5,743 Million.
+==================================
+
+========== CP4 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 208, 'collection': 'astral_ltd_pdf_text'}
+  3. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 209, 'collection': 'astral_ltd_pdf_text'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 178, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 141, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 198, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 174, 'collection': 'astral_ltd_pdf_text'}
+  8. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 201, 'collection': 'astral_ltd_pdf_text'}
+  9. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 168, 'collection': 'astral_ltd_pdf_text'}
+  10. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 160, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. astral_ltd_pdf_text
+
+ACTUAL ANSWER:
+## Details
+
+From Note 37 (Segment Reporting) for the year ended March 31, 2024:
+
+- Segment Profit:
+  - Plumbing: ₹6,054 million
+  - Paints and Adhesives: ₹1,396 million
+  - Total Segment Profit = ₹6,054 million + ₹1,396 million = ₹7,450 million
+
+- Reconciliation to Consolidated Profit Before Tax (PBT) of ₹7,336 million:
+
+  - Add: Unallocated Income/(Expenses) net = ₹178 million
+  - Less: Finance costs = ₹291 million
+  - Less: Share of loss of joint venture = ₹1 million
+
+Calculation of Consolidated PBT:
+  
+  ₹7,450 million (Total Segment Profit)  
+  + ₹178 million (Unallocated Income/(Expenses))  
+  - ₹291 million (Finance costs)  
+  - ₹1 million (Share of loss of joint venture)  
+  = ₹7,336 million (Consolidated Profit Before Tax)
+
+## Summary
+
+The total segment profit of ₹7,450 million (Plumbing ₹6,054 million + Paints and Adhesives ₹1,396 million) reconciles to the Consolidated Profit Before Tax of ₹7,336 million by adding unallocated income/expenses of ₹178 million, and deducting finance costs of ₹291 million and share of loss of joint venture of ₹1 million.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25
+
+EXPECTED ANSWER:
+Note 37 (page 240): total segment profit ₹7,450 million (Plumbing ₹6,054m + Paints and Adhesives ₹1,396m). Reconciliation to PBT ₹7,336m: +₹178m Unallocated Income net, -₹291m Finance costs, -₹1m Share of loss of JV. 7,450+178-291-1=7,336.
+==================================
+
+========== CP7 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Astral_Ltd.xlsx', 'page': 'profit_loss', 'collection': 'astral_ltd_excel'}
+  2. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 208, 'collection': 'astral_ltd_pdf_text'}
+  3. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 141, 'collection': 'astral_ltd_pdf_text'}
+  4. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 178, 'collection': 'astral_ltd_pdf_text'}
+  5. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 201, 'collection': 'astral_ltd_pdf_text'}
+  6. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 168, 'collection': 'astral_ltd_pdf_text'}
+  7. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 110, 'collection': 'astral_ltd_pdf_text'}
+  8. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 209, 'collection': 'astral_ltd_pdf_text'}
+  9. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 179, 'collection': 'astral_ltd_pdf_text'}
+  10. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 160, 'collection': 'astral_ltd_pdf_text'}
+  11. {'filename': 'Astral_Ltd_AR_FY2025_AnnualReport.pdf', 'page': 198, 'collection': 'astral_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. astral_ltd_pdf_text
+
+ACTUAL ANSWER:
+## Details
+
+From Note 37 (Segment Reporting) for the year ended March 31, 2025:
+
+- Total Segment Profit:
+  - Plumbing: ₹6,126 million
+  - Paints and Adhesives: ₹1,150 million
+  - Total Segment Profit = ₹6,126 + ₹1,150 = ₹7,276 million
+
+Reconciliation to Consolidated Profit Before Tax (PBT):
+
+- Add: Unallocated Income/(Expenses) (net): ₹162 million
+- Less: Finance costs: ₹413 million
+- Less: Share of loss of joint venture: ₹0 million
+
+Calculation of Consolidated PBT:
+
+- Consolidated PBT = Total Segment Profit + Unallocated Income/(Expenses) - Finance costs - Share of loss of joint venture
+- Consolidated PBT = ₹7,276 + ₹162 - ₹413 + 0 = ₹7,025 million
+
+## Summary
+
+The total segment profit of ₹7,276 million (Plumbing ₹6,126 million and Paints and Adhesives ₹1,150 million) reconciles to the consolidated profit before tax of ₹7,025 million by adding unallocated income/expenses of ₹162 million, deducting finance costs of ₹413 million, and accounting for no share of loss from joint ventures.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25
+
+EXPECTED ANSWER:
+Note 37 (page 225): total segment profit ₹7,276 million (Plumbing ₹6,126m + Paints and Adhesives ₹1,150m). Reconciliation to PBT ₹7,025m: +₹162m Unallocated Income net, -₹413m Finance costs, ₹0m JV. 7,276+162-413+0=7,025.
+==================================
+
+
+--- CRAFTSMAN ---
+========== P3 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Craftsman Auto.xlsx', 'page': 'profit_loss', 'collection': 'craftsman_automation_ltd_excel'}
+  2. {'filename': 'Annual-Report-2025.pdf', 'page': 48, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  3. {'filename': 'Annual-Report-2025.pdf', 'page': 8, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  4. {'filename': 'Annual-Report-2025.pdf', 'page': 177, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  5. {'filename': 'Annual-Report-2025.pdf', 'page': 110, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  6. {'filename': 'Annual-Report-2025.pdf', 'page': 164, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  7. {'filename': 'Annual-Report-2025.pdf', 'page': 178, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  8. {'filename': 'Annual-Report-2025.pdf', 'page': 232, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  9. {'filename': 'Annual-Report-2025.pdf', 'page': 111, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  10. {'filename': 'Annual-Report-2025.pdf', 'page': 7, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  11. {'filename': 'Annual-Report-2025.pdf', 'page': 10, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  12. {'filename': 'Annual-Report-2025.pdf', 'page': 179, 'collection': 'craftsman_automation_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+- According to the Annual Report FY25 (pages 8, 16, 18, 21), the Company has stated that it **did not enter into any material related party transactions** during the financial year that would require shareholders’ approval under Listing Regulations or disclosure under Section 134(3)(h) of the Companies Act, 2013. All related party transactions were in the ordinary course of business and on an arm’s length basis.
+
+- The related party transactions disclosed include:
+  - Purchase of Goods & Services
+  - Sale of Goods & Services
+  - Reimbursement of Expenditure to and from related parties
+  - Interest Income
+  - Rental Income
+  - Management Services Income
+  - Commission and Sitting Fees paid to key management personnel
+
+- Specific transaction values (in lakhs) during FY24-25 include (from page 164):
+  - Purchase of Goods & Services: 4 lakhs
+  - Sale of Goods & Services: 1930 lakhs
+  - Reimbursement of Expenditure to related parties: 39 lakhs
+  - Reimbursement of Expenditure from related parties: 36 lakhs
+  - Interest Income: 34 lakhs
+  - Rental Income: 6 lakhs
+  - Management Services Income: 100 lakhs
+  - Commission and Sitting Fees to KMP: Commission 989 lakhs, Sitting Fee 149 lakhs
+
+- Key Management Personnel (KMP) identified (page 10) are:
+  - Mr. Srinivasan Ravi, Chairman and Managing Director
+  - Mr. Ravi Gauthamram, Whole Time Director
+  - Mr. C.B. Chandrasekar, Chief Financial Officer
+  - Mr. Thiyagaraj Damodharaswamy, Chief Operating Officer – Powertrain
+  - Mr. Shainshad Aduvanni, Company Secretary
+
+- The remuneration and other details of KMP for FY24-25 are provided in the Annual Return available on the Company’s website. However, the exact compensation figures for KMP are not explicitly disclosed in the retrieved context.
+
+## Summary
+
+The financial statements disclose related party transactions during FY24-25 including purchases and sales of goods and services, reimbursements, interest and rental income, management services income, and commission and sitting fees paid to key management personnel. All transactions were in the ordinary course of business and at arm’s length. The exact compensation amounts for key management personnel are not explicitly provided in the retrieved context.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 8, 10, 16, 18, 21, 164 · FY25
+
+EXPECTED ANSWER:
+Standalone related-party transactions for FY2024-25 (vs FY2023-24, ₹ in Lakhs) include: Purchase of Goods & Services – Subsidiaries ₹47 (₹70), Joint Ventures ₹501 (₹489); Sale of Goods & Services – Subsidiaries ₹19,304 (₹2,150), Joint Ventures ₹5,916 (₹5,597); Reimbursement of Expenditure to Subsidiaries ₹393 (Nil); Reimbursement of Expenditure from Subsidiaries ₹361 (Nil); Remuneration to Key Management Personnel ₹989 (₹692); Commission to KMP ₹149 (₹1,000); Sitting Fee ₹27 (₹22); Interest Income from Subsidiaries ₹346 (Nil); Rental income – Subsidiaries ₹67 (₹4), Joint Ventures ₹2 (₹2); Management Services Income – Subsidiaries ₹1,000 (Nil). Significant counterparties named include Carl Stahl Craftsman Enterprises Private Limited, Craftsman Europe BV-Netherlands, DR Axion India Private Limited, and Sunbeam Lightweighting Solutions Private Limited, with individual transaction values listed in the note (e.g., Sale of Goods & Services to DR Axion India Private Limited: ₹12,941 Lakhs; to Sunbeam Lightweighting Solutions Private Limited: ₹4,964 Lakhs). Balances outstanding at year-end (March 31, 2025) include Trade Receivables from Subsidiaries ₹888, Joint Ventures ₹983; Trade Payables to Subsidiaries ₹268; Loans Receivable from Subsidiaries ₹6,640 (marked with *); Remuneration payable to KMP ₹15.
+==================================
+
+========== P4 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Craftsman Auto.xlsx', 'page': 'profit_loss', 'collection': 'craftsman_automation_ltd_excel'}
+  2. {'filename': 'Craftsman Auto.xlsx', 'page': 'balance_sheet', 'collection': 'craftsman_automation_ltd_excel'}
+  3. {'filename': 'Craftsman Auto.xlsx', 'page': 'cash_flow', 'collection': 'craftsman_automation_ltd_excel'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+The retrieved context from the provided sources (Excel financials, annual report images, PDF text, and earnings call transcripts) does not contain any explicit disclosure or mention of contingent liabilities or commitments reported by Craftsman Automation Ltd at the close of any financial year.
+
+Specifically:
+
+- The Excel sheets include detailed Profit & Loss, Balance Sheet, and Cash Flow data but do not list contingent liabilities or commitments.
+- The annual report image pages and PDF text sections provided do not include any narrative or tabular data on contingent liabilities or commitments.
+- The earnings call transcripts do not mention contingent liabilities or commitments.
+
+Therefore, no figures or descriptions of contingent liabilities or commitments are available in the retrieved context.
+
+## Summary
+
+The contingent liabilities and commitments reported by the company at the close of the financial year are not disclosed in the retrieved context.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2017-FY2026  
+Craftsman Auto.xlsx · balance_sheet · FY2017-FY2026  
+Craftsman Auto.xlsx · cash_flow · FY2017-FY2026
+
+EXPECTED ANSWER:
+Standalone Contingent Liabilities as at March 31, 2025 (vs March 31, 2024, ₹ in Lakhs): a. Claims against the Company not acknowledged as debt – Excise Duty ₹7 (₹7), Service tax ₹104 (₹67), Goods and Service Tax ₹1,952 (₹16), Income tax ₹307 (₹823). b. Sales Bills discounted ₹8,646 (₹4,617). Additionally, Commitment on capital account not provided as on March 31, 2025 was ₹40,548 Lakhs (₹25,144 Lakhs as at March 31, 2024) — disclosed under Commitments in the same note.
+==================================
+
+========== P7 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Craftsman Auto.xlsx', 'page': 'profit_loss', 'collection': 'craftsman_automation_ltd_excel'}
+  2. {'filename': 'Annual-Report-2025.pdf', 'page': 239, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  3. {'filename': 'Annual-Report-2025.pdf', 'page': 191, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  4. {'filename': 'Annual-Report-2025.pdf', 'page': 19, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  5. {'filename': 'Annual-Report-2025.pdf', 'page': 172, 'collection': 'unknown'}
+  6. {'filename': 'Annual-Report-2025.pdf', 'page': 171, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  7. {'filename': 'Annual-Report-2025.pdf', 'page': 173, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  8. {'filename': 'Annual-Report-2025.pdf', 'page': 125, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  9. {'filename': 'Annual-Report-2025.pdf', 'page': 20, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  10. {'filename': 'Annual-Report-2025.pdf', 'page': 238, 'collection': 'craftsman_automation_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+The core segments of the company as per the annual report are:
+
+- Powertrain
+- Aluminium Products
+- Industrial & Engineering
+
+From the Annual Report 2024-25 (FY25), the reported figures for these segments are:
+
+### Segment Profit or Loss (₹ in Lakhs)
+- Powertrain: 24,857
+- Aluminium Products: 11,600
+- Industrial & Engineering: 1,717
+- Total Segments: 38,422
+
+### Segment Assets (₹ in Lakhs)
+- Powertrain: 1,76,711
+- Aluminium Products: 1,66,955
+- Industrial & Engineering: 1,09,880
+- Total Segments: 4,53,546
+
+### Segment Liabilities (₹ in Lakhs)
+- Powertrain: 1,01,851
+- Aluminium Products: 1,24,967
+- Industrial & Engineering: 72,432
+- Total Segments: 2,99,250
+
+These figures are directly extracted from the Annual Report 2024-25, page 172.
+
+## Summary
+
+For FY25, the company reported segment profits of ₹24,857 lakhs (Powertrain), ₹11,600 lakhs (Aluminium Products), and ₹1,717 lakhs (Industrial & Engineering). Segment assets were ₹1,76,711 lakhs, ₹1,66,955 lakhs, and ₹1,09,880 lakhs respectively, while segment liabilities stood at ₹1,01,851 lakhs, ₹1,24,967 lakhs, and ₹72,432 lakhs for these core segments.
+
+## Sources
+
+Annual-Report-2025.pdf · Page 172 · FY25
+
+EXPECTED ANSWER:
+Standalone Segment Profit or Loss (₹ in Lakhs), FY2024-25 vs FY2023-24: Powertrain ₹24,857 (₹29,163); Aluminium Products ₹11,600 (₹12,902); Industrial & Engineering ₹1,717 (₹4,673); Others ₹248 (Nil); Total Segments ₹38,422 (₹46,738). Segment Assets as at March 31, 2025 vs March 31, 2024: Powertrain ₹1,76,711 (₹1,54,572); Aluminium Products ₹1,66,955 (₹1,09,219); Industrial & Engineering ₹1,09,880 (₹86,324); Total Segments ₹4,53,546 (₹3,50,115). Segment Liabilities: Powertrain ₹1,01,851 (₹94,667); Aluminium Products ₹1,24,967 (₹59,650); Industrial & Engineering ₹72,432 (₹59,106); Total Segments ₹2,99,250 (₹2,13,423). Note: The document discloses Segment Profit or Loss, Segment Assets, and Segment Liabilities, but does not separately disclose 'segment-wise capital employed' as a distinct line item — Not disclosed in this annual report under that specific term.
+==================================
+
+========== P8 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Craftsman Auto.xlsx', 'page': 'profit_loss', 'collection': 'craftsman_automation_ltd_excel'}
+  2. {'filename': 'Craftsman Auto.xlsx', 'page': 'balance_sheet', 'collection': 'craftsman_automation_ltd_excel'}
+  3. {'filename': 'Craftsman Auto.xlsx', 'page': 'cash_flow', 'collection': 'craftsman_automation_ltd_excel'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+The retrieved context provides detailed line items for the profit and loss statement of Craftsman Automation Ltd for multiple years, including a line item called "Other Expenses." However, the context only shows a single aggregated figure for "Other Expenses" each year and does not break down "Other Expenses" into sub-line items or components.
+
+For example, the "Other Expenses" figures from the profit and loss data are:
+
+- FY2017: 7.79 Cr
+- FY2018: 6.23 Cr
+- FY2019: 6.37 Cr
+- FY2020: 3.74 Cr
+- FY2021: 3.14 Cr
+- FY2022: 2.09 Cr
+- FY2023: 4.11 Cr
+- FY2024: 5.64 Cr
+- FY2025: 18.98 Cr
+- FY2026: 1842.44 Cr (Note: This is a very large jump in FY2026)
+
+No further breakdown or sub-classification of "Other Expenses" into specific line items is provided in the retrieved context.
+
+## Summary
+
+The retrieved context does not disclose the top three largest line items under "Other Expenses" in the standalone financial statements, nor does it provide their year-on-year changes. Only the aggregate "Other Expenses" figure is available for each year.
+
+## Sources
+
+Craftsman Auto.xlsx · profit_loss · FY2017 to FY2026
+
+EXPECTED ANSWER:
+Standalone 'Other Expenses' (Note 2.7) for FY2024-25 vs FY2023-24 (₹ in Lakhs) — the three largest individual line items in FY2024-25 were: (1) Stores, Spares & tool consumed: ₹24,796 vs ₹20,696, an increase of ₹4,100; (2) Power & Fuel: ₹21,548 vs ₹17,710, an increase of ₹3,838; (3) Payment to contractors: ₹8,441 vs ₹5,849, an increase of ₹2,592. Total Other Expenses were ₹88,833 Lakhs (FY24-25) vs ₹72,243 Lakhs (FY23-24).
+==================================
+
+========== P9 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Annual-Report-2025.pdf', 'page': 175, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  2. {'filename': 'Annual-Report-2025.pdf', 'page': 111, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  3. {'filename': 'Annual-Report-2025.pdf', 'page': 108, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  4. {'filename': 'Annual-Report-2025.pdf', 'page': 179, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  5. {'filename': 'Annual-Report-2025.pdf', 'page': 123, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  6. {'filename': 'Annual-Report-2025.pdf', 'page': 48, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  7. {'filename': 'Annual-Report-2025.pdf', 'page': 53, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  8. {'filename': 'Annual-Report-2025.pdf', 'page': 105, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  9. {'filename': 'Annual-Report-2025.pdf', 'page': 228, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  10. {'filename': 'Annual-Report-2025.pdf', 'page': 205, 'collection': 'craftsman_automation_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the Annual Report FY25, page 123, under the section "C. RECENT ACCOUNTING DEVELOPMENTS," it is explicitly stated:
+
+- During the year ended March 31, 2025, the Ministry of Corporate Affairs (MCA) has **not notified any new accounting standards or amendments to the existing standards applicable to the company**.
+
+No impact or changes due to new or amended accounting standards were disclosed.
+
+## Summary
+
+No new or amended accounting standards were notified or applicable to the company during FY25, and therefore, no impact from such standards was disclosed.
+
+## Sources
+
+Annual-Report-2025.pdf · Page 123 · FY25
+
+EXPECTED ANSWER:
+The document states: 'During the year ended March 31, 2025, MCA has not notified any new standards or amendments to the existing standards applicable to the company.' No accounting policy changes or new accounting standards were adopted during the financial year, and no impact amount is quantified since none were adopted.
+==================================
+
+========== P10 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Annual-Report-2025.pdf', 'page': 184, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  2. {'filename': 'Annual-Report-2025.pdf', 'page': 212, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  3. {'filename': 'Annual-Report-2025.pdf', 'page': 145, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  4. {'filename': 'Annual-Report-2025.pdf', 'page': 214, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  5. {'filename': 'Annual-Report-2025.pdf', 'page': 147, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  6. {'filename': 'Annual-Report-2025.pdf', 'page': 129, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  7. {'filename': 'Annual-Report-2025.pdf', 'page': 111, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  8. {'filename': 'Annual-Report-2025.pdf', 'page': 118, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  9. {'filename': 'Annual-Report-2025.pdf', 'page': 123, 'collection': 'craftsman_automation_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the retrieved context, the provisions for employee benefits and other liabilities disclosed are as follows:
+
+### Non-current Provisions (Annual-Report-2025.pdf · Page 145 · FY25)
+- Other Provisions (including Warranty Cost)
+- Provision for compensated absences
+
+### Current Provisions (Annual-Report-2025.pdf · Page 147 · FY25)
+- Provision for employee benefits - Gratuity: ₹630 Lakhs (FY25), ₹505 Lakhs (FY24)
+- Other Provisions:
+  - Provision for Warranty Cost: ₹280 Lakhs (FY25), ₹230 Lakhs (FY24)
+  - Provision for Rejection: ₹160 Lakhs (FY25), ₹127 Lakhs (FY24)
+- Total Current Provisions: ₹1,070 Lakhs (FY25), ₹862 Lakhs (FY24)
+
+### Movement in Provisions (Annual-Report-2025.pdf · Page 147 · FY25)
+- Warranty Provision:
+  - Opening: ₹230 Lakhs
+  - Expired during the year: ₹230 Lakhs
+  - Provided during the year: ₹280 Lakhs
+  - Closing: ₹280 Lakhs
+- Rejection Provision:
+  - Opening: ₹127 Lakhs
+  - Expired during the year: ₹127 Lakhs
+  - Provided during the year: ₹160 Lakhs
+  - Closing: ₹160 Lakhs
+
+### Provisions Charged During the Year (Annual-Report-2025.pdf · Page 147 · FY25)
+- Warranty: ₹45 Lakhs (FY25), ₹41 Lakhs (FY24)
+- Rejections: ₹34 Lakhs (FY25), -₹3 Lakhs (FY24)
+- Doubtful debts: ₹933 Lakhs (FY25), -₹94 Lakhs (FY24)
+
+### Notes on Provisions (Annual-Report-2025.pdf · Page 129 · FY25)
+- Provisions for warranty obligations are recognized based on management’s best estimate of expenditure required to settle the obligation.
+
+### Schedules Provided
+- Note 1.24 Long Term Provisions (Non-current provisions)
+- Note 1.32 Short Term Provisions (Current provisions)
+- Movement schedules for warranty and rejection provisions are detailed.
+- Provisions charged during the year are disclosed in Note 2.7 Other Expenses.
+
+## Summary
+
+The company disclosed both current and non-current provisions related to employee benefits and other liabilities. Current provisions include gratuity (₹630 Lakhs), warranty cost (₹280 Lakhs), and rejection (₹160 Lakhs) as of March 31, 2025. Non-current provisions include compensated absences and warranty provisions. Detailed schedules for movements in warranty and rejection provisions, as well as provisions charged during the year, are provided in Notes 1.24, 1.32, and 2.7 of the annual report.
+
+## Sources
+
+Annual-Report-2025.pdf · Page 129 · FY25  
+Annual-Report-2025.pdf · Page 145 · FY25  
+Annual-Report-2025.pdf · Page 147 · FY25
+
+EXPECTED ANSWER:
+Standalone Short Term Provisions (Note 1.32) as at March 31, 2025 vs March 31, 2024 (₹ in Lakhs): Provision for employee benefits — Gratuity ₹630 (₹505); Other Provisions — Provision for Warranty Cost ₹280 (₹230), Provision for Rejection ₹160 (₹127); Total ₹1,070 (₹862). Movement in Provision for product warranties (FY2024-25): Opening ₹230, Expired during the year ₹230, Warranty provided for current year ₹280, Closing ₹280. Movement in Provision for Rejection (FY2024-25): Opening ₹127, Expired during the year ₹127, Rejection provided for current year ₹160, Closing ₹160. Additionally, Note 2.7 'Other Expenses' discloses Provisions charged during the year: Warranty ₹45 (₹41 in FY23-24), Rejections ₹34 (₹(3) in FY23-24), Doubtful debts ₹933 (₹(94) in FY23-24).
+==================================
+
+========== CP2 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Craftsman Auto.xlsx', 'page': 'profit_loss', 'collection': 'craftsman_automation_ltd_excel'}
+  2. {'filename': 'Craftsman Auto.xlsx', 'page': 'balance_sheet', 'collection': 'craftsman_automation_ltd_excel'}
+  3. {'filename': 'Craftsman Auto.xlsx', 'page': 'cash_flow', 'collection': 'craftsman_automation_ltd_excel'}
+  4. {'filename': 'Annual-Report-2023-24.pdf', 'page': 121, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  5. {'filename': 'Annual-Report-2023-24.pdf', 'page': 187, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  6. {'filename': 'Annual-Report-2023-24.pdf', 'page': 137, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  7. {'filename': 'Annual-Report-2023-24.pdf', 'page': 210, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  8. {'filename': 'Annual-Report-2023-24.pdf', 'page': 48, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  9. {'filename': 'Annual-Report-2023-24.pdf', 'page': 146, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  10. {'filename': 'Annual-Report-2023-24.pdf', 'page': 127, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  11. {'filename': 'Annual-Report-2023-24.pdf', 'page': 49, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  12. {'filename': 'Annual-Report-2023-24.pdf', 'page': 71, 'collection': 'craftsman_automation_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the Annual Report 2023-24 (pages 121 and 187):
+
+- The statutory auditors identified **two Key Audit Matters (KAMs)** related to:
+
+  1. **Accounting for Property, Plant and Equipment (PPE)**  
+     This includes:  
+     - Measurement of initial recognition costs including self-constructed PPE costs  
+     - Valuation of PPE and review of useful lives including depreciation rates applied  
+     - Periodic physical verification of PPE by management  
+     - Assessment of impairment and residual values  
+     - Identification of Cash Generating Units (CGUs) for impairment testing  
+     - Significant judgments and estimates involved in valuation and depreciation
+
+  2. **Accounting and valuation of derivatives**  
+     - Derivative assets amounting to ₹943 Lakhs were material  
+     - Significant judgment and estimates involved in accounting and disclosure of derivative instruments under Ind AS 109  
+     - Evaluation of compliance with accounting standards for recognition and derecognition of derivatives
+
+- Regarding PPE as a percentage of total assets:  
+  - PPE represents **48%** of the Company’s total assets (page 121, standalone financials)  
+  - PPE represents **49%** of the Group’s total assets (page 187, consolidated financials)
+
+## Summary
+
+The two Key Audit Matters identified by the statutory auditors for FY24 were (1) accounting for Property, Plant and Equipment involving significant judgments on valuation, depreciation, and impairment, and (2) accounting and valuation of derivatives with material derivative assets and related accounting estimates. Property, Plant and Equipment represent approximately 48-49% of the Company’s total assets.
+
+## Sources
+
+Annual-Report-2023-24.pdf · page 121 · FY24  
+Annual-Report-2023-24.pdf · page 187 · FY24
+
+EXPECTED ANSWER:
+Two KAMs: (1) Accounting for derivative contracts — derivative assets ₹943 Lakhs, liabilities ₹259 Lakhs. (2) Accounting for PPE. PPE including CWIP represents 48% of total assets.
+==================================
+
+========== CP3 ==========
+ACTUAL SOURCES (citations):
+  1. {'filename': 'Craftsman Auto.xlsx', 'page': 'profit_loss', 'collection': 'craftsman_automation_ltd_excel'}
+  2. {'filename': 'Craftsman Auto.xlsx', 'page': 'balance_sheet', 'collection': 'craftsman_automation_ltd_excel'}
+  3. {'filename': 'Craftsman Auto.xlsx', 'page': 'cash_flow', 'collection': 'craftsman_automation_ltd_excel'}
+  4. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 93, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  5. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 75, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  6. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 89, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  7. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 107, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  8. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 6, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  9. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 121, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  10. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 112, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  11. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 69, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  12. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 100, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  13. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 118, 'collection': 'craftsman_automation_ltd_pdf_text'}
+  14. {'filename': '7.-Annual-Report-2021-22.pdf', 'page': 125, 'collection': 'craftsman_automation_ltd_pdf_text'}
+
+EXPECTED SOURCES:
+  1. Annual-Report-2025.pdf
+
+ACTUAL ANSWER:
+## Details
+
+From the Annual Report text on page 93 and 125 (FY22), the key financial ratios and their year-on-year percentage changes are:
+
+- Current Ratio: 7%
+- Debt-Equity Ratio: -13%
+- Debt Service Coverage Ratio: 28%
+- Return on Equity Ratio: 33-34%
+- Inventory Turnover Ratio: 0% to -1%
+- Trade Receivables Turnover Ratio: 15-16%
+- Trade Payables Turnover Ratio: 30%
+- Net Capital Turnover Ratio: 0% to -1%
+- Net Profit Ratio: 16-17%
+- Return on Capital Employed: 20-21%
+- Interest Coverage Ratio: +53% (from 4.17x to 6.40x)
+
+Among these, the highest percentage change is the **Interest Coverage Ratio**, which increased by 53%.
+
+Management explicitly attributes this increase in Interest Coverage Ratio to two factors (from the same source on page 93):
+
+1. Reduction in interest cost from ₹107 Cr to ₹84 Cr.
+2. Increase in EBITDA from ₹447 Cr to ₹539 Cr.
+
+## Summary
+
+The Interest Coverage Ratio showed the highest year-on-year percentage change in FY22, increasing by 53%. Management explicitly attributes this improvement to a reduction in interest cost from ₹107 Cr to ₹84 Cr and an increase in EBITDA from ₹447 Cr to ₹539 Cr.
+
+## Sources
+
+7.-Annual-Report-2021-22.pdf · Page 93 · FY22  
+7.-Annual-Report-2021-22.pdf · Page 125 · FY22
+
+EXPECTED ANSWER:
+The Interest Coverage Ratio showed the highest change at +53% (from 4.17x in FY21 to 6.40x in FY22). Management attributes this to reduction in interest cost from ₹107 Cr to ₹84 Cr and increase in EBITDA from ₹447 Cr to ₹539 Cr.
+==================================
+

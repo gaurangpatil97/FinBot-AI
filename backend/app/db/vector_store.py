@@ -94,6 +94,8 @@ def query_collection(
     top_k: int = None,
     year: str = None,
     sheet: str = None,
+    filename: str = None,
+    quarter: str = None,
     chroma_path: str = None
 ) -> list[dict]:
     top_k = top_k or settings.TOP_K_CHUNKS
@@ -102,14 +104,22 @@ def query_collection(
     if isinstance(year, list):
         year = year[0] if year else None
 
-    if year and sheet:
-        where = {"$and": [{"year": year}, {"sheet": sheet}]}
-    elif year:
-        where = {"year": year}
-    elif sheet:
-        where = {"sheet": sheet}
-    else:
+    where_clauses = []
+    if year:
+        where_clauses.append({"year": year})
+    if sheet:
+        where_clauses.append({"sheet": sheet})
+    if filename:
+        where_clauses.append({"filename": filename})
+    if quarter:
+        where_clauses.append({"quarter": quarter})
+
+    if len(where_clauses) == 0:
         where = None
+    elif len(where_clauses) == 1:
+        where = where_clauses[0]
+    else:
+        where = {"$and": where_clauses}
 
     # determine basic type for metrics
     c_type = collection_name.split('_')[-1] if '_' in collection_name else collection_name

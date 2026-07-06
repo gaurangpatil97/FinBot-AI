@@ -1,0 +1,254 @@
+=== [astral_ltd] [P1] ===
+QUESTION: What are the reportable business segments of the group, and what was their segment revenue for the current vs previous year?
+EXPECTED: Astral Limited (Group) has two reportable business segments — 'Plumbing' and 'Paints and Adhesives'. Segment revenue for FY25 (year ended March 31, 2025) vs FY24: Plumbing — ₹41,963 Million (FY24: ₹41,420 Million); Paints and Adhesives — ₹16,361 Million (FY24: ₹14,994 Million); Total segment revenue — ₹58,324 Million (FY24: ₹56,414 Million). Note: this segment disclosure is presented only in the Consolidated Financial Statements; the Standalone Financial Statements (Note 41) state that no segment disclosure is given standalone since it is presented in the consolidated statements (Ind AS 108).
+NEW ACTUAL: ## Details
+
+From the FY25 Annual Report (page 208 and 215), the Group has identified two reportable business segments:
+
+- Plumbing
+- Paints and Adhesives
+
+Segment revenue for these segments for the year ended March 31, 2025 and March 31, 2024 (in ₹ Million) are:
+
+| Segment            | FY25 Revenue (₹ Million) | FY24 Revenue (₹ Million) |
+|--------------------|--------------------------|--------------------------|
+| Plumbing           | 41,963                   | 41,420                   |
+| Paints and Adhesives| 16,361                   | 14,994                   |
+| **Total**          | 58,324                   | 56,414                   |
+
+These figures represent revenue generated from external customers and exclude other income.
+
+## Summary
+
+The Group's two reportable business segments are Plumbing and Paints and Adhesives. For FY25, Plumbing generated ₹41,963 million in revenue (up from ₹41,420 million in FY24), and Paints and Adhesives generated ₹16,361 million (up from ₹14,994 million in FY24).
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 208 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 215 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P2] ===
+QUESTION: What key business risks does the company identify in its Risk Management framework, and what are their mitigation measures?
+EXPECTED: Not disclosed as a single itemized list in that exact section beyond the categories shown in the 'Risk Management' framework: Market Competition; Technological Relevance; Environmental and Social Responsibility; Talent Acquisition and Retention; Supply Chain Continuity; Product Quality and Safety; Intellectual Property Protection; Compliance and Regulatory Adherence. For each, a corresponding mitigation measure is listed (e.g., for 'Market Competition': advance innovation/enhance product offerings, strengthen distribution reach, prioritise operational efficiency through cost management).
+NEW ACTUAL: ## Details
+
+The company identifies several key business risks in its Risk Management framework as per the FY25 Annual Report:
+
+1. **Market Risk**  
+   - Types: Currency risk, interest rate risk, commodity risk.  
+   - Mitigation: Use of derivative financial instruments such as foreign currency forward contracts to hedge currency risk; widening sourcing base, appropriate contracts and commitments, and well-planned procurement and inventory strategy to manage commodity price risk.
+
+2. **Credit Risk**  
+   - Risk of financial loss due to counterparty default on contractual obligations, mainly from trade receivables, bank balances, loans, and other financial assets.  
+   - Mitigation: Periodic assessment of customers' financial reliability, entering into contracts with banks for foreign currency forward contracts, and maintaining risk policies and procedures.
+
+3. **Liquidity Risk**  
+   - Risk related to managing short-term, medium-term, and long-term funding and liquidity requirements.  
+   - Mitigation: Maintaining adequate cash reserves, banking facilities, reserve borrowing facilities, continuous monitoring of forecast and actual cash flows, and matching maturity profiles of financial assets and liabilities.
+
+4. **Market Competition Risk**  
+   - Risk from competitive pressures in the market.  
+   - Mitigation: Advancing innovation, continuously enhancing product offerings, strengthening distribution reach, and reinforcing brand salience.
+
+5. **Operational and Other Risks** (including cybersecurity, regulatory compliance, climate change, water and effluent management, biodiversity, product stewardship)  
+   - Mitigation: Setting carbon reduction targets, addressing regulatory compliance through solutions like water reuse, maintaining quality standards, and fostering responsible product design and sustainability.
+
+## Summary
+
+The company’s key business risks include market risks (currency, interest rate, commodity), credit risk, liquidity risk, and market competition risk. Mitigation measures involve hedging through derivatives, widening sourcing bases, prudent procurement strategies, rigorous credit assessments, maintaining liquidity reserves, continuous cash flow monitoring, innovation, and sustainability initiatives.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 16, 65, 151, 153, 211, 213 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P6] ===
+QUESTION: What Key Audit Matters (KAM) did the independent auditor identify, and what was the auditor's response to them?
+EXPECTED: The Independent Auditor's Report (Standalone) identifies two Key Audit Matters: (1) Impairment assessment of Goodwill (Note 2(x)(iv)) — Goodwill of ₹2,036 Million as at March 31, 2025, tested annually via discounted cash-flow models of Cash Generating Units (CGUs); flagged as a KAM due to judgmental assumptions on projected revenue growth, operating margins, cash flows, and discount rates. Auditor's response: assessed CGU definitions for compliance, evaluated management's future cash flow forecasts, compared forecasts to actual results, focused on sales growth/discount rate assumptions, recalculated estimates, involved valuation specialists, and assessed disclosures. (2) Impairment assessment of investments in subsidiaries (Note 2(x)(iii)) — investments in Astral Coatings Private Limited and Seal IT Services Limited, UK amounting to ₹3,707 Million as at March 31, 2025; flagged as KAM due to judgment in determining value-in-use dependent on management estimates of future performance and cash flows. Auditor's response: evaluated future cash flow forecasts used to compute recoverable amount, compared to business plan/actual results, focused on sales growth/discount rate assumptions, recalculated estimates, involved valuation specialists, and assessed disclosures.
+NEW ACTUAL: ## Details
+
+The independent auditor identified the following Key Audit Matters (KAM) for Astral Ltd for the financial year ended March 31, 2025:
+
+1. **Impairment Assessment of Investments in Subsidiaries**  
+   - The Company’s investments in Astral Coating Private Limited (formerly Gem Paints Private Limited), India, and Seal It Services Limited, UK, amounting to ₹3,707 million as of March 31, 2025, were subject to impairment testing.  
+   - The impairment testing involved significant accounting judgment and estimates, particularly regarding assumptions such as projected revenue growth, operating margins, operating cash flows, and business-specific discount rates.  
+   - These assumptions are highly judgmental and affected by future market and economic conditions, which are inherently uncertain.  
+   - The materiality of these balances to the standalone financial statements made this a key audit matter.
+
+2. **Other Matters Related to Audit of Standalone Financial Statements**  
+   - The auditor also focused on the risk of material misstatement, including fraud and errors, accuracy and completeness of accounting records, and timely preparation of reliable financial information as required under the Companies Act, 2013.
+
+**Auditor’s Response to the Key Audit Matters:**
+
+- The auditor performed procedures designed to respond to the assessed risks of material misstatement related to these matters.  
+- For impairment testing, the auditor evaluated the appropriateness of management’s assumptions used in the impairment model, including projected revenue growth, operating margins, cash flows, and discount rates.  
+- The auditor assessed the reasonableness of these assumptions in the context of future market and economic conditions.  
+- The audit included verification of the accuracy and completeness of accounting records and controls over financial reporting.  
+- The auditor communicated with those charged with governance regarding the audit scope, timing, significant findings, and any deficiencies in internal control identified during the audit.  
+- The auditor concluded that the audit evidence obtained was sufficient and appropriate to provide a basis for the audit opinion on the standalone financial statements.
+
+## Summary
+
+The independent auditor identified the impairment assessment of investments in subsidiaries, involving significant judgment on future cash flows and discount rates, as a key audit matter due to its materiality and inherent uncertainty. The auditor addressed this by thoroughly evaluating management’s assumptions and performing targeted audit procedures to ensure the accuracy and completeness of the related financial information, concluding that sufficient audit evidence was obtained to support their opinion.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 97, 98, 99, 159 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P9] ===
+QUESTION: What new or amended accounting standards were disclosed, and what was their impact?
+EXPECTED: Standalone Financial Statements, Note 2(y) 'New and amended standards' discloses: (1) Ind AS 117 'Insurance Contracts' — notified by MCA on August 12, 2024 under the Companies (Indian Accounting Standards) Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The document states the application of Ind AS 117 had no impact on the Company's financial statements, as the Company has not entered into any contracts in the nature of insurance contracts covered under Ind AS 117 (no quantified impact, as impact was nil). (2) Amendment to Ind AS 116 'Leases' — Lease Liability in a Sale and Leaseback, notified via the Companies (Indian Accounting Standards) Second Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The Company does not have such sale-and-leaseback transactions, so the amendment has no impact on its financial statements. Additionally, Note 2(z) states there are no standards notified but not yet effective as on the date of the financial statements.
+NEW ACTUAL: ## Details
+
+The annual report discloses the following about new or amended accounting standards:
+
+1. **Amendment to Ind AS 116 Leases – Lease Liability in a Sale and Leaseback**  
+   - The amendment specifies requirements for measuring lease liability arising in sale and leaseback transactions.  
+   - The seller-lessee should not recognize any gain or loss related to the right of use it retains.  
+   - The Company (Astral Ltd) does **not have any such sale and leaseback transactions**, so this amendment **does not impact the Company’s financial statements**.  
+   (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 121, 123 · FY25)
+
+2. **Ind AS 117 Insurance Contracts**  
+   - The application of Ind AS 117 had **no impact** on the Company’s financial statements as the Company has not entered into any contracts covered under this standard.  
+   (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 123 · FY25)
+
+3. **Standards notified but not yet effective**  
+   - There are **no standards notified but not yet effective** as of the reporting date.  
+   (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 121, 123 · FY25)
+
+## Summary
+
+The only new or amended accounting standard disclosed was the amendment to Ind AS 116 related to lease liability in sale and leaseback transactions, which had no impact on Astral Ltd’s financial statements as the Company has no such transactions. Additionally, Ind AS 117 on insurance contracts was noted but also had no impact since the Company has no relevant contracts. No other new or upcoming standards were reported.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 121, 123 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [P10] ===
+QUESTION: What provisions (current and non-current) for employee benefits or other liabilities were disclosed, and what schedules were provided?
+EXPECTED: Standalone Financial Statements, Note 16 (Provisions) discloses only two line items with opening/closing balances (no separate created/reversed/utilized movement schedule is provided): Non-current — Provision for Employee Benefits: ₹82 Million as at March 31, 2025 (₹50 Million as at March 31, 2024); Current — Provision for Employee Benefits: ₹18 Million as at March 31, 2025 (₹7 Million as at March 31, 2024). Not disclosed in this annual report: a breakup showing amounts created, reversed, or utilized during the year.
+NEW ACTUAL: ## Details
+
+From the FY25 Annual Report notes and schedules:
+
+- **Provisions for Employee Benefits** are disclosed under Note 18 (Provisions) and Note 35 (Employee Benefits).
+
+- **Non-current Provisions**:  
+  - Provisions for Employee Benefits (Note 35) are recognized as non-current provisions.  
+  - Exact figures for non-current provisions are not explicitly stated in the retrieved context, but the presence of these provisions is confirmed.
+
+- **Current Provisions**:  
+  - Provisions for Employee Benefits (Note 35) are also recognized as current provisions.  
+  - The exact amount of current provisions is not explicitly stated in the retrieved context.
+
+- **Schedules Provided**:  
+  - Note 18 details the classification of provisions into non-current and current categories.  
+  - Note 35 provides detailed disclosures on employee benefits, including:  
+    - Present value of benefit obligation at the end of the year  
+    - Fair value of plan assets at the end of the year  
+    - Net liability/(asset) arising from defined benefit obligation  
+    - Components of defined benefit costs recognized in Profit and Loss  
+    - Remeasurements on the net defined benefit liability (actuarial gains/losses, return on plan assets)  
+    - Investment details of plan assets (Note 21)  
+  - These notes include quantitative and qualitative disclosures on the defined benefit plans and other employee benefit obligations.
+
+- **Other Provisions or Liabilities**:  
+  - The context mentions provisions generally, but no other specific provisions for liabilities apart from employee benefits are detailed in the retrieved context.
+
+## Summary
+
+Astral Ltd disclosed both non-current and current provisions for employee benefits under Note 18 and Note 35 in the FY25 Annual Report. Detailed schedules include the present value of obligations, fair value of plan assets, net liabilities, components of defined benefit costs, actuarial remeasurements, and investment details of plan assets. No other specific provisions for liabilities beyond employee benefits are detailed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 166, 197, 202, 203, 143, 122 · FY25
+FILENAME CITED: Astral_Ltd.xlsx, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [astral_ltd] [CP2] ===
+QUESTION: What was the installed capacity of Astral Ltd for the year under review as mentioned in the Project Implementation section of the Directors' Report, and by what percentage did it increase compared to the previous year?
+EXPECTED: According to Section 5 (Project Implementation and Performance Review) of the Directors' Report (page 45), the Company increased its installed capacity by 6.54% from 257,946 MT to 274,822 MT during the year under review.
+NEW ACTUAL: ## Details
+
+- The installed capacity for the year under review (FY25) is mentioned as approximately 5,49,000 metric tonnes per annum. (Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 12 · FY25)
+
+- The context does not provide the exact installed capacity figure for the previous year (FY24), nor does it explicitly state the percentage increase compared to the previous year in the Project Implementation section or elsewhere in the retrieved context.
+
+## Summary
+
+The installed capacity of Astral Ltd for FY25 was approximately 5,49,000 metric tonnes per annum. However, the percentage increase compared to the previous year is not disclosed in the retrieved context.
+
+## Sources
+
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 12 · FY25
+FILENAME CITED: Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf, Astral_Ltd_AR_FY2025_AnnualReport.pdf
+
+=== [craftsman_automation_ltd] [P1] ===
+QUESTION: What are the reportable business segments of the group, and what was their segment revenue for the current vs previous year?
+EXPECTED: The Company (standalone) has three reportable segments plus 'Others': Powertrain – revenue ₹1,68,272 lakhs (FY24-25) vs ₹1,55,837 lakhs (FY23-24); Aluminium Products – revenue ₹1,15,957 lakhs vs ₹91,746 lakhs; Industrial & Engineering – revenue ₹83,827 lakhs vs ₹73,196 lakhs; Others – revenue ₹16,739 lakhs vs Nil. Total revenue from operations: ₹3,84,795 lakhs (FY24-25) vs ₹3,20,779 lakhs (FY23-24). Segments are Powertrain, Aluminium Products, and Industrial & Engineering (Others is a residual category for insignificant segments).
+NEW ACTUAL: ## Details
+
+From the Annual Report 2024-25 (FY25), the reportable business segments of the group are identified based on end consumption of the products sold or services rendered. The segments are:
+
+1. Powertrain  
+2. Aluminium Products  
+3. Industrial & Engineering  
+4. Others (not significant segments)
+
+Segment revenue data for the current year (FY25) and previous year (FY24) is provided in the notes to consolidated financial statements (Annual-Report-2025.pdf, pages 171, 172, 238):
+
+- The exact segment revenue figures for FY25 and FY24 are disclosed in lakhs of rupees (₹ Lakhs).
+- The total revenue as per the Statement of Profit and Loss matches the sum of segment revenues plus unallocable income/expenditure.
+
+However, the exact numeric values for segment revenues for FY25 and FY24 are not explicitly stated in the retrieved context. The context mentions the segments and that segment revenue is disclosed, but the actual segment revenue numbers for each segment for FY25 and FY24 are not present in the retrieved data.
+
+## Summary
+
+The reportable business segments of the group are Powertrain, Aluminium Products, Industrial & Engineering, and Others. However, the exact segment revenue figures for the current year (FY25) and previous year (FY24) are not available in the retrieved context.
+
+## Sources
+
+Annual-Report-2025.pdf · Pages 171, 172, 238 · FY25
+FILENAME CITED: Craftsman Auto.xlsx, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf, Annual-Report-2025.pdf
+
+=== [craftsman_automation_ltd] [CP2] ===
+QUESTION: What were the two Key Audit Matters identified by the statutory auditors of the company for FY24, and what percentage of total assets does PPE represent?
+EXPECTED: Two KAMs: (1) Accounting for derivative contracts — derivative assets ₹943 Lakhs, liabilities ₹259 Lakhs. (2) Accounting for PPE. PPE including CWIP represents 48% of total assets.
+NEW ACTUAL: ## Details
+
+From the Annual Report 2023-24 (pages 121 and 187):
+
+- The statutory auditors identified **two Key Audit Matters (KAMs)** related to:
+
+  1. **Accounting for Property, Plant and Equipment (PPE)**  
+     This includes:  
+     - Measurement of initial recognition costs including costs of self-constructed PPE  
+     - Valuation of PPE and review of useful lives including depreciation rates applied  
+     - Periodic physical verification of PPE by management  
+     - Assessment of impairment and residual values  
+     - Identification of Cash Generating Units (CGUs) for impairment testing  
+     - Significant judgments and estimates involved in valuation and depreciation
+
+  2. **Accounting and valuation of derivatives**  
+     - Derivative assets amounting to ₹943 Lakhs were material  
+     - Significant judgment and estimates involved in accounting and disclosure of derivative instruments under Ind AS 109  
+     - Evaluation of compliance with accounting standards for recognition and derecognition of derivatives
+
+- Regarding PPE as a percentage of total assets:  
+  - PPE represents **48%** of the Company’s total assets (page 121, standalone financials)  
+  - PPE represents **49%** of the Group’s total assets (page 187, consolidated financials)
+
+Since the question is about the company (standalone), the relevant figure is 48%.
+
+## Summary
+
+The two Key Audit Matters identified by the statutory auditors for FY24 were (1) accounting for Property, Plant and Equipment involving significant judgments on recognition, valuation, depreciation, and impairment, and (2) accounting and valuation of derivatives with material derivative assets and related significant estimates. Property, Plant and Equipment represent 48% of the Company’s total assets.
+
+## Sources
+
+Annual-Report-2023-24.pdf · page 121 · FY24  
+Annual-Report-2023-24.pdf · page 187 · FY24
+FILENAME CITED: Craftsman Auto.xlsx, Craftsman Auto.xlsx, Craftsman Auto.xlsx, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf, Annual-Report-2023-24.pdf
+

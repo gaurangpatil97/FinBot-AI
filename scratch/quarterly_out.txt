@@ -1,0 +1,128 @@
+Craftsman - ID: C2
+Question: What factors did management attribute the company's performance to in the most recent quarter?
+Routed Sources: ['concall']
+----------------------------------------
+Craftsman - ID: CC2
+Question: Management guided FY23 Q1 revenue at about ₹600 crore in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?
+Routed Sources: ['excel', 'concall', 'pdf']
+----------------------------------------
+Craftsman - ID: CC3
+Question: For FY23 Q2, management disclosed that aluminum prices fell approximately 10% QoQ but claimed operational margins were in line with Q1. Is this numerically consistent with the value addition numbers disclosed?
+Routed Sources: ['excel', 'concall', 'pdf']
+----------------------------------------
+Craftsman - ID: CC5
+Question: Compare the value addition for the Industrial & Engineering segment in FY23 Q2 with the same quarter of the prior year. What is the YoY growth rate?
+Routed Sources: ['excel', 'concall']
+----------------------------------------
+Craftsman - ID: CC6
+Question: Management claimed in FY23 Q2 that Aluminum Products segment margins were in line with Q1 despite a drop in reported EBIT. Verify this claim using value addition data and assess whether there is an unacknowledged structural margin issue.
+Routed Sources: ['excel', 'concall', 'pdf']
+----------------------------------------
+Craftsman - ID: CC7
+Question: Across the FY22 Q3 and Q4 earnings calls, management made specific claims about the Daimler business risk stating only 8-9% impact by FY27-28. By Q1 FY23, a different number emerged — 15% of the Daimler portfolio by 2024. Identify the discrepancy.
+Routed Sources: ['concall', 'pdf']
+----------------------------------------
+Craftsman - ID: CC8
+Question: Management stated during FY23 Q1 that bonus provision was front-loaded to Q1. Identify all staff cost one-offs disclosed across Q1 FY23 and Q3 FY22 calls, and assess the risk that normalised staff costs are being underestimated.
+Routed Sources: ['concall', 'excel', 'pdf']
+----------------------------------------
+Craftsman - ID: CC9
+Question: Management guided in FY22 Q4 for a ₹100 crore debt reduction in FY23. By FY23 Q2, total debt was ~₹720 crores. Verify whether the original guidance is still achievable and quantify the gap.
+Routed Sources: ['excel', 'concall', 'pdf']
+----------------------------------------
+Craftsman - ID: CC10
+Question: Management guided revenue of ₹600 crores for FY23 Q1 in the FY22 Q4 call. What did the actual Q1 FY23 numbers show and what does the gap imply?
+Routed Sources: ['excel', 'concall', 'pdf']
+----------------------------------------
+Craftsman - ID: CX1
+Question: In the FY22 Q4 earnings call, management guided total debt reduction of ₹100 Crores for FY23. What does the Excel Balance Sheet data show as the actual change in total borrowings in FY23 — was guidance met?
+Routed Sources: ['excel', 'concall']
+----------------------------------------
+Craftsman - ID: CX4
+Question: In the FY23 Q1 concall, management stated annualised pre-tax ROCE improved to 26% from 20% in FY22. Using Excel data, calculate ROCE for FY22 and assess whether the stated improvement is directionally accurate.
+Routed Sources: ['concall', 'excel']
+----------------------------------------
+Craftsman - ID: CX6
+Question: In the FY23 Q2 concall, management claimed Aluminum segment margins were in line with Q1. The FY23 MD&A reports Aluminum segment EBIT margin for the full year. Is the full-year margin consistent with the in-call claim?
+Routed Sources: ['concall', 'pdf', 'excel']
+----------------------------------------
+Craftsman - ID: CX12
+Question: The FY23 auditor's report identifies derivative contracts as a KAM with assets of ₹936 Lakhs and liabilities of ₹375 Lakhs. In the FY23 Q2 concall, management discussed aluminum price risk. Are these derivative positions consistent with the hedging strategy described?
+Routed Sources: ['pdf', 'concall', 'excel']
+----------------------------------------
+Craftsman - ID: CA4
+Question: What were the quarterly revenue and operating profit figures for Craftsman Automation for Q1 FY22 (quarter ending June 2021)?
+Routed Sources: ['concall']
+----------------------------------------
+Astral - ID: C2
+Question: What factors did management attribute the company's performance to in the most recent quarter?
+Routed Sources: ['concall']
+----------------------------------------
+Astral - ID: CC1
+Question: During the Q2 FY2024 call, management said Astral had increased pipe capacity from 2.90 lakh MT to 3.10 lakh MT after adding 20,000 MT within existing plants. What are the three new plant capacities being added, and what is the total incremental capacity from those three plants?
+Routed Sources: ['concall', 'pdf']
+----------------------------------------
+Astral - ID: CC2
+Question: In the Q2 FY2024 call, Astral said its water tanks had received a first-ever certification that no other market tank had at that time, and it also claimed a first for its firefighting system. What were those two certifications?
+Routed Sources: ['concall', 'pdf']
+----------------------------------------
+Astral - ID: CC3
+Question: What annual volume growth guidance did Astral management provide for the core plumbing business in their Q1 FY25 conference call?
+Routed Sources: ['concall']
+----------------------------------------
+Astral - ID: CC4
+Question: According to the Q2 FY24 earnings call transcript, what was the estimated inventory loss recorded on CPVC and how did it impact guided margins?
+Routed Sources: ['concall', 'excel']
+----------------------------------------
+Astral - ID: CC5
+Question: How did management's guidance on structural EBITDA margins for the Paint business evolve from Q1 FY25 to Q2 FY25?
+Routed Sources: ['calculation']
+----------------------------------------
+Astral - ID: CC6
+Question: Track the trajectory of the operational performance and underlying reasons cited for the UK adhesive operations across the Q1 FY25 and Q2 FY25 conference calls.
+Routed Sources: ['concall', 'pdf']
+----------------------------------------
+Astral - ID: CC7
+Question: Compare the pricing dynamics and distributor behavior in the CPVC segment as discussed by management in Q2 FY24 versus Q2 FY25.
+Routed Sources: ['concall']
+----------------------------------------
+Astral - ID: CC8
+Question: Analyze the management exchange during the Q1 FY25 call where an analyst challenged the absolute overhead run rates and historical expense expansions. What was the detailed response?
+Routed Sources: ['concall']
+----------------------------------------
+Astral - ID: CC9
+Question: In the Q2 FY24 concall, how did management justify the 44% YoY bump in 'Other Expenses' when evaluated against sequential budgeting parameters?
+Routed Sources: ['concall', 'excel']
+----------------------------------------
+Astral - ID: CC10
+Question: In the Q2 FY25 earnings call, how did management address analyst pushback regarding continuous lower revisions to Paint guidance and the erosion of operational profitability?
+Routed Sources: ['concall']
+----------------------------------------
+Astral - ID: CX4
+Question: What was the total Sales revenue reported by Astral Ltd in FY25 according to the Excel financial data, and what primary operational headwind did management highlight during the Q3 FY25 earnings conference call to explain performance?
+Routed Sources: ['excel', 'concall']
+----------------------------------------
+Astral - ID: CX7
+Question: Reconcile the capital spending patterns by comparing the Net Cash from Investing Activity for FY24 from Excel against management's comments on the completion of major capex during the Q3 FY24 conference call.
+Routed Sources: ['excel', 'concall']
+----------------------------------------
+Astral - ID: CX8
+Question: Cross-reference the acquisition timeline of Gem Paints: look up the revenue contribution of the Paints segment stated in the Q2 FY24 concall and verify if a separate subsidiary line is explicitly broken out for it in the Group Information section of the FY25 Annual Report text.
+Routed Sources: ['concall', 'pdf']
+----------------------------------------
+Astral - ID: CX11
+Question: The Excel sheets show a notable change in dividend payout trend in FY26. Check the total Dividend Amount allocated in FY26 in Excel, and cross-reference it with the proposed final payout rates or regulatory commentary in the preceding Q4 FY25 concall transcript.
+Routed Sources: ['excel', 'concall']
+----------------------------------------
+Astral - ID: CX14
+Question: Examine the financial structural integrity of the Adhesives division. Check the absolute segment profit numbers disclosed in Note 37 of the FY22 Annual Report, cross-reference this against the total Adhesives segment revenue split shown in the visual infographic charts, and extract the negative currency headwind reported by management in the Q3 FY23 call that impacted the UK unit (Seal It).
+Routed Sources: ['excel', 'images', 'concall', 'pdf']
+----------------------------------------
+Astral - ID: CX15
+Question: Cross-analyze the capacity metrics of the core plumbing division. Obtain the percentage expansion in plumbing capacity reported in the Project Implementation section of the FY24 Directors' Report, trace the total physical asset values under the Net Block row for FY24 in the Excel sheets, and cross-reference with management's Q2 FY25 commentary regarding localized polymer inventory hits.
+Routed Sources: ['pdf', 'excel', 'concall']
+----------------------------------------
+Astral - ID: CA1
+Question: What is the exact quarterly revenue, operating profit, and net profit breakdown for Astral Ltd for the specific quarter ending September 30, 2022 (Q2 FY23)?
+Routed Sources: ['concall', 'excel']
+----------------------------------------

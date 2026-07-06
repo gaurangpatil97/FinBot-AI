@@ -1,0 +1,514 @@
+=== P1 ===
+EXPECTED:
+Astral Limited (Group) has two reportable business segments — 'Plumbing' and 'Paints and Adhesives'. Segment revenue for FY25 (year ended March 31, 2025) vs FY24: Plumbing — ₹41,963 Million (FY24: ₹41,420 Million); Paints and Adhesives — ₹16,361 Million (FY24: ₹14,994 Million); Total segment revenue — ₹58,324 Million (FY24: ₹56,414 Million). Note: this segment disclosure is presented only in the Consolidated Financial Statements; the Standalone Financial Statements (Note 41) state that no segment disclosure is given standalone since it is presented in the consolidated statements (Ind AS 108).
+ACTUAL:
+## Summary
+The group has two reportable business segments: **Plumbing** and **Paints and Adhesives**. For the year ended March 31, 2024, segment revenues were ₹4,142 crore for Plumbing and ₹1,499 crore for Paints and Adhesives. For the previous year ended March 31, 2023, segment revenues were ₹3,767 crore for Plumbing and ₹1,391 crore for Paints and Adhesives.
+
+## Details
+- Year ended March 31, 2024:
+  - Plumbing segment revenue: ₹41,420 million (₹4,142 crore)
+  - Paints and Adhesives segment revenue: ₹14,994 million (₹1,499 crore)
+  - Total segment revenue: ₹56,414 million (₹5,641 crore)
+
+- Year ended March 31, 2023:
+  - Plumbing segment revenue: ₹37,675 million (₹3,767 crore)
+  - Paints and Adhesives segment revenue: ₹13,910 million (₹1,391 crore)
+  - Total segment revenue: ₹51,585 million (₹5,159 crore)
+
+## Sources
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 220 · FY24  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 201 · FY23
+========================================
+=== P2 ===
+EXPECTED:
+Not disclosed as a single itemized list in that exact section beyond the categories shown in the 'Risk Management' framework: Market Competition; Technological Relevance; Environmental and Social Responsibility; Talent Acquisition and Retention; Supply Chain Continuity; Product Quality and Safety; Intellectual Property Protection; Compliance and Regulatory Adherence. For each, a corresponding mitigation measure is listed (e.g., for 'Market Competition': advance innovation/enhance product offerings, strengthen distribution reach, prioritise operational efficiency through cost management).
+ACTUAL:
+## Summary  
+The company identifies key business risks including market competition, raw material price volatility, currency risk, interest rate risk, credit risk, and liquidity risk. Mitigation measures include continuous innovation, expanding distribution, cost optimization, strategic sourcing, long-term supplier contracts, backward integration, monitoring market trends, use of derivative instruments for financial risks, and robust internal controls with regular audit oversight.
+
+## Details  
+
+### Key Business Risks Identified  
+- **Market Competition Risk:** Intense competition from existing and new players impacting market share and profitability.  
+- **Raw Material Price Volatility:** Fluctuations in prices of polymers and chemicals affecting profitability.  
+- **Currency Risk:** Exposure to foreign exchange fluctuations due to international operations.  
+- **Interest Rate Risk:** Exposure arising from borrowings and financial instruments.  
+- **Credit Risk:** Risk of counterparty default on trade receivables and financial transactions.  
+- **Liquidity Risk:** Risk related to the company’s ability to meet its financial obligations timely.  
+
+### Mitigation Measures  
+- **For Market Competition:**  
+  - Continuous innovation and product development to maintain competitive edge.  
+  - Expansion of distribution network and strengthening brand presence.  
+  - Emphasis on cost optimization and operational efficiency.  
+
+- **For Raw Material Price Volatility:**  
+  - Strategic sourcing and long-term contracts with suppliers.  
+  - Backward integration and captive manufacturing of key raw materials.  
+  - Continuous monitoring of market trends and timely price adjustments.  
+
+- **For Currency and Interest Rate Risks:**  
+  - Use of derivative financial instruments aligned with underlying exposures to hedge currency and interest rate risks.  
+
+- **For Credit Risk:**  
+  - Monitoring and managing credit exposure from trade receivables and financial assets.  
+
+- **For Liquidity Risk:**  
+  - Maintaining appropriate risk limits and controls, with periodic reviews and internal audit oversight.  
+
+- **Governance and Monitoring:**  
+  - Risk management policies are periodically reviewed and approved by the Audit Committee.  
+  - Internal audit conducts regular and ad hoc reviews of risk management controls and reports to the Audit Committee.  
+  - A risk management committee oversees the development and implementation of risk mitigation strategies.  
+
+## Sources  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 16, 151, 211 · FY25  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Pages 17, 51 · FY24  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 144 · FY23  
+Astral_Ltd_AR_FY2022_AnnualReport.pdf · Pages 53, 120, 174 · FY22  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 10 · FY24
+========================================
+=== P3 ===
+EXPECTED:
+Standalone Financial Statements, Note 37 (Related Party Disclosures) discloses transactions with Subsidiaries, Joint Venture, Enterprises over which KMP have significant influence, KMP, and Relatives of KMP for FY25 vs FY24 (₹ in Million), including: CSR Expenditure – Astral Foundation 126 (108); Interest Income – Seal IT Services Limited, UK 43 (19); Investment in Subsidiaries – Astral Coatings Private Limited – (2,773); Redemption of debentures – Astral Coatings Private Limited – (1,940); Purchase of Goods/Services – Kairamya Journeys LLP 141 (130); Reimbursement of expenses claimed – Astral Coatings Private Limited 60 (49); Remuneration – Sandeep Engineer 152 (139), Hiranand Savlani 59 (42), Others 57 (52); Rent Paid – Jagruti Sandeep Engineer 1 (1), Sandeep Engineer HUF 1 (1); Sale of Goods – Astral Coatings Private Limited 19 (19); Sitting Fees to Independent Directors (0–1 each); Loans Given – Seal IT Services Limited, UK 477 (91); Loans Repaid – Astral Coatings Private Limited – (8); year-end balances: Loans Given outstanding – Seal IT Services Limited, UK 876 (377); Interest accrued on loan – 20 (5); Payables – Sandeep Engineer 47 (45), Others 5 (4); Advance for purchase of non-current investment – Astral Pipes Limited 109 (109). Compensation of Key Management Personnel (short-term benefits): ₹251 Million (FY24: ₹216 Million).
+ACTUAL:
+## Summary  
+The financial statements disclose that related party transactions were conducted in the ordinary course of business and on an arm’s length basis, with no materially significant transactions conflicting with the company’s interests. The compensation of key management personnel primarily consisted of short-term benefits and sitting fees, including employer contributions to provident fund but excluding provisions for gratuity and leave encashment.
+
+## Details  
+
+### Related Party Transactions  
+- All related party transactions during the financial years under review (FY22, FY23, FY24, FY25) were in the ordinary course of business and on an arm’s length basis.  
+- There were no materially significant transactions with related parties that conflicted with the interests of the company.  
+- Transactions were placed before the Audit Committee and the Board for approval, with prior omnibus approval obtained for foreseen and repetitive transactions. These transactions were reviewed quarterly by the Audit Committee and Board.  
+- Information in Form AOC-2 was not annexed due to the absence of materially significant conflicting transactions.  
+- Related parties include subsidiaries, joint ventures, enterprises under significant influence of key managerial personnel, key managerial personnel themselves, and their relatives.  
+- Sales to and purchases from related parties were made on terms equivalent to those prevailing in arm’s length transactions.  
+- Outstanding balances with related parties were unsecured and settled in cash.  
+- The policy on related party transactions is publicly available on the company’s website.
+
+### Compensation of Key Management Personnel  
+- Compensation includes:  
+  - Short-term benefits (salary, allowances, etc.)  
+  - Sitting fees  
+  - Employer contribution to provident fund  
+- Excludes:  
+  - Employees’ stock options  
+  - Provisions for gratuity and leave encashment (based on actuarial valuation for the company as a whole, not individually ascertainable)  
+- The remuneration is determined by the Remuneration Committee and approved by the Board.  
+- No exact numeric figures for total compensation are provided in the retrieved context.
+
+## Sources  
+Astral_Ltd_AR_FY2022_AnnualReport.pdf · Pages 29, 116, 171 · FY22  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 49 · FY23  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Pages 32, 44, 53, 220 · FY24  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Pages 29, 49 · FY25
+========================================
+=== P4 ===
+EXPECTED:
+Standalone Financial Statements, Note 33 (Contingent Liabilities and Commitments Not Provided For), as at March 31, 2025 (with March 31, 2024 comparatives): Contingent Liabilities — In respect of Income Tax: ₹16 Million (₹16 Million); In respect of Goods and Service Tax (GST), Customs Duty, Entry Tax, Value Added Tax and Central Sales Tax: ₹74 Million (₹11 Million). [Separately listed as Commitments, not contingent liabilities: Capital Contracts remaining to be executed (Net of Advances): ₹1,845 Million (₹1,917 Million); Letters of Credit for Purchases: ₹334 Million (₹1,164 Million).]
+ACTUAL:
+## Summary  
+The retrieved context does not contain any information on contingent liabilities or commitments reported by the company at the close of the financial year.
+
+## Sources  
+Astral_Ltd.xlsx · balance_sheet · FY2017 to FY2026
+========================================
+=== P5 ===
+EXPECTED:
+Directors' Report states that during FY25 the Company increased its installed capacity of the plumbing business by 14.34%, from 3,34,040 MT to 3,81,957 MT, with sales volume rising from 2,19,590 MT to 2,27,090 MT, and incurred capital expenditure of ₹6,177 Million towards plant & machinery, factory building, and other capex. The Letter from the Whole Time Director and CFO (Strategic Review) states nearly ₹1,000 crore was invested in new plants and machinery over the past two years, focused on decentralising manufacturing, and that planned capital expenditure of around ₹300 crore is budgeted for FY26, primarily to complete the Kanpur facility and add further adhesive lines at Dahej. Additionally, the Board approved (April 17, 2025) the acquisition of 100% equity of Al-Aziz Plastics Private Limited (completed May 5, 2025), as part of the strategy to expand product portfolio and enter new high-growth market segments.
+ACTUAL:
+## Summary
+The company increased its installed capacity by 6.54% from 257,946 MT to 274,822 MT in FY22 and by 14.34% from 334,040 MT to 381,957 MT in FY25. Capital expenditures were ₹2,151 million in FY22 and ₹6,177 million in FY25 towards plant, machinery, factory building, and other assets. Additionally, the company pursued strategic acquisitions as part of its growth strategy in FY25.
+
+## Details
+- **Installed Capacity Expansion:**
+  - FY22: Increased from 257,946 MT to 274,822 MT (6.54% increase) [Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22]
+  - FY25: Plumbing business capacity increased from 334,040 MT to 381,957 MT (14.34% increase) [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+- **Sales Volume Increase:**
+  - FY22: Sales volume increased from 136,593 MT to 149,569 MT [Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22]
+  - FY25: Sales volume increased from 219,590 MT to 227,090 MT [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+- **Capital Expenditure:**
+  - FY22: ₹2,151 million spent on plant & machinery, factory building, and other capital expenditure [Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22]
+  - FY25: ₹6,177 million spent on plant & machinery, factory building, and other capital expenditure [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+- **Strategic Acquisitions:**
+  - FY25: The company undertook acquisitions to expand its product portfolio and enter new high-growth markets as part of its strategy [Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25]
+
+## Sources
+Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 27 · FY22  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 26 · FY25
+========================================
+=== P6 ===
+EXPECTED:
+The Independent Auditor's Report (Standalone) identifies two Key Audit Matters: (1) Impairment assessment of Goodwill (Note 2(x)(iv)) — Goodwill of ₹2,036 Million as at March 31, 2025, tested annually via discounted cash-flow models of Cash Generating Units (CGUs); flagged as a KAM due to judgmental assumptions on projected revenue growth, operating margins, cash flows, and discount rates. Auditor's response: assessed CGU definitions for compliance, evaluated management's future cash flow forecasts, compared forecasts to actual results, focused on sales growth/discount rate assumptions, recalculated estimates, involved valuation specialists, and assessed disclosures. (2) Impairment assessment of investments in subsidiaries (Note 2(x)(iii)) — investments in Astral Coatings Private Limited and Seal IT Services Limited, UK amounting to ₹3,707 Million as at March 31, 2025; flagged as KAM due to judgment in determining value-in-use dependent on management estimates of future performance and cash flows. Auditor's response: evaluated future cash flow forecasts used to compute recoverable amount, compared to business plan/actual results, focused on sales growth/discount rate assumptions, recalculated estimates, involved valuation specialists, and assessed disclosures.
+ACTUAL:
+## Summary  
+The independent auditor identified certain Key Audit Matters (KAM) for Astral Limited’s standalone financial statements for FY25, which were considered most significant in the audit. The auditor responded by performing specific audit procedures designed to address the risks of material misstatement related to these matters, providing a sufficient and appropriate basis for their audit opinion.
+
+## Details  
+- The auditor determined the KAMs based on professional judgment as those matters of most significance in the audit of the standalone financial statements for the year ended March 31, 2025.  
+- The audit included procedures specifically designed to respond to the assessed risks of material misstatement associated with these KAMs.  
+- The results of these audit procedures, including those addressing the KAMs, formed the basis for the auditor’s opinion on the standalone financial statements.  
+- The auditor communicated these KAMs to those charged with governance and described how the audit addressed each matter in the auditor’s report.  
+- The auditor did not provide a separate opinion on the KAMs themselves but addressed them in the context of the overall audit opinion.  
+- The auditor also confirmed compliance with ethical requirements regarding independence and communicated any relationships or matters that could bear on independence, applying safeguards where applicable.
+
+The exact nature or description of the individual KAMs and the detailed audit procedures performed to address each are not explicitly stated in the retrieved context.
+
+## Sources  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 97 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 99 · FY25
+========================================
+=== P7 ===
+EXPECTED:
+Consolidated Financial Statements, Note 37 (Segment Reporting) — Segment Profit for year ended March 31, 2025 (FY24 in brackets): Plumbing ₹6,126 Million (₹6,054 Million); Paints and Adhesives ₹1,150 Million (₹1,396 Million); Total ₹7,276 Million (₹7,450 Million). Segment Assets as at March 31, 2025 (March 31, 2024): Plumbing ₹28,677 Million (₹24,623 Million); Paints and Adhesives ₹15,603 Million (₹14,222 Million); Total Segment Assets ₹44,280 Million (₹38,845 Million). Segment Liabilities as at March 31, 2025 (March 31, 2024): Plumbing ₹7,521 Million (₹7,657 Million); Paints and Adhesives ₹3,432 Million (₹2,606 Million); Total Segment Liabilities ₹10,953 Million (₹10,263 Million). Note: The report does not disclose a separately labelled 'segment-wise capital employed' figure; only segment assets and segment liabilities are given.
+ACTUAL:
+## Summary
+For the core segments "Plumbing" and "Paints and Adhesives," the latest reported figures for FY2025 are:
+
+- Segment Profit: Not explicitly stated for FY2025 in the retrieved context.
+- Segment Assets: Plumbing ₹41,963 million, Paints and Adhesives ₹16,361 million.
+- Segment Liabilities: Not explicitly stated for FY2025 in the retrieved context.
+
+## Details
+
+### Segment Assets (FY2025)
+- Plumbing: ₹41,963 million
+- Paints and Adhesives: ₹16,361 million
+- Total Segment Assets: ₹58,324 million (sum of above)
+
+(Source: Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page/Sheet: 208 · FY25)
+
+### Segment Profit
+- The exact segment profit for FY2025 is not explicitly provided in the retrieved context.
+- For FY2024 and FY2023, segment profits were reported but not for FY2025 in the retrieved data.
+
+### Segment Liabilities
+- The exact segment liabilities for FY2025 are not explicitly provided in the retrieved context.
+- Prior years show segment liabilities reported but no explicit FY2025 figures are available.
+
+## Sources
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page/Sheet: 208 · FY25  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page/Sheet: 220 · FY24  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page/Sheet: 201 · FY23
+========================================
+=== P8 ===
+EXPECTED:
+Standalone Financial Statements, Note 30 (Other Expenses), the top 3 largest line items for FY25 (year ended March 31, 2025) vs FY24: (1) Advertisement and Sales Promotions expenses — ₹1,921 Million (FY24: ₹2,197 Million), a decrease of ₹276 Million; (2) Freight and Forwarding — ₹1,507 Million (FY24: ₹1,357 Million), an increase of ₹150 Million; (3) Power and Fuel — ₹1,279 Million (FY24: ₹1,268 Million), an increase of ₹11 Million. Total Other Expenses: ₹7,801 Million (FY24: ₹7,661 Million).
+ACTUAL:
+## Summary
+The top three largest line items under 'Other Expenses' in the standalone financial statements are not explicitly detailed in the retrieved context. The context provides only aggregate 'Other Expenses' figures by year without a breakdown into individual line items.
+
+## Details
+- The provided data from the Excel profit & loss sheets lists 'Other Expenses' as a single aggregated figure for each fiscal year (e.g., ₹10.58 Cr in FY2017, ₹38.20 Cr in FY2025, ₹965.20 Cr in FY2026).
+- There is no further breakdown or identification of specific components or line items within 'Other Expenses' in any of the provided sources.
+
+## Sources
+Astral_Ltd.xlsx · profit_loss · FY2017 to FY2026
+========================================
+=== P9 ===
+EXPECTED:
+Standalone Financial Statements, Note 2(y) 'New and amended standards' discloses: (1) Ind AS 117 'Insurance Contracts' — notified by MCA on August 12, 2024 under the Companies (Indian Accounting Standards) Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The document states the application of Ind AS 117 had no impact on the Company's financial statements, as the Company has not entered into any contracts in the nature of insurance contracts covered under Ind AS 117 (no quantified impact, as impact was nil). (2) Amendment to Ind AS 116 'Leases' — Lease Liability in a Sale and Leaseback, notified via the Companies (Indian Accounting Standards) Second Amendment Rules, 2024, effective for annual reporting periods beginning on or after April 1, 2024. The Company does not have such sale-and-leaseback transactions, so the amendment has no impact on its financial statements. Additionally, Note 2(z) states there are no standards notified but not yet effective as on the date of the financial statements.
+ACTUAL:
+## Summary  
+The company disclosed amendments to Indian Accounting Standards (Ind AS) 8, 1, and 12 effective from April 1, 2023. These amendments clarify the definition of accounting estimates, require disclosure of material accounting policies instead of significant ones, and narrow the scope of the initial recognition exception for deferred tax related to assets and liabilities from a single transaction. The company stated these amendments had no impact on the measurement, recognition, presentation, or financial statements.
+
+## Details  
+- **Amendments to Ind AS 8 (Definition of Accounting Estimates):**  
+  Clarifies the distinction between changes in accounting estimates, changes in accounting policies, and correction of errors. It also clarifies how entities use measurement techniques and inputs to develop accounting estimates.  
+  *Impact:* No material impact expected on the financial statements.  
+  (Sources: Astral_Ltd_AR_FY2023_AnnualReport.pdf Pages 113, 174, 175; Astral_Ltd_AR_FY2024_AnnualReport.pdf Page 129)
+
+- **Amendments to Ind AS 1 (Disclosure of Accounting Policies):**  
+  Replaces the requirement to disclose ‘significant’ accounting policies with a requirement to disclose ‘material’ accounting policies, adding guidance on applying materiality in policy disclosures.  
+  *Impact:* No impact on measurement or recognition; the company is revisiting accounting policies to comply with the amended requirements.  
+  (Sources: Astral_Ltd_AR_FY2023_AnnualReport.pdf Pages 175, 194; Astral_Ltd_AR_FY2024_AnnualReport.pdf Page 129, 194)
+
+- **Amendments to Ind AS 12 (Deferred Tax related to Assets and Liabilities arising from a Single Transaction):**  
+  Narrows the scope of the initial recognition exception so it no longer applies to transactions that give rise to equal taxable and deductible temporary differences.  
+  *Impact:* No impact on the financial statements.  
+  (Sources: Astral_Ltd_AR_FY2023_AnnualReport.pdf Pages 175, 194; Astral_Ltd_AR_FY2024_AnnualReport.pdf Page 129)
+
+## Sources  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Pages 113, 174, 175, 194 · FY23  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Pages 129, 194 · FY24
+========================================
+=== P10 ===
+EXPECTED:
+Standalone Financial Statements, Note 16 (Provisions) discloses only two line items with opening/closing balances (no separate created/reversed/utilized movement schedule is provided): Non-current — Provision for Employee Benefits: ₹82 Million as at March 31, 2025 (₹50 Million as at March 31, 2024); Current — Provision for Employee Benefits: ₹18 Million as at March 31, 2025 (₹7 Million as at March 31, 2024). Not disclosed in this annual report: a breakup showing amounts created, reversed, or utilized during the year.
+ACTUAL:
+## Summary  
+The company disclosed provisions for employee benefits under both non-current and current liabilities. Detailed schedules for these provisions were provided in Note 35. Additionally, provisions for other liabilities were also disclosed, but specific schedules for these were not explicitly mentioned in the retrieved context.
+
+## Details  
+- **Non-current provisions:** Provisions for employee benefits are disclosed as non-current provisions.  
+- **Current provisions:** Provisions for employee benefits are also disclosed under current provisions.  
+- The provisions for employee benefits are detailed in **Note 35** as per the FY22 annual report context.  
+- Other provisions (not specifically employee benefits) are also disclosed under both non-current and current liabilities but without explicit reference to detailed schedules in the retrieved context.
+
+## Sources  
+Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 161 · FY22
+========================================
+=== CP1 ===
+EXPECTED:
+₹5,743 Million. Formula: Goodwill (₹2,036 Million) + Investment in subsidiaries subject to impairment testing, i.e. Astral Coatings Private Limited and Seal IT Services Limited, UK combined (₹3,707 Million) = ₹5,743 Million.
+ACTUAL:
+## Summary
+The combined carrying value as at March 31, 2025, of (a) Goodwill tested for impairment and (b) the Company's investments in subsidiaries tested for impairment is ₹5,743 million.
+
+## Details
+- Goodwill tested for impairment: ₹2,036 million (Standalone) and ₹3,146 million (Group). Since the question is about Standalone Financial Statements, use ₹2,036 million.  
+- Investments in subsidiaries tested for impairment (Astral Coatings Private Limited and Seal IT Services Limited, UK): ₹3,707 million as at March 31, 2025.
+
+## Calculation
+Combined carrying value = Goodwill + Investments in subsidiaries  
+= ₹2,036 million + ₹3,707 million  
+= ₹5,743 million
+
+## Sources
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 97 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 98 · FY25
+========================================
+=== CP2 ===
+EXPECTED:
+According to Section 5 (Project Implementation and Performance Review) of the Directors' Report (page 45), the Company increased its installed capacity by 6.54% from 257,946 MT to 274,822 MT during the year under review.
+ACTUAL:
+## Summary  
+The installed capacity of Astral Ltd for FY24 was 512,582 MT, which represents an increase of approximately 7.5% compared to the previous year's capacity of 475,896 MT.
+
+## Details  
+- Installed capacity in FY24: 512,582 MT (Source: Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 6)  
+- Installed capacity in FY23: 475,896 MT (Source: Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 7)  
+
+## Calculation  
+Percentage increase = [(512,582 - 475,896) / 475,896] × 100  
+= (36,686 / 475,896) × 100  
+= 7.71% (rounded to two decimal places)  
+
+## Sources  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 6 · FY24  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 7 · FY24
+========================================
+=== CP3 ===
+EXPECTED:
+As detailed in the Risk Mitigation section (page 17/27), Astral Ltd's strategy includes diversifying product offerings into newer categories (paints, faucets, sanitary ware) to reduce market disruption risk, prioritizing volume protection over short-term profitability, and continued investment in brand-building.
+ACTUAL:
+## Summary  
+Astral Ltd's specific mitigation strategy to manage competition risk includes continuous innovation and product development, expansion of the distribution network, strengthening brand presence, and emphasizing cost optimization and operational efficiency.
+
+## Details  
+- Continuous innovation and product development to maintain a competitive edge  
+- Expansion of distribution network and strengthening brand presence  
+- Emphasis on cost optimization and operational efficiency  
+
+These points are explicitly mentioned as part of the risk mitigation measures for competition risk in the FY24 Annual Report.
+
+## Sources  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 17 · FY24  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 16 · FY23
+========================================
+=== CP4 ===
+EXPECTED:
+Note 37 (page 240): total segment profit ₹7,450 million (Plumbing ₹6,054m + Paints and Adhesives ₹1,396m). Reconciliation to PBT ₹7,336m: +₹178m Unallocated Income net, -₹291m Finance costs, -₹1m Share of loss of JV. 7,450+178-291-1=7,336.
+ACTUAL:
+## Summary
+The total segment profit for 'Plumbing' and 'Paints and Adhesives' combined does not equal the Consolidated Profit Before Tax (PBT) of ₹7,336 million. The reconciliation requires adding or subtracting reconciling items such as unallocated corporate expenses, other income, finance costs, and inter-segment eliminations as detailed in Note 37 (Segment Reporting).
+
+## Details
+From Note 37 (Segment Reporting), the following figures are provided (all amounts in ₹ million):
+
+- Segment Profit:
+  - Plumbing: ₹X million (exact figure not provided in the retrieved context)
+  - Paints and Adhesives: ₹Y million (exact figure not provided in the retrieved context)
+- Total Segment Profit (Plumbing + Paints and Adhesives): ₹(X + Y) million
+- Other Reconciling Items:
+  - Unallocated Corporate Expenses: ₹A million
+  - Other Income (unallocated): ₹B million
+  - Finance Costs: ₹C million
+  - Inter-segment eliminations: ₹D million
+
+- Consolidated Profit Before Tax: ₹7,336 million
+
+Since the exact segment profit figures and reconciling items (A, B, C, D) are not explicitly stated in the retrieved context, the reconciliation cannot be numerically completed.
+
+## Conclusion
+The reconciliation of total segment profit for 'Plumbing' and 'Paints and Adhesives' to the Consolidated Profit Before Tax of ₹7,336 million requires detailed figures for each segment profit and reconciling items from Note 37, which are not available in the retrieved context. Therefore, a precise reconciliation cannot be provided.
+
+## Sources
+Astral_Ltd.xlsx · Note 37 (Segment Reporting) · FY2026
+========================================
+=== CP5 ===
+EXPECTED:
+Partially. Segment revenue matches exactly (Note 37, page 220: ₹37,675m Plumbing, ₹13,910m Paints & Adhesives, total ₹51,585m). Profit figures do not match: Note 37 reports 'segment profit' of ₹5,144m and ₹1,349m respectively (total ₹6,493m), below the MD&A's EBITDA figures, since segment profit nets out items like depreciation. Consolidated PBT of ₹6,170m does tie out after unallocated income/finance costs/JV loss adjustments.
+ACTUAL:
+## Summary
+The MD&A segment revenue and EBITDA figures for FY23 Plumbing (₹37,675 million revenue, ₹6,419 million EBITDA) and Paints & Adhesives (₹13,910 million revenue, ₹1,932 million EBITDA) closely reconcile with the figures reported in Note 37 (Segment Reporting) of the Consolidated Financial Statements, which show Plumbing revenue ₹37,658 million and EBITDA ₹6,454 million, and Paints & Adhesives revenue ₹13,927 million and EBITDA ₹1,254 million.
+
+## Details
+- MD&A FY23 Plumbing segment:
+  - Revenue: ₹37,675 million
+  - EBITDA: ₹6,419 million
+
+- MD&A FY23 Paints & Adhesives segment:
+  - Revenue: ₹13,910 million
+  - EBITDA: ₹1,932 million
+
+- Note 37 Segment Reporting FY23 (₹ in million):
+  - Plumbing revenue: ₹37,658 million
+  - Plumbing segment profit (proxy for EBITDA): ₹6,454 million
+  - Paints & Adhesives revenue: ₹13,927 million
+  - Paints & Adhesives segment profit (proxy for EBITDA): ₹1,254 million
+
+## Analysis
+- Revenue figures for both segments in MD&A and Note 37 are nearly identical, differing by less than ₹20 million, which is negligible and likely due to rounding or timing.
+- EBITDA/profit figures show a small difference for Plumbing (₹6,419 million vs ₹6,454 million) which is minor.
+- For Paints & Adhesives, EBITDA in MD&A (₹1,932 million) is higher than segment profit in Note 37 (₹1,254 million) by ₹678 million. This discrepancy may arise from different definitions or adjustments between MD&A and segment reporting (e.g., unallocated expenses, inter-segment eliminations, or other accounting treatments).
+
+## Conclusion
+The segment revenue figures reconcile well between MD&A and Note 37. EBITDA figures for Plumbing are consistent, but Paints & Adhesives EBITDA shows a notable difference, indicating possible differences in accounting presentation or adjustments not detailed in the retrieved context.
+
+## Sources
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 10 · FY23  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 201 · FY23  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 15 · FY23
+========================================
+=== CP6 ===
+EXPECTED:
+Note 37 (page 190): total segment profit ₹6,454 million (Plastic ₹5,200m + Adhesives ₹1,254m). Reconciliation to Consolidated PBT ₹6,485 million: -₹89m Other Unallocable expenses, -₹129m Finance costs, +₹268m Unallocable Non-operating Income, -₹19m Share of loss of JV. 6,454-89-129+268-19=6,485.
+ACTUAL:
+## Summary
+The total segment profit from 'Plastic' and 'Adhesives' segments reconciles to the Consolidated Profit Before Tax (PBT) of ₹6,485 million by adding unallocable income and subtracting unallocable expenses. The reconciliation details each unallocable item and its amount as disclosed in Note 37 (Segment Reporting).
+
+## Details
+From Note 37 (Segment Reporting), the Group provides the following data (all figures in ₹ million):
+
+- Segment Profit (Plastic): ₹X million  
+- Segment Profit (Adhesives): ₹Y million  
+- Total Segment Profit (Plastic + Adhesives): ₹(X + Y) million  
+
+Unallocable items reported are:
+
+- Unallocable Income: ₹A million  
+- Unallocable Expenses: ₹B million  
+
+Consolidated Profit Before Tax (Financial Highlights, Directors' Report): ₹6,485 million
+
+The reconciliation formula is:
+
+**Total Segment Profit + Unallocable Income - Unallocable Expenses = Consolidated PBT**
+
+Substituting the values:
+
+(X + Y) + A - B = 6,485
+
+Where:  
+- (X + Y) = sum of segment profits from Plastic and Adhesives  
+- A = unallocable income  
+- B = unallocable expenses
+
+## Calculation
+Since exact numeric values for segment profits and unallocable items are not provided in the retrieved context, the reconciliation cannot be numerically completed here.
+
+## Sources
+Astral Ltd Annual Report · Note 37 Segment Reporting · FY2026  
+Astral Ltd Annual Report · Directors' Report Financial Highlights · FY2026
+========================================
+=== CP7 ===
+EXPECTED:
+Note 37 (page 225): total segment profit ₹7,276 million (Plumbing ₹6,126m + Paints and Adhesives ₹1,150m). Reconciliation to PBT ₹7,025m: +₹162m Unallocated Income net, -₹413m Finance costs, ₹0m JV. 7,276+162-413+0=7,025.
+ACTUAL:
+## Summary  
+The total segment profit for 'Plumbing' and 'Paints and Adhesives' combined does not directly equal the Consolidated Profit Before Tax (PBT) of ₹7,025 million. The reconciliation involves adding or subtracting reconciling items such as unallocated corporate expenses, other income, finance costs, and inter-segment eliminations as detailed in Note 37.
+
+## Details  
+(Note 37 details are not explicitly provided in the retrieved context. However, based on standard segment reporting reconciliation practices and the consolidated PBT figure of ₹7,025 million (₹702.5 Cr from FY2025 profit_loss sheet), the following typical reconciling items would be expected:)
+
+- Segment profit for Plumbing  
+- Segment profit for Paints and Adhesives  
+- Add: Other unallocated income (e.g., other income not allocated to segments)  
+- Less: Unallocated corporate expenses (e.g., selling/admin expenses, employee costs not allocated)  
+- Less: Finance costs (interest expense)  
+- Less: Inter-segment eliminations or adjustments  
+
+Exact figures for each segment profit and reconciling items are not available in the retrieved context.
+
+## Sources  
+Astral_Ltd.xlsx · profit_loss · FY2025
+========================================
+=== CP8 ===
+EXPECTED:
+The 'Managing Risks' section (pages ~28-29) lists Supply chain, People, Safety, Foreign currency, Commodity, Competition, and Consumer preference/Obsolescence risks. For commodity risk, mitigation is via strategic inventory positions as a hedge against volatility, purchases aligned to inventory policy, and an explicit avoidance of speculative buying/trading of commodities.
+ACTUAL:
+## Summary
+Astral identifies key business risks including competition risk, commodity/raw material price volatility, occupational risk, customer relationship risk, community risk, and biodiversity risk. For commodity/raw material price risk, the company mitigates this through strategic sourcing, long-term contracts, backward integration, captive manufacturing, building strategic inventory positions, and continuous market monitoring with timely price adjustments.
+
+## Details
+
+### Key Categories of Business Risk Identified
+- **Competition Risk:** Intense competition impacting market share and profitability.
+- **Commodity/Raw Material Price Volatility:** Fluctuations in prices of polymers and chemicals affecting margins.
+- **Occupational Risk:** Workplace accidents leading to health, legal, and reputational issues.
+- **Customer Relationship Risk:** Importance of strong relationships for repeat business and innovation.
+- **Community Risk:** Good community relations enhancing reputation and goodwill.
+- **Biodiversity Risk:** Impact on local ecosystems and regulatory/community relations.
+
+### Mitigation Strategy for Commodity/Raw Material Price Risk
+- **Strategic Sourcing:** Widening sourcing base to reduce dependency.
+- **Long-term Contracts:** Entering into appropriate contracts and commitments with suppliers.
+- **Backward Integration and Captive Manufacturing:** Producing key raw materials internally to reduce exposure.
+- **Inventory Strategy:** Building strategic inventory positions as a hedge against price volatility.
+- **Market Monitoring:** Continuous monitoring of market trends and timely price adjustments.
+- **Procurement Planning:** Purchasing commodities in line with business requirements and inventory policy without encouraging excess stock.
+
+## Sources
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Pages 17, 70  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 16  
+Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 16
+========================================
+=== CP9 ===
+EXPECTED:
+Per the Risk Management framework table (page 28): diversify supplier base and maintain multiple sources; implement robust supply chain risk management processes; maintain strategic inventory levels of critical raw materials; explore backward integration or local sourcing.
+ACTUAL:
+## Summary  
+Astral Ltd manages the risk of supply chain disruptions primarily through widening its sourcing base, entering appropriate contracts and commitments, and implementing a well-planned procurement and inventory strategy.
+
+## Details  
+- The company addresses commodity price risk and supply availability issues by:  
+  1. Widening its sourcing base to reduce dependency on any single supplier.  
+  2. Using appropriate contracts and commitments to secure supply and manage price volatility.  
+  3. Employing a well-planned procurement and inventory strategy, including building strategic inventory positions as a hedge against price volatility.  
+- The Risk Management Committee has developed and enacted a risk mitigation strategy specifically targeting commodity price risk and supply chain disruptions.  
+- The company purchases commodities in line with business requirements and inventory policy, avoiding overstocking.  
+- These measures collectively help mitigate the impact of supply chain disruptions on business margins and capacity to service demand.
+
+## Sources  
+Astral_Ltd_AR_FY2024_AnnualReport.pdf · Page 226 · FY24  
+Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 16 · FY23
+========================================
+=== CP10 ===
+EXPECTED:
+Per the BRSR goals/targets section (page 66): Energy Management - 100% electricity from renewable sources by 2040. Climate Change and Emissions Management - Carbon Neutrality (Scope 1,2,3) by 2035, Net-Zero by 2050.
+ACTUAL:
+## Summary
+The BRSR sets targets for Energy Management to achieve ISO 14001 certification and 100% electricity from renewable sources. For Climate Change and Emissions Management, the targets include achieving Carbon Neutrality and Net-Zero emissions, with defined timelines aligned to the fiscal year ending March 31, 2025.
+
+## Details
+- **Energy Management Targets:**
+  - Achieve ISO 14001 certification.
+  - Attain 100% electricity consumption from renewable sources.
+
+- **Climate Change and Emissions Management Targets:**
+  - Achieve Carbon Neutrality.
+  - Achieve Net-Zero emissions.
+
+- **Timelines:**
+  - These targets are set with defined timelines, specifically for the period ending March 31, 2025, as per the sustainability reporting and assurance period.
+
+## Sources
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 66 · FY25  
+Astral_Ltd_AR_FY2025_AnnualReport.pdf · Page 94 · FY25
+========================================

@@ -43,6 +43,7 @@ def decompose_query(question: str) -> list[str]:
             temperature=0,
             max_tokens=200
         )
+        
         from app.core.token_tracker import record_token_usage
         record_token_usage(response)
         raw = response.choices[0].message.content.strip()

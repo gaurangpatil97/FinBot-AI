@@ -27,7 +27,7 @@ def ingest_single_concall(
     all_chunks = []
 
     for page_data in pages:
-        speaker_blocks = _parse_speaker_blocks(page_data["text"])
+        speaker_blocks = _parse_speaker_blocks(page_data["text"], company_slug)
         if not speaker_blocks:
             all_chunks.append(_make_chunk(
                 page_data["text"], filename,
@@ -58,20 +58,27 @@ def _extract_text_by_page(pdf_path: str) -> list[dict]:
     return pages
 
 
-def _parse_speaker_blocks(text: str) -> list[dict]:
+MANAGEMENT_NAMES = {
+    "craftsman_automation_ltd": ["srinivasan"],
+    "astral_ltd": ["savlani", "engineer", "hiranand", "sandeep"]
+}
+
+def _parse_speaker_blocks(text: str, company_slug: str) -> list[dict]:
     pattern = re.compile(r'^([A-Z][A-Za-z\s\.]+):\s+', re.MULTILINE)
     matches = list(pattern.finditer(text))
     blocks = []
+    mgmt_names = MANAGEMENT_NAMES.get(company_slug, [])
     for i, match in enumerate(matches):
         speaker = match.group(1).strip()
         start = match.end()
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
         content = text[start:end].strip()
         if content:
+            is_mgmt = any(name in speaker.lower() for name in mgmt_names)
             blocks.append({
                 "speaker": speaker,
                 "content": content,
-                "is_management": "srinivasan" in speaker.lower()
+                "is_management": is_mgmt
             })
     return blocks
 
@@ -101,7 +108,10 @@ def _build_qa_chunks(
         elif not block["is_management"] and block["speaker"] != "Moderator":
             qa = f"Analyst ({block['speaker']}) asked:\n{block['content']}\n"
             if i + 1 < len(speaker_blocks) and speaker_blocks[i + 1]["is_management"]:
-                qa += f"\nManagement answered:\n{speaker_blocks[i + 1]['content']}"
+                ans_text = speaker_blocks[i + 1]['content']
+                if len(ans_text) > 6000:
+                    ans_text = ans_text[:6000] + "...\n[Answer truncated due to length]"
+                qa += f"\nManagement answered:\n{ans_text}"
                 i += 2
             else:
                 i += 1

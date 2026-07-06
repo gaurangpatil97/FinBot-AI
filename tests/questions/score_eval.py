@@ -368,6 +368,8 @@ def run_ragas(results: list) -> dict:
     try:
         from ragas.run_config import RunConfig
         import numpy as np
+        from langchain_openai import ChatOpenAI
+        from ragas.llms import LangchainLLMWrapper
         
         dataset = Dataset.from_dict({
             "user_input": questions,
@@ -376,7 +378,8 @@ def run_ragas(results: list) -> dict:
             "reference": ground_truths,
         })
 
-        run_config = RunConfig(max_workers=16, max_retries=10)
+        run_config = RunConfig(max_workers=4, max_retries=10)
+        eval_llm = LangchainLLMWrapper(ChatOpenAI(model="gpt-4.1-mini"))
         
         result = evaluate(
             dataset,
@@ -387,6 +390,7 @@ def run_ragas(results: list) -> dict:
                 context_precision,
             ],
             raise_exceptions=False,
+            llm=eval_llm,
             run_config=run_config
         )
 

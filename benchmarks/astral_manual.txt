@@ -1,0 +1,120 @@
+ID: E1
+EXP: FY22: 4394.00, FY23: 5158.50, FY24: 5641.40, FY25: 5832.40, FY26: 6568.60
+ACT: ## Details  The total revenue (Sales) for the last 5 financial years as per the Excel structured financials (profit_loss sheet) is:  - FY2026: ₹6568.60 Cr   - FY2025: ₹5832.40 Cr   - FY2024: ₹5641.40 Cr   - FY2023: ₹5158.50 Cr   - FY2022: ₹4394.00 Cr    ## Summary  The company's total revenue for th
+---
+ID: E2
+EXP: FY22: 483.80, FY23: 456.60, FY24: 546.10, FY25: 523.80, FY26: 534.70
+ACT: ## Details  The net profit figures for the last 5 financial years (FY2022 to FY2026) are extracted directly from the Excel structured financials profit & loss data:  - FY2022: Net profit = 483.80 Cr   - FY2023: Net profit = 456.60 Cr   - FY2024: Net profit = 546.10 Cr   - FY2025: Net profit = 523.80
+---
+ID: E3
+EXP: FY22: 98.30, FY23: 87.10, FY24: 119.40, FY25: 233.20, FY26: 250.30
+ACT: ## Details  The total borrowings for each financial year are explicitly provided in the balance sheet data for the last 5 years as follows:  - FY2026 Borrowings: 250.30 Cr   - FY2025 Borrowings: 233.20 Cr   - FY2024 Borrowings: 119.40 Cr   - FY2023 Borrowings: 87.10 Cr   - FY2022 Borrowings: 98.30 C
+---
+ID: E4
+EXP: FY22: 11.08, FY23: 16.16, FY24: 13.34, FY25: 15.26, FY26: 15.65
+ACT: ## Details  Operating profit margin is calculated as:  **Operating Profit Margin (%) = (Operating Profit / Revenue) × 100**  Operating Profit is generally approximated by EBITDA minus Depreciation and excluding Interest and Other Income, but since the exact "Operating Profit" line is not explicitly 
+---
+ID: E5
+EXP: FY23: 17.40, FY24: 9.36, FY25: 3.39, FY26: 12.62
+ACT: ## Details  The last 4 financial years based on the data are FY2023, FY2024, FY2025, and FY2026. The sales (revenue) figures for these years from the profit & loss data are:  - FY2023 Sales: ₹5158.50 Cr   - FY2024 Sales: ₹5641.40 Cr   - FY2025 Sales: ₹5832.40 Cr   - FY2026 Sales: ₹6568.60 Cr    ## C
+---
+ID: E6
+EXP: FY22: 614.60, FY23: 78.80, FY24: 282.40, FY25: 117.00, FY26: 610.50
+ACT: ## Details  Free cash flow (FCF) is calculated as:  **Free Cash Flow = Cash from Operating Activity - Capital Expenditure**  Capital Expenditure (Capex) is generally represented by the increase in "Net Block" plus "Depreciation" or directly by the cash outflow in investing activities related to fixe
+---
+ID: E7
+EXP: FY24: [Receivable: 24.3, Inventory: 85.4], FY25: [Receivable: 27.2, Inventory: 95.6], FY26: [Receivable: 26.4, Inventory: 102.3]. Payable days not computable from available data — no Trade Payables line item in this dataset.
+ACT: ## Details  To calculate receivable days, inventory days, and payable days for the last 3 financial years (FY2024, FY2025, FY2026), we need:  - Receivables (from Balance Sheet) - Inventory (from Balance Sheet) - Payables (specifically "Trade Payables" or "Current Liabilities - Trade Payables")  **Im
+---
+ID: E8
+EXP: Total Capex (proxy from Investing CF): 2038.20, Cumulative Revenue Growth: 49.49%. FY22 had net investing inflow of 71.5 (excluded from capex sum). Capex of 2038 Cr drove only 49.5% revenue growth — relatively capital-intensive expansion.
+ACT: ## Details  ### Capex over last 5 financial years (FY21 to FY25)  The exact capex figures for each year are not explicitly provided in the retrieved context from the Excel financials or the Annual Report text. The only related information is about capital work-in-progress (CWIP) aging from the Annua
+---
+ID: E9
+EXP: Year: FY25, Divergence: 357.60. EBITDA (PBT + Interest + Depreciation) = 987.20, OCF = 629.60, Gap = 357.60
+ACT: ## Details  We need to find the year in which the difference (gap) between EBITDA and Cash from Operating Activity (Operating Cash Flow) is the largest in absolute terms.  From the Excel data:  - EBITDA (in Cr) by year:   - FY2017: 258.62   - FY2018: 295.43   - FY2019: 339.50   - FY2020: 372.20   - 
+---
+ID: E10
+EXP: Revenue 3Y CAGR: 8.39, Asset 3Y CAGR: 10.04. Revenue is growing SLOWER than asset base — indicating declining asset utilization efficiency.
+ACT: ## Details  ### Revenue Data (Sales) from Excel Profit & Loss:  - FY2023 Sales: ₹5158.50 Cr   - FY2024 Sales: ₹5641.40 Cr   - FY2025 Sales: ₹5832.40 Cr    ### Total Assets Data from Annual Report (Consolidated Balance Sheet):  - Total Assets as at March 31, 2023: This figure is not available in the 
+---
+ID: R1
+EXP: FY24: 0.04, FY25: 0.06, FY26: 0.06
+ACT: ## Details  The debt-to-equity ratio is calculated as:  \[ \text{Debt-to-Equity Ratio} = \frac{\text{Borrowings}}{\text{Networth}} \]  Using the exact figures from the balance sheet data for the most recent 3 financial years (FY2024, FY2025, FY2026):  - FY2024:   - Borrowings = 119.40 Cr   - Networt
+---
+ID: R2
+EXP: FY24: 1.72, FY25: 1.85, FY26: 1.85
+ACT: ## Details  The current ratio is calculated as:  **Current Ratio = Current Assets / Current Liabilities**  From the balance sheet data, the components of current assets and current liabilities must be identified exactly as stated. The retrieved context provides the following relevant line items for 
+---
+ID: R3
+EXP: FY24: 17.13, FY25: 14.48, FY26: 13.18
+ACT: ## Details  Return on Equity (ROE) is calculated as:  \[ \text{ROE} = \left(\frac{\text{Net Profit}}{\text{Shareholders' Equity}}\right) \times 100 \]  Where: - Net Profit = Net profit for the year from profit & loss data - Shareholders' Equity = Networth from balance sheet data  For the most recent
+---
+ID: R4
+EXP: FY24: 23.06, FY25: 19.32, FY26: 18.45
+ACT: ## Details  Return on Capital Employed (ROCE) is calculated as:  \[ \text{ROCE} = \frac{\text{EBIT}}{\text{Capital Employed}} \times 100 \]  Where: - EBIT = Profit before interest and tax = Profit before tax + Interest (since EBIT = PBT + Interest) - Capital Employed = Total Assets - Current Liabili
+---
+ID: R5
+EXP: FY24: 26.21, FY25: 18.01, FY26: 12.34
+ACT: ## Details  The interest coverage ratio is calculated as EBIT divided by Interest Expense.  - EBIT = Profit before tax + Interest Expense (since EBIT = PBT + Interest) - Interest Expense is given directly.  We will calculate for the most recent 3 financial years: FY2026, FY2025, and FY2024.  From th
+---
+ID: R6
+EXP: Net Profit Margin: 8.14%, Asset Turnover: 1.13, Equity Multiplier: 1.43, DuPont ROE: 13.18%
+ACT: ## Details  We need to perform a DuPont decomposition of ROE for the most recent financial year, which is FY2026.  The three components required are:  1. **Net Profit Margin** = Net Profit / Revenue (Sales)   2. **Asset Turnover** = Revenue (Sales) / Total Assets   3. **Equity Multiplier** = Total A
+---
+ID: R7
+EXP: FY25: Receivable Days: 27.24, Inventory Days: 95.57, Partial CCC (excl Payable Days): 122.81. FY26: Receivable Days: 26.40, Inventory Days: 102.33, Partial CCC (excl Payable Days): 128.73. Payable Days not computable — no Trade Payables line item in available data.
+ACT: ## Details  To calculate the cash conversion cycle (CCC) for the most recent 2 financial years (FY2025 and FY2026), we need:  - Receivable Days = (Receivables / Sales) × 365 - Inventory Days = (Inventory / Cost of Goods Sold) × 365 - Payable Days = (Payables / Raw Material Cost) × 365  Then,  - CCC 
+---
+ID: R8
+EXP: FY24: 1.51, FY25: 1.20, FY26: 2.09. Yes, OCF consistently exceeds net profit across all 3 years, indicating strong cash conversion.
+ACT: ## Details  To calculate the operating cash flow (OCF) to net profit ratio for the last 3 financial years (FY2023, FY2024, FY2025), we need:  - Operating cash flow for each year - Net profit for each year  From the retrieved context:  ### Net Profit (from Excel profit_loss data) - FY2023: ₹456.60 Cr
+---
+ID: R9
+EXP: FY25: ICR=18.01x, Borrowings change: +113.80 (119.4 to 233.2). FY26: ICR=12.34x, Borrowings change: +17.10 (233.2 to 250.3). ICR is comfortable but declining. Borrowings increased significantly in FY25, then stabilized in FY26.
+ACT: ## Details  ### EBIT-to-Interest-Expense Ratio  - EBIT is not directly given, but can be derived as:      EBIT = Profit before tax + Interest expense     (Since Profit before tax = EBIT - Interest, rearranged EBIT = PBT + Interest)  - For FY2025 (most recent year):   - Profit before tax (PBT) = ₹702
+---
+ID: R10
+EXP: FY25: ROCE=19.32%, Cost of Debt=17.71%, Spread=+1.61%. FY26: ROCE=18.45%, Cost of Debt=25.73%, Spread=-7.28%. Company earned above cost of debt in FY25 but NOT in FY26.
+ACT: ## Details  ### Return on Capital Employed (ROCE)  ROCE is generally calculated as:  \[ \text{ROCE} = \frac{\text{EBIT}}{\text{Capital Employed}} \times 100 \]  Where: - EBIT = Profit before interest and tax = Profit before tax + Interest expense - Capital Employed = Total Borrowings + Equity (or To
+---
+ID: CE1
+EXP: Net Profit fell from 546.10 to 523.80, a decline of 22.30 Cr (-4.08%). Employee Cost grew the most, increasing by approximately 15-20% YoY.
+ACT: ## Details  - Net profit in FY24: ₹546.10 Cr (Astral_Ltd.xlsx · profit_loss · FY2024) - Net profit in FY25: ₹523.80 Cr (Astral_Ltd.xlsx · profit_loss · FY2025)  - Revenue in FY24: ₹5641.40 Cr - Revenue in FY25: ₹5832.40 Cr  Expense line items in FY24 and FY25 (in ₹ Cr):  | Expense Line       | FY24 
+---
+ID: CE2
+EXP: Borrowings increase: 113.80 Cr. FY25 OCF: 629.60 Cr. Ratio: 5.53x. Yes, operating cash flow comfortably covered the incremental debt.
+ACT: ## Details  - Borrowings in FY24: ₹119.40 Cr (Source: Astral_Ltd.xlsx · balance_sheet · FY2024) - Borrowings in FY25: ₹233.20 Cr (Source: Astral_Ltd.xlsx · balance_sheet · FY2025) - Increase in borrowings = ₹233.20 Cr - ₹119.40 Cr = ₹113.80 Cr  - Operating cash flow in FY25: ₹629.60 Cr (Source: Astr
+---
+ID: CE3
+EXP: Sales in FY26 was ₹6568.6 Cr. This represents a year-on-year growth of 12.62% compared to the ₹5832.4 Cr reported in FY25, showing resilient top-line momentum.
+ACT: ## Details The Sales (Revenue) figure for Astral Ltd in FY26 is explicitly stated in the profit & loss data from the Excel source.  - Sales: 6568.60 Cr (from Astral_Ltd.xlsx · profit_loss · FY2026)  ## Summary Astral Ltd reported Sales (Revenue) of ₹6568.60 crore in FY26.  ## Sources Astral_Ltd.xlsx
+---
+ID: CE4
+EXP: Net profit in FY25 was ₹523.8 Cr. This represents a slight contraction of 4.08% compared to the ₹546.1 Cr reported in FY24.
+ACT: ## Details From the profit and loss data for FY2025 in the Excel sheet "Astral_Ltd.xlsx" under the "profit_loss" sheet, the Net profit is explicitly stated as 523.80 Cr.  ## Summary The Net profit of Astral Ltd in FY25 was ₹523.80 crore.  ## Sources Astral_Ltd.xlsx · profit_loss · FY2025
+---
+ID: CE5
+EXP: Cash from Operating Activity decreased in FY25 compared to FY24. The absolute decline was ₹193.8 Cr. Formula: CFO_FY25 - CFO_FY24. Calculation: ₹629.6 Cr - ₹823.4 Cr = -₹193.8 Cr, revealing short-term cash flow compression.
+ACT: ## Details  - Cash from Operating Activity in FY2024: ₹823.40 crore (Source: Astral_Ltd.xlsx · cash_flow · 2024) - Cash from Operating Activity in FY2025: ₹629.60 crore (Source: Astral_Ltd.xlsx · cash_flow · 2025)  ## Calculation  Change in Cash from Operating Activity = FY2025 value - FY2024 value 
+---
+ID: CE6
+EXP: The absolute increase in Total Reserves from FY17 to FY26 was ₹3196.13 Cr. Formula: Reserves_FY26 - Reserves_FY17. Calculation: ₹4031.0 Cr - ₹834.87 Cr = ₹3196.13 Cr, showing stellar long-term book value accumulation.
+ACT: ## Details  - Total Reserves in FY2017 = 834.87 Cr (from balance_sheet FY2017) - Total Reserves in FY2026 = 4031.00 Cr (from balance_sheet FY2026)  ## Calculation  Absolute increase in Total Reserves = Reserves in FY2026 - Reserves in FY2017   = 4031.00 Cr - 834.87 Cr   = 3196.13 Cr  ## Summary  The
+---
+ID: CE7
+EXP: The highest Profit before tax was achieved in FY22 at ₹648.5 Cr. Respective values are: FY21 was ₹533.0 Cr, FY22 was ₹648.5 Cr, and FY23 was ₹628.2 Cr, indicating that profitability peaked in FY22 and normalized slightly in FY23.
+ACT: ## Details  From the Excel structured financials data:  - FY21 Profit before tax: ₹533.00 Cr (Source: Astral_Ltd.xlsx · profit_loss · FY2021) - FY22 Profit before tax: ₹648.50 Cr (Source: Astral_Ltd.xlsx · profit_loss · FY2022) - FY23 Profit before tax: ₹628.20 Cr (Source: Astral_Ltd.xlsx · profit_l
+---
+ID: CE8
+EXP: The anomaly is a severe spike in 'Other Expenses' to ₹965.2 Cr in FY26, up drastically from ₹38.2 Cr in FY25. This surge restricted Profit before tax growth to just 4.00% (₹730.6 Cr in FY26 vs ₹702.5 Cr in FY25) despite a robust Sales increase of ₹736.2 Cr, indicating a significant margin drag.
+ACT: ## Details  - From the Excel profit & loss data:    - Other Expenses in FY25 = ₹274.80 Cr     - Other Expenses in FY26 = ₹965.20 Cr    - Comparison shows a sharp increase in Other Expenses from FY25 to FY26:     Increase = ₹965.20 Cr - ₹274.80 Cr = ₹690.40 Cr  - Profit before tax (PBT) figures from 
+---
+ID: CE9
+EXP: No, dividends diverged from the profit trend. While Net Profit grew by 2.08% from ₹523.8 Cr in FY25 to ₹534.7 Cr in FY26, the Dividend Amount decreased sharply by 33.34% from ₹100.88 Cr in FY25 to ₹67.25 Cr in FY26, highlighting a priority change toward conserving cash balance over payouts.
+ACT: ## Details  From the Excel structured financials:  - FY2025:   - Net Profit = ₹523.80 Cr   - Dividend Amount = ₹100.88 Cr  - FY2026:   - Net Profit = ₹534.70 Cr   - Dividend Amount = ₹67.25 Cr  Change from FY25 to FY26:  - Net Profit increased by ₹534.70 Cr - ₹523.80 Cr = ₹10.90 Cr (approximately 2.
+---
+ID: CE10
+EXP: Total Assets computed as Net Block (₹2945.0 Cr) + Capital Work in Progress (₹88.7 Cr) + Other Assets (₹2778.2 Cr) equals ₹5811.9 Cr. This perfectly matches the reported 'Total' row of ₹5811.9 Cr, validating absolute internal consistency in data aggregation.
+ACT: ## Details  From the Excel balance sheet data for FY26 (all figures in Crores):  - Net Block = 2945.00 Cr   - Capital Work in Progress = 88.70 Cr   - Other Assets = 2778.20 Cr    Sum of these components = 2945.00 + 88.70 + 2778.20 = 5811.90 Cr  The reported Total Assets figure is not explicitly stat
+---

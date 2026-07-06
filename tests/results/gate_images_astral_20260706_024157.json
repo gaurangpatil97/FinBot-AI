@@ -1,0 +1,500 @@
+{
+  "company": "Astral Ltd",
+  "timestamp": "20260706_024157",
+  "results": [
+    {
+      "question_id": "CI1",
+      "section": "Images",
+      "question": "According to the Group Revenue Breakup chart in the FY22 annual report infographic, what was the percentage contribution of the Pipes and Adhesives segments respectively?",
+      "expected_answer": "Per the FY22 infographic (page 6), the Group Revenue Breakup chart shows Pipes contributed 77% of revenue and Adhesives contributed 23%.",
+      "actual_answer": "",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf"
+      ],
+      "actual_citations": [],
+      "actual_citation_filenames": [],
+      "citation_correct": false,
+      "collections_searched": [],
+      "agent_used": "",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI2",
+      "section": "Images",
+      "question": "What are the consolidated key performance metrics (Revenue from Operations, EBITDA, and Profit After Tax) along with their respective YoY growth percentages as shown in the FY24 infographic highlights?",
+      "expected_answer": "Per the FY24 infographic (page 1): Revenue from Operations ₹54,414 million (9.36% YoY growth); EBITDA ₹9,603 million (14.99% YoY growth); Profit After Tax ₹5,456 million (18.74% YoY growth).",
+      "actual_answer": "## Details\n\nFrom the FY24 infographic highlights in the annual report (Pages 10, 11, and 12):\n\n- Revenue from Operations (FY24): ₹56,414 million\n- EBITDA (FY24): ₹9,603 million\n- Profit After Tax (PAT) (FY24): ₹5,456 million\n\nThe question also asks for the YoY growth percentages for these metrics. However, the retrieved context does not provide the corresponding FY23 figures or explicit YoY growth percentages for Revenue, EBITDA, or PAT in the infographic or any other section.\n\nNo prior year values or YoY growth percentages are mentioned in the retrieved data.\n\n## Summary\n\nThe consolidated key performance metrics for FY24 are:\n\n- Revenue from Operations: ₹56,414 million\n- EBITDA: ₹9,603 million\n- Profit After Tax: ₹5,456 million\n\nThe FY24 infographic highlights do not disclose the respective YoY growth percentages for these metrics in the retrieved context.\n\n## Sources\n\nAstral_Ltd_AR_FY2024_AnnualReport.pdf · Pages 10, 11, 12 · FY24",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 11,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 10,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 21,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 12,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 20,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 4,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 23,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 1,
+          "collection": "astral_ltd_images"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "astral_ltd_images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI3",
+      "section": "Images",
+      "question": "What is the segment-wise revenue breakdown percentage reported between the Plumbing Division and Paints & Adhesives in the FY25 Group Revenue Breakup infographic chart?",
+      "expected_answer": "Per the FY25 infographic (page 4), the Group Revenue Breakup shows Plumbing Division at 72% and Paints & Adhesives at 28%.",
+      "actual_answer": "## Details\n\nFrom the FY25 Annual Report image on Page 11 (Astral_Ltd_AR_FY2025_AnnualReport.pdf):\n\n- Total revenue from operations: ₹58,324 million\n- Segment revenue contribution:\n  - Plumbing: 72%\n  - Paints and adhesives: 28%\n\nThese percentages represent the segment-wise revenue breakdown of the total group revenue for FY25.\n\n## Summary\n\nThe segment-wise revenue breakdown for FY25 is 72% from the Plumbing Division and 28% from the Paints & Adhesives segment.\n\n## Sources\n\nAstral_Ltd_AR_FY2025_AnnualReport.pdf · Page 11 · FY25",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 11,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 3,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 9,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 8,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 20,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 5,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 13,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+          "page": 15,
+          "collection": "astral_ltd_images"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "astral_ltd_images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI4",
+      "section": "Images",
+      "question": "Based on the 'Astral in numbers' section from the FY23 annual report visual highlights, list the exact values given for Dealers, Distributors, Depots, and Employees.",
+      "expected_answer": "Per the FY23 infographic (page 2), 'Astral in numbers': Dealers 1,93,000+; Distributors 2,778+; Depots 38; Employees 8,200+.",
+      "actual_answer": "## Details\n\nFrom the 'Astral in numbers' section in the FY23 annual report visual highlights (Source: Astral_Ltd_AR_FY2023_AnnualReport.pdf · Page 5 · FY23), the exact values given are:\n\n- Dealers: over 1,93,000  \n- Distributors: over 2,778  \n- Depots: 38  \n- Employees: over 8,200  \n\n## Summary\n\nThe exact values from the 'Astral in numbers' section for FY23 are: Dealers over 1,93,000; Distributors over 2,778; Depots 38; and Employees over 8,200.\n\n## Sources\n\nAstral_Ltd_AR_FY2023_AnnualReport.pdf · Page 5 · FY23",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 13,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 81,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 24,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 14,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 8,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 64,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 40,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 80,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 5,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 10,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+          "page": 21,
+          "collection": "astral_ltd_images"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "astral_ltd_pdf_text",
+        "astral_ltd_images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI5",
+      "section": "Images",
+      "question": "Compare the total infrastructure breakdown (Plants, Depots, and Offices) for both the Plumbing and Adhesives & Paints businesses as shown in the FY24 visual maps versus the FY25 visual maps.",
+      "expected_answer": "FY24 (page 3): Plants 10 (Plumbing)/7 (Adhesives & Paints); Depots 20/22; Offices 13/4. FY25 (page 3): Plants 11/6; Depots 20/32; Offices 13/4 (unchanged).",
+      "actual_answer": "## Details\n\nThe retrieved context contains detailed manufacturing capacities and locations for FY24 (Page 7 of the FY24 Annual Report) but does not provide any data or visual maps for FY25 infrastructure breakdowns (Plants, Depots, Offices) for either Plumbing or Adhesives & Paints businesses.\n\n- FY24 infrastructure details (manufacturing plants and capacities) are available for Plumbing (Pipes and Water Tanks), Adhesives & Sealants, and Paints segments.\n- No explicit data or visual maps for FY25 infrastructure (plants, depots, offices) are present in the retrieved context.\n- The context does not mention depots or offices explicitly for either FY24 or FY25.\n- The question asks for a comparison between FY24 and FY25 infrastructure breakdowns, but FY25 data is missing.\n\n## Summary\n\nThe FY24 infrastructure breakdown for Plumbing and Adhesives & Paints businesses is available in terms of manufacturing plant locations and capacities, but no FY25 infrastructure data or visual maps are provided in the retrieved context. Therefore, a comparison between FY24 and FY25 infrastructure breakdowns cannot be performed.\n\n## Sources\n\nAstral_Ltd_AR_FY2024_AnnualReport.pdf · Page 7 · FY24",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 12,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 21,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 11,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 10,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 7,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+          "page": 6,
+          "collection": "astral_ltd_images"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "astral_ltd_images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI6",
+      "section": "Images",
+      "question": "What is the trajectory of Astral's reported production capacity in India (in Metric Tonnes) across the visual infrastructure metrics from FY22 to FY25?",
+      "expected_answer": "FY22 (page 2): 3,46,686 MT total domestic installed capacity. FY23 (page 3): 3,95,979 MT. FY24 (page 3): 4,75,896 MT. FY25 (page 2): 5,49,126 MT — continuous multi-year expansion.",
+      "actual_answer": "## Details\n\nThe only available data on Astral's production capacity in India (in Metric Tonnes) is from the FY22 annual report image on page 7, which states:\n\n- Total Domestic Installed Capacity for FY22: 3,46,686 MT\n\nNo data or figures for production capacity in India for FY23, FY24, or FY25 are present in the retrieved context. There are no subsequent years' capacity figures or any mention of capacity changes or expansions in the provided images, PDF text, or earnings call transcripts.\n\n## Summary\n\nAstral's reported production capacity in India for FY22 is 3,46,686 Metric Tonnes. There is no available data in the retrieved context to determine the trajectory or changes in production capacity from FY22 to FY25.\n\n## Sources\n\nAstral_Ltd_AR_FY2022_AnnualReport.pdf · Page 7 · FY22",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 2,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 7,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 1,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 17,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 12,
+          "collection": "astral_ltd_images"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "astral_ltd_images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI7",
+      "section": "Images",
+      "question": "Analyze how the revenue contribution split of the core businesses (Pipes/Plumbing vs Adhesives/Paints) evolved over a four-year period by cross-referencing the breakup pie charts from the FY22, FY23, FY24, and FY25 annual report visuals.",
+      "expected_answer": "FY22 (page 6): Pipes 77% / Adhesives 23%. FY23 (page 1): 77%/23% (flat YoY). FY24 (page 5): Plumbing 73% / Paints & Adhesives 27%. FY25 (page 4): Plumbing 72% / Paints & Adhesives 28%. Over 4 years, Adhesives/Paints share expanded by 5 percentage points.",
+      "actual_answer": "## Details\n\nThe retrieved context provides the revenue contribution split for FY22 only, from multiple sources:\n\n- From [3] and [9] (FY22 Annual Report text and image data):\n  - Total Revenue FY22: ₹43,940 million\n  - Pipes (Plastic) segment revenue FY22: ₹33,658 million (from [2])\n  - Adhesives segment revenue FY22: ₹10,282 million (from [2])\n  - Revenue contribution split FY22 (from pie chart in [9]):\n    - Pipes: 77%\n    - Adhesives: 23%\n\nNo explicit revenue contribution splits or pie charts for FY23, FY24, or FY25 are present in the retrieved context. The context only contains detailed segment revenue and contribution data for FY22 and some prior years (FY21, FY20) but no visuals or data for FY23-FY25.\n\nSpecifically:\n\n- FY21 segment revenue (from [2]):\n  - Pipes: ₹24,187 million\n  - Adhesives: ₹7,576 million\n  - Total: ₹31,763 million\n  - Contribution split FY21 (calculated):\n    - Pipes: (24,187 / 31,763) × 100 = 76.1%\n    - Adhesives: (7,576 / 31,763) × 100 = 23.9%\n\n- FY20 and earlier years' segment splits are not explicitly provided in the retrieved context.\n\n- No pie charts or segment splits for FY23, FY24, or FY25 are available in the retrieved context.\n\n## Summary\n\nThe revenue contribution split between Pipes and Adhesives for FY22 was 77% and 23%, respectively, consistent with FY21's approximate split of 76% Pipes and 24% Adhesives. However, the retrieved context does not contain the revenue contribution splits or pie charts for FY23, FY24, or FY25, so the evolution of this split over the four-year period cannot be analyzed.\n\n## Sources\n\nAstral_Ltd_AR_FY2022_AnnualReport.pdf · Page 13 · FY22  \nAstral_Ltd_AR_FY2022_AnnualReport.pdf · Page 189 · FY22  \nAstral_Ltd_AR_FY2022_AnnualReport.pdf · Page 9 · FY22  \nAstral_Ltd_AR_FY2022_AnnualReport.pdf · Page 12 · FY22",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 162,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 189,
+          "collection": "unknown"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 13,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 12,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 171,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 9,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 7,
+          "collection": "astral_ltd_images"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "astral_ltd_pdf_text",
+        "astral_ltd_images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    },
+    {
+      "question_id": "CI8",
+      "section": "Images",
+      "question": "Cross-reference the reported number of total global manufacturing units across the visual highlights of the FY22, FY23, FY24, and FY25 reports. What notable visual discrepancy or consolidation is observed in the trend of total manufacturing units?",
+      "expected_answer": "FY22 (page 1): 18 facilities worldwide. FY23 (page 2): 22 facilities. FY24 (pages 1-2): 19 units. FY25 (page 1): 19 units. The notable discrepancy is between FY23 and FY24, where reported facilities drop from 22 to 19, suggesting asset optimization, plant consolidation, or a revised counting methodology.",
+      "actual_answer": "## Details\n\n- From the FY22 Annual Report image data (Source: Astral_Ltd_AR_FY2022_AnnualReport.pdf · Page 7 · FY22), the company reports **18 manufacturing facilities worldwide**.\n\n- The context does not provide explicit visual or numeric data on the number of manufacturing units for FY23, FY24, or FY25 in the retrieved content.\n\n- No other explicit figures or images related to the total number of manufacturing units for FY23, FY24, or FY25 are present in the retrieved context.\n\n- Therefore, the only concrete data point available is for FY22, which states 18 manufacturing facilities globally.\n\n- Since no subsequent years’ manufacturing unit counts are provided, no direct comparison or trend analysis can be made.\n\n## Summary\n\nThe only explicit figure for total global manufacturing units is 18 facilities reported for FY22. There is no available data in the retrieved context for FY23, FY24, or FY25 manufacturing units to identify any visual discrepancy or consolidation trend across these years.\n\n## Sources\n\nAstral_Ltd_AR_FY2022_AnnualReport.pdf · Page 7 · FY22",
+      "expected_citations": [
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2023_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2024_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2025_AnnualReport.pdf"
+      ],
+      "actual_citations": [
+        {
+          "filename": "Astral_Ltd.xlsx",
+          "page": "profit_loss",
+          "collection": "astral_ltd_excel"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 94,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 7,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 12,
+          "collection": "astral_ltd_images"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 19,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 11,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 4,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 21,
+          "collection": "astral_ltd_pdf_text"
+        },
+        {
+          "filename": "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+          "page": 13,
+          "collection": "astral_ltd_pdf_text"
+        }
+      ],
+      "actual_citation_filenames": [
+        "Astral_Ltd.xlsx",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf",
+        "Astral_Ltd_AR_FY2022_AnnualReport.pdf"
+      ],
+      "citation_correct": true,
+      "collections_searched": [
+        "astral_ltd_excel",
+        "astral_ltd_pdf_text",
+        "astral_ltd_images"
+      ],
+      "agent_used": "rag",
+      "latency_seconds": 0
+    }
+  ]
+}
