@@ -16,6 +16,7 @@ import {
   ComposedChart,
   Bar,
   Line,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -162,7 +163,7 @@ const renderMessageContent = (content: string) => {
 
 interface InlineChartProps {
   chartData: {
-    chart_type: "bar" | "line" | "combo";
+    chart_type: "bar" | "line" | "combo" | "area" | "stacked_bar";
     title: string;
     x_axis: string[];
     series: Array<{ name: string; data: number[] }>;
@@ -265,6 +266,29 @@ function InlineChart({ chartData }: InlineChartProps) {
               activeDot={{ r: 5 }}
             />
           ))}
+          {chartData.chart_type === "area" && (
+            <>
+              <defs>
+                <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#e8ddc7" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#e8ddc7" stopOpacity={0}/>
+                </linearGradient>
+              </defs>
+              {chartData.series.map((s) => (
+                <Area
+                  key={s.name}
+                  type="monotone"
+                  dataKey={s.name}
+                  stroke="#e8ddc7"
+                  strokeWidth={2}
+                  fillOpacity={1}
+                  fill="url(#areaGradient)"
+                  dot={{ r: 3, fill: '#111111', stroke: '#e8ddc7', strokeWidth: 1.5 }}
+                  activeDot={{ r: 5 }}
+                />
+              ))}
+            </>
+          )}
           {chartData.chart_type === "bar" && chartData.series.map((s) => (
             <Bar
               key={s.name}
@@ -283,6 +307,19 @@ function InlineChart({ chartData }: InlineChartProps) {
               })}
             </Bar>
           ))}
+          {chartData.chart_type === "stacked_bar" && chartData.series.map((s, idx) => {
+            const colors = ["#857c6b", "#e8ddc7", "#a34e36", "#cfc2ad", "#5a5348"];
+            const color = colors[idx % colors.length];
+            return (
+              <Bar
+                key={s.name}
+                dataKey={s.name}
+                stackId="a"
+                fill={color}
+                maxBarSize={30}
+              />
+            );
+          })}
           {chartData.chart_type === "combo" && chartData.series.map((s, idx) => {
             if (idx === 0) {
               return (

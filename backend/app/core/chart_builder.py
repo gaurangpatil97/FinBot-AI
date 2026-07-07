@@ -55,26 +55,30 @@ Available ratio formulas:
 {json.dumps(available_ratios)}
 
 Strict Rules:
-1. Map the query to one of these four chart kinds:
+1. Map the query to one of these five chart kinds:
     - "single_metric": plotting a single raw metric over time.
     - "growth_rate": plotting the year-over-year % growth rate of a single metric over time.
     - "ratio": plotting a computed ratio/margin over time.
     - "comparison": comparing two raw metrics over time.
+    - "composition_over_time": comparing multiple category/segment metrics over time.
 2. Choose the chart shape (chart_type) based on the data nature, using these reasoning rules (no keyword matching):
     - "line" for continuous metrics where the trajectory over time matters (e.g., revenue trend, net worth movement).
     - "bar" for discrete per‑period values, especially growth‑rate charts where each year's YoY change is a distinct quantity and negative values need clear visual distinction. Also suitable for a small number of years in single‑metric charts.
     - "combo" for two‑metric comparisons on different scales (dual‑axis bars + line).
+    - "area" for cumulative/volume metrics over time where magnitude matters more than just direction (e.g., Total Assets, Reserves, cumulative cash position).
+    - "stacked_bar" for composition breakdown over time across multiple segments or categories.
 3. In the "metrics" array, provide the exact metric names from the available standard metrics list above.
-    - For "single_metric" and "growth_rate", provide exactly 1 metric.
+    - For "single_metric", "growth_rate", and "area", provide exactly 1 metric.
     - For "comparison", provide exactly 2 metrics to compare.
     - For "ratio", provide a list of metrics involved (if needed).
+    - For "composition_over_time", provide a list of all metrics that make up the composition.
 4. In "ratio", if the chart_kind is "ratio", provide the exact ratio name from the available ratio formulas list above (e.g., "ebitda margin", "debt to equity"). Otherwise, set "ratio" to null.
 5. Extract the year range from the query. If a start year or end year is mentioned (like FY22 or 2025), normalize it to "FY22" or "FY25" style. If no years are mentioned, set them to null.
 
 You MUST return ONLY a JSON object, with no markdown, no backticks, and no extra text:
 {{
-  "chart_kind": "single_metric" | "growth_rate" | "ratio" | "comparison",
-  "chart_type": "bar" | "line" | "combo",
+  "chart_kind": "single_metric" | "growth_rate" | "ratio" | "comparison" | "composition_over_time",
+  "chart_type": "bar" | "line" | "combo" | "area" | "stacked_bar",
   "metrics": ["EBITDA"],
   "ratio": null,
   "year_start": "FY22" or null,
@@ -184,7 +188,7 @@ def build_chart_data(
                     pass
 
     # 4. Safely validate and fallback planned inputs
-    if chart_kind not in ["single_metric", "growth_rate", "ratio", "comparison"]:
+    if chart_kind not in ["single_metric", "growth_rate", "ratio", "comparison", "composition_over_time"]:
         chart_kind = "single_metric"
 
     if chart_kind == "ratio":
@@ -212,8 +216,16 @@ def build_chart_data(
         elif chart_kind == "comparison" and len(validated_metrics) < 2:
             chart_kind = "single_metric"
             logger.warning(f"[ChartBuilder] Not enough metrics for comparison. Falling back to single_metric.")
+        elif chart_kind == "composition_over_time" and len(validated_metrics) < 2:
+            chart_kind = "single_metric"
+            logger.warning(f"[ChartBuilder] Not enough metrics for composition. Falling back to single_metric.")
             
-        plan_metrics = validated_metrics[:2] if chart_kind == "comparison" else validated_metrics[:1]
+        if chart_kind == "comparison":
+            plan_metrics = validated_metrics[:2]
+        elif chart_kind == "composition_over_time":
+            plan_metrics = validated_metrics
+        else:
+            plan_metrics = validated_metrics[:1]
 
     # 5. Execute Plan
     x_axis = [f"FY{y[-2:]}" if len(y) == 4 else y for y in years]
@@ -296,6 +308,9 @@ def build_chart_data(
         m1 = plan_metrics[0].upper().replace("SALES", "REVENUE")
         m2 = plan_metrics[1].upper().replace("SALES", "REVENUE")
         title = f"{m1} vs {m2} {x_axis[0]}–{x_axis[-1]}"
+    elif chart_kind == "composition_over_time":
+        exec_chart_type = chart_type if chart_type in ["stacked_bar", "bar"] else "stacked_bar"
+        title = f"{', '.join(plan_metrics)} Breakdown {x_axis[0]}–{x_axis[-1]}"
     else:
         exec_chart_type = chart_type
         title = f"{', '.join(plan_metrics)} over {x_axis[0]}–{x_axis[-1]}"
