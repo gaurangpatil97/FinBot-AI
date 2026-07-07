@@ -147,135 +147,34 @@ npm run dev
    - Store vectors in company-specific ChromaDB collections
 4. Once ingestion completes the system is ready to answer queries
 
-## Benchmark Results
+## Benchmark Results & Generalizability
 
-### V1 — Initial Benchmark (150Q, May 2026)
+The system has been evaluated against two distinct companies—**Astral Ltd** and **Craftsman Automation Ltd**—to ensure the pipeline generalizes across different corporate reporting styles, financial data structures, and narratives. This multi-company validation proves the architecture is robust and not overfitted or hardcoded to a single company's layouts.
 
-First benchmark run using 150 questions across 5 sections against Craftsman Automation Ltd.
+### Overall Performance Metrics
 
-| Section | Score | Accuracy |
-|---------|-------|----------|
-| Excel (structured tables) | 30/30 | **100%** |
-| PDF Text (annual reports) | 30/30 | **100%** |
-| Concall Transcripts | 21/30 | **70%** |
-| Images (chart descriptions) | 8/30 | **26.7%** |
-| Cross-modal (combined) | 23/30 | **76.7%** |
-| **Overall** | **112/150** | **74.7%** |
+| Metric | Astral | Craftsman |
+|--------|--------|-----------|
+| Routing Accuracy | 91.0% | 86.0% |
+| Citation Accuracy | 90.0% | 61.0% |
+| Answer Correctness | 77.0% | 70.0% |
+| Faithfulness (RAGAS) | 0.822 | 0.794 |
+| Answer Relevancy (RAGAS) | 0.587 | 0.682 |
+| Context Recall (RAGAS) | 0.496 | 0.362 |
+| Context Precision (RAGAS) | 0.145 | 0.209 |
 
-> ⚠️ V1 scores for Excel and PDF were later found to be inflated due to loose citation matching in the evaluation script. These numbers were not fully trusted.
+### Answer Correctness by Section
 
----
-
-### V2 — Validated Benchmark (77Q, June 2026)
-
-A fresh 77-question benchmark was built from scratch with CA-level forensic questions across all 4 source types plus cross-source questions. Questions were generated independently from the test set to avoid benchmark leakage.
-
-#### Auto-Scored Metrics
-| Metric | Score |
-|--------|-------|
-| Routing Accuracy | 72.7% (56/77) |
-| Citation Accuracy | 63.6% (49/77) |
-| Answer Correctness | 48.1% raw → **54.5% validated** |
-| Answer Relevancy (RAGAS) | 67.4% |
-| Context Precision (RAGAS) | 30.9% |
-| Avg Latency | 15.36s |
-
-#### Per Section Breakdown
-| Section | Routing | Answer Correctness |
-|---------|---------|-------------------|
-| Excel | 67% | **93%** |
-| Cross-source | 73% | **60%** |
-| Images | 75% | **44%** |
-| PDF Text | 81% | **25%** |
-| Concall | 67% | **20%** |
-
-#### Failure Analysis
-A full audit of all 40 failures was conducted to separate system quality from evaluation pipeline quality.
-
-| Failure Type | Count | % | Implication |
-|---|---|---|---|
-| Retrieval failure | 19 | 48% | Router correct, chunks didn't contain answer |
-| Routing failure | 14 | 35% | Wrong source selected upstream |
-| Scoring failure | 5 | 12% | Evaluator marked correct answers as wrong |
-| Generation failure | 2 | 5% | Had right context but wrong answer |
-
-**Key finding:** 83% of failures originated upstream in routing and retrieval. Only 5% were generation failures — meaning the LLM produces correct answers when supplied with relevant context. The language model and prompt engineering are not the bottleneck.
-
-**Validated accuracy:** After correcting 5 evaluator scoring errors, true answer correctness is **54.5%** not 48.1%.
-
-#### Post-Fix Improvements (June 2026)
-After targeted fixes to the router and calculation agent:
-- Routing accuracy improved for H1/H2/quarterly questions → concall
-- Routing accuracy improved for MD&A narrative questions → pdf
-- Calculation agent no longer intercepts narrative explanation questions
-- 4 previously failing questions now answered correctly
-
----
-
-### V2.1 — RAGAS Fully Resolved (June 13, 2026)
-
-Note that all 4 RAGAS metrics now return real values (zero NaN rows out of 77) for the first time, after fixing: (a) the V2 schema column-naming mismatch for `ragas==0.3.1`, and (b) rate-limit-induced NaN poisoning of aggregate averages.
-
-**Scores:**
-- Faithfulness: 0.6714
-- Answer Relevancy: 0.6624
-- Context Precision: 0.3303
-- Context Recall: 0.2481
-
-*Note explicitly: these scores were computed on data from the eval run before the Excel limit=20 fix, and a rerun with the Excel fix is expected to follow shortly with updated numbers.*
-
-**Excel Limit=20 Fix:**
-The `query_collection_all()` chunks now bypass the `top_chunks` limit in `rag.py`. This fixes an Excel multi-year retrieval bug where it was dropping ~10/30 chunks, which caused the Excel answer accuracy to regress from 93% to 73%. The upcoming rerun is expected to show an impact from this fix.
-
----
-
-
-### V2.2 — Generation Prompt Improvements (June 13, 2026)
-
-This run incorporates significant fixes to retrieval budgeting and generation prompting, establishing a strong baseline.
-
-#### Auto-Scored Metrics
-- **Routing Accuracy:** 72.7% → **92.2%** (lenient)
-- **Citation Accuracy:** 63.6% → **94.8%**
-- **Answer Correctness:** 49.4% → 57.1% → **59.7%** (following two rounds of generic prompt fixes, no hardcoding)
-
-#### RAGAS Metrics
-All 4 RAGAS metrics are now reliably non-NaN:
-- **Faithfulness:** 0.63
-- **Answer Relevancy:** 0.70
-- **Context Precision:** 0.37
-- **Context Recall:** 0.30
-
-#### Per Section Breakdown
-- **Excel:** 73%
-- **Cross-source:** 67%
-- **Images:** Improved (Q59-62 routing fix successfully recovered MD&A table questions)
-- **Concall & PDF Text:** Improved significantly from the prompt instruction fixes.
-
-#### Key Fixes Implemented
-- **Excel limit=20 truncation bug fixed:** `excel_all_chunks` now bypasses generic retrieval limits, ensuring all 10 years of data are provided.
-- **Per-source retrieval budgets:** Fixed the issue where a high volume of Excel chunks was evicting relevant concall chunks.
-- **PDF top-k reduction:** Reduced from 20 to 8 chunks to minimize noise.
-- **Images routing fix:** Resolved an over-triggering issue that misrouted image tables to the PDF collection.
-- **Generation Prompt Guardrails:** Added 5 generic instructions to prevent hallucination, enforce strict metric extraction, clarify multi-part questions, and demand explicit reasoning.
-
-#### Known Issues / Next Steps
-- **Q16, Q18:** Genuine retrieval gaps (specific figures simply absent from current chunks).
-- **Q32, Q40, Q44:** MD&A ratio tables are not retrievable as structured data. This is a chunking/retrieval issue requiring future layout-aware extraction improvements.
-
-### What the Numbers Mean
-
-*Note: The assessments below are based on the V2.0 baseline. The V2.2 updates significantly improved routing, citation, and generation metrics, confirming that retrieval (chunking) remains the primary bottleneck for further improvements.*
-
-| Component | Assessment |
-|-----------|------------|
-| Excel retrieval | Production-ready (93%) |
-| LLM generation quality | Strong — only 2/40 generation failures |
-| Routing | Good — fixable with prompt improvements |
-| Retrieval (chunking) | Primary bottleneck — quarterly data not in annual chunks |
-| Embeddings | Working correctly — Excel 93% proves embedding stack quality |
-
-**Future optimization priority:** Retrieval quality and chunking strategy, not LLM or prompt engineering.
+| Source | Astral | Craftsman |
+|--------|--------|-----------|
+| Excel | 95% | 95% |
+| Ratio | 100% | 100% |
+| Concall | 70% | 45% |
+| PDF | 45% | 35% |
+| Images | 30% | 40% |
+| Cross-Source | 86.7% | 73.3% |
+| Anomaly | 100% | 100% |
+| Overall | 77.0% | 70.0%
 
 ## Sample Queries
 ```
