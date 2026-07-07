@@ -139,7 +139,14 @@ function getCompanyLabel(company: CompanySummary) {
 
 const cleanContent = (content: string): string => {
   if (!content) return "";
-  return content
+  
+  let cleaned = content;
+  // Replace LaTeX block delimiters \[ \] with $$ $$
+  cleaned = cleaned.replace(/\\\[([\s\S]*?)\\\]/g, '$$$$$1$$$$');
+  // Replace LaTeX inline delimiters \( \) with $ $
+  cleaned = cleaned.replace(/\\\(([\s\S]*?)\\\)/g, '$$$1$$');
+
+  return cleaned
     .split("\n")
     .filter((line) => {
       const trimmed = line.trim();
